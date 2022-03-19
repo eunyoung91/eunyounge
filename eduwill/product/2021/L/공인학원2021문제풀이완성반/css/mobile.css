@@ -31,11 +31,13 @@
 }
 
 .grid {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
 .grid .col {
   float: left;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -49,11 +51,24 @@
   vertical-align: middle;
 }
 
-@keyframes slideUp {
+@-webkit-keyframes slideUp {
   0% {
+    -webkit-transform: translate(0, 10px);
     transform: translate(0, 10px);
   }
   100% {
+    -webkit-transform: translate(-10px, 0);
+    transform: translate(-10px, 0);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    -webkit-transform: translate(0, 10px);
+    transform: translate(0, 10px);
+  }
+  100% {
+    -webkit-transform: translate(-10px, 0);
     transform: translate(-10px, 0);
   }
 }
@@ -63,12 +78,34 @@
   -webkit-animation: bounce 2s infinite both;
 }
 
-@keyframes bounce {
+@-webkit-keyframes bounce {
   0%, 100% {
+    -webkit-transform: translateY(10px);
     transform: translateY(10px);
   }
   50% {
+    -webkit-transform: translateY(-10px);
     transform: translateY(-10px);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+}
+
+@-webkit-keyframes bgColorChange {
+  0%, 100% {
+    background-color: #000;
+  }
+  50% {
+    background-color: #fff;
   }
 }
 
@@ -95,6 +132,7 @@
 }
 
 .product-eco *, .product-eco *:before, .product-eco *:after {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: "Roboto", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif !important;
 }
@@ -112,13 +150,17 @@
 
 .product-eco input[type=number]::-webkit-inner-spin-button,
 .product-eco input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
 }
 
 .product-eco select {
   border-radius: 0;
   /* 아이폰 사파리 보더 없애기 */
+  -webkit-appearance: none;
   /* 화살표 없애기 for chrome*/
+  -moz-appearance: none;
   /* 화살표 없애기 for firefox*/
   appearance: none;
 }
@@ -375,7 +417,8 @@
 .product-eco .section-interview .slick-arrow {
   position: absolute;
   top: 50%;
-  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
   width: 2.5rem;
   height: 2.5rem;
   font-size: 0;

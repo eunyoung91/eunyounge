@@ -1,0 +1,284 @@
+@charset "utf-8";
+
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+
+.promotion {
+	overflow: hidden;
+	button {
+		padding:0;
+		border:0;
+		background-color:transparent;
+		outline:0;
+		cursor:pointer;
+	}
+	.content {
+		position: relative;
+	}
+	.wrap {
+		position: relative;
+		max-width: 720px;
+		margin: 0 auto;
+		letter-spacing: -1px;
+		font-family: $font-noto;
+	}
+	.icon-pointer {
+		@include pointer(50%, 0, 57px, 65px, 12, bounce);
+	}
+	.slick-arrow {
+		position: absolute;
+		top: 50%;
+		z-index: 10;
+		content: '';
+		padding: 0;
+		margin:0;
+		border: none;
+		outline: none;
+		text-indent: -9999px;
+		display: block; 
+		cursor:pointer;
+		@include vw(width, 25px);
+		@include vw(height, 41px);
+		@include vw(margin-top, -20px);
+		&.slick-prev {
+			left:3%;
+			background: url('//img.eduwill.net/eduwill/img/2022/J/event/220324/pc/btn_prev.png') 0 0 no-repeat; background-size: cover;
+		}
+		&.slick-next {
+			right:3%;
+			background: url('//img.eduwill.net/eduwill/img/2022/J/event/220324/pc/btn_next.png') 0 0 no-repeat; background-size: cover;
+		}
+	}
+	.sector-title {
+		@include bg($color: #083453, $url: '#{$img-path}/mobile/bg_title.jpg', $size: cover);
+		.action{
+			position: absolute;
+			z-index:3;
+			top:87%;
+			left:0;
+			right:0;
+			margin:0 auto;
+			@include vw(width, 636px);
+			a{
+				@include pointer(70%, 5%, 57px, 65px, 12, bounce);
+			}
+		}
+	}
+
+	.sector-benefit {
+		background-color: #fff;
+		.content{
+			a{
+				@include pointer(75%, 10%, 57px, 65px, 12, bounce);
+			}
+		}
+	}
+	.sector-recipe {
+		background-color: #fff;
+	}
+	.sector-bar {
+		background-color: #0e314b;
+	}
+
+	.sector-review{
+		padding-bottom: 120px;
+		> .wrap{
+			width:100%;
+			margin:0 auto;
+		}
+		background-color: #fff;
+		.slider{
+			width:100%;
+			.item {
+				@include vw(margin, 0 20px);
+				img{
+					@include vw(width, 371px);
+				}
+			}
+		}
+		.notice{
+			position: relative;
+			text-align: right;
+			@include vw(right, 50px);
+			@include vw(font-size, 18px);
+			color:#99a1a9;
+		}
+		.action{
+			position: relative;
+			float:right;
+			@include vw(top, 20px);
+			@include vw(right, 50px);
+			@include vw(width, 250px);
+		}
+	}
+	.sector-reason {
+		@include linear-gradient(to right, #03c4ed 0%, #10e990 100%);
+		.link-box{
+			position: relative;
+			left:0;
+			right:0;
+			margin:0 auto;
+			text-align: center;
+			> a{
+				display: inline-block;
+				text-align: center;
+				@include vw(width, 620px);
+				@include vw(margin-bottom,20px);
+			}
+		}
+	}
+
+	.sector-access{
+		@include vw(padding-top, 120px);
+		@include vw(padding-bottom, 120px);
+		.slider2{
+			@include vw(width, 638px);
+			overflow: hidden;
+			margin:0 auto;
+			@include vw(padding-left, 15px);
+			.item{
+				@include vw(width, 638px);
+			}
+		}
+		.notice{
+			position: relative;
+			text-align: center;
+			margin:0 auto;
+			@include vw(font-size, 18px);
+			color:#99a1a9;
+		}
+		&-1{
+			padding-top: 0;
+			background-color: #083453;
+		}
+		&-2{
+			background-color: #fff;
+		}
+		&-3{
+			background-color: #083453;
+		}
+	}
+	.sector-teacher{
+		.link-box{
+			position: absolute;
+			left:0;right:0;
+			margin:0 auto;
+			top:38%;
+			z-index:3;
+			@include vw(width, 500px);
+			@extend %clearfix;
+			li{
+				width:50%;
+				@include vw(height, 240px);
+				float:left;
+				a{width:100%;height:100%;display:block;}
+				&:nth-child(1){
+					top:10%;
+				}
+				&:nth-child(2){
+					left:260px;
+				}
+				&:nth-child(3){
+					left:448px;
+				}
+				&:nth-child(4){
+					left:608px;
+				}
+				&:nth-child(5){
+					left:810px;
+				}
+				&:nth-child(6){
+					left:970px;
+				}
+			}
+		}	
+	}
+	.sector-price {
+		background-color: #f4f4f4;
+		@include vw(padding, 80px 0);
+		margin:0 auto;
+		.content{
+			@include vw(width, 638px);
+			margin:0 auto;
+		}
+	}
+	.sector-price{ 
+		@include vw(padding-bottom, 100px);
+		.price-box{ 
+			max-width:640px; 
+			background:#fff; 
+			width:88.88%;
+			margin:0 auto;
+			@include vw(margin-top, 50px);
+			font-family: $font-noto;
+			h3{
+				width:100%;
+				display: inline-block;
+				@include linear-gradient(to right, #03c4ed 0%, #10e990 100%);
+				color:#fff;
+				text-align: center;
+				letter-spacing: -2px;
+				@include vw(padding, 10px 0);
+				@include vw(font-size, 32px);
+
+			}
+			.price-info{
+				line-height:1;
+				border:1px solid #bfbfbf;
+				@include vw(padding, 40px 20px);
+				h4{
+					color:#000;
+					text-align: center;
+					@include vw(font-size, 28px);
+					@include vw(margin-bottom, 20px);
+				}
+				.table-wrap{ 
+					display: table;
+					width:100%;
+					.table-cell{ 
+						display: table-cell;
+						vertical-align: middle;
+						text-align: center;
+						@include boxSizing(border-box);
+						&.before{ 
+							width:45%;
+							span{ 
+								display: inline-block;color:#202020;
+								background:#ececec;
+								padding:1% 4%;
+								@include vw(font-size, 36px);
+							}
+							strong{ 
+								display: inline-block;color:#afafaf;
+								text-decoration: line-through #ed0f00;
+								padding-top: 10px;
+								@include vw(font-size, 36px);
+							}
+						}
+						&.after{
+							width:55%;
+							strong{
+								display: inline-block;color:#ec0d0d;
+								@include vw(font-size, 60px);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.lecture-container{
+	@include vw(padding, 50px 0);
+}
+.lecture-container .bundle .subject{
+	padding-left: 0 !important;
+}
+.lecture-container .lecture-section .item-lecture .teacher{
+	font-size: 14px;
+	font-weight: normal;
+	line-height:1.2;
+}
