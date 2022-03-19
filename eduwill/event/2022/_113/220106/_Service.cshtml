@@ -1,0 +1,90 @@
+﻿<script src="~/js/common/extension.js"></script>
+<script src="~/js/common/commComment.js"></script>
+<script src="~/js/Lecture/commLct.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+        eventBind();
+	})
+
+	function execOninputEvent(that) {
+		$(that).val($(that).val().replace(/[^0-9.]/gi, ""));
+	}
+
+    function eventBind() {
+		//로그인 체크
+		$(".btn-post").bind("focusin", function () {
+			if (!"@(UserSession.UserID)") {
+				GoLogin();
+				return;
+			}
+			popupOpen('.dimmed', 'popup-post');
+		})
+
+        $(".btn-refunds").bind("click", function () {
+            commLct.lectureSubmit('10689', '', '22_113Y0001A', '@(UserSession.UserID)');
+		});
+
+	}
+
+	function goMypage() {
+		var host = location.hostname.split(".")[0];
+
+		if (host.indexOf("-") > -1) {
+			return "//s-mypage.eduwill.net/coupon";
+		} else {
+			return "//mypage.eduwill.net/coupon";
+		}
+	}
+
+	function RegQuizGifts() {
+		if (!"@(UserSession.UserID)") {
+			GoLogin();
+			return;
+		}
+
+        var idx = $(".quiz").find("li.on").index();
+        if (idx != 0) {
+            alert("오답입니다. 다시 한번  생각해 보세요.");
+        } else {
+			var param = {
+                eventIdx: "6547",
+                couponIdxList: "2446,2447,2448",
+				content: "@(ViewBag.progressCd)"
+			};
+
+			// 통신
+			$.ajax({
+				type: "POST"
+				, url: "/Requset/@(ViewBag.progressCd)/AjaxGiveBenefit"
+				, dataType: "json"
+				, data: JSON.stringify(param)
+				, contentType: "application/json"
+				, success: function (data) {
+					console.dir(data);
+					result = data.Result;
+
+                    if (result == "OK") {
+                        alert("정답입니다. 쿠폰 3종 정상적으로 지급됩니다.");
+					}
+					else if (result == "BEFORE-EVENT") {
+						alert("이벤트 시작 전 입니다");
+					}
+					else if (result == "END-EVENT") {
+						alert("이벤트가 마감되었습니다\n성원에 감사드립니다");
+					}
+					else if (result == "EXIST-USER") {
+						alert('이미 등록이 완료됐습니다.');
+					}
+					else {
+						alert("오류가 발생했습니다 " + result);
+						return;
+					}
+				}
+				, error: function (data) {
+					console.dir(data.responseText);
+					alert(data.responseText);
+				}
+			});
+        }
+    }
+</script>

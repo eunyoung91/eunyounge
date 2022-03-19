@@ -1,0 +1,148 @@
+﻿
+@using EVENT.Models.Freebook.Common
+@model FreebookVO
+@{
+    string basketUrl = "//mypage.eduwill.net/basket";
+
+    if ((ViewBag.CurrentDomain.Substring(0, 2).ToUpper() == "L-") || (ViewBag.CurrentDomain.Substring(0, 2).ToUpper() == "D-") || (ViewBag.CurrentDomain.Substring(0, 2).ToUpper() == "S-"))
+    {
+        basketUrl = "//s-mypage.eduwill.net/basket";
+    }
+
+
+}
+<script type="text/javascript" src="//img.eduwill.net/resources/common/web/js/payment.js"></script><!-- 결제페이지개편 장바구니 및 구매페이지 이동-->
+<script type="text/javascript">
+	var userId = "@(UserSession.UserID)";
+    var today = "@(DateTime.Now.ToString("MMdd"))";
+	var userId = "@(UserSession.UserID)";
+	var DailyMaxCnt = "@(Model.DailyMaxCnt)"; //표시될 최대명수
+	var DisplayTodayCnt ="@(Model.DisplayTodayCnt)"; //오늘 신청할수있는 갯수
+	var EventExistYn = "@(Model.EventExistYn)"; //이번 프리북 신청 여부
+    var EventAnotherExistYn= "@(Model.EventAnotherExistYn)"; //다른 프리북 신청 여부
+    var CheckJoinLimitYn = "@(Model.CheckJoinLimitYn)"; //신청 가능한 가입일자 체크
+
+	var submitMainEventForm = function () {
+
+		// 유효성 검사
+		if ("" == userId) {
+			GoLogin();
+			return;
+		}
+
+		if (confirm("신청하시겠습니까?")) {
+			$.ajax({
+				type: "POST"
+				, url: "AjaxSetInsertFreebookUserBasket"
+				, dataType: "json"
+				, data: $("#mainEventForm").serialize()
+				, success: function (data) {
+					console.dir(data);
+					result = data.Result;
+
+					if (result == "OK") {
+						//insertBasketNew(data.ProductCd + "%7c1", ""); // 장바구니에 담기
+					    //setInsertFreeSugang('20T0Y0301A');
+					    alert('신청되었습니다.\n배송비 결제 페이지로 이동합니다.');
+					    location.href = '@(basketUrl)';
+					}
+					else if (result == "EXIST-USER") {
+						alert("이미 해당 이벤트에 신청하셨습니다");
+						window.location.reload();
+					}
+					else if (result == "EXIST-ANOTHER") {
+						alert("이미 다른 이벤트에 신청하셨습니다");
+					}
+					else if (result == "END-EVENT") {
+						alert("이벤트가 종료되었습니다");
+						window.location.reload();
+					}
+					else if (result == "INVALID-PARAM") {
+						alert("잘못된 경로로 접근하셨습니다");
+						window.location.reload();
+					}
+					else if (result == "INVALID-USER") {
+						alert("이벤트 대상 회원이 아닙니다");
+					}
+					else if (result == "SESSION-EXPIRED") {
+						alert("세션이 만료되었습니다\n\n다시 시도해 주세요");
+						window.location.reload();
+					}
+					else {
+						alert("이벤트 신청에 실패했습니다\n\n다시 시도해 주세요 " + result);
+					}
+				}
+				, error: function (data) {
+					console.dir(data.responseText);
+				}
+
+			});
+		}
+	}
+
+    var getFreebookInfo = function () {
+        var today = new Date();
+        var dd = today.getDate();
+
+		$("#txtDate1").text("@(Model.Year)년 @(Model.Month)월 @(Model.StartDay)일 이후 신규회원 가입자");
+		$("#txtDate2").text("@(Model.Year)년 @(Model.Month)월 @(Model.StartDay)일 ~ @(Model.Year)년 @(Model.Month)월 @(Model.EndOfMonth)일");
+		$("#txtDate3").text("@(Model.Month)월 @(Model.StartDay)일 이후 신규 회원이면 누구나 신청가능!");
+
+
+        $("strong[id=limitCount]").text(DailyMaxCnt);
+
+        leftCount = DisplayTodayCnt;
+       
+        $("span[id=num4]").text(parseInt(leftCount / 100));
+        $("span[id=num5]").text(parseInt(leftCount / 10) % 10);
+        $("span[id=num6]").text(parseInt(leftCount % 10));
+
+        eventStatus = "S";
+		if (EventExistYn == "Y" && DisplayTodayCnt > 0) {
+			eventStatus = "C";
+		} else if ((CheckJoinLimitYn == "N" || EventAnotherExistYn == "Y") && DisplayTodayCnt > 0) {
+			
+             eventStatus = "X";
+		} else if (DisplayTodayCnt <= 0) {
+            eventStatus = "E";
+		}
+        else {
+            eventStatus = "S";
+        }
+
+
+        if (DisplayTodayCnt <= 0) {
+
+            $("#day_" + dd).addClass("finish");
+            $("#day_" + dd).html("마감");
+
+        }
+
+        $("[data-status-type][data-status-type!=" + eventStatus + "]").remove();
+
+
+
+    }
+
+	var setInsertFreeSugang = function (productCd) {
+		// 통신
+		$.ajax({
+			type: "POST"
+			, url: "/Lecture/2019/0/AjaxSetInsertFreeSugang"
+			, dataType: "json"
+			, data: {
+				productCd: productCd
+			}
+			, success: function (data) {
+				console.dir(data);
+			}
+			, error: function (data) {
+				console.dir(data.responseText);
+			}
+		});
+	}
+
+	$(document).ready(function () {
+		getFreebookInfo();
+	});
+</script>

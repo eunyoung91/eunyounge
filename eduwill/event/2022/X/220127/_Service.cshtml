@@ -1,0 +1,127 @@
+﻿<script type="text/javascript">
+	var userId = "@(UserSession.UserID)";
+
+
+	function SetUserInfo() {
+		if (userId == "") {
+	        if (confirm("로그인 후 참여 가능합니다.\n로그인 페이지로 이동하시겠습니까?")) {
+	            location.href = '@(ViewBag.EaLoginUrl)';
+	        }
+	        return;
+		}
+
+		if (!($('#type-1').is(":checked") || $('#type-2').is(":checked"))) {
+			alert("인증 유형을 선택해 주세요.");
+			return;
+		}
+
+		var content = "";
+		if ($('#type-1').is(":checked")) content = "재시생";
+		if ($('#type-2').is(":checked")) content = "타사환승생";
+
+		if ($("#fileUpload").val() == "") {
+			alert('이미지를 등록해주세요.');
+			$("#fileUpload").focus();
+			return;
+		}
+
+		// 첨부파일 체크
+		var ext = $('#fileName').val().split('.').pop().toLowerCase();
+		if ($.inArray(ext, ['gif', 'png', 'jpg', 'jpeg', 'bmp']) == -1) {
+			alert('5M 이하의 jpg, gif, png, bmp 파일만등록 가능합니다.');
+			return;
+		}
+
+		if ($("[name=personalYn2]:checked").val() == undefined) {
+			alert('개인정보 수집 및 이용에 동의해 주세요');
+			return;
+		}
+
+        var formData = new FormData();
+		formData.append("isChoice", "Choice"); //이미지 선택 여부
+        formData.append("eventIdx", "10108");
+		formData.append("progress", "@(ViewBag.ProgressCd)");
+		formData.append("ticketImg", $("input[name=ticketImg]")[0].files[0]); //응시표 이미지
+		formData.append("PersonalYn", "Y");
+		formData.append("content", $('#type-1').val()); //인증 유형
+		formData.append("examno", "");
+
+		$.ajax({
+			type: "POST"
+			, url: "/Requset/@(ViewBag.ProgressCd)/AjaxGiveBenefitWithImg"
+			, dataType: "json"
+			, data: formData
+			, processData: false
+			, contentType: false
+			, success: function (data) {
+				console.dir(data);
+				result = data.Result;
+
+				if (result == "OK") {
+                    alert("재시생/타사환승 인증 신청이 완료되었습니다.\n인증이 완료된 후 할인 쿠폰이 자동으로 발급되며\n인증 완료까지는 주말 제외 최대 3일 소요될 수 있습니다.\n발급된 쿠폰은 3일 이내 사용 가능하며, 유효기간 만료 시 재 지급되지 않습니다.");
+					$("#fileUpload").val("");
+					$("#fileName").val("");
+					$("#personalYn2").prop("checked", false);
+
+					popupClose('.layer-dimmed', 'popup-post');
+				}
+				else if (result == "EXIST-USER") {
+					alert('이미 등록을 완료하였습니다.');
+					return;
+				}
+				else if (result == "NOT-EXIST-FILE") {
+					alert("이미지를 첨부해 주세요");
+					return;
+				}
+				else if (result == "EXCEED-FILE-SIZE") {
+					alert("5M 이하의 jpg, gif, png, bmp 파일만등록 가능합니다.");
+					return;
+				}
+				else if (result == "NOT-ALLOWED-EXT") {
+					alert("5M 이하의 jpg, gif, png, bmp 파일만등록 가능합니다.");
+					return;
+				}
+				else if (data.ResultMessage) {
+					alert(data.ResultMessage);
+				}
+				else {
+					alert("오류가 발생했습니다 " + result);
+					return;
+				}
+
+			}
+			, error: function (data) {
+				console.dir(data.responseText);
+			}
+
+		});
+	}
+
+	function GetPopup() {
+		if (userId == "") {
+	        if (confirm("로그인 후 참여 가능합니다.\n로그인 페이지로 이동하시겠습니까?")) {
+	            location.href = '@(ViewBag.EaLoginUrl)';
+	        }
+	        return;
+		}
+
+		$.ajax({
+			type: "GET"
+            , url: "/Requset/0/AjaxChecIsJoinEvent?eventIdxs=10108"
+			, success: function (data) {
+				if (data == 0) {
+					popupOpen('.layer-dimmed', 'popup-post');
+				} else {
+					alert('이미 등록을 완료하였습니다.');
+				}
+			}
+			, error: function (data) {
+				console.dir(data.responseText);
+				// 응답실패
+				alert(data.responseText);
+			}
+		});
+
+	}
+
+</script>

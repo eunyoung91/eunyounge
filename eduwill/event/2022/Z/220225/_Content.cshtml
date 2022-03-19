@@ -1,0 +1,832 @@
+﻿@{
+	string platform = (string)ViewBag.platformCd == "W" ? "pc" : "mobile";
+	string viewPath = ((RazorView)ViewContext.View).ViewPath;
+	viewPath = viewPath.Remove(viewPath.LastIndexOf('/') + 1);
+	String link1 = ("W".Equals(ViewBag.PlatformCd))? "https://public.eduwill.net/Common/Product/goods/auto/index.asp?masterSeq=MTM4MDM": "https://brand.eduwill.net/sugang/view.will?progress=Z&mSeq=13803"; // 공기업 전강좌 0원 환급반
+	String link2 = ("W".Equals(ViewBag.PlatformCd))? "http://public.eduwill.net/Common/Product/goods/auto/index.asp?masterSeq=MTI2NzQ": "https://brand.eduwill.net/sugang/view.will?progress=Z&mSeq=16677"; // 코레일 합격 단기패스
+	String link3 = ("W".Equals(ViewBag.PlatformCd))? "#targetService": "#targetService1"; // floating banner scroll 위치
+	String link4 = ("W".Equals(ViewBag.PlatformCd))? "#targetService": "#targetService3"; // floating banner scroll 위치
+
+	Boolean isAfterExam = false; //시험 전 Ver. ui 
+	//Boolean isAfterExam = true; //시험 후 Ver. ui 
+}
+
+<div class="promotion">
+	<div data-eduwill-eco-content="2684"></div>
+	
+	@if(isAfterExam){
+		if("W".Equals(ViewBag.PlatformCd)){
+			<div class="right-banner">
+				<img src="//img.eduwill.net/eduwill/img/2021/Z/event/210824/@platform/floating_type2.png" alt="" />
+				<div class="action">
+					<a href="#targetService" class="page-move btn1" onclick="tabShow(3)"><span class="sr-only">키워드 등록하고 100% 혜택 받기</span></a>
+					<a href="#targetService" class="page-move btn2" onclick="tabShow(4)"><span class="sr-only">정확도 100% 기출 복원 특강</span></a>
+					<a href="https://event.eduwill.net/Event/2021/Z/LanTutoring" target="_blank" class="btn3"><span class="sr-only">합격자 추천 강의</span></a>
+					<a href="#wrap" class="page-move btn-top"><span class="sr-only">TOP</span></a>
+				</div>
+			</div>
+		}
+
+		<div class="left-banner type2">
+			<a href="@link4" class="page-move" onclick="tabShow(3)"><img src="//img.eduwill.net/eduwill/img/2021/Z/event/210824/@platform/floating2_type2.png" alt="키워드 등록하고 아메리카노 받기" /></a>
+			@if("M".Equals(ViewBag.PlatformCd)){
+				<button type="button" class="btn-close"></button>
+			}
+		</div>
+
+		<div class="bottom-banner">
+			<div class="wrap">
+				<a href="@link4" class="page-move pointer" onclick="tabShow(3)">
+					<img src="//img.eduwill.net/eduwill/img/2021/Z/event/210824/@platform/bottom_banner_type2.png" alt="키워드 등록하고 100% 혜택 받기" />
+				</a>
+			</div>
+		</div>
+	} else{
+		if("W".Equals(ViewBag.PlatformCd)){
+			<div class="right-banner">
+				<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220225/@platform/floating.png" alt="" />
+				<div class="action">
+					<a href="#targetService" class="page-move btn1" onclick="tabShow(1)"><span class="sr-only">코레일 풀서비스 문자 알람 신청</span></a>
+					<a href="#targetService" class="page-move btn2" onclick="tabShow(2)"><span class="sr-only">특강 확인하기 </span></a>
+					<a href="#targetProduct" class="page-move btn3"><span class="sr-only">합격자 추천 강의</span></a>
+					<a href="#wrap" class="page-move btn-top"><span class="sr-only">TOP</span></a>
+				</div>
+			</div>
+		}
+
+		<div class="left-banner">
+			<a href="@link3" class="page-move" onclick="tabShow(1)"><img src="//img.eduwill.net/eduwill/img/2022/Z/event/220225/@platform/floating2.png" alt="코레일 직무별 온라인 모의고사 알림 신청하고 모의고사 받기" /></a>
+			@if("M".Equals(ViewBag.PlatformCd)){
+				<button type="button" class="btn-close"></button>
+			}
+		</div>
+
+		<div class="bottom-banner">
+			<div class="wrap">
+				<a href="@link3" class="page-move pointer" onclick="tabShow(1)">
+					<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220225/@platform/bottom_banner.png" alt="코레일 풀-서비스 무료 알림 신청" />
+				</a>
+			</div>
+		</div>
+	}
+
+	<div class="container promotion-title">
+		<div class="wrap">
+			<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220225/@platform/title.png" alt="" />
+			<div class="title-date">3/10(목)<br class="only-web">필기시험일</div>
+			<div class="item benefit">
+				<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220225/@platform/benefit.png" alt="" />
+				<span class="blink"><img src="//img.eduwill.net/eduwill/img/2022/Z/event/220225/@platform/txt_blink.png" alt="" /></span>
+			</div>
+			<div class="action">
+				<a href="@link3" class="page-move pointer" onclick="tabShow(1)">
+				@* <a type="button" onclick="tabShow(1)"class="page-move pointer"> *@
+					<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220225/@platform/btn_title.png" alt="" />
+				</a> 
+			</div>
+		</div>
+	</div>
+
+	<div class="container promotion-video">
+		<div class="wrap">
+			<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220225/@platform/video_title.jpg" alt="취린이도 한 번에 합격 가능합니다">
+			
+			@if ("W".Equals(ViewBag.PlatformCd)){
+			
+				<div class="thumb-list">
+					<div class="videoslider" id="">
+						<div class="thumb">
+							<button type="button" class="btn-play active" data-url="https://www.youtube.com/embed/Ke0cjFcgNhg">
+								<img src="//img.eduwill.net/eduwill/img/2021/Z/event/211005/pc/thumb1.jpg" alt="#비전공자합격" />
+							</button>
+						</div>
+						<div class="thumb">
+							<button type="button" class="btn-play" data-url="https://www.youtube.com/embed/Ix3i5G3s_uk">
+								<img src="//img.eduwill.net/eduwill/img/2021/Z/event/211005/pc/thumb2.jpg" alt="#38살신입합격" />
+							</button>
+						</div>
+						<div class="thumb">
+							<button type="button" class="btn-play" data-url="https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20210129/HGS_Interview.mp4">
+								<img src="//img.eduwill.net/eduwill/img/2021/Z/event/211005/pc/thumb3.jpg" alt="#첫도전에합격" />
+							</button>
+						</div>
+					</div>
+				</div>
+
+				<div class="view-wrap"></div>
+
+			}else{
+				<div class="video-content">
+					<div class="thumb-list">
+						<div class="videoslider" id="">
+							<div class="thumb">
+								<div class="view-wrap"></div>
+								<button type="button" class="btn-play active" data-url="https://www.youtube.com/embed/Ke0cjFcgNhg">
+									<img src="//img.eduwill.net/eduwill/img/2021/Z/event/211005/pc/thumb1.jpg" alt="#비전공자합격" />
+								</button>
+							</div>
+							<div class="thumb">
+								<div class="view-wrap"></div>
+								<button type="button" class="btn-play" data-url="https://www.youtube.com/embed/Ix3i5G3s_uk">
+									<img src="//img.eduwill.net/eduwill/img/2021/Z/event/211005/pc/thumb2.jpg" alt="#38살신입합격" />
+								</button>
+							</div>
+							<div class="thumb">
+								<div class="view-wrap"></div>
+								<button type="button" class="btn-play" data-url="https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20210129/HGS_Interview.mp4">
+									<img src="//img.eduwill.net/eduwill/img/2021/Z/event/211005/pc/thumb3.jpg" alt="#첫도전에합격" />
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+	</div>
+
+	<div class="container promotion-review">
+		<div class="wrap">
+			<div class="slider" data-slide="review">
+				<div><img src="//img.eduwill.net/eduwill/img/2021/Z/event/211005/pc/1.png" alt="에듀윌 합격생 리뷰" /></div>
+				<div><img src="//img.eduwill.net/eduwill/img/2021/Z/event/211005/pc/2.png" alt="에듀윌 합격생 리뷰" /></div>
+				<div><img src="//img.eduwill.net/eduwill/img/2021/Z/event/211005/pc/3.png" alt="에듀윌 합격생 리뷰" /></div>
+				<div><img src="//img.eduwill.net/eduwill/img/2021/Z/event/211005/pc/4.png" alt="에듀윌 합격생 리뷰" /></div>
+				<div><img src="//img.eduwill.net/eduwill/img/2021/Z/event/211005/pc/5.png" alt="에듀윌 합격생 리뷰" /></div>
+				<div><img src="//img.eduwill.net/eduwill/img/2021/Z/event/211005/pc/6.png" alt="에듀윌 합격생 리뷰" /></div>
+				<div><img src="//img.eduwill.net/eduwill/img/2021/Z/event/211005/pc/7.png" alt="에듀윌 합격생 리뷰" /></div>
+				<div><img src="//img.eduwill.net/eduwill/img/2021/Z/event/211005/pc/8.png" alt="에듀윌 합격생 리뷰" /></div>
+				<div><img src="//img.eduwill.net/eduwill/img/2021/Z/event/211005/pc/9.png" alt="에듀윌 합격생 리뷰" /></div>
+				<div><img src="//img.eduwill.net/eduwill/img/2021/Z/event/211005/pc/10.png" alt="에듀윌 합격생 리뷰" /></div>
+				<div><img src="//img.eduwill.net/eduwill/img/2021/Z/event/211005/pc/11.png" alt="에듀윌 합격생 리뷰" /></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container promotion-video-one">
+		<div class="wrap">
+			<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220225/@platform/video_one_title.jpg" alt="">
+			<div class="eduf-video-wrap" data-layer="0" data-video="https://www.youtube.com/embed/rYsYRMYzG_4" data-poster="//img.eduwill.net/eduwill/img/2021/Z/event/211104/pc/video_thumb.jpg"></div>
+			<div class="winner-contents">
+				<div class="winner-list"></div>
+			</div>
+			<p class='notice'>
+				[1위] 2022/2021 대한민국 브랜드만족도 공기업 취업 교육 1위 (한경비즈니스)<br>
+				[합격자 100% 추천] 에듀윌 2021 합격생(유,무료강의 포함) 온라인 설문 결과(2021.04~2021.07)<br>
+				[합격자 수 증가] 에듀윌 취업 서류, 필기, 면접 전형 합격자 인증 건 수 비교(2015~19년vs2020년, 중복포함)
+			</p>
+		</div>
+	</div>
+
+	<div id="targetService" class="container promotion-service tab-wrap">
+		<div class="wrap">
+			<div class="nav-wrap">
+				<ul class="tab-nav">
+					<li class="nav1"><a href="#targetService1" data-tabnav="1"><span class="tit">딱풀-서비스<br /><b>무료 구독하기</b></span></a></li>
+					<li class="nav2"><a href="#targetService2" data-tabnav="2"><span class="tit"><b>코레일 샘플 문항</b><br />풀이 특강</span></a></li>
+					<li class="nav3"><a href="#targetService3" data-tabnav="3"><span class="tit">코레일 필기<br /><b>총평 LIVE</b></span></a></li>
+					<li class="nav4"><a href="#targetService4" data-tabnav="4"><span class="tit">구독자 이벤트<br /><b>장학금 신청</b></span></a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- Tab1  -->
+		<div id="targetService1" class="container promotion-service1 tab-view" data-tabcontent="1">
+			<div class="wrap">
+				<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220225/@platform/service1.png" alt="" />
+				
+				<div class="action">
+					@* 상품 입과 버튼 *@
+					<button type="button" onclick="" class="pointer">
+						<span class="sr-only">무료 알림 문자 신청하고 100% 혜택 받기</span>
+					</button> 
+				</div>
+				
+				@* 개인정보 동의 체크박스 ( 스펙 추가 ) *@
+				<div class="agree-box">
+					<div class="privacy-list">
+						<div class="all-check">
+							<input type="checkbox" name="" id="agreeAllY">
+							<label for="agreeAllY">개인정보 수집 · 이용에 모두 동의합니다.</label>
+						</div>
+						<div class="check-box scroll-box">
+							<div class="row">
+								<div class="inner-box">
+									<p class="inner-title">ㆍ개인정보 수집 및 이용에 대한 동의 (필수)</p>
+									<p>(주)에듀윌은 본 이벤트를 위해 다음과 같이 참여자의 개인정보를 수집 및 이용합니다.</p>
+									<ul>
+										<li>- 수집 및 이용 목적 : 참여자 정보 확인, 안내 문자 발송, 혜택 발송</li>
+										<li>- 수집항목 : 이름, 휴대폰번호</li>
+										<li><strong>- 보유 및 이용기간 : 이벤트 마감 후 60일</strong></li>
+									</ul>
+									<p>귀하는 개인정보 수집 및 이용에 동의하지 않으실 수 있으나, 동의하지 않으실 경우 참여가 제한됩니다.</p>
+								</div>
+								<div class="check">
+									<input type="checkbox" name="" id="agreeY1">
+									<label for="agreeY1">위 내용을 충분히 이해하였으며, 개인정보 수집 및 이용에 동의합니다. <em>(필수)</em></label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="inner-box">
+									<p class="inner-title">ㆍ개인정보 수집 및 이용에 대한 동의 <span>(선택)</span></p>
+									<p>(주)에듀윌은 본 이벤트를 위해 다음과 같이 참여자의 개인정보를 수집 및 이용합니다.</p>
+									<ul>
+										<li>- 수집 및 이용 목적 : 이벤트/할인 광고성 문자 발송</li>
+										<li>- 수집항목 : 이름, 휴대폰번호</li>
+										<li><strong>- 보유 및 이용 기간 : 이벤트 마감 후 60일</strong></li>
+									</ul>
+									<p>귀하는 개인정보 수집 및 이용 동의를 거부할 수 있습니다. 다만, 동의를 거부하더라도 이벤트 참여는 가능합니다.</p>
+								</div>
+								<div class="check">
+									<input type="checkbox" name="" id="agreeY2">
+									<label for="agreeY2">위 내용을 충분히 이해하였으며, 개인정보 수집 및 이용에 동의합니다. <span>(선택)</span></label>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="inner-box">
+									<p class="inner-title">ㆍ개인정보 마케팅 활용 동의 <span>(선택)</span></p>
+									<p>(주)에듀윌은 본 이벤트에 한정하여 상품 및 이벤트 안내 등을 위해 참여자의 개인정보를 마케팅에 활용 할 수 있습니다.</p>
+									<ul>
+										<li>- 수집 및 이용목적 : 상품 및 이벤트 안내, 가입권유</li>
+										<li>- 수집항목 : 이름, 휴대폰번호</li>
+										<li><strong>- 보유 및 이용기간 : 이벤트 마감 후 60일</strong></li>
+									</ul>
+									<p>귀하는 개인정보 마케팅 활용 동의를 거부할 수 있습니다. 다만, 동의를 거부하더라도 이벤트 참여는 가능합니다.</p>
+								</div>
+								<div class="check">
+									<input type="checkbox" name="" id="agreeY3">
+									<label for="agreeY3">위 내용을 충분히 이해하였으며, 마케팅 및 개인정보 활용에 동의합니다. <span>(선택)</span></label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Tab2  -->
+		<div id="targetService2" class="container promotion-service2 tab-view disabled" data-tabcontent="2"><!-- 오픈전 class="disabled" 추가 -->
+			<div class="wrap">
+				<div class="item off">
+					<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220225/@platform/service2_disabled.png" alt="" />
+				</div>
+				<div class="item on">
+					<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220225/@platform/service2.png" alt="" />
+				
+					<div class="action">
+						@* 상품 입과 버튼  *@
+						<button type="button" onclick="" class="pointer"><span class="sr-only">코레일 샘플 문항 특강 &amp; 패턴 공략집 무료로 받기 ></span></button> 
+					</div>
+				</div>
+			</div>
+		</div>
+
+		@* 시험 후 Ver. (Tab3/4 추가)*@
+		<!-- Tab3  -->
+		<div id="targetService3" class="container promotion-service3 tab-view" data-tabcontent="3">
+			<div class="wrap-full item1">
+				<div class="wrap">
+					<img src="//img.eduwill.net/eduwill/img/2021/Z/event/210824/@platform/service3.png" alt="" />
+				</div>
+			</div>
+
+			<div class="wrap-full item2">
+				<div class="wrap">
+					<img src="//img.eduwill.net/eduwill/img/2021/Z/event/210824/@platform/service3_2.png" alt="" />
+					<form>
+						<fieldset>
+							<legend>키워드 등록</legend>
+							<div class="form-wrap">
+								<div class="row">
+									<strong class="title-group">지원 직렬</strong>
+									<label><input type="radio" name="radioGroup" /> 사무</label>
+									<label><input type="radio" name="radioGroup" /> 전기</label>
+									<label><input type="radio" name="radioGroup" /> 기타</label>
+								</div>
+								<div class="row">
+									<input type="text" class="input-keyword" placeholder="기억나는 문제의 키워드를 입력해주세요 :)" />
+									<button type="button" class="btn-submit-keyword">등록하기</button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			<div class="wrap item3">
+				<img src="//img.eduwill.net/eduwill/img/2021/Z/event/210824/@platform/service3_3.png" alt="" />
+			</div>
+			<div class="wrap-full item4">
+				<div class="wrap">
+					<div class="grid">
+						<div class="col filter">
+							<button type="button" class="on">전체 보기(NN)</button>
+							<button type="button">사무(NN)</button>
+							<button type="button">전기(NN)</button>
+							<button type="button">기타(NN)</button>
+						</div>
+						<div class="col search">
+							<input type="search" class="input-search" placeholder="키워드 검색" />
+							<button type="button" class="btn-search"><span class="sr-only">검색</span></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="wrap-full item5">
+				<div class="wrap">
+					<div class="inner-box scroll-box">
+						<p class="data-none" style="display: none;">등록된 키워드가 없습니다.</p>
+						<button type="button" class="keyword"><strong>#등록된키워드가길면_말줄임</strong><span class="count"><i class="num">1</i></button>
+						<button type="button" class="keyword"><strong>#키워드</strong><span class="count"><i class="num">99</i></span></button>
+						<button type="button" class="keyword"><strong>#키워드</strong><span class="count"><i class="num">99</i></span></button>
+						<button type="button" class="keyword"><strong>#키워드</strong><span class="count"><i class="num">99</i></span></button>
+						<button type="button" class="keyword"><strong>#키워드</strong><span class="count"><i class="num">9999</i></span></button>
+						<button type="button" class="keyword"><strong>#키워드</strong><span class="count"><i class="num">0</i></span></button>
+						<button type="button" class="keyword"><strong>#키워드</strong><span class="count"><i class="num">0</i></span></button>
+						<button type="button" class="keyword"><strong>#키워드</strong><span class="count"><i class="num">123456</i></span></button>
+						<button type="button" class="keyword"><strong>#키워드</strong><span class="count"><i class="num">0</i></span></button>
+						<button type="button" class="keyword"><strong>#키워드</strong><span class="count"><i class="num">123456</i></span></button>
+					</div>
+					<div class="detail-wrap">
+						<div class="inner-box">
+							<p class="keyword"><strong>#등록된키워드가길어도전체노출됩니다.</strong></p>
+							<p class="text"><strong>키워드에 대한 문제와 답을 댓글로 달아주세요</strong></p>
+							<p class="text-sub">edu***(nn.nn.nn) 님이 등록한 키워드입니다.</p>
+						</div>
+						<div class="input-box-reply">
+							<textarea col="3" class="textarea-reply" placeholder="주제와 무관하거나 비방성 목적의 댓글은 삭제될 수 있습니다."></textarea>
+							<button type="button" class="btn-submit-reply">등록하기</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="wrap-full item6">
+				<div class="wrap">
+					<ul class="review-list">
+						<li>
+							<div class="grid">
+								<div class="col user"><strong>mov***</strong></div>
+								<div class="col date"><span>2021-08-17 14:01</span></div>
+							</div>
+							<div class="text-detail">
+								에듀윌 취업이 몇 년 연속 1위인지에 대한 문제 저는 ①번 4년 연속 골랐습니다. 저는 ①번 4년 연속 골랐 저는 ①번 4년 연속 골랐습니다.
+							</div>
+						</li>
+						<li>
+							<div class="grid">
+								<div class="col user"><strong>mov***</strong></div>
+								<div class="col date"><span>2021-08-17 14:01</span></div>
+							</div>
+							<div class="text-detail">
+								에듀윌 취업이 몇 년 연속 1위인지에 대한 문제 저는 ①번 4년 연속 골랐습니다. 저는 ①번 4년 연속 골랐 저는 ①번 4년 연속 골랐습니다.
+							</div>
+						</li>
+					</ul>
+					
+					@if ("W".Equals(ViewBag.PlatformCd))
+					{
+						@* 웹 (페이징) *@
+						<div id="commentPagination" class="pagination">
+							<a href="javascript:;" class="control control-prev"><span class="sr-only">이전 페이지</span></a>
+							<a href="javascript:;" data-page="1" class="page active"><span>1</span></a>
+							<a href="javascript:;" data-page="2" class="page"><span>2</span></a>
+							<a href="javascript:;" class="control control-next"><span class="sr-only">다음 페이지</span></a>
+						</div>
+					}
+					else
+					{
+						@* 모바일 (더보기) *@
+						<div class="btn-more-area" id="commentPaginationMobile">
+							<button type="button" class="btn-more"><span class="txt">더보기</span></button>
+						</div>
+					}
+				</div>
+			</div>
+		</div>
+		
+		<!-- Tab4  -->
+		<div id="targetService4" class="container promotion-service4 tab-view disabled" data-tabcontent="4"><!-- 오픈전 class="disabled" 추가 -->
+			<div class="wrap">
+				<div class="item off">
+					<img src="//img.eduwill.net/eduwill/img/2021/Z/event/210824/@platform/service4_disabled.png" alt="" />
+				</div>
+				<div class="item on">
+					<img src="//img.eduwill.net/eduwill/img/2021/Z/event/210824/@platform/service4.png" alt="" />
+				
+					<div class="action">
+						@* 상품 입과 버튼  *@
+						<button type="button" onclick="" class="pointer"><span class="sr-only">코레일 기출 복원 풀이 특강 무료로 받기</span></button> 
+					</div>
+				</div>
+			</div>
+		</div>
+		@* //시험 후 Ver. *@
+
+	</div>
+	
+	<div class="container promotion-successful">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/eduwill//img/2022/Z/event/220225/@platform/successful.jpg" />
+			<div class="successful-motion">
+				<img alt="" src="https://img.eduwill.net/eduwill/img/2022/Z/event/220225/pc/successful_motion.jpg" />
+			</div>
+		</div>
+	</div>
+
+	<div class="container promotion-prize">
+		<div class="wrap">
+			<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220225/@platform/prize.png" alt="" />
+			<a href="#popupBase" data-popup-open="popupBase" class="btn-base"><img src="//img.eduwill.net/eduwill/img/2021/Z/event/210824/@platform/btn_base.png" alt="근거보기" /></a>
+		</div>
+	</div>
+
+	<div class="container promotion-product" id="targetProduct">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/eduwill//img/2022/Z/event/220225/@platform/consulting_title.jpg" />
+			<div class="p-tab-box">
+				<ul class="p-tab-list">
+					<li class="on">
+						<div class="t-flash"><em><span class="point">BEST</span></em></div>
+						10만원 할인</li>
+					<li>3만원 할인</li>
+				</ul>
+				@* 10만원 할인 *@
+				<div class="p-tab-view" style="display: block;">
+					<a href="@link1" target="_blank" class="btn-hlink"><img src="https://img.eduwill.net/eduwill//img/2022/Z/event/220225/@platform/product_10_1.png" alt=""></a>
+				</div>
+
+				@* 3만원 할인 *@
+				<div class="p-tab-view">
+					<a href="@link2" target="_blank" class="btn-hlink"><img src="https://img.eduwill.net/eduwill//img/2022/Z/event/220225/@platform/product_3_1.png" alt=""></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container promotion-notice">
+		<div class="wrap">
+			<div data-eduwill-eco-content="4320"></div>
+		</div>
+	</div>
+</div>
+
+<div class="dimmed"></div>
+<div id="videoPop" class="popup video-popup">
+	<button type="button" class="popup-close popClose">팝업 닫기</button>
+	<div class="video-cont"></div>
+</div>
+<div id="popupBase" class="popup popup-base">
+	<button type="button" class="popup-close" data-popup-close="popupBase">팝업 닫기</button>
+	<div class="popup-body">
+		<div data-eduwill-eco-content="3652"></div>
+	</div>
+</div>
+
+<script>
+	var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+	var url = window.location.href;
+	var str = 'event.eduwill.net';
+	var checkUrl = url.indexOf(str);
+
+	$(window).on('scroll', function(){
+		activeArea();
+	});
+
+	$(function(){
+		addEvent();
+		addSlider();
+		videoSlider();
+		videoViewer();
+		_f_initVideoPlay();
+		winnerList();
+		tabInit();
+		tabControl(".promotion-product");
+	});
+
+	$(window).on('scroll', function () {
+		var wt = $(window).scrollTop();
+		var section = $('.container');
+
+		if (wt >= section.eq(0).offset().top) {
+			$('.left-banner, .right-banner').addClass('active');
+		} else {
+			$('.left-banner, .right-banner').removeClass('active');
+		}
+	});
+
+	function addEvent(){
+		// scroll 이동
+		if(isMobile){
+			pageMove('.page-move', -39);
+		}else{
+			pageMove('.page-move');
+		}
+
+		// popup
+		$('[data-popup-open]').on('click', function(e){
+			e.preventDefault();
+			var _data = $(this).data('popupOpen');
+			popupOpen('.dimmed', _data);
+		});
+
+		$('[data-popup-close]').on('click', function(){
+			var _data = $(this).data('popupClose');
+			popupClose('.dimmed', _data);
+		});
+
+		// close button in mobile floating banner
+		$('.left-banner .btn-close').on('click', function(){
+			$(this).parent('.left-banner').hide();
+		})
+
+		//TAB3 (keyword 등록 이벤트) ui control
+		var eventWrap = $('.promotion-service3');
+		var detailArea = $('.promotion-service3 .item6, .promotion-service3 .detail-wrap');
+		eventWrap.find('.filter button').on('click', function(){
+			$(this).addClass('on').siblings('.on').removeClass('on')
+		})
+		eventWrap.find('button.keyword').on('click', function(){
+			if($(this).hasClass('on')){
+				$(this).removeClass('on')
+				detailArea.slideUp()
+			}else{
+				$(this).addClass('on').siblings('.on').removeClass('on')
+				detailArea.slideDown()
+			}
+		})
+	}
+
+	function addSlider(){
+		$('.slider-logo').slick({
+			autoplay: true,
+			autoplaySpeed: 0,
+			infinite: true,
+			cssEase: 'linear',
+			arrows: false,
+			slidesToScroll: 1,
+			slidesToShow: 1,
+			speed: 1500,
+			vertical: true,
+			pauseOnHover: false,
+			pauseOnFocus: false,
+			useTransform: false,
+			touchMove: false,
+			draggable: false,
+			swipe: false,
+		});
+
+		$('.slider').each(function() {
+			var _data = $(this).data('slide');
+			var _arrows = false;
+			var _slidesToShow = 1;
+			var _slidesToScroll = 1;
+			var _dots = false;
+
+			if( _data == 'review' ){
+				if(isMobile){
+				_slidesToShow = 1;
+				}else{
+				_slidesToShow = 3;
+				}
+			}
+			$(this).slick({
+				autoplay: true,
+				autoplaySpeed: 3000,
+				infinite: true,
+				arrows: _arrows,
+				slidesToShow: _slidesToShow,
+				slidesToScroll: _slidesToScroll,
+				dots: _dots
+			});
+		});
+
+	}
+
+	function videoSlider(){
+		if(isMobile){
+			$('.videoslider').slick({
+				autoplay: false,
+				autoplaySpeed: 4000,
+				infinite: true,
+				arrows: true,
+				dots: false
+			});
+		}else{
+			$('.videoslider').slick({
+				autoplay: false,
+				autoplaySpeed: 4000,
+				infinite: true,
+				arrows: true,
+				dots: false,
+				slidesToScroll: 1,
+				slidesToShow: 3
+			});
+		}
+	}
+	function videoViewer(){
+		var view, path, youtube, mp4;
+
+		if(isMobile){
+			//mobile
+			viewer = $('.video-content .view-wrap');
+			path = $('.video-content .thumb-list .btn-play.active').data('url');
+			initViewer(path);
+			$(document).on('click', '.btn-play', function(){
+				path = $(this).data('url');
+				initViewer(path);
+				$('.view-wrap').show();
+				$('.video-content .thumb-list .active').removeClass('active');
+				$(this).addClass('active');
+				$('.slick-arrow').click(function(){
+					$('.view-wrap').hide();
+				});
+			});
+		}
+		else{
+			//pc
+			viewer = $('.promotion-video .view-wrap');
+			path = $('.promotion-video .thumb-list .btn-play.active').data('url');
+			initViewer(path);
+			$(document).on('click', '.btn-play', function(){
+				path = $(this).data('url');
+				initViewer(path);
+				$('.promotion-video .thumb-list .active').removeClass('active');
+				$(this).addClass('active');
+			});
+		}
+
+		function initViewer(path){
+			youtube = path.indexOf('youtube');
+			mp4 = path.indexOf('mp4');
+			viewer.html('');
+			if(youtube > 0){
+				viewer.html('<iframe src="' + path + '?autoplay=1&mute=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="video"></iframe>'); 
+
+			}else if(mp4 > 0){
+				viewer.html('<video autoplay loop muted controls poster class="video"><source src="' + path + '" type="video/mp4"></video>');
+			}else{
+				viewer.html('<img src="' + path + '" alt="" />');
+			}
+		}
+	}
+
+	// VIDEO PLAY //promotion-video-one
+	function _f_initVideoPlay() {
+
+		var _videoHTML = ''
+		var _youtubeHTML = ''
+		var _videoData = $('.eduf-video-wrap')
+
+		$.each(_videoData, function(){
+			
+			var _this = $(this)
+			var _videoDataIndex = _this.data('video')
+			var _videoDataLayer = _this.data('layer')
+			var _youtube = 'youtube'
+			
+			if( _videoDataIndex.indexOf(_youtube) != -1 ){
+				_youtubeHTML += '<div class="video-content" data-value="0">';
+				_youtubeHTML += '<img src="'+_this.data('poster')+'" >';
+				_youtubeHTML += '<iframe src="'+_this.data('video')+'" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+				_youtubeHTML += '</div">';
+				
+				_this.append(_youtubeHTML);
+
+			}else{
+				_videoHTML += '<div class="video-content" data-value="1">';
+				_videoHTML += '<video oncontextmenu="return false;" data-video="stop" onerror="failed(event)" poster="'+_this.data('poster')+'">';
+				_videoHTML += '<source src="'+_this.data('video')+'" type="video/mp4">';
+				_videoHTML += '</video>';
+				_videoHTML += '</div">';
+
+				_this.append(_videoHTML);
+			}
+			
+			_this.off('click').on('click', function(){
+			
+				var _serveMovie = _this.find('video')
+				var _youtubeMovie = _this.find('img')
+				var _videoCode = _this.find('.video-content').data('value')
+				
+				// YouTube영상일때 클릭 이벤트
+				if( _videoCode === 0 ){
+					_youtubeMovie.fadeOut()
+					_this.find('iframe').attr('src', ''+_this.data('video')+'?autoplay=1')
+					
+				}
+				// Server 영상일때 클릭 이벤트
+				else if( _videoCode === 1 && _serveMovie.attr('data-video') == 'stop' ){
+
+					_serveMovie.attr('controls', '').attr('data-video', 'play').play
+				}
+
+			})
+		})
+	}
+	// VIDEO ERROR FUNCTION
+	function failed(e) {
+		if( e.target.error ){	
+			alert('네트워크 에러')
+
+		}
+	}
+
+	function winnerList() {
+		var options = {
+			jsonFileNm: 'Z202108_WINNER.min',
+		};
+
+		var _row;
+		var _show;
+
+		if ("@(ViewBag.platformCd)" == "M") {
+			_row = 3;
+			_show = 6;
+		} else {
+			_row = 4;
+			_show = 7;
+		}
+		var slickOptions = {
+			speed: 1000,
+			slidesPerRow: _row,
+			slidesToShow: _show,
+		};
+
+		eduf.UI.Winner('.winner-list', options, slickOptions);
+	}
+
+	function tabInit(){
+		// Tab Init
+		$('.tab-wrap').each(function(){
+			var _tg = $(this);
+			var activeTab = _tg.find(".tab-nav li:first a").data("tabnav")+'';
+			_tg.find(".tab-nav li:first a").addClass("active");
+			$(".tab-view").hide();
+			$('[data-tabcontent='+activeTab+']').show();
+			
+		// Tab Control
+		_tg.find(".tab-nav a").click(function() {
+				activeTab = $(this).data("tabnav");
+				
+				@* 시험 후 Ver. (alert 삭제)*@
+				if('@isAfterExam' !== 'True'){
+					if(activeTab == 3){
+					alert('코레일 필기시험 당일에 오픈 예정입니다 :) \n구독을 신청하시면 라이브 오픈 즉시 문자를 발송해드립니다.')
+						return false;
+					}else if(activeTab == 4){
+					alert('코레일 합격자 발표 이후 오픈 예정입니다 :) \n구독을 신청하시면 이벤트 오픈 즉시 문자를 발송해드립니다.')
+						return false;
+					}
+				}
+
+				_tg.find("ul.tab-nav a").removeClass("active");
+				$(".tab-view").hide();
+				$(this).addClass("active");
+				$('[data-tabcontent='+activeTab+']').show();
+				return false;
+			});
+		})
+	}
+	
+	function tabShow(tabName){
+		$('.tab-view').hide()
+		$('[data-tabcontent='+tabName+']').show()
+		$('[data-tabnav='+tabName+']').addClass('active')
+		$('[data-tabnav='+tabName+']').parent('li').siblings('li').find('a.active').removeClass("active");
+	}
+
+	function tabControl($seletor){
+		$($seletor).find(".p-tab-list").children("li").on("click", function(){
+			var idx = $(this).index();
+			var tabList = $($seletor).find(".p-tab-list").children("li");
+
+			tabList.removeClass("on");
+			tabList.eq(idx).addClass("on");
+
+			$($seletor).find(".p-tab-view").hide();
+			$($seletor).find(".p-tab-view").eq(idx).show();
+
+		});
+	}
+
+	function activeArea(){
+		var winTop = $(window).scrollTop();
+		var winH = $(window).height();
+		$('.container').each(function(index){
+			var hei = $('.container').eq(index).outerHeight();
+			var top = $('.container').eq(index).offset().top;
+			if(winTop + winH > top){
+				if(winTop > top + hei){
+					$('.container').eq(index).removeClass('active');
+				}else{
+					if(winTop + winH > top + hei/2){
+						$('.container').eq(index).addClass('active');
+					}
+				}
+			}else{
+				$('.container').eq(index).removeClass('active');
+			}
+		});
+	}
+	
+</script>
+

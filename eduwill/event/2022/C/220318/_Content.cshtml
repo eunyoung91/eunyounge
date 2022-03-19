@@ -1,0 +1,130 @@
+﻿@{
+    string viewPath = ((RazorView)ViewContext.View).ViewPath;
+    viewPath = viewPath.Remove(viewPath.LastIndexOf('/') + 1);
+    string academyCd = Request.QueryString["academyCd"];
+	string Link1 = ("W".Equals(ViewBag.PlatformCd)) ? "https://nrc.eduwill.net/ProductAuto/Index?masterSeq=Mzc0NzQ=&histYn=N" : "https://brand.eduwill.net/academy/sugang/view.will?code=NRC&progress=W&mSeq=37474&histYn=N"; //이정영
+	string Link2 = ("W".Equals(ViewBag.PlatformCd)) ? "https://nrc.eduwill.net/ProductAuto/Index?masterSeq=Mzc0NzU=&histYn=N" : "https://brand.eduwill.net/academy/sugang/view.will?code=NRC&progress=W&mSeq=37475&histYn=N"; //문영미
+}
+
+@{
+    String platform = ("W".Equals(ViewBag.PlatformCd)) ? "pc" : "mobile";
+}
+
+<div id="contents" class="promotion">
+    <div class="container promotion-top" style="background-color: #22223a;">
+        <div class="wrap">
+            <img src="//img.eduwill.net/Img2/Common/Banner/topBanner/@platform/top_banner_cop.png" alt="경찰학원 1위 에듀윌 경찰">
+        </div>
+    </div>
+
+    <div class="container promotion-title">
+        <div class="wrap">
+			@* <img src="//img.eduwill.net/eduwill/img/2022/C/event/220318/pc/title.jpg" alt="" class="guide"> *@
+                @if ("W".Equals(ViewBag.PlatformCd)) {
+                <p class="title-1"><img src="//img.eduwill.net/eduwill/img/2022/C/event/220318/pc/title_1.png" alt="경찰시험 최종합격을 결정할 마지막 단계!"></p>
+                <p class="title-2"><img src="//img.eduwill.net/eduwill/img/2022/C/event/220318/pc/title_2.png" alt="#면접준비_고민이라면 #드루와_드루와 #문영미_엠폴리스 #이정영_경찰면접"></p>
+                <p class="title-3"><img src="//img.eduwill.net/eduwill/img/2022/C/event/220318/pc/title_3.png" alt="독한 에듀윌 경찰"></p>
+                <p class="title-4"><img src="//img.eduwill.net/eduwill/img/2022/C/event/220318/pc/title_4.png" alt="집중 관리 면접 대비반"></p>
+            } else {
+                <img src="//img.eduwill.net/eduwill/img/2022/C/event/220318/mobile/title.png" alt="집중 관리 면접 대비반">
+            }
+
+            <div class="action">
+                <a href="#promotionTeacher" class="page-move pointer">
+                    <img src="//img.eduwill.net/eduwill/img/2022/C/event/220318/@platform/btn_apply.png" alt="면접 대비반 신청하기">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container promotion-intro">
+        <div class="wrap">
+            <img src="//img.eduwill.net/eduwill/img/2022/C/event/220318/@platform/intro.jpg" alt="합격을 위한 독한 에듀윌의 올케어 면접 프로그램">
+        </div>
+    </div>
+
+    <div id="promotionTeacher" class="container promotion-teacher">
+        <div class="wrap title-wrap">
+            <img src="//img.eduwill.net/eduwill/img/2022/C/event/220318/@platform/teacher_title.jpg" alt="경찰 최종합격을 하드캐리한 믿고 보는 면접 전문 교수진">
+        </div>
+        <div id="promotionTeacher2" class="wrap teacher-wrap teacher-wrap-2">
+            <img src="//img.eduwill.net/eduwill/img/2022/C/event/220318/@platform/teacher_2.jpg" alt="이정영 교수">
+            <div class="action">
+                <a href="@Link1" target="_blank" class="pointer">
+                    <img src="//img.eduwill.net/eduwill/img/2022/C/event/220318/@platform/btn_detail.png" alt="자세히 보기">
+                </a>
+            </div>
+        </div>
+        <div  id="promotionTeacher1" class="wrap teacher-wrap teacher-wrap-1">
+            <img src="//img.eduwill.net/eduwill/img/2022/C/event/220318/@platform/teacher_1.jpg" alt="문영미 교수">
+            <div class="action">
+                <a href="@Link2" target="_blank" class="pointer">
+                    <img src="//img.eduwill.net/eduwill/img/2022/C/event/220318/@platform/btn_detail.png" alt="자세히 보기"> 
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container promotion-map">
+        <div class="wrap">
+            <img src="//img.eduwill.net/eduwill/img/2021/C/event/210820/@platform/map_title.jpg" alt="독한 에듀윌 경찰 노량진학원 오시는 길">
+
+            <div class="action">
+                <a href="http://naver.me/5B1cZbGw" target="_blank">
+                    <img src="//img.eduwill.net/eduwill/img/2021/C/event/210820/@platform/map.jpg" alt="">
+                </a>
+            </div>
+
+            <p class="map-title">학원 위치</p>
+
+            <ul class="map-list">
+                <li>
+                    <span class="subject">주소</span>
+                    <span class="desc">[에듀윌 1관] 서울 동작구 장승배기로 168 (노량진동 드림타워) 4층</span>
+                </li>
+                <li>
+                    <span class="subject">대중교통</span>
+                    <span class="desc">지하철 1, 9호선 노량진역 4번 출구</span>
+                </li>
+                <li>
+                    <span class="subject">상담문의</span>
+                    <span class="desc">02-6332-0600 (월~토 08:30~22:00, 일/공휴일 09:00~19:00)</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="//img.eduwill.net/eduwill/live/js/common/script.js"></script>
+<script type="text/javascript">
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+    var url = window.location.href;
+    var str = 'event.eduwill.net';
+    var checkUrl = url.indexOf(str);
+    var userId = "@(UserSession.UserID)";
+
+    $(function () {
+        init();
+    });
+
+    function init() {
+        pageMove('.page-move');
+        if ( !isMobile ){
+            pcEvent();
+        }
+    }
+
+    function pcEvent(){
+        var $promotionTitle = $('.promotion-title');
+
+        TweenMax.fromTo( $promotionTitle.find('.title-1'), .5, { opacity: 0, scale: .5 }, { opacity: 1, scale: 1, delay: .2, ease: Power3.easeIn });
+        TweenMax.fromTo( $promotionTitle.find('.title-2'), .5, { opacity: 0, scale: .5 }, { opacity: 1, scale: 1, delay: .4, ease: Power3.easeIn });
+        TweenMax.fromTo( $promotionTitle.find('.title-3'), .5, { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, delay: .8, ease: Back.easeInOut.config(1) });
+        TweenMax.fromTo( $promotionTitle.find('.title-4'), .5, { opacity: 0, scale: 1.5 }, { opacity: 1, scale: 1, delay: 1.1, ease: Back.easeInOut.config(2) });
+
+        TweenMax.fromTo( $promotionTitle.find('.teacher-1'), 1.0, { opacity: 0, x: -150 }, { opacity: 1, x: 0, delay: 1.5, ease: Power0.easeIn });
+        TweenMax.fromTo( $promotionTitle.find('.teacher-2'), 1.0, { opacity: 0, x: 150 }, { opacity: 1, x: 0, delay: 1.6, ease: Power0.easeIn });
+
+        TweenMax.fromTo( $promotionTitle.find('.action'), .5, { opacity: 0, y: 100 }, { opacity: 1, y: 0, delay: 1.8, ease: Power0.easeIn });
+    }
+</script>

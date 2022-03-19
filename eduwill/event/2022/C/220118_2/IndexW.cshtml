@@ -1,0 +1,12 @@
+@{
+    string viewPath = ((RazorView)ViewContext.View).ViewPath;
+    viewPath = viewPath.Remove(viewPath.LastIndexOf('/') + 1);
+}
+@{
+    string cssUrl = ViewBag.IsLocal
+        ? "/Content/2022/C/event/220118_2/css/web.css" // local 경로
+        : "//img.eduwill.net/eduwill/css/2022/C/event/220118_2/web.css"; // ftp 경로
+}
+<link rel="stylesheet" type="text/css" href="@cssUrl" />
+
+@Html.Partial(viewPath + "_Content.cshtml")

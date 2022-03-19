@@ -1,0 +1,189 @@
+﻿<script type="text/template" id="comment-template">
+    <div class="grid item">
+        <div class="col num">[idx]</div>
+        <div class="col subject">
+            <a href="javascript:;" data-popup-open="view" onclick="openDetilaPopup([idx])">[title]</a>
+        </div>
+        <div class="col date">[regDt]</div>
+    </div>
+</script>
+<script type="text/template" id="none-comment-template">
+    <div class="grid item nodata">
+        <div class="col">
+            등록된 수강후기가 없습니다.
+        </div>
+    </div>
+</script>
+
+<script src="~/js/common/commComment.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+		getReview();
+		eventbind();
+	});
+
+	function validation() {
+
+		var $form = $("#popupReviewWrite");
+
+		if (!$form.find("[name=title]").val()) {
+			alert("제목을 입력하세요");
+			return false;
+		}
+
+		if (!$form.find("[name=detail]").val()) {
+			alert("후기를 작성하세요");
+			return false;
+		}
+
+		//if (!$form.find("[name=ticketImg]")[0].files[0]) {
+		//	alert("파일을 먼저 선택해 주세요");
+		//	return false;
+		//}
+
+		if ($form.find("[name=personalYn]:checked").val() != "Y") {
+			alert("개인정보 수집 및 이용에 대한 동의는 필수입니다.");
+			return false;
+		}
+
+		if ($form.find("[name=marketingYn]:checked").val() != "Y") {
+			alert("행정사 합격 수기 저작재산권 이용 동의 여부를 선택해 주세요.");
+			return false;
+		}
+
+		return true;
+	}
+
+	function eventbind() {
+
+		$(".btn-modify").bind("click", function () {
+			location.href = '@(ViewBag.EaChangeUrl)';
+		});
+
+		$(".btn-review[data-popup-open=write]").bind("click", function () {
+			if (!"@(UserSession.UserID)") {
+				GoLogin();
+				return;
+			}
+
+			popupOpen('.dimmed', 'popupReviewWrite');
+		});
+
+		$(".btn-submit").bind("click", function () {
+
+			//유효성 체크
+			if (!validation()) {
+				return;
+			}
+
+			var content = $("#popupReviewWrite").find("[name=title]").val() + "|" + $("#popupReviewWrite").find("[name=detail]").val();
+			var formData = new FormData();
+			formData.append("isChoice", "Choice"); //이미지 선택 여부
+			formData.append("ticketImg", $("#popupReviewWrite").find("input[name=ticketImg]")[0].files[0]);
+            formData.append("eventIdx", 10386);
+			formData.append("progress", "@(ViewBag.ProgressCd)");
+			formData.append("personalYn", $("#popupReviewWrite").find("input[name=personalYn]:checked").val());
+			formData.append("marketingYn", $("#popupReviewWrite").find("input[name=marketingYn]:checked").val());
+			formData.append("Content", content);
+			formData.append("Reserved1", "@(ViewBag.PlatformCd)");
+			formData.append("Reserved2", "");
+
+			$.ajax({
+				type: "POST"
+				, url: "/Requset/K/AjaxGiveBenefitWithImg"
+				, dataType: "json"
+				, data: formData
+				, processData: false
+				, contentType: false
+				, success: function (data) {
+					console.dir(data);
+					result = data.Result;
+
+					if (data.Result == "OK") {
+						alert('합격수기 작성을 정상적으로 완료하였습니다.');
+						window.location.reload();
+					}
+					else if (data.ResultMessage) {
+						alert(data.ResultMessage);
+					}
+					else {
+						alert("오류가 발생했습니다 " + result);
+						return;
+					}
+
+				}
+				, error: function (data) {
+					console.dir(data.responseText);
+				}
+
+			});
+		})
+	}
+
+	function getReview() {
+		var param = {
+            eventIdx: 10386
+		};
+
+		// 통신
+		$.ajax({
+			type: "POST"
+			, url: "AjaxGetEventUserList"
+			, dataType: "json"
+			, data: JSON.stringify(param)
+			, contentType: "application/json"
+			, success: function (data) {
+				drawCommComment(data);
+			}
+			, error: function (data) {
+				console.dir(data.responseText);
+			}
+
+		});
+	}
+
+	function drawCommComment(data) {
+		var commentData = [];
+		data.forEach(function (e) {
+			var eachComment = {
+				idx: e.idx,
+				title: e.content.split("|")[0],
+				detail: e.content.split("|")[1],
+				regDt: e.regDt
+			};
+
+			commentData.push(eachComment);
+		});
+
+		var obj = {
+			commentData: commentData,
+			pageSize: 5,
+			pageListSize: 10,
+			platformCd: "@(ViewBag.platformCd)",
+			commentBodyID: "reviewBody",
+			webPaginationID: "reviewPagination",
+			mobilePaginationID: "reviewAction",
+			activeClassNm: "on",
+			commentTemplateID: "comment-template",
+			noneCommentTemplateID: "none-comment-template",
+
+		};
+
+		commComment.init(obj);
+	}
+
+	function openDetilaPopup(idx) {
+		if (!"@(UserSession.UserID)") {
+				GoLogin();
+				return;
+		}
+
+		var reviewData = commComment.commentData.filter(function (el) { return el.idx == idx })[0];
+
+		//화면 그리기
+		$("#popupReview").find("[name=title]").val(reviewData.title);
+		$("#popupReview").find("[name=detail]").val(reviewData.detail);
+
+		popupOpen('.dimmed', 'popupReview');
+	}
+</script>

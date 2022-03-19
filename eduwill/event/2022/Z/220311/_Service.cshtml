@@ -1,0 +1,209 @@
+﻿@{
+    string platform = (string)ViewBag.platformCd == "W" ? "pc" : "mobile";
+}
+
+<script type="text/template" id="discPrd-tmpl">
+    <div class="contents {{= TITLE_CSS}} full">
+        {{if CLS == 'I'}}
+        @if ("M".Equals(ViewBag.PlatformCd))
+        {
+            <div class="flag">
+				<div>2022 코레일 상반기 완벽 대비</div>
+            </div>
+        }
+        {{/if}}
+        {{if CLS == 'J'}}
+        @if ("M".Equals(ViewBag.PlatformCd))
+        {
+            <div class="flag">
+				<div>조기마감주의</div>
+            </div>
+        }
+        {{/if}}
+        {{if CLS == 'K'}}
+        @if ("M".Equals(ViewBag.PlatformCd))
+        {
+            <div class="flag">
+				<div>선착순 10명! 인적성 추가 신청</div>
+            </div>
+        }
+        {{/if}}
+        {{if CLS == 'H'}}
+        @if ("M".Equals(ViewBag.PlatformCd))
+        {
+            <div class="flag">
+				<div>담당 교수 1:1 컨설팅 무료 제공</div>
+            </div>
+        }
+        {{/if}}
+        <button type="button" class="block-anchor" data-prd-code="{{= PRODUCT_CODE}}">
+            <div class="lecture-title">{{= TEXT_OFF1}} {{= TEXT_OFF2}}</div>
+            <div class="con">
+				<div class="lecture-info">
+					{{if CLS == 'I'}}
+					@if ("W".Equals(ViewBag.PlatformCd))
+					{
+						<div class="flag">
+							<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220204/@platform/curriculum_flag_2.png" alt="" />
+							<div>2022<br>코레일 상반기<br>완벽 대비</div>
+						</div>
+						<div class="flag">
+							<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220204/@platform/curriculum_flag_3.png" alt="" />
+							<p>얼리버드<br>선착순<br>한정혜택</p>
+							<p>역대급<br>혜택제공</p>
+						</div>
+					}
+					{{/if}}
+					{{if CLS == 'J'}}
+					@if ("W".Equals(ViewBag.PlatformCd))
+					{
+						<div class="flag">
+							<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220204/@platform/curriculum_flag_2.png" alt="" />
+							<div>마감주의!</div>
+						</div>
+						<div class="flag">
+							<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220204/@platform/curriculum_flag_3.png" alt="" />
+							<p>얼리버드<br>선착순<br>한정혜택</p>
+							<p>역대급<br>혜택제공</p>
+						</div>
+					}
+					{{/if}}
+					{{if CLS == 'K'}}
+					@if ("W".Equals(ViewBag.PlatformCd))
+					{
+						<div class="flag">
+							<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220204/@platform/curriculum_flag_2.png" alt="" />
+							<div>선착순<br>10명</div>
+						</div>
+						<div class="flag">
+							<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220204/@platform/curriculum_flag_3.png" alt="" />
+							<p>인적성<br>추가<br>신청</p>
+							<p>인적성<br>추가<br>신청</p>
+						</div>
+					}
+					{{/if}}
+					{{if CLS == 'H'}}
+					@if ("W".Equals(ViewBag.PlatformCd))
+					{
+						<div class="flag">
+							<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220204/@platform/curriculum_flag_2.png" alt="" />
+							<div>선착순<br>10명</div>
+						</div>
+						<div class="flag">
+							<img src="//img.eduwill.net/eduwill/img/2022/Z/event/220204/@platform/curriculum_flag_3.png" alt="" />
+							<p>인적성<br>추가<br>신청</p>
+							<p>인적성<br>추가<br>신청</p>
+						</div>
+					}
+					{{/if}}
+
+					{{each(subIdx, item) subList}}
+					<div class="list">
+						<div class="subject">{{= item.CODE_TITLE}}</div>
+						<div class="desc">
+							{{html item.SUB_CONTENT}}
+						</div>
+					</div>
+					{{/each}}
+				</div>
+
+                <div class="price-box">
+                    <div class="price-info">
+                        {{if GOODS_SALE_PER > 0}}
+                        <div class="item item-1">
+                            <p class="disc">{{= GOODS_SALE_PER}}% 할인</p>
+                        </div>
+                        {{/if}}
+                        <div class="item item-2">
+                            {{if GOODS_SALE_PER > 0}}
+                            <p class="cost">{{= parseInt(GOODS_PRICE).toLocaleString("en")}}원</p>
+                            {{/if}}
+                            <p class="sale">{{= parseInt(GOODS_SALE).toLocaleString("en")}}<span>원</span></p>
+                        </div>
+                    </div>
+                    <div class="signup">
+                        @if ("M".Equals(ViewBag.PlatformCd))
+                        {
+                            <div class="flag">
+                                <p>얼리버드 선착순 한정혜택</p>
+                                <p>역대급 혜택제공</p>
+                            </div>
+                        }
+                        <div class="btn-signup">
+                            할인받고<br />수강신청하기
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </button>
+    </div>
+</script>
+
+<script type="text/template" id="discPrdSummary-tmpl">
+	<div class='price-tag'><b>{{= GOODS_SALE_PER}}%<br>할인</b></div>
+	<span class="before-price">
+		<i>정가</i> <strong>{{= parseInt(GOODS_PRICE).toLocaleString("en")}}</strong><em>원</em>
+	</span>
+	<span class="after-price">
+		<i>할인가</i><strong>{{= parseInt(GOODS_SALE).toLocaleString("en")}}</strong><em>원</em>
+	</span>
+</script>
+
+<script src="~/js/Lecture/commLct.js"></script>
+<script src="~/js/common/extension.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+        setInit();
+
+        $(".block-anchor").click(function () {
+            var prdCode = $(this).data("prd-code");
+            commLct.basketSubmit("", prdCode, "@(UserSession.UserID)");
+        });
+
+    });
+
+    function setInit() {
+	    SetTmp('@Html.Raw(ViewBag.spcDisc35653)', '35653', 'bg1', 'J');
+	    SetTmp('@Html.Raw(ViewBag.spcDisc35657)', '35657', 'bg1', 'J');
+		SetTmp('@Html.Raw(ViewBag.spcDisc35661)', '35661', 'bg1', 'J');
+		SetTmp('@Html.Raw(ViewBag.spcDisc35665)', '35665', 'bg1', 'I');
+	    SetTmp('@Html.Raw(ViewBag.spcDisc35198)', '35198', 'bg1', 'K');
+	    SetTmp('@Html.Raw(ViewBag.spcDisc35199)', '35199', 'bg1', 'K');
+		SetTmp('@Html.Raw(ViewBag.spcDisc35666)', '35666', 'bg1', 'K');
+	    SetTmp('@Html.Raw(ViewBag.spcDisc35667)', '35667', 'bg1', 'H');
+    }
+
+    function SetTmp(param, masterSeq, strBg, cls) {
+        var prdList = JSON.parse(param);
+        var discPrdList = prdList.discPrdList;
+        var title_css = strBg;
+        var notice = "";
+        var prdData = discPrdList.map(function (obj) {
+
+            var arrText_Title = obj.TEXT_OFF.split("$");
+            var subList = prdList.discPrdSubList.filter(function (e) { return e.PRODUCT_CODE == obj.PRODUCT_CODE });
+            return {
+                TEXT_OFF1: arrText_Title[0],
+                TEXT_OFF2: arrText_Title[1],
+                GOODS_SALE_PER: obj.GOODS_SALE_PER,
+                GOODS_PRICE: obj.GOODS_PRICE,
+                GOODS_SALE: obj.GOODS_SALE,
+                DOUBLE_FLAG: obj.DOUBLE_FLAG,
+                PRODUCT_CODE: obj.PRODUCT_CODE,
+                subList: subList,
+                TITLE_CSS: title_css,
+                NOTICE: notice,
+                CLS : cls
+
+            };
+        });
+
+        var tmpl = $("#discPrdSummary-tmpl").tmpl(prdData);
+        $("#tmpSummary_" + masterSeq).html(tmpl);
+
+		var tmpl = $("#discPrd-tmpl").tmpl(prdData);
+		$("#tmp_" + masterSeq).html(tmpl);
+    }
+
+</script>

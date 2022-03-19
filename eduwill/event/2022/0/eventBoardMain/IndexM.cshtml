@@ -1,0 +1,20 @@
+﻿@{
+    string viewPath = ((RazorView)ViewContext.View).ViewPath;
+    viewPath = viewPath.Remove(viewPath.LastIndexOf('/') + 1);
+
+}
+
+@{
+    string cssUrl = ViewBag.IsLocal
+        ? "/Content/2020/0/eventboard/css/mobile.css"    // local 경로
+        : "//img.eduwill.net/resources/eduwill/" + ViewBag.ServerMode + "/css/eventboard/mobile.css";   // ftp 경로
+}
+
+<link rel="stylesheet" type="text/css" href="@cssUrl" />
+
+<style>
+	.event-board .wrap .event-list li .info-box .flag,
+	.event-board .wrap .event-list li .info-box .date{float:none;width:100%;text-align:left;}
+	.event-board .wrap .event-list li .info-box .date span{text-align:left;}
+</style>
+@Html.Partial(viewPath + "_Content.cshtml")

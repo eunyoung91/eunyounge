@@ -1,0 +1,145 @@
+@{
+	string platform = (string)ViewBag.platformCd == "W" ? "pc" : "mobile";
+
+    string imgUrl = ViewBag.IsLocal
+        ? "//img.eduwill.net/eduwill/img/2022/0/event/220318" // local 경로
+        : "//img.eduwill.net/eduwill/img/2022/0/event/220318/"; // ftp 경로
+
+	ViewBag.EventTerm = "3/18(금)~3/25(금)";
+	ViewBag.days = "7";
+	ViewBag.MaxSalePer = "40";
+
+	ViewBag.Acceptance = "에듀윌 합격생<br> 10명 중 9명 6개월 내 최종합격!";
+	ViewBag.Reason = "* 2021년 1회 전기기사 시험 에듀윌 합격생 대상 설문조사 결과";
+}
+
+<div id="contents" class="promotion">
+	<div class="sector-timer">
+        <div class="wrap">
+            <div class="item desc">특별할인</div>
+            <div id="promotionTimer" class="item timer-wrap">
+                <p class="day">00</p><em>일</em><!-- 일 -->
+                <p class="hour">00</p>:<!-- 시 -->
+                <p class="min">00</p>:<!-- 분 -->
+                <p class="sec">00</p>:<!-- 초 -->
+                <p class="msec">00</p><!-- 밀리 초 -->
+            </div>
+            <div class="item action">
+				<a href="#priceEvent" class="page-move"><img src="@imgUrl/@platform/time_btn.png" alt="신청하기" ></a>
+            </div>
+        </div>
+    </div>
+
+	
+
+	<div class="container promotion-visual">
+		
+		<div class="wrap">
+
+			<div class="title">
+				
+				<h2>@Html.Raw(@ViewBag.Acceptance)</h2>
+				<h3>@(ViewBag.Reason)</h3>
+			</div>
+
+			<img src="@imgUrl/@platform/visual_title.png" alt="" >
+
+			<div class="discountImg"><img src="@imgUrl/@platform/visual_discount.png" alt="" ></div>
+			<div class="date">
+				<p>@(ViewBag.EventTerm)</p>
+				<p>단 <em>@(ViewBag.days)</em>일간 제공되는 <span><em>@(ViewBag.MaxSalePer)</em>% 역대급 할인!</span></p>
+			</div>
+
+		</div>
+	</div>
+
+	<div id="priceEvent" class="container promotion-cont1">
+		<div class="wrap">
+			<h2>
+				<p>에듀윌 회원이라면 누구나</p>
+				역대급 <em>@(ViewBag.MaxSalePer)%</em> 할인 받고<br> 빠르게 합격하세요!
+			</h2>
+
+			<div class="priceWrap">
+				<ul id="priceContent"></ul>
+			</div>
+			
+		</div>
+	</div>
+
+	<div class="container promotion-cont2">
+		<div class="wrap">
+			<h3>유의사항</h3>
+			- 장바구니에 담겨진 할인 적용 상품은 7일 이내에 반드시 결제해야 하며, 기간 경과 혹은 장바구니에서 삭제 시 재신청이 불가합니다.<br>
+			- 본 이벤트 할인 적용 시 친구추천 이벤트(리워드) 대상에서 제외됩니다.<br>
+			- 수강료 정가에서 할인된 가격으로 진행되는 이벤트 입니다.<br>
+			- 타 이벤트 혜택과 중복 적용되지 않습니다.
+		</div>
+	</div>
+
+	<!-- 공통 eco area -->
+	<div class="product-eco" data-device="pc">
+		<div data-module="ecoContent">
+
+			<div id="eco1"></div>
+			<div id="eco2"></div>
+
+		</div>
+	</div>
+	<!-- //공통 eco area -->
+	
+</div>
+
+<div id="eduf-popup">
+	<div class="popup popup-base">
+		<div class="popup-body">
+		
+			<div data-popupcont="0"></div>
+
+			<div data-popupcont="video">
+				<div id="videoPop" class="video-popup">
+					<div class="video-cont"></div>
+				</div>
+			</div>
+
+            <button id="eduf-popup-close" type="button" class="popup-close"><span class="sr-only">닫기</span></button>
+		</div>
+		
+	</div>
+</div>
+
+<script type="text/javascript" src="//img.eduwill.net/eduwill/live/js/common/EventPersonalKTK.js"></script>
+<script src="//img.eduwill.net/eduwill/live/js/common/script.js"></script>
+<script type="text/javascript">
+
+	var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+	var url = window.location.href;
+
+	// DOM Load Event
+	document.addEventListener("DOMContentLoaded", function(){
+		pageMove('.page-move');
+
+		
+	});	
+
+	// Scroll Event
+	document.addEventListener('scroll', function(){
+		var _windowTop = document.documentElement.scrollTop;
+		var _timeWrap = document.querySelector('.sector-timer');
+		var _timeWrapPos = _timeWrap.offsetTop;
+
+		if( _windowTop > _timeWrapPos ){
+			_timeWrap.classList.add('fixed');
+			
+		}else{
+			_timeWrap.classList.remove('fixed');
+
+		}
+	});
+
+	$(window).on('load', function(){
+		_f_initLinkHand();
+	})
+	
+	
+</script>

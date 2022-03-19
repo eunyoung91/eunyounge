@@ -1,0 +1,127 @@
+﻿<script type="text/template" id="comment-template">
+	<tr>
+		<td>[idx]</td>
+		<td>[userNm]</td>
+		<td>[detail]</td>
+	</tr>
+</script>
+<script type="text/template" id="none-comment-template">
+	<tr>
+		<td colspan="3">등록된 다짐이 없습니다.</td>
+	</tr>
+</script>
+
+<script src="~/js/Lecture/commLct.js?v=1"></script>
+<script src="~/js/common/commComment.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+		getReview();
+		eventbind();
+	});
+
+	function eventbind() {
+		$(".btn-benefit").bind("click", function () {
+			commLct.lectureSubmit('7306', '2643,2644', '', '@(UserSession.UserID)')
+		});
+
+		$(".promise-writing-container button").bind("click", function () {
+			//[주택]온라인설명회_다짐남기기
+			if (!"@(UserSession.UserID)") {
+				GoLogin();
+				return;
+			}
+
+			if (!$("[name=detail]").val()) {
+				alert("합격다짐을 입력해 주세요");
+				return;
+			}
+
+
+			var param = {
+				eventIdx: 7307,
+				content: $("[name=detail]").val()
+			};
+
+			// 통신
+			$.ajax({
+				type: "POST"
+				, url: "/Requset/@(ViewBag.progressCd)/AjaxGiveBenefit"
+				, dataType: "json"
+				, data: JSON.stringify(param)
+				, contentType: "application/json"
+				, success: function (data) {
+
+					if (data.Result == "OK") {
+						alert("합격다짐 작성이 완료었습니다. :)");
+						window.location.reload();
+					}
+					else if (data.ResultMessage) {
+						alert(data.ResultMessage);
+						window.location.reload();
+					}
+					else {
+						alert("신청 중에 오류가 발생했습니다\n다시 시도해 주세요 " + data.Result);
+						window.location.reload();
+					}
+				}
+				, error: function (data) {
+					console.dir(data.responseText);
+				}
+			});
+
+		})
+	}
+
+	function getReview() {
+		var param = {
+			eventIdx: "7307"
+		};
+
+		// 통신
+		$.ajax({
+			type: "POST"
+			, url: "/Requset/@(ViewBag.progressCd)/AjaxGetEventUserList"
+			, dataType: "json"
+			, data: JSON.stringify(param)
+			, contentType: "application/json"
+			, success: function (data) {
+				drawCommComment(data);
+			}
+			, error: function (data) {
+				console.dir(data.responseText);
+			}
+
+		});
+	}
+
+	function drawCommComment(data) {
+		var commentData;
+		commentData = data.map(function (e) {
+			return {
+				userId: e.userId,
+				userNm: e.userNm,
+				idx: e.idx,
+				detail: e.content,
+			};
+		});
+
+		var obj = {
+			commentData: commentData,
+			pageSize: 10,
+			pageListSize: 10,
+			platformCd: "@(ViewBag.platformCd)",
+			commentBodyID: "commentBody",
+			webPaginationID: "commentPagination",
+			mobilePaginationID: "commentPagination_M",
+			activeClassNm: "on",
+			commentTemplateID: "comment-template",
+			noneCommentTemplateID: "none-comment-template",
+
+		};
+
+		commComment.init(obj);
+	}
+
+
+
+</script>

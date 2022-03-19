@@ -1,0 +1,33 @@
+﻿<script type="text/javascript">
+
+
+document.addEventListener("DOMContentLoaded", function(){
+    _f_initFileDown();
+
+});
+
+
+
+// 하단 띠배너 클릭 Function
+function _f_initFileDown(){
+    var _btnWrap = document.getElementById('fileDown');
+
+    _btnWrap.addEventListener('click', function(){
+
+        var userid = "@(UserSession.UserID)";
+        if (userid) {
+            // login
+            window.open("https://elec.eduwill.net/pds/board/board91/2022_%EC%A0%84%EA%B8%B0%EA%B8%B0%EB%8A%A5%EC%82%AC%20%EC%B4%88%EB%B3%B4%EC%88%98%ED%97%98%EA%B0%80%EC%9D%B4%EB%93%9C_v1.0_eduwill20211130144510.pdf", "_blank");
+        } else {
+            // logout
+            if (confirm("로그인이 필요한 서비스입니다. \n로그인 하시겠습니까?")) {
+                window.location.href = "//ea.eduwill.net/login/login.action?systemCd=eduwill&redirectUrl=" + encodeURIComponent(window.location.href);
+            }
+        };
+
+
+
+    });
+}
+
+</script>

@@ -1,0 +1,666 @@
+@{
+    string progressCd = (string)ViewBag.ProgressCd;
+    string platformDir = (string)ViewBag.platformCd == "W" ? "pc" : "mobile";
+    String platform = ("W".Equals(ViewBag.PlatformCd)) ? "pc" : "mobile";
+}
+@*
+    *** 작업 사항 ***
+    - @progressCd 로 전산(X), 재경(U), ERP(5), 한경매경(1) 관리.
+    - 그중 기본이 되는것은 전산(X)이며, 모든 이미지 파일과 CSS파일도 FTP에서 전산(X) 경로에서 하나의 소스로 관리하게 작업함.
+
+    - 경로
+        전산(X):
+            Publish\Event\2021\X\211201\_Content.cshtml
+        재경(U):
+            Publish\Event\2021\U\211201\_Content.cshtml
+        ERP(5):
+            Publish\Event\2021\5\211201\_Content.cshtml
+        한경매경(1):
+            Publish\Event\2021\1\211201\_Content.cshtml
+*@
+
+<div id="contents" class="promotion promotion-@progressCd">
+    <div class="sector-timer-black">
+        <div class="wrap">
+            @if ("W".Equals(ViewBag.PlatformCd))
+            {
+                <div class="item desc">마감까지</div>
+            }
+            else
+            {
+                <div class="item desc">마감 시간까지</div>
+            }
+            <div id="promotionTimer" class="item grid timer-wrap">
+                <div class="col">
+                    <!-- 일 -->
+                    <em class="day bg-count" id="day">00</em><em>일</em>
+                </div>
+                <div class="col">
+                    <!-- 시 -->
+                    <em class="hour bg-count" id="hour">00</em><em>:</em>
+                </div>
+                <div class="col">
+                    <!-- 분 -->
+                    <em class="min bg-count" id="min">00</em><em>:</em>
+                </div>
+                <div class="col">
+                    <!-- 초 -->
+                    <em class="sec bg-count" id="sec">00</em><em>:</em>
+                </div>
+                <div class="col">
+                    <!-- 밀리 초 -->
+                    <em class="msec bg-count" id="msec">00</em>
+                </div>
+            </div>
+            @if ("W".Equals(ViewBag.PlatformCd))
+            {
+                <div class="item">
+                    <a href="#promotionSale" class="btn-apply page-move"><img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/timer_button.png" alt=" "></a>
+                </div>
+            }
+        </div>
+    </div>
+    <!-- 소구점 -->
+    <div data-eduwill-eco-content="3226"></div>
+    <!-- // 소구점 -->
+
+   <div class="sector-title">
+        <div class="wrap">
+			<div class="t-laurel">
+				<img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/laurel_@(progressCd).png" alt="월계관">
+			</div>
+			
+			 <div class="action">
+                <a href="javascript: popupOpen('.popup-dim', 'popupBase');" class="btn-text">근거확인</a>
+            </div>
+			
+			<div class="t-title">
+				<img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/title.png" alt="에듀윌은 합격을 싣고">
+				<div class="sale">
+					<img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/sale40.png" alt="40SALE">
+				</div>
+			</div>
+				<div class="sub-title">
+				<p>* 2022 대한민국 브랜드만족도 ERP정보관리사 교육 1위</p>
+			</div>
+			<div class="center">
+				<p class="period" id="period2">
+					<span>2022.02.03 – 2022.02.10</span>
+					<strong>단, 5일간의 기회!</strong>
+				</p>
+			</div>
+        </div>
+    </div>
+
+    <div class="sector-sale" id="promotionSale">
+        <div class="wrap">
+            <h3>
+                1위* 에듀윌<span class="only-pc">&nbsp;ERP정보관리사</span>의 특별지원<br>
+                <em>40% 할인</em> 받고 합격하기
+            </h3>
+            <small>* 2022 대한민국 브랜드만족도 ERP정보관리사 교육 1위</small>
+
+            <h4>
+                ERP 초단기패스
+            </h4>
+            <div class="grid product-list">
+                <div class="col product">
+                    <div class="table product-head">
+                        <div class="table-cell">
+                            <p class="subject">초단기패스 <strong>1급 과정</strong></p>
+                            <p class="desc">핵심 커리큘럼 제공, 22년 3월 시험 완벽대비!</p>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <div class="holder">
+                            <div class="flag"><span><strong>40</strong>%</span></div>
+                            <div class="core">
+                                <p class="price price-before"><span><strong>445,000</strong>원</span></p>
+                                <p class="price price-after"><span><strong>267,000</strong>원</span></p>
+                            </div>
+                        </div>
+                        <div class="holder">
+                            <div class="form-control">
+                                <div class="form-list">
+                                    <span class="fake-checkbox"><input type="checkbox" id="checkboxA1" class="checkbox"> <label for="checkboxA1">회계1급</label></span>
+                                    <span class="fake-checkbox"><input type="checkbox" id="checkboxA2" class="checkbox"> <label for="checkboxA2">인사1급</label></span>
+                                    <span class="fake-checkbox"><input type="checkbox" id="checkboxA3" class="checkbox"> <label for="checkboxA3">생산1급</label></span>
+                                    <span class="fake-checkbox"><input type="checkbox" id="checkboxA4" class="checkbox"> <label for="checkboxA4">물류1급</label></span>
+                                </div>
+                                <p class="info">
+                                    <span>* 수강을 원하는 1개 모듈을 선택하여 신청</span>
+                                    <span>* 교재 별도</span>
+                                </p>
+                            </div>
+                            <div class="action">
+                                <a href="//erp.eduwill.net/5rp/Product/Event_new/event_180124_double.asp" data-pc-link="//erp.eduwill.net/5rp/Product/Event_new/event_180124_double.asp" data-mobile-link="//brand.eduwill.net/sugang/view.will?progress=5&mSeq=26109" target="_blank" class="btn btn-detail"><span>자세히보기</span></a>
+                                <a href="javascript:setBasketProcess('20X0Z1F06C');" class="btn btn-apply"><span>혜택받고 수강하기</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col product">
+                    <div class="table product-head">
+                        <div class="table-cell">
+                            <p class="subject">초단기패스 <strong>2급 과정</strong></p>
+                            <p class="desc">핵심 커리큘럼 제공, 22년 3월 시험 완벽대비!</p>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <div class="flag"><span><strong>34</strong>%</span></div>
+                        <div class="core">
+                            <p class="price price-before"><span><strong>180,000</strong>원</span></p>
+                            <p class="price price-after"><span><strong>118,000</strong>원</span></p>
+                        </div>
+                        <div class="form-control">
+                            <div class="form-list">
+                                <span class="fake-checkbox"><input type="checkbox" id="checkboxB1" class="checkbox"> <label for="checkboxB1">회계2급</label></span>
+                                <span class="fake-checkbox"><input type="checkbox" id="checkboxB2" class="checkbox"> <label for="checkboxB2">인사2급</label></span>
+                                <span class="fake-checkbox"><input type="checkbox" id="checkboxB3" class="checkbox"> <label for="checkboxB3">생산2급</label></span>
+                                <span class="fake-checkbox"><input type="checkbox" id="checkboxB4" class="checkbox"> <label for="checkboxB4">물류2급</label></span>
+                            </div>
+                            <p class="info">
+                                <span>* 수강을 원하는 1개 모듈을 선택하여 신청</span>
+                                <span>* 교재 별도</span>
+                            </p>
+                        </div>
+                        <div class="action">
+                            <a href="//erp.eduwill.net/5rp/Product/Event_new/event_180124_double.asp" data-pc-link="//erp.eduwill.net/5rp/Product/Event_new/event_180124_double.asp" data-mobile-link="//brand.eduwill.net/sugang/view.will?progress=5&mSeq=26109" target="_blank" class="btn btn-detail"><span>자세히보기</span></a>
+                            <a href="javascript:setBasketProcess('20X0Z1G06C');" class="btn btn-apply"><span>혜택받고 수강하기</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <h4>더블합격 환급패스</h4>
+            <div class="grid product-list">
+                <div class="col product solo">
+                    <div class="table product-head">
+                        <div class="table-cell">
+                            <p class="subject">더블합격 <strong>환급패스</strong></p>
+                            <p class="desc">2개 자격증 모두 합격 시, 수강료 전액환급</p>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <div class="holder">
+                            <div class="flag"><span><strong>40</strong>%</span></div>
+                            <div class="core">
+                                <p class="price price-before"><span><strong>360,000</strong>원</span></p>
+                                <p class="price price-after"><span><strong>216,000</strong>원</span></p>
+                            </div>
+                        </div>
+                        <div class="holder">
+                            <div class="form-control">
+                                <div class="form-list">
+                                    <span class="fake-checkbox"><input type="checkbox" id="checkboxC1" class="checkbox"> <label for="checkboxC1">회계1급</label></span>
+                                    <span class="fake-checkbox"><input type="checkbox" id="checkboxC2" class="checkbox"> <label for="checkboxC2">인사1급</label></span>
+                                    <span class="fake-checkbox"><input type="checkbox" id="checkboxC3" class="checkbox"> <label for="checkboxC3">생산1급</label></span>
+                                    <span class="fake-checkbox"><input type="checkbox" id="checkboxC4" class="checkbox"> <label for="checkboxC4">물류1급</label></span>
+                                    <span class="fake-checkbox"><input type="checkbox" id="checkboxC5" class="checkbox"> <label for="checkboxC5">회계2급</label></span>
+                                    <span class="fake-checkbox"><input type="checkbox" id="checkboxC6" class="checkbox"> <label for="checkboxC6">인사2급</label></span>
+                                    <span class="fake-checkbox"><input type="checkbox" id="checkboxC7" class="checkbox"> <label for="checkboxC7">생산2급</label></span>
+                                    <span class="fake-checkbox"><input type="checkbox" id="checkboxC8" class="checkbox"> <label for="checkboxC8">물류2급</label></span>
+                                </div>
+                                <p class="info">
+                                    <span>* 수강을 원하는 1개 모듈을 선택하여 신청</span>
+                                    <span>* 교재 별도</span>
+                                </p>
+                            </div>
+                            <div class="action">
+								<a href="https://erp.eduwill.net/5rp/Product/Event_new/210907/index_discount.asp" data-mobile-link="//brand.eduwill.net/product/goods.will?goodsNo=1184_erp_double" target="_blank" class="btn btn-detail">
+									<span>자세히보기</span>
+								</a>
+                                <a href="javascript:setBasketProcess('20X0Z4S03C');" class="btn btn-apply">
+									<span>혜택받고 수강하기</span>
+								</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h4>ERP 한방패스</h4>
+            <div class="grid product-list">
+                <div class="col product">
+                    <div class="table product-head">
+                        <div class="table-cell">
+                            <p class="subject">ERP<strong>한방패스</strong></p>
+                            <p class="desc">4개 모듈X1,2급 ERP 전 자격증 한 방에 준비</p>
+                        </div>
+                    </div>
+                    <div class="product-body">
+                        <div class="flag"><span><strong>40</strong>%</span></div>
+                        <div class="core">
+                            <p class="price price-before"><span><strong>420,000</strong>원</span></p>
+                            <p class="price price-after"><span><strong>252,000</strong>원</span></p>
+                        </div>
+                        <div class="form-control">
+                            <p class="info">
+                                <span>* 교재 별도</span>
+                            </p>
+                        </div>
+                        <div class="action">
+                            <a href="//erp.eduwill.net/Common/Product/goods/auto/index.asp?masterSeq=MjE0ODA==" data-pc-link="//erp.eduwill.net/Common/Product/goods/auto/index.asp?masterSeq=MjE0ODA==" data-mobile-link="//brand.eduwill.net/sugang/view.will?progress=5&mSeq=26448" target="_blank" class="btn btn-detail"><span>자세히보기</span></a>
+                            <a href="javascript:setBasketProcess('20X0Z1F06C');" class="btn btn-apply"><span>혜택받고 수강하기</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="notice">
+                * 합격 시, 제세공과금 및 교재 판매가(교재 정가의 10%할인가), 제외 후 환급<br>
+                * 불합격 후 수험표 제출 시, 다음회차까지 연장
+            </p>
+        </div>
+    </div>
+
+    <div class="sector sector-band ">
+        <div class="wrap">
+			@if ("W".Equals(ViewBag.PlatformCd))
+    		{
+            <strong>
+                다른 곳에서는 못합니다<br />
+                <span>오직 에듀윌만의 압도적인 차이를 확인하세요</span> 
+            </strong>
+			}
+			else{
+		 	<strong>
+                다른 곳에서는 못합니다<br />
+                <span>오직 에듀윌만의 압도적인 차이</span> 
+            </strong>
+			}
+        </div>
+    </div>
+
+    <div class="sector-search">
+        <div class="wrap">
+            <img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/brand_@(progressCd).png" alt="">
+            <div class="typing"></div>
+        </div>
+    </div>
+	<!--공통-->
+	<div class="sector sector-brand ">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/eduwill/img/2022/common/c3_img/5/@platform/brand_title.png" alt="4년 연속 1위 수험생이 가장 많이 찾는 브랜드, 에듀윌!" />
+            <img src="https://img.eduwill.net/eduwill/img/2022/common/c3_img/5/@platform/brand.png" alt="" />
+            <div class="action right-bottom">
+                <a href="javascript: popupOpen('.popup-dim', 'popupBase');" class="btn-text type3 black">근거확인</a>
+            </div>
+        </div>
+    </div>
+    <div class="sector-book">
+        <div class="wrap">
+             <img src="https://img.eduwill.net/eduwill/img/2022/common/c3_img/5/@platform/book.png" alt="" />
+        </div>
+    </div>
+
+    <div class="sector-teacher">
+        <div class="wrap">
+            <img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/teacher_title_@(progressCd).jpg" alt="강의만족도 100% 1위 교수진이 단기합격을 책임집니다.">
+            <div class="action">
+                <a href="javascript:;" class="btn-base" onclick="popupOpen('.popup-dim', 'popupBase');">
+                    <img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/only_btn.jpg">
+                </a>
+            </div>
+            <div class="slider-single">
+                <div>
+                    <img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/teacher_1_@(progressCd).jpg" alt="유슬기 교수" />
+                    
+                </div>
+                <div>
+                    <img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/teacher_2_@(progressCd).jpg" alt="배문주 교수" />
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+	@if ("W".Equals(ViewBag.PlatformCd))
+    {
+    <div class="sector-pass">
+        <div class="wrap">
+            <img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/winner_title_@(progressCd).png" alt="끈임없이 쏟아지는 합격생들의 극찬 꼭 확인하세요" />
+            <div class="video-list">
+                <div class="video">
+                    <a href="javascript:;" class="eduwill-video-play">
+                        <img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/pc/winner_thumb_1.jpg" alt="ERP정보관리사 3주 합격 비법 대공개">
+                    </a>
+                    <video width="100%" height="100%" controls poster="" class="eduwill-video-player">
+                        <source src="" type="video/mp4">
+                    </video>
+                </div>
+                <div class="video">
+                    <a href="javascript:;" class="eduwill-video-play">
+                        <img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/pc/winner_thumb_2.jpg" alt="ERP정보관리사 취득 후 취업 성공!">
+                    </a>
+                    <video width="100%" height="100%" controls poster="" class="eduwill-video-player">
+                        <source src="" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="slider-single-arrow">
+                <div><img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/pass_1.png" alt="후기 1" /></div>
+                <div><img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/pass_2.png" alt="후기 2" /></div>
+                <div><img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/pass_3.png" alt="후기 3" /></div>
+            </div>
+			 <div class="action ">
+                <a href="https://erp.eduwill.net/5rp/community/study/pass_list_190531.asp" class="btn-text type3 black" target="_blank">실시간 업데이트중! 합격수기 더 보기</a>
+            </div>
+		
+        </div>
+    </div>
+    }else{
+    <div class="sector-pass">
+            <div class="wrap">
+                <img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/winner_title_@(progressCd).png" alt="끈임없이 쏟아지는 합격생들의 극찬 꼭 확인하세요" />
+                <div class="video-list">
+                    <div class="video">
+                        <a href="javascript:;" class="eduwill-video-play">
+                            <img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/pc/winner_thumb_1.jpg" alt="ERP정보관리사 3주 합격 비법 대공개">
+                        </a>
+                        <video width="100%" height="100%" controls poster="" class="eduwill-video-player">
+                            <source src="" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="video">
+                        <a href="javascript:;" class="eduwill-video-play">
+                            <img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/pc/winner_thumb_2.jpg" alt="ERP정보관리사 취득 후 취업 성공!">
+                        </a>
+                        <video width="100%" height="100%" controls poster="" class="eduwill-video-player">
+                            <source src="" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+                <div class="slider-single-arrow">
+                    <div><img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/pass_1.png" alt="후기 1" /></div>
+                    <div><img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/pass_2.png" alt="후기 2" /></div>
+                    <div><img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/pass_3.png" alt="후기 3" /></div>
+                </div>
+				 <div class="action ">
+					<a href="https://erp.eduwill.net/5rp/community/study/pass_list_190531.asp" class="btn-text type3 black" target="_blank">실시간 업데이트중! 합격수기 더 보기</a>
+				</div>
+            </div>
+    </div>
+	}
+	<!--공통-->
+	<div class="sector-brand2">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/eduwill/img/2022/common/c3_img/X/@platform/brand_type2.png"  alt=""/>
+			<div class="action">
+                <a href="javascript: popupOpen('.popup-dim', 'popupBrand');" class="btn-text type3">근거확인</a>
+            </div>
+		
+		</div>
+	</div>
+    
+    <div class="sector sector-prize bg-gra">
+			<div class="wrap">	
+				@if ("W".Equals(ViewBag.PlatformCd)){
+				<div class="title">
+					<div class="left">
+						<div class="eco-4198" data-eduwill-eco-content="4198"></div>
+					</div>
+					<div class="right">
+						<strong class="point-color">업계최초</strong>
+					</div>
+				</div>
+				<img src="https://img.eduwill.net/eduwill/img/2022/common/c3_img/5/@platform/prize.png"  alt="단기합겨곧,고득점도 검증된곳에서 "/>
+				}
+				else{
+					<div class="title">
+						<div class="left">
+							<div class="eco-4198" data-eduwill-eco-content="4198"></div>
+						</div>
+					</div>
+					<div class="title type2">
+						<div class="right">
+							<strong class="point-color">업계최초</strong>
+						</div>
+					</div>
+						<img src="https://img.eduwill.net/eduwill/img/2022/common/c3_img/5/@platform/prize.png"  alt="단기합겨곧,고득점도 검증된곳에서 "/>
+				}
+			</div>
+	</div>
+	<div class="sector-only">
+		@if ("W".Equals(ViewBag.PlatformCd))
+		{
+			<div class="eco-2181" data-eduwill-eco-content="2181"></div>
+		}
+		else
+		{
+			<div class="eco-2182" data-eduwill-eco-content="2182"></div>
+		}
+	</div>
+    <div class="sector sector-band-bottom">
+        <div class="wrap">
+            <img src="//img.eduwill.net/eduwill/img/2022/X/event/220203/@platformDir/band2.png" alt="">
+				<div class="eco-1992" data-eduwill-eco-content="1992"></div>
+        </div>
+    </div>
+    <div class="sector-notice">
+        <div class="wrap">
+            <p class="title">※ 꼭 읽어 주세요</p>
+            <ul class="notice-list">
+                <li>할인된 금액으로의 구매는 이벤트 페이지를 통해서만 가능합니다</li>
+                <li>장바구니에 담겨진 할인 적용 상품은 7일 이내에 반드시 결제해야 하며, 기간 경과 혹은 장바구니에서 삭제 시 재신청이 불가합니다.</li>
+                <li>본 이벤트 할인 적용 시 친구추천 이벤트(리워드) 대상에서 제외됩니다.</li>
+                <li>수강료 정가에서 할인된 가격으로 진행되는 이벤트 입니다.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="popup-dim"></div>
+<div id="popupBase" class="popup popup-base">
+    <div class="popup-body">
+        <div class="base-2">
+            <strong>[ERP정보관리사 1위]</strong>
+            <div class="eco-1992" data-eduwill-eco-content="1992"></div>
+            @* brand *@
+        </div>
+		 <div class="base-7">
+            <strong>[세무회계 1위]</strong>
+            <div class="eco-1992" data-eduwill-eco-content="1992"></div>
+            @* datalab4 *@
+        </div>
+		 <div class="base-1">
+            <strong>[검색량1위]</strong>
+            <div class="eco-1992" data-eduwill-eco-content="1992"></div>
+            @* datalab4 *@
+        </div>
+        <div class="base-3">
+            <strong>[베스트셀러 1위]</strong>
+            <div class="eco-1992" data-eduwill-eco-content="1992"></div>
+            @* book1~5 *@
+        </div>
+        <div class="base-4">
+            <strong>[1위 교수진]</strong>
+            <div class="eco-1992" data-eduwill-eco-content="1992"></div>
+            @* survey3~6 *@
+        </div>
+        <div class="base-5">
+            <strong>[강의만족도]</strong>
+            <div class="eco-1992" data-eduwill-eco-content="1992"></div>
+            @* survey7 *@
+        </div>
+        <div class="base-6">
+            <strong>[검증된 교육기관]</strong>
+            <div class="eco-1992" data-eduwill-eco-content="1992"></div>
+            @* prize2 *@
+        </div>
+    </div>
+    <a href="javascript:;" class="popup-close" onclick="popupClose('.popup-dim', 'popupBase');"><span class="sr-only">닫기</span></a>
+</div>
+<div id="popupBrand" class="popup popup-base">
+   	<div class="popup-body">
+			<div class="eco-4200" data-eduwill-eco-content="4200"></div>
+	</div>
+    <a href="javascript:;" class="popup-close" onclick="popupClose('.popup-dim', 'popupBrand');"><span class="sr-only">닫기</span></a>
+</div>
+<div class="popup popup-teacher1" id="popupTeacher1">
+    <div class="popup-body">
+        <div class="eco-1992" data-eduwill-eco-content="1992"></div>
+        @* ysg1~3 *@
+    </div>
+    <a href="javascript:;" class="popup-close" onclick="popupClose('.popup-dim', 'popupTeacher1');"><span class="sr-only">닫기</span></a>
+</div>
+<div class="popup popup-teacher2" id="popupTeacher2">
+    <div class="popup-body">
+        <div class="eco-1992" data-eduwill-eco-content="1992"></div>
+        @* bmj1~3 *@
+    </div>
+    <a href="javascript:;" class="popup-close" onclick="popupClose('.popup-dim', 'popupTeacher2');"><span class="sr-only">닫기</span></a>
+</div>
+
+<script src="//img.eduwill.net/eduwill/live/js/common/script.js"></script>
+<script type="text/javascript">
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+    var url = window.location.href;
+    var str = 'event.eduwill.net';
+    var checkUrl = url.indexOf(str);
+
+    $(function () {
+        frontInit();
+    });
+
+    function frontInit() {
+        getTimer('#promotionTimer', 'April 13,2021,00:00');
+        checkResolution('.promotion-sale');
+        pageMove('.page-move');
+        playVideo();
+        addTyping();
+        addSlide();
+   		titleEvent();
+		
+    };
+	  function titleEvent(){
+        TweenMax.fromTo($('.sector-title .sale'), 1, { y: 0 }, { y: -10, repeat: -1, yoyo: true, ease: Bounce.eaesInOut });
+    }
+
+    function checkResolution(e) {
+        if (isMobile || !checkUrl) {
+            replaceImageLinks(e, 'pc', 'mobile');
+            //console.log('mobile');
+        } else {
+            replaceImageLinks(e, 'mobile', 'pc');
+            //console.log('pc');
+        }
+    }
+
+    function replaceImageLinks(target, basic, change) {
+        $(target + ' a').each(function () {
+            var pcLink = $(this).data("pcLink");
+            var mobileLink = $(this).data("mobileLink");
+            $(this).attr("href", change == "pc" ? pcLink : mobileLink);
+        });
+    }
+
+    function addSlide() {
+        $('.review-list').each(function () {
+            if (isMobile) {
+                _show = 1;
+                _center = true;
+            } else {
+                _show = 3;
+                _center = false;
+            }
+            $(this).slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                speed: 1000,
+                infinite: true,
+                arrows: false,
+                dots: true,
+                mobileFirst: true,
+                centerMode: _center,
+                slidesToShow: _show,
+                slidesToScroll: 1
+            });
+        });
+        $('.slider-single2').each(function () {
+            if (isMobile) {
+                _rows = 1;
+            } else {
+                _rows = 2;
+            }
+            $(this).slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                speed: 1000,
+                rows:_rows,
+                infinite: true,
+                arrows: false,
+                dots: true,
+                mobileFirst: true,
+                slidesToScroll: 1
+            });
+        });
+
+         $('.slider-single').slick({
+            autoplay: true,
+            autoplaySpeed: 3000,
+            speed: 1000,
+            infinite: true,
+            arrows: false,
+            dots: true,
+            mobileFirst: true,
+            slidesToScroll: 1
+        });
+		$('.slider-single-arrow').slick({
+            autoplay: true,
+            autoplaySpeed: 3000,
+            speed: 1000,
+            infinite: true,
+            arrows: true,
+            dots: false,
+            mobileFirst: true,
+            slidesToScroll: 1
+        });
+    }
+
+    function addTyping() {
+        var typingBool = false;
+        var typingIdx = 0;
+        var typingTxt = "에듀윌ERP정보관리사 ";
+        typingTxt = typingTxt.split("");
+        if (typingBool == false) {
+            typingBool = true;
+            var tyInt = setInterval(typing, 500);
+        }
+
+        function typing() {
+            if (typingIdx < typingTxt.length) {
+                $(".typing").append(typingTxt[typingIdx]);
+                typingIdx++;
+
+                if (typingIdx > (typingTxt.length - 1)) {
+                    typingIdx = 0;
+                    $(".typing").empty();
+                }
+            } else {
+                clearInterval(tyInt);
+            }
+        }
+    }
+
+    function playVideo() {
+        var obj = {
+            a: '//pmp.eduwill.net/eduwillpmp/eduwill/flv/20210526/5_JoSeungman.mp4',
+            b: '//pmp.eduwill.net/eduwillpmp/eduwill/flv/20210526/5_NaGyeongyeop.mp4',
+        };
+
+        var playerSrc = [];
+        for (var o in obj) {
+            playerSrc.push(obj[o]);
+        };
+
+        var videoOption = {
+            playerSrc: playerSrc,
+            preview: true,
+            playerClass: 'eduwill-video-player',
+            playerPlayClass: 'eduwill-video-play'
+        };
+
+        eduf.UI.Player(videoOption);
+    }
+</script>

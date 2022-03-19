@@ -1,0 +1,127 @@
+@{
+	string platform = (string)ViewBag.platformCd == "W" ? "pc" : "mobile";
+
+    string imgUrl = ViewBag.IsLocal
+        ? "//img.eduwill.net/eduwill/img/2022/3/event/220211" // local 경로
+        : "//img.eduwill.net/eduwill/img/2022/3/event/220211"; // ftp 경로
+}
+
+<div id="contents" class="promotion">
+	
+	@if("W".Equals(ViewBag.PlatformCd)){
+		<div class="fix_banner">
+			<a href="https://event.eduwill.net/Event/3/eventBoardMain?" target="_blank"><img src="@imgUrl/@platform/fix_banner.png" alt=""></a>
+		</div>
+	}
+
+	<div class="fix_banner_bottom">
+		<button type="button" id="fileDown"><img src="@imgUrl/@platform/fix_banner_bottom.png" alt=""></a>
+	</div>
+
+	<div class="container promotion-title">
+		<div class="wrap">
+			<img src="@imgUrl/@platform/visual_title1.png" alt="">
+
+			<div class="winner-contents">
+                <div class="winner-list"></div>
+            </div>
+		</div>
+	</div>
+
+	<div class="container promotion-cont1">
+		
+		<div class="slide-wrap">
+			<div class="slide-cont">
+				<div class="slide-item"><img src="@imgUrl/@platform/cont1_slide1.png" alt=""></div>
+				<div class="slide-item"><img src="@imgUrl/@platform/cont1_slide2.png" alt=""></div>
+				<div class="slide-item"><img src="@imgUrl/@platform/cont1_slide3.png" alt=""></div>
+				
+			</div>
+		</div>
+	</div>
+
+	<div class="container promotion-cont2">
+		<div class="wrap">
+			<img src="@imgUrl/@platform/cont2_title.png" alt="">
+		</div>
+	</div>
+
+	<div class="container promotion-awards">
+        <div class="wrap">
+			<button type="button" data-popup="0" class="eduf-reason-button btn-reason">근거확인</button>
+            <div class="item">
+                <img src="@imgUrl/@platform/awards_2201.png" alt="">
+            </div>
+        </div>
+    </div>
+
+	<div class="container promotion-eco" data-eduwill-eco-content="4259"></div>
+	
+</div>
+
+
+<div id="eduf-popup">
+	<div class="popupWrap">
+		<div class="popup-body">
+
+			<div data-popupcont="0" data-eduwill-eco-content="4258"></div>
+
+			<button id="eduf-popup-close" type="button" class="popup-close"><span class="sr-only">닫기</span></button>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="//img.eduwill.net/eduwill/live/js/common/EventPersonalKTK.js"></script>
+<script type="text/javascript">
+	
+	var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+	var url = window.location.href;
+
+	
+	document.addEventListener("DOMContentLoaded", function(){
+		
+		//합격자 명단
+		winnerList();
+		
+		var _slideCont = $('.slide-cont');
+		
+		_slideCont.slick({
+			autoplay: true,
+			slidesToShow : 1,
+			slidesToScroll : 1,
+			speed: 600,
+			infinite: true,
+			arrows: false,
+			dots: true,
+			variableWidth: true,
+			centerMode: true,
+			adaptiveHeight: true
+		});
+
+	});
+
+	
+
+	/* 합격자 명단 */
+	function winnerList(){
+		var options = {
+			jsonFileNm: '3202107_WINNER.min',
+		};
+
+		if(isMobile){
+			var slickOptions = {
+				speed: 1000,
+				slidesPerRow: 3,
+				slidesToShow: 6,
+			};
+		}else{
+			var slickOptions = {
+				speed: 1000,
+				slidesPerRow: 4,
+				slidesToShow: 7,
+			};
+		}
+
+		eduf.UI.Winner(".winner-list", options, slickOptions);
+	}
+</script>

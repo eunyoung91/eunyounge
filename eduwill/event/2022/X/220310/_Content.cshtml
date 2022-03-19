@@ -1,0 +1,195 @@
+﻿@{
+    string platform = (string)ViewBag.platformCd == "W" ? "pc" : "mobile";
+}
+@Html.Partial("/Views/Common/commPopupQuiz.cshtml")
+
+<!--팝업영영-->
+<div class="dimmed"></div>
+<!--// 팝업영영--->
+
+
+@* 근거문구팝업 *@
+<div class="eduf-layer eduf-layer-base" id="edufLayerBase">
+	<div class="eduf-layer-wrap">
+		<a href="javascript:edufLayerClose('#edufLayerBase');" class="eduf-layer-close"></a>
+		<div class="eduf-layer-title">
+			<strong>근거문구</strong>
+		</div>
+		<div class="eduf-layer-content">
+			<p class="eduf-layer-text">
+				<div data-eduwill-eco-content="4296"></div>
+			</p>
+		</div>
+	</div>
+</div>
+@* // 근거문구팝업 *@
+
+<script>
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+    var url = window.location.href;
+    var str = 'event.eduwill.net';
+    var checkUrl = url.indexOf(str);
+
+    $(function(){
+        frontInit();
+    });
+
+
+    function frontInit(){ 
+		create();
+		addEvent();
+    }
+
+
+	var _w;
+	var _sections = [];
+	var _isInSections = [];
+	var _pagination;
+	function create(){
+		_w = $(window);
+		_pagination = $(".pagination");
+
+		_sections = $( ".sector");
+		_sections.each( function( $index ){
+			_isInSections[ $index ] = false;
+		}); 
+	}
+
+	function addEvent(){
+		pageMove('.page-move');
+		
+		if(!isMobile && checkUrl){
+			onCompletePC();
+
+			scrollListener( null );
+			$(window).on( "scroll", scrollListener );
+
+		} 
+		$('.slider-single').each(function (key, item) {
+			var sliderIdName = 'singleSlider' + key;
+			this.id = sliderIdName;
+			var sliderId = '#' + sliderIdName;
+
+			$(sliderId).slick({
+				autoplay: true,
+				autoplaySpeed: 3000,
+				speed: 1000,
+				infinite: true,
+				arrows: false,
+				dots: false
+			});
+		});
+		$('.title-color').slick({
+			autoplay: true,
+			autoplaySpeed: 500,
+			speed: 1000,
+			fade:true,
+			swipe:false,
+			infinite: true,
+			arrows: false,
+			dots: false
+		});
+
+    }
+	function onCompletePC(){
+        var promotionTitle = $('.sector-title');
+   		
+		TweenMax.fromTo( promotionTitle.find('.title-0'), 1, { opacity: 0, x: 50 }, { opacity: 1, x:0, delay: .5, ease: Power1.easeOut });
+
+        TweenMax.fromTo( promotionTitle.find('.title-1'), .4, { opacity: 0, y: -100 }, { opacity: 1, y:0, delay: .3, ease: Back.easeOut.config(1), onComplete:function(){
+			promotionTitle.find(".btn-text").css({opacity:1});
+		}});
+
+        var _textMotion = promotionTitle.find("p");
+        var _item;
+        _textMotion.each(function (i) {
+
+			if(i != 0){
+				_item = $(this);
+				TweenMax.set(_item, { opacity: 0, x: -50 });
+				TweenMax.to(_item, 0.5, { opacity: 1, x: 0, delay: (0.1 * i) + 0.5, ease: Power1.easeOut });
+			}
+        });
+    }
+
+	function scrollListener( $e ){
+		var sT = _w.scrollTop();
+
+		_sections.each( function ( $index ){
+			
+		if(sT > $(this).offset().top-600){
+			if( _isInSections[ $index ] == true ) return;
+
+			var idx = $index+1;
+			pagination($index);
+
+			if(idx == 8){
+				var _blindMotion =   $("#sectorContents"+idx).find(".blind");
+				TweenMax.fromTo( _blindMotion, 0.5,{opacity:0, x:100},{opacity : 1, x:0, ease:Power1.easeOut});
+
+				var _listMotion =   $("#sectorContents"+idx).find(".text-box").children("p");
+				_listMotion.each( function( i ){   
+					TweenMax.fromTo( $(this), 0.5,{opacity:0, x:-100},{opacity : 1, x:0, delay: (0.15*i)+0.3,  ease:Power1.easeOut});
+				});
+			}else{
+				var _blindMotion =   $("#sectorContents"+idx).find(".blind");
+				TweenMax.fromTo( _blindMotion, 0.5,{opacity:0, x:-100},{opacity : 1, x:0,  ease:Power1.easeOut});
+
+				var _listMotion =   $("#sectorContents"+idx).find(".text-box").children("p");
+				_listMotion.each( function( i ){   
+					TweenMax.fromTo( $(this), 0.5,{opacity:0, x:100},{opacity : 1, x:0, delay: (0.15*i)+0.3,  ease:Power1.easeOut});
+				});
+			}
+		
+			_isInSections[ $index ] = true;
+
+		}else{
+			if( _isInSections[ $index ] == false ) return;
+
+			var idx = $index+1;  
+			pagination($index-1);
+
+			if(idx == 8){
+				var _blindMotion =   $("#sectorContents"+idx).find(".blind");
+				TweenMax.fromTo( _blindMotion, 0.5,{opacity:1, x:0},{opacity : 0, x:100, ease:Power1.easeOut});
+
+				var _nameMotion =   $("#sectorContents"+idx).find(".name");
+				TweenMax.fromTo(_nameMotion, 0.5,{opacity:1, x:0},{opacity : 0, x:100, delay:0.3,  ease:Power1.easeOut});
+
+				var _photoMotion =   $("#sectorContents"+idx).find(".teacher");
+				TweenMax.fromTo(_photoMotion, 0.5,{opacity:1, x:0},{opacity : 0, x:100, delay:0.2,  ease:Power1.easeOut});
+
+				var _listMotion =   $("#sectorContents"+idx).find(".text-box").children("p");
+				_listMotion.each( function( i ){   
+					TweenMax.fromTo( $(this), 0.5,{opacity:1, x:0},{opacity : 0, x:-100, delay: (0.15*i)+0.3,  ease:Power1.easeOut});
+				});
+			}else{
+				var _blindMotion =   $("#sectorContents"+idx).find(".blind");
+				TweenMax.fromTo( _blindMotion, 0.5,{opacity:1, x:0},{opacity : 0, x:-100, ease:Power1.easeOut});
+
+				var _nameMotion =   $("#sectorContents"+idx).find(".name");
+				TweenMax.fromTo(_nameMotion, 0.5,{opacity:1, x:0},{opacity : 0, x:-100, delay:0.3,  ease:Power1.easeOut});
+
+				var _photoMotion =   $("#sectorContents"+idx).find(".teacher");
+				TweenMax.fromTo(_photoMotion, 0.5,{opacity:1, x:0},{opacity : 0, x:-100, delay:0.2,  ease:Power1.easeOut});
+
+				var _listMotion =   $("#sectorContents"+idx).find(".text-box").children("p");
+				_listMotion.each( function( i ){   
+					TweenMax.fromTo( $(this), 0.5,{opacity:1, x:0},{opacity : 0, x:100, delay: (0.15*i)+0.3,  ease:Power1.easeOut});
+				});
+			}
+
+			_isInSections[ $index ] = false;
+
+		}
+		});
+	}
+
+	function pagination($idx){
+		var idx = $idx;
+		_pagination.find("li").removeClass("on");
+		_pagination.find("li").eq(idx).addClass("on");
+	}
+
+</script>
+

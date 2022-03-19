@@ -1,0 +1,34 @@
+@{
+    string viewPath = ((RazorView)ViewContext.View).ViewPath;
+    viewPath = viewPath.Remove(viewPath.LastIndexOf('/') + 1);
+}
+@* @Html.Partial(viewPath + "_Service.cshtml") *@
+
+@{
+    string cssUrl = ViewBag.IsLocal
+        ? "/Content/2022/L/event/220323/css/web.css"    // local 경로
+        : "//img.eduwill.net/eduwill/css/2022/L/event/220323/web.css";   // ftp 경로
+}
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/eduwill/css/2021/L/common/210329/web.css" />
+<link rel="stylesheet" type="text/css" href="@cssUrl" />
+<link rel="stylesheet" href="//img.eduwill.net/eduwill/dev/css/common/eduf.css">
+
+<div id="contents" class="promotion">
+	@Html.Partial(viewPath + "_Content.cshtml")
+	<div data-eduwill-eco-content="3545"></div>
+    <div data-eduwill-eco-content="2865"></div>
+    <div data-eduwill-eco-content="2857"></div>
+    <div data-eduwill-eco-content="2858"></div>
+    <div data-eduwill-eco-content="2859"></div>
+    <div data-eduwill-eco-content="2860"></div>
+    <div data-eduwill-eco-content="2861"></div>
+    <div data-eduwill-eco-content="2862"></div>
+    <div data-eduwill-eco-content="2863"></div>
+    <div data-eduwill-eco-content="2864"></div>
+    <div data-eduwill-eco-content="2866"></div>
+
+	@Html.Partial("/Views/Common/commQuiz5Sec.cshtml")
+	
+	<div data-eduwill-eco-content="2018"></div>
+	<div data-eduwill-eco-content="2020"></div>
+</div>

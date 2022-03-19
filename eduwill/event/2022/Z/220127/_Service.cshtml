@@ -1,0 +1,142 @@
+﻿@using EVENT.Models.Brief.Common
+@model List<BriefVO>
+
+@{
+    string strBriefPopTitle = "직영학원 시크릿 합격전략 설명회";
+    if (DateTime.Now < DateTime.Parse("2021-01-12 15:00:00"))
+    {
+        strBriefPopTitle = "Y";
+    }
+}
+<script type="text/javascript">
+
+	var userId = "@(UserSession.UserID)";
+	var platformCd = "@(ViewBag.PlatformCd)";
+    var currentIdx = 0;
+    var currentIdx2 = "강남";
+	 var currentIdx3 = "A";
+    var varData = "@(ViewBag.BriefMyUrl)";
+    var vApplyBrief01 = "@(ViewBag.Date01)";
+    var vApplyBrief02 = "@(ViewBag.Date02)"
+    var vBriefPopTitle = "@(strBriefPopTitle)";
+
+
+	var briefInfo = [];
+	@foreach(BriefVO brief in Model)
+	{
+	<text>
+	briefInfo.push({ eventIdx:@(brief.EventIdx), popupTitle:"@(brief.PopupTitle)" });
+	</text>
+	}
+
+    var openLayerPopup = function (idx, idx2, idx3) {
+
+        currentIdx = idx;
+        currentIdx2 = idx2;
+        currentIdx3 = idx3;
+
+        popupOpen('.dimmed', 'popup1_open');
+    }
+
+    var submitMainEventForm = function () {
+
+
+        $form = $("#mainEventForm");
+        $form.find("input[name=eventIdx]").val(briefInfo[currentIdx].eventIdx); // eventIdx 삽입
+
+        // 비로그인 사용자 > 유효성 검사
+
+        //if (userId == "") {
+            if ($form.find("input[name=userNm]").val() == "" || !/^[A-Z|가-힣|a-z|A-Z]+$/.test($form.find("input[name=userNm]").val())) { // 이름
+                alert("이름을 입력해 주세요");
+                return;
+            }
+            else if ($form.find("input[name=userHp]").val() == "" || !/^[0-9]{11}$/.test($form.find("input[name=userHp]").val())) { // 핸드폰 번호
+                alert("핸드폰 번호를 입력해 주세요");
+                return;
+            }
+            else if ($form.find("select[id=withPerson] option:selected").val() == "") { // 핸드폰 번호
+                alert("동반참석 인원을 입력해 주세요.");
+                return;
+            }
+            else if ($form.find("[id=personalYn]").is(":checked") == false) { // 개인정보 수집 동의
+                alert("개인정보 수집 및 이용에 동의해 주세요");
+                return;
+            }
+        //} else {
+        //    $form.find("input[name=userNm]").val("");
+        //    $form.find("input[name=userHp]").val("");
+        //}
+
+
+        // 확인 알럿
+        if (!confirm(briefInfo[currentIdx].popupTitle + " 설명회에 참석 신청하시겠습니까?")) {
+            return;
+        }
+
+        if ($form.find("input[id=marketingYn]:checked").val() == "Y") {
+            appMak = "Y"
+        }
+        else {
+            appMak = "N"
+        }
+
+
+        var tagValue = currentIdx + "^" + currentIdx2 + "^" + briefInfo[currentIdx].eventIdx + "^" + briefInfo[currentIdx].popupTitle + "^" + $form.find("input[name=userNm]").val() + "^" + $form.find("input[name=userHp]").val() + "^" + platformCd;
+
+        $form.find("input[name=strTag]").val(tagValue); // eventIdx 삽입
+
+        var formData = new FormData();
+        formData.append("evtidx", briefInfo[currentIdx].eventIdx);
+        formData.append("appUserName", $form.find("input[name=userNm]").val());
+        formData.append("appUserHp", $form.find("input[name=userHp]").val());
+        formData.append("strContents", $form.find("select[name='withPerson']").val());
+        formData.append("strKnowledgeYn", appMak);
+        formData.append("strTag", tagValue);
+
+
+
+        // 통신
+        $.ajax({
+            type: "POST"
+            , url: "AjaxSetInsertSecretBriefUser"
+            , dataType: "json"
+            , data: formData
+            , processData: false
+            , contentType: false
+            , success: function (data) {
+                console.dir(data);
+                result = data.Result;
+
+                if (result == "OK") {
+                    alert(briefInfo[currentIdx].popupTitle + " 설명회 참석 신청이 완료되었습니다");
+                }
+                else if (result == "EXIST-USER") {
+                    alert("이미 해당 설명회에 신청하셨습니다");
+                    //window.location.reload();
+                }
+                else if (result == "EXIST-GROUP") {
+                    alert("이미 다른 설명회에 신청하셨습니다");
+                    //window.location.reload();
+                }
+                else if (result == "BEFORE-EVENT") {
+                    alert("설명회 신청기간이 아니오니 설명회 일자 확인 바랍니다.");
+                    // window.location.reload();
+                }
+                else if (result == "END-EVENT") {
+                    alert("설명회가 마감되었습니다\n\n성원에 감사드립니다");
+                }
+                else {
+                    alert("신청 중에 오류가 발생했습니다\n\n다시 시도해 주세요 " + result);
+                }
+                window.location.reload();
+
+            }
+            , error: function (data) {
+                console.dir(data.responseText);
+            }
+
+        });
+	}
+
+</script>

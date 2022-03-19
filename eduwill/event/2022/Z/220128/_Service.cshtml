@@ -1,0 +1,290 @@
+﻿
+
+<script src="~/js/common/extension.js"></script>
+<script src="~/js/Lecture/commLct.js"></script>
+
+<script type="text/javascript">
+	
+	var platformCd = window.location.host.indexOf("mevent") > -1 ? "M" : "P";
+
+	$(document).ready(function () {
+		eventbind();
+	});
+
+	function execOninputEvent(that) {
+		$(that).val($(that).val().replace(/[^0-9.]/gi, ""));
+	}
+
+	function eventbind() {
+
+		$(".btn-apply").on("click", function () {
+
+            if ($(this).data("evtidx") == "10302") {
+                requestPopup("10302");
+            } else if ($(this).data("evtidx") == "10303") {
+                requestPopup("10303");
+            }
+        });
+
+
+	}
+
+	// 알림문자신청
+    function requestPopup(eventidx) {
+
+        var $form = $("#popupApply");
+		//로그인 확인
+		if (!"@(UserSession.UserID)") {
+			GoLogin();
+			return;
+		} else if (!$form.find("[name=userNm]").val() || !/^[가-힣\d*]+$/.test($("[name=userNm]").val())) {
+			alert("올바른 이름을 입력해 주세요.");
+			return;
+		} else if ($form.find("input[name=userHp]").val() == "" || !/^[0-9]{11}$/.test($form.find("input[name=userHp]").val())) { // 핸드폰 번호
+			alert("올바른 휴대폰번호를 입력해 주세요.");
+			return;
+		}
+
+        if (eventidx == "10303") {
+			if ($form.find("select[name=userCnt]").val() == "") {
+				alert("동반 참석 인원을 선택해 주세요.");
+				return;
+			}
+
+		}
+
+        if (!$form.find("[name=personalYn]").prop("checked")) {
+            alert("개인정보 수집 및 이용에 대한 동의는 필수입니다.");
+            return;
+        }
+
+		var param;
+		var okMsg = "";
+
+        if (eventidx == "10302") {
+			param = {
+                eventIdx: 10302,
+				userNm: $("[name=userNm]").val(),
+				userHp: $("[name=userHp]").val(),
+				personalYn: ($("[name=personalYn]").prop("checked") ? "Y" : "N"),
+				marketingYn: ($("[name=marketingYn]").prop("checked") ? "Y" : "N"),
+                couponIdxList: "3616, 3617",
+                freeLectureCodeList: "21Z0E0U00A",
+                basketProductcodeList: "21Z0E3800B",
+				content: platformCd,
+			};
+
+            okMsg = "12월 온라인 LIVE 박람회 알림문자 무료 신청이 완료되었습니다.\n족집게 봉투모의고사는 나의 강의실에서, 쿠폰은 마이페이지에서 확인 부탁드립니다.\n교재는 장바구니에 지급된 배송비 결제 시 순차 배송됩니다.";
+
+
+		}
+		else {
+
+			var userCnt = $("[name=userCnt]").val();
+
+             param = {
+                eventIdx: 10303,
+                userNm: $("[name=userNm]").val(),
+                userHp: $("[name=userHp]").val(),
+                personalYn: ($("[name=personalYn]").prop("checked") ? "Y" : "N"),
+                marketingYn: ($("[name=marketingYn]").prop("checked") ? "Y" : "N"),
+                 couponIdxList: "3616, 3617",
+                 freeLectureCodeList: "21Z0E0U00A",
+                 basketProductcodeList: "21Z0E3800B",
+                content: platformCd = " | 동반참석 :" + userCnt,
+				
+			};
+
+            okMsg = "12월 오프라인 박람회 참석 신청이 완료되었습니다.\n쿠폰은 마이페이지에서 확인 가능하며, NCS 기본서 & NCS 족집게 봉투 모의고사는 설명회 당일 참석 후 수령 가능합니다.";
+
+        }
+
+
+		$.ajax({
+			type: "POST"
+			, url: "/Requset/@(ViewBag.progressCd)/AjaxGiveBenefit"
+			, dataType: "json"
+			, data: JSON.stringify(param)
+			, contentType: "application/json"
+			, success: function (data) {
+				console.dir(data);
+				result = data.Result;
+
+				if (result == "OK") {
+					if (eventidx == "10302") {
+                        // 프로모션 관리에 데이타 추가 입력
+                        setPromoInsert();
+                    }
+                    alert(okMsg);
+				}
+				else if (result == "EXIST-USER") {
+					alert("이미 해당 이벤트에 신청하셨습니다.");
+					return;
+				}
+				else if (result == "BEFORE-EVENT") {
+					alert("이벤트 시작 전 입니다");
+					return;
+				}
+				else if (result == "END-EVENT") {
+					alert("이벤트가 마감되었습니다\n\n성원에 감사드립니다.");
+					return;
+				}
+				else {
+					alert("신청 중에 오류가 발생했습니다.\n\n다시 시도해 주세요. " + result);
+					return;
+				}
+
+				window.location.reload();
+
+			}
+			, error: function (data) {
+				console.dir(data.responseText);
+				alert(data.responseText);
+			}
+		});
+	}
+
+    // 프로모션관리쪽 저장을 위해서
+    function setPromoInsert() {
+
+        var param = {
+            solIdx: "2174"
+        };
+
+        //var rtn_result;
+
+        $.ajax({
+            type: "POST"
+            , url: "AjaxPassPackInsert"
+            , dataType: "json"
+            , data: JSON.stringify(param)
+            , async: false
+            , contentType: "application/json"
+            , success: function (data) {
+                //rtn_result = data;
+            }
+            , error: function (data) {
+                console.dir(data.responseText);
+            }
+
+        });
+
+        //return rtn_result;
+
+    }
+	function goMypage() {
+		var host = location.hostname.split(".")[0];
+
+		if (host.indexOf("-") > -1) {
+			return "//s-mypage.eduwill.net/coupon";
+		} else {
+			return "//mypage.eduwill.net/coupon";
+		}
+    }
+    function goBasket() {
+        var host = location.hostname.split(".")[0];
+
+        if (host.indexOf("-") > -1) {
+            return "//s-mypage.eduwill.net/basket";
+        } else {
+            return "//mypage.eduwill.net/basket";
+        }
+    }
+
+	// 타임특가 쿠폰 받기
+    function request10304() {
+		if (!"@(UserSession.UserID)") {
+			GoLogin();
+			return;
+		}
+
+		
+        var param = {
+            eventIdx: 10304,//8330,
+            couponIdxList: "3618",//"2913,2914",
+			content: platformCd,
+
+		};
+
+		$.ajax({
+			type: "POST"
+			, url: "/Requset/@(ViewBag.progressCd)/AjaxGiveBenefit"
+			, dataType: "json"
+			, data: JSON.stringify(param)
+			, contentType: "application/json"
+			, success: function (data) {
+				console.dir(data);
+				result = data.Result;
+
+				if (result == "OK") {
+					if (confirm('쿠폰이 발급되었습니다. \n마이페이지로 이동하시겠습니까?')) {
+						window.location.href = goMypage();
+					}
+					else if (result == "EXIST-USER") {
+						alert("이미 해당 이벤트 신청하셨습니다.");
+						return;
+					}
+					else if (result == "BEFORE-EVENT") {
+						alert("이벤트 시작 전 입니다");
+						return;
+					}
+					else if (result == "END-EVENT") {
+						alert("이벤트가 마감되었습니다\n\n성원에 감사드립니다.");
+						return;
+					}
+					else {
+						alert("신청 중에 오류가 발생했습니다.\n\n다시 시도해 주세요. " + result);
+						return;
+					}
+				}
+				else if (data.ResultMessage) {
+					alert(data.ResultMessage);
+				}
+				else {
+					alert("오류가 발생했습니다 " + result);
+					return;
+				}
+
+			}
+			, error: function (data) {
+				console.dir(data.responseText);
+				alert(data.responseText);
+			}
+		});
+	}
+
+    // 쿠폰이벤트
+    var submitBasketEventForm = function (couponCode) {
+
+        // 파라미터화
+
+        var param = {
+            productCodeList: couponCode
+        };
+        $.ajax({
+            type: "POST"
+            , url: "/Event/2021/0/AjaxSetOnlyInsertBasketProduct"
+            , dataType: "json"
+            , data: JSON.stringify(param)
+            , contentType: "application/json"
+            , success: function (data) {
+                result = data;
+
+                if (result == "OK") {
+
+                    if (confirm("설명회 당일 특가 상품이 장바구니에 담겼습니다. 마이페이지로 이동하시겠습니까?")) {
+                        window.location.href = goBasket();
+					}
+                } else {
+                    alert("오류가 발생했습니다 " + result);
+                    return;
+                }
+
+            }
+            , error: function (data) {
+                console.dir(data.responseText);
+            }
+        });
+    }
+
+</script>

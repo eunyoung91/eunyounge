@@ -1,0 +1,119 @@
+﻿@{
+    string viewPath = ((RazorView)ViewContext.View).ViewPath;
+    viewPath = viewPath.Remove(viewPath.LastIndexOf('/') + 1);
+}
+
+@{
+    string platform = ("W".Equals(ViewBag.PlatformCd)) ? "pc" : "mobile";
+	String link1 = ("W".Equals(ViewBag.PlatformCd)) ? "//nrarmy.eduwill.net/Single/SingleDetail?mIdx=209" : "//brand.eduwill.net/academy/sugang/SingleDetail.will?code=nrarmy&progress=W&productCd=22G0SZ781A&mIdx=209";
+	String link2 = ("W".Equals(ViewBag.PlatformCd)) ? "//nrarmy.eduwill.net/ProductAuto/Index?masterSeq=MzAxNzc=" : "//brand.eduwill.net/academy/sugang/view.will?mSeq=34180&progress=W&code=nrarmy";
+    if ( "W".Equals(ViewBag.PlatformCd) ){} else {}
+}
+
+<div id="contents" class="promotion">
+	@* <div class="fix-bottom">
+		<div class="wrap">
+			<div class="action">
+				<a href="#sectorCoupon" class="page-move">
+					<img src="//img.eduwill.net/eduwill/img/2022/_104/onair/220125/@platform/bottom_banner.png" alt="">
+				</a>
+			</div>
+		</div>
+	</div> *@
+
+    @if ("W".Equals(ViewBag.PlatformCd)) {
+        <div class="fix-right">
+			<div>
+                <a href="#applyBanner" class="page-move">
+                    <img src="//img.eduwill.net/eduwill/img/2022/G/event/220304_2/pc/wing.png" alt="">
+                </a>
+            </div>
+        </div>
+    }
+
+    <div class="sector-title">
+        <div class="wrap">
+			<img src="//img.eduwill.net/eduwill/img/2022/G/event/220304_2/@platform/title.png" alt="">
+            <div class="action apply">
+                <a href="#applyBanner" class="page-move">
+                    <img src="//img.eduwill.net/eduwill/img/2022/G/event/220304_2/@platform/btn_title.png" alt="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+	<div class="sector-banner-1">
+        <div class="wrap">
+			<img src="//img.eduwill.net/eduwill/img/2022/G/event/220304_2/@platform/banner_1.jpg" alt="">
+        </div>
+    </div>
+
+	<div class="sector-check-1">
+        <div class="wrap">
+			<img src="//img.eduwill.net/eduwill/img/2022/G/event/220304_2/@platform/check_1.jpg" alt="">
+        </div>
+    </div>
+
+	<div class="sector-check-2">
+        <div class="wrap">
+			<img src="//img.eduwill.net/eduwill/img/2022/G/event/220304_2/@platform/check_2.jpg" alt="">
+        </div>
+    </div>
+
+	<div class="sector-check-3">
+        <div class="wrap">
+			<img src="//img.eduwill.net/eduwill/img/2022/G/event/220304_2/@platform/check_3.jpg" alt="">
+        </div>
+    </div>
+
+	<div id="applyBanner" class="sector-banner-2">
+        <div class="wrap">
+			<img src="//img.eduwill.net/eduwill/img/2022/G/event/220304_2/@platform/banner_2.jpg" alt="">
+        </div>
+    </div>
+
+	<div class="sector-teacher-1">
+        <div class="wrap">
+			<img src="//img.eduwill.net/eduwill/img/2022/G/event/220304_2/@platform/teacher_1.jpg" alt="">
+			<div class="video">
+				<a href="javascript:edufLayerVideoOpen('//pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/2022/G/GEN-SAMPLE-HDJ.mp4');">
+					<img src="//img.eduwill.net/eduwill/img/2022/G/event/220304_2/@platform/thumbnail_1.png" alt="">
+				</a>
+			</div>
+			<div class="action">
+				<a href="@link1" target="_blank">
+					<img src="//img.eduwill.net/eduwill/img/2022/G/event/220304_2/@platform/btn_teacher_1.png" alt="">
+				</a>
+			</div>
+        </div>
+    </div>
+
+	<div class="sector-banner-3">
+        <div class="wrap">
+			<img src="//img.eduwill.net/eduwill/img/2022/G/event/220304_2/@platform/banner_3.jpg" alt="">
+			<div class="action">
+				<a href="@link2" target="_blank">
+					<img src="//img.eduwill.net/eduwill/img/2022/G/event/220304_2/@platform/btn_banner.png" alt="">
+				</a>
+			</div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+    var url = window.location.href;
+    var str = 'event.eduwill.net';
+    var checkUrl = url.indexOf(str);
+    var userId = "@(UserSession.UserID)";
+
+    $(function () {
+        frontInit();
+		@* if(isMobile == true){
+		} *@
+    });
+
+    function frontInit() {
+        pageMove('.page-move');
+    }
+</script>
