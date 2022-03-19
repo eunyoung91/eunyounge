@@ -1,0 +1,365 @@
+@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "module/animate";  
+@import "module/base";  
+@import "module/motion";  
+@import "module/popup";  
+
+.schedule{
+	font-family:$font-noto;
+	@include vw(padding, 48px 0 0 0);
+	.wrap{
+		max-width:720px;
+		margin:0 auto;
+	}
+    .contents-header{
+		@include vw(margin-bottom, 14px);
+        .wrap{
+			@extend %clearfix;
+            h3{
+                float:left;
+				display: inline-block;
+				font-style: normal;
+				font-weight: 500;
+				letter-spacing: -0.04em;
+				color: #000;
+				@include vw(font-size, 36px);
+				@include vw(line-height, 72px);
+				@include vw(padding, 0 32px);
+				@include vw(margin-bottom, 32px);
+            }
+        }
+    }
+
+    .contents-wrap{
+		.sector-tab{
+			@include vw(margin-bottom, 16px);
+			@include vw(padding, 0 32px);
+			.tab-list{
+				width:100%;
+				margin:0 auto;
+				@include vw(padding-top, 16px);
+				text-align: left;
+				background: #FFF;
+				box-shadow: inset 0px 1px 0px #EEEFF3, inset 0px -1px 0px #EEEFF3;
+				@extend %clearfix;
+				li{
+					float:left;
+					text-align: center;
+					font-weight: normal;
+					letter-spacing: -0.02em;
+					background:transparent;
+					transition:.5s all;
+					width:25%;
+					@include boxSizing(border-box);
+					@include vw(height, 72px);
+					@include vw(line-height, 72px);
+					@include vw(margin-bottom, 16px);
+					@include vw(border-radius, 40px);
+					@include vw(font-size, 28px);
+					&.active{
+						background: #000;
+						a{
+							color:#FDC300;
+						}
+					}
+					a{
+						display: inline-block;
+						width:100%;
+						height:100%;
+						color: #000;
+					}
+				}
+			}
+		}
+		.sector-list{
+			&.sector-subject{
+				@include vw(margin-bottom, 48px);
+				.table-box{
+					table{
+						thead, tbody, tfoot{
+							tr{
+								td{
+									text-align: center;
+								}
+							}
+						}
+						thead{
+							tr{
+								td{
+									color: #333;
+								}
+							}
+						}
+						tbody{
+							tr{
+								td{
+									color:#666;
+									strong{
+										font-weight: normal;
+										font-size: 15px;
+										color: #333333;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			.title-box{
+				@include vw(padding, 32px 32px);
+				text-align: left;
+				h4{
+					font-weight: 500;
+					@include vw(font-size, 36px);
+					@include vw(line-height, 48px);
+					letter-spacing: -0.04em;
+					color: #000000;
+					display: block;
+					vertical-align: top;
+				}
+				span{
+					display: block;
+					vertical-align: top;
+					font-weight: normal;
+					@include vw(font-size, 26px);
+					@include vw(line-height, 36px);
+					@include vw(margin-top, 16px);
+					letter-spacing: -0.03em;
+					color: #666;
+				}
+			}
+			.list-scroll{
+				overflow: hidden;
+				white-space: nowrap;
+				display: block;
+				overflow-y: scroll !important;
+				-webkit-overflow-scrolling: touch;
+			}
+			.list-box{
+				@include vw(padding, 16px 32px);
+				.list{
+					@include boxSizing(border-box);
+					background: #FFF;
+					border: 1px solid #E4E4E4;
+					box-sizing: border-box;
+					@include vw(border-radius, 12px);
+					@include vw(margin-bottom, 16px);
+					@include vw(padding, 32px);
+					text-align: left;
+					.flag{
+						// display: table;
+						display: flex;
+						justify-content: space-between;
+						.round{
+							// display: table-cell;
+							vertical-align: middle;
+							font-weight: bold;
+							color: #333;
+							text-align: center;
+							background: #FDC300;
+							@include vw(font-size, 26px);
+							@include vw(line-height, 36px);
+							@include vw(padding, 0 8px);
+						}
+						.dday{
+							// display: table-cell;
+							vertical-align: middle;
+							font-weight: bold;
+							color: #333;
+							@include vw(font-size, 26px);
+							@include vw(line-height, 36px);
+						}
+					}
+
+					.info{
+						@include vw(margin-top, 24px);
+						dl{
+							width:100%;
+							display: table;
+							@include vw(margin-bottom, 8px);
+							.sat{
+								color:#2F6BDC;
+							}
+							.sun{
+								color:#E9443B;
+							}
+							dt{
+								display: table-cell;
+								width:30%;
+								text-align: left;
+								font-weight: normal;
+								@include vw(font-size, 22px);
+								@include vw(line-height, 36px);
+								letter-spacing: -0.03em;
+								color: #999;
+							}
+							dd{
+								display: table-cell;
+								width:70%;
+								text-align: left;
+								font-weight: normal;
+								@include vw(font-size, 22px);
+								@include vw(line-height, 36px);
+								letter-spacing: -0.03em;
+								color: #666;
+								white-space: initial
+							}
+						}
+					}
+				}
+			}
+
+			.table-summary{
+				@include vw(padding, 0 48px);
+				@extend %clearfix;
+				@include boxSizing(border-box);
+				text-align: center;
+				@include vw(margin-bottom, 16px);
+				.summary{
+					display:table;
+					float:left;
+					text-align: center;
+					background: #FAFAFA;
+					border: 1px solid #E4E4E4;
+					@include vw(margin-right, 16px);
+					@include vw(width, 144px);
+					@include vw(height, 144px);
+					@include vw(border-radius, 128px);
+					@include boxSizing(border-box);
+					&:last-child{
+						margin-right: 0;
+					}
+					span{
+						display: table-cell;
+						vertical-align: middle;
+						font-weight: bold;
+						@include vw(font-size, 26px);
+						@include vw(line-height, 38px);
+						text-align: center;
+						letter-spacing: -0.03em;
+						color: #666;
+					}
+				}
+			}
+			
+			.table-title{
+				font-weight: normal;
+				text-align: left;
+				@include vw(padding, 0 32px);
+				@include vw(margin, 32px auto 16px);
+				@include vw(font-size, 26px);
+				@include vw(line-height, 40px);
+				color: #333;
+			}
+			.table-box{
+				@include vw(padding, 0 32px);
+				table{
+					width: 100%;
+					border-collapse: collapse;
+					border-spacing: 0px;
+					empty-cells: show;
+					table-layout: fixed;
+					border-top: 1px solid #999;
+					background:#fff;
+					thead, tbody, tfoot{
+						tr{
+							td{
+								//vertical-align: top;
+								text-align: left;
+								@include vw(padding, 16px 5px);
+								font-weight: normal;
+								@include vw(font-size, 26px);
+								@include vw(line-height, 36px);
+								border-bottom: 1px solid #EEEFF3;
+								border-right: 1px solid #EEEFF3;
+							}
+						}
+					}
+					thead{
+						tr{
+							td{
+								background:#fafafafa;
+								color: #777;
+							}
+						}
+					}
+					tbody{
+						tr{
+							td{
+								background:#fff;
+								color:#222;
+							}
+						}
+					}
+					tfoot{
+						tr{
+							td{
+								background:#fafafafa;
+								color: #000;
+								border-bottom: 1px solid #999;
+							}
+						}
+					}
+				}
+			}
+
+			.notice-box{
+				@include vw(padding, 0 32px);
+				@include vw(margin-top, 16px);
+				text-align: left;
+				li{
+					position: relative;
+					font-weight: normal;
+					@include vw(padding-left, 18px);
+					@include vw(font-size, 24px);
+					@include vw(line-height, 32px);
+					letter-spacing: -0.02em;
+					color: #999;
+					&:before{
+						position: absolute;
+						left:0;
+						vertical-align: middle;
+						content:'ㆍ';
+					}
+				}
+			}
+			
+			.button-box{
+				@extend %clearfix;
+				@include boxSizing(border-box);
+				@include vw(padding, 0 32px);
+				@include vw(margin-top, 48px);
+				@include vw(margin-bottom, 64px);
+				li{
+					display:inline-block;
+					@include vw(margin-bottom, 16px);
+					&:last-child{
+						margin-bottom: 0;
+					}
+					button{
+						margin:0;
+						padding:0;
+						display:block;
+					}
+				}
+			}
+		}
+
+		.sector-banner{
+
+		}
+		
+		hr{
+			width:100%;
+			border:0;
+			margin:0;
+			@include vw(height, 20px);
+			background: #F1F1F1;
+		}
+    }
+}
+
+

@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ko" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+<title></title>
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/product.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/product.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.min.js"></script>
+<!-- // 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+    컨텐츠 감싸는 부모 : product-eco
+    하단 수강신청 영역 : product-apply
+    하단 수강신청 영역 내 탭 : product-tab
+    하단 수강신청 영역 내 정보 : product-table
+    따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+
+<style type="text/css">
+	.product-eco { font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; }
+	.product-eco .container { position: relative; width: 100%; background-repeat: no-repeat; background-position: center top; }
+	.product-eco .wrap { position: relative; width: 1100px; margin: 0 auto; }
+	.product-eco .fly { position: absolute;}
+
+    /* hidden */
+    .product-eco .hidden,
+    .product-eco .sr_only,
+    .product-eco .sr-only { display: inline-block; position: absolute; z-index: -1; clip: rect(0 0 0 0); width: 1px; height: 1px; *height: 0; margin: -1px; padding: 0; overflow: hidden; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }
+
+	/* grid */
+	.product-eco .grid { box-sizing: border-box; -webkit-box-sizing: border-box; *zoom: 1; }
+	.product-eco .grid:before,
+	.product-eco .grid:after { content: ''; display: table; }
+	.product-eco .grid:after { clear: both; }
+	.product-eco .grid .col { float: left; box-sizing: border-box; -webkit-box-sizing: border-box; }
+
+	/* banner */
+	.product-eco .banner-top { z-index: 10; background-color: #2f0c0c; -webkit-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .5); -moz-box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .5); box-shadow: 0 5px 15px 0 rgba(0, 0, 0, .5); }
+	.product-eco .banner-follow { position: fixed; top: 25%; left: 50%; z-index: 100; margin-left: 550px; display: none;}
+	.product-eco .banner-follow a { display: block; }
+	.product-eco .banner-follow a:last-child { margin-top: 14px; }
+	.topBanner { background-color: #22223a; }
+
+	/* contents */
+	.product-eco .product-title { z-index: 1; height: 765px; background-color: #ea3d3d; }
+	.product-eco .product-title .bg-wrap { width: 100%; margin-bottom: -183px; background: url('https://img.eduwill.net/Img2/Ten/Product/event_new/190801/bg_title.png') no-repeat center top; }
+	.product-eco .product-title + .section,
+	.product-eco .product-title + .container { padding-top: 183px; background: #efefef;}
+	.product-eco .product-title .pass-text { top: 478px; left: 605px;}
+	.product-eco .product-title .pass-text span { display: inline-block; font-size: 24px; font-weight: 400; letter-spacing: -1px; color: #000;}
+	.product-eco .bg-gray { background-color: #efefef; }
+	.product-eco .product-benefit { z-index: 1; background-color: #61ff7a; }
+	.product-eco .product-benefit img { margin-top: -54px; }
+	.product-eco .product-apply-text { background-color: #282828; }
+
+	.product-eco .product-tab-wrap { position: absolute; top: 787px; right: 98px; left: 101px; }
+	.product-eco .product-tab-list li { width: 33.33%; padding-left: 3px; }
+	.product-eco .product-tab-list li:first-child { width: 33.34%; padding-left: 0; }
+	.product-eco .product-tab-list a { display: table; width: 100%; height: 64px; font-size: 24px; font-weight: 700; color: #8e8e8e; border-radius: 5px 5px 0 0; background-color: #c5c5c5; }
+	.product-eco .product-tab-list span { display: table-cell; vertical-align: middle; }
+
+	.product-eco .product-tab-list .in a { color: #fff; background-color: #e93434; }
+	.product-eco .product-tab-contents .item { display: none; }
+	.product-eco .product-tab-contents .item.in { display: block; }
+
+	.product-eco .floating { position: fixed;right: 0;top: 400px;z-index: 3000;width: 142px;}
+	
+	.product-eco .section_refund { padding-bottom: 73px;}
+	.product-eco .section_refund .refund_img { margin-bottom: 35px;}
+	.product-eco .discount_box .box .btn_price .ico_discount { top: -24px;}
+
+    /* section_refund */
+    .product-eco .floating { position: fixed; left:50%; margin-left: 600px;top: 400px;z-index: 3000;width: 166px;}
+    .product-eco .floating .day_box { position: absolute; top: 191px; left: 0; right: 0; width: 100%; height: 37px; text-align: center; line-height: 37px;}
+    .product-eco .floating .day_box p { display: inline-block; padding: 0; margin: 0; line-height: 37px; color: #fff; font-size: 16px; font-family: verdana; font-weight: bold; letter-spacing: -1px;}
+    .product-eco .floating .day_box p span { color: #fff; font-size: 16px; font-family: verdana; font-weight: bold; letter-spacing: -1px;}
+    .product-eco .floating .btn-close { position: absolute; display: block; width: 36px; height: 36px; top: 0; right: 0; z-index: 10;}
+    .product-eco .section_refund { position: relative; padding: 250px 0 110px; background: #fff;}
+    .product-eco .section_refund .wrap { position: relative; width: 1100px; margin: 0 auto;}
+    .product-eco .section_refund .wrap .flag { position: absolute; top: 36px; left: 45px; z-index: 10;}
+    .product-eco .section_refund .action { display: block; position: absolute; top:61px; right: 77px; width: 174px; height: 174px; z-index: 10;}
+    .product-eco .section_refund .icon-hand { position: absolute; top: 133px; right: -5px; width: 66px; animation: slideUp 1s infinite;}
+    @keyframes slideUp{
+        0%, 100% {
+            -webkit-transform: translateY(5px); transform: translateY(5px);
+        }
+        50% {
+            -webkit-transform: translateY(-5px); transform: translateY(-5px);
+        }
+    }
+</style>
+
+<div class="product-eco">
+    <div class="top-banner" style="text-align: center; background-color: #ffdb34;">
+        <a href="#ecoRefund" class="page_move">
+            <img src="https://img.eduwill.net/Img2/Ten/product/event_new/190801/refund_top.gif" alt="7월개강혜택 평생환급 혜택">
+        </a>
+    </div>
+	<!-- <div class="top-banner" style="text-align: center; background-color: #fff000;">
+		<a href="https://event.eduwill.net/Event/2020/0/BrandingPromo" target="_blank">
+			<img src="https://img.eduwill.net/Img2/Common/Banner/topBanner/pc/200226/top_banner_gov.png" alt="공무원 1위 에듀윌 합격자 수 215% 증가!">
+		</a>
+    </div> -->
+
+    <div class="floating" id="refundTimer">
+        <div class="day_box">
+            <p>D-<span class="day">00</span>&nbsp;</p>
+            <p><span class="hour">00</span>:</p>
+            <p><span class="min">00</span>:</p>
+            <p><span class="sec">00</span>:</p>
+            <p><span class="msec">00</span></p>
+            <!-- <p><span class="msec">00</span></p> -->
+        </div>
+        <a class="btn-close" href="#" onclick="javascript:document.getElementById('refundTimer').style.display='none'; return false;"><span class="sr-only">닫기</span></a>
+        <a class="page_move" href="#ecoRefund"><img alt="" src="https://img.eduwill.net/Img2/Gov2/product/event/190926/pc/floating_refund.png" /></a>
+    </div>
+
+	<div class="banner-follow">
+		<a href="#productBenefit" class="page_move">
+			<img src="https://img.eduwill.net/Img2/Ten/Product/event_new/190801/banner_follow.png" alt="어렵고 헷갈리는 금융상품 한번에 정리하자" />
+		</a>
+		<a href="#prductCurriculum" class="page_move">
+			<img src="https://img.eduwill.net/Img2/Ten/Product/event_new/190801/banner_follow_2.png" alt="어렵고 헷갈리는 금융상품 한번에 정리하자" />
+		</a>
+	</div>
+
+	<div class="container product-title"><!-- product-title -->
+		<div class="bg-wrap">
+			<div class="wrap">
+				<div class="fly pass-text"><span class="eco-pass-text">언제든 합격시</span></div>
+				<img src="https://img.eduwill.net/Img2/Ten/Product/event_new/190801/img_01_200717.png" alt="0원 평생패스" />
+			</div>
+		</div>
+	</div><!-- // product-title -->
+
+	
+    <div class="section_refund">
+        <div class="wrap">
+            <div class="flag"><img alt="7월 한정 혜택" src="https://img.eduwill.net/Img2/Ten/Product/event_new/190801/refund_flag.gif" /></div>
+            <a class="action page_move" href="#productApply"><span class="icon-hand"><img alt="포인터" src=" https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png" /></span> </a>
+            <img alt="" src="https://img.eduwill.net/Img2/Ten/Product/event_new/190801/refund_img.png" />
+        </div>
+    </div>
+
+	<div id="prductCurriculum" class="container bg-gray">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/Ten/Product/event_new/190801/img_02_191120.jpg" alt="01. 바로 지금이 적기! 우리에겐 확실한 기회와 충분한 시간이 있습니다." />
+		</div>
+	</div>
+
+	<div class="container bg-gray">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/Ten/Product/event_new/190801/img_03_191120.jpg" alt="02. 평생패스에서만 누릴 수 있는 특별한 구성! 최신개정판으로 퀄리티 높은 강좌가 제공됩니다." />
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/Ten/Product/event_new/190801/img_04_200214.jpg" alt="03. 합격할 수 밖에 없는 독한관리 시스템" usemap="#mapCare" />
+			<map name="mapCare">
+				<area shape="rect" coords="561,493,990,546" href="http://event.eduwill.net/Simple/T/Smart_200131?eco=126" target="_blank" alt="자세히보기">
+			</map>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/Ten/Product/event_new/190801/img_07.jpg" alt="에듀윌 지식인" usemap="#mapKin" />
+			<map name="mapKin" id="mapKin">
+				<area shape="rect" coords="111,214,316,247" href="https://king.eduwill.net" target="_blank" alt="자세히 보기" />
+			</map>
+		</div>
+	</div>
+
+	<div id="productBenefit" class="container product-benefit"><!-- product-benefit -->
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/Ten/Product/event_new/190801/img_05_200720.png" alt="오직 에듀윌에서만 누릴 수 있는 추가 혜택!" />
+		</div>
+	</div><!-- // product-benefit -->
+
+	<div id="productApplyText" class="container product-apply-text"><!-- product-apply-text -->
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/Ten/Product/event_new/190801/img_06_200720.jpg" alt="계리직 0원 평생패스 수강신청" />
+		</div>
+	</div><!-- // product-apply-text -->
+</div>
+<script type="text/javascript">
+	/*getEcoDynamicForClass(1547, 'eco-pass-text'); // 상단 혜택문구*/
+	getEcoDynamicForClass(1502, 'eco-date'); // 평생환급 마감날짜
+
+	$(function() {
+		$(document).on('click', '.product-tab-list a', function() {
+			var $this = $(this),
+				$tabList = $this.parents('ul'),
+				_idx = $this.closest('li').index();
+
+			$tabList.children().eq(_idx).addClass('in').siblings().removeClass('in');
+			$tabList.next().children().eq(_idx).addClass('in').siblings().removeClass('in');
+		});
+        getTimer();
+
+	});
+
+    function getTimer(){
+        var delay = 10;
+        var end = new Date("Jul 31,2020,20:59").getTime();
+        var _second = 1000;
+        var _minute = _second * 60;
+        var _hour = _minute * 60;
+        var _day = _hour * 24;
+
+        function showSec() {
+            var now = new Date();
+            var distance = end - now;
+            if (distance < 0 ) {
+                $(".day_box").find(".day").text("00");
+                $(".day_box").find(".hour").text("00");
+                $(".day_box").find(".min").text("00");
+                $(".day_box").find(".sec").text("00");
+                $(".day_box").find(".msec").text("00");
+
+            } else {
+                var days = Math.floor(distance / _day);
+                var hours = Math.floor( (distance % _day ) / _hour );
+                var minutes = Math.floor( (distance % _hour) / _minute );
+                var seconds = Math.floor( (distance % _minute) / _second );
+                var mseconds =  "00";
+                try { mseconds = Math.floor( (distance % _minute) % 1000).toString().substring(0,2); } catch(e) {}
+
+                $(".day_box").find(".day").text((days.toString().length == 1) ? "0"+days : days);
+                $(".day_box").find(".hour").text((hours.toString().length == 1) ? "0"+hours : hours);
+                $(".day_box").find(".min").text((minutes.toString().length == 1) ? "0"+minutes : minutes);
+                $(".day_box").find(".sec").text((seconds.toString().length == 1) ? "0"+seconds : seconds);
+                $(".day_box").find(".msec").text(mseconds);
+
+                setTimeout(showSec, delay);
+            }
+        }
+
+        setTimeout(showSec, delay);
+    }
+</script>
+
+</body>
+</html>

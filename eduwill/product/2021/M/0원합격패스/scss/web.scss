@@ -1,0 +1,301 @@
+@charset "utf-8";
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+@import "module/motion";
+
+.product {
+	&-eco {
+		overflow-x: hidden;
+		* {
+			line-height: normal;
+			font-family: $font-roboto;
+			letter-spacing: -1px;
+		}
+		.container {
+			position: relative;
+			.item {
+				position: relative;
+			}
+		}
+		.wrap {
+			position: relative;
+			width: 1200px;
+			margin: 0 auto;
+			text-align: center;
+			.product-full {
+				width: 100%;
+			}
+		}
+		p {
+			margin: 0;
+			padding: 0;
+			font-size: 14px;
+			color: #666;
+			font-family: $font-roboto;
+		}
+		.only-pc { display: block;}
+		.only-mobile { display: none;}
+
+		// 근거 문구 버튼 
+		.action {
+			position: absolute;
+			top: 0;
+		}
+	}
+
+	&-flag {
+		position: fixed;
+		top: 20%;
+		right: 0;
+		z-index: 10;
+	}
+
+	&-title {
+		@include bg($color: #fff, $url: '#{$img-path}/pc/bg_title.jpg', $size: cover);
+		.price-box {
+			position: relative;
+			.flag {
+				position: absolute;
+				top: 5px;
+				left: 125px;
+				font-size: 18px;
+				color: #fff;
+				span {
+					color: #ffe000;
+				}
+			}
+			.box {
+				position: absolute;
+				top: 38px;
+				left: 105px;
+				width: 750px;
+				height: 118px;
+				background: #fff;
+				.price {
+					&-title {
+						display: table-cell;
+						height: 100%;
+						font-size: 31px;
+						color: #7b7f8b;
+						font-weight: 400;
+						line-height: 118px;
+						padding-left: 40px;
+					}
+
+					&-before {
+						display: table-cell;
+						font-size: 34px;
+						color: #adadad;
+						font-weight: 500;
+						line-height: 118px;
+						padding-left: 50px;
+						&:after {
+							content: '';
+							position: absolute;
+							top: 48px;
+							right: 0;
+							left: 230px;
+							display: block;
+							width: 200px;
+							height: 20px;
+							background: url('https://img.eduwill.net/eduwill/img/2021/M/product/210720/pc/price_arrow.png') no-repeat right 0;
+						}
+					}
+
+					&-after {
+						position: absolute;
+						top: 20px;
+						right: 60px;
+						font-size: 50px;
+						color: #1b2542;
+						font-weight: 800;
+						&.origin {
+							font-size: 39px;
+							top: 27px;
+							.desc{
+								text-align: left;
+								font-size: 15px;
+								font-weight: 500;
+								color: rgba(0,0,0, .5);
+								margin-top: -4px;
+							}
+						}
+						.price-after-flag {
+							width: 160px;
+							height: 23px;
+							background: #00b48c;
+							font-size: 18px;
+							line-height: 23px;
+							padding: 1px;
+							color: #fff;
+							font-weight: 400;
+							letter-spacing: -2;
+							margin-bottom: -10px;
+						}
+						.highlight {
+							color: #00b48c;
+						}
+					}
+				}
+			}
+			.action {
+				width: 250px;
+				height: 135px;
+				position: absolute !important;
+				top: 29px;
+				right: 95px;
+				@include pointer(70%, 0, 66px, 73px, 12, bounce);
+			}
+		}
+	} 
+
+	&-graph {
+		@include bg($color: #fff, $url: '#{$img-path}/pc/bg_graph.jpg', $size: cover);
+	}
+
+	&-video {
+		@include bg($color: #fff, $url: '#{$img-path}/pc/bg_video.jpg', $size: cover);
+		padding-bottom: 37px;
+		.item {
+			position: relative;
+		}
+		.video-list {
+			width:1140px;
+			margin:0 auto;
+			box-sizing: border-box;
+			background-color: rgba(243, 243, 243, .2);
+			padding:60px 50px;
+			.list {
+				@extend .grid;
+				text-align: center;
+				margin-top: 43px;
+				&:first-child { margin-top: 0; }
+				.item { @extend .col;}
+				.video {
+					position: relative;
+					width: 506px;
+					height: 285px;
+					a {
+						position: absolute;
+						top: 0;
+						right: 0;
+						bottom: 0;
+						left: 0;
+						z-index: 1;
+					}
+				}
+			}
+		}
+		.action {
+			position: relative;
+			margin: 40px auto;
+			left: 0;
+			box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+		}
+	}
+
+	&-winner-list {
+		background:url(#{$img-path}/pc/bg_winner_list.jpg) no-repeat 50% 0;
+		background-size:cover;
+		.wrap{
+			width:100%;
+			margin:0 auto;
+			text-align: center;
+		}
+		.winner-wrap {
+			position: absolute;
+			top:300px;
+			left:0;
+			right:0;
+			margin:0 auto;
+			max-width:2000px;
+			padding: 0 90px 0 70px;
+			.winner-list{
+				-webkit-transform-origin: 50% 100%;
+				-ms-transform-origin: 50% 100%;
+				transform-origin: 50% 100%;
+				-webkit-transform: perspective(600px) rotateX(40deg);
+				-ms-transform: perspective(600px) rotateX(40deg);
+				transform: perspective(600px) rotateX(30deg); // perspective 수치가 낮을수록 좌우로 확장
+				p {
+					font-family: $font-noto;
+					color: #a69c0e;
+					font-size: 22px;
+					line-height: 1.5;
+					margin:10px 0;
+					font-weight: 700;
+					text-align: center;
+					&:nth-child(2){
+						text-align: left;
+					}
+					&:nth-child(3){
+						text-align: right;
+					}
+				}
+			}
+			.slick-track {
+				-webkit-transform: translate(0) !important;
+				-ms-transform: translate(0) !important;
+				transform: translate(0) !important;
+			}
+		}
+	}
+
+	&-winner {
+		@include bg($color: #fff, $url: '#{$img-path}/pc/bg_winner.jpg', $size: cover);
+		.action {
+			top: 899px;
+			right: 0;
+		}
+	} 
+
+	&-guinness {
+		padding-bottom: 130px;
+		.action {
+			top: 1000px;
+			right: 0;
+		}
+		.item-contents {
+			width: 975px;
+			margin: 0 auto;
+			height: 330px;
+			margin-top: -50px;
+			.winner-item-list {
+				-webkit-transform: perspective(600px) rotateX(40deg);
+				-ms-transform: perspective(600px) rotateX(40deg);
+				transform: perspective(600px) rotateX(40deg);
+				.slick-track {
+					-webkit-transform: translate(0) !important;
+					-ms-transform: translate(0) !important;
+					transform: translate(0) !important;
+				}
+				.slick-slide {
+					margin-top: 30px;
+				}
+				.slick-list {
+					height: 330px !important;
+					img { margin: 0 auto; }
+					&:before {
+						content: '';
+						display: block;
+						position: absolute;
+						top: 0;
+						left: 0;
+						right: 0;
+						width: 1000px;
+						height: 150px;
+						z-index: 1000000;
+						background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0)), to(white));
+						background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, white 100%);
+					}
+				}
+			}
+		}
+	}
+
+	&-support {
+		background: #e4f1eb;
+	}
+}

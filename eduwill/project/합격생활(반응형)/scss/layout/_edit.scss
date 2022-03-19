@@ -1,0 +1,536 @@
+.edit {
+	@include rem(margin-bottom, 16px);
+	@include breakpoint(desktop){
+		margin-bottom: 0;
+	}
+	.pass-info .heading {
+		a {
+			position: relative;
+			display: inline-block;
+			vertical-align: middle;
+			line-height: 1;
+			@include rem(width, 24px);
+			@include rem(height, 30px);
+			&:before {
+				left: 0;
+				@include arrow(left, 10px, 10px, 1px, $color-base-2);
+			}
+			&:after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 0;
+				display: block;
+				background-color: $color-base-2;
+				@include rem(width, 15px);
+				@include rem(height, 1px);
+			}
+		}
+	}
+	&-dashboard {
+		@extend %frame;
+		@include rem(margin-top, 20px);
+		@include rem(padding-bottom, 30px);
+		@include breakpoint(desktop){
+			margin-top: 10px;
+		}
+		&.fail-step-1 {
+			.step-1 .heading:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				width: 100%;
+				background-color: $color-primary;
+				opacity: .1;
+				@include rem(height, 40px);
+			}
+			.edit-action {
+				.caution-step-1 { display: block; }
+			 	.complete { @extend .disabled; }
+			}
+		}
+		&.fail-step-3 {
+			.step-3 .heading:before,
+			.total:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				width: 100%;
+				background-color: $color-primary;
+				opacity: .1;
+				@include rem(height, 40px);
+			}
+			.edit-action {
+				.caution-step-3 { display: block; }
+			 	.complete { @extend .disabled; }
+			}
+		}
+	}
+	&-step {
+		@extend %clearfix;
+		@include rem(padding-top, 30px);
+		.step {
+			overflow-x: hidden;
+			@include rem(margin-top, 60px);
+			@include rem(padding, 0 20px 24px);
+			&:first-child { margin-top: 0; }
+			&-3 {
+				@include rem(padding-bottom, 12px);
+				@include breakpoint(desktop){
+					@include rem(padding-bottom, 24px);
+				}
+			}
+			@include breakpoint(desktop){
+				float: left;
+				width: 33.33%;
+				margin-top: 0;
+				border-left: 1px solid $border-color-3;
+				@include boxSizing(border-box);
+				&:first-child {
+					border-left-width: 0;
+				}
+			}
+		}
+		.heading {
+			@extend .grid;
+			@include rem(font-size, 30px);
+			@include breakpoint(minMobile){
+				@include rem(font-size, 28px);
+			}
+			span {
+				@extend .col;
+				@include rem(margin-left, 6px);
+				@include breakpoint(desktop){
+					margin-left: 2px;
+				}
+			}
+			em {
+				font-family: $armata;
+				font-weight: 400;
+				@extend .col;
+			}
+		}
+		.desc {
+			color: $color-base-1;
+			@include rem(min-height, 40px);
+			@include rem(margin-top, 30px);
+			@include rem(font-size, 14px);
+		}
+		.holder {
+			@include rem(margin-top, 8px);
+			@include breakpoint(desktop){
+				min-height: 328px;
+			}
+			li {
+				@include rem(margin-top, 8px);
+				&:first-child { margin-top: 0; }
+			}
+			.step-action {
+				background-color: $border-color-1;
+				@include rem(border-radius, 36px);
+				a {
+					width: 33.33%;
+					text-align: center;
+					font-weight: 700;
+					color: $color-base-1;
+					border-width: 2px;
+					border-style: solid;
+					border-color: transparent;
+					@include rem(padding, 6.5px 0);
+					@include rem(font-size, 14px);
+					@include rem(border-radius, 36px);
+					&.in {
+						color: $color-primary;
+						border-color: $border-color-1;
+						background-color: $color-white;
+					}
+				}
+			}
+			.table {
+				.article { position: relative; }
+				.subject {
+					color: $color-base-2;
+					@extend %textEllipsis;
+					@include rem(font-size, 18px);
+				}
+				.control {
+					position: absolute;
+					display: block;
+					&.delete {
+						@include close(28px, 28px, 2px, $color-primary);
+						top: 50%;
+						right: auto;
+						left: 2%;
+						@include rem(margin-top, -14px);
+					}
+					&.handle {
+						top: 0;
+						right: 0;
+						width: calc(100% - 38px);
+						@include rem(height, 38px);
+						&:before,
+						&:after { content: ''; }
+						&:before,
+						&:after,
+						span {
+							position: absolute;
+							@include rem(right, 16px);
+							@include rem(width, 16px);
+							@include rem(height, 2px);
+							@include rem(margin, -1px 0 0 -8px);
+							@include rem(border-radius, 2px);
+							background-color: $border-color-1;
+						}
+						&:before { top: 40%; }
+						span { top: 50%; }
+						&:after { top: 60%; }
+					}
+					&.plus {
+						top: 50%;
+						right: 0;
+						border-radius: 50%;
+						background-color: $bg-color-4;
+						@include rem(width, 28px);
+						@include rem(height, 28px);
+						@include rem(margin-top, -14px);
+						&:before,
+						&:after {
+							content: '';
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							@include rem(width, 12px);
+							@include rem(height, 2px);
+							@include rem(margin, -1px 0 0 -6px);
+							@include rem(border-radius, 2px);
+							background-color: $color-white;
+						}
+						&:after { @include rotate(90deg); }
+					}
+				}
+				&.change {
+					.article {
+						@include rem(margin-top, 16px);
+						@include rem(padding-left, 14px);
+						@include boxSizing(border-box);
+						&:first-child { @include rem(margin-top, 20px); }
+						&:before {
+							content: '';
+							position: absolute;
+							top: 0;
+							left: 0;
+							display: inline-block;
+							@include rem(width, 6px);
+							@include rem(height, 32px);
+							@include rem(border-radius, 8px);
+						}
+						&-1:before { background-color: $label-color-1; }
+						&-2:before { background-color: $label-color-2; }
+						&-3:before { background-color: $label-color-3; }
+						&-4:before { background-color: $label-color-4; }
+						&-5:before { background-color: $label-color-5; }
+						&-6:before { background-color: $label-color-6; }
+						&-7:before { background-color: $label-color-7; }
+						&.disabled {
+							.ui-widget.ui-widget-content,
+							.ui-spinner a.ui-spinner-button {
+								background: $border-color-2;
+							}
+							.ui-spinner a.ui-spinner-button:before,
+							.ui-spinner a.ui-spinner-button:after,
+							.ui-spinner-input { opacity: .5; }
+						}
+					}
+					.subject {
+						width: 56.86274509803922%;
+						@include rem(line-height, 32px);
+					}
+					.ratio {
+						float: right;
+						width: 39.2156862745098%;
+					}
+					.ui-widget.ui-widget-content {
+						width: 100%;
+						border: none;
+						background-color: $bg-color-1;
+						@include rem(padding, 0 32px);
+						@include rem(border-radius, 8px);
+						@include boxSizing(border-box);
+					}
+					.ui-state-disabled {
+						opacity: 1;
+						.ui-widget.ui-widget-content { background: $border-color-2; }
+						.ui-spinner-input { color: $color-base-4; }
+						.ui-spinner a.ui-spinner-button {
+							background: $border-color-2;
+							&:before,
+							&:after { background-color: $color-base-4; }
+						}
+					}
+					.ui-spinner-input {
+						width: 100%;
+						margin: 0;
+						padding: 0;
+						text-align: center;
+						font-family: $armata;
+						color: $color-base-2;
+						outline: none;
+						@include rem(height, 32px);
+						@include rem(line-height, 32px);
+						@include rem(font-size, 18px);
+					}
+					.ui-spinner a.ui-spinner-button {
+						position: absolute;
+						top: 0;
+						border: none;
+						background: $bg-color-1;
+						@include rem(width, 32px);
+						@include rem(height, 32px);
+						&:before,
+						&:after {
+							content: '';
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							display: block;
+							background-color: $color-base-4;
+							@include rem(width, 12px);
+							@include rem(height, 2px);
+							@include rem(margin-left ,-6px);
+							@include rem(border-radius, 2px);
+						}
+						&:after { @include rotate(90deg); }
+						&.ui-spinner-up { right: 0; }
+						&.ui-spinner-down {
+							left: 0;
+							&:after { display: none; }
+						}
+						&:hover,
+						&:active { background-color: $border-color-1; }
+					}
+					.ui-button .ui-icon { background: none; }
+					.total {
+						position: relative;
+						text-align: center;
+						line-height: 1;
+						font-weight: 700;
+						color: $color-base-5;
+						letter-spacing: -1px;
+						border-top: 1px solid $border-color-3;
+						@include rem(margin-top, 16px);
+						@include rem(padding-top, 10px);
+						@include rem(font-size, 14px);
+						span {
+							font-weight: 400;
+							color: $color-base-2;
+							@include rem(font-size, 18px);
+							input {
+								display: inline-block;
+								width: 0;
+								text-align: center;
+								font-weight: 400;
+								color: $color-base-2;
+								border: none;
+								outline: none;
+								@include rem(min-width, 36px);
+								@include rem(font-size, 18px);
+							}
+						}
+					}
+					.control,
+					.notice { display: none; }
+					.notice-total {
+						position: relative;
+						text-align: left;
+						line-height: normal;
+						font-weight: 400;
+						color: $color-base-5;
+						@include rem(margin-top, 9px);
+						@include rem(padding-left, 17px);
+						@include rem(font-size, 13px);
+						&:after {
+							content: '';
+							position: absolute;
+							left: 0;
+							display: block;
+							background: url('#{$img-path}/contents/icon_notice_total.png') no-repeat 0 0;
+							background-size: 100% auto;
+							@include rem(top, 3px);
+							@include rem(width, 12px);
+							@include rem(height, 12px);
+						}
+					}
+				}
+				&.drag {
+					.notice {
+						display: block;
+						color: $color-base-1;
+						@include rem(margin-top, 12px);
+						@include rem(font-size, 12px);
+					}
+					.article:before,
+					.ratio,
+					.total,
+					.notice-total { display: none; }
+					.article {
+						line-height: 1;
+						border: 1px solid $color-primary;
+						background-color: $color-white;
+						@include rem(height, 40px);
+						@include rem(margin-top, 8px);
+						@include rem(padding, 0 36px);
+						@include rem(border-radius, 40px);
+						&:first-child {
+							@include rem(margin-top, 12px);
+						}
+						&.disabled {
+							border-color: $border-color-2;
+							background-color: $border-color-2;
+							@include rem(padding, 0 18px);
+							.subject { color: $color-base-5; }
+							.control {
+								display: none;
+							}
+						}
+						&.ui-sortable-helper {
+							border-color: $color-primary-dark;
+							background-color: $color-primary-dark;
+							@include rem(padding-left, 18px);
+							.subject { color: $color-white; }
+							.delete { display: none; }
+						}
+						.subject {
+							width: 100%;
+							@include rem(line-height, 40px);
+							@include rem(font-size, 16px);
+						}
+					}
+					.ui-state-disabled {
+						border-color: $border-color-2;
+						background: $border-color-2;
+						@include rem(padding, 0 18px);
+						.subject { color: $color-base-5; }
+						.control { display: none; }
+					}
+					.ui-state-highlight {
+						line-height: 1;
+						border: 1px solid $border-color-1;
+						background: $border-color-1;
+						@include rem(height, 40px);
+						@include rem(padding, 0 18px);
+						@include rem(border-radius, 40px);
+						@include boxSizing(border-box);
+					}
+					.control,
+					.notice { display: block; }
+				}
+				&.add {
+					.article {
+						border-bottom: 1px solid $border-color-2;
+						@include rem(margin-top, 8px);
+						&:first-child { @include rem(margin-top, 12px); }
+					}
+					a {
+						display: block;
+						&:active {
+							.subject {
+								color: $color-primary;
+							}
+							.plus { background-color: $color-primary; }
+						}
+						&:hover {
+							@include breakpoint(desktop){
+								.subject { color: $color-primary; }
+								.plus { background-color: $color-primary; }
+							}
+						}
+					}
+					.core { @include rem(padding, 6px 35px 6px 0); }
+					.subject {
+						float: none;
+						clear: both;
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+	&-action {
+		z-index: map-get($z-index, fixed);
+		font-size: 0;
+		text-align: center;
+		@include rem(margin-top, 30px);
+		&.fixed .holder {
+			position: fixed;
+			top: auto;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			@include breakpoint(desktop){
+				position: relative;
+				right: auto;
+				bottom: auto;
+				left: auto;
+			}
+		}
+		.holder {
+			position: relative;
+			@include breakpoint(desktop){
+				display: inline-block;
+			}
+		}
+		.caution {
+			display: none;
+			position: absolute;
+			right: 0;
+			left: 0;
+			color: $color-white;
+			background-color: $color-primary;
+			@include rem(top, -30px);
+			@include rem(padding, 6px 0);
+			@include rem(font-size, 12px);
+			@include transition(all, .3s);
+			@include breakpoint(desktop){
+				position: absolute;
+				top: -42px;
+				right: 17px;
+				left: auto;
+				min-width: 266px;
+				border-radius: 3px;
+				&:after {
+					content: '';
+					position: absolute;
+					bottom: -8px;
+					right: 11px;
+					display: block;
+					width: 0;
+					height: 0;
+					border-top: 8px solid $color-primary;
+					border-right: 6px solid transparent;
+					border-left: 6px solid transparent;
+				}
+			}
+			&.caution-step-1 { z-index: 2; }
+			&.caution-step-3 { z-index: 1; }
+		}
+		.button {
+			width: 67%;
+			@include breakpoint(desktop){
+				width: 300px;
+				margin-left: 16px;
+				border-radius: 50px;
+				&:first-child { margin-left: 0; }
+			}
+			&.back {
+				width: 33%;
+				@include breakpoint(desktop){
+					width: 150px;
+				}
+			}
+		}
+	}
+}

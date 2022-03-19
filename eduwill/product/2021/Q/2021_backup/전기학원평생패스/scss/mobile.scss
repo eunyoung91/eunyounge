@@ -1,0 +1,794 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/popup";
+$main-color : #ffbf00;
+$sub-color : #fff3cf;
+.tit-area {
+	position:relative;
+	z-index:5;
+	text-align:center;
+	&:before {
+		content:'';
+		position:absolute;
+		top:0;
+		right:0;
+		left:0;
+		width:100%;
+		@include vw(height,337px);
+		background-repeat:no-repeat;
+		background-position:50% 50%;
+		background-size:cover;
+	}
+	img {
+		position:relative;
+		z-index:5;
+	}
+}
+
+.land{
+
+	&-title{
+		background: url('#{$img-path}/mobile/bg_title.jpg') no-repeat 50% 50%;
+		background-size:cover;
+	}
+
+	
+	&-agency{
+		margin-bottom: 60px;
+		.title{
+			font-size: 46px;
+			font-weight: 900;
+			line-height: 1.2;
+			padding-top:0;
+			text-align: left;
+			& > div.main{margin-top:0;}
+		}
+		
+		.agency-list{
+			padding:0 percent(50);
+			@include rem(margin-top, 50px);
+		}
+
+	}
+
+}
+
+
+.product {
+	
+	&-visual {
+		background:url(https://img.eduwill.net/eduwill/img/2021/Q/product/210804/mobile/visual_bg.jpg) no-repeat 50% 50%;
+		background-size:cover;
+		padding-top: 33px;
+		.btn-popup {
+			position: absolute;
+			top: 0;
+			right: 27px;
+			@include vw(width, 134px)
+		}
+
+		.move-img {
+			position:absolute;
+			@include vw(top,360px);
+			@include vw(left,50px);
+			@include vw(width,165px);
+			animation:bounce 2s infinite both;
+		}
+		.typing-img {
+			position:absolute;
+			@include vw(top,536px);
+			@include vw(right,50px);
+			@include vw(width,151px);
+			@include vw(height,75px);
+			font-size:0;
+			text-align:left;
+			opacity:.4;
+			.typo {
+				overflow:hidden;
+				width:100%;
+				animation:typing 3s step-start infinite;
+			}
+			img {
+				@include vw(width,151px);
+				@include vw(max-width,151px);
+				@include vw(height,59px);
+			}
+		}
+		@keyframes typing {
+			0% {
+				width:0;
+			}
+			5% {
+				width:35%;
+			}
+			10% {
+				width:59%;
+			}
+			15% {
+				width:75%;
+			}
+			20% {
+				width:100%;
+			}
+			90% {
+				width:100%;
+			}
+			100% {
+				width:0;
+			}
+		}
+	}
+
+	&-cont2 {
+		position: relative;
+		.text{
+			font-family: $font-noto;
+			@include vw(font-size, 28px);
+			position: absolute;
+			top:percent(566,1360);
+			@include vw(left, 78px);
+			font-weight: 900;
+			color: #202020;
+		}
+	}
+
+	&-cont3 {
+		position: relative;
+		background:#1832a3;
+		background:linear-gradient(0deg, rgba(25,47,135,1) 0%, rgba(25,49,151,1) 50%, rgba(24,50,163,1) 100%);
+		&:before {
+			content:'';
+			position:absolute;
+			@include vw(top,-55px);
+			left:50%;
+			transform:translateX(-50%);
+			@include vw(width,132px);
+			@include vw(height,132px);
+			background:url(https://img.eduwill.net/eduwill/img/2021/Q/product/210804/mobile/cont3_plus.png) no-repeat 50% 50%;
+			background-size:100% 100%;
+		}
+
+		[class^=tag] {
+			position:absolute;
+			@include vw(top,420px);
+			@include vw(width,92px);
+			animation:bounce 2s infinite both;
+		}
+		.tag1 {
+			@include vw(left,260px);
+		}
+		.tag2 {
+			@include vw(right,60px);
+		}
+	}
+
+
+	&-cont5 .tit-area:before {
+		background-image:url(https://img.eduwill.net/eduwill/img/2021/Q/product/210804/mobile/cont5_tit_bg.png);
+	}
+
+	&-cont8 .tit-area:before {
+
+		@include vw(height,386px);
+		background-image:url(https://img.eduwill.net/eduwill/img/2021/Q/product/210804/mobile/cont8_tit_bg.png);
+	}
+
+	&-cont10 .tit-area:before {
+		@include vw(height,386px);
+		background-image:url(https://img.eduwill.net/eduwill/img/2021/Q/product/210804/mobile/cont10_tit_bg.png);
+	}
+    &-eco {
+		overflow-x: hidden;
+		position: relative;
+        background-color: #fff;
+        * {
+            line-height: normal;
+            font-family: $font-noto;
+            letter-spacing: -1px;
+        }
+        .container {
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+        .wrap {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+            &-full {
+                width: 100%;
+            }
+        }
+        .holder { position: relative; }
+        p {
+			line-height:100%;
+            margin: 0;
+            text-align: left;
+            @include vw(font-size, 20px);
+            color: #666;
+            &.notice { @include vw(margin-top, 10px); }
+            &.brand,
+            &.survey { position: absolute; }
+        }
+        .fixbanner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            background: #75fffc;
+            z-index: 777;
+            .pointer{
+                position: absolute;
+                top: 50px;
+                right: 20px;
+                img {
+                    width: 70%;
+                    animation: 0.6s slideUpY ease-in-out infinite alternate;    
+                }
+            }
+        }
+
+		
+		.slick-dots {
+			width: 100%;
+			@include vw(margin-top, 30px);
+			text-align: center;
+			li {
+				display: inline-block;
+				@include vw(margin, 0 6px);
+				button {
+					@include vw(width, 20px);
+					@include vw(height, 20px);
+					text-indent: -9999em;
+					border: none;
+					border-radius: 50%;
+					background-color: #b2b2b2;
+					outline: none;
+					cursor: pointer;
+				}
+				&.slick-active {
+					button {
+						@include vw(width, 55px);
+						@include vw(border-radius, 15px);
+						background-color: #ffc20e;
+					}
+				}
+			}
+		}
+
+        .slider-contents {
+            position: relative;
+            @include vw(margin, 20px 50px auto 50px);
+	
+            .slick-arrow {
+                position: absolute;
+                top: 50%;
+                z-index: 1;
+                @include vw(width, 40px);
+                @include vw(width, 40px);
+                @include vw(margin-top, -20px);
+                font-size: 0;
+                border: none;
+                background: none;
+                outline: none;
+                cursor: pointer;
+                &.slick-prev {
+                    @include vw(left, 20px);
+                    &:before { right: 0; @include arrow(left, 20px, 20px, 1px, #666); 
+                    @include vw(margin-top, -0px);
+                    }
+                }
+                &.slick-next {
+                    @include vw(right, 20px);
+                    &:before { left: 0; @include arrow(right, 20px, 20px, 1px, #666); 
+                        @include vw(margin-top, -0px);
+                    }
+                }
+            }
+        }
+		.action{
+			a{
+				position: relative;
+				display: inline-block;
+			}
+		}
+		.pointer {
+			&:after {
+				content: '';
+				position: absolute;
+				top:40%; 
+				right:0%; 
+				display: block;
+				@include vw(width, 100px);
+				@include vw(height, 100px);
+				background: url('#{$img-common-path}/icon/pointer/icon_pointer_20.png') no-repeat 0 0;
+				background-size: contain;
+				@include animation(pointerBounce, .8s, $iteration: infinite){
+					0%, 100% { @include translateXY(0, 0); }
+					50% { @include translateXY(10px, 10px); }
+				}
+			}
+		}
+    }
+    &-top { background-color: #ffd701; }
+
+    &-title {
+        background:#000 url(#{$img-path}/mobile/bg_title.jpg) no-repeat 50% 50%;
+        background-size: cover;
+        .action{
+			position: absolute;
+            @include vw(top, 25px);
+            @include vw(right, 50px);
+            @include vw(width, 134px);
+        }
+    }
+
+    &-benefit{
+        background-color: #ffc20e;
+        img{
+            @include vw(margin-top, -175px);
+        }
+    }
+
+
+	&-cont4 {
+		background:url(https://img.eduwill.net/eduwill/img/2021/Q/product/210804/mobile/cont4_bg.jpg) no-repeat 50% 50%;
+		background-size:cover;
+
+		.btn {
+			position:absolute;
+			@include vw(top,50px);
+			right:0;
+			@include vw(width,234px);
+		}
+		.winner-contents {
+			overflow:hidden;
+			position:absolute;
+			@include vw(bottom, -290px);
+			left:50%;
+			transform:translateX(-50%);
+			width:100%;
+			@include vw(height,260px);
+			@include vw(padding-bottom,370px);
+			.winner-list {
+				transform:perspective(150px) rotateX(25deg);
+				.slick-track {
+					transform:translate(0) !important;
+				}
+			}
+			p {
+				margin: initial;
+				text-align: center;
+				color:#3e3e3e;
+				@include vw(font-size,18px);
+				font-weight:700;
+				line-height:2;
+			}
+		}
+	}
+
+	&-cont5 {
+		background:#f4f4f4;
+		background: linear-gradient(0deg, rgba(244,244,244,1) 0%, rgba(255,255,255,1) 20%);
+
+		.wrap {
+			z-index:10;
+		}
+
+		.btn {
+			position:absolute;
+			@include vw(top,13px);
+			right:0;
+			@include vw(width,234px);
+		}
+
+		.typing {
+			position:absolute;
+			top:percent(420,1002);
+			@include vw(left,93px);
+			color:#022222;
+			@include vw(font-size,40px);
+			font-weight:900;
+			line-height:1;
+			@include vw(letter-spacing,-4px);
+			&:after {
+				content:'';
+				display:inline-block;
+				position:relative;
+				@include vw(top,-5px);
+				@include vw(margin-left,8px);
+				animation-name: cursor;
+				animation-duration: 0.3s;
+				animation-iteration-count: infinite;
+				@include vw(width,2px);
+				@include vw(height,40px);
+				background-color: #fff;
+				vertical-align: middle;
+			}
+			@keyframes cursor {
+				0% {
+					background-color: #fff;
+				}
+				50% {
+					background-color: #022222;
+				}
+				100% {
+					background-color: #fff;
+				}
+			}
+		}
+	}
+
+	&-cont6 {
+		background:#f4f4f4;
+		background: linear-gradient(0deg, rgba(244,244,244,1) 0%, rgba(255,255,255,1) 20%);
+		
+	}
+
+	&-cont8 {
+		@include vw(padding-bottom,130px);
+		.ico {
+			position:absolute;
+			@include vw(top,203px);
+			@include vw(right,20px);
+			@include vw(width,232px);
+			animation:bounce 2s infinite both;
+		}
+		.slider-wrap {
+			position:relative;
+			@include vw(height,350px);
+			.slider-video {
+				position:absolute;
+				top:50%;
+				left:50%;
+				transform:translate(-50%,-50%);
+				@include vw(width,1488px);
+				.slick-list {
+					padding:3.4722vw 0 !important;
+					@include breakpoint(maxMobile){
+						padding:25px 0 !important;
+					}
+				}
+				.slick-slide {
+					position:relative;
+					@include vw(width,496px);
+					@include vw(height,350px);
+					.slide-item {
+						position:absolute;
+						top:50%;
+						left:50%;
+						transform:translate(-50%,-50%);
+						width:68.8889vw !important;
+						@include vw(border-radius,30px);
+						overflow:hidden;
+						box-shadow:0 0 3.4722vw 0 rgba(0, 0, 0, 0.2);
+						@include breakpoint(maxMobile){
+							width:496px !important;
+							box-shadow:0 0 25px 0 rgba(0, 0, 0, 0.2);
+						}
+						&:before {
+							content:'';
+							position:absolute;
+							top:50%;
+							left:50%;
+							transform:translate(-50%,-50%);
+							@include vw(width,496px);
+							@include vw(height,280px);
+							@include vw(border-radius,30px);
+							background-color:rgba(0,0,0,.4);
+						}
+						img {
+							width:100%;
+						}
+					}
+					&.slick-center {
+						z-index:5;
+						.slide-item {
+							width:86.1111vw !important;
+							@include breakpoint(maxMobile){
+								width:620px !important;
+							}
+							padding:0;
+							transition:width .3s;
+							&:before {
+								display:none;
+							}
+						}
+					}
+				}
+				.slick-dots {
+					@include vw(margin-top,5px);
+				}
+			}
+		}
+
+		.btn {
+			display: inline-block;
+			position: relative;
+			@include vw(width,520px);
+			@include vw(margin-top,90px);
+			&::before {
+				content: '';
+				position: absolute;
+				right: 0;
+				bottom: -26%;
+				width: 7.91667vw;
+				height: 9.02778vw;
+				background: url(//img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png) no-repeat 50% 50%;
+				background-size: 100% auto;
+				animation: 0.3s slideupY ease-in-out infinite alternate;
+			}
+		}
+	}
+
+	&-cont9 {
+		background:url(https://img.eduwill.net/eduwill/img/2021/Q/product/210804/mobile/cont9_bg.jpg) no-repeat 50% 50%;
+		background-size:cover;
+		@include vw(padding-bottom,130px);
+		.slider1 {
+			.slick-slide {
+				@include vw(padding,25px 20px);
+			}
+			.slide-item {
+				overflow:hidden;
+				width:86.1111vw !important;
+				@include vw(border-radius,25px);
+				box-shadow: 0 0 3.4722vw 0 rgba(0,0,0,0.2);
+				@include breakpoint(maxMobile){
+					width:620px !important;
+					box-shadow: 0 0 25px 0 rgba(0,0,0,0.2);
+				}
+			}
+			.slick-dots {
+				@include vw(padding-top,5px);
+			}
+		}
+	}
+
+	&-cont10 {
+		.wrap {
+			@include vw(padding-bottom,30px);
+		}
+		.teacher-wrap {
+			.teacher-list-box {
+				width:auto;
+				@include vw(padding,0 45px);
+				text-align:center;
+				.col {
+					display:inline-block;
+					width:33%;
+					height:auto;
+					@include vw(padding,0 5px);
+					@include vw(margin,0 0 45px);
+					
+					&:last-child {
+						display:none !important;
+					}
+				}
+				.col a .t-info .t-subject {
+					display:none;
+				}
+			}
+		}
+		.slider2 {
+            padding:0 7%;
+			.slick-dots {
+				@include vw(margin-top,28px);
+			}
+		}
+	}
+
+	&-cont11 {
+		padding-bottom:0;
+		.slider2 {
+			padding:0 7%;
+			.slick-dots {
+				@include vw(margin-top,30px);
+			}
+		}
+		.book-img{
+			.text{
+				font-family: $font-noto;
+				@include vw(font-size, 50px);
+				@include vw(letter-spacing, -4px);
+				position: absolute;
+				@include vw(top, 150px);
+				@include vw(left, 48px);
+				font-weight: 900;
+				color: #202020;
+			}
+		}
+	}
+
+	&-cont12 {
+		.slider2 {
+			.slick-dots {
+				@include vw(margin-top,30px);
+			}
+		}
+	}
+
+	&-cont13 {
+		@include vw(padding-bottom,30px);
+		.slider2 {
+            margin-top:30px;
+            padding:0 7%;
+			.slick-dots {
+				@include vw(margin-top,30px);
+			}
+		}
+	}
+
+
+
+    &-raise{
+        background-color:#f3f3f3;
+    }
+	
+	&-pass {
+        background-color:#f3f3f3;
+		@include vw(padding-top, 60px);
+		@include vw(padding-bottom, 125px);
+        .slider-wrap {
+            margin: 0 percent(40);
+            .slick-slide {
+                @include vw(margin, 0 10px);
+                img { width: 100%; }
+            }
+        }
+        .slider-contents{
+            margin-top: 0;
+        }
+	}
+	
+	&-win-slider{
+		@include vw(padding-bottom, 130px);
+	}
+
+    &-teacher {
+        @include vw(padding-bottom, 125px);
+    }
+    
+	&-book {
+        @include vw(padding-bottom, 125px);
+        .slider-contents{
+            @include vw(padding-top, 50px);
+        }
+    }
+
+	&-curriculum, &-place {
+        @include vw(padding-bottom, 130px);
+    }
+
+    &-sentence{
+		background-color: #510091; 
+		@include vw(font-size, 44px);
+		font-weight: 900;
+		text-align: center;
+		color: #fff;
+
+		.wrap {
+			line-height: 50px;
+		}
+    }
+}
+
+
+#popupBase,
+#Popup01 {
+    background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	width: 85%;
+	max-width: 720px;
+	.popup-body{
+		@include vw(font-size, 26px);
+		padding: 5% 5%;
+		word-break: keep-all;
+	}
+}
+
+.popup-close {
+	&:before, 
+	&::after{
+		display: none !important;
+	}
+}
+
+#videoPop{
+	width: 94%;
+    z-index: 10001;
+    max-width: 720px;
+    margin: 0 auto;
+	-webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    .video-cont {
+		position: relative;
+		padding-bottom: 56.65%;
+		height: 0;
+	}
+    iframe, video{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		-o-object-fit: inherit;
+		object-fit: inherit;
+    }
+    .btn-close{
+        position: absolute;
+		top: -41px !important;
+        right: -5px !important;
+        font-size:0;
+		@include close(40px, 40px, 1px, #fff);
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: block;
+            width: 20px;
+            height: 1px;
+            margin-left: -10px;
+            background-color: #fff;
+        }
+        &:before{
+            -webkit-transform: rotate(
+                45deg
+                );
+                    transform: rotate(
+                45deg
+                );
+        }
+        &:after{
+            -webkit-transform: rotate(
+                315deg
+                );
+                    transform: rotate(
+                315deg
+                );
+        }
+    }
+}
+
+
+
+.year {
+	.product-visual {
+		background: url(https://img.eduwill.net/eduwill/img/2021/Q/product/211019/mobile/year/visual_bg.jpg) no-repeat 50% 50%;
+		background-size: cover;
+	}
+
+	.product-sentence {
+		background: #007b02;
+	}
+
+	.product-cont3 {
+		background:#007b02;
+
+		&::before {
+			background: url(https://img.eduwill.net/eduwill/img/2021/Q/product/211019/mobile/year/cont3_plus.png) no-repeat 50% 50%;
+			background-size:100% 100%;
+		}
+	}
+}
+
+.speed {
+	.product-visual {
+		background: #510091;
+		padding-top: 0;
+		.wrap {
+			.btn-popup {
+				top: 23px;
+			}
+		}
+	}
+}

@@ -1,0 +1,163 @@
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+// @import "module/popup";
+// @import "module/popupPC";
+
+.product-eco {
+    * { font-family: $font-noto; }
+    .wrap { max-width: 720px; }
+
+    .bottom-banner {
+        position: fixed;
+        bottom: 50px;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        background: rgba(0,0,0,.8);
+        a {
+            display: block;
+            @include vw(padding, 20px 0);
+        }
+        strong {
+            display: inline-block;
+            vertical-align: middle;
+            @include vw(font-size, 36px);
+            font-weight: 900;
+            color: #fff;
+            @include vw(letter-spacing, -2px);
+            em {
+                @include vw(font-size, 36px);
+                font-style: normal;
+                font-weight: 900;
+                color: #ffbf00;
+                @include vw(letter-spacing, -2px);
+            }
+        }
+        span {
+            @include pointer(60%, 0, 57px, 65px, 12, bounce);
+            @include vw(margin-left, 20px);
+            @include vw(width, 230px);
+            @include vw(height, 50px);
+            vertical-align: middle;
+            text-align: center;
+            @include vw(line-height, 50px);
+            @include vw(font-size, 20px);
+            font-weight: 900;
+            color: #fff;
+            @include vw(letter-spacing, -2px);
+            @include vw(border-radius, 50px);
+            @include linear-gradient(to right, #fa5800 0%, #ea1d00 100%);
+            @include boxShadow(inset 1px 2px 0 0 #f78d71);
+            &:before {
+                @include arrow(right, 10px, 10px, 2px, #fff);
+                right: 10%;
+            }
+        }
+    }
+
+    .slick-arrow {
+        top: 20% !important;
+        border-radius: 50%;
+        &.slick-prev {
+            left: 0;
+            @include slideArrow(left, 60px, 60px, 2px, #fff, rgba(0,0,0,.7));
+        }
+        &.slick-next {
+            right: 0;
+            @include slideArrow(right, 60px, 60px, 2px, #fff, rgba(0,0,0,.7));
+        }
+    }
+
+    .sector-title {
+        z-index: 1;
+        @include bg($color: #212542, $url: '#{$img-path}/pc/bg_title.jpg', $size: cover);
+        img { @include vw(margin-bottom, -182px); }
+    }
+    .sector-curriculum {
+        @include vw(padding-bottom, 100px);
+        .item { position: relative; }
+        .step-list {
+            @extend %clearfix;
+            @include vw(margin, 0 20px);
+        }
+        .step {
+            position: relative;
+            float: left;
+            width: calc(100% / 3);
+            @include vw(height, 245px);
+            @include vw(padding, 0 10px);
+            text-align: center;
+            color: #878787;
+            font-weight: 900;
+            @include boxSizing(border-box);
+            cursor: pointer;
+            &:after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 93%;
+                z-index: -1;
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                border-left: 10px solid #fddc00;
+                @include translateY(-50%);
+            }
+            &:first-child .step-box { @include vw(border-radius, 20px 0 0 20px); }
+            &:last-child .step-box { @include vw(border-radius, 0 20px 20px 0); }
+            &:nth-child(3n):after { display: none; }
+            .step-box {
+                height: 100%;
+                @include linear-gradient(to bottom, #ffee8a 0%, #ffe060 100%);
+                @include boxShadow(0 2px 5px 0 rgba(0, 0, 0, .1));
+                @include vw(padding, 30px 0);
+                @include boxSizing(border-box);
+                .label-title {
+                    display: inline-block;
+                    @include vw(margin-bottom, 8px);
+                    @include vw(padding, 10px 20px);
+                    @include vw(border-radius, 50px);
+                    @include vw(letter-spacing, -1px);
+                    @include vw(font-size, 20px);
+                    line-height: 1;
+                    text-align: center;
+                    font-weight: 700;
+                    color: #000;
+                    @include linear-gradient(to bottom, #ffda00 0%, #ffbe00 100%);
+                }
+                dl {
+                    dt {
+                        @include vw(height, 60px);
+                        @include vw(margin-bottom, 10px);
+                        @include vw(font-size, 25px);
+                        @include vw(letter-spacing, -2px);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        font-weight: 900;
+                        line-height: 1.3;
+                        color: #000;
+                    }
+                    dd {
+                        @include vw(font-size, 20px);
+                        @include vw(letter-spacing, -2px);
+                        word-break: keep-all;
+                        font-weight: 400;
+                        line-height: 1.3;
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+    .sector-awards {
+        @include vw(border-top-width, 20px);
+        border-top-style: solid;
+        border-top-color: #ececef;
+    }
+    .sector-band { background-color: #2e64ed; }
+}

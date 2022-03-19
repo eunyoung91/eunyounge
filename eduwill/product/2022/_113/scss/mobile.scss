@@ -1,0 +1,263 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+/* 공통 */
+.bottom_fix_btn {
+	display: none;
+}
+
+#edoContent2 {
+	.ecoCont4 {
+		display: none;
+	}
+}
+
+.product-eco {
+	.btn-reason {
+
+		position: absolute;
+		right: 5vw;
+		border: none;
+		cursor: pointer;
+		padding: 1vw 3.5vw 1vw 2vw ;
+		font-size: 3vw;
+		letter-spacing: -0.2vw;
+		font-weight: 900;
+		background: transparent;
+		color: #7a7a7a;
+		border: 1px solid #e4e4e4;
+		z-index:3;
+	
+		&::after {
+			content: '';
+			position: absolute;
+			top:2.48vw;
+			right: 1.6vw;
+			width: 6px;
+			height: 6px;
+			border: 1px solid #7a7a7a;
+			border-left: none;
+			border-bottom: none;
+			box-sizing: border-box;
+			transform: rotate(45deg);
+	
+		}
+	}
+
+	.slick-dots {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		li {
+			button {
+				width: 14px;
+				height: 14px;
+				margin-right: 10px;
+				border-radius: 14px;
+				text-indent: -9999px;
+				background: #adadad;
+				border: none;
+				transition: all .3s ease;
+			}
+	
+			&.slick-active {
+	
+				button {
+					width: 38px;
+					background: #8600ec;
+					border-radius: 20px;
+				}
+			}
+	
+		}
+	}
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.wrap {
+		max-width: 720px;
+		width:100%;
+		position:relative;
+		box-sizing: border-box;
+	}
+	.btn-pointer {
+		display: inline-block;
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			right:-13px;
+			bottom: -20px;
+			width: 57px;
+			height: 65px;
+			background: url(https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png) no-repeat 50% 50%;
+			background-size:100% auto;
+			animation: 0.3s slideupY ease-in-out infinite alternate;
+		}
+		@keyframes slideupY {
+			0% {
+				transform: translateY(0);
+			}
+			100% {
+				transform: translateY(10px);
+			}
+		}
+	}
+
+	@keyframes bounce {
+		0%,100% {
+			transform: translateY(10px);
+		}
+		50% {
+			transform: translateY(-10px);
+		}
+	}
+}
+
+
+/* 컨텐츠 */
+.product-eco {
+	overflow: hidden;
+
+	&[data-type="2526"]{
+		.top {
+			background: #1770fc;
+		}
+		.visual {
+			background: #000249;
+			
+			.btn-reason {
+				top: 38vw;
+    			color: #222;
+				&::after {
+					border-color: #222;
+				}
+			}
+
+			
+		}
+	
+		.cont1 {
+			background: #412080;
+			.wrap {
+				> img {
+					margin-top: -10vw;
+				}
+			}
+			
+		}
+		
+		
+		.product-sentence {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #412080;
+			color: #fff;
+			font-weight: 900;
+			height: 18.67vw;
+			font-size: 7vw;
+			letter-spacing: -1px;
+			text-align: center;
+			
+			
+		}
+	}
+	&[data-type="2526"],
+	&[data-type="2467"] {
+		.floatBanner {
+			position: fixed;
+			top: 87vw;
+			right: 0;
+			z-index:9;
+			img {
+				@include vw(width, 185px);
+			}
+		}
+		.fix-banner {
+			position:relative;
+			top: 0;
+			left: 0;
+			right: 0;
+			text-align: center;
+			background: #00fffc;
+			z-index: 1;
+			img {
+				margin-top: -26px;
+			}
+		}
+	}
+	&[data-type="2467"]{
+		.floatBanner {
+			top: 74vw;
+			
+		}
+		.top {
+			background: #1770fc;
+		}
+		.visual {
+			background: #000249;
+			
+			.btn-reason {
+				top: 38vw;
+    			color: #222;
+				&::after {
+					border-color: #222;
+				}
+			}
+
+			
+		}
+	
+		.cont1 {
+			background: #412080;
+			.wrap {
+				> img {
+					margin-top: -10vw;
+				}
+			}
+			
+		}
+		
+		.cont3 {
+			@include vw(padding-bottom, 120px);
+			#slideWrap {
+				
+				.Slide {
+					.slick-slide {
+						opacity: .6;
+
+						&.slick-center {
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+		
+		.product-sentence {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #412080;
+			color: #fff;
+			font-weight: 900;
+			height: 18.67vw;
+			font-size: 7vw;
+			letter-spacing: -1px;
+			text-align: center;
+			
+			
+		}
+	}
+}
+
+
+@import "module/popup";

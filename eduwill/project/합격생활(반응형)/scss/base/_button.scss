@@ -1,0 +1,108 @@
+// button
+.button {
+	display: inline-block;
+	text-align: center;
+	color: $color-white;
+	@include rem(padding, 11px 0 12px);
+	@include rem(font-size, 18px);
+	@include linear-gradient(to right, #fa6568 0%, #ff9048 100%);
+	@include boxSizing(border-box);
+	@include breakpoint(desktop){
+		&:hover { background: $color-primary; }
+		&:active { background: $color-primary-dark; }
+	}
+	&.is-round { @include rem(border-radius, 50px); }
+	&.is-linear {
+		color: $color-primary;
+		border: 1px solid $color-primary;
+		background: none;
+		@include breakpoint(desktop){
+			&:hover {
+				color: $color-white; 
+				background: $color-primary;
+			}
+			&:active {
+				color: $color-white; 
+				background: $color-primary-dark;
+			}
+		}
+	}
+	&.is-arrow {
+		text-align: left;
+		color: $color-base-1;
+		background: $button-color;
+		@include rem(min-width, 140px);
+		@include rem(padding, 6px 0 7px);
+		@include rem(font-size, 15px);
+		@include rem(border-radius, 36px);
+		@include breakpoint(tablet){
+			min-width: 145px;
+			padding: 6px 0;
+			border-radius: 70px;
+		}
+		span {
+			position: relative;
+			display: block;
+			@include rem(margin, 0 18px);
+			@include rem(padding-right, 20px);
+            color: inherit;
+			@include breakpoint(tablet){
+				margin: 0 18px;
+				padding-right: 20px;
+			}
+			&:before,
+			&:after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				right: 0;
+				display: block;
+			}
+			&:before {
+				background-color: $color-base-1;
+				@include rem(width, 10px);
+				@include rem(height, 1px);
+				@include rem(margin-top, -5px);
+				@include rotate(-45deg);
+				@include transformOrigin(top right);
+				@include transition(all, .1s, ease-in-out);
+			}
+			&:after {
+				border-top: 1px solid $color-base-1;
+				border-right: 1px solid $color-base-1;
+				@include rem(width, 6px);
+				@include rem(height, 6px);
+				@include rem(margin-top, -5px);
+				@include rem(margin-right, -1px);
+			}
+		}
+		@include breakpoint(desktop){
+			&:hover,
+			&:active {
+				background: $color-base-6;
+				span:before { width: 15px; }
+			}
+		}
+	}
+	&.check {
+		padding: 0;
+		background: url('#{$img-path}/common/icon_myplan_check.png') no-repeat center center;
+		background-size: 100% auto;
+		@include rem(width, 28px);
+		@include rem(height, 28px);
+	}
+	&.disabled {
+		color: $color-base-4;
+		background: $border-color-2;
+	}
+	&.back {
+		color: $color-base-1;
+		border-top: 1px solid $border-color-1;
+		border-bottom: 1px solid $border-color-1;
+		background: $color-white;
+		@include rem(padding, 10px 0 11px);
+		@include breakpoint(desktop){
+			border: 1px solid $border-color-1;
+		}
+	}
+}

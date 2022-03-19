@@ -1,0 +1,98 @@
+.eduf-rolling{
+	max-width:720px;margin:0 auto;
+	@include breakpoint(desktop){ 
+		max-width:1200px;
+	}
+
+	.rolling-list {
+		overflow: hidden;
+		position: relative;
+		text-align: center;
+		transform: perspective(150px) rotateX(45deg);
+		margin-top:-2rem;
+
+		@include breakpoint(desktop){ 
+			margin-top:-50px;
+			-webkit-transform: perspective(300px) rotateX(45deg);
+			transform: perspective(300px) rotateX(45deg);
+		}
+	}
+
+	.rolling{
+		ul {
+			display: flex;
+			flex-flow: wrap;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			&:not(:first-child) {
+				position: absolute;
+				top: 100%;
+			}
+
+			li {
+				text-align:center;
+				span{
+					display:inline-block;color:#222;letter-spacing: -1.5px;font-size:11px;margin:7px 0;font-weight:700;text-align:center;
+					@include breakpoint(foldMobile){ 
+						font-size: 14px;
+					}
+				
+					@include breakpoint(maxMobile){ 
+						font-size: 16px;
+					}
+
+					@include breakpoint(desktop){ 
+						margin:10px 0;
+					}
+				
+				}
+			}
+		}
+	}
+}
+
+.eduf-winner-contents {
+	position: relative;margin-top: -3.125rem;
+	&:after {content: '';position: absolute;left: 0; top: 0;width: 100%; height: 100%;}
+	@include breakpoint(maxMobile){ 
+		margin-top: -40px;
+	}
+
+	@include breakpoint(desktop){ 
+		height:auto;margin-left:90px;margin-top:-60px;transform:translateX(-40px);
+	}
+
+	.eduf-winner-list {
+		-webkit-transform: perspective(150px) rotateX(45deg);
+		transform: perspective(150px) rotateX(45deg);
+		overflow: hidden;text-align: center;
+		
+		.slick-track {
+			-webkit-transform: translate(0) !important;
+			-ms-transform: translate(0) !important;
+			transform: translate(0) !important;
+		}
+
+		@include breakpoint(desktop){ 
+			transform: perspective(300px) rotateX(45deg);-webkit-transform: perspective(300px) rotateX(45deg);
+		}
+
+		p {
+			margin:3px 0; padding: 0;  display: inline-block;  text-align: center;  letter-spacing: -1.5px;  color: #000;  font-size: 11px;  font-weight: 700;
+			@include breakpoint(flodMobile){ 
+				font-size: 14px;
+			}
+			
+			@include breakpoint(maxMobile){ 
+				font-size: 16px;
+			}
+			
+			@include breakpoint(desktop){ 
+				color:#222;font-size:16px;margin:10px 0;font-weight:700;text-align:center;
+			}
+		}
+	}
+}
+

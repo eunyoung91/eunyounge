@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>에듀윌</title>
+<link rel="stylesheet" href="https://www.eduwill.net/eduwill/live/libs/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/reset.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/common.css" />
+<script src="https://img.eduwill.net/eduwill/live/libs/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://img.eduwill.net/eduwill/live/libs/bxslider/jquery.bxslider.min.js"></script>
+<script src="https://img.eduwill.net/eduwill/live/libs/greensock/TweenMax.min.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+    컨텐츠 감싸는 부모 : product-eco
+    하단 수강신청 영역 : product-apply
+    하단 수강신청 영역 내 탭 : product-tab
+    하단 수강신청 영역 내 가격 : product-price
+    하단 수강신청 영역 내 정보 : product-table
+    따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<!-- <link rel="stylesheet" href="css/web.css"> -->
+
+<!-- eco 영역 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/slick/slick.css">
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/css/product/public/210105/web.css">
+<!-- <link rel="stylesheet" href="css/web.css"> -->
+
+<div class="product-eco">
+
+	<div class="bottom-banner">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/resources/img/public/product/210105/pc/applytext.jpg" alt="신청하기">
+			<div class="logo">
+				<img src="https://img.eduwill.net/resources/img/public/product/210105/pc/logo.png" alt="신청하기">
+			</div>
+			<div class="action">
+				<a class="btn page-move" href="#productApply">
+					<img src="https://img.eduwill.net/resources/img/public/product/210105/pc/applybtn1.png" alt="신청하기">
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="left-banner">
+		<a href="#productApply" class="page-move">
+			<img src="https://img.eduwill.net/resources/img/public/product/210105/pc/leftbanner.png" alt="">
+		</a>
+	</div>
+
+    <div class="right-banner">
+        <img src="https://img.eduwill.net/resources/img/public/product/210105/pc/right_banner.png" usemap="#mapFollow" />
+        <map id="mapFollow" name="mapFollow">
+            <area alt="수강신청" class="page-move" coords="0,3,160,70" href="#productApply" shape="rect" />
+            <area alt="강의 리스트" coords="0,74,160,144" data-popup-open="lecture" href="javascript:;" shape="rect" />
+            <area alt="교재 리스트" coords="0,145,160,215" data-popup-open="book" href="javascript:;" shape="rect" />
+            <area alt="무료혜택" coords="0,216,160,286" data-popup-open="benefit" href="javascript:;" shape="rect" />
+            <area alt="TOP" class="page-move" coords="0,289,160,319" href="#productTitle" shape="rect" />
+        </map>
+	</div>
+
+    <div  id="productTitle" class="container product-title">
+        <div class="wrap">
+			<img src="https://img.eduwill.net/resources/img/public/product/210105/pc/title.png" alt="단기패스" />
+			<a class="baselayer" href="javascript:;" data-popup-open="base">
+				<img src="https://img.eduwill.net/resources/img/public/product/201215/pc/basebtn_black.png" alt="근거확인">
+			</a>
+            <div class="action">
+                <a class="btn page-move" href="#productApply">
+					<img src="https://img.eduwill.net/resources/img/public/product/201215/pc/title_btnapply.png" alt="">
+                </a>
+			</div>
+        </div>
+	</div>
+
+	<div class="container product-news">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/resources/img/public/product/210105/pc/img_news.jpg" alt="" />
+		</div>
+	</div>
+
+	<div class="container product-text-banner">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/resources/img/public/product/210105/pc/img_banner1.jpg" alt=""/>
+		</div>
+	</div>
+
+	<div id="productPriceZone" class="container product-price-zone">
+        <div class="wrap">
+			<div class="action">
+				<a href="javascript:;" data-popup-open="benefit">
+					<img src="https://img.eduwill.net/resources/img/public/product/201215/pc/btn_benefit.png" alt="수강혜택"/>
+				</a>
+				<a href="javascript:;" data-popup-open="lecture">
+					<img src="https://img.eduwill.net/resources/img/public/product/201215/pc/btn_list.png" alt="강의리스트"/>
+				</a>
+			</div>
+			<!-- price-box -->
+            <div class="price-box content">
+                <div class="box box-1">
+                    <div class="holder">
+						<div class="title-label">
+							1월 한정 수강기간 연장
+						</div>
+						<div class="title-list">
+							<strong>코레일 단기패스</strong><br>
+							90일+30일 무제한 수강
+						</div>
+                        <div class="price-list">
+                            <!-- <div class="price-before">
+                                <strong><em>129,000</em>원</strong>
+                            </div> -->
+                            <div class="price-after"><em>129,000</em>원</div>
+						</div>
+					</div>
+					<img src="https://img.eduwill.net/resources/img/public/product/210105/pc/price_zone1.jpg" alt=""/>
+					<div class="action">
+						<a class="btn page-move" href="#productApply">
+							<em>코레일 합격강의</em><br/>
+							수강신청
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- // price-box -->
+        </div>
+	</div>
+
+	<div class="container product-pass">
+		<div class="wrap">
+
+			<div class="slider-box">
+				<div class="slider-logo">
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>skygh****</p>
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>rmaehdd****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>chl****</p>
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>think****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>homi****</p>
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>tae7****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>dntks****</p>
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>mva****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>jonghyu****</p>
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>cjk****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>kpj****</p>
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>tif****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>jieun****</p>
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>kuy****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>sylph****</p>
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>wldn****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>yjs****</p>
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>eunbin****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>ga****</p>
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>c****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>chi****</p>
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>chi****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>suhyun****</p>
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>hongj****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>thgml****</p>
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>bobo****</p>
+					</div>
+
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>rkdud****</p>
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>heeyoun****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>ekdu****</p>
+						<p><img src="https://img.eduwill.net/resources/img/public/event/branding/logo/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>wlseh****</p>
+					</div>
+				</div>
+			</div>
+			<div class="text-box">
+				에듀윌 취업과 함께면<br>
+				2021 코레일 합격이<br>
+				현실이 됩니다<br>
+			</div>
+		</div>
+	</div>
+
+	<div class="container product-service">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/resources/img/public/product/210105/pc/img_service.jpg" alt=""/>
+			<div class="content">
+				<img src="https://img.eduwill.net/resources/img/public/product/201215/pc/review_title.jpg" alt=""/>
+				<!-- slider -->
+				<div class="carousel-box">
+					<ul class="carousel-slide" id="carouselSlide1">
+						<li><img src="https://img.eduwill.net/resources/img/public/product/210105/pc/review_slide1.png" alt=""/></li>
+						<li><img src="https://img.eduwill.net/resources/img/public/product/210105/pc/review_slide2.png" alt=""/></li>
+						<li><img src="https://img.eduwill.net/resources/img/public/product/210105/pc/review_slide3.png" alt=""/></li>
+						<li><img src="https://img.eduwill.net/resources/img/public/product/210105/pc/review_slide4.png" alt=""/></li>
+						<li><img src="https://img.eduwill.net/resources/img/public/product/210105/pc/review_slide5.png" alt=""/></li>
+						<li><img src="https://img.eduwill.net/resources/img/public/product/210105/pc/review_slide6.png" alt=""/></li>
+					</ul>
+				</div>
+				<!-- // slider -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container product-book">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/resources/img/public/product/201215/pc/img_book.jpg" alt=""/>
+			<div class="circle-red first"><span>베스트셀러<br>1위</span></div>
+			<div class="circle-red second"><span>100%<br>신간</span></div>
+		</div>
+	</div>
+
+	<div id="productBenefit" class="container product-benefit">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/resources/img/public/product/210105/pc/img_benefit.jpg" alt="무료혜택"/>
+		</div>
+	</div>
+
+	<div class="container product-text-banner">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/resources/img/public/product/210105/pc/img_banner2.jpg" alt=""/>
+		</div>
+	</div>
+
+	<div id="productPriceZone" class="container product-price-zone second">
+        <div class="wrap">
+			<div class="action">
+				<a href="javascript:;" data-popup-open="benefit">
+					<img src="https://img.eduwill.net/resources/img/public/product/201215/pc/btn_benefit.png" alt="수강혜택"/>
+				</a>
+				<a href="javascript:;" data-popup-open="lecture">
+					<img src="https://img.eduwill.net/resources/img/public/product/201215/pc/btn_list.png" alt="강의리스트"/>
+				</a>
+			</div>
+			<!-- price-box -->
+            <div class="price-box content">
+                <div class="box box-1">
+                    <div class="holder">
+						<div class="title-label">
+							1월 한정 수강기간 연장
+						</div>
+						<div class="title-list">
+							<strong>코레일 단기패스</strong><br>
+							90일+30일 무제한 수강
+						</div>
+                        <div class="price-list">
+                            <!-- <div class="price-before">
+                                <strong><em>129,000</em>원</strong>
+                            </div> -->
+                            <div class="price-after"><em>129,000</em>원</div>
+						</div>
+					</div>
+					<img src="https://img.eduwill.net/resources/img/public/product/210105/pc/price_zone1.jpg" alt=""/>
+					<div class="action">
+						<a class="btn page-move" href="#productApply">
+							<em>코레일 합격강의</em><br/>
+							수강신청
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- // price-box -->
+        </div>
+	</div>
+
+</div>
+
+<!-- popup -->
+<div class="dimmed"></div>
+
+<div id="popupBase" class="popup popup-base">
+    <div class="popup-body">
+		<p>[2년 연속 취업교육 1위] 2019&2020 한국브랜드만족지수 취업교육 1위</p>
+		<p>[대통령상 3관왕] 2010년 11월, 2019년 7월, 2019년 12월 대통령 표창 수상</p>
+		<p>[정부기관상 12관왕]  과학기술정보통신부 장관상 수상(2019.12), 여성가족부 장관상 수상(2017.4), 법무부 장관상 수상(2015.5), 미래창조과학부장관상 수상(2014.12), 고용노동부장관상 표창 수상(2013.5), 산업자원부장관상 수상(2007.10)			정보통신부장관상 수상(2007.6), 과학기술부장관상 수상(2006.04), 서울특별시장상 수상 (2004.12), 2010년 11월, 2019년 7월, 2019년 12월 대통령 표창 수상</p>
+		<p>[취업 합격자 수 증가] 에듀윌 취업 서류, 필기, 면접 전형 합격자 인증 건 수 비교(2015~19년vs2020년)</p>
+		<p>[컨텐츠 이용자 수 증가] 2019 8월vs2020 8월 에듀윌 대기업 취업 컨텐츠 이용자수 비교</p>
+		<p>[베스트셀러 1위] [2020 하반기 에듀윌 GSAT 삼성직무적성검사 수리 추리 봉투모의고사 4+1회] YES24 수험서 자격증 취업/상식/적성검사 취업/면접/상식 베스트셀러 1위(2020년 11월 월별 베스트)</p>
+		<p>[박지웅 1위] 에듀윌 취업 사이트 수강 후기 게시 건 수 비교(2020년 11월)</p>
+		<p>[서미연 47만] 서미연 유튜브 채널 총 조회수 합산</p>
+		<p>[길자은 1위] 2020 에듀윌 육군부사관 최신기출유형+실전모의고사 5회 YES24 수험서 자격증 군무원/부사관 남녀 부사관 베스트셀러 1위(2020년 1~3월 월별 베스트)</p>
+		<p>[업계유일, 기출 복원 100%] 삼성 GSAT 봉투모의고사, GSAT 파이널 모의고사 교재 해당 (*2020년 출간 교재 기준)</p>
+	</div>
+    <a class="popup-close" data-popup-close="base" href="javascript:;">
+        <span>팝업 닫기</span>
+    </a>
+</div>
+
+<div id="popupBenefit" class="popup popup-benefit">
+    <div class="popup-body">
+		<img src="https://img.eduwill.net/resources/img/public/product/210105/pc/img_benefit_pop.jpg" alt="수강혜택"/>
+	</div>
+    <a class="popup-close" data-popup-close="benefit" href="javascript:;">
+        <span>팝업 닫기</span>
+    </a>
+</div>
+
+<div id="popupLecture" class="popup popup-lecture popup-list">
+	<div class="popup-body">
+		<div class="list-title">
+			<strong>강의리스트</strong>
+			* 오픈 예정 강의는 업데이트 후 수강하실 수 있습니다.
+		</div>
+		<div class="list-view">
+			<div class="eco-2463"></div>
+		</div>
+	</div>
+	<a class="popup-close" data-popup-close="lecture" href="javascript:;">
+        <span>팝업 닫기</span>
+    </a>
+</div>
+
+<div id="popupBooklist" class="popup popup-book popup-list">
+	<div class="popup-body">
+		<div class="list-title">
+			<strong>교재리스트</strong>
+			* 교재 구매는 선택사항이며 별도 구매해야 합니다.
+		</div>
+		<div class="list-view">
+			<div class="eco-2464"></div>
+		</div>
+	</div>
+	<a class="popup-close" data-popup-close="book" href="javascript:;">
+        <span>팝업 닫기</span>
+    </a>
+</div>
+<!-- // popup -->
+
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/greensock/TweenMax.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/common/web/js/waterwheelCarousel/jquery.waterwheelCarousel.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/live/js/slick/slick.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/script.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/eduf.js"></script>
+<script>
+	getEcoDynamicForClass(2463, 'eco-2463');
+	getEcoDynamicForClass(2464, 'eco-2464');
+
+    $(function () {
+		init();
+    });
+    function init() {
+		addEvent();
+		slideEvent(1);
+		pageMove('.page-move');
+    }
+
+    function addEvent() {
+
+		$('.slider-logo').slick({
+			autoplay: true,
+			autoplaySpeed: 0,
+			infinite: true,
+			cssEase: 'linear',
+			arrows: false,
+			slidesToScroll: 1,
+			speed: 1500,
+			slidesToShow: 6,
+			vertical: true,
+		});
+
+        $('[data-popup-open]').on('click', function () {
+            var _data = $(this).data('popupOpen');
+            if (_data == 'lecture') {
+                popupOpen('.dimmed', 'popupLecture');
+            } if (_data == 'book') {
+                popupOpen('.dimmed', 'popupBooklist');
+            }if (_data == 'benefit') {
+                popupOpen('.dimmed', 'popupBenefit');
+            }else if (_data == 'base') {
+                popupOpen('.dimmed', 'popupBase');
+            }
+        });
+
+        $('[data-popup-close]').on('click', function () {
+            var _data = $(this).data('popupClose');
+		 	if (_data == 'lecture') {
+                popupClose('.dimmed', 'popupLecture');
+            } if (_data == 'book') {
+                popupClose('.dimmed', 'popupBooklist');
+            } if (_data == 'benefit') {
+                popupClose('.dimmed', 'popupBenefit');
+            } else if (_data == 'base') {
+                popupClose('.dimmed', 'popupBase');
+			}
+        });
+    }
+
+	function slideEvent(idx){
+		$(".carousel-slide").hide();
+		$("#carouselSlide"+idx).show();
+
+		var max = $("#carouselSlide"+idx).children("li").length;
+		if(max == 1){
+			$('.carousel-prev').hide();
+			$('.carousel-next').hide();
+		}else{
+			$('.carousel-prev').show();
+			$('.carousel-next').show();
+		}
+		_carousel = $("#carouselSlide"+idx).waterwheelCarousel({
+			orientation: 'vertical',
+			flankingItems: 1,
+			autoPlay: 2000
+		});
+	}
+</script>
+<!-- // eco 영역 -->
+
+<div id="productApply"></div>
+</body>
+</html>

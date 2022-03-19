@@ -1,0 +1,194 @@
+// form
+fieldset {
+	min-width: 0;
+	@extend %textEllipsis;
+}
+
+.custom-input {
+	position: relative;
+	background-color: $color-white;
+	@extend %textEllipsis;
+	@include rem(height, 45px);
+	@include boxSizing(border-box);
+	.text {
+		width: 100%;
+		height: 100%;
+		word-break: keep-all;
+		word-break: break-all;
+		border: none;
+		background: none;
+		@include rem(padding, 0 17px);
+		@include rem(font-size, 15px);
+		@include boxSizing(border-box);
+		&:hover,
+		&:active,
+		&:focus {
+			outline: none;
+		}
+		@include placeholder {
+			color:$color-base-medium;
+			@include rem(font-size, 15px);
+		}
+	}
+}
+
+.custom-text {
+	background: $color-white;
+	min-height: 120px;
+	@include boxSizing(border-box);
+	@include breakpoint(desktop){
+		height: 145px;
+	}
+	@include breakpoint(maxHeight){
+		height: 385px;
+	}
+	/*div[contenteditable] {
+		width: 100%;
+		min-height: 120px;
+		max-height: 250px;
+		overflow: auto;
+		word-break: keep-all;
+		word-break: break-all;
+		//color: $color-base-dark;
+		@include rem(padding, 12px 17px);
+		@include rem(font-size, 15px);
+		@include boxSizing(border-box);
+		@include placeholder {
+			color:$color-base-medium;
+			@include rem(font-size, 15px);
+		}
+		&:hover,
+		&:active,
+		&:focus {
+			outline: none;
+		}
+		@include breakpoint(desktop){
+			padding: 10px 0;
+			max-height: 150px;
+		}
+		@include breakpoint(maxHeight){
+			min-height: 350px;
+			max-height: 350px;
+		}
+	}
+	[contenteditable=true]:empty:before{
+	content: attr(placeholder);
+	display: block;
+	}*/
+
+	textarea {
+		width: 100%;
+		min-height: 120px;
+		max-height: 250px;
+		overflow: auto;
+		word-break: keep-all;
+		word-break: break-all;
+		color: $color-base-dark;
+		border: 0;
+		resize: none;
+		@include rem(padding, 12px 17px);
+		@include rem(font-size, 15px);
+		@include boxSizing(border-box);
+		@include placeholder {
+			color:$color-base-medium;
+			@include rem(font-size, 15px);
+		}
+		&:hover,
+		&:active,
+		&:focus {
+			outline: none;
+		}
+		@include breakpoint(desktop){
+			padding: 10px 0;
+			max-height: 150px;
+		}
+		@include breakpoint(maxHeight){
+			min-height: 350px;
+			max-height: 350px;
+		}
+	}
+}
+
+.custom-select {
+	position: relative;
+	background-color: $color-white;
+	border-radius: 3px;
+	@extend %textEllipsis;
+	@include rem(height, 54px);
+	@include border('all', 1px, solid, $border-color);
+	@include boxSizing(border-box);
+	&:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		display: block;
+		@include rem(right, 18px);
+		@include rem(margin-top, -8px);
+		@include arrow(bottom, 8px, 8px, 1px, $color-base-dark);
+		@include rotate(45deg);
+	}
+	.select {
+		width: 100%;
+		height: 100%;
+		word-break: keep-all;
+		word-break: break-all;
+		border: none;
+		background: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		@include rem(padding, 0 33.5px 0 13px);
+		@include rem(font-size, 18px);
+		@include boxSizing(border-box);
+		outline: none;
+		&::-ms-expand {
+			display: none;
+		}
+		@include breakpoint(desktop) {
+			padding-right: 40px;
+		}
+	}
+	&:hover {
+		border-color: $color-base-dark;
+	}
+}
+
+.fake-checkbox {
+	position: relative;
+	display: block;
+	input[type='radio'],
+	input[type='checkbox'] {
+		@extend %sr-only;
+		&:checked + label {
+			&:after {
+				background-image: url('#{$img-path}/icon_input_checked.png');
+			}
+		}
+	}
+	label {
+		display: block;
+		text-align: left;
+		color: $color-base;
+		line-height: 1.5;
+		@include rem(font-size, 13px);
+		@include rem(padding-left, 33px);
+		@include boxSizing(border-box);
+		&:after {
+			content: '';
+			position: absolute;
+			top: 0;
+			display: block;
+			background: url('#{$img-path}/icon_input_check.png') no-repeat center center;
+			background-size: 13px auto;
+			border-radius: 3px;
+			@include border('all', 1px, solid, #c6cbce);
+			@include rem(left, 0);
+			@include size(36px, 36px, resize);
+		}
+		a {
+			font-weight: 500;
+			color: $color-base-dark;
+			@include rem(margin-left, 3px);
+		}
+	}
+}

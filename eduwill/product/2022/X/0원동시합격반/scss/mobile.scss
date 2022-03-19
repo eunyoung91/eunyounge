@@ -1,0 +1,604 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/popup";
+
+.product-eco {
+    line-height: normal;
+    letter-spacing: -1px;
+    color: #153067;
+    * { font-family: $font-noto; }
+    .container { position: relative; }
+    .wrap {
+        position: relative;
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+    }
+	.tag{
+		@include animation(flagEvent, .8s, $iteration: infinite, $timing: step-start){
+			0%, 100% { color: #fff;  }
+			50% { color: #FF2121;  }
+			}
+		}
+    .item { position: relative; }
+    .eco-1718 {
+        p {
+            margin: 0;
+            line-height: 1.4;
+            @include vw(font-size,14px);
+            font-weight: 300;
+            color: #666;
+        }
+    }
+    .slick-arrow {
+        @extend %slick-arrow;
+        @include rem(width, 50px);
+        @include rem(height, 50px);
+        @include rem(margin-top, -25px);
+        &.slick-prev {
+            left: 0;
+            &:after { @include arrow(left, 20px, 20px, 1px, #132054); }
+        }
+        &.slick-next {
+            right: 0;
+            &:after { @include arrow(right, 20px, 20px, 1px, #132054); margin-left:-16px !important}
+        }
+    }
+    .slick-dots {
+        width: 100%;
+        @include rem(margin-top, 20px);
+        text-align: center;
+        li {
+            display: inline-block;
+            @include rem(margin, 0 6px);
+            button {
+                @include rem(width, 20px);
+                @include rem(height, 20px);
+                text-indent: -9999em;
+                border: none;
+                border-radius: 50%;
+                background-color: #cfcfcf;
+                outline: none;
+                cursor: pointer;
+            }
+            &.slick-active {
+                button {
+                    @include rem(width, 60px);
+                    @include rem(border-radius, 15px);
+                    background-color: #ffc20e;
+                }
+            }
+        }
+    }
+    .blink { position: absolute; width: percent(129); }
+    .product-title {
+        @include bg($color: #00392a, $url: '#{$img-path}/mobile/bg_title.jpg', $size: cover);
+        .action {
+            position: absolute;
+            top: percent(10,629);
+            right: percent(30);
+            width: percent(134);
+        }
+        .blink1 { top: percent(410,629); right: percent(155); }
+        .blink2 { top: percent(415,629); left: percent(-10); }
+    }
+    .product-benefit {
+        background-color: #fff;
+        .eco-1718 {
+            position: absolute;
+            top: 16.4%;
+            right: 0;
+            left: 0;
+            p.brand {
+                display: block;
+            }
+        }
+        .flag {
+            display: inline-block;
+            font-size: 0;
+            .flag-item {
+                display: inline-block;
+                @include rem(padding, 8px 30px);
+                @include vw(font-size,28px);
+                font-weight: 700;
+                &.title {
+                    color: #fff;
+                    @include rem(border-radius, 20px 0 0 20px);
+                    background-color: #035d43;
+                }
+                &.discount {
+                    font-family: $font-roboto;
+                    color: #e10010;
+                    @include rem(border-radius, 0 20px 20px 0);
+                    background-color: #e9e9e9;
+                }
+            }
+        }
+    }
+    .product-benefit-plus {
+        z-index: 1;
+        background-color: #034a35;
+        img { @include rem(margin-top, -55px); }
+    }
+    .product-winner {
+        overflow: hidden;
+        background-color: #ffc100;
+        @include linear-gradient(90deg, #ffc100 0%, #ffea00 100%);
+        .winner-wrap {
+            @include rem(margin-top, -50px);
+            overflow: hidden;
+            .winner-list {
+                overflow: hidden;
+                -webkit-transform: perspective(400px) rotateX(35deg);
+                -ms-transform: perspective(400px) rotateX(35deg);
+                transform: perspective(400px) rotateX(35deg); // perspective 수치가 낮을수록 좌우로 확장
+            }
+            // slick-track issue
+            .winner-list .slick-track {
+              -webkit-transform: translate(0) !important;
+              -ms-transform: translate(0) !important;
+              transform: translate(0) !important;
+            }
+            p {
+                line-height: 2.2;
+                @include vw(font-size,20px);
+                font-weight: 500;
+                color: #222;
+            }
+        }
+    }
+    .product-proof { background-color: #034a35; }
+    .product-band {
+        z-index: 1;
+        background-color: #001f16;
+        &:after {
+            content: '';
+            position: absolute;
+            top: 99%;
+            left: 50%;
+            @include rem(width, 235px);
+            @include rem(height, 67px);
+            @include bg($url: '#{$img-path}/mobile/bg_tail_210826.png', $size: cover);
+            @include translateX(-50%);
+        }
+        .eco-1718 {
+            position: absolute;
+            top: percent(200, 255);
+            right: 0;
+            left: 0;
+            p.brand {
+                display: block;
+                color: #fff;
+            }
+        }
+    }
+    .product-basic {
+        @include rem(padding-bottom, 120px);
+        background-color: #034a35;
+        .action {
+            @include rem(margin-top, 40px);
+            a {
+                display: inline-block;
+                width: percent(620);
+                @include pointer(80%, 0, 60px, 66px, 20, bounce);
+            }
+        }
+    }
+    .product-video {
+        @include rem(padding-bottom, 120px);
+        background-color: #f2f2f2;
+        .video-list {
+            margin: 0 percent(52);
+            .video {
+                position: relative;
+                @include rem(margin-top, 20px);
+                @include breakpoint(maxMobile){
+                    height: 346px;
+                }
+                video,
+                a {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 1;
+                    display: block;
+                }
+                a { z-index: 2; }
+            }
+        }
+
+        .video-review { @include rem(margin-top, 20px); }
+
+        .action {
+            width: percent(383);
+            margin: 0 percent(30) 0 auto;
+            @include rem(margin-top, 60px);
+            text-align: right;
+        }
+    }
+    .product-recruit {
+        .company-wrap {
+            position: absolute;
+            top: percent(220, 833);
+            right: percent(70);
+            bottom: percent(250, 833);
+            left: percent(70);
+            .company-list p {
+                line-height: 2.2;
+                @include vw(font-size,22px);
+                font-weight: 500;
+                color: #222;
+                letter-spacing: -1px;
+                white-space: nowrap;
+            }
+        }
+    }
+    .product-once { @include rem(padding-bottom, 120px); }
+    .product-recommend { @include rem(padding-bottom, 120px); }
+    .product-brand {
+        @include bg($color: #ffd219, $url: '#{$img-path}/pc/bg_brand.jpg', $size: cover);
+        .eco-1718 {
+            position: absolute;
+            top: percent(277,1369);
+            left: percent(50);
+            p.brand { display: block; }
+        }
+        .action {
+            position: absolute;
+            top: percent(1207,1369);
+            right: 0;
+            left: 0;
+            width: percent(134);
+            margin: 0 auto;
+        }
+    }
+    .product-short {
+        .flag {
+            position: absolute;
+            top: 274px;
+            left: 50%;
+            margin-left: 420px;
+        }
+    }
+    .product-review {
+        @include rem(padding-bottom, 120px);
+        background-color: #f8f8f8;
+		.slick-arrow.slick-prev {
+			left: 6px;
+		}
+        .action {
+            @include rem(margin-top, 30px);
+            a {
+                display: inline-block;
+                width: percent(383);
+            }
+        }
+    }
+    .product-increse {
+        .eco-1718 {
+            position: absolute;
+            top: percent(234,1087);
+            left: percent(70);
+            text-align: left;
+            p.brand,
+            p.compare-2 {
+                display: block;
+            }
+        }
+        .percent {
+            position: absolute;
+            margin: 0;
+            line-height: 1;
+            font-family: $font-roboto;
+            font-weight: 900;
+            &-1 {
+                top: percent(167,1087);
+                right: percent(360);
+                left: percent(220);
+                @include vw(font-size,44px);
+                color: #222;
+                letter-spacing: -2px;
+                span {
+                    display: inline-block;
+                    vertical-align: top;
+                    @include vw(font-size,26px);
+                }
+            }
+            &-2 {
+                top: percent(490,1087);
+                right: percent(450);
+                left: percent(90);
+                @include vw(font-size,60px);
+                color: #0200d4;
+            }
+        }
+    }
+
+    .product-exam { background-color: #f8f8f8; }
+	.product-only{
+		.sector-unbreakable{
+			background: #f8f7f0 !important;
+			.unbreakable-title{
+				.title{
+					position: relative;
+					padding-left:15px;
+					&:before{
+						content: "";
+						width:3px;
+						height: 85%;
+						display: inline-block;
+						background-color:#dedede;
+						position: absolute;
+						left:0;
+						bottom:5px;
+					}
+				}
+			}
+			.unbreakable-list{
+				&:before{	background: -webkit-gradient(linear, left top, left bottom, from(#f8f7f0), to(rgba(255, 255, 255, 0)));
+					background: linear-gradient(
+				180deg, #f8f7f0 0%, rgba(255, 255, 255, 0) 100%);}
+				&:after{display: none}
+			}
+		
+		}
+	}
+    .product-answer {
+        @include rem(padding-bottom, 160px);
+        background-color: #034a35;
+        .eco-1718 {
+            p.brand { display: block; color: #fff; opacity: .5; }
+        }
+        .answer-title {
+            @include rem(margin-top, 40px);
+            text-align: center;
+            @include vw(font-size,30px);
+            font-weight: 900;
+            color: #fff;
+            strong {
+                color: #ffd219;
+                @include animation(colorChange, 1s, $iteration: infinite, $timing: step-start){
+                    0%, 100% { color: #fff; }
+                    50% { color: #ffd219; }
+                }
+            }
+        }
+        .answer-list {
+            & > div { position: relative; }
+        }
+        .flag {
+            position: absolute;
+            top: percent(200, 358);
+            right: 0;
+            left: 0;
+            width: percent(545);
+            margin: 0 auto;
+        }
+    }
+    .product-teacher {
+        @include rem(padding-bottom, 120px);
+        background-color: #f8f8f8;
+        .eco-1718 {
+            position: absolute;
+            top: percent(520, 577);
+            right: 0;
+            left: 0;
+            p.survey-3 { display: block; }
+        }
+        .item .action {
+            position: absolute;
+            top: percent(170, 577);
+            right: percent(30);
+            width: percent(134);
+        }
+        .teacher-notice {
+            @include rem(margin-top, 50px);
+            margin-right: percent(50);
+            text-align: right;
+            .action {
+                display: inline-block;
+                width: percent(220);
+            }
+        }
+    }
+    .product-book {
+        .action {
+            position: absolute;
+            top: percent(688,1497);
+            right: percent(30);
+            width: percent(134);
+        }
+    }
+    .product-reason {
+        .reason-list {
+            position: absolute;
+            top: percent(166,1151);
+            right: percent(50);
+            left: percent(50);
+        }
+        .slick-dots { margin-top: 10%; }
+    }
+    .product-curriculum {
+        .action {
+            position: absolute;
+            top: percent(627, 1663);
+            right: percent(50);
+            width: percent(247);
+            & + .action { top: percent(1042, 1663); }
+        }
+    }
+    .product-free { 
+		background-color: #f8f8f8;
+		.eco-1718 {
+            p.brand { 
+				display: block; color: #222; opacity: .5;
+				position: absolute;
+				@include vw(top,265px);
+				@include vw(left,85px);
+			
+			 }
+        }
+	 }
+    .product-support {
+        & + .product-apply-table {
+            padding-top: 0;
+            background-color: #ffc100;
+            @include linear-gradient(90deg, #ffc100 0%, #ffea00 100%);
+        }
+    }
+    .product-apply-table {
+        .wrap + .wrap { @include rem(margin-top, 40px); }
+        .flag-basic {
+            display: inline-block;
+            margin: 0;
+            @include rem(padding, 10px 20px);
+            @include vw(font-size,40px);
+            font-weight: 700;
+            color: #000;
+            background-color: #ffd634;
+            strong {
+                color: #f21440;
+                @include animation(colorChangeFlag, 1s, $iteration: infinite, $timing: step-start) {
+                    0%, 100% { color: #f21440;  }
+                    50% { color: #000;  }
+                }
+            }
+        }
+        .apply-date {
+            position: absolute;
+            top: percent(64, 111);
+            right: percent(515);
+            left: percent(76);
+            text-align: right;
+            line-height: 1;
+            font-size: 0;
+            p {
+                display: inline-block;
+                width: 40.32%;
+                vertical-align: top;
+                line-height: 1;
+                font-size: 0;
+                &.line { width: 19.36%; }
+                span {
+                    display: inline-block;
+                    width: 50%;
+                    padding: 0 1%;
+                    @include boxSizing(border-box);
+                }
+                img { width: 100%; }
+            }
+        }
+        .apply-list {
+            .list {
+                position: absolute;
+				width: 100%;
+				padding: 50px;
+				box-sizing: border-box;
+				@include vw(height,949px);
+				.discount{
+				    display: block;
+					position: absolute;
+					left: 0;
+					right: 0;
+					@include vw(top,139px);
+					@include vw(padding-left, 5px);
+					em{
+						@include vw(font-size,36px);
+						font-weight: 600;
+						font-family: $font-roboto;
+						color:#fff;
+					}
+				}
+                &.list-1 { 
+					@include vw(top,0);
+				
+					 }
+				&.list-2{ 
+					@include vw(top,920px);
+					.discount{
+						@include vw(top,135px);
+					}
+				}
+				&.list-3 { 
+					@include vw(top,1816px);
+					 .discount{
+						@include vw(top,150px);
+					}
+				 }	 
+				 .action{
+					 position: absolute;
+					 @include vw(right,80px);
+					 bottom:0;
+					 @include vw(width,268px);
+				 }	 
+        	 }
+            .price-box {
+                text-align: left;
+				position: absolute;
+   				bottom: 0;
+                .upper {
+                    position: relative;
+                    line-height: 1;
+                }
+                .lower {
+					line-height: 1;
+                }
+                .price-before {
+                    display: block;
+                    @include rem(padding-top, 10px);
+                    line-height: 1;
+                    @include vw(font-size,31px);
+                    font-weight: 400;
+                    color: #888;
+                    text-decoration: line-through;
+                    & + .price-after { padding-top: 0; @include vw(font-size,50px); }
+                    em { font-family: $font-roboto;font-weight: 400; }
+                }
+                .price-after {
+                    display: block;
+                    @include rem(padding-top, 10px);
+                    line-height: 1;
+                    @include vw(font-size,41px);
+                    font-weight: 700;
+                    color: #000;
+                    em { 
+						font-family: $font-roboto; @include vw(font-size,61px); font-weight: 600; 
+						@include vw(letter-spacing,-4px);
+						color: #e10010;
+					}
+                }
+            }
+            .action {
+                padding-top: 19%;
+                a { @include pointer(50%, 0, 57px, 65px, 12, bounce); }
+            }
+        }
+        .action2 {
+            position: absolute;
+            right: percent(50);
+            @include vw(bottom,100px);
+            @include vw(width,167px);
+            width: percent(293);
+            text-align: right;
+            a {
+                display: inline-block;
+            }
+        }
+		&.type2{
+			@include vw(padding-top,170px);
+			.wrap.ab{
+				position: absolute;
+				left:0;right:0;top:0
+			}
+
+		}
+    }
+}

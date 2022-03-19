@@ -1,0 +1,382 @@
+@charset "utf-8";
+
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+@import "module/motion";
+@import "module/popup";
+
+.product-eco {
+	* {
+		line-height: normal;
+		font-family: $font-noto;
+		letter-spacing: -1px;
+		box-sizing: border-box;
+	}
+	.wrap{
+		width:1100px;
+		margin:0 auto;
+	}
+	.only-mobile,
+	.mobile-only{display: none;}
+
+	label{
+		cursor: pointer;
+	}
+	.item { position: relative;}
+	.grounds-text {
+		position: relative;
+		text-align: right;
+		margin-top: 20px;
+		color: rgba(167,166,166, .6);
+		font-weight: 400;
+		font-size: 16px;
+	}
+
+	.wing {
+		position: fixed;
+		top: 400px;
+		right: 0;
+		z-index: 101;
+		text-align: left;
+		a {
+			display: block;
+			+ a { 
+				margin-top: 5px;
+			}
+		}
+	}
+	
+	.slick-arrow {
+		position: absolute;
+		top: 50%;
+		z-index: 10;
+		content: '';
+		padding: 0;
+		margin: 0;
+		border: none;
+		background: none;
+		outline: none;
+		text-indent: -9999px;
+		display: block;
+		border-width: 0;
+		border-style: solid;
+		-webkit-transform: rotate(45deg) translateY(-50%);
+		transform: rotate(45deg) translateY(-50%);
+		width: 38px;
+		height: 38px;
+		border-color: #6c6c6c;
+		margin-top: -13px;
+		left: 50%;
+		cursor: pointer;
+	}
+
+	.slick-prev {
+		margin-left: -510px;
+		border-bottom-width: 1px;
+		border-left-width: 1px;
+	}
+
+	.slick-next {
+		margin-left: 455px;
+		border-top-width: 1px;
+		border-right-width: 1px;
+	}
+
+
+	.sector-title {
+		@include bg($color: #141960, $url: '#{$img-path}/pc/bg_title.jpg', $size: cover);
+		.special-benefit {
+			position: absolute;
+			top: 1030px;
+			left: 0;
+			right: 0;
+			z-index: 1;
+		}
+		.icon-no1{
+			position: absolute;
+			top: 300px;
+			left: 50%;
+			margin-left: -800px;
+		}
+	}
+
+	.sector-price{
+		position: relative;
+		padding: 305px 0 190px;
+		background: #eeeef9;
+		.wrap{
+			width:1000px;
+		}
+		&:after{
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: -40px;
+			left: 50%;
+			margin-left: 369px;
+			width: 114px;
+			height: 204px;
+			z-index: 1;
+			@include bg($url: '#{$img-path}/pc/obj.png', $size: cover);
+		}
+		.fly{
+			position: absolute;
+		}
+		.btn-apply{
+			top: 285px;
+			right: 30px;
+			width: 334px;
+			height: 80px;
+			z-index: 1;
+			a{
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+		}
+		//할인페이지
+		&.sale{
+			.btn-apply{
+				top: 285px;
+				right: 30px;
+				width: 250px;
+				height: 80px;
+				z-index: 1;
+				a{
+					display: block;
+					width: 100%;
+					height: 100%;
+					cursor:pointer;
+				}
+			}
+		}
+		.price-text{
+			top: 275px;
+			left: 32px;
+			width: 678px;
+			font-size: 36px;
+			line-height: 1;
+			font-weight: 700;
+			color: #222;
+			letter-spacing: -2px;
+			text-align: left;
+			strong{
+				color: #f2201f;
+			}
+			.notice{
+				margin: 10px 0 0;
+				padding: 0;
+				line-height: 1.4;
+				font-size: 18px;
+				color: #333;
+				font-weight: 300;
+				letter-spacing: -1px;	
+			}
+		}
+		.subject{
+			top: 145px;
+			left: 36px;
+			text-align: left;
+			font-size: 40px;
+			color: #161c53;
+			font-weight: 700;
+			letter-spacing: -2px;
+			// line-height: 1;	
+		}
+		.price-box{
+			top: 290px;
+			left: 30px;
+			@include boxSizing(border-box);
+			display:table;
+			> div {
+				display: table-cell;
+				vertical-align: middle;
+			}
+			* {
+				line-height:1;
+				vertical-align: middle;
+				letter-spacing: -3px;
+				font-family: $font-roboto;
+			}
+			.before-price{
+				position: relative;
+				text-align: center;
+				font-size: 45px;
+				font-weight: bold;
+				color: #989898;
+				width:205px;
+				&:after{
+					content: '';
+					display: block;
+					position: absolute;
+					left: 0;
+					right: 0;
+					top: 50%;
+					width: 100%;
+					height: 1px;
+					background: #171c54;
+				}
+			}
+			.discount-flag{
+				position: relative;
+				width: 228px;
+				padding-left: 21px;
+				&:before{
+					content: '';
+					display: block;
+					position: absolute;
+					top: 50%;
+					left: 0;
+					width: 100%;
+					height: 1px;
+					background: #171c54;
+					z-index: 1;	
+				}
+				&:after{
+					content: '';
+					display: block;
+					position: absolute;
+					top: 22px;
+					right: 0;
+					width: 12px;
+					height: 14px;
+					z-index: 1;
+					@include bg($url: '#{$img-path}/pc/arrow.jpg', $size: cover);
+				}
+				span{
+					position: relative;
+					display: inline-block;
+					padding: 8px 15px;
+					font-size: 26px;
+					color: #fff;
+					background: #000577;
+					z-index: 2;
+				}
+			}
+			.after-price{
+				width: 245px;
+				font-size: 56px;
+				font-weight: 700;
+				color: #f0231e;
+				span{
+					em{
+						font-size: 50px;
+					}
+				}
+			}
+
+		}
+	}
+
+
+
+
+	.sector-item1 {
+		background: #fff;
+	}
+
+	.sector-item2 {
+		background: #eeeefa;
+	}
+
+	.sector-item3 {
+		background: #fff;
+	}
+
+	.sector-item4 {
+		padding-bottom: 173px;
+		background: #eeeefa;
+		.slider-contents {
+			width: 940px;
+			margin: 0 auto;
+		}
+	}
+	.sector-teacher{
+		background: #fff;
+		.teacher-slider {
+			padding-bottom: 77px;
+			width: 841px;
+			margin: 0 auto;
+		}
+	}
+
+	.sector-reason2{
+		.tab-list{
+			position: relative;
+			width: 1000px;
+			height: 118px;
+			margin: 0 auto;
+			li{
+				float: left;
+				width: 50%;
+				&.in{
+					a{
+						color: #fff;
+						background: #161c53;
+						strong{
+							color: #fff;
+						}
+					}
+				}
+				a{
+					display: block;
+					padding: 25px 0;
+					background: #dedede;
+					color: rgba(32, 32, 32, .5);
+					font-size: 23px;
+					font-weight: 400;
+					letter-spacing: -1px;
+					line-height: 1;
+					strong{
+						display: inline-block;
+						margin-top: 10px;
+						font-size: 35px;
+						font-weight: 700;
+						color: rgba(32, 32, 32, .5);
+						letter-spacing: -2px;
+						line-height: 1;
+					}
+				}
+			}
+		}
+		.tab-contents{
+			background: #161c53;
+			.item{
+				display: none;
+				position: relative;
+				&.in{
+					display: block;
+				}
+				.gif-img{
+					position: absolute;
+					top: 255px;
+					right: 50px;
+					z-index: 1;
+					width: 500px;
+					height: 282px;
+					img{
+						width:100%;
+					}	
+				}
+			}
+		}
+	}
+
+
+
+	.sector-benefit {
+		@include bg($color: #00027c, $url: '#{$img-path}/pc/bg_benefit.jpg', $size: cover, $position: bottom);
+	}
+
+	.sector-service {
+		background: #f7f7f7;
+	}
+
+	.sector-apply-title {
+		background: #00027c;
+	}
+
+}

@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/popup";
+@import "module/motion";
+@import "module/base";
+@import "module/animate";
+
+// @include pointer(50%, 0, 66px, 73px, 20, bounce);
+// @include boxSizing(border-box);
+.product-eco {
+	font-family: $font-noto;
+	line-height:1;
+	letter-spacing: -1px;
+	
+	.wrap{
+		max-width:720px;
+	}
+
+	.fix-banner {
+		z-index: 150;
+	}
+
+	.sector{
+		&-title {
+			@include bg($color: #fff, $url: '#{$img-path}/mobile/bg_title.jpg', $size: cover);
+			.apply-list {
+				@include vw(width, 600px);
+				margin: 0 auto;
+				background:#ffe000; 
+				@include vw(padding, 50px 0 30px 0);
+				text-align: center;
+				.item {
+					&.title {
+						strong{
+							display: block;
+							@include vw(margin-bottom, 25px);
+							@include vw(font-size, 34px);
+							font-weight: 600;
+							color: #000000;
+						}
+						.price-list {
+							@include vw(margin-bottom, 15px);
+							.price-col {
+								display: inline-block;
+								&.before {
+									position: relative;
+									@include vw(font-size, 39px);
+									font-weight: 700;
+									color: #000000;
+									&:after {
+										content: '';
+										display: block;
+										position: absolute;
+										top: 10%;
+										left: -10%;
+										@include vw(width, 149px);
+										@include vw(height, 20px);
+										@include bg($url: '#{$img-path}/pc/price_line.png', $position: center center);
+										background-size: contain;
+										z-index: 1;
+									}
+								}
+								&.after {
+									@include vw(margin-left, 40px);
+									@include vw(font-size, 75px);
+									font-weight: 800;
+									color: #ed2c2c;
+									text-shadow: 2px 2px 0px rgba(2, 0, 2, 0.3); 
+								}
+							}
+						}
+					}
+					&.action {
+						@include vw(width, 528px);
+						margin: 0 auto;
+						a {
+							@include pointer(50%, 20%, 75px, 85px, 1, bounce);
+						}
+					}
+				}
+			}
+		}
+		&-review {
+			@include vw(padding-bottom, 100px);
+			@include bg($color: #fff, $url: '#{$img-path}/mobile/bg_winner.jpg', $size: cover);
+			.action {
+				@include vw(width, 407px);
+				margin: 0 auto;
+				@include vw(margin-top, 95px);
+			}
+		}
+		&-banner {
+			&.banner-1 {
+				background: #0037b3;
+			}
+			&.banner-2 {
+				@include bg($color: #fff, $url: '#{$img-path}/mobile/bg_banner_2.jpg', $size: cover);
+			}
+		}
+		&-teacher {
+			background: #f1f1f1;
+		}
+		&-book {
+			background: #fdfdfd;
+		}
+		&-benefit {
+			background: #0037b3;
+		}
+	}
+}
+
+

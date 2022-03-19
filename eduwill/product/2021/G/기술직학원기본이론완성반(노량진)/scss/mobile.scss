@@ -1,0 +1,515 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+
+@function pImg( $targetSize, $parentSize : 720 ){
+	@return ( $targetSize / $parentSize ) * 100%;
+}
+
+.product {
+	&-eco {
+		* {
+			line-height: normal;
+			font-family: $font-roboto;
+			letter-spacing: -1px;
+		}
+		.container {
+			position: relative;
+		}
+		.wrap {
+			position: relative;
+			width: 100%;
+			max-width: 720px;
+			margin: 0 auto;
+			text-align: center;
+			&-full {
+				width: 100%;
+			}
+		}
+		.holder { position: relative; }
+		p {
+			margin: 0;
+			text-align: left;
+			@include vw(20px);
+			color: #666;
+			&.notice { @include rem(margin-top, 10px); }
+		}
+		
+		.btn-fly {
+			position: absolute;
+			display: block;
+			z-index: 1;
+		}
+		.slider-contents {
+			position: relative;
+			margin: 0 6.944%;
+			.slick-dots {
+				position: absolute;
+				bottom: 8%;
+				right: 0;
+				left: 0;
+				font-size: 0;
+				z-index: 1;
+				li {
+					display: inline-block;
+					@include rem(margin, 0 6px);
+					&.slick-active button {
+						background-color: #ffc20e;
+					}
+				}
+				button {
+					display: block;
+					@include rem(width, 20px);
+					@include rem(height, 20px);
+					color: transparent;
+					border: none;
+					border-radius: 50%;
+					background-color: #ddd;
+					outline: none;
+					cursor: pointer;
+				}
+			}
+			.slick-slide {
+				outline: none;
+				a { outline: none;}
+			}
+		}
+		.action {
+			position: absolute;
+			top: pImg(465, 1977);
+			@include rem(min-width, 350px);
+			left:50%;
+			transform: translateX(-50%);
+			a {
+				display: inline-block;
+				@include rem(padding, 15px 40px);
+				@include vw(22px);
+				font-weight: bold;
+				letter-spacing: -1px;
+				border-radius: 50px;
+				background: #ffde78;
+				color:#222;
+				box-shadow: 0px 10px 15px rgba(0,0,0,0.15);
+				&:hover{
+					color: #222;
+				}
+			}
+		}
+		.icon-hand {
+			position: absolute;
+			top: 50%;
+			right: 5%;
+			width: pImg(50, 720);
+			img{max-width:100%;}
+			@include animation(moving, 1s, $iteration: infinite){
+				0%, 100% { @include translateY(0); }
+				50% { @include translateY(10px); }
+			}
+		}
+
+		.slide-wrap .bx-wrapper .bx-viewport {left: 0;border: 0 none;background: none;-moz-box-shadow: none;-webkit-box-shadow: none;box-shadow: none;}
+	}
+
+	&-top-banner {
+		background-color: #fff;
+	}
+
+	&-title {
+		z-index: 1;
+		background:#381a3c url('#{$img-path}/mobile/bg_title.jpg') 50% 0 no-repeat;
+		background-size: cover;
+	}
+
+	&-winner{
+		overflow: hidden;
+		@include rem(padding, 95px 0 0px);
+		@include bg($color: #ffbf00, $url: '#{$img-path}/mobile/bg_winner_211019.jpg', $size: cover);
+		.winner-title {
+			@include vw(45px);
+			font-weight: 900;
+			color: #222;
+			line-height: 1.3;
+			em {
+				@include vw(30px);
+				font-weight: 400;
+				color: #222;
+				vertical-align: top;
+			}
+			.grounds-text {
+				@include rem(margin-top, 20px);
+				text-align: center;
+				font-weight: 400;
+				color: rgba(44,48,71, .7);
+			}
+		}
+		
+		.winner-contents {
+			@include rem(margin-top,-20px);
+			@include rem(padding-bottom,80px);
+			.winner-list {
+				-webkit-transform: perspective(400px) rotateX(45deg);
+				-ms-transform: perspective(400px) rotateX(45deg);
+				transform: perspective(400px) rotateX(45deg);
+				.slick-track {
+					-webkit-transform: translate(0) !important;
+					-ms-transform: translate(0) !important;
+					transform: translate(0) !important;
+				}
+			}
+			p {
+				font-family: $font-noto;
+				text-align: center;
+				line-height: 1.5;
+				font-weight: 500;
+				color: #222;
+				@include vw(22px);
+			}
+		}
+		.rolling {
+			@include rem(margin-top,-100px);
+			overflow: hidden;
+			height: 240px;
+			transform: perspective(150px) rotateX(45deg);
+			@include breakpoint(maxMobile){
+				margin-top: -40px;
+			}
+			ul{
+				li {
+					overflow:hidden;
+					float:left;
+					color:#000;
+					height:20px;
+					line-height:21px;
+					text-align:center;
+					span{
+						display:inline-block;
+						text-align:center;
+						letter-spacing:-1.5px;
+						color:#000;
+						font-size:11px;
+						font-weight:700;
+						@include breakpoint(maxMobileFold) { font-size:14px;}
+						@include breakpoint(maxMobile) { font-size:16px;}
+					}
+				}
+			}
+		}
+	}
+
+	&-winner2{
+		.winner-interview {
+			width: 100%;
+			@include rem(padding, 80px 0 100px);
+			.col {
+				float: none;
+				width: 100%;
+				@include rem(margin-bottom, 80px);
+				img {
+					display: inline;
+					width: pImg(450, 720);
+				}
+				.caption {
+					@include rem(margin, 30px auto 0);
+					@include rem(padding-left, 35px);
+					@include rem(font-size, 28px);
+					width: pImg(450, 720);
+					max-width: 450px;
+					text-align: left;
+					color: #000;
+					font-weight: 500;
+					line-height: 1.3;
+					box-sizing: border-box
+				}
+			}
+			.slick-arrow {
+				position: absolute;
+				top: 50%;
+				z-index: 1;
+				padding: 0;
+				font-size: 0;
+				color: transparent;
+				background-color: transparent;
+				text-indent: -9999px;
+				border: none;
+				cursor: pointer;
+				outline: none;
+				@include rem(width, 50px);
+				@include rem(height, 50px);
+				@include rem(margin-top, -90px);
+				&.slick-prev { left: 2%; background-image: url('#{$img-path}/mobile/btn_prev.png'); background-size: cover;}
+				&.slick-next { left: auto; right: 2%; background-image: url('#{$img-path}/mobile/btn_next.png');  background-size: cover;}
+			}
+		}
+		.action{
+			position: absolute;
+			top: pImg(480, 620);
+			.icon-hand { 
+				@include rem(width, 60px);
+				right: -5%;
+			}
+		}
+		.btn-box {
+			a {
+				position: relative;
+				display: block;
+				margin: 0 auto;
+				.icon-hand { right: 24%;}
+			}
+			p {
+				@include rem(margin, 14px 0 0);
+				@include vw(24px);
+				padding: 0;
+				text-align: center;
+				font-weight: 400;
+				color: #aaa;
+			}
+		}
+	}
+
+	&-text {
+		background: #381a3c;
+	}
+
+	&-curriculum {
+		background: #f6f6f6;
+	}
+
+	&-teacher {
+		@include rem(padding-bottom, 90px);
+		
+		.slide-contents {
+			position: relative;
+			width: pImg(620, 720);
+			margin: 0 auto;
+			.slick-slide {
+				@include rem(padding, 0 10px);
+				@include boxSizing(border-box);
+			}
+			.slick-arrow {
+				position: absolute;
+				top: 50%;
+				z-index: 1;
+				padding: 0;
+				font-size: 0;
+				color: transparent;
+				background-color: transparent;
+				text-indent: -9999px;
+				border: none;
+				cursor: pointer;
+				outline: none;
+				@include rem(width, 50px);
+				@include rem(height, 50px);
+				@include rem(margin-top, -25px);
+				&.slick-prev { left: 2%; background-image: url('#{$img-path}/pc/btn_prev2.png'); background-size: cover;}
+				&.slick-next { left: auto; right: 2%; background-image: url('#{$img-path}/pc/btn_next2.png');  background-size: cover;}
+				&.slick-prev {
+					@include rem(left, -45px);
+				}
+				&.slick-next {
+					@include rem(right, -45px);
+				}
+			}
+		}
+		.teacher-major {
+			text-align:center;
+			@include rem(margin-bottom, 40px);
+			.col {
+				position:relative;
+				display:block;
+				.t-info {
+					position: absolute;
+					@include rem(bottom, 6px);
+					@include rem(left, 2px);
+					color: #222;
+					@include vw(20px);
+					text-align: left;
+					line-height: 1;
+					letter-spacing: -1px;
+					.subject{
+						&.line2{
+							@include vw(18px);
+							line-height: 1.2;
+							@include rem(margin-bottom, 3px);
+						}
+					}
+					.name {
+						display: inline-block;
+						@include rem(padding-right, 27px);
+						font-weight: 700;
+						line-height: 1;
+						// background:url('https://img.eduwill.net/eduwill/img/2021/7/common/teacher/icon_home.png') no-repeat 100% 50%;
+					}
+				}
+			}
+		}
+		.small-list {
+			@extend .grid;
+			@include rem(margin, 30px auto 0);
+			width: pImg(620, 720);
+			.col {
+				@extend .col;
+				width: 32%;
+				margin: 0 2% 2% 0;
+				&:nth-child(3n) {
+					margin-right: 0;
+				}
+			}
+		}
+		.teacher-list {
+			overflow:hidden;
+			width: pImg(620, 720);
+			margin: 0 auto;
+			.col {
+				position: relative;
+				width: 33.3333%;
+				margin: 0;
+				@include rem(padding, 0 10px 20px);
+				img{width: 100%;}
+				.t-info {
+					position: absolute;
+					@include rem(top, 30px);
+					@include rem(left, 25px);
+					text-align: left;
+					.subject {
+						color: #e7e7e7;
+						@include vw(18px);
+						font-weight: 400;
+						line-height: 1;
+						letter-spacing: -1px;
+					}
+					.name {
+						display: inline-block;
+						@include rem(padding-bottom, 30px);
+						margin-top: 5px;
+						@include vw(20px);
+						font-weight: 500;
+						color: #e7e7e7;
+						letter-spacing: -1px;
+						line-height: 1;
+						// background: url(https://img.eduwill.net/eduwill/img/2021/7/common/teacher/icon_home_2.png) no-repeat 0 100%;
+					}
+				}
+			}
+
+		}
+		.notice {
+			text-align: right;
+			font-weight: 400;
+			color: rgba(0,0,0, .4);
+			line-height: 1.5;
+			@include vw(18px);
+			@include rem(letter-spacing, -1.5px);
+			font-weight: 500;
+			@include rem(padding, 10px 30px 0 0);
+		}
+	}
+
+	&-acer {
+		@include rem(padding-bottom, 120px);
+		background: #f6f6f6;
+		.holder {
+			width: pImg(640, 720);
+			margin: 0 auto;
+			background: #fff;
+			+ .holder { @include rem(margin-top, 40px);}
+			&.tab { @include rem(padding-bottom, 80px);}
+			&.title {
+				width: 100%;
+			}
+		}
+		.btn-acer {
+			position: absolute;
+			width: pImg(374);
+			left: 0;
+			top: pImg(380, 472);
+			a {
+				display: inline-block;
+				position: relative;
+				.icon-hand {
+					width: pImg(48, 374);
+					right: 5%;
+				}
+			}
+		}
+		.tab-list {
+			position: relative;
+			width: pImg(560, 640);
+			margin: 0 auto;
+			li {
+				float: left;
+				width: 25%;
+				border-left: 2px solid #fff;
+				@include boxSizing(border-box);
+				&:first-child { border-left: 0;}
+				a {
+					display: block;
+					@include rem(padding, 20px 0);
+					@include vw(24px);
+					background: #f6f6f6;
+					color: #aaa;
+					font-weight: 700;
+					letter-spacing: -1px;
+					line-height: 1.3;
+					@include boxSizing(border-box);
+				}
+				&.in {
+					a {
+						color: #000;
+						background: #adf8fb;
+					}
+				}
+			}
+		}
+		.tab-contents {
+			.item {
+				display: none;
+				&.in { display: block;}
+			}
+		}
+		.notice {
+			width: pImg(560, 640);
+			text-align: right;
+			color: rgba(34,34,34, .6);
+			font-weight: 400;
+			line-height: 1.5;
+			@include vw(22px);
+			@include rem(margin, 15px auto 0);
+		}
+	}
+
+	&-academy {
+		background: #f6f6f6;
+		background: linear-gradient(0deg, #381a3c 0%, #381a3c 50%, #f6f6f6 50%, #f6f6f6 100%);
+		.academy-list {
+			position: relative;
+			width: 100%;
+			margin: 0 auto;
+		}
+		.slick-arrow {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			z-index: 1;
+			padding: 0;
+			font-size: 0;
+			margin-left: 0;
+			color: transparent;
+			text-indent: -9999px;
+			border: none;
+			background: none;
+			background-repeat: no-repeat;
+			background-position: 0 0;
+			cursor: pointer;
+			outline: none;
+			@include rem(width, 60px);
+			@include rem(height, 60px);
+			@include translateXY(-50%, -50%);
+			&.slick-prev { left: 5%; background-image: url('#{$img-path}/pc/btn_prev.png'); background-size: cover;}
+			&.slick-next { left: auto; right: -2%; background-image: url('#{$img-path}/pc/btn_next.png'); background-size: cover;}
+		}
+	}
+}

@@ -1,0 +1,295 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/popup";
+@import "module/motion";
+@import "module/base";
+@import "module/animate";
+
+// @include pointer(50%, 0, 66px, 73px, 20, bounce);
+// @include boxSizing(border-box);
+.product-eco {
+	font-family: $font-noto;
+	line-height:1;
+	letter-spacing: -1px;
+	.wrap{
+		max-width:720px;
+	}
+
+	.fix-banner {
+		z-index: 150;
+	}
+
+	.slick-dots {
+		@include vw(padding-top,40px);
+		text-align:center;
+		font-size:0;
+		li {
+			display:inline-block;
+			@include vw(padding,0 8px);
+			vertical-align: top;
+			button {
+				border: none;
+				@include vw(width, 20px);
+				@include vw(height,20px);
+				@include vw(border-radius,15px);
+				background-color:#c3c3c3;
+				font-size:0;
+				text-indent: -99999px;
+				line-height:0;
+			}
+			&.slick-active button {
+				@include vw(width, 54px);
+				background-color:#6232dc;
+				transition:all .3s;
+			}
+		}
+	}
+
+	.slick-arrow {
+		position: absolute;
+		top: 50%;
+		z-index: 1;
+		@include vw(width, 40px);
+		@include vw(height, 40px);
+		@include vw(margin-top, -20px);
+		font-size: 0;
+		border: none;
+		background: none;
+		outline: none;
+		cursor: pointer;
+		&.slick-prev {
+			@include vw(left, -70px);
+			&:before { right: 0; @include arrow(left, 30px, 30px, 2px, #000000); 
+			@include vw(margin-top, -0px);
+			}
+		}
+		&.slick-next {
+			@include vw(right, -70px);
+			&:before { left: 0; @include arrow(right, 30px, 30px, 2px, #000000); 
+				@include vw(margin-top, -0px);
+			}
+		}
+	}
+
+	.sector{
+		&-title {
+			@include bg($color: #6b3dc8, $url: '#{$img-path}/mobile/bg_title.jpg', $size: cover);
+			.action {
+				@include vw(width, 134px);
+				position: absolute;
+				top : 0;
+				right: 0;
+			}
+		}
+		&-benefit {
+			background: #ffffff;
+			.action {
+				position: absolute;
+				bottom: 0;
+				@include vw(width, 134px);
+				@include vw(right, 50px);
+				@include vw(bottom, 120px);
+			}
+		}
+		&-benefit-plus {
+			background: #6232dc;
+			.flag-benefit-plus {
+				position: absolute;
+				@include vw(top, 273px);
+				@include vw(left, 132px);
+				@include vw(font-size, 26px);
+				font-weight: 700;
+				color: #222222;
+				@include animation(blink, 1s, $iteration: infinite) {
+					0% { color: #ffcc17; }
+					50% { color: #222222; }
+					100% { color: #ffcc17; }
+				}
+			}
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				@include vw(top, -55px);
+				left: 50%;
+				@include vw(margin-left, -66px);
+				@include vw(width, 132px);
+				@include vw(height, 132px);
+				border-radius: 50%;
+				z-index: 1;
+				@include bg($color: #6232dc, $url: '#{$img-path}/mobile/icon_plus_1.png', $position: center center, $size: 34px);
+			}
+		}
+		&-winner-list {
+			@include vw(padding-bottom, 120px);
+			@include bg($color: #ffc300, $url: '#{$img-path}/mobile/bg_winnerlist.jpg', $size: cover);
+			.winner-contents{
+				width:100%;
+				overflow: hidden;
+				@include vw(margin-top, 40px);
+				.winner-list {
+					-webkit-transform: perspective(300px) rotateX(23deg);
+							transform: perspective(300px) rotateX(23deg);
+					overflow: hidden;
+					p{
+						margin:5px 0;
+						font-weight: 600;
+						@include vw(font-size, 25px);
+					}
+				}
+			}
+		}
+		&-graph {
+			@include bg($color: #30006b, $url: '#{$img-path}/mobile/bg_graph.jpg', $size: cover);
+		}
+		&-banner {
+			&.banner-1 ,&.banner-2  {
+				background-color: #6232dc;
+			}
+			&.banner-3 {
+				background-color: #454545;
+			}
+		}
+		&-review {
+			@include vw(padding-bottom, 40px);
+			@include bg($color: #ffde01, $url: '#{$img-path}/mobile/bg_review.jpg', $size: cover);
+			.slider-wrap{
+				margin: auto;
+			}
+			.slick-slide{
+				@include vw(margin, 0 90px);
+				@include vw(padding, 40px 0);
+				&.slick-active{
+					filter: blur(0);
+				}
+				&.slick-center{
+					opacity: 1;
+					filter: blur(1);
+				}
+				p{
+					@include vw(border-radius, 15px);
+					overflow: hidden;
+					box-shadow: 5px 5px 8px 2px rgba($color: #828282, $alpha: 0.4);
+				}
+			}
+			.btn-arrow{
+				.slick-arrow{
+					@include vw(width, 100px);
+					@include vw(height, 100px);
+					&::before{
+						content: none;
+					}
+				}
+				.slick-prev {
+					@include vw(left, 20px);
+					background-image:url('#{$img-path}/pc/btn_prev.png');
+					background-size: contain;
+				}
+				.slick-next {
+					@include vw(right, 20px);
+					background-image:url('#{$img-path}/pc/btn_next.png');
+					background-size: contain;
+				}
+			}
+		}
+		&-teacher {
+			@include vw(padding-bottom, 150px);	
+			.teacher-list {
+				position: absolute;
+				top: 0;
+				left: 0;
+				@include vw(width, 620px);
+				@include vw(top, 314px);
+				@include vw(left, 50px);
+				ul{
+					li {
+						width: percent(195,620);
+						float: left;
+						margin-right: 2.7419%;
+						margin-bottom: 7%;	
+						&:nth-child(3n) { margin-right: 0; }
+						a {
+							display: block;
+						}
+					}
+				}
+			}
+		}
+		&-book {
+			background: #f5f5f5;
+		}
+		&-curriculum {
+			background: #f5f5f5;
+		}
+		&-free-lecture {
+			background: #f5f5f5;
+		}
+		&-service {
+			.flag-text  {
+				position: absolute;
+				@include vw(top, 111px);
+				@include vw(left, 292px);
+				@include vw(font-size, 28px);
+				font-weight: 700;
+				color: #fff600;
+				@include animation(blink2, 1s, $iteration: infinite) {
+					0% { color: #fff600; }
+					50% { color: #aaff7e; }
+					100% { color: #fff600; }
+				}
+			}
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				@include vw(top, -55px);
+				left: 50%;
+				@include vw(margin-left, -66px);
+				@include vw(width, 132px);
+				@include vw(height, 132px);
+				border-radius: 50%;
+				z-index: 1;
+				@include bg($color: #ffffff, $url: '#{$img-path}/mobile/icon_plus_2.png', $position: center center, $size: 34px);
+			}
+		}
+		&-exam{
+			@include vw(padding-bottom, 125px);
+			.exam-list{
+				@include vw(width, 500px);
+				margin: 0 auto;
+			}
+		}
+		&-increase {
+			background: linear-gradient(to bottom, rgba(246,246,246,1) 0%,rgba(255,255,255,1) 15%,rgba(255,255,255,1) 85%,rgba(246,246,246,1) 100%);
+			img{
+				position: relative;
+				z-index: 1;
+			}
+			.winner-list{
+				position: absolute;
+				@include vw(top, 350px);
+				right: 0;
+				left: 0;
+				-webkit-transform-origin: 50% 100%;
+				transform-origin: 50% 100%;
+				-webkit-transform: perspective(100px) rotateX(10deg);
+				transform: perspective(100px) rotateX(10deg);
+				p{
+					@include vw(font-size, 15px);
+					color:#b3b3b3;
+					line-height:3;
+				}
+			}
+		}
+		&-unbreakable {
+			background: #f8f8f8 !important;
+		}
+	}
+}
+
+

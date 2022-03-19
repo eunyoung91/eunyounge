@@ -1,0 +1,132 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+@import "base/animation";  
+@import "base/common";  
+
+// .bottom_fix_btn { display:none; }
+
+.product-eco {
+	.wrap {
+		position: relative;
+		width: 100%;
+		max-width: 720px;
+		margin: 0 auto;
+		text-align: center;
+		&-full {
+			width: 100%;
+		}
+	}
+
+	.desc {
+		@include rem(padding, 20px 30px 0);
+		p {
+			@include vw(20px);
+			color: #727678;
+			text-align: left;
+		}
+	}
+
+	.title {
+		display: block;
+		font-weight: 600;
+		@include vw(30px);
+		color: #222;
+		text-align: left;
+	}
+
+	.asterisk {
+		@include rem(padding, 0 30px 100px);
+		p {
+			position: relative;
+			margin: 0;
+			@include vw(20px);
+			color: #c4b5fd;
+			text-align: left;
+			&::before {
+				content: "*";
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		}
+		span {
+			display: inline-block;
+			@include rem(padding-left, 16px);
+		}
+	}
+
+	.section {
+		&-banner {
+			background-color: #ffbe00;
+		}
+		
+		&-title {
+			background: url('#{$img-path}/mobile/bg_title.jpg') no-repeat 50% 0 / cover;
+		}
+
+		&-benefit {
+			background-color: #6e46ff;
+			img {
+				@include rem(margin-top, -180px);
+			}
+		}
+
+		&-interview {
+			background-color: #ebf4f9;
+			.slider-contents {
+				position: relative;
+				img {
+					@include rem(padding, 0 30px);
+					border-radius: 30px;
+					@include breakpoint(maxMobile){ 
+						border-radius: 30px;
+					 }
+				}
+			}
+			.slick-arrow {
+				position: absolute;
+				top: 50%;
+				transform: translate(0, -50%);
+				@include rem(width, 80px);
+				@include rem(height, 80px);
+				font-size: 0;
+				outline: none;
+				border: none;
+				background-size: 14px 25px;
+				border-radius: 50%;
+				z-index: 50;
+				&.slick-prev {
+					left: 0;
+					background: url('#{$img-path}/pc/arrow_left.jpg') no-repeat 50%;
+					background-color: #ebf4f9;
+					background-size: 20%;
+				}
+				&.slick-next {
+					right: 0;
+					background: url('#{$img-path}/pc/arrow_right.jpg') no-repeat 50%;
+					background-color: #ebf4f9;
+					background-size: 20%;
+				}
+			}
+		}
+
+		&-solution {
+			background-color: #ebf4f9;
+		}
+
+		&-books {
+			.title {
+				@include rem(padding, 100px 30px 0 30px);	
+			}
+			// Override
+			.asterisk {
+				@include rem(padding, 0 30px 100px);
+				p {
+					@include vw(22px);
+					color: #999;
+				}
+			}
+		}
+	}
+}

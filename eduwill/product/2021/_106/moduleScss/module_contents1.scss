@@ -1,0 +1,214 @@
+@charset "utf-8";
+@import "mixins";
+
+/* 컨텐츠 */
+@mixin shadowBg(){
+	background: #f3f3f3 linear-gradient(0deg, rgba(243,243,243,1) 0%, rgba(255,255,255,1) 13%);
+}
+.product-eco {
+	//PC
+	&[data-device="pc"]{
+		// content moudule
+		#edoContent1 {
+			#eduf-paragraph {
+				margin-bottom: 0;
+			}
+			.ecoContVisual {
+				background:url('https://img.eduwill.net/eduwill/img/2021/_106/product/211220/pc/eco4002/ecoContVisual_bg.jpg') no-repeat 50% 50%;
+				background-size:cover;
+				padding-bottom: 200px;
+
+				.btn-reason {
+					top: 60px;
+					right: 10px;
+
+					background: #fffecc;
+
+				}
+				.winner-contents {
+					width: 900px;
+					margin: 0 auto;
+					.winner-list {
+						transform: perspective(240px) rotateX(35deg);
+						p {
+							margin: 5px 0;
+							color: #222;
+							font-size: 16px;
+							font-weight: 700;
+							text-align: center;
+						}
+					}
+				}
+			}
+			.ecoCont1 {
+				@include shadowBg();
+				.wrap {
+					margin-top: 100px;
+					.item {
+						> a:nth-child(2) {
+							margin: 0 20px 0 23px;
+						}
+					}
+				}
+			}
+
+			.ecoCont2 {
+				padding-bottom: 70px;
+			}
+
+			.ecoCont3 {
+				padding-bottom:130px;
+				background:url('https://img.eduwill.net/eduwill/img/2021/_111/product/211213/pc/eco3960/ecoCont3_bg.jpg') no-repeat 50% 50%;
+				background-size: cover;
+			}
+
+			.ecoCont4 {
+				@include shadowBg();
+			}
+
+			.ecoCont5 {
+				@include shadowBg();
+
+				.btn-refunds {
+					position: absolute;
+					bottom: 137px;
+					right: 150px;
+				}
+			}
+
+			.ecoCont6 {
+			
+			}
+
+		}
+
+	}
+
+	//MOBILE
+	&[data-device="mo"]{
+		// content moudule
+		#edoContent1 {
+			#eduf-paragraph {
+				margin-bottom: 0 !important;
+			}
+			.ecoContVisual {
+				background:url('https://img.eduwill.net/eduwill/img/2021/_106/product/211220/mobile/eco4010/ecoContVisual_bg.jpg') no-repeat 50% 50%;
+				background-size:cover;
+
+				.btn-reason {
+					top: 7.5vw;
+					right: 5vw;
+
+					background: #fffecc;
+
+				}
+
+				.btn {
+					position:absolute;
+					@include vw(top,50px);
+					right:0;
+					@include vw(width,234px);
+				}
+				.winner-contents {
+					overflow:hidden;
+					position:absolute;
+					bottom: -37vw;
+					left:50%;
+					transform:translateX(-50%);
+					width:100%;
+					@include vw(height,260px);
+					@include vw(padding-bottom,370px);
+					.winner-list {
+						transform:perspective(150px) rotateX(25deg);
+						.slick-track {
+							transform:translate(0) !important;
+						}
+					}
+					p {
+						color:#3e3e3e;
+						@include vw(font-size,18px);
+						font-weight:700;
+						line-height:normal;
+						text-align: center;
+					}
+				}
+			}
+			.ecoCont1 {
+				@include shadowBg();
+				@include vw(padding-bottom, 100px);
+				.wrap {
+					padding-top: 50px;
+					.item {
+						display: flex;
+						justify-content: space-between;
+						flex-wrap: wrap;
+						align-items: stretch;
+						margin-bottom: 20px;
+						@include vw(padding, 0 50px);
+						> a {
+							flex-basis: 48%;
+							box-sizing: border-box;
+							@include vw(margin-bottom, 40px);
+						}
+					}
+				}
+
+				.slick-dots {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					li {
+						button {
+							width: 14px;
+							height: 14px;
+							margin-right: 10px;
+							border-radius: 14px;
+							text-indent: -9999px;
+							background: #adadad;
+							border: none;
+							transition: all .3s ease;
+						}
+				
+						&.slick-active {
+				
+							button {
+								width: 38px;
+								background: #ffc20e;
+								border-radius: 20px;
+							}
+						}
+				
+					}
+				}
+
+			}
+
+			.ecoCont2 {
+			}
+
+			.ecoCont3 {
+				padding-bottom: 18vw;
+				@include shadowBg();				
+				// url('https://img.eduwill.net/eduwill/img/2021/_111/product/211213/mobile/eco3962/ecoCont3_bg.jpg') no-repeat 92% top
+			}
+
+			.ecoCont4 {
+			}
+
+			.ecoCont5 {
+				background: #f9f9f9;
+
+				.btn-refunds {
+					// display: flex;
+					position: absolute;
+					bottom: 11vw;
+					left: 0;
+					right: 0;
+				}
+			}
+
+			.ecoCont6 {
+			}
+		}
+	}
+}

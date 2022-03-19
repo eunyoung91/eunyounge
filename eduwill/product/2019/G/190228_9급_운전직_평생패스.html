@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ko">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+<title>자동화 페이지</title>
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Gov2/Common/Css/Main_20140204.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/template.css" /><!-- Content Template -->
+
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Product/goods/auto/apply_common.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="https://www.eduwill.net/Common/event/freebook/naver/jquery.bxslider.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/gnb_alarm.css" />
+
+<!-- // 자동화 페이지 포함 -->
+<body>
+<!-- body 내만 작업 -->
+
+<style type="text/css"> 
+.pushcoms_contentIn{overflow: hidden;} 
+.pushcoms_contentIn img { vertical-align: top; } 
+.container { position: relative;  } 
+.container .wrap { position: relative; width: 1100px; margin: 0 auto; } 
+
+.g_fix_apply { position:fixed; bottom:0; width:100%; background:url('https://img.eduwill.net/Img2/Ten/Product/event_new/151203/bg_apply_line.png') 0 bottom repeat-x; z-index:1000; border-bottom:0;} 
+.g_fix_apply .gf_apply { position:relative; margin:0 auto; width:960px; height:72px; text-align:right;} 
+    
+/* bxSlider */ 
+.bx-wrapper { margin: 0 auto !important; } 
+.bx-wrapper .bx-viewport { background: none; box-shadow: none; border: 0;left: 0;} 
+.bx-wrapper img { display: inline; } 
+
+.bx-wrapper .bx-controls-direction a { position: absolute; top: 150px;margin: 0; outline: 0; width: 50px; height: 500px; text-indent: -9999px;} 
+.bx-wrapper .bx-prev, 
+.bx-wrapper .bx-prev:hover { left: 30px; background:url(https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/slider_left.png) no-repeat;} 
+.bx-wrapper .bx-next, 
+.bx-wrapper .bx-next:hover{ right: 30px; background:url(https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/slider_right.png) no-repeat;} 
+
+.bx_wrap{ position: relative; width: 930px;margin: 0 auto;border:1px solid #d8d8d8} 
+
+
+.select_box{position: absolute;right: 184px;top: 385px;} 
+.select_box button{position: relative;padding: 0;cursor:pointer;border: 0;background:none;} 
+.select_box button:after{content:'';display: block;position: absolute;right: 21px;top: 16px;width: 13px;height: 8px;background: url(https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/img11_ico_down.jpg) no-repeat;} 
+.select_box.on button:after{background: url(https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/img11_ico_up.jpg) no-repeat;} 
+.select_option{display: none;padding:20px 0 20px 20px;border: 1px solid #c8c8c8;border-top: 0; text-align: left;border: 1px solid #c8c8c8;background-color: #fff;} 
+.select_box.on .select_option{display: block;} 
+.select_option strong{margin-left: 3px;font-size: 11px;line-height: 18px;color: #8b8b8b;font-family: '돋움',dotum;} 
+.select_option li{font-size: 13px;line-height: 18px;color: #000;font-family: '돋움',dotum;} 
+</style> 
+
+<script type="text/javascript"> 
+// @ objectId : Element, delayTime : 이동시간	 
+function movePagePosition(objectId, delayTime){ 
+    var topPosition = $("#" + objectId).offset().top;  
+    $('html, body').animate({scrollTop : topPosition}, delayTime);	// 특정위치로 화면스크롤 이동 
+} 
+
+$(function() { 
+    // bxSlide 
+    $('#bxSlide').bxSlider({ 
+        mode: 'horizontal', 
+        auto: true, 
+        pager:false, 
+        pause: 5000 
+    }); 
+
+    // select_box 
+    $('.select_box button').on('click', function(){ 
+        $('.select_box').toggleClass('on'); 
+    }); 
+
+    $(document).on('click', function(e){ 
+            if(!$(event.target).closest('#menucontainer').length) { 
+            $('.select_box').removeClass('on'); 
+        }    
+    }); 
+
+    $(window).on('scroll', function(){ 
+        if($(window).scrollTop() >= ($("#end_content").offset().top - 100) ) {  
+            $("#g_fix_apply").fadeOut(200)  
+        } else {  
+            $("#g_fix_apply").fadeIn(200)  
+        } 
+    }); 
+        
+}); 
+    
+</script> 
+
+<!-- 상품컨텐츠 --> 
+<div class="tpl_product"> 
+
+<div id="pushcoms_contentIn" class="pushcoms_contentIn"> 
+    <div class="g_fix_apply" id="g_fix_apply"> 
+        <div class="gf_apply"> 
+            <a href="javascript:movePagePosition('apply_anchor', 300)"> 
+                <img src="https://img.eduwill.net/Img2/Ten/Product/event_new/151203/btn_apply.png" border="0" alt="수강신청"> 
+            </a> 
+        </div> 
+    </div> 
+
+	<div class="container" style="background:#ffdb34;">
+		<div class="wrap">
+			<a href="http://www.eduwill.net/common/promotion/top10/index_gov_20180928.asp" target="_blank"><img src="https://img.eduwill.net/Img2/Gov2/product/event_new/military/web_topbanner.png" alt="공무원 1위 에듀윌 1위의 사명감으로 더욱 더 독해 지겠습니다. * 한국리서치 2015.8 공무원시험 전문 교육 기관부문 선호도, 인지도 1위" /></a>
+		</div>
+	</div>
+        
+    <div class="container" style="background:#f4f4f4 url(https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/img1_bg.jpg) repeat-x 50% 0"> 
+        <div class="wrap"> 
+            <div class="ea_h_sns g_fb_w_button" style="position: absolute; right:100px; top:39px;">  
+                <a href="#" id="facebook-link-btn" class="facebookShare">  
+                    <span class="hidden">페이스북 공유하기</span>  
+                </a>  
+            </div> 
+
+            <img src="https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/img1_190208.png" alt=""> 
+        </div> 
+    </div> 
+
+    <div class="container" style="background-color:#fff3e1"> 
+        <div class="wrap"> 
+            <img src="https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/img2.jpg" alt=""> 
+
+            <div class="select_box" id="menucontainer"> 
+                <button type="button"> 
+                    <img src="https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/img11.jpg" alt=""> 
+                </button> 
+
+                <div class="select_option"> 
+                    <strong>* 2018 공개경쟁이 시행된 지역 공고 기준</strong> 
+                    <ul> 
+                        <li>ㆍ2과목 : 서울, 경기, 세종, 대구, 충북, 경남, 전남, 전북</li> 
+                        <li>ㆍ교육청 2과목 : 강원, 충남, 충북, 경남, 경북, 전남, 전북</li> 
+                        <li>ㆍ3과목 : 강원, 인천, 울산, 대전, 충북, 경북</li> 
+                    </ul> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+
+    <div style="background:url(https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/img3_bg.jpg) repeat-x 50% 0"> 
+        <img src="https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/img3.jpg" alt=""> 
+    </div> 
+
+    <div> 
+        <img src="https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/img4.jpg" alt=""> 
+    </div> 
+
+    <div style="height: 686px;background-color:#efefef;"> 
+        <img src="https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/img5.png" alt=""> 
+    </div> 
+
+    <div class="container" style="padding:95px 0 100px;"> 
+        <img src="https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/img6.jpg" alt=""> 
+
+        <div class="bx_wrap">
+            <ul id="bxSlide">
+                <li><img src="https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/slide_img1.jpg" alt=""></li> 
+                <li><img src="https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/slide_img2.jpg" alt=""></li> 
+                <li><img src="https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/slide_img3.jpg" alt=""></li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="background-color:#edf8fe"> 
+        <img src="https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/img7.jpg" alt=""> 
+    </div> 
+
+    <div style="background-color:#f4f4f4"> 
+        <img src="https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/img8.jpg" alt="" usemap="#map_item02"> 
+        <map name="map_item02"> 
+            <area shape="rect" coords="48,414,127,441" href="https://dokhan.eduwill.net/web/intro/index.will?MASTER_NO=1" target="_blank" alt="자세히 보기"> 
+        </map> 
+    </div> 
+
+    <div> 
+        <img src="https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/img9_180904.jpg" alt=""> 
+    </div> 
+
+    <div id="end_content" style="background-color:#edf8fe"> 
+        <img src="https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/img12.jpg" alt="" usemap="#map_item01"> 
+        <map name="map_item01"> 
+            <area shape="rect" coords="85,474,163,502" href="http://www.eduwill.net/gov2/Teacher/Book/Book_index.asp" target="_blank" alt="자세히 보기"> 
+        </map> 
+    </div> 
+
+    <div style="background: url(https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/img10_bg.jpg) repeat-x 50% 0"> 
+        <img src="https://img.eduwill.net/Img2/Gov2/promotion/driver/180725/img10_180928.jpg" alt=""> 
+    </div> 
+</div> 
+</div> 
+<!-- // 상품컨텐츠 --> 
+
+<!-- // body 내만 작업 -->
+</body>
+</html>
+
+

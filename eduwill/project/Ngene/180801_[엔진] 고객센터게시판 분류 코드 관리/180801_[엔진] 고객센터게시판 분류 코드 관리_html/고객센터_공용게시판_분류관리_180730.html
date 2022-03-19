@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- #head -->
+<!-- common.properties 객체화 -->
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eduwill Ngene</title>
+
+<script>document.domain = "eduwill.net";</script>
+
+<!-- Bootstrap -->
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap/css/bootstrap.css" rel="stylesheet">
+<!--
+<link href="/bootstrap/bootstrap.css" rel="stylesheet">
+-->
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet">
+
+<!-- Datatables -->
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/datatables/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/css/buttons.bootstrap.min.css" rel="stylesheet">
+
+<!-- Fullcalendar -->
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/fullcalendar/fullcalendar.min.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print">
+
+<!-- styles -->  
+<link href="https://img.eduwill.net/resources/ngene/live/css/styles.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/css/common.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/css/custom.css" rel="stylesheet">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/ngene/live/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/ngene/live/js/jquery-ui.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/ngene/live/js/jquery.form.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap/js/bootstrap.min.js"></script>
+<!-- minor bug fixed 
+<script src="/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+-->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.ko.js"></script>
+
+<!-- Datatables -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/js/jquery.dataTables.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/js/dataTables.bootstrap.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/dataTables.buttons.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/buttons.bootstrap.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/buttons.flash.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/buttons.html5.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/buttons.print.min.js"></script>
+
+<!-- Fullcalendar -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/moment/min/moment.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/fullcalendar/fullcalendar.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/fullcalendar/lang-all.js"></script>
+
+<!-- CKEditor 
+	2017.10.26 이경현 수정
+	ckeditor 추가 기능 요청으로 인해, 특정페이지에 상위버전의 editor를 로드함에 따라 부득이하게 예외처리함(사용메뉴 : 사이트 > 총평페이지 관리)
+	** 조회 controller 에서 model.addAttribute("ckeditor", "N"); 로 사용  
+-->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/ckeditor/ckeditor.js"></script>
+	<script src="https://img.eduwill.net/resources/ngene/live/vendors/ckeditor/adapters/jquery.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/js/custom.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/js/common.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/js/ajaxUtil.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/js/datetimepicker.js"></script>
+
+<!-- flot chart -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.resize.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.time.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.pie.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.tooltip.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.axislabels.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.stack.js"></script>
+
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jshashtable-2.1.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.symbol.js"></script>
+
+<!-- Vod Viewer : AquaPlayer -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/ngene/live/js/commonViewer.js"></script>
+
+<!-- javascript templates -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/javascriptTemplates/tmpl.min.js"></script>
+
+<!-- em -->
+<!--
+<script src="/js/em.js"></script>
+-->
+<!--// #head -->	
+</head>
+<body>
+	<!-- #wrapper -->
+	<div id="wrapper">
+		<!-- #header -->
+		<div id="header">
+<style>
+	.form-control-feedback {
+	  position: absolute;
+	  top: 8px;
+	  right: 5px;
+	  z-index: 2; 
+	  display: block;
+	  text-align: center;
+	  pointer-events: none;
+	}
+	
+	/* 20180801 */
+	.form-group.group2 .form-title{ float:left; width:90px; line-height:25px; font-weight: 500;font-size: 13px; border-right: 1px solid #ccc; margin-right: 15px;} 
+	.form-group.group2 .row .line{ margin-top: 6px;padding-top: 6px; border-top:1px solid #e6e6e6;}
+	.form-control.keyword{ float:left;width:250px;margin-top:8px;margin-left:10px; }
+
+	.form-radio{ }
+	.form-radio input{ margin-right: 3px;}
+	.form-radio label{ vertical-align:middle; }
+	.form-select select.select{ width:300px; }
+
+</style>
+
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+							aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+						<!--    
+						<a class="navbar-brand" href="/main/main.action">Eduwill</a>
+						-->
+						<a class="navbar-brand" href="/main/main.action">
+							<!-- img src="/images/logo_w.png" alt="에듀윌은 합격이다"-->
+						</a>
+					</div>
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li style="margin:0px !important;">
+									<a href="/content/index.action">
+										컨텐츠</a>
+								</li>					
+							<li style="margin:0px !important;">
+									<a href="/services/index.action">
+										서비스</a>
+								</li>					
+							<li class='active' style="margin:0px !important;">
+									<a href="/site/index.action">
+										사이트</a>
+								</li>					
+							</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li style="margin-top:18px;">
+								<div class="form-group" id="divMenuSearch">
+									<input type="text" class="form-control" placeholder="메뉴명을 입력하세요" id="searchMenu" style="padding:3px 23px 3px 8px;">
+									<span class="glyphicon glyphicon-search form-control-feedback"></span>
+								</div>
+							</li>
+							<li><a href="/login/logout.action"><span class="glyphicon glyphicon-log-out"></span> 박은영&nbsp;</a></li>			
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<!--// #header -->
+		<div class="clearfix visible-xs-block"></div>
+
+		<!-- #container -->
+		<div id="container">
+			<div class="page-content">
+				<div class="row">
+					<div class="col-sm-2">
+						<!-- #lnb -->
+						<div id="lnb">
+							<div class="list-group">
+								<span class="list-group-item"><strong>게시판</strong></span>
+								<a href="/site/jobBbsManage.action" class="list-group-item">업무게시판</a>			
+								<a href="/site/jiraClientManage.action" class="list-group-item">(신) 업무요청 게시판</a>
+								<a href="" class="list-group-item active">고객센터 게시판</a><!-- 고객센터 게시판 추가 -->
+								<a href="/site/bbsManage.action" class="list-group-item">게시판 관리</a>			
+								<a href="/site/bbsContManage.action" class="list-group-item">게시물 관리</a>			
+								<a href="/site/pdsManage.action" class="list-group-item">자료게시판</a>			
+								<a href="/site/faqManage.action" class="list-group-item">FAQ 관리</a>			
+								<a href="/site/faqSearchHistoryManage.action" class="list-group-item">FAQ 검색 키워드</a>			
+								<a href="/site/giftManage.action" class="list-group-item">감사게시판</a>			
+								<a href="/site/reviewAuto.action" class="list-group-item">시험총평페이지관리</a>			
+								<span class="list-group-item"><strong>배너관리</strong></span>
+								<a href="/site/centerBannerManage.action" class="list-group-item">메인 중간 배너관리</a>			
+								<a href="/site/indexBannerManage.action" class="list-group-item">교수,교재 배너관리</a>			
+								<a href="/site/joinBannerManage.action" class="list-group-item">회원가입배너관리</a>			
+								<a href="/site/cardDivManage.action" class="list-group-item">무이자 할부카드 배너 관리</a>			
+								<a href="/site/beltBannerManage.action" class="list-group-item">메인 띠배너 관리</a>			
+								<a href="/site/toastPopupManage.action" class="list-group-item">토스트팝업 관리</a>			
+								<a href="/site/globalMainProgressManage.action" class="list-group-item">글로벌 메인 과정 관리</a>			
+								<a href="/site/globalMainClickLogManage.action" class="list-group-item">글로벌 메인 클릭 로그</a>			
+								<a href="/site/progressMainClickLogManage.action" class="list-group-item">과정 메인 클릭 로그</a>			
+								<span class="list-group-item"><strong>사이트관리</strong></span>
+								<a href="/site/popupManage.action" class="list-group-item">팝업관리</a>			
+								<a href="/site/leftMenuManage.action" class="list-group-item">왼쪽 메뉴</a>			
+								<a href="/site/sugangIndex.action" class="list-group-item">수강신청인덱스관리</a>			
+								<a href="/site/siteMapManage.action" class="list-group-item">사이트맵관리</a>			
+								<a href="/site/tccManage.action" class="list-group-item">합격채널 TCC 관리</a>			
+								<a href="/site/eduwillVideoManage.action" class="list-group-item">에듀윌 동영상 관리</a>			
+								<span class="list-group-item"><strong>기타관리</strong></span>
+								<span class="list-group-item"><strong>ECO 관리</strong></span>
+								<a href="/site/ecoManage.action" class="list-group-item">콘텐츠 등록/관리</a>			
+							</div>
+						</div>
+						<!--// #lnb -->
+					</div>
+
+					<div class="col-sm-10">
+						<!-- #content -->
+						<div id="content">
+								
+								<!-- S : 이용방법 설명영역 -->
+								<!-- <nav class="navbar navbar-default navbar-fixed-top">-->
+								<nav style="position:absolute; top:0px; width:100%; z-index:999;">
+									<div class="alert alert-info alert-dismissible" id="infomationZone" style="margin-bottom:0px !important; display:none;" role="alert">
+										<div>
+											<strong>&lt;이용방법&gt;</strong><br /><br />
+											<span>*키워드 노출 조건<br />월별 검색키워드 상위 200개 시각화 실시간 반영<br />- 검색횟수높은 단어 텍스트 크기로 표현<br />- 마우스오버하면 검색횟수 확인<br />- 응답 답변이 없는 단어 빨간색으로 표현<br />- 검색횟수가 5회 이상인데 응답 답변이 0 인 경우 풍선효과</span>
+										</div>
+									</div>
+									<div style="float:right; margin:-2px 5px 20px 0px;">
+										<a href="#" style="text-decoration:none;" id="openInfoZone"><span class="label label-info">▼ 이용안내 열기</span></a>
+										<a href="#" style="text-decoration:none; display:none;" id="closeInfoZone"><span class="label label-info">▲ 이용안내 닫기</span></a>
+									</div>
+								</nav>
+								<!-- E : 이용방법 설명영역 -->
+
+
+								<h3 class="page-header">고객센터 게시판 분류관리</h3>
+
+
+								<form class="form-horizontal" id="frm1" name="frm1" action="" method="post">
+									<input type="hidden" name="idx" id="idx" />
+									<input type="hidden" name="current_page" id="current_page" value="" />
+									
+									<div class="panel panel-default">
+										<div class="panel-body">
+											<div class="form-group group2">
+
+												<!-- 분류선택 -->
+												<div class="row">
+													<div class="col-sm-12">
+														<span class="form-title">분류선택</span>
+														<div class="form-radio">
+															<input type="radio" name="" id="option_a" value="공지사항"><label for="option_a"> 대분류</label> &nbsp;&nbsp;&nbsp;
+															<input type="radio" name="" id="option_b" value="학습가이드"><label for="option_b"> 소분류</label>
+														</div>
+													</div>
+												</div>
+
+												<!-- 대분류 선택 -->
+												<div class="row" style="display:block;">
+													<div class="col-sm-12 line">
+														<span class="form-title">대분류 선택</span>
+														<div class="form-select">
+															<select class="form-control select" id="" name="">
+																<option value="">대분류를 선택하세요.</option>
+															</select>
+														</div>
+													</div>
+												</div>
+
+
+											</div>
+										</div><!-- panel-body  -->
+									</div><!-- panel -->
+
+									<div class="loadingArea" style="display:none; position:absolute; z-index:999; width:100%; text-align:center;">
+										<img src="https:https://img.eduwill.net/resources/ngene/live/images/progress.gif" alt="로딩중입니다." />
+									</div>
+
+									<div class="form-horizontal">
+										<div class="form-group">
+											<div class="btn-group" role="group">
+												<button class="btn btn-default btn-primary" type="button" id="btnSearch"><span class="glyphicon glyphicon-search"></span> 조회</button>
+												<button class="btn btn-default" type="button" id="btnAdd">등록</button>
+											</div>
+											<div style="float:right;">
+												<button class="btn btn-danger" type="button" id="" onclick=""><span class="glyphicon glyphicon-trash"></span> 삭제</button>
+											</div>
+										</div>
+									</div>
+
+
+								</form>
+
+								<div class="table-responsive">
+									<table id="tableDefault" style="position:relative;"class="table table-bordered table-hover" cellspacing="0" width="100%">
+										<colgroup>
+											<col width="5%" />
+											<col width="" />
+											<col width="" />
+											<col width="" /><!-- 대분류값 추가 시 필요  -->
+											<col width="7%" />
+											<col width="6%" />
+											<col width="8%" />
+											<col width="6%" />
+											<col width="8%" />
+											<col width="6%" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th><input type="checkbox" name="checkAll"></th>
+												<th>분류값</th>
+												<th>분류명</th>
+												<th>대분류값</th><!-- 대분류값 추가 시 필요  -->
+												<th>정렬순서</th>
+												<th>등록자</th>
+												<th>등록일</th>
+												<th>수정자</th>
+												<th>수정일</th>
+												<th>관리</th>
+											</tr>
+										</thead>
+
+										<tbody>
+											<tr>
+												<td><input type="checkbox" name="chkItem" value=""></td>
+												<td>대분류</td>
+												<td>공지사항</td>
+												<td>공통사항</td><!-- 대분류값 추가 시 필요  -->
+												<td>1</td>
+												<td>정해인 </td>
+												<td>2018-07-20</td>
+												<td>손예진</td>
+												<td>2018-07-26</td>
+												<td>
+													<div class="btn-group" role="">
+														<button class="btn btn-default btn-xs" id="btnAddForDetail" type="button" onclick="">수정</button>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td><input type="checkbox" name="chkItem" value=""></td>
+												<td>대분류</td>
+												<td>공지사항</td>
+												<td>공통사항</td><!-- 대분류값 추가 시 필요  -->
+												<td>1</td>
+												<td>정해인 </td>
+												<td>2018-07-20</td>
+												<td>손예진</td>
+												<td>2018-07-26</td>
+												<td>
+													<div class="btn-group" role="">
+														<button class="btn btn-default btn-xs" id="btnAddForDetail" type="button" onclick="">수정</button>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td><input type="checkbox" name="chkItem" value=""></td>
+												<td>대분류</td>
+												<td>공지사항</td>
+												<td>공통사항</td><!-- 대분류값 추가 시 필요  -->
+												<td>1</td>
+												<td>정해인 </td>
+												<td>2018-07-20</td>
+												<td>손예진</td>
+												<td>2018-07-26</td>
+												<td>
+													<div class="btn-group" role="">
+														<button class="btn btn-default btn-xs" id="btnAddForDetail" type="button" onclick="">수정</button>
+													</div>
+												</td>
+											</tr>
+
+										</tbody>
+									</table>
+								</div>
+
+			
+								<div class="row">
+									<div class="col-sm-12 text-center">
+										<div class="dataTables_paginate paging_simple_numbers" id="tableDefault_paginate">
+											<!-- 페이징 영역 -->		  
+											<ul class='pagination'><li class='paginate_button active'><a aria-controls='tableDefault' tabindex='0' class="current">1</a><li class='paginate_button'><a aria-controls='tableDefault' tabindex='0' href="javascript:fnc_MovePage('2');">2</a><li><li class='paginate_button'><a aria-controls='tableDefault' tabindex='0' href="javascript:fnc_MovePage('3');">3</a><li><li class='paginate_button'><a aria-controls='tableDefault' tabindex='0' href="javascript:fnc_MovePage('4');">4</a><li><li class='paginate_button'><a aria-controls='tableDefault' tabindex='0' href="javascript:fnc_MovePage('5');">5</a><li><li class='paginate_button'><a aria-controls='tableDefault' tabindex='0' href="javascript:fnc_MovePage('6');">6</a><li><li class='paginate_button'><a aria-controls='tableDefault' tabindex='0' href="javascript:fnc_MovePage('7');">7</a><li><li class='paginate_button'><a aria-controls='tableDefault' tabindex='0' href="javascript:fnc_MovePage('8');">8</a><li><li class='paginate_button'><a aria-controls='tableDefault' tabindex='0' href="javascript:fnc_MovePage('9');">9</a><li></ul></div>
+									</div>
+								</div>
+								</div>
+						<!-- // #content -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--// #container -->
+
+		<!-- #footer -->
+		<div id="footer">
+		</div>
+		<!--// #footer -->
+
+	</div>
+	<!--// #wrapper -->
+</body>
+</html>

@@ -1,0 +1,120 @@
+.ibm-floating {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: map-get($z-index, floating);
+    .ibm-inner {
+        .slick-dots {
+            top: 5%;
+            right: 3%;
+            bottom: auto;
+            left: auto;
+            margin-left: 0;
+            text-align: right;
+        }
+        .slick-arrow {
+            width: 20px;
+            height: 20px;
+            &.slick-prev {
+                left: -20px;
+                @include slideArrow(left, 20px, 20px, 2px, #e7e7e7);
+            }
+            &.slick-next {
+                right: -20px;
+                @include slideArrow(right, 20px, 20px, 2px, #e7e7e7);
+            }
+        }
+    }
+    .ibm-inner,
+    .ibm-item img { display: block; }
+    .ibm-item {
+        margin-top: 0;
+        text-align: inherit;
+    }
+    .ibm-item img { max-width: none; }
+    .ibm-inner .ibm-item { overflow: visible; }
+    .ibm-banner {
+        @include breakpoint(desktop){
+            // max-width: 220px;
+            margin: 0 auto;
+        }
+    }
+    .ibm-deadline {
+        position: relative;
+        width: 134px;
+        //min-height: 95px;
+        padding-top: 4px;
+        padding-bottom: 5px;
+        text-align: center;
+        border-radius: 25px;
+        // @include rem(border-radius, 15px);
+        @extend %clearfix;
+        p {
+            display: block;
+            letter-spacing: -.3px;
+            &.ibm-timer {
+                margin: 5px 7px 0;
+                padding-top: 11px;
+                line-height: 1;
+                font-size: 18px;
+                background-color: #fff;
+                border-radius: 21px 21px 0 0;
+                // border-radius: 10px 10px 0 0;
+                &:nth-child(2):nth-last-child(1) {
+                    padding-bottom: 11px;
+                    border-radius: 21px;
+                }
+            }
+            &.ibm-text {
+                font-size: 14px;
+                color: #212121;
+            }
+            &.ibm-standard {
+                margin: 0 7px;
+                padding: 6px 0 8px;
+                line-height: 1;
+                font-family: $font-roboto;
+                font-size: 11px;
+                background-color: #fff;
+                border-radius: 0 0 21px 21px;
+                // border-radius: 0 0 10px 10px;
+            }
+        }
+        span {
+            display: block;
+            line-height: 1;
+            font-family: $font-verdana;
+            em {
+                display: inline-block;
+                line-height: 1;
+                font-family: $font-verdana;
+                font-size: 24px;
+            }
+        }
+    }
+    .ibm-action {
+        margin-top: 10px;
+        text-align: center;
+        .ibm-today-close {
+            padding: 4px 15px;
+            border-radius: 20px;
+            background: rgba(102, 102, 102, .8);
+            span {
+                font-size: 12px;
+                color: #fff;
+                &:before {
+                    content: 'Ⅹ';
+                    display: inline-block;
+                    margin-right: 2px;
+                }
+            }
+        }
+    }
+    .ibm-close {
+        // @include close(30px, 30px, 2px, #000);
+        @include close(26px, 26px, 2px, #000);
+        top: 2px;
+        right: 5px;
+        span { @extend .sr-only; }
+    }
+}

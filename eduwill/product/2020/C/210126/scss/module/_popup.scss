@@ -1,0 +1,47 @@
+.layer {
+    &-dimmed {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10001;
+        background: #000;
+        opacity: .8;
+        overflow: hidden;
+    }
+    &-video {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 10002;
+        max-width: 768px;
+        margin: 0 auto;
+        @include boxSizing(border-box);
+    }
+    &-video {
+        .layer-video-box {
+            position: relative;
+            iframe, video {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: inherit;
+            }
+        }
+    }
+    &-close {
+        @include close(60px, 60px, 2px, #fff);
+        top: -60px;
+        z-index: 10003;
+        span { @extend .sr-only; }
+    }
+}

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>에듀윌</title>
+<meta charset="utf-8" />
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<meta name="copyright" content="" />
+<meta name="paragraphription" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" href="../css/ibm.css?210712">
+<link rel="stylesheet" href="https://img.eduwill.net/resources/ibm/front/dev/css/ibm.css?210712">
+<script src="https://img.eduwill.net/eduwill/dev/libs/jquery/jquery-2.1.4.min.js"></script>
+</head>
+<body style="overflow-x: hidden;">
+
+<div style="position: relative;">
+    <div id="ibmTop" class="ibm ibm-band band-top"><!-- 전체 ibm 부모, 배너 형태 분류 -->
+        <div class="ibm-dim"></div><!-- layer 배너 형태일 때 block -->
+
+        <div class="ibm-wrap"><!-- 배너 외부 -->
+            <div class="ibm-inner"><!-- 배너 내부 -->
+                <div class="ibm-item"><!-- 배너 항목 -->
+                    <div class="ibm-wings"><!-- 배너 배경 -->
+                        <div style="background-color: #cc185d;"></div><!-- 왼쪽 배경 -->
+                        <div style="background-color: #0d5480;"></div><!-- 오른쪽 배경 -->
+                    </div>
+                    <div class="ibm-banner"><!-- 실질적인 배너 -->
+                        <img src="//img.eduwill.net/resources/ibm/front/dev/img/pc/band_80.png" data-pc-src="//img.eduwill.net/resources/ibm/front/dev/img/pc/band_80.png" data-mobile-src="//img.eduwill.net/resources/ibm/front/dev/img/mobile/band_80.png" alt="">
+                        <div class="ibm-customize"> 
+                            <div class="ibm-text-list">
+                                <div class="ibm-text text-1" data-text-x="105" data-text-y="10" data-text-size="18" data-text-color="#fff">7월 대개강!</div>
+                                <div class="ibm-text text-2" data-text-x="362" data-text-y="10" data-text-size="18" data-text-color="#fff">6월 대개강!</div>
+                            </div>
+                        </div>
+                        <div class="ibm-links"><!-- 배너 링크 -->
+                            <a href="javascript:;" target="_blank"><span class="sr-only">링크 1</span></a>
+                            <a href="javascript:;" target="_blank"><span class="sr-only">링크 2</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ibm-action"><!-- 배너 컨트롤(닫기) 유동적 배너일 때 block -->
+                <a href="javascript:;" onClick="document.getElementById('ibmTop').style.display='none'; return false;" class="ibm-close"><span>배너 닫기</span></a>
+            </div>
+        </div>
+    </div>
+
+    <div id="ibmBottom" class="ibm ibm-band band-bottom">
+        <div class="ibm-wrap">
+            <div class="ibm-inner">
+                <div class="ibm-item">
+                    <div class="ibm-wings">
+                        <div style="background-color: #d54134;"></div>
+                        <div style="background-color: #d54134;"></div>
+                    </div>
+                    <div class="ibm-banner">
+                        <img src="//img.eduwill.net/resources/ibm/front/dev/img/pc/band_100.png" data-pc-src="//img.eduwill.net/resources/ibm/front/dev/img/pc/band_100.png" data-mobile-src="//img.eduwill.net/resources/ibm/front/dev/img/mobile/band_100.png" alt="">
+                        <div class="ibm-customize"> 
+                            <div class="ibm-text-list">
+                                <div class="ibm-text text-1" data-text-x="830" data-text-y="50" data-text-size="16" data-text-color="#fff">신청하러 가기</div>
+                            </div>
+                        </div>
+                        <div class="ibm-links">
+                            <a href="//www.naver.com" data-pc-link="//www.naver.com" data-mobile-link="//www.eduwill.net" target="_blank"><span class="sr-only">링크 1</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ibm-action">
+                <a href="javascript:;" onClick="document.getElementById('ibmBottom').style.display='none'; return false;" class="ibm-close"><span>배너 닫기</span></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<img src="//img.eduwill.net/resources/ibm/front/dev/img/main.png" alt="" style="opacity: .5;">
+
+<script>
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+    var url = window.location.href;
+    var str = 'www.eduwill.net';
+    var checkUrl = url.indexOf(str);
+
+    $(function(){
+        init();
+    });
+
+    function init(){
+        checkResolution('.ibm');
+        ibmCustomizeText('.ibm-customize .ibm-text-list .ibm-text');
+    }
+
+    function checkResolution(e){
+        if( isMobile || !checkUrl ){
+            replaceImagePaths(e, 'pc', 'mobile');
+            replaceImageLinks(e, 'pc', 'mobile');
+            //console.log('mobile');
+        } else {
+            replaceImagePaths(e, 'mobile', 'pc');
+            replaceImageLinks(e, 'mobile', 'pc');
+            //console.log('pc');
+        }
+    }
+
+    function replaceImagePaths(target, basic, change){
+        $(target + ' img').each(function(){
+            var pcSrc = $(this).data('pcSrc');
+            var mobileSrc = $(this).data('mobileSrc');
+            $(this).attr('src', change == 'pc' ? pcSrc : mobileSrc);
+        });
+    }
+
+    function replaceImageLinks(target, basic, change){
+        $(target + ' img').each(function(){
+            var pcLink = $(this).parent().data('pcLink');
+            var mobileLink = $(this).parent().data('mobileLink');
+            $(this).parent().attr('href', change == 'pc' ? pcLink : mobileLink);
+        });
+    }
+
+    // ibm customize text
+    function ibmCustomizeText(selector){
+        var $selector = $(selector);
+
+        $selector.each(function(){
+            var _top = $(this).data('textY'),
+                 _left = $(this).data('textX'),
+                 _size = $(this).data('textSize'),
+                 _color = $(this).data('textColor'),
+                 _img = $(this).parent().parent().siblings('img').get(0),
+                 _link = $(this).parent().parent().siblings('.ibm-links').children('a'),
+                 _imgWidth = _img.naturalWidth, // 이미지 기준 너비
+                 _imgHeight = _img.naturalHeight, // 이미지 기준 높이
+                 _linkLength = _link.length, // 링크 갯수
+                 _topPercent = ((_top/_imgHeight) * 100) + '%', // top percent 계산
+                 _leftPercent = ((_left/(_imgWidth/_linkLength)) * 100) + '%'; // left percent 계산
+
+            // console.log(_img, _imgWidth);
+
+            if( isMobile || !checkUrl ){
+                if( $(window).outerWidth() >= 720 ){
+                    // 720 more
+                    _top = _top;
+                    _left = _left;
+                    _size = _size;
+                } else {
+                    //console.log('mobile');
+                    _top = _topPercent;
+                    _left = _leftPercent;
+                    _size = ((((_size)/_imgWidth) * 100) + 'vw'); // mobile font-size
+                }
+            } else {
+                //console.log('pc');
+                _top = _topPercent;
+                _left = _leftPercent;
+                _size = _size;
+            }
+
+            $(this).css({
+                'top': _top,
+                'left': _left,
+                'fontSize': _size,
+                'color': _color
+            });
+        });
+    }
+</script>
+</body>
+</html>

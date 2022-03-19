@@ -1,0 +1,648 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ko" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+<title></title>
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/product.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/product.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.min.js"></script>
+<!-- // 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+	컨텐츠 감싸는 부모 : product-eco
+	하단 수강신청 영역 : product-apply
+	하단 수강신청 영역 내 탭 : product-tab
+	하단 수강신청 영역 내 정보 : product-table
+	따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+<!-- eco -->
+
+<link href="https://img.eduwill.net/resources/common/web/css/webfont.css" rel="stylesheet" type="text/css" />
+<link href="https://img.eduwill.net/resources/eduwill/live/css/product/uland/common/web.css" rel="stylesheet" type="text/css" /><!-- uland content css -->
+<style type="text/css">.quick-banner{z-index:2;}
+	.product-eco { position:relative;}
+	.product-eco * { font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun gothic'; letter-spacing:-.5px; line-height: normal;}
+	.product-eco .wrap { position:relative; width:1100px; margin: 0 auto;}
+	.product-eco .section-title{ background:url('https://img.eduwill.net/Img2/uland/product/201007/pc/repeat.jpg') repeat-x 50% 0;}
+	.product-eco .bg-title{ height:870px; background:url('https://img.eduwill.net/Img2/uland/product/201007/pc/bg_title.jpg') no-repeat 50% 0;}
+	.product-eco .section-banner { background:#ffe000;}
+	.product-eco .section-cs { background:#ffd900;}
+	.product-eco .section-ad { background:url('https://img.eduwill.net/Img2/uland/promotion/200717_1/pc/ad_bg.jpg') no-repeat center 0;background-size:cover;}
+	.product-eco .section-edu .btn_box{  position: absolute; top:774px;left:0;right:0; width:970px; margin:0 auto;display:flex; justify-content: space-between; }
+	.product-eco .section-table .wrap:after{ content:'';width:260px;height:345px;background:url(https://img.eduwill.net/Img2/uland/promotion/200717_1/pc/char.png) no-repeat center 0;background-size:cover;background-size:contain;position:absolute;bottom:195px;right:-15px;}
+	.product-eco .section-apply{ padding:60px 0 130px 0;}
+
+	.product-eco .tab_view .modal-table .tablecurri{ margin:0 auto; margin-top: 0; padding-bottom: 0;}
+	.product-eco .dimmed{ display:none;position: fixed; left: 0px; top: 0px; width: 100%; height: 100%;z-index:2000; background-color: rgba( 0, 0, 0, 0.7);}
+	.product-eco .popup{display: none;position:absolute;left:50%;top:0;z-index:2001;transform: translateX(-50%);}
+	.product-eco .btn_close{ position:absolute;right:-70px;top:0;height:40px;width:40px;}
+	.product-eco .btn_close a{ display:block; width:100%; height:100%;}
+
+	.tab_box{  position:absolute;width:1010px;margin:0 auto;top:50%;left:50%;transform:translate(-50%,-50%); }
+	.tab_box .tab_list:after{ content:'';display:block;clear:both;}
+	.tab_box .tab_list li{ float:left;width:336px;height:67px;margin-left:1px;background:#efefef;border-top-left-radius:15px;border-top-right-radius:15px;}
+	.tab_box .tab_list li:first-child{ margin-left:0;}
+	.tab_box .tab_list li a{ display:table;width:100%;height:100%;}
+	.tab_box .tab_list li span{ color:#212121!important;display:table-cell;vertical-align:middle;font-size:20px;font-weight:300;color:rgba(0,0,0,.5);font-family:'Noto Sans KR';letter-spacing:-1px;}
+	.tab_box .tab_list li span strong{ font-weight:700;letter-spacing:-1px;}
+	.tab_box .tab_list li.on{ background:#fff;}
+	.tab_box .tab_list li.on span{ color:#212121;}
+	.tab_box .tab_view{ display:none;padding:20px;background:#fff;}
+	.tab_box .tab_list + .tab_view{ display:block;}
+
+	.modal-table .tablecurri{ padding-bottom:120px; margin-top:70px;}
+	.modal-table .tablecurri .table { width: auto;margin:0 auto; background: #fff;}
+	.modal-table .tablecurri .table table { table-layout: fixed; }
+	.modal-table .tablecurri .table tr, .modal-table .tablecurri .table th, .tablecurri .table td { font-family:"Noto Sans KR",sans-serif,'맑은고딕','Malgun Gothic','돋움',Dotum,'굴림',Gulim,Tahoma,sans-serif,verdana!important; color:#202020; font-size: 18px !important;}
+	.modal-table .tablecurri .table th:not(:last-child), .modal-table .tablecurri .table td:not(:last-child){ border-right: 1px solid #e0e0e0; }
+	.modal-table .tablecurri .table td{border-bottom: 1px solid #e0e0e0;}
+	.modal-table .tablecurri .table th strong{ font-weight: 500; font-size: 20px !important;}
+	.modal-table .tablecurri .table th{padding:15px 0}
+	.modal-table .tablecurri .table td{ padding: 20px 15px; background:#fff; letter-spacing: -1.5px;}
+	.modal-table .tablecurri .table td strong{ font-size: 20px; font-weight: 600;}
+	.modal-table .tablecurri .table td span{font-size: 14px;  display: inline-block; vertical-align: bottom;}
+	.modal-table .blnone{ border-left: none !important;}
+	.modal-table .brnone{ border-right : none !important;}
+	.modal-table .tablecurri .table th { font-weight: normal; color: #202020; background-color: #efefef; font-size: 15px;}
+	.modal-table .tablecurri .table th:first-child { border-left: 0;}
+
+	.product-eco .section-story{ padding-bottom:160px;}
+	.product-eco .story-slide{ width:970px; margin:0 auto; text-align: center; }
+	.product-eco .story-slide ul{ content:'';display: table; clear:both;}
+	.product-eco .story-slide ul li{ position: relative;display: inline-block;}	
+	.product-eco .story-slide ul li:before{ content:''; position: absolute; bottom:-30px;right:-10px;animation: .35s jump ease-in-out infinite alternate;z-index:7;
+		background:url('https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png');background-size:45px 50px;width:45px;height:50px;
+	}
+	.product-eco .story-slide ul li{ margin-right: 23px;}
+	.product-eco .story-slide ul li:last-child{ margin-right: 0;}
+
+	.product-eco .section-teacher{ padding:60px 0;}
+	.product-eco .section-teacher .media_wrap{ content:'';display:table;clear:both; text-align: center;}
+	.product-eco .section-teacher .media_wrap li{ width:446px;height:251px; display: inline-block;margin-bottom:100px;}
+	.product-eco .section-teacher .media_wrap li:nth-child(2n-1){ margin-right: 40px;}
+	.product-eco .section-teacher .media_wrap li a{display:block;width:100%;height:100%;}
+	.product-eco .section-teacher .media_wrap li a.thumb{ background-size:contain;background-repeat:no-repeat;background-position:50% 0;}
+	.product-eco .section-teacher .media_wrap li a.thumb0{ background-image:url('https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb1_off.png');}
+	.product-eco .section-teacher .media_wrap li a.thumb1{ background-image:url('https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb2_off.png');}
+	.product-eco .section-teacher .media_wrap li a.thumb2{ background-image:url('https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb3_off.png');}
+	.product-eco .section-teacher .media_wrap li a.thumb3{ background-image:url('https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb4_off.png');}
+	.product-eco .section-teacher .media_wrap li a.thumb4{ background-image:url('https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb5_off.png');}
+	.product-eco .section-teacher .media_wrap li a.thumb5{ background-image:url('https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb6_off.png');}
+	.product-eco .section-teacher .media_wrap li a.thumb6{ background-image:url('https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb7_off.png');}
+	.product-eco .section-teacher .media_wrap li a.thumb7{ background-image:url('https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb8_off.png');}
+	.product-eco .section-teacher .media_wrap li a.thumb8{ background-image:url('https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb9_off.png');}
+	.product-eco .section-teacher .media_wrap li a.thumb9{ background-image:url('https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb10_off.png');}
+	.product-eco .section-teacher .media_wrap li a img{width:100%;height:100%;}
+	.video_box{ width:1000px;height:560px;text-align:center;margin:0 auto;}
+	.video_box .video{ width:1000px;height:100%;}
+	.video_box .btn_play{display:block;position:absolute;left:0;top:0;width:100%;height:100%;z-index:2;margin:0 auto;}
+	.video_box .btn_play img{width:1000px;height:560px;}
+	.video_box video{width:1000px;height:100%;position:relative;top:0;}
+	.dimmed{display:none;position:fixed;left:0;top:0;width:100%;height:100%;z-index:2000;background-color:rgba(0,0,0,0.6);}
+	.popup{display:none;position:absolute;left:50%;top:0;z-index:2001;-webkit-transform:translateX(-50%);transform:translateX(-50%);}
+	.popup_close{position:absolute;right:0;top:-35px;display:inline-block;}
+</style>
+<div class="product-eco">
+<div class="section-title">
+<div class="bg-title"></div>
+</div>
+
+<div class="section-apply" id="course">
+<div class="wrap">
+<ul class="apply-list offline">
+	<li><!-- list -->
+	<div class="row upper">
+	<div class="cell cell-1">[Live 강의]<br />
+	<strong>2021 부동산실무완성 드림패키지</strong></div>
+
+	<div class="cell cell-2">
+	<p><span> </span></p>
+
+	<p><span class="point" style="color:#000000"> 정가 </span></p>
+	</div>
+
+	<div class="cell cell-3">
+	<p><span> </span> <span> </span></p>
+
+	<p><span> 2,400,000 </span> <span> 원 </span></p>
+	</div>
+	</div>
+
+	<div class="row lower">
+	<div class="cell cell-1">&middot; 실시간 Live 및 복습 동영상 수강<br />
+	&middot; 수강시작일로부터 1년(365일)</div>
+	<a class="coursebtn page_move" href="#productApply"><span>수강신청</span>
+
+	<div class="pointer"><img alt="클릭" src="https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png" /></div>
+	</a></div>
+	</li>
+	<!-- // list -->
+</ul>
+
+<p class="notice">* 온라인, 오프라인 설명회에서 제공한 수강할인권을 사용할 수 있습니다.<br />
+* 실시간 Live는 오프라인 강의 일정에 맞춰 수강해야 합니다.</p>
+</div>
+</div>
+
+<div class="section-info">
+<div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/uland/product/201007/pc/info_201217.jpg" /></div>
+</div>
+
+<div class="section-edu">
+<div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/uland/product/201007/pc/program.jpg" />
+<div class="btn_box"><a class="btn_popup" href="javascript:;" onclick="popupOpen2('modal');tabControl(0);"><img alt="과정상세보기" src="https://img.eduwill.net/Img2/uland/promotion/200717_1/pc/btn_more.png" /> </a> <a class="btn_popup" href="javascript:;" onclick="popupOpen2('modal');tabControl(1);"> <img alt="과정상세보기" src="https://img.eduwill.net/Img2/uland/promotion/200717_1/pc/btn_more.png" /> </a> <a class="btn_popup" href="javascript:;" onclick="popupOpen2('modal');tabControl(2);"> <img alt="과정상세보기" src="https://img.eduwill.net/Img2/uland/promotion/200717_1/pc/btn_more.png" /> </a></div>
+</div>
+</div>
+<!-- 성공스토리 -->
+
+<div class="section-story">
+<div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/uland/product/201007/pc/story.jpg" /> <!-- silde -->
+<div class="story-slide">
+<ul>
+	<li class="off"><img alt="" src="https://img.eduwill.net/Img2/uland/product/201007/pc/1_off.png" /></li>
+	<li class="off"><img alt="" src="https://img.eduwill.net/Img2/uland/product/201007/pc/2_off.png" /></li>
+	<li class="off"><img alt="" src="https://img.eduwill.net/Img2/uland/product/201007/pc/3_off.png" /></li>
+</ul>
+</div>
+<!-- silde --></div>
+</div>
+<!-- // 성공스토리 -->
+
+<div class="dimmed"></div>
+<!-- modal -->
+
+<div class="popup modal" id="modal">
+<div class="tab_box modal-inner">
+<div class="btn_close"><a href="javascript:;" onclick="popupClose2('popup_close');"><img alt="과정상세보기" src="https://img.eduwill.net/Img2/uland/promotion/200717_1/pc/close.png" /> </a></div>
+
+<ul class="tab_list">
+	<li class="on"><a href="javascript:;"><span> <strong> 부동산 중개업 마스터 양성과정 </strong> </span> </a></li>
+	<li><a href="javascript:;"><span> <strong> 부동산 컨설턴트 양성과정 </strong> </span> </a></li>
+	<li><a href="javascript:;"><span> <strong> 부동산투자자산관리 전문가양성과정 </strong> </span> </a></li>
+</ul>
+
+<div class="tab_view">
+<div class="modal-table">
+<div class="tablecurri">
+<table class="table table_col" summary="학습 커리큘럼">
+	<colgroup>
+		<col style="width: 22%;" />
+		<col style="width: 55%;" />
+		<col style="width: 14%;" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col"><strong>과목명 </strong></th>
+			<th scope="col"><strong>강의내용 </strong></th>
+			<th scope="col"><strong>시수 </strong></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="blnone">중개사무 문서작성<br />
+			(온라인)</td>
+			<td>- 부동산 실무에서 사용하는 한글, 엑셀, 파워포인트 실전 연습<br />
+			- 매물장, 고객관리, 브리핑 자료, 컨설팅 보고서 등 중개사무소에서 필수적으로 사용하는 문서 작성 실무</td>
+			<td>10강</td>
+		</tr>
+		<tr>
+			<td class="blnone">창업기초ABC<br />
+			(오픈 특강)</td>
+			<td>- 공인중개사 사무소 창업시 고려/판단/확인사항<br />
+			- 창업에 필요한 기초 법령과 지식<br />
+			- 개업공인중개사 주요 일과<br />
+			- SNS를 통한 사무소 홍보 방법<br />
+			- 부동산 정보 거래망 활용법</td>
+			<td>6시간</td>
+		</tr>
+		<tr>
+			<td class="blnone">실전 창업 계약서 작성<br />
+			(현장학습 포함)</td>
+			<td>- 창업자금 조달과 사무실 운영 형태<br />
+			- 중개 종목 선정과 물건 확보 및 권리금<br />
+			- 거래 사례별 계약서, 중개대상물확인설명서 작성법<br />
+			- 실습 및 개별지도</td>
+			<td>23시간</td>
+		</tr>
+		<tr>
+			<td class="blnone">부동산 영업</td>
+			<td>- 중개업 입문 시 영업 노하우 및 전략 설정<br />
+			- 물건 확보, 물건 관리, 고객응대<br />
+			- 실전 광고 기법(간판, 전단, 명함 작업, TM 등)<br />
+			- 고객 상담 기술 및 클로징<br />
+			- 합리적 중개 보수 청구 요령</td>
+			<td>15시간</td>
+		</tr>
+		<tr>
+			<td class="blnone">부동산 마케팅</td>
+			<td>- 부동산 빅데이터 크리에이터 개념 및 분석<br />
+			- 스마트폰 기본 활용<br />
+			- 블로그, 유튜브, 프롭테크 앱 활용</td>
+			<td>30시간</td>
+		</tr>
+		<tr>
+			<td class="blnone">부동산과 세금</td>
+			<td>- 부동산 취득-보유-양도와 세금<br />
+			- 부동산 양도 시 유의 사항<br />
+			- 개정 세법 및 과세정책 방향</td>
+			<td>15시간</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div class="tab_view">
+<div class="modal-table">
+<div class="tablecurri">
+<table class="table table_col" summary="학습 커리큘럼">
+	<colgroup>
+		<col style="width: 22%;" />
+		<col style="width: 55%;" />
+		<col style="width: 14%;" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col"><strong>과목명 </strong></th>
+			<th scope="col"><strong>강의내용 </strong></th>
+			<th scope="col"><strong>시수 </strong></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="blnone">토지 중개 컨설팅</td>
+			<td>- 투자 가치 있는 토지의 판단 노하우<br />
+			- 개발 가능한 토지와 맹지 건축허가 방법<br />
+			- 정비 사업 지역의 토지 중개 방법<br />
+			- 용도 지역의 변경 방법 등</td>
+			<td>30시간</td>
+		</tr>
+		<tr>
+			<td class="blnone">상가 중개 컨설팅</td>
+			<td>- 상가 부동산 관련 주요 법률의 이해<br />
+			- 상가 업종과 용도 변경<br />
+			- 상가 MD 구성의 실습<br />
+			- GIS(지리정보시스템)과 부동산빅데이터를 활용한 상가 컨설팅 리포트 실무</td>
+			<td>30시간</td>
+		</tr>
+		<tr>
+			<td class="blnone">상업용 부동산 컨설팅<br />
+			/ 부동산 시장 전망<br />
+			(오픈 특강)</td>
+			<td>- 상업용 부동산 컨설팅 업무의 이해<br />
+			- 임대 전속, 매각 전속 자문 실무<br />
+			- 포스트코로나, 언택트 시대의 부동산 정책 및 시장 전망</td>
+			<td>6시간</td>
+		</tr>
+		<tr>
+			<td class="blnone">계약서 심화<br />
+			(온라인)</td>
+			<td>- 중개 사고 방지, 고객과의 분쟁 방지를 위한 계약서 작성과 실습<br />
+			<span> (*이 과목의 교재는 별도로 구매해야 합니다.) </span></td>
+			<td>21시간</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div class="tab_view">
+<div class="modal-table">
+<div class="tablecurri">
+<table class="table table_col" summary="학습 커리큘럼">
+	<colgroup>
+		<col style="width: 22%;" />
+		<col style="width: 55%;" />
+		<col style="width: 14%;" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th scope="col"><strong>과목명 </strong></th>
+			<th scope="col"><strong>강의내용 </strong></th>
+			<th scope="col"><strong>시수 </strong></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td class="blnone">경&middot;공매, NPL<br />
+			(현장학습 포함)</td>
+			<td>- 경매 절차와 입찰서 쓰는 방법<br />
+			- 등기사항전부증명서와 권리 투자<br />
+			- 권리분석과 말소기준 권리 / 임대차 권리 분석<br />
+			- NPL 경매와 이론<br />
+			- 주거용 부동산 현장학습 (수익 분석과 명도 해결을 위한 조사 기법)</td>
+			<td>33시간</td>
+		</tr>
+		<tr>
+			<td class="blnone">부동산 개발과 분양</td>
+			<td>- 부동산 개발사업의 흐름<br />
+			- 건축허가 처리 절차<br />
+			- 분양 시장 전망 및 분양관련 법규<br />
+			- 도시 정비법 개정 이론 및 규제</td>
+			<td>15시간</td>
+		</tr>
+		<tr>
+			<td class="blnone">재개발재건축<br />
+			(도시정비사업)</td>
+			<td>- 부동산 규제로 인한 절차의 변화와 매도 타이밍<br />
+			- 재개발재건축(도시정비사업)의 정비구역 해제에 대한 분석<br />
+			- 소규모 정비사업(자율주택정비사업, 소규모재건축, 가로주택정비사업)</td>
+			<td>15시간</td>
+		</tr>
+		<tr>
+			<td class="blnone">부동산 자산관리<br />
+			(온라인)</td>
+			<td>- 부동산 자산관리 개론 및 임대차 유치 관리<br />
+			- 투자수익률 및 투자 의사결정<br />
+			<span> (※ 이 과목의 교재는 온라인 교안으로만 제공됩니다.) </span></td>
+			<td>21시간</td>
+		</tr>
+		<tr>
+			<td class="blnone">해외부동산 / 부동산 금융<br />
+			(오픈 특강)</td>
+			<td>- 해외 부동산 투자 프로세스 및 트렌드<br />
+			- 중개계약 성공률을 높이는 대출 상담 기법</td>
+			<td>6시간</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- // modal --><!-- media layer -->
+
+<div class="dimmed"></div>
+
+<div class="popup teacher" id="layer0"><a class="popup_close" href="javascript:;" onclick="popupClose2('popup_close');"><img alt="팝업닫기" src="https://img.eduwill.net/Img2/public/product/191216/popup_close.png" /></a>
+
+<div class="popup_cont">
+<div class="video_box">
+<div class="video video0">
+<video controls="" height="100%" poster="" width="100%"><source src="//pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/2019/_105/_105BP-RSG-SAMPLE.mp4" type="video/mp4" /></video>
+<a class="btn_play" href="javascript:;" id="btn_play0"><img alt="" src="https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb1.png" /> </a></div>
+</div>
+</div>
+</div>
+
+<div class="popup teacher" id="layer1"><a class="popup_close" href="javascript:;" onclick="popupClose2('popup_close');"><img alt="팝업닫기" src="https://img.eduwill.net/Img2/public/product/191216/popup_close.png" /></a>
+
+<div class="popup_cont">
+<div class="video_box">
+<div class="video video1">
+<video controls="" height="100%" poster="" width="100%"><source src="//pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/2019/_105/_105BP-KYS-SAMPLE.mp4" type="video/mp4" /></video>
+<a class="btn_play" href="javascript:;" id="btn_play1"><img src="https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb2.png" /> </a></div>
+</div>
+</div>
+</div>
+
+<div class="popup teacher" id="layer2"><a class="popup_close" href="javascript:;" onclick="popupClose2('popup_close');"><img alt="팝업닫기" src="https://img.eduwill.net/Img2/public/product/191216/popup_close.png" /></a>
+
+<div class="popup_cont">
+<div class="video_box">
+<div class="video video2">
+<video controls="" height="100%" poster="" width="100%"><source src="//pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/2019/_105/_105BP-LDH-SAMPLE.mp4" type="video/mp4" /></video>
+<a class="btn_play" href="javascript:;" id="btn_play2"><img alt="" src="https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb3.png" /> </a></div>
+</div>
+</div>
+</div>
+
+<div class="popup teacher" id="layer3"><a class="popup_close" href="javascript:;" onclick="popupClose2('popup_close');"><img alt="팝업닫기" src="https://img.eduwill.net/Img2/public/product/191216/popup_close.png" /></a>
+
+<div class="popup_cont">
+<div class="video_box">
+<div class="video video3">
+<video controls="" height="100%" poster="" width="100%"><source src="//pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/2019/_105/_105BP-ASS-SAMPLE.mp4" type="video/mp4" /></video>
+<a class="btn_play" href="javascript:;" id="btn_play3"><img alt="" src="https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb4.png" /> </a></div>
+</div>
+</div>
+</div>
+
+<div class="popup teacher" id="layer4"><a class="popup_close" href="javascript:;" onclick="popupClose2('popup_close');"><img alt="팝업닫기" src="https://img.eduwill.net/Img2/public/product/191216/popup_close.png" /></a>
+
+<div class="popup_cont">
+<div class="video_box">
+<div class="video video4">
+<video controls="" height="100%" poster="" width="100%"><source src="//pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/2019/_105/_105BP-JHN-SAMPLE.mp4" type="video/mp4" /></video>
+<a class="btn_play" href="javascript:;" id="btn_play4"><img alt="" src="https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb5.png" /> </a></div>
+</div>
+</div>
+</div>
+
+<div class="popup teacher" id="layer5"><a class="popup_close" href="javascript:;" onclick="popupClose2('popup_close');"><img alt="팝업닫기" src="https://img.eduwill.net/Img2/public/product/191216/popup_close.png" /></a>
+
+<div class="popup_cont">
+<div class="video_box">
+<div class="video video5">
+<video controls="" height="100%" poster="" width="100%"><source src="//pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/2020/_105/B/_105BP-PIJ-SAMPLE.mp4" type="video/mp4" /></video>
+<a class="btn_play" href="javascript:;" id="btn_play5"><img alt="" src="https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb6.png" /> </a></div>
+</div>
+</div>
+</div>
+
+<div class="popup teacher" id="layer6"><a class="popup_close" href="javascript:;" onclick="popupClose2('popup_close');"><img alt="팝업닫기" src="https://img.eduwill.net/Img2/public/product/191216/popup_close.png" /></a>
+
+<div class="popup_cont">
+<div class="video_box">
+<div class="video video6">
+<video controls="" height="100%" poster="" width="100%"><source src="//pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/2020/_105/B/_105BP-SIJ-SAMPLE.mp4" type="video/mp4" /></video>
+<a class="btn_play" href="javascript:;" id="btn_play6"><img alt="" src="https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb7.png" /> </a></div>
+</div>
+</div>
+</div>
+
+<div class="popup teacher" id="layer7"><a class="popup_close" href="javascript:;" onclick="popupClose2('popup_close');"><img alt="팝업닫기" src="https://img.eduwill.net/Img2/public/product/191216/popup_close.png" /></a>
+
+<div class="popup_cont">
+<div class="video_box">
+<div class="video video7">
+<video controls="" height="100%" poster="" width="100%"><source src="//pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/2020/_105/B/_105BP-YBJ-SAMPLE.mp4" type="video/mp4" /></video>
+<a class="btn_play" href="javascript:;" id="btn_play7"><img alt="" src="https://img.eduwill.net/Img2/uland/promotion/200420/pc/thumb8.png" /> </a></div>
+</div>
+</div>
+</div>
+<!-- // media layer -->
+
+<div class="section-teacher" id="sec4">
+<div class="wrap"><img alt="부동산 창업 CEO 과정" src="https://img.eduwill.net/Img2/uland/product/201007/pc/lecture_title.jpg" />
+<ul class="media_wrap">
+	<li><a class="thumb thumb0" href="javascipt:;" onclick="popupOpen2('layer0'); return false;">&nbsp;</a></li>
+	<li><a class="thumb thumb1" href="javascipt:;" onclick="popupOpen2('layer1'); return false;">&nbsp;</a></li>
+	<li><a class="thumb thumb2" href="javascipt:;" onclick="popupOpen2('layer2'); return false;">&nbsp;</a></li>
+	<li><a class="thumb thumb3" href="javascipt:;" onclick="popupOpen2('layer3'); return false;">&nbsp;</a></li>
+	<li><a class="thumb thumb4" href="javascipt:;" onclick="popupOpen2('layer4'); return false;">&nbsp;</a></li>
+	<li><a class="thumb thumb5" href="javascipt:;" onclick="popupOpen2('layer5'); return false;">&nbsp;</a></li>
+	<li><a class="thumb thumb6" href="javascipt:;" onclick="popupOpen2('layer6'); return false;">&nbsp;</a></li>
+	<li><a class="thumb thumb7" href="javascipt:;" onclick="popupOpen2('layer7'); return false;">&nbsp;</a></li>
+</ul>
+</div>
+</div>
+<!--
+<div class="section-cs">
+<div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/uland/product/201007/pc/banner.jpg" /></div>
+</div>
+--></div>
+<script type="text/javascript" src="https://img.eduwill.net/resources/common/web/js/greensock/TweenMax.min.js"></script><script>
+    $(function () {
+        init();
+
+		var delay = 10;
+		var end = new Date("October 31,2020,23:59:59").getTime();
+		var _second = 1000;
+		var _minute = _second * 60;
+		var _hour = _minute * 60;
+		var _day = _hour * 24;
+
+		function showSec() {
+			var now = new Date();
+			var distance = end - now;
+			if (distance < 0) {
+				$(".day").text("00");
+			} else {
+				var days = Math.floor(distance / _day);
+				$(".day").text((days.toString().length == 1) ? "0" + days : days);
+				setTimeout(showSec, delay);
+			}
+		}
+		$(function () {
+			setTimeout(showSec, 10);
+		});
+
+    });
+
+    function init() {
+        create();
+		addEvent();
+    }
+	
+	var _w;
+	var _dimmed;
+	var _popup;
+	var _popupClose;
+	var _popupBtn;
+
+	function create(){
+		_w = $(window);
+		_dimmed = $( ".dimmed" );
+		_popup = $( ".modal, .teacher" );
+		_popupClose = $('.popup-close, .btn-cancle');
+		_popupBtn = $('.btn_close');
+	}
+
+    function addEvent() {
+
+		_popupClose.on('click', popupCloseClick);
+		_popupBtn.on('click', popupCloseClick);
+
+        $('.page_move').on('click', function (e) {
+            e.preventDefault();
+            var _top = $($(this).attr('href'));
+            var $target = _top.offset().top;
+
+            $('html,body').animate({
+                scrollTop: $target
+            }, 500);
+        });
+
+		$(".tab_list").find("li").on("click", function () {
+			var idx = $(this).index();
+			tabControl(idx);
+		});
+
+		$('.story-slide ul li').on("mouseover",function(){
+			$(this).find('img').attr('src', $(this).find('img').attr('src').replace('_off','_on'));
+		});
+		$('.story-slide ul li').on("mouseout",function(){
+			$(this).find('img').attr('src', $(this).find('img').attr('src').replace('_on','_off'));
+		});
+
+		$(".btn_play").on("click", function () {
+            var len = $(this).attr("id").length - 1;
+            var idx = $(this).attr("id").substr(len, 1);
+            var max = 7;
+            for (var i = 0; i <= max; i++) {
+                if (i != idx) {
+                    $("#btn_play" + i).show();
+                    $(".video" + i).children("video")[0].pause();
+                    $(".video" + i).children("video")[0].currentTime = 0;
+                }
+            }
+            $("#btn_play" + idx).hide();
+            $(".video" + idx).show();
+            $(".video" + idx).children("video")[0].play();
+        });
+
+        $(".teacher .popup_close").on("click", function () {
+            var max = 7;
+            for (var i = 0; i <= max; i++) {
+                $(".video").children("video")[i].pause();
+                $(".video").children("video")[i].currentTime = 0;
+            }
+        });
+
+    };
+
+	function popupCloseClick($e) {
+		popupClose2();
+	};
+
+	function popupClose2(){
+		TweenMax.killTweensOf( _dimmed );
+		TweenMax.killTweensOf( _popup );
+		_dimmed.hide();
+		_popup.hide();
+	};
+
+	function popupOpen2($idName){
+		var $popupLayer = $("#"+$idName);
+		popupClose2();
+		_dimmed.show();
+		$popupLayer.show();
+		popupPosition($popupLayer);
+		openSlideupPopup($popupLayer);
+	};
+	
+	function popupPosition($popupLayer) {
+		var st = _w.scrollTop();
+		var winHeight = _w.height();
+		var popupHeight = $popupLayer.outerHeight();
+
+		var topValue = (st + ( winHeight / 2 - popupHeight / 2 )) ;
+		if(_w.height() < popupHeight){
+			topValue = st;
+		}
+
+		$popupLayer.css({top:topValue});
+	};
+
+	function openSlideupPopup($popupLayer){
+		TweenMax.killTweensOf( $popupLayer );
+		TweenMax.set($popupLayer, { scale: 0.5, opacity: 0 });
+		TweenMax.to($popupLayer, 0.4, { scale: 1, opacity: 1, ease: Expo.easeInOut });
+	};
+
+	function tabControl($idx) {
+		$(".tab_list").find("li").removeClass("on");
+		$(".tab_list").find("li").eq($idx).addClass("on");
+
+		$(".tab_view").hide();
+		$(".tab_view").eq($idx).show();
+	};
+</script>
+<!-- // eco -->
+</body>
+
+</html>

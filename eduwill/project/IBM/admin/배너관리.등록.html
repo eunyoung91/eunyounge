@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eduwill Ngene</title>
+<!-- Bootstrap -->
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet">
+<!-- Datatables -->
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/datatables/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/css/buttons.bootstrap.min.css" rel="stylesheet">
+<!-- Fullcalendar -->
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/fullcalendar/fullcalendar.min.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print">
+<!-- styles -->
+<link href="https://img.eduwill.net/resources/ngene/live/css/styles.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/css/common.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/css/custom.css" rel="stylesheet">
+
+<!-- <link href="https://img.eduwill.net/resources/ibm/admin/dev/css/admin.css" rel="stylesheet"> -->
+<link href="../css/admin.css" rel="stylesheet">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/ngene/live/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/ngene/live/js/jquery-ui.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/ngene/live/js/jquery.form.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap/js/bootstrap.min.js"></script>
+<!-- minor bug fixed 
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+-->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.ko.js"></script>
+<!-- Datatables -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/js/jquery.dataTables.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/js/dataTables.bootstrap.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/dataTables.buttons.min.js?v=1"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/buttons.bootstrap.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/buttons.flash.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/buttons.html5.min.js?v=1"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/buttons.print.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/jszip.min.js"></script>
+<!-- Fullcalendar -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/moment/min/moment.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/fullcalendar/fullcalendar.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/fullcalendar/lang-all.js"></script>
+<!-- CKEditor 
+    2017.10.26 이경현 수정
+    ckeditor 추가 기능 요청으로 인해, 특정페이지에 상위버전의 editor를 로드함에 따라 부득이하게 예외처리함(사용메뉴 : 사이트 > 총평페이지 관리)
+    ** 조회 controller 에서 model.addAttribute("ckeditor", "N"); 로 사용  
+-->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/ckeditor/ckeditor.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/ckeditor/adapters/jquery.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/js/custom.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/js/common.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/js/ajaxUtil.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/js/datetimepicker.js"></script>
+<!-- flot chart -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.resize.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.time.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.pie.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.tooltip.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.axislabels.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.stack.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jshashtable-2.1.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.symbol.js"></script>
+<!-- Vod Viewer : AquaPlayer -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/ngene/live/js/commonViewer.js"></script>
+<!-- javascript templates -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/javascriptTemplates/tmpl.min.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css" type="text/css">
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+</head>
+<body>
+<div id="wrapper"><!-- wrapper -->
+    <div id="header"><!-- header -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/main/main.action"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="javascript:;">컨텐츠</a></li>
+                        <li><a href="javascript:;">서비스</a></li>
+                        <li><a href="javascript:;">사이트</a></li>
+                        <li><a href="javascript:;">도서몰</a></li>
+                        <li><a href="javascript:;">기업제휴</a></li>
+                        <li><a href="javascript:;">에지인</a></li>
+                        <li><a href="javascript:;">EPM</a></li>
+                        <li class="active"><a href="javascript:;">배너(IBM)</a></li>
+                        <li><a href="javascript:;">관리자</a></li>
+                        <li><a href="javascript:;">개발 <span class="badge">42</span></a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li style="margin-top:18px;">
+                            <div class="form-group" id="divMenuSearch">
+                                <input type="text" class="form-control" placeholder="메뉴명을 입력하세요" id="searchMenu" style="padding:3px 23px 3px 8px;">
+                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                            </div>
+                        </li>
+                        <li><a href="/login/logout.action"><span class="glyphicon glyphicon-log-out"></span> 장은실&nbsp;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div><!--// header -->
+
+    <div id="container"><!-- container -->
+        <div class="page-content">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div id="lnb"><!-- lnb -->
+                        <div class="list-group">
+                            <span class="list-group-item"><strong>배너(IBM) 관리</strong></span>
+                            <a href="javascript:;" class="list-group-item active">배너 관리</a>
+                            <a href="javascript:;" class="list-group-item">템플릿 관리</a>
+                            <a href="javascript:;" class="list-group-item">코드 관리</a>
+                        </div>
+                    </div><!--// lnb -->
+                </div>
+                <div class="col-sm-10">
+                    <div id="content"><!-- content -->
+                        <!-- 배너 관리 -->
+                        <div class="ibm-wrap">
+                            <div class="ibm-contents">
+                                <h3 class="page-header">배너 관리 <span class="text-primary">등록</span></h3>
+
+                                <form action="">
+                                    <h4 class="mt20">배너 전시(노출) 정보</h4>
+
+                                    <div class="row">
+                                        <div class="col-sm-6 pr5 pl0"><!-- 개별 배너 -->
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">배너 게시 영역(개별)</div>
+                                                <div class="panel-body">
+                                                    <div class="form-horizontal ibm-search">
+                                                        <div class="form-group" id="bannerSearch">
+                                                            <div class="col-sm-12 pr0 pl0">
+                                                                <input type="text" class="form-control" placeholder="게시되는 배너 영역을 입력하세요" id="searchBanner">
+                                                                <div id="autoCompletePopup" class="auto-complete-popup" style="display: none;">
+                                                                    <ul id="autoCompleteList">
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">대분류-중분류-소분류</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">9급공무원-메인-일반배너</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">9급공무원-메인-플로팅 배너</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">9급공무원-메인-토스트 배너</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">9급공무원-메인-레이어 배너</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">9급공무원-메인-하단 띠 배너</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">9급공무원-메인-슬라이드 배너</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">대분류-중분류-글자수가 최대 몇 글자가 나와야 할까요? 한 줄 넘어가면 말줄임 처리되나요? 여기서는 다 보여지고 선택된 후에 말줄임 처리되는게 맞을까요? 아니면 둘 다 다 보여지는게 맞을까요?</div></label></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-horizontal ibm-select">
+                                                        <div class="form-group">
+                                                            <div class="col-sm-11 pr0 pl0">
+                                                                <div class="row">
+                                                                    <div class="col-sm-2 pr0 pl0">
+                                                                        <select class="form-control" id="mainCategory" name="">
+                                                                            <option value="">대분류</option>
+                                                                            <option value="">부동산아카데미</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm-3 pr5 pl5">
+                                                                        <select class="form-control" id="middleCategory" name="">
+                                                                            <option value="">중분류</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm-7 pr0 pl0">
+                                                                        <select class="form-control" id="subCategory" name="">
+                                                                            <option value="">소분류</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-sm-1 pull-right pr0 pl5">
+                                                                <button class="btn btn-block btn-primary" type="button" id="btnBannerSelectAdd">추가</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- // 개별 배너 -->
+
+                                        <div class="col-sm-6 pr0 pl5"><!-- 그룹 배너 -->
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">배너 게시 영역(그룹)</div>
+                                                <div class="panel-body">
+                                                    <div class="form-horizontal ibm-search">
+                                                        <div class="form-group" id="bannerSearch">
+                                                            <div class="col-sm-12 pr0 pl0">
+                                                                <input type="text" class="form-control" placeholder="게시되는 배너 그룹 영역을 입력하세요" id="searchBannerGroup">
+                                                                <div id="autoCompletePopup2" class="auto-complete-popup" style="display: none;">
+                                                                    <ul id="autoCompleteList2">
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">9급공무원-학원(전체)</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">9급공무원-학원(대방)</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">9급공무원-학원(부산서면)</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">9급공무원-학원(부산해운대)</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">공인중개사-학원(전체)</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">공인중개사-학원(대방)</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">공인중개사-학원(부산서면)</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">공인중개사-학원(부산해운대)</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">주택관리사-학원(전체)</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">주택관리사-학원(대방)</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">주택관리사-학원(부산서면)</div></label></li>
+                                                                        <li><div class="checkbox-inline"><label><input type="checkbox" class="checkbox">주택관리사-학원(부산해운대)</div></label></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-horizontal ibm-select">
+                                                        <div class="form-group">
+                                                            <div class="col-sm-11 pr0 pl0">
+                                                                <div class="row">
+                                                                    <div class="col-sm-12 pr0 pl0">
+                                                                        <select class="form-control" id="mainGroupCategory" name="">
+                                                                            <option value="">분류</option>
+                                                                            <option value="">9급 학원(전체)</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-sm-1 pull-right pr0 pl5">
+                                                                <button class="btn btn-block btn-primary" type="button" id="btnBannerGroupSelectAdd">추가</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- // 그룹 배너 -->
+                                    </div>
+
+                                    <div id="bannerDisplayList" class="panel panel-default panel-info banner-display-list"><!-- 게시된 배너 목록 -->
+                                        <div class="panel-heading">
+                                            <div class="row">
+                                                <div class="pull-left">
+                                                    <strong>게시된 배너 목록</strong>
+                                                    <button class="btn btn-xs btn-success" type="button"  data-toggle="collapse" data-target="#bannerList" aria-expanded="false" aria-controls="bannerList">보기</button>
+                                                </div>
+                                                <div class="pull-right">
+                                                    <div class="btn-group" role="group">
+                                                        <div class="btn-group" data-toggle="buttons" id="btnSelectAll">
+                                                            <label class="btn btn-xs btn-primary">
+                                                                <input type="checkbox">전체 선택
+                                                            </label>
+                                                        </div>
+                                                        <button class="btn btn-xs btn-danger" type="button" id="btnSelectDelete">선택 삭제</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="bannerList" class="collapse panel-body">
+                                            <ul>
+                                                <li>
+                                                    <div class="checkbox-inline">
+                                                        <label><input type="checkbox" class="checkbox">9급공무원-메인-하단 띠 배너</label>
+                                                        <a href="javascript:;" onClick="javascript:$(this).parent().hide();return false;" class="btn btn-xs btn-danger">삭제</a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox-inline">
+                                                        <label><input type="checkbox" class="checkbox">9급공무원-메인-레이어 배너</label>
+                                                        <a href="javascript:;" onClick="javascript:$(this).parent().hide();return false;" class="btn btn-xs btn-danger">삭제</a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox-inline">
+                                                        <label><input type="checkbox" class="checkbox">9급공무원-메인-플로팅 배너</label>
+                                                        <a href="javascript:;" onClick="javascript:$(this).parent().hide();return false;" class="btn btn-xs btn-danger">삭제</a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox-inline">
+                                                        <label><input type="checkbox" class="checkbox">9급공무원-학원(전체)-하단 띠 배너</label>
+                                                        <a href="javascript:;" onClick="javascript:$(this).parent().hide();return false;" class="btn btn-xs btn-danger">삭제</a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox-inline">
+                                                        <label><input type="checkbox" class="checkbox">9급공무원-학원(대방)-플로팅 배너</label>
+                                                        <a href="javascript:;" onClick="javascript:$(this).parent().hide();return false;" class="btn btn-xs btn-danger">삭제</a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox-inline">
+                                                        <label><input type="checkbox" class="checkbox">9급공무원-학원(노원)-토스트 배너</label>
+                                                        <a href="javascript:;" onClick="javascript:$(this).parent().hide();return false;" class="btn btn-xs btn-danger">삭제</a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox-inline">
+                                                        <label><input type="checkbox" class="checkbox">9급공무원-학원(부평)-슬라이드 배너</label>
+                                                        <a href="javascript:;" onClick="javascript:$(this).parent().hide();return false;" class="btn btn-xs btn-danger">삭제</a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox-inline">
+                                                        <label><input type="checkbox" class="checkbox">9급공무원-학원(수원)-슬라이드 배너</label>
+                                                        <a href="javascript:;" onClick="javascript:$(this).parent().hide();return false;" class="btn btn-xs btn-danger">삭제</a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox-inline">
+                                                        <label><input type="checkbox" class="checkbox">9급공무원-학원(대전)-슬라이드 배너</label>
+                                                        <a href="javascript:;" onClick="javascript:$(this).parent().hide();return false;" class="btn btn-xs btn-danger">삭제</a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox-inline">
+                                                        <label><input type="checkbox" class="checkbox">9급공무원-학원(대구)-플로팅 배너</label>
+                                                        <a href="javascript:;" onClick="javascript:$(this).parent().hide();return false;" class="btn btn-xs btn-danger">삭제</a>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="checkbox-inline">
+                                                        <label><input type="checkbox" class="checkbox">9급공무원-학원(서면)-플로팅 배너</label>
+                                                        <a href="javascript:;" onClick="javascript:$(this).parent().hide();return false;" class="btn btn-xs btn-danger">삭제</a>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div><!-- // 게시된 배너 목록 -->
+                                </form>
+
+                                <hr>
+
+                                <form action="">
+                                    <h4 class="mt20">배너 기본 정보</h4>
+                                    <div class="row table-responsive">
+                                        <div class="col-sm-6 pr5 pl0">
+                                            <table id="bannerTable" class="table table-bordered">
+                                                <colgroup>
+                                                    <col style="width: 20%;">
+                                                    <col style="width: auto;">
+                                                </colgroup>
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row"><label for="bannerName">배너명</label></th>
+                                                        <td><input type="text" id="bannerName" class="text form-control" name=""></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row" rowspan="2"><label for="bannerType">배너유형</label></th>
+                                                        <td>
+                                                            <select name="" id="bannerType" class="form-control">
+                                                                <option value="default">배너유형 선택</option>
+                                                                <option value="basic">일반(고정) 배너</option>
+                                                                <option value="floating">플로팅 배너</option>
+                                                                <option value="toast">토스트 배너</option>
+                                                                <option value="layer">레이어 배너</option>
+                                                                <option value="fixedBottom">하단 띠 배너</option>
+                                                                <option value="slide">슬라이드 배너</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div id="bannerExample" class="banner-example">
+                                                                <div class="banner-slide-wrap">
+                                                                    <div id="bannerSlide" class="banner-item banner-slide">
+                                                                        <div class="box box-1">Slide 1</div>
+                                                                        <div class="box box-2">Slide 2</div>
+                                                                        <div class="box box-3">Slide 3</div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="banner-list-wrap">
+                                                                    <div id="bannerBasic" class="banner-item banner-list">
+                                                                        <div class="item item-1"><div class="box">Banner 1</div></div>
+                                                                        <div class="item item-2"><div class="box">Banner 2</div></div>
+                                                                        <div class="item item-3"><div class="box">Banner 3</div></div>
+                                                                        <div class="item item-4"><div class="box">Banner 4</div></div>
+                                                                        <div class="item item-5"><div class="box">Banner 5</div></div>
+                                                                        <div class="item item-6"><div class="box">Banner 6</div></div>
+                                                                        <div class="item item-7"><div class="box">Banner 7</div></div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div id="bannerFloating" class="banner-item banner-floating">
+                                                                    <div class="inner"><div class="box">Floating</div></div>
+                                                                </div>
+
+                                                                <div id="bannerLayer" class="banner-item banner-layer">
+                                                                    <div class="inner"><div class="box">Layer</div></div>
+                                                                </div>
+
+                                                                <div id="bannerToast" class="banner-item banner-toast">
+                                                                    <div class="rightBottom">
+                                                                        <div class="inner"><div class="box">Toast</div></div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div id="bannerFixedBottom" class="banner-item banner-fixed-bottom">
+                                                                    <div class="inner"><div class="box">Fixed Bottom</div></div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="col-sm-6 pr0 pl5">
+                                            <table class="table table-bordered" summary="노출 기간, 노출 디바이스, 다중 배너 노출 방안, 인디게이터 적용 여부, 배너 노출 위치로 구분되는 표">
+                                                <!-- 2020-09-10 -->
+                                                <colgroup>
+                                                    <col style="width: auto;">
+                                                </colgroup>
+                                                <!-- // 2020-09-10 -->
+                                                <tbody>
+                                                    <tr>
+                                                        <th scope="row"><label for="bannerName">노출 기간</label></th>
+                                                        <td>
+                                                            <div class="input-group mb5">
+                                                                <div class="col-sm-6 text-left pl0">
+                                                                    <div class="checkbox-inline"><label><input type="checkbox" id="expsrStartToday">오늘부터</label></div>
+                                                                </div>
+                                                                <div class="col-sm-6 text-left">
+                                                                    <div class="checkbox-inline"><label><input type="checkbox" id="expsrEndUnlimit">종료일 없음</label></div>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="input-group">
+                                                                <div class="pull-left">
+                                                                    <input type="date" name="sOpenSdate" id="sOpenSdate" class="form-control small" placeholder="YYYY-MM-DD" value="">
+                                                                    <input type="time" name="schedule_time" id="schedule_time" class="form-control small" placeholder="HH:MM">
+                                                                </div>
+                                                                <span class="input-group-addon gap">~</span>
+                                                                <div class="pull-right">
+                                                                    <input type="date" name="sOpenEdate" id="sOpenEdate" class="form-control small" placeholder="YYYY-MM-DD" value="">
+                                                                    <input type="time" name="schedule_time" id="schedule_time" class="form-control small" placeholder="HH:MM">
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">노출 디바이스</th>
+                                                        <td class="text-left">
+                                                            <div class="checkbox-inline">
+                                                                <input type="checkbox" id="checkboxPC" value="" checked> <label for="checkboxPC">PC</label>
+                                                            </div>
+                                                            <div class="checkbox-inline">
+                                                                <input type="checkbox" id="checkboxMobile" value=""> <label for="checkboxMobile">Mobile</label>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">닫기 기능</th>
+                                                        <td class="text-left">
+                                                            <div class="checkbox-inline"><label><input type="checkbox" id="notCloseBannerPB" name="closeBannerPB">없음</label></div>
+                                                            <div class="checkbox-inline"><label><input type="checkbox" id="closeBannerPB" name="closeBannerPB" checked>닫기(기본)</label></div>
+                                                            <div class="checkbox-inline"><label><input type="checkbox" id="closeBannerTodayPB" name="closeBannerPB">오늘 하루 보지 않기</label></div>
+                                                            <div class="checkbox-inline"><label><input type="checkbox" id="closeBannerOneWeekPB" name="closeBannerPB">일주일 보지 않기</label></div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">다중 배너 노출 방안</th>
+                                                        <td>
+                                                            <select class="form-control" id="selectBannerShow" name="selectBannerShow">
+                                                                <option value="basicShow">해당없음</option>
+                                                                <option value="randomShow">랜덤</option>
+                                                                <option value="listShow">나열</option>
+                                                                <option value="rollingShow">롤링</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr id="indicatorCheck" class="disabled"><!-- disabled : 숨김처리 클래스 -->
+                                                        <th scope="row">인디게이터 적용 여부</th>
+                                                        <td class="text-left">
+                                                            <div class="mt10 ml10">
+                                                                <strong class="mr10">개수 매기기</strong>
+                                                                <div class="radio-inline">
+                                                                    <input type="radio" id="indicatorNeed1Y" name="indicatorNeed1" value="indicatorNeed1Y"> <label for="indicatorNeed1Y">필요</label>
+                                                                </div>
+                                                                <div class="radio-inline">
+                                                                    <input type="radio" id="indicatorNeed1N" name="indicatorNeed1" value="indicatorNeed1N"> <label for="indicatorNeed1N">불필요</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt5 mb5 ml10">
+                                                                <strong class="mr10">좌우 화살표</strong>
+                                                                <div class="radio-inline">
+                                                                    <input type="radio" id="indicatorNeed2Y" name="indicatorNeed2" value="indicatorNeed2Y"> <label for="indicatorNeed2Y">필요</label>
+                                                                </div>
+                                                                <div class="radio-inline">
+                                                                    <input type="radio" id="indicatorNeed2N" name="indicatorNeed2" value="indicatorNeed2N"> <label for="indicatorNeed2N">불필요</label>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr id="positionCheck" class="disabled"><!-- disabled : 숨김처리 클래스 -->
+                                                        <th scope="row">배너 노출 위치</th>
+                                                        <td>
+                                                            <div class="form-horizontal">
+                                                                <div class="form-group">
+                                                                    <div class="col-sm-3 pl0">
+                                                                        <select class="form-control" id="selectPosition" name="selectPosition">
+                                                                            <option value="basic">기본</option>
+                                                                            <option value="leftTop">좌상</option>
+                                                                            <option value="leftBottom">좌하</option>
+                                                                            <option value="rightTop">우상</option>
+                                                                            <option value="rightBottom">우하</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr id="customPosition" class="disabled"><!-- disabled : 숨김처리 클래스 -->
+                                                        <th scope="row">배너 위치 지정</th>
+                                                        <td>
+                                                            <div class="row">
+                                                                <div class="col-sm-6 pull-left pr0 pl0">
+                                                                    <div class="input-group">
+                                                                        <p class="help-block">Top</p>
+                                                                        <input type="number" class="number form-control" id="positionTop" placeholder="Top">
+                                                                        <div class="input-group-prepend">
+                                                                            <div class="input-group-text">px</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-sm-6 pull-right pr0 pl5">
+                                                                    <div class="input-group">
+                                                                        <p class="help-block">Left</p>
+                                                                        <input type="number" class="number form-control" id="positionLeft" placeholder="Left">
+                                                                        <div class="input-group-prepend">
+                                                                            <div class="input-group-text">px</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <hr>
+
+                                <form action="">
+                                    <div class="row mt20">
+                                        <h4 class="pull-left">배너 세부 정보</h4>
+                                    
+                                        <div class="pull-right mt5">
+                                            <button id="" class="btn btn-primary" type="button">배너 추가</button>
+                                        </div>
+                                    </div>
+
+                                    <div id="sortable" class="banner-detail-list">
+                                        <div class="panel panel-default"><!-- PC/Mobile 한 묶음 -->
+                                            <div class="row panel-heading">
+                                                <div class="pull-left">
+                                                    <p class="h4"><span class="label label-default">No.1</span></p>
+                                                </div>
+                                                <div class="pull-right">
+                                                    <div class="btn-group mb10 mr10">
+                                                        <button id="" class="btn btn-xs btn-success" type="button">위로 이동 <span class="glyphicon glyphicon-arrow-up"></span></button>
+                                                        <button id="" class="btn btn-xs btn-success" type="button">아래로 이동 <span class="glyphicon glyphicon-arrow-down"></span></button>
+                                                    </div>
+                                                    <div class="btn-group mb10">
+                                                        <button id="" class="btn btn-xs btn-danger" type="button">배너 삭제</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row panel-body">
+                                                <div class="col-sm-6 pr5 pl0">
+                                                    <h5>배너 이미지</h5>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-body">
+                                                            <table class="table table-bordered mb0">
+                                                                <colgroup>
+                                                                    <col style="width: 20%;">
+                                                                    <col style="width: auto;">
+                                                                </colgroup>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th scope="row"><label for="imageConfirmPA">PC 이미지 등록</label></th>
+                                                                        <td class="text-left">
+                                                                            <input type="file" id="imageConfirmPA" class="file form-control" name="">
+                                                                            <p class="mt5 mb0 pl5"><span>파일 용량 : 169kbyte</span>, <span>파일 크기 : 120*540</span></p>
+                                                                            <div class="mt5 img-thumbnail"><!-- 사이즈 100% * 200px(최대) -->
+                                                                                <div class="col-sm-11 pull-left">
+                                                                                    <img src="https://img.eduwill.net/resources/ngene/live/images/logo.png" alt=""><!-- 이미지 사이즈 auto, 최대 100% -->
+                                                                                </div>
+                                                                                <div class="pull-right">
+                                                                                    <button type="button" class=" btn btn-xs btn-danger">X</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">PC hover 이미지 필요</th>
+                                                                        <td class="text-left">
+                                                                            <div class="radio-inline"><label><input type="radio" id="imageActivePA" name="imageActivePA"> 필요</label></div>
+                                                                            <div class="radio-inline"><label><input type="radio" id="imageNotActivePA" name="imageActivePA" checked> 불필요</label></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="disabled">
+                                                                        <th scope="row"><label for="imageConfirmPA2">PC hover 이미지 등록</label></th>
+                                                                        <td class="text-left">
+                                                                            <input type="file" id="imageConfirmPA2" class="file form-control" name="">
+                                                                            <p class="mt5 mb0 pl5"><span>파일 용량 : 169kbyte</span>, <span>파일 크기 : 120*540</span></p>
+                                                                            <div class="mt5 img-thumbnail"><!-- 사이즈 100% * 200px(최대) -->
+                                                                                <div class="col-sm-11 pull-left">
+                                                                                    <img src="https://img.eduwill.net/resources/ngene/live/images/logo.png" alt="">
+                                                                                </div>
+                                                                                <div class="pull-right">
+                                                                                    <button type="button" class=" btn btn-xs btn-danger">X</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row"><label for="imageConfirmMA">Mobile 이미지 등록</label></th>
+                                                                        <td class="text-left">
+                                                                            <input type="file" id="imageConfirmMA" class="file form-control" name="">
+                                                                            <p class="mt5 mb0 pl5"><span>파일 용량 : 169kbyte</span>, <span>파일 크기 : 120*540</span></p>
+                                                                            <div class="mt5 img-thumbnail"><!-- 사이즈 100% * 200px(최대) -->
+                                                                                <div class="col-sm-11 pull-left">
+                                                                                    <img src="https://img.eduwill.net/resources/ngene/live/images/logo.png" alt="" style="width: 100%; height: 200px;">
+                                                                                </div>
+                                                                                <div class="pull-right">
+                                                                                    <button type="button" class=" btn btn-xs btn-danger">X</button>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">색상코드</th>
+                                                                        <td>
+                                                                            <div class="col-sm-4 pl0">
+                                                                                <input type="text" class="text form-control">
+                                                                            </div>
+                                                                            <div class="col-sm-4 pl0">
+                                                                                <input type="text" class="text form-control" readonly>
+                                                                            </div>
+                                                                            <div class="col-sm-4 pt5 pl0 text-left">
+                                                                                <div class="checkbox-inline"><label for=""><input type="checkbox" id="colorDifferentPA" name="colorDifferentPA"> 색상코드 상이</label></div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 pr0 pl5">
+                                                    <h5>배너 기능</h5>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-body">
+                                                            <table class="table table-bordered mb0">
+                                                                <colgroup>
+                                                                    <col style="width: 20%;">
+                                                                    <col style="width: auto;">
+                                                                </colgroup>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th scope="row">딤 적용</th>
+                                                                        <td class="text-left">
+                                                                            <div class="radio-inline"><label><input type="radio" id="dimActivePA" name="dimActivePA" checked> 필요</label></div>
+                                                                            <div class="radio-inline"><label><input type="radio" id="dimNotActivePA" name="dimActivePA"> 불필요</label></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">미리보기 적용</th>
+                                                                        <td class="text-left">
+                                                                            <div class="radio-inline"><label><input type="radio" id="previewActivePA" name="previewActivePA" checked> 필요</label></div>
+                                                                            <div class="radio-inline"><label><input type="radio" id="previewNotActivePA" name="previewActivePA"> 불필요</label></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">컨텐츠 유형</th>
+                                                                        <td class="text-left">
+                                                                            <div class="radio-inline"><label><input type="radio" id="defalultTypePA" name="defalultTypePA" checked> 일반 유형</label></div>
+                                                                            <div class="radio-inline"><label><input type="radio" id="videoTypePA" name="videoTypePA"> 영상 재생 유형</label></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="disabled">
+                                                                        <th scope="row">영상 등록</th>
+                                                                        <td class="text-left">
+                                                                            <div class="radio-inline"><label><input type="radio" id="videoIframePA" name="videoIframePA"> 네이버TV/Youtube</label></div>
+                                                                            <div class="radio-inline"><label><input type="radio" id="videoMp4PA" name="videoMp4PA"> mp4 파일</label></div>
+                                                                            <div class="mt5">
+                                                                                <input type="text" class="text form-control" placeholder="영상 URL을 입력해주세요.">
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">버튼 수</th>
+                                                                        <td class="text-left">
+                                                                            <div class="radio-inline"><label><input type="radio" id="linkConnectPA0" name="linkConnectPA"> 없음</label></div>
+                                                                            <div class="radio-inline"><label><input type="radio" id="linkConnectPA1" name="linkConnectPA" checked> 1개</label></div>
+                                                                            <div class="radio-inline"><label><input type="radio" id="linkConnectPA2" name="linkConnectPA"> 2개</label></div>
+                                                                            <div class="radio-inline"><label><input type="radio" id="linkConnectPA3" name="linkConnectPA"> 3개</label></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">버튼 액션</th>
+                                                                        <td class="text-left">
+                                                                            <div>
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePA1_1" name="linkMovePA1" checked> 새창이동</label></div>
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePA1_2" name="linkMovePA1"> 현재창이동</label></div>
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePA1_3" name="linkMovePA1"> 알럿메시지</label></div>
+                                                                                <div class="mt5">
+                                                                                    <input type="text" class="text form-control" placeholder="링크 URL 또는 메시지를 입력하세요.">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="mt5 disabled">
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePA2_1" name="linkMovePA2"> 새창이동</label></div>
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePA2_2" name="linkMovePA2"> 현재창이동</label></div>
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePA2_3" name="linkMovePA2"> 알럿메시지</label></div>
+                                                                                <div class="mt5">
+                                                                                    <input type="text" class="text form-control" placeholder="링크 URL 또는 메시지를 입력하세요.">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="mt5 disabled">
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePA3_1" name="linkMovePA3"> 새창이동</label></div>
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePA3_2" name="linkMovePA3"> 현재창이동</label></div>
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePA3_3" name="linkMovePA3"> 알럿메시지</label></div>
+                                                                                <div class="mt5">
+                                                                                    <input type="text" class="text form-control" placeholder="링크 URL 또는 메시지를 입력하세요.">
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="panel panel-default"><!-- PC/Mobile 한 묶음 -->
+                                            <div class="row panel-heading">
+                                                <div class="pull-left">
+                                                    <p class="h4"><span class="label label-default">No.2</span></p>
+                                                </div>
+                                                <div class="pull-right">
+                                                    <div class="btn-group mb10 mr10">
+                                                        <button id="" class="btn btn-xs btn-success" type="button">위로 이동 <span class="glyphicon glyphicon-arrow-up"></span></button>
+                                                        <button id="" class="btn btn-xs btn-success" type="button">아래로 이동 <span class="glyphicon glyphicon-arrow-down"></span></button>
+                                                    </div>
+                                                    <div class="btn-group mb10">
+                                                        <button id="" class="btn btn-xs btn-danger" type="button">배너 삭제</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row panel-body">
+                                                <div class="col-sm-6 pr5 pl0">
+                                                    <h5>배너 이미지</h5>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-body">
+                                                            <table class="table table-bordered mb0">
+                                                                <colgroup>
+                                                                    <col style="width: 20%;">
+                                                                    <col style="width: auto;">
+                                                                </colgroup>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th scope="row"><label for="imageConfirmPB">PC 이미지 등록</label></th>
+                                                                        <td class="text-left">
+                                                                            <input type="file" id="imageConfirmPB" class="file form-control" name="">
+                                                                            <p class="mt5 mb0 pl5"><span>파일 용량 : 169kbyte</span>, <span>파일 크기 : 120*540</span></p>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">PC hover 이미지 필요</th>
+                                                                        <td class="text-left">
+                                                                            <div class="radio-inline"><label><input type="radio" id="imageActivePB" name="imageActivePB"> 필요</label></div>
+                                                                            <div class="radio-inline"><label><input type="radio" id="imageNotActivePB" name="imageActivePB" checked> 불필요</label></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="disabled">
+                                                                        <th scope="row"><label for="imageConfirmPB2">PC hover 이미지 등록</label></th>
+                                                                        <td class="text-left">
+                                                                            <input type="file" id="imageConfirmPB2" class="file form-control" name="">
+                                                                            <p class="mt5 mb0 pl5"><span>파일 용량 : 169kbyte</span>, <span>파일 크기 : 120*540</span></p>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">색상코드</th>
+                                                                        <td>
+                                                                            <div class="col-sm-4 pl0">
+                                                                                <input type="text" class="text form-control">
+                                                                            </div>
+                                                                            <div class="col-sm-4 pl0">
+                                                                                <input type="text" class="text form-control" readonly>
+                                                                            </div>
+                                                                            <div class="col-sm-4 pt5 pl0 text-left">
+                                                                                <div class="checkbox-inline"><label><input type="checkbox" id="colorDifferentPB" name="colorDifferentPB"> 색상코드 상이</label></div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 pr0 pl5">
+                                                    <h5>배너 기능</h5>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-body">
+                                                            <table class="table table-bordered mb0">
+                                                                <colgroup>
+                                                                    <col style="width: 20%;">
+                                                                    <col style="width: auto;">
+                                                                </colgroup>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th scope="row">딤 적용</th>
+                                                                        <td class="text-left">
+                                                                            <div class="radio-inline"><label><input type="radio" id="dimActivePB" name="dimActivePB" checked> 필요</label></div>
+                                                                            <div class="radio-inline"><label><input type="radio" id="dimNotActivePB" name="dimActivePB"> 불필요</label></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">미리보기 적용</th>
+                                                                        <td class="text-left">
+                                                                            <div class="radio-inline"><label><input type="radio" id="previewActivePB" name="previewActivePB" checked> 필요</label></div>
+                                                                            <div class="radio-inline"><label><input type="radio" id="previewNotActivePB" name="previewActivePB"> 불필요</label></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">컨텐츠 유형</th>
+                                                                        <td class="text-left">
+                                                                            <div class="radio-inline"><label><input type="radio" id="defalultTypePB" name="defalultTypePB" checked> 일반 유형</label></div>
+                                                                            <div class="radio-inline"><label><input type="radio" id="videoTypePB" name="videoTypePB"> 영상 재생 유형</label></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr class="disabled">
+                                                                        <th scope="row">영상 등록</th>
+                                                                        <td class="text-left">
+                                                                            <div class="radio-inline"><label><input type="radio" id="videoIframePB" name="videoIframePB"> 네이버TV/Youtube</label></div>
+                                                                            <div class="radio-inline"><label><input type="radio" id="videoMp4PB" name="videoMp4PB"> mp4 파일</label></div>
+                                                                            <div class="mt5">
+                                                                                <input type="text" class="text form-control" placeholder="영상 URL을 입력해주세요.">
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">버튼 수</th>
+                                                                        <td class="text-left">
+                                                                            <div class="radio-inline"><label><input type="radio" id="linkConnectPB0" name="linkConnectPB"> 없음</label></div>
+                                                                            <div class="radio-inline"><label><input type="radio" id="linkConnectPB1" name="linkConnectPB" checked> 1개</label></div>
+                                                                            <div class="radio-inline"><label><input type="radio" id="linkConnectPB2" name="linkConnectPB"> 2개</label></div>
+                                                                            <div class="radio-inline"><label><input type="radio" id="linkConnectPB3" name="linkConnectPB"> 3개</label></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">버튼 액션</th>
+                                                                        <td class="text-left">
+                                                                            <div>
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePB1_1" name="linkMovePB1" checked> 새창이동</label></div>
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePB1_2" name="linkMovePB1"> 현재창이동</label></div>
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePB1_3" name="linkMovePB1"> 알럿메시지</label></div>
+                                                                                <div class="mt5">
+                                                                                    <input type="text" class="text form-control" placeholder="링크 URL 또는 메시지를 입력하세요.">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="mt5 disabled">
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePB2_1" name="linkMovePB2"> 새창이동</label></div>
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePB2_2" name="linkMovePB2"> 현재창이동</label></div>
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePB2_3" name="linkMovePB2"> 알럿메시지</label></div>
+                                                                                <div class="mt5">
+                                                                                    <input type="text" class="text form-control" placeholder="링크 URL 또는 메시지를 입력하세요.">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="mt5 disabled">
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePB3_1" name="linkMovePB3"> 새창이동</label></div>
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePB3_2" name="linkMovePB3"> 현재창이동</label></div>
+                                                                                <div class="radio-inline"><label><input type="radio" id="linkMovePB3_3" name="linkMovePB3"> 알럿메시지</label></div>
+                                                                                <div class="mt5">
+                                                                                    <input type="text" class="text form-control" placeholder="링크 URL 또는 메시지를 입력하세요.">
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <hr>
+
+                                <div class="alert alert-danger alert-dismissible fade show in" role="alert"><!-- 활성화 클래스 : in -->
+                                    <strong>PC 이미지 등록</strong>은 필수 항목입니다.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="sticky-bottom row text-center">
+                                    <button id="" class="btn btn-lg btn-primary" type="button">저장</button>
+                                    <button id="" class="btn btn-lg btn-warning" type="button">취소(목록)</button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- // 배너 관리 -->
+
+                    </div><!-- // content -->
+                </div>
+            </div>
+        </div>
+    </div><!--// container -->
+    <div id="footer"></div><!-- footer -->
+</div><!-- // wrapper -->
+
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/libs/slick/slick.css">
+<script src="https://img.eduwill.net/eduwill/live/libs/slick/slick.min.js"></script>
+<script>
+    $(function(){
+        // 배너유형
+        $('#bannerType').on('change', function(e){
+            var _value = $(this).val(),
+                $item = $('.banner-item');
+
+            $item.removeClass('active');
+            $('#positionCheck').addClass('disabled');
+
+            if( _value == 'default' ){
+                $item.removeClass('active');
+            } else if( _value == 'basic' ){
+                $('#bannerBasic').addClass('active');
+            } else if( _value == 'floating' ){
+                $('#bannerFloating').addClass('active');
+                $('#customPosition').removeClass('disabled');
+            } else if( _value == 'toast' ){
+                $('#bannerToast').addClass('active');
+                $('#positionCheck').removeClass('disabled');
+            } else if( _value == 'layer' ){
+                $('#bannerLayer').addClass('active');
+            } else if( _value == 'fixedBottom' ){
+                $('#bannerFixedBottom').addClass('active');
+            } else if( _value == 'slide' ){
+                $('#bannerSlide').addClass('active');
+                addSlide();
+            }
+        });
+
+        // 다중 배너 노출 방안 - 인디게이터 적용 여부 활성화
+        $('#selectBannerShow').on('change', function(e){
+            var _value = $(this).val();
+
+            if( _value == 'rollingShow' ){
+                $('#indicatorCheck').removeClass('disabled');
+            } else {
+                $('#indicatorCheck').addClass('disabled');
+            }
+        });
+
+        // 배너 노출 위치
+        $('#selectPosition').on('change', function(e){
+            var _value = $(this).val(),
+                $toast = $('#bannerToast > div');
+
+            $toast.removeClass();
+
+            if( _value == 'leftTop' ){
+                $toast.addClass('leftTop');
+            } else if( _value == 'leftBottom' ){
+                $toast.addClass('leftBottom');
+            } else if( _value == 'rightTop' ){
+                $toast.addClass('rightTop');
+            } else if( _value == 'rightBottom' ){
+                $toast.addClass('rightBottom');
+            } else {
+                $toast.removeClass();
+            }
+        });
+    });
+
+    function addSlide(){
+        $('#bannerSlide').slick({
+            autoplay: true,
+            autoplaySpeed: 2000,
+            arrows: true, // 좌우 화살표
+            dots: true, // 페이지 순서
+        });
+    }
+</script>
+</body>
+</html>

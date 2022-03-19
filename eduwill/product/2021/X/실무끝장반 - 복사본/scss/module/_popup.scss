@@ -1,0 +1,274 @@
+.popup-dim {
+    display: none;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba( 0, 0, 0, .6);
+}
+
+.popup {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 400;
+    display: none;
+    width: 90%;
+    max-width: 720px;
+    letter-spacing: -1px;
+    @include translateX(-50%);
+    @include boxSizing(border-box);
+    @include breakpoint(desktop){
+        max-width: 500px;
+    }
+    * { font-family: $font-noto; }
+    p { margin: 0; }
+    .popup-close {
+        position: absolute;
+        top: 0px;
+        right: 0;
+		padding: 10px;
+        @include closeButton(transparent, 25px, 2px, #999);
+        cursor: pointer;
+		&:after,
+		&:before{
+			content: '';
+			display: block;
+			width: 150%;
+			height: 2px;
+			background: #999
+		}
+		&:after{
+			margin-left: -97%;
+			margin-top: -2%;
+			-webkit-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+			-webkit-transform-origin: 100% 0;
+			transform-origin: 100% 0;
+		}
+		&:before{
+			margin-top: 8%;
+			margin-left: -40%;
+			-webkit-transform: rotate(45deg	);
+			transform: rotate(	45deg);
+			-webkit-transform-origin: 0 0;
+			transform-origin: 0 0;
+		
+		}
+        @include breakpoint(desktop){
+            top: 10px;
+            right: 20px;
+			padding: 10px;
+			&:after,
+			&:before{
+				content: '';
+				display: block;
+				width: 3%;
+				height: 2px;
+				background: #999;
+			}
+			&:after{
+				transform: rotate(-406deg);
+				width: 35px;
+				margin: -3px 0px 0px -25px;
+			}
+			&:before{    
+				width: 35px;
+				margin-top: 1px;
+				margin-left: -12px;
+			}
+        }
+        span { @extend .sr-only; }
+    }
+    .popup-title {
+        @include rem(padding, 20px);
+        text-align: left;
+        border-radius: 0;
+        // background-color: #000;
+        p {
+            @include vw(font-size,24px);
+            font-weight: 700;
+            color: #fff;
+        }
+    }
+    .popup-body {
+        @include rem(padding, 25px);
+        text-align: left;
+        line-height: 1.4;
+        @include vw(font-size,18px);
+        font-weight: 400;
+        color: #222;
+        border: 2px solid #000;
+        border-radius: 0;
+        background-color: #fff;
+        & > div {
+            margin-top: 20px;
+            &:first-child { margin-top: 0; }
+        }
+        div:first-child strong { margin-top: 0; }
+        p {
+            @include vw(font-size,16px);
+            &.popup-notice {
+                @include rem(margin-top, 10px);
+                text-align: left;
+                @include vw(font-size,14px);
+            }
+        }
+        strong {
+            display: block;
+            @include rem(margin-top, 20px);
+            @include vw(font-size,18px);
+        }
+    }
+
+    .popup-table {
+        .table-row {
+            width: 100%;
+            table-layout: fixed;
+            border-top: 1px solid #000;
+            border-right: 1px solid #000;
+            th,
+            td {
+                @include rem(padding, 10px);
+                border-bottom: 1px solid #000;
+                border-left: 1px solid #000;
+            }
+            th {
+                @include vw(font-size,16px);
+                background-color: #ddd;
+            }
+            td {
+                @include vw(font-size,14px);
+                background-color: #fff;
+            }
+        }
+    }
+
+    &.popup-base {
+        @include breakpoint(desktop){
+            max-width: 1000px;
+        }
+        .popup-body {
+            @include rem(max-height, 600px);
+            overflow-y: auto;
+        }
+    }
+    &.popup-teacher {
+        @include breakpoint(desktop){
+            max-width: 500px;
+        }
+        .popup-body {
+			@include vw(padding,70px 20px 20px);
+            @include rem(max-height, 600px);
+            overflow-y: auto;
+
+			@include breakpoint(desktop){
+				padding:70px 20px 20px !important;
+			}
+            .teacher-core {
+                @include rem(margin-top, 40px);
+            }
+            .teacher-ace,
+            .teacher-core {
+                color: #222;
+                @include breakpoint(desktop){
+                    display: inline-block;
+                    width: 100%;
+					box-sizing: border-box;
+                    margin-top: 0;
+                    vertical-align: top;
+                }
+            }
+            .teacher-title {
+				position: fixed;
+				top:0;left:0;
+				width: 100%;
+				box-sizing: border-box;
+				@include rem(padding, 20px);
+				@include vw(font-size,24px);
+				font-weight: 700;
+				color: #fff;
+				text-align: left;
+				border-radius: 0;
+				background-color: #000;
+				span{color:#FFD800}
+            }
+            .teacher-name {
+                @include rem(margin-top, 20px);
+                @include vw(font-size,21px);
+                font-weight: 700;
+            }
+            .teacher-profile {
+                @include rem(margin-top, 20px);
+                @include vw(font-size,20px);
+                font-weight: 500;
+            }
+            .teacher-profile-list {
+                @include rem(margin-top, 10px);
+                @include vw(font-size,18px);
+                font-weight: 300;
+            }
+        }
+       
+    }
+    &.popup-lecture{
+        @include breakpoint(desktop){
+            max-width: 880px;
+			.popup-close {
+				right: 10px !important;
+			} 
+		}
+        .popup-body { padding: 0; }
+        .lecture-title {
+            @include rem(padding, 20px);
+            @include vw(font-size,24px);
+            font-weight: 700;
+            color: #fff;
+            text-align: left;
+            border-radius: 0;
+            background-color: #000;
+			@include breakpoint(desktop){
+			width: 100%;
+			}
+			span{color:#FFD800}
+        }
+        .lecture-text {
+            @include rem(max-height, 600px);
+            overflow-y: auto;
+            @include rem(padding, 25px);
+            @extend %clearfix;
+            @include breakpoint(desktop){
+                & > div {
+                    float: left;
+                    width: 50%;
+                }
+            }
+        }	
+	
+		
+    }
+	&.popup-curriculum{
+		.lecture-title {
+           
+			span{color:#FFD800}
+        }
+	}
+}
+
+.eco-1718 p {@extend .eco-base-text;}
+.eco-base-text {
+    display: none;
+    line-height: 1.5;
+    @include vw(font-size,20px);
+    font-weight: 400;
+    color: #222;
+    letter-spacing: -1px;
+    @include breakpoint(desktop){
+        font-size: 14px;
+    }
+}
+

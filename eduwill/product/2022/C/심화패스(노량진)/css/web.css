@@ -1,0 +1,1926 @@
+@charset "UTF-8";
+a {
+  outline: 0;
+  outline: none;
+}
+
+.grid {
+  *zoom: 1;
+}
+
+.grid:before, .grid:after {
+  content: '';
+  display: table;
+}
+
+.grid:after {
+  clear: both;
+}
+
+.hidden,
+.sr_only,
+.sr-only {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 0px;
+  height: 0px;
+  margin: -1px;
+  padding: 0;
+  word-break: keep-all;
+  white-space: nowrap;
+  color: transparent;
+  border: 0;
+  text-indent: -9999px;
+}
+
+.grid {
+  position: relative;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.grid .col {
+  position: relative;
+  float: left;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.table {
+  display: table;
+}
+
+.table .table-cell {
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.effect-bounce-diagonal {
+  -webkit-animation-name: effectBounceDiagonal;
+          animation-name: effectBounceDiagonal;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+
+@-webkit-keyframes effectBounceDiagonal {
+  0%, 100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(-10px, -10px);
+    transform: translate(-10px, -10px);
+  }
+}
+
+@keyframes effectBounceDiagonal {
+  0%, 100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(-10px, -10px);
+    transform: translate(-10px, -10px);
+  }
+}
+
+.effect-bounce-updown {
+  -webkit-animation-name: effectBounceUpDown;
+          animation-name: effectBounceUpDown;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+
+@-webkit-keyframes effectBounceUpDown {
+  0%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes effectBounceUpDown {
+  0%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+}
+
+.effect-extend {
+  -webkit-animation-name: effectExtend;
+          animation-name: effectExtend;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+
+@-webkit-keyframes effectExtend {
+  0%, 100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  50% {
+    -webkit-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+}
+
+@keyframes effectExtend {
+  0%, 100% {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+  }
+  50% {
+    -webkit-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
+  }
+}
+
+.effect-blink {
+  -webkit-animation-name: effectBlink;
+          animation-name: effectBlink;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: step-end;
+          animation-timing-function: step-end;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+
+@-webkit-keyframes effectBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes effectBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.layer-dim, .layer-dimmed {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  background: #000;
+  opacity: .8;
+  overflow: hidden;
+}
+
+.layer-review {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10001;
+  max-width: 768px;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.layer-review .layer-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 8.33333vw;
+  height: 8.33333vw;
+  top: -60px;
+  z-index: 10002;
+}
+
+@media screen and (min-width: 720px) {
+  .layer-review .layer-close {
+    width: 60px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .layer-review .layer-close {
+    height: 60px;
+  }
+}
+
+.layer-review .layer-close:before, .layer-review .layer-close:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin-left: -15px;
+  background-color: #fff;
+}
+
+.layer-review .layer-close:before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.layer-review .layer-close:after {
+  -webkit-transform: rotate(315deg);
+  transform: rotate(315deg);
+}
+
+.layer-review .layer-close span {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 0px;
+  height: 0px;
+  margin: -1px;
+  padding: 0;
+  word-break: keep-all;
+  white-space: nowrap;
+  color: transparent;
+  border: 0;
+  text-indent: -9999px;
+}
+
+.layer-review .layer-box {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.layer-review .layer-box iframe, .layer-review .layer-box video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: inherit;
+     object-fit: inherit;
+}
+
+#fixApply.fix-apply {
+  display: none !important;
+}
+
+.eco-3496 p {
+  display: none;
+  font-family: "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+}
+
+.sector-title .eco-3496 {
+  position: absolute;
+  top: 115px;
+  right: 0;
+  left: 0px;
+  z-index: 10;
+}
+
+.sector-title .eco-3496 p.brand2 {
+  opacity: 1;
+  display: block;
+  font-size: 14px;
+  color: #4a7997;
+  letter-spacing: -1.5px;
+  font-weight: 400;
+}
+
+.sector-title .eco-3496 span {
+  display: block;
+}
+
+.product-eco {
+  overflow-x: hidden;
+}
+
+.product-eco * {
+  line-height: normal;
+  font-family: "Roboto", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+  letter-spacing: -1px;
+}
+
+.product-eco .container {
+  position: relative;
+}
+
+.product-eco .container .item {
+  position: relative;
+}
+
+.product-eco .eco-puri {
+  display: inline-block;
+}
+
+.product-eco .eco-3496 p {
+  display: none;
+  color: inherit;
+}
+
+.product-eco .eco-3496 p span {
+  font-size: inherit;
+  color: inherit;
+}
+
+.product-eco .wrap {
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.product-eco .wrap-full {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.product-eco .only-pc {
+  display: block;
+}
+
+.product-eco .only-mobile {
+  display: none;
+}
+
+.product-eco .fix-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  z-index: 11;
+  padding: 24px 0 0 0;
+  background: rgba(0, 0, 0, 0.8);
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.product-eco .fix-bottom .wrap strong {
+  display: inline-block;
+  font-size: 45px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -2px;
+}
+
+.product-eco .fix-bottom .wrap a {
+  position: relative;
+  display: inline-block;
+  margin-left: 40px;
+  margin-top: 10px;
+  vertical-align: top;
+}
+
+.product-eco .fix-bottom .wrap a {
+  position: relative;
+  display: inline-block;
+}
+
+.product-eco .fix-bottom .wrap a:after {
+  content: '';
+  position: absolute;
+  top: 60%;
+  right: 0;
+  z-index: 1;
+  display: block;
+  width: 7.91667vw;
+  height: 9.02778vw;
+  background: url("https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png") no-repeat 0 0;
+  background-size: 100% auto;
+  -webkit-animation-name: pointerBounceDiagonal;
+          animation-name: pointerBounceDiagonal;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .fix-bottom .wrap a:after {
+    width: 57px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .fix-bottom .wrap a:after {
+    height: 65px;
+  }
+}
+
+@-webkit-keyframes pointerBounceDiagonal {
+  0%, 100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(-10px, -10px);
+    transform: translate(-10px, -10px);
+  }
+}
+
+@keyframes pointerBounceDiagonal {
+  0%, 100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(-10px, -10px);
+    transform: translate(-10px, -10px);
+  }
+}
+
+.product-eco p {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: #666;
+  font-family: "Roboto", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+}
+
+.product-eco p.fly, .product-eco p.eco {
+  position: absolute;
+}
+
+.product-eco .grounds-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.product-eco .asterisk {
+  display: inline-block;
+  font-weight: 300;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.product-eco .point-1 {
+  color: #3a00b0;
+}
+
+.product-eco .point-2 {
+  color: #ff0e0e;
+}
+
+.product-eco .highlight {
+  display: inline-block;
+  position: relative;
+  font-weight: 900;
+  padding: 0 5px;
+  z-index: 1;
+}
+
+.product-eco .highlight:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 22px;
+  background: #f9c400;
+  z-index: -1;
+}
+
+.product-eco .slider-contents {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  /*.slick-arrow {
+                position: absolute;
+                top: 50%;
+                z-index: 1;
+                width: 40px;
+                height: 40px;
+                margin-top: -20px;
+                font-size: 0;
+                border: none;
+                background: none;
+                outline: none;
+                cursor: pointer;
+                &.slick-prev {
+                    left: 20px;
+                    &:before { right: 0; @include arrow(left, 20px, 20px, 1px, #666); }
+                }
+                &.slick-next {
+                    right: 20px;
+                    &:before { left: 0; @include arrow(right, 20px, 20px, 1px, #666); }
+                }
+            }*/
+}
+
+.product-eco .slick-dots {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  font-size: 0;
+  text-align: right;
+}
+
+.product-eco .slick-dots li {
+  display: inline-block;
+  margin: 0 0.1875rem;
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .slick-dots li {
+    margin: 0 6px;
+  }
+}
+
+.product-eco .slick-dots li.slick-active button {
+  width: 2.875rem;
+  border-radius: 1.5625rem;
+  background-color: #ffbe00;
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .slick-dots li.slick-active button {
+    width: 92px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .slick-dots li.slick-active button {
+    border-radius: 50px;
+  }
+}
+
+.product-eco .slick-dots button {
+  display: block;
+  width: 1rem;
+  height: 0.9375rem;
+  color: transparent;
+  border: none;
+  border-radius: 50%;
+  background-color: #bbb;
+  outline: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .slick-dots button {
+    width: 32px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .slick-dots button {
+    height: 30px;
+  }
+}
+
+.product-eco .slick-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  content: "";
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+  text-indent: -9999px;
+  display: block;
+  cursor: pointer;
+  width: 1.5625rem;
+  height: 1.5625rem;
+  margin-top: -0.78125rem;
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .slick-arrow {
+    width: 50px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .slick-arrow {
+    height: 50px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .slick-arrow {
+    margin-top: -25px;
+  }
+}
+
+.product-eco .slick-arrow.slick-prev {
+  left: 30px;
+  background: url("https://img.eduwill.net/eduwill/img/2021/7/product/210430/pc/btn_prev.png") 0 0 no-repeat;
+  background-size: cover;
+}
+
+.product-eco .slick-arrow.slick-next {
+  right: 30px;
+  background: url("https://img.eduwill.net/eduwill/img/2021/7/product/210430/pc/btn_next.png") 0 0 no-repeat;
+  background-size: cover;
+}
+
+.product-eco .action {
+  margin-top: 12px;
+}
+
+.product-eco .action a {
+  display: inline-block;
+  padding: 0 50px 0 66px;
+  height: 75px;
+  border-radius: 100px;
+  border: 1px solid #000000;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  -webkit-transition-timing-function: ease-in;
+          transition-timing-function: ease-in;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.product-eco .action a {
+  position: relative;
+  display: inline-block;
+}
+
+.product-eco .action a:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 1;
+  display: block;
+  width: 7.91667vw;
+  height: 9.02778vw;
+  background: url("https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png") no-repeat 0 0;
+  background-size: 100% auto;
+  -webkit-animation-name: pointerBounceDiagonal;
+          animation-name: pointerBounceDiagonal;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .action a:after {
+    width: 57px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .action a:after {
+    height: 65px;
+  }
+}
+
+@-webkit-keyframes pointerBounceDiagonal {
+  0%, 100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(-10px, -10px);
+    transform: translate(-10px, -10px);
+  }
+}
+
+@keyframes pointerBounceDiagonal {
+  0%, 100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(-10px, -10px);
+    transform: translate(-10px, -10px);
+  }
+}
+
+.product-eco .action a span {
+  display: inline-block;
+  padding-right: 38px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #222;
+  line-height: 73px;
+  letter-spacing: -1px;
+  background-image: url("https://img.eduwill.net/eduwill/img/2022/C/product/220314/pc/icon_arrow.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto;
+}
+
+.product-eco .action.type-2 a {
+  position: relative;
+  width: 316px;
+  height: 56px;
+  padding: 0;
+  border-radius: 50px;
+  background: #fff;
+  border: 1px solid #e2e2e2;
+  -webkit-box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.product-eco .action.type-2 a:after {
+  display: none;
+}
+
+.product-eco .action.type-2 a span {
+  display: block;
+  padding-left: 30px;
+  line-height: 54px;
+  font-size: 21px;
+  font-weight: 700;
+  color: #222;
+  letter-spacing: -1.5px;
+  background: none;
+}
+
+.product-eco .action.type-2 a span:after {
+  position: absolute;
+  top: 50%;
+  margin-top: -6px;
+  right: 30px;
+}
+
+.product-eco .action.type-2 a span:after {
+  position: relative;
+  display: inline-block;
+}
+
+.product-eco .action.type-2 a span:after:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  display: block;
+  width: 1.11111vw;
+  height: 1.11111vw;
+  margin-top: -0.55556vw;
+  border-width: 0;
+  border-style: solid;
+  border-color: #000;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  right: 2.22222vw;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .action.type-2 a span:after:before {
+    width: 8px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .action.type-2 a span:after:before {
+    height: 8px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .action.type-2 a span:after:before {
+    margin-top: -4px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .action.type-2 a span:after:before {
+    right: 16px;
+  }
+}
+
+.product-eco .action.gov, .product-eco .action.fire, .product-eco .action.post, .product-eco .action.seven {
+  display: none;
+}
+
+.product-eco .action.cop {
+  display: block;
+}
+
+.product-eco .comm-title {
+  margin-bottom: 45px;
+  letter-spacing: -2px;
+  font-size: 50px;
+  text-align: left;
+  font-weight: 900;
+  line-height: 1.4;
+  color: #000;
+}
+
+.product-eco .comm-sub-title {
+  padding-left: 28px;
+  letter-spacing: -2px;
+  font-size: 40px;
+  position: relative;
+  text-align: left;
+  font-weight: 900;
+  color: #000;
+  line-height: 1;
+  border-left: 1px solid #c1c1c1;
+}
+
+.product-eco .comm-sub-title .highlight {
+  padding: 0 5px;
+  font-size: 40px;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.product-eco .comm-sub-title .highlight:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 15px;
+  background: #f9c400;
+  z-index: -1;
+}
+
+.product-eco .comm-sub-title em {
+  position: relative;
+  color: #222;
+  vertical-align: bottom;
+  top: 5px;
+  font-size: 22px;
+}
+
+.product-eco .comm-sub-title .sub-title {
+  margin-top: 16px;
+  letter-spacing: -2px;
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: #000;
+}
+
+.product-eco .comm-sub-title .grounds-text {
+  margin-top: 20px;
+  font-weight: 400;
+  color: #afafaf;
+}
+
+.product-eco .section-title {
+  position: relative;
+  text-align: left;
+  font-weight: 900;
+  font-size: 50px;
+  color: #000;
+  line-height: 1.3;
+  letter-spacing: -2px;
+}
+
+.product-eco .section-title em {
+  position: relative;
+  top: 10px;
+  color: #222;
+  font-size: 20px;
+  font-weight: 500;
+  vertical-align: middle;
+}
+
+.product-eco .section-title em.star {
+  vertical-align: top;
+}
+
+.product-eco .section-title .sub-title {
+  margin-top: 16px;
+  font-weight: 300;
+  font-size: 30px;
+  letter-spacing: -2px;
+  line-height: 1.4;
+  color: #000;
+}
+
+.product-eco .section-title .grounds-text {
+  margin-top: 20px;
+  font-weight: 400;
+  color: #afafaf;
+}
+
+.product-eco .section-title.type-1 {
+  padding-top: 42px;
+}
+
+.product-eco .section-title.type-1:before {
+  content: "";
+  display: inline-block;
+  width: 65px;
+  height: 10px;
+  background: #222;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.product-eco .section-title.type-2 em {
+  font-size: 16px;
+  color: #707070;
+}
+
+.product-eco .section-title.type-2 em.star {
+  vertical-align: top;
+  font-size: 20px;
+  color: #000;
+}
+
+.product-eco .banner-follow {
+  position: fixed;
+  top: 250px;
+  right: 0;
+  z-index: 101;
+}
+
+.product-eco .banner-follow > div {
+  margin-top: 20px;
+}
+
+.product-eco .banner-follow > div:first-child {
+  margin-top: 0;
+}
+
+.product-eco .sector-title {
+  background-image: url("https://img.eduwill.net/eduwill/img/2022/C/product/220314/pc/bg_title.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+
+.product-eco .sector-title .wrap {
+  z-index: 2;
+}
+
+.product-eco .sector-title .btn-action {
+  position: absolute;
+  bottom: -98px;
+  left: 205px;
+}
+
+.product-eco .sector-title .btn-action a {
+  position: relative;
+  display: inline-block;
+}
+
+.product-eco .sector-title .btn-action a:after {
+  content: '';
+  position: absolute;
+  top: 60%;
+  right: 0;
+  z-index: 1;
+  display: block;
+  width: 7.91667vw;
+  height: 9.02778vw;
+  background: url("https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png") no-repeat 0 0;
+  background-size: 100% auto;
+  -webkit-animation-name: pointerBounceDiagonal;
+          animation-name: pointerBounceDiagonal;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .sector-title .btn-action a:after {
+    width: 57px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .sector-title .btn-action a:after {
+    height: 65px;
+  }
+}
+
+@-webkit-keyframes pointerBounceDiagonal {
+  0%, 100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(-10px, -10px);
+    transform: translate(-10px, -10px);
+  }
+}
+
+@keyframes pointerBounceDiagonal {
+  0%, 100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(-10px, -10px);
+    transform: translate(-10px, -10px);
+  }
+}
+
+.product-eco .sector-title .tag {
+  position: absolute;
+  bottom: 118px;
+  left: 340px;
+}
+
+.product-eco .sector-curriculum .wrap {
+  z-index: 1;
+}
+
+.product-eco .sector-curriculum .item {
+  position: relative;
+  height: 470px;
+}
+
+.product-eco .sector-curriculum .item img {
+  position: absolute;
+  top: 180px;
+  left: 0;
+  z-index: -1;
+}
+
+.product-eco .sector-curriculum .step {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  top: 70px;
+  left: 156px;
+  display: table;
+  text-align: center;
+  border-radius: 50%;
+  background: #fff;
+  border: 10px solid #d5d5d5;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  -webkit-transition-timing-function: ease-in;
+          transition-timing-function: ease-in;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.product-eco .sector-curriculum .step .step-box {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.product-eco .sector-curriculum .step .step-box .label-title {
+  display: inline-block;
+  margin-bottom: 12px;
+  width: 110px;
+  height: 40px;
+  line-height: 42px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 22px;
+  color: #000;
+  letter-spacing: -1px;
+  border-radius: 50px;
+  background: #dedede;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  -webkit-transition-timing-function: ease-in;
+          transition-timing-function: ease-in;
+  /*@include linear-gradient(to bottom, #ededed 0%, #dedede 100%);*/
+}
+
+.product-eco .sector-curriculum .step .step-box dl dt {
+  margin-bottom: 10px;
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 1.3;
+  letter-spacing: -2px;
+  color: #000;
+}
+
+.product-eco .sector-curriculum .step .step-box dl dd {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: -2px;
+  color: #000;
+}
+
+.product-eco .sector-curriculum .step.on {
+  border-color: #ff9f26;
+  -webkit-box-shadow: 0 0 20px 0 rgba(255, 159, 38, 0.6);
+  box-shadow: 0 0 20px 0 rgba(255, 159, 38, 0.6);
+}
+
+.product-eco .sector-curriculum .step.on .step-box .label-title {
+  background: #ffa026;
+  -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  /*@include linear-gradient(to bottom, #ffb930 0%, #ff821b 100%);*/
+}
+
+.product-eco .sector-curriculum .step.step-1 {
+  left: 41px;
+}
+
+.product-eco .sector-curriculum .step.step-2 {
+  left: 323px;
+}
+
+.product-eco .sector-curriculum .step.step-3 {
+  left: 610px;
+}
+
+.product-eco .sector-curriculum .step.step-4 {
+  left: 897px;
+}
+
+.product-eco .sector-curriculum .step.step-4 img {
+  position: absolute;
+  top: -19px;
+  left: -8px;
+  z-index: 2;
+}
+
+.product-eco .sector-curriculum .grounds-text {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.product-eco .sector-benefit {
+  padding-bottom: 80px;
+}
+
+.product-eco .sector-benefit .benefit-title {
+  color: #000;
+  font-size: 55px;
+  line-height: 1.3;
+  font-weight: 900;
+  letter-spacing: -3px;
+}
+
+.product-eco .sector-benefit .benefit-title em {
+  display: inline-block;
+  font-weight: 900;
+  color: #003fff;
+}
+
+.product-eco .sector-benefit-plus {
+  background: #fecb00;
+}
+
+.product-eco .sector-benefit-plus .benefit-plus-img {
+  margin-top: -45px;
+}
+
+.product-eco .sector-item {
+  padding-bottom: 100px;
+  background: #fff;
+}
+
+.product-eco .sector-item .section-title {
+  padding: 115px 0 70px 0 !important;
+  text-align: center;
+  font-size: 55px;
+}
+
+.product-eco .sector-item .section-title span {
+  color: #ff8400;
+}
+
+.product-eco .sector-item .section-title .highlight {
+  font-size: 35px;
+}
+
+.product-eco .sector-item .price-table {
+  width: 1167px;
+  margin: 0 auto;
+}
+
+.product-eco .sector-item .price-table table {
+  text-align: left;
+  color: #222;
+  border-collapse: inherit !important;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"] td {
+  vertical-align: top;
+  color: #222;
+  border-style: solid;
+  border-width: 0;
+  border-right-width: 5px;
+  border-left-width: 5px;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"] td.current {
+  width: 25%;
+  border-color: #ff8400;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"] td.blank {
+  width: .5%;
+  border: none;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"] td.other {
+  position: relative;
+  width: 25%;
+  border-color: #dbdbdb;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"] .cell {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  padding: 0 40px;
+  vertical-align: top;
+  line-height: 1.45;
+  letter-spacing: -1.6px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"] .dash {
+  display: inline-block;
+  vertical-align: top;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-title td {
+  font-size: 35px;
+  font-weight: 900;
+  border-top-width: 5px;
+  border-radius: 20px 20px 0 0;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-title .cell {
+  position: relative;
+  padding-top: 35px;
+  padding-bottom: 70px;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-title .tag {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-title .flag-refund {
+  position: absolute;
+  top: -18px;
+  right: 6px;
+  width: 118px;
+  height: 105px;
+  padding: 24px;
+  text-align: center;
+  line-height: 1.1;
+  font-family: "Roboto", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+  font-size: 23px;
+  font-weight: 700;
+  color: #fff;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-title .current .flag-refund {
+  background-image: url("//img.eduwill.net/eduwill/img/2022/G/common/flag/pc/flag_refund_current.png");
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-title .other .flag-refund {
+  background-image: url("//img.eduwill.net/eduwill/img/2022/G/common/flag/pc/flag_refund_other.png");
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-price {
+  font-family: "Roboto", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-price .cell {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-price .cell::before, .product-eco .sector-item .price-table table [class^="row-"].row-price .cell::after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  left: 0px;
+  display: block;
+  height: 1px;
+  background-color: #dcdcdc;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-price .cell::before {
+  top: 0;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-price .cell::after {
+  bottom: 0;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-price .before-price {
+  float: left;
+  margin-top: 15px;
+  text-decoration: line-through;
+  font-size: 18px;
+  color: #959595;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-price .before-price span {
+  font-family: "Roboto", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+  font-size: 18px;
+  color: #959595;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-price .before-price:only-child {
+  text-decoration: none;
+  font-size: 35px;
+  color: #000;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-price .before-price:only-child span {
+  font-size: 40px;
+  color: #ff0e0e;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-price .after-price {
+  float: right;
+  font-size: 35px;
+  color: #000;
+  letter-spacing: -2px;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-price .after-price span {
+  font-family: "Roboto", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+  font-size: 40px;
+  color: #ff0e0e;
+  letter-spacing: -2px;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-subject .current .cell.cell-gray {
+  color: #5c5c5c;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-subject .cell {
+  padding-top: 45px;
+  padding-bottom: 35px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-subject .series {
+  font-size: 20px;
+  font-weight: 400;
+  color: #888;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-subject strong {
+  color: #222222;
+  font-weight: 800;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-benefit .current {
+  position: relative;
+  z-index: 1;
+  -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-benefit .current .cell {
+  padding: 0;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-benefit .other .cell::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 20px;
+  left: 20px;
+  display: block;
+  height: 1px;
+  background-color: #dcdcdc;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-benefit .title {
+  padding: 10px 20px 11px;
+  font-size: 20px;
+  font-weight: 900;
+  color: #002ea3;
+  background: #ffd327;
+  background: -webkit-gradient(linear, left top, right top, from(#ffd327), to(#ffbb27));
+  background: linear-gradient(to right, #ffd327 0%, #ffbb27 100%);
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-benefit .title.title-puri {
+  padding: 30px 20px;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-benefit .title-flag {
+  display: inline-block;
+  padding: 3px 10px;
+  vertical-align: middle;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 5px;
+  background: #09a3eb;
+  background: -webkit-gradient(linear, left top, right top, from(#09a3eb), to(#4760ff));
+  background: linear-gradient(to right, #09a3eb 0%, #4760ff 100%);
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-benefit .list {
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-benefit .list:first-child {
+  padding-top: 70px;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-benefit .list .list-item {
+  display: inline-block;
+  width: 39%;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-benefit .list .list-item:nth-child(2) {
+  width: 22%;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-benefit .list .list-item:nth-child(3) img {
+  margin-top: -10px;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-benefit .list .list-item:only-child {
+  width: auto;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-benefit .list .list-item:only-child img {
+  width: 90%;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-benefit .list .list-item img {
+  width: 100%;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-benefit .list .list-item span {
+  display: block;
+  margin-top: 10px;
+  line-height: 1.2;
+  font-size: 16px;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-benefit li {
+  position: relative;
+  margin-top: 10px;
+  padding-left: 10px;
+  line-height: 1.35;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-benefit li:first-child {
+  margin-top: 20px;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-program td {
+  border-bottom: 5px solid #dcdcdc;
+  border-radius: 0 0 20px 20px;
+  background: #fbfbfb;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-program td.blank {
+  border-bottom: 0;
+  background: none;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-program td.current {
+  border-bottom: 5px solid #ff8400;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-program .title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #222222;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-program .cell {
+  padding-top: 40px;
+  padding-bottom: 100px;
+  color: #303030;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-program P {
+  font-size: 24px;
+  font-weight: 900;
+  color: inherit;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-program li {
+  position: relative;
+  margin-top: 10px;
+  line-height: 1.2;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -1.5px;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-program li:first-child {
+  margin-top: 10px;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-program .gray {
+  font-size: 18px;
+  color: rgba(48, 48, 48, 0.6);
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-action td {
+  position: relative;
+  border: none;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-action td.current .btn-apply {
+  background: #fa5800;
+  background: -webkit-gradient(linear, left top, right top, from(#fa5800), to(#ea1e00));
+  background: linear-gradient(to right, #fa5800 0%, #ea1e00 100%);
+  -webkit-box-shadow: inset 1px 2px 1px rgba(255, 255, 255, 0.5), inset -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 2px 1px rgba(255, 255, 255, 0.5);
+          box-shadow: inset 1px 2px 1px rgba(255, 255, 255, 0.5), inset -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 2px 1px rgba(255, 255, 255, 0.5);
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-action td.other .btn-apply {
+  background: #bdbdbd;
+  background: -webkit-gradient(linear, left top, right top, from(#bdbdbd), to(#707070));
+  background: linear-gradient(to right, #bdbdbd 0%, #707070 100%);
+  -webkit-box-shadow: inset 1px 2px 1px rgba(255, 255, 255, 0.5), inset -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 2px 1px rgba(255, 255, 255, 0.5);
+          box-shadow: inset 1px 2px 1px rgba(255, 255, 255, 0.5), inset -1px -1px 1px rgba(255, 255, 255, 0.5), 1px 2px 1px rgba(255, 255, 255, 0.5);
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-action td a {
+  width: 418px !important;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-action td .date-flag {
+  position: absolute;
+  top: -70px;
+  left: 100px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 20px;
+  background: #000000;
+  width: 116px;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+  border-radius: 15px 15px 0 15px;
+  z-index: 10;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-action .cell {
+  margin-top: -50px;
+  margin-left: 33px;
+  letter-spacing: -1.5px;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-action .btn-apply {
+  display: block;
+  padding: 20px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 900;
+  color: #fff;
+  border-radius: 80px;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-action .btn-apply {
+  position: relative;
+  display: inline-block;
+}
+
+.product-eco .sector-item .price-table table [class^="row-"].row-action .btn-apply:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 1;
+  display: block;
+  width: 8.33333vw;
+  height: 9.16667vw;
+  background: url("https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png") no-repeat 0 0;
+  background-size: 100% auto;
+  -webkit-animation-name: pointerBounceDiagonal;
+          animation-name: pointerBounceDiagonal;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .sector-item .price-table table [class^="row-"].row-action .btn-apply:after {
+    width: 60px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .sector-item .price-table table [class^="row-"].row-action .btn-apply:after {
+    height: 66px;
+  }
+}
+
+@-webkit-keyframes pointerBounceDiagonal {
+  0%, 100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(-10px, -10px);
+    transform: translate(-10px, -10px);
+  }
+}
+
+@keyframes pointerBounceDiagonal {
+  0%, 100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(-10px, -10px);
+    transform: translate(-10px, -10px);
+  }
+}
+
+.product-eco .sector-recommend {
+  background: #fafafa;
+}
+
+.product-eco .sector-banner {
+  background-color: #1052cb;
+  background-image: url("https://img.eduwill.net/eduwill/img/2022/C/product/220314/pc/bg_banner.jpg");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+
+.product-eco .sector-winner {
+  background: #fafafa;
+  padding-bottom: 100px;
+}
+
+.product-eco .sector-winner .interview-wrap {
+  margin: 0 50px;
+}
+
+.product-eco .sector-winner .interview-wrap .interview-list {
+  margin-left: -20px;
+}
+
+.product-eco .sector-winner .interview-wrap .interview-list li {
+  width: 25%;
+  padding-left: 20px;
+  margin-top: 100px;
+  font-size: 0;
+}
+
+.product-eco .sector-winner .interview-wrap .interview-list li a {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+}
+
+.product-eco .sector-winner .interview-wrap .interview-list li img {
+  width: 100%;
+}
+
+.product-eco .sector-winner .interview-wrap .interview-list li:first-child {
+  float: none;
+  width: 100%;
+  margin-top: 0;
+}
+
+.product-eco .sector-winner .interview-wrap .interview-list li:first-child a:before {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: -160px;
+  z-index: -1;
+  display: block;
+  width: 981px;
+  height: 127px;
+  background-image: url("//img.eduwill.net/resources/img/cop/product/200813/pc/shadow_interview.png");
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: auto;
+}
+
+.product-eco .sector-winner .interview-wrap .interview-list li .text {
+  display: inline-block;
+}
+
+.product-eco .sector-winner .action {
+  margin-top: 40px;
+}
+
+.product-eco .sector-winner .action a {
+  border: none;
+  padding: 0;
+}
+
+.product-eco .sector-winner .action a::after {
+  display: none;
+}
+
+.product-eco .sector-winner .eco-pass-percent {
+  top: 159px;
+  left: 420px;
+  font-size: 64px;
+  color: #adadad;
+}
+
+.product-eco .sector-winner .eco-compare {
+  top: 500px;
+  left: 50px;
+}
+
+.product-eco .sector-winner .winner-contents {
+  margin-top: 80px;
+}
+
+.product-eco .sector-winner .winner-list {
+  background: #fafafa;
+}
+
+.product-eco .sector-winner .winner-list:before, .product-eco .sector-winner .winner-list:after {
+  content: "";
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 200px;
+}
+
+.product-eco .sector-winner .winner-list:before {
+  top: 0;
+  background: transparent;
+  background: -webkit-gradient(linear, left bottom, left top, from(transparent), to(#fafafa));
+  background: linear-gradient(0deg, transparent 0%, #fafafa 100%);
+}
+
+.product-eco .sector-winner .winner-list:after {
+  bottom: 0;
+  background: transparent;
+  background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#fafafa));
+  background: linear-gradient(180deg, transparent 0%, #fafafa 100%);
+}
+
+.product-eco .sector-winner .winner-list p {
+  text-align: center;
+  line-height: 2;
+  font-size: 24px;
+  font-weight: 400;
+  color: #222b34;
+}
+
+.product-eco .sector-teacher {
+  background: #fafafa;
+}
+
+.product-eco .sector-teacher .action {
+  position: absolute;
+  bottom: 90px;
+  left: 0;
+  right: 0;
+}
+
+.product-eco .sector-teacher .action a {
+  border: none;
+  padding: 0;
+  height: 140px;
+}
+
+.product-eco .sector-teacher .action a {
+  position: relative;
+  display: inline-block;
+}
+
+.product-eco .sector-teacher .action a:after {
+  content: '';
+  position: absolute;
+  top: 60%;
+  right: 5%;
+  z-index: 1;
+  display: block;
+  width: 7.91667vw;
+  height: 9.02778vw;
+  background: url("https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png") no-repeat 0 0;
+  background-size: 100% auto;
+  -webkit-animation-name: pointerBounceDiagonal;
+          animation-name: pointerBounceDiagonal;
+  -webkit-animation-duration: 0.8s;
+          animation-duration: 0.8s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .sector-teacher .action a:after {
+    width: 57px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .product-eco .sector-teacher .action a:after {
+    height: 65px;
+  }
+}
+
+@-webkit-keyframes pointerBounceDiagonal {
+  0%, 100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(-10px, -10px);
+    transform: translate(-10px, -10px);
+  }
+}
+
+@keyframes pointerBounceDiagonal {
+  0%, 100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+  50% {
+    -webkit-transform: translate(-10px, -10px);
+    transform: translate(-10px, -10px);
+  }
+}
+/*# sourceMappingURL=web.css.map */

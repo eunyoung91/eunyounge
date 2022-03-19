@@ -1,0 +1,252 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+/* 공통 */
+.product-eco {
+	.wrap {
+		width: 1200px;
+	}
+	.btn-pointer {
+		display: inline-block;
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			right: -16px;
+			bottom: -26px;
+			width: 57px;
+			height: 65px;
+			background: url(https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png) no-repeat 50% 50%;
+			background-size:100% auto;
+			animation: 0.3s slideupY ease-in-out infinite alternate;
+		}
+		@keyframes slideupY {
+			0% {
+				transform: translateY(0);
+			}
+			100% {
+				transform: translateY(10px);
+			}
+		}
+	}
+}
+
+
+/* 컨텐츠 */
+.product-eco {
+	overflow: hidden;
+
+	.floating-banner-rt {
+		position:fixed;
+		top:50%;
+		right:0;
+		z-index:100;
+		transform: translateY(-50%);
+	}
+
+	.cont-visual {
+		padding-bottom:32px;
+		background-color:#0023cb;
+		&:before {
+			content:'';
+			position:absolute;
+			top:0;
+			left:50%;
+			transform: translateX(-50%);
+			width:100%;
+			min-width:3000px;
+			height:800px;
+			background:url(#{$img-path}/pc/visual_bg.jpg) no-repeat 0 50%;
+			background-size:100% 100%;
+		}
+		.price-area {
+			position:relative;
+			margin-top:-42px;
+			.price {
+				position: absolute;
+				top: 60px;
+				right: 144px;
+				color: #ee2a00;
+				font-size: 70px;
+				font-weight: 900;
+				letter-spacing: -3.4px;
+			}
+			.btn {
+				position:absolute;
+				right:86px;
+				bottom:100px;
+			}
+		}
+	}
+
+	.cont1 {
+		.tab-list {
+			padding:0 10px;
+			border-radius:30px;
+			background-color:#e2e2e2;
+			&:after {
+				content:'';
+				display:block;
+				clear:both;
+			}
+			.item {
+				float:left;
+				width:25%;
+				height:60px;
+				padding:0 10px;
+				.txt {
+					display:block;
+					position:relative;
+					height:60px;
+					border-radius:35px;
+					color:#adadad;
+					font-size: 25px;
+					font-weight:700;
+					line-height:60px;
+				}
+				&.on .txt {
+					transform: translateY(-27px);
+					height:70px;
+					background-color:#0027d4;
+					color:#fff;
+					line-height:70px;
+					transition:all .3s linear;
+					&:before {
+						content:'';
+						position:absolute;
+						bottom:-25px;
+						left:50%;
+						transform: translateX(-50%);
+						width:16px;
+						height:25px;
+						background:url(#{$img-path}/pc/tab_bg.png) no-repeat 50% 50%;
+					}
+				}
+			}
+		}
+		.tab-cont {
+			display:none;
+			padding:60px 0 110px;
+			&.on {
+				display:block;
+			}
+		}
+	}
+
+	.cont2 {
+		background: rgb(235,236,239);
+		background: linear-gradient(180deg, rgba(235,236,239,1) 0%, rgba(245,245,247,1) 100%);
+	}
+
+	.cont3 {
+		background-color:#ffbf00;
+		.wrap{
+			width:100%;
+			height:435px;
+		}
+		.slider {
+			position:absolute;
+			top:50%;
+			left:50%;
+			transform: translate(-50%,-50%);
+			width:2340px;
+			.slick-slide {
+				opacity:.5;
+			}
+			.slick-current + .slick-active {
+				opacity:1;
+			}
+			.slick-arrow {
+				position:absolute;
+				top:50%;
+				z-index:5;
+				transform: translateY(-50%);
+				width:70px;
+				height:70px;
+				background-repeat:no-repeat;
+				background-position:50% 50%;
+				font-size:0;
+				text-indent:-99999px;
+				line-height:0;
+			}
+			.slick-prev {
+				left:715px;
+				background-image:url(#{$img-path}/pc/btn_prev.png);
+			}
+			.slick-next {
+				right:715px;
+				background-image:url(#{$img-path}/pc/btn_next.png);
+			}
+		}
+	}
+
+	.cont4 {
+		.slider-list {
+			overflow:hidden;
+			position:absolute;
+			top:440px;
+			right:60px;
+			width:490px;
+			border-radius:25px;
+			&:before,
+			&:after {
+				content:'';
+				position:absolute;
+				right:0;
+				left:0;
+				height:100px;
+				z-index:5;
+			}
+			&:before {
+				top:0;
+				background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+			}
+			&:after {
+				bottom:0;
+				background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+			}
+			.slide-item {
+				overflow:hidden;
+				padding:0 20px;
+				.name {
+					float:left;
+					width:33%;
+					color:#757575;
+					font-size:20px;
+					text-align:center;
+					line-height:48px;
+					letter-spacing:-1px;
+				}
+				.name:nth-child(2) {
+					width:34%;
+				}
+			}
+		}
+	}
+
+	.cont5 {
+		background-color:#fcf3da;
+		.btn-link {
+			position: absolute;
+			right: 120px;
+			bottom: 141px;
+			width: 160px;
+			height: 60px;
+			font-size:0;
+			text-indent:-99999px;
+			line-height:0;
+		}
+	}
+
+	.cont7 {
+		background:url(#{$img-path}/pc/cont7_bg.jpg) no-repeat 50% 50%;
+		background-size:cover;
+	}
+}
+
+
+@import "module/popup";

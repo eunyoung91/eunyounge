@@ -1,0 +1,414 @@
+@charset "utf-8";
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+@import "module/motion";
+
+.product {
+	&-eco {
+		overflow-x: hidden;
+		* {
+			line-height: normal;
+			font-family: $font-roboto;
+			letter-spacing: -1px;
+		}
+		.container {
+			position: relative;
+			.item {
+				position: relative;
+			}
+		}
+
+		.wrap {
+			position: relative;
+			width: 1200px;
+			margin: 0 auto;
+			text-align: center;
+			.product-full {
+				width: 100%;
+			}
+		}
+
+		.only-pc { display: block;}
+		.only-mobile { display: none;}
+
+		.slick-dots {
+			width: 100%;
+			margin-top: 20px;
+			text-align: center;
+			li {
+				display: inline-block;
+				margin: 0 6px;
+				button {
+					width: 20px;
+					height: 20px;
+					text-indent: -9999em;
+					border: none;
+					border-radius: 50%;
+					background-color: #d8d8d8;
+					outline: none;
+					cursor: pointer;
+				}
+				&.slick-active {
+					button {
+						width: 20px;
+						border-radius: 15px;
+						background-color: #1a2553;
+					}
+				}
+			}
+		}
+
+		.onair-flag {
+			position: fixed;
+			top: 20%;
+			left: 3%;
+			z-index: 100;
+			a{
+				@include pointer(90%, 0, 45px, 55px, 12, bounce);
+			}
+			.btn-pointer {
+				
+			}
+		}
+
+		.product {
+			&-title {
+				@include bg($color: #ffffff, $url: '#{$img-path}/pc/bg_title.jpg', $size: cover);
+				.img-flag {
+					position: absolute;
+					top: 118px;
+					right: -110px;
+				}
+			}
+
+			&-price {
+				@include linear-gradient(to bottom, white 80%, #f6f6f6 100%);
+				.price-list {
+					position: absolute;
+					top: 504px;
+					left: 120px;
+					div {
+						display: inline-block;
+						margin-right: 220px;
+						&.price3 {
+							margin-right: 0;
+						}
+					}
+					font-size: 34px;
+					font-family: $font-roboto;
+					color: #222222;
+				}
+				.price-box {
+					position: absolute;
+					top: 734px;
+					left: 345px;
+					div {
+						font-size: 70px;
+						font-weight: 800;
+						font-family: $font-roboto;
+						display: inline-block;
+						span {
+							font-size: 60px;
+						}
+						&.before-price {
+							color: #999999;
+							margin-right: 60px;
+						}
+						&.after-price {
+							color: #f00000;
+							margin-right: 65px;
+						}
+					}
+				}
+				.discount {
+					position: absolute;
+					bottom: 176px;
+					right: 168px;
+					font-family: $font-roboto;
+					font-size: 30px;
+					font-weight: 800;
+					color: #ffffff;
+				}
+			}
+
+			&-plus {
+				@include bg($color: #5527a8, $url: '#{$img-path}/pc/bg_plus.jpg', $size: cover);
+				.img-icon {
+					position: absolute;
+					width: 100%;
+					margin: 0 auto;
+					top: -50px;
+				}
+			}
+
+			&-banner {
+				@include bg($color: #251b34, $url: '#{$img-path}/pc/bg_banner.jpg', $size: cover);
+			}
+
+			&-teacher {
+				background: #f6f6f6;
+			}
+
+			&-tab {
+				z-index: 500;
+				padding-top: 10px;
+				background: #222222;
+				.tab-list {
+					display: table;
+					width: 1205px;
+					margin: 0 auto;
+					li {
+						position: relative;
+						display: inline-block;
+						width: 399px;
+						padding: 15px 0;
+						vertical-align: middle;
+						letter-spacing: -1.5px;
+						background-color: #dcdcdc;
+						border-top-left-radius: 10px;
+						border-top-right-radius: 10px;
+						color: #999999;
+						font-size: 20px;
+						margin-right: 1px;
+						span {
+							font-size: 24px;
+							font-weight: 600;
+						}
+						&:last-child {
+							margin-right: 0;
+						}
+						&.on {
+							background: #ffffff;
+							color: #000000;
+						}
+					}
+				}
+			}
+
+			//탭1
+			&-tab1-video {
+				.vidoe-box{
+					position: relative;
+					width: 1000px;
+					height: 560px;
+					margin: 0 auto;
+					.eduwill-video-play{
+						position: absolute;
+						top: 0;
+						left: 0;
+						z-index: 10;
+					}
+					a{
+						display: inline-block;
+					}
+				}
+			}
+			&-tab1-review {
+				@include bg($color: #ffffff, $url: '#{$img-path}/pc/bg_tab1_review.jpg', $size: cover);
+			}
+			&-tab1-curriculum {
+				@include linear-gradient(to bottom, white 80%, #f6f6f6 100%);
+			}
+
+			//탭2
+			&-tab2-teacher {
+				.img-teacher {
+					position: absolute;
+					bottom: -55px;
+					left: 50px;
+					z-index: 10;
+				}
+			}
+			&-tab2-review {
+				background: #9c835a;
+			}
+			&-tab2-curriculum {
+				background: #f6f6f6;
+			}
+
+			//탭3
+			&-tab3-review {
+				background: #9c835a;
+			}
+			&-tab3-curriculum {
+				@include bg($color: #ffffff, $url: '#{$img-path}/pc/bg_tab3_curriculum.jpg', $size: cover);
+			}
+
+			&-benefit-3 {
+				.benefit-slider {
+					.slick-dots {
+						position: absolute;
+						top: 10px;
+						right: 25px;
+						text-align: right;
+						li {
+							display: inline-block;
+							margin: 0 6px;
+							button {
+								width: 16px;
+								height: 16px;
+								text-indent: -9999em;
+								border: none;
+								border-radius: 50%;
+								background-color: #feffff;
+								outline: none;
+								cursor: pointer;
+							}
+							&.slick-active {
+								button {
+									width: 50px;
+									border-radius: 15px;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			&-certificate, &-gift {
+				background: #f6f6f6;
+			}
+
+			&-banner-2 { 
+				.wrap { width: 1100px; }
+				background: #1a2553;
+			}
+
+			&-brand-teacher { 
+				.wrap { width: 1100px; }
+				background: #fffacf; 
+			}
+		
+			&-network { 
+				.wrap { width: 1100px; }
+				padding-bottom: 130px; 
+				background: #fffacf;
+				.slider-wrap{
+					margin: auto;
+				}
+				.slick-slide{
+					margin: 0 20px;
+					padding: 0px 0 40px 0;
+					opacity: .3;
+					filter: blur(0);
+					&.slick-active{
+						opacity: .3;
+						filter: blur(0);
+					}
+					&.slick-center{
+						opacity: 1;
+						filter: blur(1);
+					}
+					p{
+						overflow: hidden;
+						box-shadow: 10px 15px 20px 10px rgba($color: #828282, $alpha: 0.4);
+						img{
+							width: 100%;
+						}
+					}
+				}
+			}
+		
+			&-winner {
+				.wrap { width: 1100px; }
+				background: #fffacf;
+				.action {
+					position: absolute;
+					top: 1016px;
+					left: 220px;
+				}
+			}
+
+			&-price-contents {
+				.price-list {
+					position: absolute;
+					top: 504px;
+					left: 120px;
+					div {
+						display: inline-block;
+						margin-right: 220px;
+						&.price3 {
+							margin-right: 0;
+						}
+					}
+					font-size: 34px;
+					font-family: $font-roboto;
+					color: #222222;
+				}
+			}
+
+			//timer
+			&-timer {
+				position: fixed;
+				left:0;
+				right:0;
+				bottom:0;
+				z-index:12;
+				padding:20px 0;
+				background: rgba(0,0,0,0.8);
+				.item {
+					display: inline-block;
+					vertical-align: middle;
+					line-height:1;
+					font-family: $font-roboto;
+					font-size: 0;
+					font-weight: 700;
+					color: #fff;
+					&.desc {
+						display: inline-block;
+						padding: 0 4px;
+						font-size: 22px;
+						color: #fff;
+						vertical-align: middle;
+						line-height:1;
+						span{
+							color:#ffcf0e;
+							font-weight: 700;
+							display: inline-block;
+						}
+					}
+					&.timer-wrap {
+						margin: 0 10px;
+						display: inline-block;
+						margin: 0 5px;
+						font-size: 20px;
+						color: #fff;
+						p {
+							display: inline-block;
+							margin: 0 5px;
+							font-size: 36px;
+							color: #000;
+						}
+						span {
+							display: inline-block;
+							width: 44px;
+							height: 60px;
+							vertical-align: middle;
+							line-height: 60px;
+							font-size: 40px;
+							margin-right: 4px;
+							background: url('https://img.eduwill.net/eduwill/img/2021/_105/product/211204/pc/bg_timer.png') 0 0 no-repeat;
+							@include boxSizing(border-box);
+						}
+						em {
+							vertical-align: bottom;
+						}
+					}
+					&.action {
+						margin-top: 5px;
+						a {
+							@include pointer(60%, -15%, 66px, 73px, 20, bounce);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+//animation
+.effect-bounce-updown{
+	@extend .effect-bounce-updown;
+}

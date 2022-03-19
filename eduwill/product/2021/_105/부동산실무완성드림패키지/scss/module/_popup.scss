@@ -1,0 +1,107 @@
+.dimmed {
+    display: none;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba( 0, 0, 0, .7);
+}
+.popup {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 1001;
+    width: 100%;
+    font-family: $font-noto;
+	max-width:1010px;
+    @include translateX(-50%);
+    &-body {
+        position: relative;
+        p {
+            @include vw(24px);
+            font-weight: 700;
+            @include breakpoint(desktop){
+                font-size: 18px;
+            }
+            & + p,
+            & + ul { @include rem(margin-top, 10px); }
+        }
+        ul {
+            @include rem(margin-top, 10px);
+            @include vw(22px);
+            @include breakpoint(desktop){
+                font-size: 16px;
+            }
+            li {
+                @include rem(margin-top, 5px);
+                &:first-child { margin-top: 0; }
+            }
+            & + p { @include rem(margin-top, 10px); }
+        }
+    }
+
+    &-close {
+        position: absolute;
+        top: 0;
+        right: -60px;
+        a { @include close(60px, 60px, 2px, #fff); }
+    }
+}
+
+
+.layer {
+    &-dim,
+	&-dimmed {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10000;
+        background: #000;
+        opacity: .8;
+        overflow: hidden;
+    }
+
+    &-review {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 10001;
+        max-width: 768px;
+        margin: 0 auto;
+        @include boxSizing(border-box);
+        .layer-close {
+            @include close(60px, 60px, 2px, #fff);
+            top: -60px;
+            z-index: 10002;
+        }
+        
+        .layer-box {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            iframe, video{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: inherit;
+            }
+        }
+
+    }
+}
+

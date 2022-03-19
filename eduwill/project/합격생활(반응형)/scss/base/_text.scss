@@ -1,0 +1,75 @@
+// heading
+.heading {
+	font-weight: 400;
+	@include unifyParent("h1") {
+		font-weight: 700;
+		@include rem(font-size, 30px);
+	}
+	@include unifyParent("h2") {
+		@include rem(font-size, 24px);
+	}
+	@include unifyParent("h3") {
+		@include rem(font-size, 18px);
+		.report & {
+			font-weight: 700;
+		}
+	}
+	@include unifyParent("h4") {
+		@include rem(font-size, 16px);
+		.report & {
+			font-weight: 700;
+			color: $color-base-4;
+		}
+	}
+}
+
+// text
+.text-primary { color: $color-primary; }
+.text-gray {
+	color: $color-base-1;
+	&-dark {
+		color: $color-base-2;
+	}
+	&-medium {
+		color: $color-base-4;
+	}
+	&-light {
+		color: $color-base-6;
+	}
+}
+
+// text link
+.link {
+	font-weight: 500;
+	border-bottom: 1px solid $color-base-1;
+	span {
+		color: $color-base-1;
+		em { @include rem(font-size, 12px); }
+	}
+	@include breakpoint(desktop){
+		&:active,
+		&:hover {
+			border-bottom-color: $color-primary;
+			span {
+				color: $color-primary;
+			}
+		}
+	}
+}
+
+// text hidden
+.sr-only {
+	position: absolute;
+	display: inline-block;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	width: 0px;
+	height: 0px;
+	margin: -1px;
+	padding: 0;
+	word-break: keep-all;
+	white-space: nowrap;
+	color: transparent;
+	border: 0;
+	text-indent: -9999px;
+}

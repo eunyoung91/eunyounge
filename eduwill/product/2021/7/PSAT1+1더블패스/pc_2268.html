@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>에듀윌</title>
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/libs/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/reset.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/common.css" />
+<script src="https://img.eduwill.net/eduwill/live/libs/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://img.eduwill.net/eduwill/live/libs/bxslider/jquery.bxslider.min.js"></script>
+<script src="https://img.eduwill.net/eduwill/live/libs/greensock/TweenMax.min.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/dev/css/common/product.css">
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/libs/slick/slick.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/swiper/swiper.min.js"></script>
+<script type="text/javaScript" src="https://img.eduwill.net/eduwill/live/libs/slick/slick.min.js"></script>
+</head>
+<body>
+
+<style type="text/css">
+    /* common */
+    .product-eco { position:relative; text-align: center; line-height: 1;}
+    .product-eco p { margin: 0; }
+    .product-eco .pc-only{display: block;}
+    .product-eco .mobile-only{display: none;}
+    .product-eco *,.product-eco :before,.product-eco :after{font-family:'Noto Sans KR',Sans-Serif;letter-spacing:-1px;font-weight:400;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+    .sr-only { position: absolute; z-index: -1; clip: rect(0 0 0 0); display: inline-block; width: 1px; height: 1px; *height: 0; margin: -1px; padding: 0; overflow: hidden; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }
+    /* hidden */
+    .product-eco .sr_only { display: inline-block; position: absolute; z-index: -1; clip: rect(0 0 0 0); width: 1px; height: 1px; *height: 0; margin: -1px; padding: 0; overflow: hidden; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }
+    /* Grid System */
+    .product-eco .grid { position: relative; *zoom: 1; -webkit-box-sizing: border-box; box-sizing: border-box; }
+    .product-eco .grid:before,
+    .product-eco .grid:after { content: ''; display: table; }
+    .product-eco .grid:after { clear: both; }
+    .product-eco .grid .col { float: left; -webkit-box-sizing: border-box; box-sizing: border-box; }
+    /* contents */
+    .product-eco .wrap { position: relative; width: 1105px; margin: 0 auto; }
+    .product-eco .article { position:relative;}
+    .product-eco .action {display: inline-block;}
+    .product-eco .action a{display: inline-block;}
+    .product-eco .banner-follow{position:fixed;top:15%; right: 0; z-index: 10; }
+    .product-eco .banner-follow a{ display: block; margin-bottom:25px}
+    .product-eco .banner-follow img { display: inline-block;box-shadow:0 10px 30px 0 rgba(0,0,0,0.4); border-radius: 50%; }
+    .product-eco .banner-follow a:last-child img { border-radius: 30px; }
+    .product-eco .section-title{height:1069px;background:url(https://img.eduwill.net/Img2/7even/product/event/201105/pc/bg_title.jpg) no-repeat 50% 0;background-size:cover}
+    .product-eco .section-title .txt-1{position:absolute;top:70px;right:675px;left:330px;padding:0 3px;color:#2beca8;font-size:38px;font-weight:500;letter-spacing:-2px;background:url(https://img.eduwill.net/Img2/7even/product/event/201105/pc/ico_line.png) 50% 95% no-repeat;background-size:contain}
+    .product-eco .section-title .txt-2{position:absolute;top:974px;left:94px;color:#151515;font-size:26px;font-weight:700;letter-spacing:-2px}
+    .product-eco .section-price{background-color:#2beca8; padding: 205px 0 90px 0;}
+    .product-eco .section-price .holder{position:relative;z-index:1;margin:0 78px;padding:40px 0;font-size:40px;font-weight:700;color:#fff;background-color:#111940;-webkit-box-shadow:0 0 20px 5px rgba(5,46,32,0.4);-moz-box-shadow:0 0 20px 5px rgba(5,46,32,0.4);box-shadow:0 0 20px 5px rgba(5,46,32,0.4)}
+    .product-eco .section-price .holder span{position:relative;display:inline-block;font-size:35px;color:#747393;padding-right:15px;font-weight:700}
+    .product-eco .section-price .holder span:after{content:'';position:absolute;top:50%;right:0;left:0;z-index:1;width:100%;height:10px;margin-top:-2px;background:url(https://img.eduwill.net/Img2/7even/product/event/201105/pc/arrow.png) 50% 50% no-repeat;background-size:contain}
+    .product-eco .section-price .holder strong{font-size:35px}
+    .product-eco .section-price .holder em{font-family:'lato';font-size:51px;color:#01ff90;font-weight:700}
+    .product-eco .section-price .holder a{position:relative;display:block;margin-top:30px}
+    .product-eco .section-price .holder a:after{content:'';position:absolute;top:50%;right:0;display:block;width:66px;height:73px;background:url(https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png) no-repeat 0 0;-webkit-animation:moving 1s infinite;animation:moving 1s infinite}
+    .product-eco .section-price .action .btn{color:#111940;letter-spacing:-3px;font-size:35px;position:absolute;left:40px;top:-10px}
+    .product-eco .section-price .action .btn strong{font-weight:700}
+    .product-eco .section-price .action .btn em{color:#111940;font-weight:700;font-size:35px;text-shadow:-1px 0 #fff,0 1px #fff,1px 0 #fff,0 -1px #fff}
+    .product-eco .section-mid{background-color:#111940}
+    .product-eco .section-mentor .wrap{height:900px}
+    .product-eco .section-mentor .slider_banner{width:942px;margin:auto;z-index:10}
+    .product-eco .section-mentor .slider_banner .slick-list{border:5px solid #111940}
+    .product-eco .section-mentor .slider_banner .slick-dots li{position:relative;display:inline-block;background:#d4d4d4;width:33.33%;padding:34px 0;height:114px}
+    .product-eco .section-mentor .slider_banner .slick-dots li p{position:absolute;top:50%;transform:translate(0,-50%);right:4%;letter-spacing:-2px}
+    .product-eco .section-mentor .slider_banner .slick-dots li:nth-child(1){background:url(https://img.eduwill.net/Img2/7even/product/event/201105/pc/tab01_off.png) 0 0 no-repeat}
+    .product-eco .section-mentor .slider_banner .slick-dots li:nth-child(1).slick-active{background:url(https://img.eduwill.net/Img2/7even/product/event/201105/pc/tab01_on.png) 0 0 no-repeat}
+    .product-eco .section-mentor .slider_banner .slick-dots li:nth-child(2){background:url(https://img.eduwill.net/Img2/7even/product/event/201105/pc/tab02_off.png) 0 0 no-repeat}
+    .product-eco .section-mentor .slider_banner .slick-dots li:nth-child(2).slick-active{background:url(https://img.eduwill.net/Img2/7even/product/event/201105/pc/tab02_on.png) 0 0 no-repeat}
+    .product-eco .section-mentor .slider_banner .slick-dots li:nth-child(3){background:url(https://img.eduwill.net/Img2/7even/product/event/201105/pc/tab03_off_211021.png) 0 0 no-repeat}
+    .product-eco .section-mentor .slider_banner .slick-dots li:nth-child(3).slick-active{background:url(https://img.eduwill.net/Img2/7even/product/event/201105/pc/tab03_on_211021.png) 0 0 no-repeat}
+    .product-eco .section-mentor .slider_banner .slick-dots li.slick-active{background:#111940}
+    .product-eco .section-mentor .slider_banner .slick-dots li p{color:#8f8f8f;font-size:18px;text-align:left;margin: 0;}
+    .product-eco .section-mentor .slider_banner .slick-dots li.slick-active p{color:#fff; }
+    .product-eco .section-mentor .slider_banner .slick-dots li p strong{display:block; font-size: 23px; font-weight: 600;}
+    .product-eco .section-mentor .slider_banner .slick-dots li:hover{cursor: pointer;}
+    .product-eco .section-mentor .slick-slide img{margin:auto}
+    .product-eco .section-mentor .slide_title{display:none}
+    .product-eco .section-mentor .video-wrap{position:relative}
+    .product-eco .section-mentor .video-wrap .video{position:absolute;top:60px;left:40px}
+    .product-eco .section-mentor .video-wrap .home{position:absolute;top:124px;right:198px}
+    .section-book .action{position:absolute;bottom:134px;left:78px}
+    .section-curri{background:#272d4f}
+    .section-curri a { position: absolute; top: 727px; left: 116px; width: 350px; height: 55px; }
+    .section-curri a:after{content:'';position:absolute;top:50%;right:0;display:block;width:66px;height:73px;background:url(//img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png) no-repeat 0 0;-webkit-animation:moving 1s infinite;animation:moving 1s infinite}
+    .section-contents .eco-1413{position:absolute;top:532px;font-size:23px;left:131px;letter-spacing:-2px;color:#222}
+    .product-eco .section-benefit{background:#2ae7a5;padding-bottom:125px}
+    .product-eco .section-benefit .txt-1{top:33px}
+    .product-eco .section-benefit .txt-2{top:25px}
+    .product-eco .section-benefit .flag{color:#fff;background:#0000ec;position:absolute;left:163px}
+    .product-eco .section-benefit .flag span{display:inline-block;padding:7px 10px;font-size:22px;letter-spacing:-2px}
+    .product-eco .section-benefit .btn_box{position:absolute;top:155px;left:158px;width:445px;text-align:left}
+    .product-eco .section-benefit .btn_box .action:nth-child(1){margin-right:5px}
+    .product-eco .section-benefit .btn_box .action:nth-child(2){margin-bottom:5px}
+    .product-eco .section-benefit .item{position:relative}
+    .product-eco .section-benefit .item-1{margin-bottom:15px}
+    .product-eco .section_apply{background-color:#04009f}
+    .product-eco .section_apply .noti{position:absolute;bottom:13%;left:40%}
+    .product-eco .section_apply .noti p{font-size:16px;color:rgba(255,255,255,0.5);font-weight:100;letter-spacing:-2px}
+    .product-eco .section-reivew{background:#3e3e3e;overflow:hidden;padding-bottom:130px; position: relative;}
+    .product-eco .section-reivew .slick-slide img{margin:auto}
+    .product-eco .section-reivew .btn-arrow{z-index:300!important;width:1100px;top:60%;left:50%;-webkit-transform:translate(-50%,0);transform:translate(-50%,0);position:absolute}
+    .product-eco .section-reivew .reivewSlider{position:relative;z-index:200;padding:0;width:100%}
+    .product-eco .section-reivew .item{padding:0 50px;position:relative}
+    .product-eco .section-reivew .slick-slide{-webkit-transition:-webkit-transform .4s;transition:-webkit-transform .4s;transition:transform .4s;transition:transform .4s,-webkit-transform .4s;position:relative;opacity:0}
+    .product-eco .section-reivew .slick-slide.slick-center{-webkit-transform:scale(1);transform:scale(1);z-index:30;opacity:1}
+    .product-eco .section-reivew .slick-slide.slick-center + .slick-slide{-webkit-transform:scale(0.8) translate(-250px);transform:scale(0.8) translate(-250px);z-index:10;opacity:.4}
+    .section-reivew .slick-slide.slick-active{-webkit-transform:scale(0.8) translate(250px);transform:scale(0.8) translate(250px);opacity:.4}
+    .product-eco .section-reivew .slick-arrow{position:absolute;top:50%;z-index:10;content:'';padding:0;margin:0;border:none;background:none;outline:none;text-indent:-9999px;display:block;border-width:0;border-style:solid;-webkit-transform:rotate(45deg) translateY(-50%);transform:rotate(45deg) translateY(-50%);width:35px;height:35px;border-color:#c5c5c5;margin-top:-5px;left:50%;cursor:pointer}
+    .product-eco .section-reivew .slick-prev{margin-left:-540px;border-bottom-width:3px;border-left-width:3px}
+    .product-eco .section-reivew .slick-next{margin-left:485px;border-top-width:3px;border-right-width:3px}
+    .product-eco .section-reivew .reivewSlider .item .content{height:755px;width:942px;background:#fff;text-align:left;color:#222;font-size:20px;position:relative}
+    .product-eco .section-reivew .reivewSlider .item .story-title{padding:45px 0 10px;margin:0 25px 50px;border-bottom:1px solid #00a46a}
+    .product-eco .section-reivew .reivewSlider .item .story-title strong{font-size:26px;color:#00a46a;font-weight:700}
+    .product-eco .section-reivew .reivewSlider .item .content .asking{padding:15px 35px 55px;position:relative;line-height:1.5;letter-spacing:-2px;word-break:keep-all}
+    .product-eco .section-reivew .reivewSlider .item .content .asking:before{content:'';background:url(https://img.eduwill.net/Img2/7even/product/event/201105/pc/ico_q.png) 0 0 no-repeat;background-size:contain;width:30px;height:30px;position:absolute;top:-20px;left:25px}
+    .product-eco .section-reivew .reivewSlider .item .content .answer{padding:33px 35px 10px;background:#f3f3f3;position:relative;position:absolute;bottom:0;height:40%;line-height:1.5;font-weight:700;letter-spacing:-2px;word-break:keep-all}
+    .product-eco .section-reivew .reivewSlider .item .content .answer:before{content:'';background:url(https://img.eduwill.net/Img2/7even/product/event/201105/pc/ico_a.png) 0 0 no-repeat;background-size:contain;width:30px;height:30px;position:absolute;top:-20px;left:25px}
+    .dimmed{display:none;position:fixed;left:0;top:0;width:100%;height:100%;z-index:2000;background-color:rgba(0,0,0,0.6)}
+    .popup{display:none;position:absolute;left:50%;top:0;width:900px;z-index:2001;transform:translateX(-50%);-webkit-transform:translateX(-50%);-o-transform:translateX(-50%);-moz-transform:translateX(-50%)}
+    .popup .popup_title{padding:23px 35px;text-align:left;border-radius:10px 10px 0 0;background:#fff;-webkit-box-sizing:border-box;box-sizing:border-box}
+    .popup .popup_title strong{font-size:24px;font-weight:700;letter-spacing:-1px;font-family:"Noto Sans KR","맑은 고딕","Malgun Gothic","Apple SD Gothic Neo","Dotum","돋움","Gulim","굴림","굴림체",Sans-Serif;line-height:1}
+    .popup .popup_title .popup_close{position:absolute;top:0;right:0;width:72px;height:72px;background:transparent;display:block}
+    .popup .popup_cont{position:relative}
+    .popup .popup_cont iframe{position:relative;width:900px;height:506px}
+    .popup .popup_title .popup_close:before,.popup_title .popup_close:after{content:'';position:absolute;top:50%;left:50%;display:block;width:36px;height:3px;margin-left:-18px;background-color:#222}
+    .popup .popup_title .popup_close:before{-webkit-transform:rotate(45deg);transform:rotate(45deg)}
+    .popup .popup_title .popup_close:after{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}
+    @-webkit-keyframes moving {
+    0%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    }
+    50% {
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+    }
+    }
+    @keyframes moving {
+    0%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    }
+    50% {
+    -webkit-transform: translateY(5px);
+    transform: translateY(5px);
+    }
+    }
+</style>
+<div class="product-eco">
+    <div class="top-banner" style="text-align: center; background-color: #fff000;">
+        <div class="wrap"><img alt="공무원 1위 에듀윌 합격자 수 215% 증가!" src="https://img.eduwill.net/Img2/Common/Banner/topBanner/pc/top_banner_psat.png" /></div>
+    </div>
+    <div class="banner-follow">
+        <a class="page-move" href="#sectionBenefit"><img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/float_01.png" /> </a>
+        <a href="https://event.eduwill.net/Simple/7/PSAT_Pass" target="_blank"><img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/float_04.png" /> </a>
+        <a href="https://event.eduwill.net/Event/2021/7/PSAT" target="_blank"><img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/float_05.png" /> </a>
+        <!-- <a class="page-move" href="#sectionCurri"> <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/float_03.png" /> </a> -->
+    </div>
+    <div class="section section-title">
+        <div class="wrap">
+            <img alt="7급 평생패스" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/title_211209.png" />
+            <p class="txt-1">1만원</p>
+            <p class="txt-2">1만원대</p>
+        </div>
+    </div>
+    <div class="section section-price">
+        <div class="wrap">
+            <div class="holder">
+                <!-- 할인가 -->
+                <div>이 모든 혜택이 <span>420,000원</span> <strong><em>320,000원</em></strong></div>
+                <!--
+                    정가
+                    <div>이 모든 혜택이 <strong><em>420,000원</em></strong></div>
+                -->
+            </div>
+        </div>
+    </div>
+    <div class="section section-reason">
+        <div class="wrap"><img alt="PSAT, 반드시 지금 시작해야 하는 이유!" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/reason_211209.jpg" /></div>
+    </div>
+    <div class="section section-mid">
+        <div class="wrap"><img alt="그래서 에듀윌이 준빟나 7급 전용 초맞춤 PSAT 빠르게 최종합격까지 논스탑! 에듀윌 PSAT 원 플러스 원 더블패스" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/mid.jpg" /></div>
+    </div>
+    <div class="section section-mentor">
+        <div class="wrap">
+            <img alt="그래서 에듀윌이 준빟나 7급 전용 초맞춤 PSAT 빠르게 최종합격까지 논스탑! 에듀윌 PSAT 원 플러스 원 더블패스" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/mentor.jpg" />
+            <div class="slider_banner">
+                <div class="slide slide-wrap">
+                    <div class="slide_title">
+                        <p>공무원 시험 출제위원 출신<strong>언어논리 차선우</strong></p>
+                    </div>
+                    <div class="video-wrap">
+                        <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/slide01.jpg" /> <a class="home" href="https://seven.eduwill.net/7even/Teacher/Teacher/Teacher_Detail.asp?TCode=LO01&amp;Subj=LO&amp;classCode=105108100180)" target="_blank"> <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/ico_home.png" /> </a>
+                        <div class="video"><a class="btn-play" href="javascript:;"><img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/slide01_thumb.png" /> </a></div>
+                    </div>
+                </div>
+                <div class="slide slide-wrap">
+                    <div class="slide_title">
+                        <p>대한민국 4대 적성시험 마스터<strong>상황판단 김재형</strong></p>
+                    </div>
+                    <div class="video-wrap">
+                        <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/slide02.jpg" /> <a class="home" href="https://seven.eduwill.net/7even/Teacher/Teacher/Teacher_Detail.asp?TCode=SJ04&amp;Subj=SJ&amp;classCode=105108100181)" target="_blank"> <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/ico_home.png" /> </a>
+                        <div class="video"><a class="btn-play" href="javascript:;"><img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/slide02_thumb.png" /> </a></div>
+                    </div>
+                </div>
+                <div class="slide slide-wrap">
+                    <div class="slide_title">
+                        <p>수포자도 합격으로 이끄는<strong>자료해석 강호균</strong></p>
+                    </div>
+                    <div class="video-wrap">
+                        <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/slide03_211021.jpg" /> <a class="home" href="https://seven.eduwill.net/Prof/DA07/DA" target="_blank"> <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/ico_home.png" /> </a>
+                        <div class="video"><a href="javascript:;"><img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/slide03_thumb_211021.png" /> </a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-reivew">
+        <div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/review.jpg" /></div>
+        <!-- <div class="btn-arrow"><span class="slick-prev" id="prev">prev</span> <span class="slick-next" id="next">next</span></div> -->
+        <div class="reivewSlider">
+            <div class="item">
+                <div class="content">
+                    <div class="story-title"><strong>차선우 교수님의 1:1 학습 멘토링</strong></div>
+                    <div class="reivew_wrap">
+                        <div class="asking">본문 2문단에서 &#39;피부가 검게되는 것은 자외선 때문이 아니라 질병때문이다.&#39;,<br />
+                            &#39;자외선과 멜라닌이 무관할 수도 있다는 증 거는 여러 곳에서 발견된다.&#39;라고 되어있습니다.<br />
+                            자외선과 멜라닌이 무관하다는 것을 알 수 있는데, 1번 선지와 4번선지가 어떻게 연결되는건지 헷갈립니다.<br />
+                            교수님과 함께하다보니 어느새 기본강의를 완강했습니다!<br />
+                            앞으로 기출문제풀이, 모의고사풀이 강의도 잘 부탁드립니다.<br />
+                            감사합니다!
+                        </div>
+                        <div class="answer">해당 문제의 경우 당대에 자외선을 많이 쐰 사람이 멜라닌이 많아져 구릿빛 피부를 가졌다는 것에서 자외선과 멜라닌이 당대에 유관하다는 것은 추론할 수 있습니다.<br />
+                            반면 유전적 요인에 대하여는 질병설이 설득력 있다는 점을 이야기하고 있을 뿐입니다.<br />
+                            기본강의 수강에 고생 많으셨습니다.<br />
+                            기출 문풀 강의와 모의고사 등 차분히 수강해 나가시면 내년도 합격은 무난히 하실 수 있을 것입니다!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="story-title"><strong>김재형 교수님의 1:1 학습 멘토링</strong></div>
+                    <div class="reivew_wrap">
+                        <div class="asking">안녕하세요 교수님. 저는 7급공무원을 준비하고 있는 수험생입니다.<br />
+                            처음 psat 준비를 하면서 궁금한 점이 있어서 질문드립니다.<br />
+                            psat에 언어논리, 자료해석, 상환판단 3과목이 있는데 기본이론을 공부할 때 언어논리 끝까지 다하고 난 후, 상황판단을 공부하고, 상황판단을 다하고 자료해석을 하는 것처럼 한 과목씩 공부하여 끝내는게 효율적인건가요?<br />
+                            아니면 일주일에 3과목 번갈아 가면서 공부하는 게 효율적인가요?<br />
+                            처음 공부하는 유형이라 혼란스러워 글을 남깁니다ㅠㅠ
+                        </div>
+                        <div class="answer">적성시험을 공부하게 되면 아무래도 비슷한 고민을 하시게 될 거예요.<br />
+                            여러 방법이 있겠지만, 만일 초심자라면 한 과목씩 공부하시는 것을 추천드려요.<br />
+                            지금은 각 과목에 대한 이해도가 높지 않은 상황일텐데 언,자,상을 한번에 공부하게 되면 혼란이 생길 수 있습니다.<br />
+                            이때 모든 문제를 다 이해하려 하지 말고, 이해되는 문제만 본다는 마음(10개 중 6개 푼다는 마음)으로 빨리 문제들을 보시는 것이 좋아요. 즉 한 문제에 너무 많은 시간을 할애하지 마세요.<br />
+                            이렇게 언어를 1회독 하면, 자료를, 자료가 끝나면 상황을 공부하세요.<br />
+                            어느 정도 실력이 쌓인 상태가 되면 (최소한 6개월 이상 psat 학습) 이때는 하루에 언어와 상황을 한다거나, 하루는 언어 다음날은 상황을 하는 방식으로 학습하면 됩니다. 감사합니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="story-title"><strong>차선우 교수님의 1:1 학습 멘토링</strong></div>
+                    <div class="reivew_wrap">
+                        <div class="asking">본문 2문단에서 &#39;피부가 검게되는 것은 자외선 때문이 아니라 질병때문이다.&#39;,<br />
+                            &#39;자외선과 멜라닌이 무관할 수도 있다는 증 거는 여러 곳에서 발견된다.&#39;라고 되어있습니다.<br />
+                            자외선과 멜라닌이 무관하다는 것을 알 수 있는데, 1번 선지와 4번선지가 어떻게 연결되는건지 헷갈립니다.<br />
+                            교수님과 함께하다보니 어느새 기본강의를 완강했습니다!<br />
+                            앞으로 기출문제풀이, 모의고사풀이 강의도 잘 부탁드립니다.<br />
+                            감사합니다!
+                        </div>
+                        <div class="answer">해당 문제의 경우 당대에 자외선을 많이 쐰 사람이 멜라닌이 많아져 구릿빛 피부를 가졌다는 것에서 자외선과 멜라닌이 당대에 유관하다는 것은 추론할 수 있습니다.<br />
+                            반면 유전적 요인에 대하여는 질병설이 설득력 있다는 점을 이야기하고 있을 뿐입니다.<br />
+                            기본강의 수강에 고생 많으셨습니다.<br />
+                            기출 문풀 강의와 모의고사 등 차분히 수강해 나가시면 내년도 합격은 무난히 하실 수 있을 것입니다!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="content">
+                    <div class="story-title"><strong>김재형 교수님의 1:1 학습 멘토링</strong></div>
+                    <div class="reivew_wrap">
+                        <div class="asking">안녕하세요 교수님. 저는 7급공무원을 준비하고 있는 수험생입니다.<br />
+                            처음 psat 준비를 하면서 궁금한 점이 있어서 질문드립니다.<br />
+                            psat에 언어논리, 자료해석, 상환판단 3과목이 있는데 기본이론을 공부할 때 언어논리 끝까지 다하고 난 후, 상황판단을 공부하고, 상황판단을 다하고 자료해석을 하는 것처럼 한 과목씩 공부하여 끝내는게 효율적인건가요?<br />
+                            아니면 일주일에 3과목 번갈아 가면서 공부하는 게 효율적인가요?<br />
+                            처음 공부하는 유형이라 혼란스러워 글을 남깁니다ㅠㅠ
+                        </div>
+                        <div class="answer">적성시험을 공부하게 되면 아무래도 비슷한 고민을 하시게 될 거예요.<br />
+                            여러 방법이 있겠지만, 만일 초심자라면 한 과목씩 공부하시는 것을 추천드려요.<br />
+                            지금은 각 과목에 대한 이해도가 높지 않은 상황일텐데 언,자,상을 한번에 공부하게 되면 혼란이 생길 수 있습니다.<br />
+                            이때 모든 문제를 다 이해하려 하지 말고, 이해되는 문제만 본다는 마음(10개 중 6개 푼다는 마음)으로 빨리 문제들을 보시는 것이 좋아요. 즉 한 문제에 너무 많은 시간을 할애하지 마세요.<br />
+                            이렇게 언어를 1회독 하면, 자료를, 자료가 끝나면 상황을 공부하세요.<br />
+                            어느 정도 실력이 쌓인 상태가 되면 (최소한 6개월 이상 psat 학습) 이때는 하루에 언어와 상황을 한다거나, 하루는 언어 다음날은 상황을 하는 방식으로 학습하면 됩니다. 감사합니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section section-book">
+        <div class="wrap">
+            <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/book_211021.jpg" />
+            <div class="action">
+                <a href="https://seven.eduwill.net/7even/Teacher/Book/Book_Index.asp?rKeyword=PSAT" target="_blank">
+                    <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/btn_book.png" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="section section-curri" id="sectionCurri">
+        <div class="wrap">
+            <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/curri_211021.jpg" />
+            <a href="//event.eduwill.net/Event/2020/7/PSATLecture_201126" target="_blank">&nbsp;</a>
+        </div>
+    </div>
+    <div class="section section-contents">
+        <div class="wrap">
+            <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/contents_211209.jpg" />
+            <div class="eco-1413"></div>
+        </div>
+    </div>
+    <div style="background-color: #272d4f;">
+        <div class="wrap">
+            <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/reason_5.jpg" />
+        </div>
+    </div>
+    <div class="section section-benefit" id="sectionBenefit">
+        <div class="wrap">
+            <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/benefit_211209.png" style="margin-top: -47px;"/>
+            <div class="item item-1">
+                <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/benefit01.png" />
+                <p class="flag txt-1"><span>선착순 한정!</span></p>
+            </div>
+            <div class="item item-2">
+                <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/benefit02.png" />
+                <p class="flag txt-2"><span>런칭 기념!</span></p>
+                <div class="btn_box">
+                    <div class="action">
+                        <a href="https://seven.eduwill.net/Common/Product/goods/auto/index.asp?masterSeq=NzM0Mw==" target="_blank">
+                            <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/btn_benefit_01.png" />
+                        </a>
+                    </div>
+                    <div class="action">
+                        <a href="https://seven.eduwill.net/Common/Product/goods/auto/index.asp?masterSeq=NzM0Mw==" target="_blank">
+                            <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/btn_benefit_02.png" />
+                        </a>
+                    </div>
+                    <div class="action">
+                        <a href="https://seven.eduwill.net/Common/Product/goods/auto/index.asp?masterSeq=MTg1NjE=&histYn=" target="_blank">
+                            <img alt="" src="https://img.eduwill.net/Img2/7even/product/event/201105/pc/btn_benefit_03.png" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dimmed"></div>
+<div class="popup" id="popup">
+    <div class="popup_title"><strong>고득점 전략 영상 보기</strong> <a class="popup_close" href="javascript:;"><span class="sr-only">닫기</span></a></div>
+    <div class="popup_cont">
+        <div class="video video1">
+            <video controls="" height="100%" poster="" width="100%">
+                <source src="" type="video/mp4" />
+            </video>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/eduf.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/script.js"></script>
+<script type="text/javascript">
+    getEcoDynamicForClass(1413, 'eco-1413');
+
+    $(function (){
+        var _w = $(window);
+        var _dimmed = $(".dimmed");
+        var _popup = $('.popup');
+
+        $('.slider_banner').on('init reInit', function () {
+            $(this).find('.slick-dots').prependTo(this);
+        });
+
+        $('.slider_banner').slick({
+            autoplay: true,
+            dots: true,
+            arrows: false,
+            focusOnSelect: true,
+            customPaging: function (slider, i) {
+                return $(slider.$slides[i]).find('.slide_title').html();
+            }
+        });
+
+        $('.reivewSlider').slick({
+            slidesToShow: 3,
+            centerMode: true,
+            variableWidth: true,
+            autoplay: true,
+            infinite: true,
+            focusOnSelect: true,
+            cssEase: 'linear',
+            touchMove: true,
+            responsive: [
+                {
+                    breakpoint: 720,
+                    settings: {
+                        arrows: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        centerMode: false,
+                        variableWidth: false
+                    }
+                },
+            ]
+        });
+
+        function popupClose() {
+            _dimmed.hide();
+            _popup.hide();
+        }
+
+        function popupOpen(idx, videoUrl) {
+            $('video source').attr('src', videoUrl);
+            _dimmed.show();
+            _popup.show();
+            popupPosition(_popup);
+        }
+
+        function popupPosition(_popup) {
+            var st = _w.scrollTop();
+            var winHeight = _w.height();
+            var popupHeight = _popup.outerHeight();
+
+            var topValue = (st + (winHeight / 2 - popupHeight / 2));
+            if (_w.height() < popupHeight) {
+                topValue = st;
+            }
+            _popup.css({ top: topValue });
+        }
+
+        $('.btn-play').on('click', function () {
+
+            var idx = $('.slider_banner').slick('slickCurrentSlide');
+
+            var videoUrl;
+            switch (idx) {
+                case 0:
+                    videoUrl = "https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20201105/70B20LO01H000.mp4";
+                    break;
+                case 1:
+                    videoUrl = "https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20201105/70B20LO01H001.mp4";
+                    break;
+                case 2:
+                    videoUrl = "https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20201105/70B20LO01H002.mp4";
+                    break;
+            };
+            popupOpen(idx, videoUrl);
+            $('.video video')[0].load();
+            $('.video video')[0].play();
+        });
+
+        $('.popup_close').on('click', function () {
+            popupClose();
+            $('video source').attr("src", "");
+            $('.video video')[0].pause();
+        })
+
+    });
+</script>
+
+
+</body>
+</html>

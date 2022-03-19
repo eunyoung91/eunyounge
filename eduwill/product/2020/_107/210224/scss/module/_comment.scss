@@ -1,0 +1,824 @@
+@charset "utf-8";
+$main-color : #ffbf00;
+$sub-color : #fff3cf;
+// Core variables and mixins
+
+.comment-event {
+	position: relative;
+	line-height: 1;
+	font-family: $font-noto;
+	letter-spacing: -1px;
+	.wrap {
+		position: relative;
+		width: 100%; 
+		max-width: 720px; 
+		margin: 0 auto;
+		text-align: center; 
+		@include vw(24px);
+		@include boxSizing(border-box);
+		@include breakpoint(maxMobile){
+			width: 1100px;
+			max-width: 100%;
+			font-size: 12px;
+		}
+	}
+
+	.comment-section {
+		.title {
+			position: relative;
+			img {
+				position: relative;
+				z-index: 10;
+			}
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				width: 100%;
+				height: 20.84%;
+				background: $sub-color;
+				@include breakpoint(maxMobile){
+					height: 170px;
+					// bottom:-336px;
+					bottom:0px;
+					background:$sub-color;
+				}
+			}
+			.event-info {
+				position: relative;
+				@include rem(padding, 0 45px 40px);
+				@include breakpoint(maxMobile){
+					position: absolute;
+					bottom: 20px;
+					left: 0;
+					right: 0;
+					width: 1000px;
+					padding: 0;
+					margin: 0 auto;
+				}
+				li {
+					position: relative;
+					padding-left: 10px;
+					color: #666;
+					text-align: left;
+					@include rem(margin-top, 10px);
+					@include vw(24px);
+					&:first-child { margin-top: 0;}
+					&:before {
+						content: '·';
+						position: absolute;
+						top: 0;
+						left: 0;
+						display: block;
+					}
+					@include breakpoint(maxMobile){
+						font-size: 16px;
+					}
+				}
+			}
+		}
+		.sns {
+            @include rem(padding-bottom, 165px);
+			background: $sub-color;
+			@include breakpoint(maxMobile){
+				padding-bottom: 165px;
+				background:$sub-color;
+			}
+			.step {
+                //background: $sub-color;
+				@extend %clearfix;
+				li {
+					position: relative;
+					float: none;
+					@include rem(margin-top, 30px);
+					@include rem(padding, 30px);
+					text-align: left;
+					border-top: 1px solid #ddd;
+					@include boxSizing(border-box);
+					@include breakpoint(maxMobile){
+						float: left;
+						margin-top: 0;
+						padding: 35px 40px;
+						border-top: 0;
+						border-radius: 6px;
+						background: #fff;
+					}
+					.step-num {
+                        margin-bottom: 10px;
+						span {
+							display: inline-block;
+							line-height: 1.5;
+							@include vw(28px);
+							font-weight: 700;
+							color: #000;
+							font-family: $font-roboto;
+							@include breakpoint(maxMobile){
+								font-size: 20px;
+							}
+						}
+					}
+					.step-text {
+                        line-height: 1.5;
+                        margin-bottom: 25px;
+						@include vw(28px);
+						font-weight: 300;
+						color: #010101;
+						@include breakpoint(maxMobile){
+							font-size: 16px;
+						}
+						strong {
+							font-weight: 700;
+						}
+					}
+					.step-link-title {
+						@include vw(26px);
+						font-weight: 700;
+						color: $main-color;
+						vertical-align: top;
+						@include breakpoint(maxMobile){
+							font-size: 14px;
+						}
+					}
+					.step-link {
+						div {
+							display: inline-block;
+							a {
+								position: relative;
+								display: inline-block;
+								@include rem(padding, 15px 18px);
+								//height: 34px;
+								text-align: center;
+								@include boxSizing(border-box);
+								@include breakpoint(maxMobile){
+                                    // width: 124px;
+                                    width: 100%;
+									padding: 9px 0;
+								}
+								span {
+									display: block;
+									//line-height: 33px;
+									@include vw(24px);
+									font-weight: 500;
+									@include breakpoint(maxMobile){
+										font-size: 14px;
+									}
+								}
+							}
+						}
+						.btn-tag {
+							background:$main-color;
+							span {
+								color: #fff;
+							}
+						}
+
+						.btn-down {
+							border:1px solid $main-color;;
+							span {
+								color: $main-color;
+							}
+						}
+
+						.btn-link {
+							display: inline-block;
+							text-align: left;
+							background: #fff;
+							border: 1px solid #ccc;
+							span {
+								padding-left: 11px; 
+								color: #666;
+								&:after {
+									content: '';
+									position: absolute;
+									top: 50%;
+									right: 12px;
+									width: 5px;
+									height: 5px;
+									margin-top: -3px;
+									border-top: 1px solid #666;
+									border-right: 1px solid #666;
+									@include rotate(45deg);
+								}
+							}
+                        }
+                    
+                    }
+                    .step-tag{
+                        margin-top: 10px;
+                        padding: 5px;
+                        @include rem(padding, 20px 15px);
+                        @include rem(font-size, 16px);
+                        border: 1px solid #acacac;
+                        &:before {
+                            content: '';
+                            display: table;
+                        }
+                        &:after {
+                            content: '';
+                            display: table;
+                            clear: both;
+                        }
+                        >.subject {
+                            @include rem(padding, 4px 20px);
+                            @include rem(font-size, 16px);
+                            text-align: center;
+                            font-weight: 600;
+                            color: #fff;
+                            border-radius: 50px;
+                            background-color: #a9a9a9;
+                        }
+                        .subject {
+                            float: left;
+                            text-align: center;
+                        }
+                        .desc {
+                            float: left;
+                            width: 100%;
+                            @include rem(margin-top, 15px);
+                            @include rem(padding-left, 10px);
+                            @include breakpoint(maxMobile){ 
+                                width: 80%;
+                                padding-left: 10px;
+                                margin-top: 0;
+                            }
+                            .subject {
+                                font-weight: 400;
+                            }
+                            span {
+                                display: inline-block;
+                                margin-right: 5px;
+                                color: #666666;
+                                font-weight: 400;
+                            }
+                        }
+                        .tag {
+                            margin-top: 5px;
+                            &:first-child {
+                                margin-top: 0;
+                            }
+                        }
+                    }
+
+					&.step1 {
+						border-top: 0;
+						@include breakpoint(maxMobile){
+                            width: 325px;
+                            min-height: 260px;
+                            
+						}
+						.step-link {
+                            div{
+                                width: 100%;
+                                @include rem(margin-left, 10px);
+                                &:first-child { margin-left: 0; }
+                            }
+						}
+					}
+
+					&.step2 {
+						@include breakpoint(maxMobile){
+							margin-left: 20px;
+							width: 655px;
+                            min-height: 260px;
+						}
+						.step-text {
+							span {
+								display: block;
+								@include breakpoint(maxMobile){
+									display: inline-block;
+									&:first-child { margin-right: 5px;}
+								}
+							}
+						}
+						.step-link-title {
+							margin-top: 20px;
+							font-weight: 400;
+							strong { font-weight: 700;}
+							& + .step-link { margin-top: 12px; }
+						}
+						.step-link {
+							margin-top: 46px;
+							margin-right: -6px;
+							@extend %clearfix;
+							@include breakpoint(maxMobile){
+								margin-right: 0;
+							}
+							div {
+								float: left;
+								width: 50%;
+								padding: 0 6px 6px 0;
+								@include boxSizing(border-box);
+								@include breakpoint(maxMobile){
+									float: none;
+									display: inline-block;
+									width: auto;
+								}
+								a {
+									width: 100%;
+									@include breakpoint(maxMobile){
+										width: 196px;
+									}
+									span{
+										white-space: nowrap;
+										overflow: hidden;
+										text-overflow: ellipsis;
+										padding-right:5px;
+									}
+								}
+							}
+						}
+					}
+
+					&.step3 {
+						width: 100%;
+						@extend %clearfix;
+						@include breakpoint(maxMobile){
+							margin-top: 20px;
+							// height: 80px;
+                        }
+                        .step-title{
+                            margin-bottom: 25px;
+                            @extend %clearfix;
+                        }
+						.step-num {
+							@include breakpoint(maxMobile){
+								float: left;
+								margin: 4px 25px 0 0;
+							}
+						}
+						.step-text {
+                            margin-bottom: 0;
+							@include breakpoint(maxMobile){
+								float: left;
+								margin-top: 0;
+								line-height: 34px;
+							}
+						}
+						.btn-url {
+							position: relative;
+							display: none;
+							margin-left: 17px;
+							width: 124px;
+							height: 34px;
+							text-align: center;
+							border-radius: 4px;
+							background: #fff;
+							border: 1px solid #ccc;
+							@include boxSizing(border-box);
+							@include breakpoint(maxMobile){
+								display: inline-block;
+								line-height: 30px;
+							}
+							span { font-size: 14px; color: #666; font-weight: 500;}
+						}
+					}
+				}
+			}
+		}
+
+        .comment-form {
+            position: relative;
+            width: 100%;
+            .text {
+                @include rem(padding, 0 20px);
+                width: 76%;
+                height: 40px;
+                line-height: 40px;
+                @include vw(22px);
+                font-weight: 400;
+                color: #666;
+                border: 1px solid $main-color;
+                @include boxSizing(border-box);
+                @include breakpoint(maxMobile){
+                    height: 50px;
+                    line-height: 50px;
+                    font-size: 16px;
+                }
+                @include breakpoint(maxMobile){
+                    height: 56px;
+                    line-height: 56px;
+                }
+            }
+            .button {
+                position: relative;
+                float: right;
+                width: 22%;
+                height: 40px;
+                line-height: 40px;
+                vertical-align: top;
+                background-color: $main-color;;
+                @include breakpoint(maxMobile){
+                    height: 50px;
+                    line-height: 50px;
+                }
+                @include breakpoint(maxMobile){
+                    height: 56px;
+                    line-height: 56px;
+                }
+                span {
+                    position: absolute;
+                    left: 50%;
+                    top: 50%;
+                    transform: translate(-50%,-50%);
+                    display: block;
+                    @include vw(18px);
+                    font-weight: 700;
+                    color: #fff;
+                    @include breakpoint(maxMobile){
+                        font-size: 18px;
+                    }
+                }
+                em {
+                    display: none;
+                    @include breakpoint(maxMobile){
+                        display: inline-block;
+                    }
+                }
+            }
+            .comment-mask {
+                @include rem(padding, 34px 0);
+                position:absolute;
+                top:-3px;
+                left:-3px;
+                right:-3px;
+                bottom:-3px;
+                line-height:1.3;
+                font-size: 30px;
+                font-weight:500;
+                color:#fff;
+                background-color:rgba(0,0,0,.6);
+            }
+            .notice {
+                @include rem(padding-top, 24px);
+                text-align: left;
+                line-height: 1.5;
+                @include vw(22px);
+                font-weight: 400;
+                color: #999;
+                @include breakpoint(maxMobile){
+                    padding-left: 24px;
+                    font-size: 14px;
+                }
+            }
+        }
+
+		.form {
+			@include rem(padding-bottom, 58px);
+			.wrap {
+				@include rem(padding, 30px 45px);
+				@include breakpoint(maxMobile){
+					padding: 35px 50px;
+				}
+				@include boxSizing(border-box);
+
+				.comment-list {
+					margin: 30px 0 0;
+					@include boxSizing(border-box);
+					border-top: 1px solid #010101;
+					border-bottom: 1px solid #010101;
+					.item {
+						border-bottom: 1px solid #ccc;
+						&:last-child { border-bottom: 0; }
+						.col {
+							padding: 20px 0;
+							line-height: 1.5;
+							@include vw(22px);
+							font-weight: 500;
+							color: #555;
+							font-family: $font-roboto;
+							@include breakpoint(maxMobile){
+								font-size: 16px;
+							}
+							&.number {
+								width: 10%;
+								@include breakpoint(maxMobile){
+									width: 5%;
+								}
+							}
+							&.user {
+								width: 20%;
+								@extend %textEllipsis;
+								@include breakpoint(maxMobile){
+									width: 15%;
+								}
+							}
+							&.desc {
+								width: 70%;
+								@include rem(padding-left, 10px);
+								text-align: left;
+								letter-spacing: -.5px;
+								word-break: break-all;
+								@include breakpoint(maxMobile){
+									width: 80%;
+									padding-left: 0;
+								}
+							}
+							&:only-child {
+								width: 100%;
+								@include rem(padding, 50px 0);
+								text-align: center;
+								@include vw(22px);
+								@include breakpoint(maxMobile){
+									font-size: 14px;
+								}
+							}
+						}
+						&.nodata {
+							.col {
+								@include vw(22px);
+								font-weight: 500;
+								color: #000;
+								@include breakpoint(maxMobile){
+									font-size: 18px;
+								}
+							}
+						}
+					}
+				}
+				.paging {
+					display: none;
+					margin-top: 30px;
+					text-align: center;
+					@include breakpoint(maxMobile){
+						display: block;
+					}
+					a {
+						position: relative;
+						display: inline-block;
+						width: 20px;
+						height: 24px;
+						margin: 0 10px;
+						text-align: center;
+						line-height: 22px;
+						vertical-align: middle;
+						font-size: 16px;
+						font-weight: 500;
+						color: #555;
+						font-family: $font-roboto;
+
+						&.control {
+							margin: 0;
+							width: 22px;
+							height: 22px;
+							text-align: center;
+							border: 1px solid #ccc;
+							@include boxSizing(border-box);
+							&:before {
+								content: ' ';
+								position: relative;
+								top: -4px;
+								display: inline-block;
+								width: 6px;
+								height: 6px;
+								border-width: 0;
+								border-style: solid;
+								border-color: #777;
+								background-color: transparent;
+								@include rotate(45deg);
+							}
+							&-prev {
+								margin-right: 10px;
+								&:before {
+									margin-left: 2px;
+									border-bottom-width: 1px;
+									border-left-width: 1px;
+								}
+							}
+							&-next {
+								margin-left: 10px;
+								&:before {
+									margin-right: 2px;
+									border-top-width: 1px;
+									border-right-width: 1px;
+								}
+							}
+						}
+						&.active { color: #333; border-bottom: 2px solid #333;}
+					}
+				}
+				.list-more {
+					display: block;
+					@include rem(margin-top, 30px);
+					a {
+						display: inline-block;
+						@include rem(min-width, 300px);
+						@include rem(padding, 20px);
+						@include vw(24px);
+						color: #555;
+						border: 1px solid #555;
+						@include rem(border-radius, 5px);
+						@include boxSizing(border-box);
+						span {
+							position: relative;
+							display: block;
+							line-height: 1;
+							&:after {
+								@include arrow(bottom, 7px, 7px, 1px, #555);
+								right: 10%;
+								margin-top: -6px;
+							}
+						}
+					}
+					@include breakpoint(maxMobile){
+						display: none;
+					}
+				}
+			}
+        }
+
+
+	}
+        
+    .notice-desc{
+      width: 1000px;
+        margin: 35px auto 0 auto;
+        dl {
+            text-align: left;
+            dt {
+                margin-bottom: 10px;
+         
+                line-height: 1.3;
+                p + p { margin-top: 20px;}
+                p{
+                    @include rem(font-size, 16px);
+                    font-weight: 700;
+                    color: #202020;
+                    @include breakpoint(maxMobile){
+                        font-size: 16px;
+                    }
+                }
+                span {
+                    display: inline-block;
+                    margin-left: 20px;
+                    font-weight: 700;
+                    color: #888;
+                    font-family: $font-roboto;
+                }
+            }
+            dd {
+                li {
+                    position: relative;
+                    padding-left: 11px;
+                    text-indent: -9px;
+                    @include rem(font-size, 16px);
+                    font-weight: 400;
+                    line-height: 1.7;
+                    color: #888;
+                    @include breakpoint(maxMobile){
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+    
+	.comment-notice {
+		background: #eee;
+		@include breakpoint(maxMobile){
+			background: #f5f5f5;
+		}
+		dl {
+			@include rem(padding, 56px 50px);
+			text-align: left;
+			@include breakpoint(maxMobile){
+				padding: 60px 50px;
+			}
+			dt {
+				@include rem(margin-bottom, 30px);
+				@include vw(30px);
+				line-height: 1;
+				font-weight: 500;
+				color: #010101;
+				@include breakpoint(maxMobile){
+					margin-bottom: 15px;
+					font-size: 16px;
+				}
+			}
+			dd {
+				li {
+					position: relative;
+					text-align: left;
+					// @include rem(padding-left, 14px);
+					@include vw(26px);
+					font-weight: 400;
+					line-height: 1.8;
+					color: #888;
+					// &:before {
+					//     content: ' ';
+					//     display: block;
+					//     position: absolute;
+					//     width: 2px;
+					//     height: 2px;
+					//     left: 0;
+					//     @include rem(top, 24px);
+					//     background: #888;
+					//     @include breakpoint(maxMobile) {
+					//         top: 13px;
+					//     }
+					// }
+					&.highlight {
+						color: #333;
+						&:befrore { background-color: #333;}
+					}
+					@include breakpoint(maxMobile){
+						//padding-left: 14px;
+						font-size: 15px;
+					}
+					a {
+						position: relative;
+						margin: 2px 0 0 0;
+						display: inline-block;
+						font-size: 14px;
+						width: 123px;
+						height: 26px;
+						text-align: center;
+						border: 1px solid #ddd;
+						background:#fff;
+					}
+					.indent{
+						display: block;
+						position: relative;
+						@include rem(padding-left, 30px);
+						@include breakpoint(maxMobile){
+							padding-left: 10px;
+						}
+
+						&.type{
+							&-1{
+								@include rem(padding-left, 65px);
+								@include breakpoint(maxMobile){
+									padding-left: 30px;
+								}
+								&:before{
+									content: 'ㄴ ';
+									position: absolute;
+									@include rem(top, -5px);
+									@include rem(left, 30px);
+									@include breakpoint(maxMobile){
+										left: 13px;
+										top: 0;
+									}
+								}
+							}
+							&-2{
+								@include rem(padding-left, 50px);
+								@include breakpoint(maxMobile){
+									padding-left: 25px;
+								}
+								&:before{
+									content: '-';
+									position: absolute;
+									@include rem(top, 0px);
+									@include rem(left, 30px);
+									@include breakpoint(maxMobile){
+										top: -0px;
+										left: 15px;
+									}
+								}
+							}
+							&-3{
+								@include rem(padding-left, 50px);
+								@include breakpoint(maxMobile){
+									padding-left: 25px;
+								}
+								&:before{
+									content: '';
+									@include rem(width, 5px);
+									@include rem(height, 5px);
+									border-radius: 50px;
+									background-color: #888888;
+									position: absolute;
+									@include rem(top, 20px);
+									@include rem(left, 30px);
+									@include breakpoint(maxMobile){
+										width: 3px;
+										height: 3px;
+										top: 11px;
+										left: 15px;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.only-pc {
+	display: none;
+	@include breakpoint(maxMobile){
+		display: inline-block;
+	}
+}
+
+.only-mobile {
+	display: block;
+	@include breakpoint(maxMobile){
+		display: none;
+	}
+}

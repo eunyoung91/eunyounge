@@ -1,0 +1,383 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+// .bottom_fix_btn { display: none !important;}
+.product-eco {
+	.wrap {
+		width: 100%;
+		max-width: 720px;
+	}
+
+	.btn-pointer {
+		display:inline-block;
+		position:relative;
+		&:before {
+			content:'';
+			position:absolute;
+			right:7%;
+			bottom:-33%;
+			@include vw(width,57px);
+			@include vw(height,65px);
+			background:url(//img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png) no-repeat 50% 50%;
+			background-size:100% auto;
+			animation: 0.3s slideupY ease-in-out infinite alternate;
+		}
+		@keyframes slideupY {
+			0% {
+				transform: translateY(0);
+			}
+			100% {
+				transform: translateY(10px);
+			}
+		}
+	}
+
+	.slider1,
+	.slider2  {
+		.slick-dots {
+			@include vw(padding-top,40px);
+			text-align:center;
+			font-size:0;
+			li {
+				display:inline-block;
+				@include vw(padding,0 8px);
+				vertical-align: top;
+				button {
+					@include vw(width,30px);
+					@include vw(height,30px);
+					@include vw(border-radius,15px);
+					background-color:#b2b2b2;
+					font-size:0;
+					text-indent: -99999px;
+					line-height:0;
+				}
+				&.slick-active button {
+					@include vw(width,90px);
+					background-color:#ffc20e;
+					transition:all .3s;
+				}
+			}
+		}
+	}
+}
+
+/* 컨텐츠 */
+.product-eco {
+	overflow: hidden;
+
+	.product-visual {
+		overflow: hidden;
+		@include vw(height,890px);
+		.video {
+			position:absolute;
+			top:50%;
+			left:50%;
+			transform: translate(-50%,-50%);
+			@include vw(min-width,3000px);
+			width:100%;
+			@include vw(min-height,940px);
+		}
+		.txt {
+			position:absolute;
+			top:0;
+			left:50%;
+			transform: translateX(-50%);
+			width:100%;
+			background-color:rgba(0,0,0,.3);
+			text-align:center;
+			font-size:0;
+		}
+	}
+
+	.cont2,
+	.cont13 {
+		background: rgb(26,45,124);
+		background: linear-gradient(4deg, rgba(26,45,124,1) 0%, rgba(24,50,162,1) 100%);
+		background-size: cover;
+		&:before {
+			content:'';
+			position:absolute;
+			@include vw(top,-55px);
+			left:50%;
+			transform: translateX(-50%);
+			@include vw(width,132px);
+			@include vw(height,132px);
+			background:url(#{$img-path}/mobile/cont2_plus.png) no-repeat 50% 50%;
+			background-size:100% auto;
+		}
+	}
+
+	.cont3 {
+		@include vw(padding-bottom,100px);
+		background:url(#{$img-path}/mobile/cont3_bg.jpg) no-repeat 50% 50%;
+		background-size: cover;
+
+		.btn-popup {
+			position:absolute;
+			@include vw(top,38px);
+			@include vw(right,50px);
+			@include vw(width,135px);
+			z-index:10;
+		}
+
+		.winner-contents {
+			@include vw(width,600px);
+			@include vw(margin,-40px auto 0);
+		}
+		.winner-list {
+			transform:perspective(400px) rotateX(35deg);
+			p {
+				@include vw(margin,10px 0);
+				color:#222;
+				@include vw(font-size,16px);
+				font-weight: 700;
+				text-align: center;
+			}
+		}
+	}
+
+	.cont4 {
+		background:#f4f4f4;
+		background: linear-gradient(0deg, rgba(244,244,244,1) 0%, rgba(255,255,255,1) 20%);
+		.tit-area {
+			background:url(#{$img-path}/mobile/ont4_bg.png) no-repeat 50% 50%;
+			background-size: 100% 100%;
+			font-size: 0;
+			text-align:center;
+		}
+		.typing {
+			position:absolute;
+			@include vw(top,324px);
+			@include vw(left,90px);
+			color:#022222;
+			@include vw(font-size,40px);
+			font-weight:900;
+			line-height:1;
+			@include vw(letter-spacing,-5px);
+			&:after {
+				content: '';
+				display: inline-block;
+				position: relative;
+				@include vw(top,-5px);
+				@include vw(margin-left,8px);
+				animation-name: cursor;
+				animation-duration: 0.3s;
+				animation-iteration-count: infinite;
+				@include vw(width,2px);
+				@include vw(height,40px);
+				background-color:#fff;
+				vertical-align:middle;
+			}
+			@keyframes cursor {
+				0% {
+				  background-color: #fff;
+				}
+				50% {
+				  background-color: #022222;
+				}
+				100% {
+				  background-color: #fff;
+				}
+			  }
+		}
+	}
+
+	.cont5 {
+		.review-wrap {
+			overflow:hidden;
+			position:relative;
+			opacity:.3;
+			text-align:left;
+			.review-list {
+				transform:perspective(640px) rotateX(40deg);
+				@include vw(width,700px);
+				@include vw(height,1048px);
+				@include vw(margin,100px auto 0);
+				.item {
+					@include vw(padding,15px 0);
+					@include vw(font-size,14px);
+					& + .item {
+						margin-left:4%;
+					}
+					span {
+						font-size: inherit;
+						display: inline-block;
+					}
+					.views {
+						float: right;
+					}
+					.subject {
+						width: 70%;
+						display: inline-block;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+				}
+			}
+		}
+
+		.wrap {
+			position: absolute;
+			top:0;
+			left:50%;
+			transform: translateX(-50%);
+		}
+
+		.btn {
+			position: absolute;
+			left: 50%;
+			@include vw(bottom,210px);
+			transform: translateX(-50%);
+			@include vw(width,520px);
+		}
+	}
+
+	.cont6 {
+		@include vw(padding-bottom,130px);
+		background-color:#f0f0f3;
+		.video-slider {
+			@include vw(width,620px);
+			margin:0 auto;
+		}
+	}
+
+	.cont7 {
+		.tit-area {
+			background:url(#{$img-path}/mobile/cont7_bg.png) no-repeat 50% 50%;
+			background-size: 100% 100%;
+			font-size: 0;
+			text-align:center;
+		}
+
+		.teacher-wrap {
+			@include vw(padding-bottom,40px);
+			text-align: center;
+			.teacher-list-box {
+				@include breakpoint(maxMobile){
+					padding:0 40px;
+				}
+				.col {
+					width:50%;
+					height:auto;
+					@include vw(margin,0 0 10px 0);
+					@include vw(padding,0 10px);
+					a .t-info {
+						@include vw(bottom,10px);
+					}
+				}
+			}
+		}
+	}
+
+	.cont8 {
+		@include vw(padding-bottom,170px);
+		background:#f4f4f4;
+		background: linear-gradient(0deg, rgba(244,244,244,1) 0%, rgba(255,255,255,1) 20%);
+
+		.curriculum-wrap {
+			@include vw(padding,0 50px 60px);
+			text-align:left;
+			.c-tit {
+				display:inline-block;
+				@include vw(padding-top,45px);
+				@include vw(border-width,0 0 4px);
+				border-style:solid;
+				border-color:#000;
+				color:#202020;
+				@include vw(font-size,36px);
+				font-weight:900;
+				@include vw(line-height,60px);
+				@include vw(letter-spacing,-4px);
+			}
+
+			.curriculum-area {
+				@include vw(margin,20px -14px 0);
+				&:after {
+					content:'';
+					display:block;
+					clear:both;
+				}
+				.curriculum {
+					float:left;
+					width:33.3333%;
+					@include vw(padding,10px 14px);
+					.inner {
+						display:inline-block;
+						position:relative;
+						width:100%;
+						@include vw(height,120px);
+						@include vw(border-radius,30px 30px 30px 0);
+						@include vw(border-width,4px);
+						border-style:solid;
+						border-color:#ddd;
+						&:before {
+							content:'';
+							position:absolute;
+							top:50%;
+							@include vw(right,-25px);
+							transform: translate(0,-50%);
+							@include vw(width,34px);
+							@include vw(height,24px);
+							background:url(#{$img-path}/mobile/cont8_arr.png) no-repeat 100% 50%;
+							background-size: 100% auto;
+							animation:aniArr 2s infinite both;
+						}
+						@keyframes aniArr {
+							0% { 
+								transform: translate(-15%,-50%);
+								opacity:0;
+							}
+							70% {
+								transform: translate(0,-50%);
+								opacity:1;
+							}
+							100% {
+								transform: translate(0,-50%);
+								opacity:0;
+							}
+						}
+					}
+					&:nth-child(3) .inner:before,
+					&:last-child .inner:before {
+						background:none;
+					}
+					&.point .inner {
+						border:0;
+						background: #ffc500;
+						background: linear-gradient(333deg, rgba(255,182,0,1) 40%, rgba(255,218,0,1) 100%);
+					}
+					.tit {
+						position:absolute;
+						top:50%;
+						right:0;
+						left:0;
+						transform:translateY(-50%);
+						color:#202020;
+						@include vw(font-size,30px);
+						font-weight:900;
+						text-align:center;
+						line-height: 1.3;
+						@include vw(letter-spacing,-1.5px);
+					}
+				}
+			}
+		}
+	}
+
+	.cont12 {
+		background:url(#{$img-path}/mobile/cont12_bg.jpg) no-repeat 50% 50%;
+		background-size: cover;
+	}
+
+	.cont14 {
+		background-color:#2844bb;
+	}
+}
+
+
+@import "module/popup";

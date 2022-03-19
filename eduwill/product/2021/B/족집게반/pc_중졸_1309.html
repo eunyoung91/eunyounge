@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>에듀윌</title>
+<link rel="stylesheet" href="https://www.eduwill.net/eduwill/live/libs/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/reset.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/common.css" />
+<script src="https://img.eduwill.net/eduwill/live/libs/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://img.eduwill.net/eduwill/live/libs/bxslider/jquery.bxslider.min.js"></script>
+<script src="https://img.eduwill.net/eduwill/live/libs/greensock/TweenMax.min.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+    컨텐츠 감싸는 부모 : product-eco
+    하단 수강신청 영역 : product-apply
+    하단 수강신청 영역 내 탭 : product-tab
+    하단 수강신청 영역 내 가격 : product-price
+    하단 수강신청 영역 내 정보 : product-table
+    따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<!-- <link rel="stylesheet" href="css/web.css"> -->
+
+<!-- eco 영역 -->
+<link href="https://img.eduwill.net/resources/brand/live/js/plugin/flowplayer-commercial-7.2.7/skin/skin.css" rel="stylesheet" />
+<!-- <link href="https://img.eduwill.net/resources/eduwill/dev/css/product/black/200217/middle/web.css" rel="stylesheet" /> -->
+<style type="text/css">
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	.product-eco {
+		position: relative;
+		text-align: center;
+		min-width: 1100px;
+		overflow: hidden;
+		font-family: "Noto Sans KR", Sans-Serif;
+		letter-spacing: -1px;
+	}
+
+	.product-eco *,
+	.product-eco *:before,
+	.product-eco *:after {
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	.product-eco img {
+		border: 0;
+		vertical-align: top;
+		line-height: 0;
+		font-size: 0;
+	}
+
+	.product-eco .clearfix:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+	.product-eco .wrap {
+		position: relative;
+		width: 1100px;
+		margin: 0 auto;
+	}
+
+	.product-eco a {
+		display: inline-block;
+	}
+
+	.product-eco strong {
+		line-height: 100%;
+	}
+
+	.product-eco p {
+		line-height: 100%;
+		margin: 0;
+	}
+
+	.product-eco .text {
+		color: #b0b0b0;
+		font-size: 15px;
+		font-family: "Noto Sans KR", Sans-Serif;
+		line-height: 20px;
+	}
+
+	.product-eco .text span {
+		padding-left: 8px;
+	}
+
+	.product-eco .btn_action {
+		position: relative;
+		display: inline-block;
+		width: 193px;
+		background-color: #ffffff;
+		border: 1px solid #c0c0c0;
+		color: #878787;
+		font-size: 14px;
+		padding: 10px 0;
+	}
+
+	.product-eco .btn_action:after {
+		content: '';
+		display: inline-block;
+		margin-left: 10px;
+		width: 8px;
+		height: 8px;
+		position: relative;
+		top: -1px;
+		border-top: 1px solid #878787;
+		border-right: 1px solid #878787;
+		-webkit-transform: rotate(45deg);
+		transform: rotate(45deg);
+	}
+
+	.product-eco .bx-wrapper {
+		width: 1000px;
+		margin: 0 auto;
+	}
+
+	.product-eco .bx-wrapper li {
+		width: 1000px !important;
+	}
+
+	.product-eco .bx-wrapper .bx-viewport {
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		border: none;
+		left: 0;
+		height: 635px !important;
+		background: none;
+	}
+
+	.product-eco .bx-wrapper .bx-prev {
+		left: 50%;
+		margin-left: -600px;
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/btn_prev.png) no-repeat 0 0;
+	}
+
+	.product-eco .bx-wrapper .bx-next {
+		right: 50%;
+		margin-right: -600px;
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/btn_next.png) no-repeat 0 0;
+	}
+
+	.product-eco .bx-wrapper .bx-controls-direction a {
+		position: absolute;
+		top: 215px;
+		outline: 0;
+		width: 68px;
+		height: 68px;
+		text-indent: -9999px;
+		z-index: 9999;
+	}
+
+	.product-eco .bx-wrapper .bx-pager,
+	.product-eco .bx-wrapper .bx-controls-auto {
+		position: absolute;
+		width: 100%;
+		height: 20px;
+		bottom: -50px;
+		text-align: center;
+		z-index: 99;
+		font-size: 0;
+		padding: 0;
+	}
+
+	.product-eco .bx-wrapper .bx-pager.bx-default-pager a {
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		margin: 0 0 0 15px;
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/pager_off.png) no-repeat 0 0;
+	}
+
+	.product-eco .bx-wrapper .bx-pager .bx-pager-item,
+	.product-eco .bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+		margin: 0 0 54px 0;
+	}
+
+	.product-eco .bx-wrapper .bx-pager .bx-pager-item:first-child,
+	.product-eco .bx-wrapper .bx-controls-auto .bx-controls-auto-item:first-child {
+		margin-left: 0;
+	}
+
+	.product-eco .bx-wrapper .bx-pager.bx-default-pager a.active {
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/pager_on.png) no-repeat 0 0;
+	}
+
+	.product-eco .floating {
+		position: fixed;
+		right: 0;
+		top: 200px;
+		z-index: 3000;
+		width: 153px;
+	}
+
+	.product-eco .floating a {
+		margin-bottom: 2px;
+	}
+
+	.product-eco .floating a:first-child {
+		margin-bottom: 10px;
+	}
+
+	@-webkit-keyframes bounce {
+
+		0%,
+		100% {
+			-webkit-transform: translateY(10px);
+			transform: translateY(10px);
+		}
+
+		50% {
+			-webkit-transform: translateY(-10px);
+			transform: translateY(-10px);
+		}
+	}
+
+	@keyframes bounce {
+
+		0%,
+		100% {
+			-webkit-transform: translateY(10px);
+			transform: translateY(10px);
+		}
+
+		50% {
+			-webkit-transform: translateY(-10px);
+			transform: translateY(-10px);
+		}
+	}
+
+	.product-eco .section-bar {
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/bg_bar_210215.jpg) repeat 0 0;
+	}
+
+	.product-eco .section-bar .hand {
+		position: absolute;
+		right: 100px;
+		top: auto;
+		bottom: 0;
+		width: 5%;
+		max-width: 30px;
+		display: inline-block;
+	}
+
+	.product-eco .section-bar .hand>img {
+		width: 100%;
+		animation: 0.5s slideUpY ease-in-out infinite alternate;
+	}
+
+	@-webkit-keyframes slideUpY {
+		0% {
+			-webkit-transform: translate(0, 5px);
+			transform: translate(0, 5px);
+		}
+
+		100% {
+			-webkit-transform: translate(-5px, 0);
+			transform: translate(-5px, 0);
+		}
+	}
+
+
+	@keyframes slideUpY {
+		0% {
+			-webkit-transform: translate(0, 5px);
+			transform: translate(0, 5px);
+		}
+
+		100% {
+			-webkit-transform: translate(-5px, 0);
+			transform: translate(-5px, 0);
+		}
+	}
+
+	.product-eco .section-title {
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/bg_title.jpg) no-repeat 50% 0;
+		background-size: cover;
+	}
+
+	.product-eco .section-title .text {
+		position: absolute;
+		right: 40px;
+		bottom: 0px;
+		width: 100%;
+		text-align: right;
+	}
+
+	.product-eco .section-title .bubble1 {
+		position: absolute;
+		left: 45px;
+		top: 162px;
+		animation: bounce 2s infinite both;
+		-webkit-animation: bounce 2s infinite both;
+	}
+
+	.product-eco .section-proof {
+		background-color: #fff;
+	}
+
+	.product-eco .section-proof .text {
+		position: absolute;
+		left: 0px;
+		top: 886px;
+		width: 100%;
+		text-align: center;
+	}
+
+	.product-eco .section-proof .bubble2 {
+		position: absolute;
+		left: 766px;
+		top: 353px;
+		animation: bounce 2s infinite both;
+		-webkit-animation: bounce 2s infinite both;
+	}
+
+	.product-eco .section-reason1 {
+		background-color: #eee;
+	}
+
+	.product-eco .section-lecture {
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/bg_lecture.jpg) repeat-x 0 0;
+	}
+
+	.product-eco .section-lecture .wrap {
+		width: 1156px;
+	}
+
+	.product-eco .section-reason2 {
+		background-color: #fff;
+	}
+
+	.product-eco .section-reason2 .text {
+		position: absolute;
+		left: 0;
+		bottom: 60px;
+		width: 100%;
+		text-align: center;
+	}
+
+	.product-eco .section-reason2 .tab_box {
+		text-align: center;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_list {
+		font-size: 0;
+		width: 1100px;
+		margin: 0 auto;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_list li {
+		font-size: 12px;
+		display: inline-block;
+		cursor: pointer;
+		color: #000;
+		width: 14.28571%;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_list li p {
+		font-family: "Noto Sans KR", Sans-Serif;
+		font-size: 18px;
+		color: #8f8f8f;
+		margin-top: 10px;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_list li p strong {
+		display: block;
+		font-size: 24px;
+		line-height: 130%;
+		color: #8f8f8f;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_list li.on p {
+		color: #202020;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_list li.on p strong {
+		color: #202020;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view {
+		display: none;
+		position: relative;
+		height: 681px;
+		margin-top: 70px;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view .video_box {
+		position: absolute;
+		left: 50%;
+		top: 0;
+		text-align: left;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view .video_box p {
+		font-family: "Noto Sans KR", Sans-Serif;
+		font-size: 30px;
+		color: #202020;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view .video_box p .highlight {
+		color: #007d64;
+		font-weight: 700;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view .video_box p strong {
+		display: block;
+		margin-top: 10px;
+		color: #202020;
+		font-size: 40px;
+		vertical-align: middle;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view .video_box p strong img {
+		vertical-align: middle;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view .video_box .video {
+		margin-top: 35px;
+		width: 554px;
+		height: 312px;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view .video_box .flowplayer {
+		width: 100%;
+		height: 100%;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view .video_box #player1 {
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/img_video1.jpg) no-repeat 0 0;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view .video_box #player2 {
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/img_video8.jpg) no-repeat 0 0;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view .video_box #player3 {
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/img_video3.jpg) no-repeat 0 0;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view .video_box #player4 {
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/img_video4.jpg) no-repeat 0 0;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view .video_box #player5 {
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/img_video5.jpg) no-repeat 0 0;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view .video_box #player6 {
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/img_video6.jpg) no-repeat 0 0;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view .video_box #player7 {
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/img_video7.jpg) no-repeat 0 0;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view.tab_view1 {
+		display: block;
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/tab1_view.jpg) no-repeat 50% 0;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view.tab_view2 {
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/tab8_view.jpg) no-repeat 50% 0;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view.tab_view3 {
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/tab3_view.jpg) no-repeat 50% 0;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view.tab_view4 {
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/tab4_view.jpg) no-repeat 50% 0;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view.tab_view5 {
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/tab5_view.jpg) no-repeat 50% 0;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view.tab_view6 {
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/tab6_view.jpg) no-repeat 50% 0;
+	}
+
+	.product-eco .section-reason2 .tab_box .tab_view.tab_view7 {
+		background: url(https://img.eduwill.net/Img2/black/product/200217/middle/pc/tab7_view.jpg) no-repeat 50% 0;
+	}
+
+	.product-eco .section-reason3 {
+		background-color: #eee;
+	}
+
+	.product-eco .section-reason3 .text_box {
+		position: absolute;
+		left: 202px;
+		top: 780px;
+		font-size: 0;
+		width: 700px;
+	}
+
+	.product-eco .section-reason3 .text_box:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+	.product-eco .section-reason3 .text_box .text {
+		width: 50%;
+		float: left;
+		text-align: left;
+	}
+
+	.product-eco .section-reason4 {
+		background-color: #fff;
+	}
+
+	.product-eco .section-text {
+		background-color: #1e1e1e;
+	}
+
+	.product-eco .dimmed {
+		display: none;
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+		height: 100%;
+		z-index: 10000;
+		background-color: rgba(0, 0, 0, 0.6);
+	}
+
+	.product-eco .popup {
+		display: none;
+		position: absolute;
+		left: 50%;
+		top: 0;
+		z-index: 40000;
+		transform: translateX(-50%);
+	}
+
+	/* popup */
+	.product-eco .dimmed { display:none;position: fixed; left: 0px; top: 0px; width: 100%; height: 100%;z-index:10000; background-color: rgba( 0, 0, 0, 0.6);}
+	.popup { display: none; position:absolute; left:50%; top:0; z-index:40000; transform: translateX(-50%); }
+	.popup-body { width: 100%; margin: 0 auto;  background: #fff; padding: 20px; }
+	.popup-body ul { text-align: left; font-size: 13px; }
+	.popup-body ul li { line-height: 1.5; }
+	.popup-close { width: 100%; margin: 0 auto; text-align: right; }
+	.popup-close a { color: #fff; font-size: 30px; margin-bottom: 10px; }
+</style>
+<div class="product-eco">
+	<!-- 소구점 -->
+	<div class="eco-3325"></div>
+	<!-- //소구점 -->
+	<div class="section-title">
+		<div class="wrap"><img alt=""
+				src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/title_210614.png" />
+			<p class="text">* 에듀윌 중졸 건정고시 유료수강생 강의만족도 설문조사 결과(2020.08)</p>
+
+			<div class="bubble1"><img alt=""
+					src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/bubble1_210614.png" /></div>
+		</div>
+	</div>
+
+	<div class="section-proof">
+		<div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/img_proof_210215.jpg" />
+			<p class="text">* 네이버 DataLab 검색어 트렌드 조회 결과(2019.1.1~2019.12.12)<br />
+				주제어 : 업체명+검정고시 / 검정고시 5개 업체 비교</p>
+		</div>
+	</div>
+
+	<div class="section-reason1">
+		<div class="wrap"><img alt=""
+				src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/img_reason1.jpg" /></div>
+	</div>
+
+	<div class="section-lecture">
+		<div class="wrap"><img alt=""
+				src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/img_lecture_210215.jpg" /></div>
+	</div>
+
+	<div class="section-reason2">
+		<div class="wrap"><img alt=""
+				src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/tit_reason2_210215.jpg" />
+			<p class="text">* 에듀윌 중졸 검정고시 강의만족도 설문조사(2020.08)</p>
+		</div>
+
+		<div class="tab_box">
+			<ul class="tab_list">
+				<li class="on"><img alt=""
+						src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/tab1_on.jpg" />
+					<p>국어 <strong>김지상 선생님</strong></p>
+				</li>
+				<li><img alt="" src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/tab8_off.jpg" />
+					<p>영어 <strong>유란 선생님</strong></p>
+				</li>
+				<li><img alt="" src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/tab3_off.jpg" />
+					<p>수학 <strong>최주연 선생님</strong></p>
+				</li>
+				<li><img alt="" src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/tab4_off.jpg" />
+					<p>사회 <strong>이재은 선생님</strong></p>
+				</li>
+				<li><img alt="" src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/tab5_off.jpg" />
+					<p>한국사 <strong>임연정 선생님</strong></p>
+				</li>
+				<li><img alt="" src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/tab6_off.jpg" />
+					<p>과학 <strong>김샛별 선생님</strong></p>
+				</li>
+				<li><img alt="" src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/tab7_off.jpg" />
+					<p>도덕 <strong>나하율 선생님</strong></p>
+				</li>
+			</ul>
+
+			<div class="tab_view tab_view1">
+				<div class="video_box">
+					<p>효자과목을 만들어주는 <span class="highlight">리얼리티 국어</span> <strong>김지상 선생님 <a
+								href="https://black.eduwill.net/BlackGosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=KO15&amp;Subj=KO&amp;classCode=139102100100"
+								target="_blank"><img alt=""
+									src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/btn_teacher.png" /></a></strong>
+					</p>
+
+					<div class="video">
+						<div class="flowplayer" id="player1"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tab_view tab_view2">
+				<div class="video_box">
+					<p>영어의 자신감을 만드는 <span class="highlight">이지 영어</span> <strong>유란 선생님 <a
+								href="https://black.eduwill.net/Blackgosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=EN29&Subj=EN&classCode=139102101101"
+								target="_blank"><img alt=""
+									src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/btn_teacher.png" /></a></strong>
+					</p>
+
+					<div class="video">
+						<div class="flowplayer" id="player2"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tab_view tab_view3">
+				<div class="video_box">
+					<p>수포자 구조 강의 <span class="highlight">끝장 수학</span> <strong>최주연 선생님 <a
+								href="https://black.eduwill.net/blackgosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=MA10&amp;Subj=MA&amp;classCode=139102100102"
+								target="_blank"><img alt=""
+									src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/btn_teacher.png" /></a></strong>
+					</p>
+
+					<div class="video">
+						<div class="flowplayer" id="player3"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tab_view tab_view4">
+				<div class="video_box">
+					<p>지루한 공부, 정신이 번쩍드는 <span class="highlight">호루라기 사회</span> <strong>이재은 선생님 <a
+								href="https://black.eduwill.net/blackgosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=SO11&amp;Subj=SO&amp;classCode=139102100103"
+								target="_blank"><img alt=""
+									src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/btn_teacher.png" /></a></strong>
+					</p>
+
+					<div class="video">
+						<div class="flowplayer" id="player4"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tab_view tab_view5">
+				<div class="video_box">
+					<p>웃으며 공부하다 합격! <span class="highlight">꿀잼 한국사</span> <strong>임연정 선생님 <a
+								href="https://black.eduwill.net/Blackgosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=SO12&amp;Subj=HI&amp;classCode=139102100107"
+								target="_blank"><img alt=""
+									src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/btn_teacher.png" /></a></strong>
+					</p>
+
+					<div class="video">
+						<div class="flowplayer" id="player5"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tab_view tab_view6">
+				<div class="video_box">
+					<p>어려운 과학을 쉽게! <span class="highlight">심플 과학</span> <strong>김샛별 선생님 <a
+								href="https://black.eduwill.net/Blackgosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=SC11&amp;Subj=SC&amp;classCode=139102100104"
+								target="_blank"><img alt=""
+									src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/btn_teacher.png" /></a></strong>
+					</p>
+
+					<div class="video">
+						<div class="flowplayer" id="player6"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tab_view tab_view7">
+				<div class="video_box">
+					<p>기초부터 꼼꼼하게 잡는 <span class="highlight">친절한 도덕</span> <strong>나하율 선생님 <a
+								href="https://black.eduwill.net/Blackgosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=ET06&amp;Subj=ET&amp;classCode=139102100106"
+								target="_blank"><img alt=""
+									src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/btn_teacher.png" /></a></strong>
+					</p>
+
+					<div class="video">
+						<div class="flowplayer" id="player7"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section-reason3">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/img_reason3_210614.jpg" usemap="#book-btn" />
+			<map name="book-btn">
+				<area href="javascript:;" class="btn-pop" coords="483,770,615,794" shape="rect">
+			</map>
+		</div>
+	</div>
+
+	<div class="section-reason4">
+		<div class="wrap"><img alt=""
+				src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/img_reason4.jpg" /></div>
+	</div>
+
+	<div class="section-text">
+		<div class="wrap"><img alt=""
+				src="https://img.eduwill.net/Img2/black/product/200217/middle/pc/text_apply_210614.jpg" /></div>
+	</div>
+
+	<div class="popup" id="popup_open">
+		<div class="wrap">
+			<div class="popup-close" id="popup-close01">
+				<a href="javascript:;"><span>x</span></a>
+			</div>
+
+			<div class="popup-body">
+				<ul>
+					<li>* YES24 수험서 자격증 편입/검정고시독학사 대입검정 15년 3~8월 / 16년 2~4, 6~12월/17년 1~11월/18년 1~12월/19년 1~12월/20년 1~12월/21년 1~4월</li>
+					<li>* 2018 에듀윌 중졸검정고시 과목완성 세트YES24 수험서 자격증 편입,검정고시,독학사 고입검정 베스트셀러 1위(2016년 10월 5주, 2017년 9월 2주, 10월 2~3주, 주별 베스트)</li>
+					<li>* 2019 에듀윌 중졸 검정고시 D-5 모의고사YES24 수험서 자격증 편입,검정고시,독학사 고입검정 베스트셀러 1위(2017년 11월 4주, 2018년 7월 5주, 2019년 8월 1주, 2020년 8월 2주 주별 베스트)</li>
+					<li>* 2021 에듀윌 중졸 검정고시 과학YES24 수험서 자격증 편입,검정고시,독학사 고입검정 베스트셀러 1위(2018년 8월 3주, 9월 4주, 10월1~2주, 11월 2주, 2020년 3월 4주, 8월 5주, 10월 2주, 12월 3주 주별 베스트)</li>
+					<li>* 2021 에듀윌 중졸 검정고시 국어YES24 수험서 자격증 편입,검정고시,독학사 고입검정 베스트셀러 1위(2019년 9~10월, 2020년 10월 월별 베스트)</li>
+					<li>* 2021 에듀윌 중졸 검정고시 국어YES24 수험서 자격증 편입,검정고시,독학사 고입검정 베스트셀러 1위(2018년 9월 1주, 10월 4주, 2019년 9월 2주, 2020년 9월 2주, 11월 3주, 12월 2주 주별 베스트)</li>
+					<li>* 2020 에듀윌 중졸 검정고시 사회YES24 수험서 자격증 편입,검정고시,독학사 고입검정 베스트셀러 1위(2018년 10월 5주, 2019년 9월 1, 5주, 2020년 9월 3~4주 주별 베스트)</li>
+					<li>* 2020 에듀윌 중졸 검정고시 수학YES24 수험서 자격증 편입,검정고시,독학사 고입검정 베스트셀러 1위(2017년 10월 4주, 2018년 9월 2~3주, 11월4주, 2019년 8월 4주, 11월 3주, 12월5주, 2020년 6월 4주, 10월 3주, 11월 1주별 베스트)</li>
+					<li>* 2020 에듀윌 중졸 검정고시 수학YES24 수험서 자격증 편입,검정고시,독학사 고입검정 베스트셀러 1위(2020년 11월 월별 베스트)</li>
+					<li>* 2020 에듀윌 중졸 검정고시 영어YES24 수험서 자격증 편입,검정고시,독학사 고입검정 베스트셀러 1위(2016년 8월 3주, 2017년 5월 1주, 10월 5주, 2019년 8월 3주, 10월 3주, 주별 베스트)</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="dimmed"></div>
+
+</div>
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/dev/js/greensock/TweenMax.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/brand/live/js/plugin/flowplayer-commercial-7.2.7/flowplayer.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/script.js"></script>
+<script type="text/javascript">
+	getEcoDynamicForClass(3325, 'eco-3325');
+	$(function () {
+		$(window).on('load', function () {
+			init();
+		});
+	});
+
+	var _player1;
+	var _player2;
+	var _player3;
+	var _player4;
+	var _player5;
+	var _player6;
+	var _player7;
+
+	function init() {
+		pageMove('.page_move');
+		addEvent();
+		tabControl(".section-reason2");
+
+		$(".flowplayer").on("click", function () {
+			var idx = $(this).attr("id");
+
+			switch (idx) {
+				case "player1":
+					_player1.play();
+					_player2.stop();
+					_player3.stop();
+					_player4.stop();
+					_player5.stop();
+					_player6.stop();
+					_player7.stop();
+					break;
+				case "player2":
+					_player1.stop();
+					_player2.play();
+					_player3.stop();
+					_player4.stop();
+					_player5.stop();
+					_player6.stop();
+					_player7.stop();
+					break;
+				case "player3":
+					_player1.stop();
+					_player2.stop();
+					_player3.play();
+					_player4.stop();
+					_player5.stop();
+					_player6.stop();
+					_player7.stop();
+					break;
+				case "player4":
+					_player1.stop();
+					_player2.stop();
+					_player3.stop();
+					_player4.play();
+					_player5.stop();
+					_player6.stop();
+					_player7.stop();
+					break;
+				case "player5":
+					_player1.stop();
+					_player2.stop();
+					_player3.stop();
+					_player4.stop();
+					_player5.play();
+					_player6.stop();
+					_player7.stop();
+					break;
+				case "player6":
+					_player1.stop();
+					_player2.stop();
+					_player3.stop();
+					_player4.stop();
+					_player5.stop();
+					_player6.play();
+					_player7.stop();
+					break;
+				case "player7":
+					_player1.stop();
+					_player2.stop();
+					_player3.stop();
+					_player4.stop();
+					_player5.stop();
+					_player6.stop();
+					_player7.play();
+					break;
+			}
+		});
+
+		_player2 = flowplayer("#player2", {     // 유란       
+			autoplay: false,
+			autoBuffering: true,
+			key: "$597838436033004",
+			clip: { sources: [{ type: "video/mp4", src: "https://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BHEN-CONTE-YR.mp4" }] }
+		});
+
+		_player3 = flowplayer("#player3", {       //최주연      
+			autoplay: false,
+			autoBuffering: true,
+			key: "$597838436033004",
+			clip: { sources: [{ type: "video/mp4", src: "http://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BMA-CONTE-CJY.mp4" }] }
+		});
+
+		_player4 = flowplayer("#player4", {       //이재은     
+			autoplay: false,
+			autoBuffering: true,
+			key: "$597838436033004",
+			clip: { sources: [{ type: "video/mp4", src: "http://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BSO-CONTE-LJE.mp4" }] }
+		});
+
+		_player5 = flowplayer("#player5", {        //임연정
+			autoplay: false,
+			autoBuffering: true,
+			key: "$597838436033004",
+			clip: { sources: [{ type: "video/mp4", src: "http://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BSO-CONTE-LYJ.mp4" }] }
+		});
+
+		_player6 = flowplayer("#player6", {      //김샛병      
+			autoplay: false,
+			autoBuffering: true,
+			key: "$597838436033004",
+			clip: { sources: [{ type: "video/mp4", src: "http://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BSC-CONTE-KSB.mp4" }] }
+		});
+
+		_player7 = flowplayer("#player7", {       //나하율     
+			autoplay: false,
+			autoBuffering: true,
+			key: "$597838436033004",
+			clip: { sources: [{ type: "video/mp4", src: "http://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BET-CONTE-NHY.mp4" }] }
+		});
+
+		_player1 = flowplayer("#player1", {        //김지상    
+			autoplay: false,
+			autoBuffering: true,
+			key: "$597838436033004",
+			clip: { sources: [{ type: "video/mp4", src: "http://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BCKO-CONTE-KJS.mp4" }] }
+		});
+	}
+
+	function tabControl($seletor) {
+		$($seletor).find(".tab_list").children("li").on("click", function () {
+			_player1.stop();
+			_player2.stop();
+			_player3.stop();
+			_player4.stop();
+			_player5.stop();
+			_player6.stop();
+			_player7.stop();
+
+			var idx = $(this).index();
+			var tabList = $($seletor).find(".tab_list").children("li");
+
+			tabList.each(function () {
+				$(this).children("img").attr('src', $(this).children('img').attr('src').replace('_on', '_off'));
+			});
+
+			tabList.eq(idx).children('img').attr('src', tabList.eq(idx).children('img').attr('src').replace('_off', '_on'));
+
+			tabList.removeClass("on");
+			tabList.eq(idx).addClass("on");
+
+			$($seletor).find(".tab_view").hide();
+			$($seletor).find(".tab_view" + (idx + 1)).show();
+		});
+	}
+
+	function addEvent() {
+		//popupClose
+		$('.btn_close').on("click", function () {
+			popupClose('.dimmed', 'popup_open');
+		});
+
+		$('.popup-close').on("click", function () {
+			popupClose('.dimmed', 'popup_open');
+		});
+
+		// popupOpen
+		$('.btn-pop').on('click', function () {
+			popupOpen('.dimmed', 'popup_open');
+		});
+	}
+</script>
+<!-- // eco 영역 -->
+
+<div id="productApply"></div>
+</body>
+</html>

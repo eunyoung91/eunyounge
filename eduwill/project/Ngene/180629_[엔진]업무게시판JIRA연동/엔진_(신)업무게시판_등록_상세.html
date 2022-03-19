@@ -1,0 +1,1437 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<!-- #head -->
+<!-- common.properties 객체화 -->
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eduwill Ngene</title>
+
+<script>document.domain = "eduwill.net";</script>
+
+<!-- Bootstrap -->
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap/css/bootstrap.css" rel="stylesheet">
+<!--
+<link href="/bootstrap/bootstrap.css" rel="stylesheet">
+-->
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet">
+
+<!-- Datatables -->
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/datatables/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/css/buttons.bootstrap.min.css" rel="stylesheet">
+
+<!-- Fullcalendar -->
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/fullcalendar/fullcalendar.min.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print">
+
+<!-- styles -->  
+<link href="https://img.eduwill.net/resources/ngene/live/css/styles.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/css/common.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/css/custom.css" rel="stylesheet">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/ngene/live/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/ngene/live/js/jquery-ui.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/ngene/live/js/jquery.form.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap/js/bootstrap.min.js"></script>
+<!-- minor bug fixed 
+<script src="/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+-->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.ko.js"></script>
+
+<!-- Datatables -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/js/jquery.dataTables.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/js/dataTables.bootstrap.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/dataTables.buttons.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/buttons.bootstrap.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/buttons.flash.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/buttons.html5.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/buttons.print.min.js"></script>
+
+<!-- Fullcalendar -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/moment/min/moment.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/fullcalendar/fullcalendar.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/fullcalendar/lang-all.js"></script>
+
+<!-- CKEditor 
+	2017.10.26 이경현 수정
+	ckeditor 추가 기능 요청으로 인해, 특정페이지에 상위버전의 editor를 로드함에 따라 부득이하게 예외처리함(사용메뉴 : 사이트 > 총평페이지 관리)
+	** 조회 controller 에서 model.addAttribute("ckeditor", "N"); 로 사용  
+-->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/ckeditor/ckeditor.js"></script>
+	<script src="https://img.eduwill.net/resources/ngene/live/vendors/ckeditor/adapters/jquery.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/js/custom.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/js/common.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/js/ajaxUtil.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/js/datetimepicker.js"></script>
+
+<!-- flot chart -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.resize.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.time.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.pie.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.tooltip.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.axislabels.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.stack.js"></script>
+
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jshashtable-2.1.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.symbol.js"></script>
+
+<!-- Vod Viewer : AquaPlayer -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/ngene/live/js/commonViewer.js"></script>
+
+<!-- javascript templates -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/javascriptTemplates/tmpl.min.js"></script>
+
+<!-- em -->
+<script src="/js/em.js"></script>
+<!--// #head -->	
+</head>
+<body>
+	<!-- #wrapper -->
+	<div id="wrapper">
+		<!-- #header -->
+		<div id="header">
+			<style>
+.form-control-feedback {
+  position: absolute;
+  top: 8px;
+  right: 5px;
+  z-index: 2; 
+  display: block;
+  text-align: center;
+  pointer-events: none;
+}
+#ulAutoMenu li.active {
+	background : #ccc;
+	font-weight: bold;
+}
+#ulAutoMenu li:hover {
+	background : #ccc;
+	cursor : pointer;
+	font-weight: bold;					
+}
+</style>
+<script type="text/javascript">
+var _headerTarget;
+
+$(document).ready(function() {
+	//autocomplete용 keyup event
+	$("#divMenuSearch").on("keyup", "#searchMenu", function(e) {
+		
+		var target = $(this);
+		_headerTarget = target;
+		
+		if (e.keyCode != 38 && e.keyCode != 40 && e.keyCode != 13) {	//상,하,엔터키 아닌경우만
+			if($(this).val().length >= 2 && fnc_regExKorean($(this).val())) {
+				$.ajax({
+					type:"post"
+					,url:"/common/ajaxMenuListForAutocomplete.action"
+					,data: { staffId : 'eypark', menuName : $(this).val() }
+					,dataType:"json"
+					,success: function(data) {
+						$("#ulAutoMenu li").remove();
+						$(data).each(function(i) {
+							var newItem = '<li>' + this.level1MenuName + ' > <a href='+ this.MENU_PATH + '>' + this.MENU_NAME + '</a></li>';
+							$("#ulAutoMenu").append(newItem);
+						});
+						//$("#divAutoMenu").css("width", $("#ulAutoMenu").outerWidth()+40 +'px');
+					}
+					,error: function(responseJSON, status, err) {
+						//alert(err);
+					}
+					,complete: function() {
+						//autocomplete 보이기
+						fnc_autocompleteShow();	
+					}
+				});
+			}
+		}
+	});
+	
+	//autocomplete용 keydown event
+	$("#divMenuSearch").on("keydown", "#searchMenu", function(e) {
+		var target = $(this);
+		if (e.keyCode == 38 || e.keyCode == 40 || e.keyCode == 13) {
+			if($("#divAutoMenu").is(":visible")) {
+				var item = $("#ulAutoMenu .active");
+	    		var index = $("#ulAutoMenu li").index(item);
+				if(e.keyCode == 13) {
+					if(index > -1) {
+						//fnc_autoSelectEmployee(target, item);
+						var moveUrl = $(item).children('a').attr('href');
+						location.href = moveUrl;
+					}
+				} else {
+					var move = e.keyCode == 38 ? -1 : 1;
+		    		if(index > -1) {
+		    			$(item).removeClass("active");
+		    			$("#ulAutoMenu li").eq(index + move).addClass("active");
+		    			var activeItem = $("#ulAutoMenu .active");
+		    			if(activeItem.length > 0) {
+		    				$("#divAutoMenu").scrollTop($(activeItem).position().top + $("#divAutoMenu").scrollTop() - ($(activeItem).height() * 3));
+		    			}
+		    		} else {
+		    			$("#ulAutoMenu li").eq(0).addClass("active");
+		    		}
+				}
+	    	} 
+	    }
+	});
+	
+	//autocomplete용 blur event
+	$("#divMenuSearch").on("blur", "#searchMenu", function(e) {
+		$(this).val("");
+		//클릭 이벤트 선행을 위해 간격을 두고 숨김 처리
+		setTimeout(function() {
+			fnc_autocompleteHide();
+		}, 500);
+	});
+	
+});
+
+//한글완성
+function fnc_regExKorean(value) {
+	var pattern = /^[A-Za-z0-9가-힣\s]+$/;
+	if(!pattern.test(value)) {
+		return false;
+	}
+	return true;
+}
+
+//autocomplete 보이기
+function fnc_autocompleteShow() {
+	if($(_headerTarget).parent().find("#divAutoMenu").length == 0) {
+		var autoHtml = "";
+		autoHtml += '<div id="divAutoMenu" style="right:0; border:1px solid #ccc; background:#ffffff; position: absolute; overflow-y:scroll; height:250px; min-width:266px; z-index:1000;">';
+		autoHtml += '	<ul style="list-style:none; padding:10px;" id="ulAutoMenu"></ul>';
+		autoHtml += '</div>';
+		$(_headerTarget).parent().append(autoHtml);	
+	}
+}
+
+//autocomplete 숨기기
+function fnc_autocompleteHide() {
+	$("#divAutoMenu").remove();
+}
+</script>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed"
+				data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+				aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<!--    
+			<a class="navbar-brand" href="/main/main.action">Eduwill</a>
+			-->
+			<a class="navbar-brand" href="/main/main.action">
+				<!-- img src="/images/logo_w.png" alt="에듀윌은 합격이다"-->
+			</a>						
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+				<li style="margin:0px !important;">
+						<a href="/content/index.action">
+							컨텐츠</a>
+					</li>					
+				<li style="margin:0px !important;">
+						<a href="/services/index.action">
+							서비스</a>
+					</li>					
+				<li class='active' style="margin:0px !important;">
+						<a href="/site/index.action">
+							사이트</a>
+					</li>					
+				</ul>
+			<ul class="nav navbar-nav navbar-right">				
+				<li style="margin-top:18px;">
+					<div class="form-group" id="divMenuSearch">
+						<input type="text" class="form-control" placeholder="메뉴명을 입력하세요" id="searchMenu" style="padding:3px 23px 3px 8px;">
+						<span class="glyphicon glyphicon-search form-control-feedback"></span>
+					</div>
+				</li>
+				<li><a href="/login/logout.action"><span class="glyphicon glyphicon-log-out"></span> 박은영&nbsp;</a></li>			
+			</ul>
+		</div>
+	</div>
+</nav></div>
+		<!--// #header -->		
+		<div class="clearfix visible-xs-block"></div>
+		<!-- #container -->
+		<div id="container">
+			<div class="page-content">
+				<div class="row">
+					<div class="col-sm-2">
+						<!-- #lnb -->
+						<div id="lnb">
+							<div class="list-group">
+	<span class="list-group-item"><strong>게시판</strong></span>
+		<a href="/site/jobBbsManage.action" class="list-group-item">업무게시판</a>			
+		<a href="/site/jiraClientManage.action" class="list-group-item active">(신) 업무요청 게시판</a>			
+		<a href="/site/bbsManage.action" class="list-group-item">게시판 관리</a>			
+		<a href="/site/bbsContManage.action" class="list-group-item">게시물 관리</a>			
+		<a href="/site/pdsManage.action" class="list-group-item">자료게시판</a>			
+		<a href="/site/faqManage.action" class="list-group-item">FAQ 관리</a>			
+		<a href="/site/faqSearchHistoryManage.action" class="list-group-item">FAQ 검색 키워드</a>			
+		<a href="/site/giftManage.action" class="list-group-item">감사게시판</a>			
+		<a href="/site/reviewAuto.action" class="list-group-item">시험총평페이지관리</a>			
+		<span class="list-group-item"><strong>배너관리</strong></span>
+		<a href="/site/centerBannerManage.action" class="list-group-item">메인 중간 배너관리</a>			
+		<a href="/site/indexBannerManage.action" class="list-group-item">교수,교재 배너관리</a>			
+		<a href="/site/joinBannerManage.action" class="list-group-item">회원가입배너관리</a>			
+		<a href="/site/cardDivManage.action" class="list-group-item">무이자 할부카드 배너 관리</a>			
+		<a href="/site/toastPopupManage.action" class="list-group-item">토스트팝업 관리</a>			
+		<a href="/site/globalMainProgressManage.action" class="list-group-item">글로벌 메인 과정 관리</a>			
+		<a href="/site/globalMainClickLogManage.action" class="list-group-item">글로벌 메인 클릭 로그</a>			
+		<a href="/site/progressMainClickLogManage.action" class="list-group-item">과정 메인 클릭 로그</a>			
+		<span class="list-group-item"><strong>사이트관리</strong></span>
+		<a href="/site/popupManage.action" class="list-group-item">팝업관리</a>			
+		<a href="/site/leftMenuManage.action" class="list-group-item">왼쪽 메뉴</a>			
+		<a href="/site/sugangIndex.action" class="list-group-item">수강신청인덱스관리</a>			
+		<a href="/site/siteMapManage.action" class="list-group-item">사이트맵관리</a>			
+		<a href="/site/tccManage.action" class="list-group-item">합격채널 TCC 관리</a>			
+		<a href="/site/eduwillVideoManage.action" class="list-group-item">에듀윌 동영상 관리</a>			
+		<span class="list-group-item"><strong>기타관리</strong></span>
+		<span class="list-group-item"><strong>ECO 관리</strong></span>
+		<a href="/site/ecoManage.action" class="list-group-item">콘텐츠 등록/관리</a>			
+		</div></div>
+						<!--// #lnb -->
+					</div>
+					<div class="col-sm-10">
+						<!-- #content -->
+						<div id="content" class="requestWriteView">
+							<style>
+.page-content .row > .col-sm-2{background:#FFF !important;}
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td{
+	font-size:13px important;
+}
+div.attachment{
+	display:inline-block;
+	position:relative;
+	width:20%;
+	min-height:150px;
+	padding:15px;
+	margin:15px;
+	border:2px dashed grey;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+}
+
+div.attachment #btnRemoveAttachment{
+	display:none;
+	position:absolute;
+	bottom:2px;
+	right:2px;
+}
+
+div.attachment img.attachment_thumbnail{
+	margin-bottom:5px;
+	border-radius:12px;
+	max-height:150px;
+	max-width:200px;
+}
+
+#myDropzone{
+	border:3px dashed #FFF;
+}
+
+#myDropzone.dragon{
+	border:3px dashed lightblue;
+}
+
+
+/* 추가 되는 스타일 영역 */
+.requestWriteView .headtitle {width:100%; height:26px; line-height: 26px; margin:8px 0;}
+.requestWriteView .headtitle h5{display:inline-block;}
+
+.requestWriteView .btnSectionTop{ width:100%; text-align:right; margin-bottom:10px;}
+.requestWriteView .form-control{ font-size:13px;}
+
+.table-style > thead > tr > th, .table-style > tbody > tr > th, .table-style > tfoot > tr > th { font-size:13px !important; text-align:left; padding: 5px 0 5px 12px;}
+.table-style > thead > tr > td, .table-style > tbody > tr > td, .table-style > tfoot > tr > td { font-size:13px !important; text-align:left; padding: 5px 0 5px 12px;}
+.table-style.style1 th{ background-color:#EDF2F6 !important;}
+
+/*과정명*/
+.requestWritem{ padding-left:0; padding-right:0;}
+.requestWritem .itemDiv { margin: 10px; border:none !important; padding: 5px; }
+.requestWritem .itemDiv label{ font-size: 13px;}
+.requestWritem .itemDiv .checkbox-inline + .checkbox-inline { margin-top: 0; margin-left: 0; }
+/*수정버튼*/
+a.gly-edit{ width:24px; height:24px; line-height:24px; text-align: center; background-color:#E1F1FF; display: inline-block; border-radius:4px;border:1px solid #DBE7F1;
+box-sizing:border-box;}
+a.gly-edit:hover{ background-color:#DBE7F1;}
+
+.modal-subtitle { font-size:14px;font-weight: 500;}
+.glyphicon-pencil{ color:#004FBE; font-weight:bold;}
+.edit-pencil{ position: absolute;top:6px;left:107px;}
+.attach-des{ display: inline-block;text-align: left;color:#767676;font-size: 12px;}
+.required-txt{color:red;font-size:12px;}
+.required{ color:red; font-size:15px;}
+
+.flR{ float:right;}
+/* 추가 되는 스타일 영역 */
+</style>
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+<!-- DropZone.js -->
+<script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
+<link rel="stylesheet" href="https://rawgit.com/enyo/dropzone/master/dist/dropzone.css">
+
+<script type="text/javascript">
+	
+	$(document).ready(function(){
+		
+		$('[data-toggle="tooltip"]').tooltip({container: 'body'});
+		
+		// 첨부파일 삭제 버튼 CSS 효과
+		$(".attachment").mouseover(function(){
+			$(this).find("#btnRemoveAttachment").show();
+		});
+		$(".attachment").mouseout(function(){
+			$(this).find("#btnRemoveAttachment").hide();
+		});		
+		
+		// 담당자명 자동 검색
+		$("#assignee").change(function(){
+			ajaxLoadLdapADList($(this).val());
+		});	
+		
+		// 팀장 선택 버튼 이벤트
+		$(".btnLeaderSelect").click(function(){
+			text = $(this).text();
+			$("#assignee").val(text + " [팀장]");
+			ajaxLoadLdapADList(text + " [팀장]");
+		});
+		
+		// 진행현황 리스트 변경
+		$("#changeStatusList").change(function(){
+			status = $(this).val();
+			key = "TESTJIRA-32";
+			
+			// AJAX
+			$(".loadingArea").show();
+			$.ajax({
+				url : "/site/jiraClientManage/ajaxUpdateStatus.action"
+				,type : "post"
+				,data : {
+					key : key,
+					status : status
+				}
+				,dataType : "json"
+				,success : function(data){
+					$(".loadingArea").hide();
+					console.log(data);
+					
+					if(data.result == "OK"){
+						alert("성공적으로 진행현황을 변경했습니다");
+							
+						$("#changeStatusList").hide();
+						$("#originStatus").show();
+						$("#originStatus").text(data.status);
+					}
+					else{
+						alert("오류가 발생했습니다");
+					}
+				}
+				,error : function(data, status, error){
+					console.log(data);
+					console.log(status);
+					console.log(error);
+				}
+			});
+		});
+		
+		// 등록 버튼 이벤트
+		$("#btnInsertSubmit").click(function(){
+			$("#insertForm").submit();
+		});
+		
+		// 목록(뒤로 가기) 버튼 이벤트
+		$("#btnHistoryBack").click(function(){
+			//history.back(-1);
+			$("#returnForm").submit();
+		});
+		
+		// 첨부파일 마우스오버
+		$("#myDropzone").on("dragenter", function(){
+			$("#myDropzone").addClass("dragon");
+		});
+		$("#myDropzone").on("dragleave", function(){
+			$("#myDropzone").removeClass("dragon");
+		});
+		$("#myDropzone").mouseenter(function(){
+			$("#myDropzone").addClass("dragon");
+		});
+		$("#myDropzone").mouseleave(function(){
+			$("#myDropzone").removeClass("dragon");
+		});
+		
+	});
+	
+	function is_ie() {
+	  if(navigator.userAgent.toLowerCase().indexOf("chrome") != -1) return false;
+	  if(navigator.userAgent.toLowerCase().indexOf("msie") != -1) return true;
+	  if(navigator.userAgent.toLowerCase().indexOf("windows nt") != -1) return true;
+	  return false;
+	}
+	
+	function copyIssueLink(){
+		uri = "https://ngene.eduwill.net/site/jiraClientManage/searchJiraIssueDetail.action?key=TESTJIRA-32";
+		
+		if(is_ie()){ // 클립보드 자동 복사는 IE 에서만 지원
+			window.clipboardData.setData("Text", uri);
+			alert("해당 게시글의 URL이 복사되었습니다");
+		}
+		else{ // 이외의 브라우저에서는 사용자 스스로 복사할 수 있게 유도
+			window.prompt("아래의 URL을 복사하세요: Ctrl+C, Enter", uri);
+		}
+	}
+	
+	function addComment(){
+		
+		// 파라미터 획득
+		key = "TESTJIRA-32";
+		comment = $("#addCommentForm").find("textarea[name=comment]").val();
+		
+		// 유효성 검사
+		if($.trim(comment) == ""){
+			alert("댓글을 작성해 주세요");
+			$("#addCommentForm").find("textarea[name=comment]").focus();
+			return false;
+		}
+		
+		// AJAX
+		$(".loadingArea").show();
+		$.ajax({
+			url : "/site/jiraClientManage/ajaxAddComment.action"
+			,type : "post"
+			,data : {
+				key : key,
+				comment : comment
+			}
+			,dataType : "json"
+			,success : function(data){
+				$(".loadingArea").hide();
+				console.log(data);
+				
+				if(data.result == "OK"){
+					alert("성공적으로 댓글을 등록했습니다");
+					window.location.reload();
+				}
+				else{
+					alert("오류가 발생했습니다");
+				}
+			}
+			,error : function(data, status, error){
+				console.log(data);
+				console.log(status);
+				console.log(error);
+			}
+		});
+	}
+	
+	function removeComment(key, id){
+		
+		if(confirm("해당 댓글을 삭제하시겠습니까?\n\n삭제된 댓글은 복구할 수 없습니다")){
+			$(".loadingArea").show();
+			$.ajax({
+				url : "/site/jiraClientManage/ajaxRemoveComment.action"
+				,type : "post"
+				,data : {
+					key : key,
+					id : id
+				}
+				,dataType : "json"
+				,success : function(data){
+					$(".loadingArea").hide();
+					console.log(data);
+					console.dir(data);
+					
+					if(data.result == "OK"){
+						alert("성공적으로 댓글을 삭제했습니다");
+						window.location.reload();
+					}
+					else{
+						alert("오류가 발생했습니다");
+					}
+				}
+				,error : function(data, status, error){
+					console.log(data);
+					console.log(status);
+					console.log(error);
+				}
+			});
+		}
+	}
+	
+	function openLayerUpdateComment(id){
+		$("#originComment_" + id).hide();
+		$("#editComment_" + id).show();
+		$("#btnUpdateComment_" + id).show();
+	}
+	
+	function updateComment(id){
+		
+		key = "TESTJIRA-32";
+		comment = $("#editComment_" + id).find("textarea[name=comment]").val();
+		
+		if($.trim(comment) == ""){
+			alert("수정할 댓글을 작성해 주세요");
+			$("#editComment_" + id).find("textarea[name=comment]").focus();
+			return false;
+		}
+		
+		$(".loadingArea").show();
+		$.ajax({
+			url : "/site/jiraClientManage/ajaxUpdateComment.action"
+			,type : "post"
+			,data : {
+				key : key,
+				id : id,
+				comment : comment
+			}
+			,dataType : "json"
+			,success : function(data){
+				$(".loadingArea").hide();
+				console.log(data);
+				
+				if(data.result == "OK"){
+					alert("성공적으로 댓글을 수정했습니다");
+					window.location.reload();
+				}
+				else{
+					alert("오류가 발생했습니다");
+				}
+			}
+			,error : function(data, status, error){
+				console.log(data);
+				console.log(status);
+				console.log(error);
+			}
+		});
+	}
+	
+	function resetWorklogForm(){
+		$('#insertWorklogForm')[0].reset();
+	}
+	
+	function addWorklog(){
+		
+		if($("#worktime").val() == ""){
+			alert("작업시간을 작성해 주세요");
+			$("#worktime").focus();
+			return false;
+		}
+		else if($("#workStartDate").val() == ""){
+			alert("작업 시작일을 작성해 주세요");
+			$("#workStartDate").focus();
+			return false;
+		}
+		else if($("#workStartTime").val() == ""){
+			alert("작업 시작시간을 작성해 주세요");
+			$("#workStartTime").focus();
+			return false;
+		}
+		
+		params = $("form[id=insertWorklogForm]").serialize();
+		
+		$(".loadingArea").show();
+		if($("#insertWorklogForm").find("input[name=id]").val() == ""){
+			// 등록
+			$.ajax({
+				url : "/site/jiraClientManage/ajaxAddWorklog.action"
+				,type : "post"
+				,data : params
+				,dataType : "json"
+				,success : function(data){
+					$(".loadingArea").hide();
+					console.log(data);
+					
+					if(data.result == "OK"){
+						alert("성공적으로 작업시간을 등록했습니다");
+						window.location.reload();
+					}
+					else{
+						alert("오류가 발생했습니다");
+					}
+				}
+				,error : function(data, status, error){
+					console.log(data);
+					console.log(status);
+					console.log(error);
+				}
+			});
+		}
+		else{
+			// 수정
+			$.ajax({
+				url : "/site/jiraClientManage/ajaxUpdateWorklog.action"
+				,type : "post"
+				,data : params
+				,dataType : "json"
+				,success : function(data){
+					$(".loadingArea").hide();
+					console.log(data);
+					
+					if(data.result == "OK"){
+						alert("성공적으로 작업시간을 수정했습니다");
+						window.location.reload();
+					}
+					else{
+						alert("오류가 발생했습니다");
+					}
+				}
+				,error : function(data, status, error){
+					console.log(data);
+					console.log(status);
+					console.log(error);
+				}
+			});
+		}
+		
+		
+		
+		
+		
+		
+	}
+	
+	function replaceWorklogFormForUpdate(id, worktime, startdate, starttime){
+		$("#insertWorklogForm").find("input[name=id]").val(id);
+		$("#insertWorklogForm").find("input[name=worktime]").val(worktime);
+		$("#insertWorklogForm").find("input[name=startdate]").val(startdate);
+		$("#insertWorklogForm").find("input[name=starttime]").val(starttime);
+	}
+	
+	function removeWorklog(id){
+		
+		if(confirm("해당 작업시간을 삭제하시겠습니까?\n\n삭제된 작업시간은 복구할 수 없습니다")){
+			key = "TESTJIRA-32";
+			
+			$(".loadingArea").show();
+			$.ajax({
+				url : "/site/jiraClientManage/ajaxRemoveWorklog.action"
+				,type : "post"
+				,data : {
+					key : key,
+					id : id
+				}
+				,dataType : "json"
+				,success : function(data){
+					$(".loadingArea").hide();
+					console.log(data);
+					console.dir(data);
+					
+					if(data.result == "OK"){
+						alert("성공적으로 작업시간을 삭제했습니다");
+						window.location.reload();
+					}
+					else{
+						alert("오류가 발생했습니다");
+					}
+				}
+				,error : function(data, status, error){
+					console.log(data);
+					console.log(status);
+					console.log(error);
+				}
+			});
+		}		
+	}
+	
+	function updateIssue(){
+		$("#updateIssueForm").submit();
+	}
+	
+	function deleteIssue(){
+		if(confirm("게시글을 삭제할 경우 다시 복구할 수 없습니다.\n\n삭제하시겠습니까?")){
+			$("#deleteIssueForm").submit();
+		}
+	}
+	
+	function removeAttachment(id){
+		
+		if(confirm("해당 첨부파일을 삭제하시겠습니까?\n\n삭제된 첨부파일은 복구할 수 없습니다")){
+			
+			$(".loadingArea").show();
+			$.ajax({
+				url : "/site/jiraClientManage/ajaxRemoveAttachment.action"
+				,type : "post"
+				,data : {
+					id : id
+				}
+				,dataType : "json"
+				,success : function(data){
+					$(".loadingArea").hide();
+					console.log(data);
+					console.dir(data);
+					
+					if(data.result == "OK"){
+						alert("성공적으로 첨부파일을 삭제했습니다");
+						$("#attachment_" + id).remove();
+					}
+					else{
+						alert("오류가 발생했습니다");
+					}
+				}
+				,error : function(data, status, error){
+					console.log(data);
+					console.log(status);
+					console.log(error);
+				}
+			});
+		}
+		return false;
+	}
+	
+	
+	function ajaxLoadLdapADList(inputVal){
+		$(".loadingArea").show();
+		$.ajax({
+			url : "/site/jiraClientManage/ajaxLoadADUserName.action"
+			,type : "post"
+			,data : {
+				key : inputVal
+			}
+			,dataType : "json"
+			,success : function(data){
+				
+				$(".loadingArea").hide();
+				
+				console.log(data);
+				
+				var str = "";
+				$.each(data, function(key, value){
+					str += "<option value=\"" + value.username + "\">";
+				});
+				
+				$("#namelist").html(str);
+				
+				cnt = Object.keys(data).length;
+				
+				if(cnt == 1){
+					$("#compAssignee").html("<span class=\"glyphicon glyphicon-ok\"></span>");
+					$("#assignee").val(data[0].username);
+					$("#assigneeLdapId").val(data[0].userid);
+					$("#assignee").attr("style","color:green");
+				}
+				else{
+					$("#compAssignee").html("");
+					$("#assignee").attr("style","color:black");
+				}
+			}
+			,error : function(xhr, status, error){
+				alert(error);
+			}
+		});		
+	}
+	
+	function openLayerForUpdateAssignee(key){
+		$("#updateAssigneeKey").val(key);
+	}
+	
+	function updateAssignee(){
+		
+		assignee = $("#assigneeLdapId").val();
+		key = $("#updateAssigneeKey").val();
+		
+		if(assignee == ""){
+			alert("변경할 담당자를 지정해 주세요");
+			$("#assignee").focus();
+			return false;
+		}
+		else if(key == ""){
+			alert("오류가 발생했습니다");
+			return false;
+		}
+		
+		$(".loadingArea").show();
+		$.ajax({
+			url : "/site/jiraClientManage/ajaxUpdateAssignee.action"
+			,type : "post"
+			,data : {
+				key : key,
+				assignee : assignee
+			}
+			,dataType : "json"
+			,success : function(data){
+				$(".loadingArea").hide();
+				console.log(data);
+				
+				if(data.result == "OK"){
+					alert("성공적으로 담당자를 수정했습니다");
+					
+					$("#modalUpdateAssignee").modal("hide");
+					$("#originAssignee").text(data.assignee + " / " + data.assignTeam);
+				}
+				else{
+					alert("오류가 발생했습니다");
+				}
+			}
+			,error : function(data, status, error){
+				console.log(data);
+				console.log(status);
+				console.log(error);
+			}
+		});
+	}
+	
+	function watchIssue(){
+		
+		key = "TESTJIRA-32";
+		
+		if(key == ""){
+			alert("오류가 발생했습니다");
+			return false;
+		}
+		
+		if(confirm("해당 이슈를 지켜보시겠습니까?")){
+			$(".loadingArea").show();
+			$.ajax({
+				url : "/site/jiraClientManage/ajaxWatchIssue.action"
+				,type : "post"
+				,data : {
+					key : key
+				}
+				,dataType : "json"
+				,success : function(data){
+					$(".loadingArea").hide();
+					console.log(data);
+					
+					if(data.result == "OK"){
+						alert("해당 이슈를 지켜보기 시작했습니다");
+						window.location.reload();
+					}
+					else{
+						alert("오류가 발생했습니다");
+					}
+				}
+				,error : function(data, status, error){
+					console.log(data);
+					console.log(status);
+					console.log(error);
+				}
+			});
+		}		
+	}
+	
+	function unwatchIssue(){
+		
+		key = "TESTJIRA-32";
+		
+		if(key == ""){
+			alert("오류가 발생했습니다");
+			return false;
+		}
+		
+		if(confirm("해당 이슈를 지켜보기 중단하시겠습니까?")){
+			$(".loadingArea").show();
+			$.ajax({
+				url : "/site/jiraClientManage/ajaxUnwatchIssue.action"
+				,type : "post"
+				,data : {
+					key : key
+				}
+				,dataType : "json"
+				,success : function(data){
+					$(".loadingArea").hide();
+					console.log(data);
+					
+					if(data.result == "OK"){
+						alert("해당 이슈를 지켜보기 중단했습니다");
+						window.location.reload();
+					}
+					else{
+						alert("오류가 발생했습니다");
+					}
+				}
+				,error : function(data, status, error){
+					console.log(data);
+					console.log(status);
+					console.log(error);
+				}
+			});
+		}	
+	}
+</script>
+<h3 class="page-header">업무요청 게시판</h3>
+
+<!-- The Modal -->
+<div class="modal fade" id="modalUpdateAssignee">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 id="modal-title" class="modal-title">담당자 변경</h4>
+			</div>
+			
+			<!-- Modal body -->
+			<div id="modal-body" class="modal-body">
+				<div class="row">
+					<div class="col-sm-6">
+						<input class="form-control" type="text" list="namelist" id="assignee" name="assignee" autocomplete="off" value="" placeholder="담당자명"/>
+						<datalist id="namelist">
+						</datalist><br/>
+					</div>
+					<div class="col-sm-4"><span id="compAssignee" style="color:green; font-size:18px;"></span></div>
+				</div>
+				<div class="row" style="margin-bottom:20px !important;">
+					<div class="col-sm-12">담당자를 모를 경우, 하단의 팀명을 클릭하세요. 해당 팀장님으로 자동 연결됩니다.</div>
+				</div>
+				<div class="row" style="margin-bottom:10px !important;">
+					<div class="col-sm-3"><button class="btn btn-lg btn-default btnLeaderSelect" type="button">개발팀</button></div>
+					<div class="col-sm-3"><button class="btn btn-lg btn-default btnLeaderSelect" type="button">디자인팀</button></div>
+					<div class="col-sm-3"><button class="btn btn-lg btn-default btnLeaderSelect" type="button">서비스기획팀</button></div>
+				</div>
+				<div class="row">					
+					<div class="col-sm-3"><button class="btn btn-lg btn-default btnLeaderSelect" type="button">인프라개발팀</button></div>
+					<div class="col-sm-3"><button class="btn btn-lg btn-default btnLeaderSelect" type="button">시스템팀</button></div>
+					<div class="col-sm-3"><button class="btn btn-lg btn-default btnLeaderSelect" type="button">모바일마케팅팀</button></div>
+				</div>
+				
+				<input type="hidden" id="assigneeLdapId" name="assigneeLdapId" value="" />
+				<input type="hidden" id="updateAssigneeKey" name="key" value="" />
+			</div>
+			
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> 닫기</button>
+				<button type="button" class="btn btn-default" onclick="updateAssignee();"><span class="glyphicon glyphicon-ok"></span> 수정</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal fade" id="modalUpdateWork">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 id="modal-title" class="modal-title">업무구분&amp;과정명 수정</h4>
+			</div>
+			
+			<!-- Modal body -->
+			<div id="modal-body" class="modal-body">
+
+				<div class="row">
+					<div class="col-sm-2"><span class="modal-subtitle">업무구분</span></div>
+					<div class="col-sm-10">
+						<button class="btn btn-primary" type="button">운영</button>
+						<button class="btn btn-primary" type="button">신규</button>
+					</div>
+				</div>
+				<hr/>
+				<div class="row">
+					<div class="col-sm-2"><span class="modal-subtitle">과정명 수정</span></div>
+					<div class="col-sm-10"></div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12 requestWritem">
+									
+						<div class="itemDiv">
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="전사공통" />전사공통</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="온라인" />온라인</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="학원(공통)" />학원(공통)</label>
+							<br/>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="학원(대방)" />학원(대방)</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="학원(부평)" />학원(부평)</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="학원(부천)" />학원(부천)</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="학원(천호)" />학원(천호)</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="학원(수원)" />학원(수원)</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="학원(노원)" />학원(노원)</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="학원(부산서면)" />학원(부산서면)</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="학원(부산해운대)" />학원(부산해운대)</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="학원(대전)" />학원(대전)</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="학원(종로)" />학원(종로)</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="학원(성남)" />학원(성남)</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="학원(평촌)" />학원(평촌)</label>
+							<br/><br/>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="9급공무원" />9급공무원</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="7급공무원 " />7급공무원 </label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="경찰공무원" />경찰공무원</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="기술직공무원" />기술직공무원</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="계리직공무원" />계리직공무원</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="소방직공무원" />소방직공무원</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="세무직공무원" />세무직공무원</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="8급 국회직 공무원 " />8급 국회직 공무원 </label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="군무원" />군무원</label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="사회복지직 공무원 " />사회복지직 공무원 </label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="8급 간호직 공무원 " />8급 간호직 공무원 </label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="법원/검찰/공안직 공무원 " />법원/검찰/공안직 공무원 </label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="교육행정직 공무원 " />교육행정직 공무원 </label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="8급 보건진료직 공무원 " />8급 보건진료직 공무원 </label>
+							<label class="checkbox-inline"><input type="checkbox" name="items" value="운전직 공무원" />운전직 공무원</label>
+
+						</div>
+	  			
+					</div>
+				</div>
+
+			</div>
+			
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> 닫기</button>
+				<button type="button" class="btn btn-default" onclick="updateAssignee();"><span class="glyphicon glyphicon-ok"></span> 수정</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- 로딩 마크 -->
+<div class="loadingArea" style="display:none; z-index:999; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);">
+	<img src="https:https://img.eduwill.net/resources/ngene/live/images/progress.gif" alt="로딩중입니다." />
+</div>
+
+<!-- 보기 -->
+<div>
+	<div class="btnSectionTop">
+		<!--
+		<button class="btn btn-default btn-sm" id="btnUpdateIssue" onclick="updateIssue();"><span class="glyphicon glyphicon-pencil"></span> 편집</button>
+		-->
+		<form id="updateIssueForm" action="/site/jiraClientManage/updateJiraIssueForm.action" method="post" style="display:none;">
+			<input type="hidden" name="key" value="TESTJIRA-32" />
+		</form>
+		<button class="btn btn-default btn-sm" onclick="copyIssueLink();"><span class="glyphicon glyphicon-link"></span> URL 복사</button>
+		<button class="btn btn-danger btn-sm" id="btnDeleteIssue" onclick="deleteIssue();"><span class="glyphicon glyphicon-trash"></span> 삭제</button>
+		<form id="deleteIssueForm" action="/site/jiraClientManage/deleteJiraIssue.action" method="post" style="display:none;">
+			<input type="hidden" name="key" value="TESTJIRA-32" />
+		</form>
+		</div>
+</div>
+
+
+<table id="tableDefault" class="table table-bordered table-style style1" cellspacing="0" width="100%">
+	<colgroup>
+		<col width="10%" />
+		<col width="30%" />
+		<col width="10%" />
+		<col width="20%" />
+		<col width="10%" />
+		<col width="20%" />
+	</colgroup>
+	<tbody id="tableBody">
+		<!-- 요청자 정보 -->
+		<tr>
+			<th>요청정보</th>
+			<td>박은영 / 개발팀</td>
+			<th>요청일</th>
+			<td colspan="3">2018-06-15 09:27:59</td>
+		</tr>
+		<!-- 담당자 정보 -->
+		<tr>
+			<th>담당정보</th>
+			<td>
+				<span id="originAssignee">박은영 / 개발팀</span>
+				<a href="#" class="gly-edit" onclick="openLayerForUpdateAssignee('TESTJIRA-32');" data-toggle="modal" data-target="#modalUpdateAssignee">
+					<span class="glyphicon glyphicon-pencil"></span>
+				</a>
+			</td>
+			
+			<th>완료희망일</th>
+			<td style="position:relative;height:28px;line-height:28px;">
+				<span class="origindate">2018-06-29</span>
+				<input type="text" class="changedate datepicker form-control"  style="width:90px;display:none;" value="2018-06-29"/>
+				<a href="#" class="gly-edit edit-pencil" onclick="$('.origindate').hide(); $('.changedate').show(); return false;"><span class="glyphicon glyphicon-pencil"></span></a>
+			</td>
+
+			<th>진행현황 </th>
+			<td>
+				<span id="originStatus">할 일</span>
+				<select id="changeStatusList" style="height:24px;display:none;">
+					<option value="할 일" selected>할 일</option>
+					<option value="상위 기획" >상위 기획</option>
+					<option value="기획" >기획</option>
+					<option value="디자인" >디자인</option>
+					<option value="퍼블리싱" >퍼블리싱</option>
+					<option value="개발" >개발</option>
+					<option value="QA" >QA</option>
+					<option value="완료" >완료</option>
+				</select>
+				<a href="#" class="gly-edit" onclick="$('#originStatus').hide(); $('#changeStatusList').show(); return false;"><span class="glyphicon glyphicon-pencil"></span></a>
+			</td>
+		</tr>
+		<tr>
+			<th colspan="6">
+				<span>업무구분&amp;과정명</span>
+				<a href="#" class="gly-edit" onclick="" data-toggle="modal" data-target="#modalUpdateWork">
+						<span class="glyphicon glyphicon-pencil"></span>
+				</a>
+			</th>
+		</tr>
+		<tr>
+			<td colspan="6">
+				<button class="btn btn-primary" type="button">신규</button>
+				<button class="btn btn-info" type="button">전사공통</button>
+				<button class="btn btn-default" type="button">9급공무원</button>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+<div class="headtitle">
+	<h5 style="display:inline">요청내용</h5>
+	<a href="#" onclick="" class="gly-edit"><span class="glyphicon glyphicon-pencil"></span></a>
+</div>
+
+<table id="tableDefault" class="table table-bordered table-style" cellspacing="0" width="100%">
+	<colgroup>
+		<col width="10%" />
+		<col width="40%" />
+		<col width="10%" />
+		<col width="40%" />
+	</colgroup>
+	<tbody id="tableBody">
+
+		<!-- 요청 내용 -->
+		<tr>
+			<th>제목</th>
+			<td class="alignLeft" colspan="3">[재경] 연습문제 해설특강 페이지 오픈 -퍼블</td>
+		</tr>
+		<tr>
+			<th>요청내용</th>
+			<td class="alignLeft" colspan="3">
+				<p>*업무 요청 시 작성 예시입니다. 필요 없으면 지우세요*<br />
+				<br />
+				====================================================<br />
+				1. 요청사항 :&nbsp;[재경] 연습문제 해설특강 페이지 오픈 -퍼블<br />
+				<br />
+				2. 반영일(오픈일) : 2018-06-15<br />
+				<br />
+				3. 상세내용 :&nbsp;[재경] 연습문제 해설특강 페이지 오픈 -퍼블<br />
+				====================================================</p>
+			</td>
+		</tr>
+		<tr>
+			<th>첨부파일</th>
+			<td colspan="3">
+				<form action="/" enctype="multipart/form-data" id="myDropzone" method="post">
+					<div class="dz-message" data-dz-message><span style="font-size:14px;"><span class="glyphicon glyphicon-cloud-download" style="font-size:20px;"></span> 첨부할 파일을 여기에 끌어다 놓으세요!</span></div>
+				
+					<script>
+						var myDropzone = new Dropzone("#myDropzone", { 
+							url: "/site/jiraClientManage/ajaxAddAttachment.action",
+							paramName: "file",
+							params:{
+								'key':'TESTJIRA-32'
+							},
+							success: function(file, response){
+								// 첨부파일 업로드 성공
+								console.log(file);
+				                console.log(response);
+				                this.removeFile(file);
+ 				                window.location.reload();
+				                return false;
+				            }
+							}
+						);
+					</script>
+										
+					<div class="attachment" id="attachment_35805">
+						<a href="http://works.eduwill.net/secure/attachment/35805/%5B%EC%97%94%EC%A7%84%5D+%EC%97%85%EB%AC%B4%EA%B2%8C%EC%8B%9C%ED%8C%90+JIRA+%EC%97%B0%EB%8F%99_SB_v1.9_%EB%B0%95%EC%9B%90%EC%A7%84_180614.pptx" target="_blank">
+							<img class="attachment_thumbnail" src="http://pds.eduwill.net/Jira/ExtensionIcon/pptx.png" alt="[엔진] 업무게시판 JIRA 연동_SB_v1.9_박원진_180614.pptx" data-toggle="tooltip" data-placement="auto" title="(클릭시 다운로드) [엔진] 업무게시판 JIRA 연동_SB_v1.9_박원진_180614.pptx" /></a>
+						<br/>
+						<a href="http://works.eduwill.net/secure/attachment/35805/%5B%EC%97%94%EC%A7%84%5D+%EC%97%85%EB%AC%B4%EA%B2%8C%EC%8B%9C%ED%8C%90+JIRA+%EC%97%B0%EB%8F%99_SB_v1.9_%EB%B0%95%EC%9B%90%EC%A7%84_180614.pptx" target="_blank">[엔진] 업무게시판 JIRA 연동_SB_v1.9_박원진_180614.pptx</a>
+						<button type="button" class="btn btn-danger btn-xs" id="btnRemoveAttachment" onclick="removeAttachment('35805');">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button>
+						
+					</div>
+					</form>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+<!-- 현황 -->
+<!--
+<div class="headtitle">
+	<h5 style="display:inline">요청내용</h5>
+	<a href="#" onclick=""><span class="glyphicon glyphicon-pencil"></span></a>
+</div>
+-->
+
+<!-- 부작업 -->
+<div class="headtitle">
+	<h5>부작업</h5>
+</div>
+
+<table id="tableDefault" class="table table-bordered table-style" cellspacing="0" width="100%">
+	<colGroup>
+		<col width="5%" />
+		<col width="45%" />
+		<col width="10%" />
+		<col width="10%" />
+		<col width="20%" />
+		<col width="10%" />
+	</colGroup>
+	<thead>
+		<tr>
+			<th>&nbsp;</th>
+			<th>작업명</th>
+			<th>작업자</th>
+			<th>상태</th>
+			<th>등록일</th>
+			<th>바로가기</th>
+		</tr>
+	</thead>
+	<tbody id="tableBody">
+		<td colspan="100">기록된 작업이 없습니다.</td>
+			</tbody>
+</table>
+
+<!-- 작업시간 -->
+<div class="headtitle">
+	<h5>작업시간</h5>
+	<button class="btn btn-default btn-sm flR" onclick="resetWorklogForm();" data-toggle="modal" data-target="#modalWorklog"><span class="glyphicon glyphicon-time"></span> 작업시간</button>
+</div>
+
+<!-- The Modal -->
+<div class="modal fade" id="modalWorklog">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 id="modal-title" class="modal-title">작업시간 기록</h4>
+			</div>
+			
+			<!-- Modal body -->
+			<div id="modal-body" class="modal-body">
+				<form id="insertWorklogForm">
+					<input type="hidden" name="key" value="TESTJIRA-32" />
+					<input type="hidden" name="id" value="" />
+					<div class="row">
+						<div class="col-sm-2">작업한 시간(분)</div>
+						<div class="col-sm-4"><input type="number" class="form-control" id="worktime" name="worktime" placeholder="60" /></div>
+					</div>
+					<div class="row">
+						<div class="col-sm-2">&nbsp;</div>
+						<div class="col-sm-4">대략적인 소요된 작업시간</div>
+					</div>
+					<div class="row">&nbsp;</div>
+					<div class="row">
+						<div class="col-sm-2">시작일</div>
+						<div class="col-sm-4"><input type="text" class="datepicker form-control" id="workStartDate" name="startdate" placeholder="작업 시작일" readonly /></div>
+						<div class="col-sm-4"><input type="text" class="timepicker form-control" id="workStartTime" name="starttime" placeholder="작업 시작시간" readonly /></div>
+					</div>
+				</form>
+			</div>
+			
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> 닫기</button>
+				<button type="button" class="btn btn-default" onclick="addWorklog();"><span class="glyphicon glyphicon-ok"></span> 등록</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<table id="tableDefault" class="table table-bordered table-style" cellspacing="0" width="100%">
+	<colGroup>
+		<col width="30%" />
+		<col width="30%" />
+		<col width="30%" />
+		<col width="10%" />
+	</colGroup>
+	<thead>
+		<tr>
+			<th>이름</th>
+			<th>작업시간</th>
+			<th>작업일</th>
+			<th>관리</th>
+		</tr>
+	</thead>
+	<tbody id="tableBody">
+		<td colspan="100">기록된 작업이 없습니다.</td>
+			</tbody>
+</table>
+
+<!-- 댓글 -->
+<h5>댓글</h5>
+<form id="addCommentForm">
+	<input type="hidden" name="key" value="TESTJIRA-32" />
+	<textarea class="form-control" rows="5" id="comment" name="comment" style="resize: none;"></textarea>
+</form>
+<div style="float:right;margin-top:10px;margin-bottom:30px;">
+	<button class="btn btn-default" type="button" id="btnAddComment" onclick="addComment();"><span class="glyphicon glyphicon-comment"></span> 댓글 등록</button>
+</div>
+
+<table id="tableDefault" class="table" cellspacing="0" width="100%">
+	<colGroup>
+		<col width="95%" />
+		<col width="5%" />
+	</colGroup>
+	<tbody id="tableBody">
+		<td colspan="100">작성된 댓글이 없습니다.</td>
+	</tbody>
+</table>
+
+<div style="padding-bottom:50px;">
+	<button class="btn btn-lg btn-default" type="button" id="btnHistoryBack"><span class="glyphicon glyphicon-arrow-left"></span> 목록</button>
+</div>
+
+<form id="returnForm" action="/site/jiraClientManage/searchJiraClient.action" method="post">
+	<input type="hidden" name="page" value="1" />
+	<input type="hidden" name="pageSize" value="10" />
+	<input type="hidden" name="startdate" value="2018-06-01" />
+	<input type="hidden" name="enddate" value="2018-06-15" />
+	<input type="hidden" name="reportTeam" value="-" />
+	<input type="hidden" name="item" value="-" />
+	<input type="hidden" name="gubun" value="-" />
+	<input type="hidden" name="status" value="-" />
+	<input type="hidden" name="etc1" value="all" />
+	<input type="hidden" name="showReleased" value="" />
+	<input type="hidden" name="searchKeyword" value="" />
+</form>
+
+<input type="hidden" id="issueLink" value="" /></div>
+						<!-- // #content -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--// #container -->
+		<!-- #footer -->
+		<div id="footer">
+			<!--  
+<footer>
+	<div class="container">
+
+		<div class="copy text-center">
+			Copyright 2014 <a href='#'>Website</a>
+		</div>
+
+	</div>
+</footer>
+-->
+</div>
+		<!--// #footer -->
+	</div>
+	<!--// #wrapper -->
+</body>
+</html>

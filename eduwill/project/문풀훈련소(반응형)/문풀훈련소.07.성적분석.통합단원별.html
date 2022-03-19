@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="ko" class="is_combine"><!-- 통합단원별 테스트 Class : is_combine -->
+<head>
+<title>성적분석 &gt; 오답노트 &gt; 문풀훈련소</title>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="description" content="대한민국 평생교육 No.1 에듀윌" />
+<meta name="keywords" content="공인중개사, 주택관리사, 검정고시, 직업상담사, 사회복지사, 행정사, 유통관리사, 물류관리사, 전산세무회계, 재경관리사, 전기기능사, 전기기사, 소방설비기사, 한국사능력검정, 한자능력검정, ERP 정보관리사, 경비지도사, 도로교통사고감정사, IT 자격증, 한경 TESAT/매경 TEST, 청소년상담사, 건축기사/토목기사, ToKL/KBS한국어/글쓰기, 조경기사/산업기사/기능사, 농산물품질관리사, 9급공무원, 7급공무원, 계리직공무원, 경찰공무원, 9급 기술직공무원" />
+<meta name="author" content="온라인 교육의 대표 에듀윌 - HTTP://WWW.EDUWILL.NET" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/qs/dev/css/common.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/qs/dev/css/popup.css" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/qs/dev/vendor/jquery/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/qs/dev/vendor/modernizr/modernizr-2.8.3.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/qs/dev/vendor/respond/respond.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/qs/dev/vendor/chartjs/2.5.0/Chart.js"></script>
+</head>
+<body class="page_popup"><!-- body class :  -->
+
+<div id="wrap"><!-- wrap -->
+	<div id="content"><!-- content -->
+
+		<div class="container section_head"><!-- section_head -->
+			<div class="wrap">
+				<a href="#" class="logo">
+					<span class="sr_only">에듀윌</span>
+				</a>
+				<h1 class="title">문풀훈련소</h1>
+				<a href="#" class="close_quiz"><span class="sr_only">닫기</span></a>
+			</div>
+		</div><!-- // section_head -->
+
+		<div class="container section_analysis"><!-- section_analysis -->
+			<div class="wrap"><!-- wrap -->
+
+				<h2 class="title">
+					성적분석
+					<span>
+						공무원 데일리 테스트
+					</span>
+				</h2>
+
+				<!--
+					# Class 구분
+					1. result
+					# is_today : 오늘 응시한 시험
+					# by_period : 기간별 조회
+
+					2. item
+					# by_whole : 시험 전체
+					# by_subject : 과목별
+				-->
+
+				<div class="result is_today"><!-- result : is_today (오늘 응시한 시험) -->
+					<div class="grid title_wrap">
+						<h3 class="sr_only">오늘의 성적</h3>
+						<div class="col title">
+							<span class="date">2018.01.30</span>
+							응시
+						</div>
+						<div class="col total">
+							(전체 문항 수: <strong>30</strong>개)
+						</div>
+					</div>
+
+					<table class="table_col" summary="과목, 나의 성적, 전체 평균으로 구분되는 표">
+						<caption>오늘의 성적</caption>
+						<colgroup>
+							<col class="col col_1" />
+							<col class="col col_2" />
+							<col class="col col_3" />
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col" class="subject">과목</th>
+								<th scope="col" class="grade">나의 성적</th>
+								<th scope="col" class="average">전체 평균</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="total">
+								<td class="subject">전체</td>
+								<td class="grade">12</td>
+								<td class="average">8.5</td>
+							</tr>
+							<tr>
+								<td class="subject">국어</td>
+								<td class="grade">3</td>
+								<td class="average">3</td>
+							</tr>
+							<tr>
+								<td class="subject">영어</td>
+								<td class="grade">5</td>
+								<td class="average">3</td>
+							</tr>
+							<tr>
+								<td class="subject">한국사</td>
+								<td class="grade">4</td>
+								<td class="average">2.5</td>
+							</tr>
+						</tbody>
+					</table>
+				</div><!-- // result -->
+
+			</div><!-- // wrap -->
+		</div><!-- // section_analysis -->
+
+		<!-- 2018-05-08
+		<div id="footer" class="container">
+			<p class="copyright">
+				&copy; 2018. (주)에듀윌 all rights reserved.
+			</p>
+		</div>
+		-->
+
+	</div><!-- // content -->
+</div><!-- // wrap -->
+
+<script type="text/javascript">
+	$(function(){
+
+		var $window = $(window),
+			 $document = $(document),
+			 $base = $('html, body');
+
+		var ctx = document.getElementById('chartWhole').getContext('2d');
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: ['01.28', '01.29', '01.30', '01.31', '02.01', '02.02', '02.03'],
+				datasets: [{
+					label: "전체 평균",
+					backgroundColor: 'rgb(226, 175, 174)',
+					borderColor: 'rgb(192, 80, 77)',
+					data: [20, 28, 22, 18, 19, 23, 19],
+					fill: false,
+					pointRadius: 1.5,
+					pointHoverRadius: 5,
+					pointStyle: 'line'
+				},
+				{
+					label: "나의 성적",
+					backgroundColor: 'rgb(192, 212, 232)',
+					borderColor: 'rgb(79, 129, 189)',
+					data: [16, 20, 0, 14, 0, 17, 25],
+					fill: false,
+					pointRadius: 1.5,
+					pointHoverRadius: 5,
+					pointStyle: 'line'
+				}]
+			},
+
+			// Configuration options go here
+			options: {
+				animation: {
+					duration: 2000
+				},
+				title: {
+					text: '문풀훈련소',
+					display: true
+				},
+				legend: {
+					labels: {
+						usePointStyle: true //포인트 스타일 범례에 같이 적용
+					},
+					position: 'bottom', //범례위치
+			reverse: true
+				},
+				elements: {
+					line: {
+						tension: 0 //직선, 곡선 조절 가능
+					}
+				},
+				scales: {
+					xAxes: [{
+						gridLines: {
+							display: false
+						}
+					}],
+					yAxes: [{
+						gridLines: {
+							display: true,
+							drawBorder: false
+						}
+					}]
+				},
+				tooltips: {
+					mode: 'point',
+					intersect: true,
+				}
+			}
+		});
+
+		var ctx = document.getElementById('chartSubject').getContext('2d');
+		var chart = new Chart(ctx, {
+			// The type of chart we want to create
+			type: 'line',
+
+			// The data for our dataset
+			data: {
+				labels: ['02.01', '02.02', '02.03', '02.04', '02.05', '02.06', '02.07', '02.08', '02.09', '02.10', '02.11', '02.12', '02.13', '02.14', '02.15', '02.16', '02.17', '02.18', '02.19', '02.20', '02.21', '02.22', '02.23', '02.24', '02.25', '02.26', '02.27', '02.28'],
+				datasets: [{
+					label: "전체 평균",
+					backgroundColor: 'rgb(226, 175, 174)',
+					borderColor: 'rgb(192, 80, 77)',
+					data: [1, 100, 50, 99, 5, 15, 65, 43, 55, 88, 18, 19, 23, 19, 20, 28, 22, 18, 100, 23, 19, 20, 28, 99, 18, 19, 23, 19],
+					fill: false,
+					pointRadius: 1.5,
+					pointHoverRadius: 5,
+					pointStyle: 'line'
+				},
+				{
+					label: "나의 성적",
+					backgroundColor: 'rgb(192, 212, 232)',
+					borderColor: 'rgb(79, 129, 189)',
+					data: [100, 1, 25, 45, 50, 95, 25, 75, 22, 3, 8, 40, 60, 30, 70, 65, 77, 2, 0, 65, 89, 25, 65, 45, 52, 25, 32, 16],
+					fill: false,
+					pointRadius: 1.5,
+					pointHoverRadius: 5,
+					pointStyle: 'line'
+				}]
+			},
+
+			// Configuration options go here
+			options: {
+				animation: {
+					duration: 2000
+				},
+				title: {
+					text: '문풀훈련소',
+					display: true
+				},
+				legend: {
+					labels: {
+						usePointStyle: true //포인트 스타일 범례에 같이 적용
+					},
+					position: 'bottom', //범례위치
+			reverse: true
+				},
+				elements: {
+					line: {
+						tension: 0 //직선, 곡선 조절 가능
+					}
+				},
+				scales: {
+					xAxes: [{
+						gridLines: {
+							display: false
+						}
+					}],
+					yAxes: [{
+						gridLines: {
+							display: true,
+							drawBorder: false
+						}
+					}]
+				},
+				tooltips: {
+					mode: 'point',
+					intersect: true,
+				}
+			}
+		});
+
+	});
+</script>
+</body>
+</html>

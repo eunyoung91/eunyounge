@@ -1,0 +1,542 @@
+@charset "utf-8";
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+@import "module/motion";
+
+
+.product {
+	&-eco {
+        * {
+            line-height: normal;
+            font-family: $font-noto;
+            letter-spacing: -1px;
+        }
+        .container {
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+        .wrap {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+            &-full {
+                width: 100%;
+            }
+        }
+        .holder { position: relative; }
+		.only-pc { display: none;}
+		.only-mobile { display: block;}
+
+		.grounds-text {
+			color: rgba(0,0,0, .4);
+			@include rem(letter-spacing, -1px);
+			@include vw(22px);
+			@include breakpoint(maxMobileFold) {
+				font-size: 14px;
+			}
+		}
+
+		.slick-arrow {
+			position: absolute;
+			top: 50%;
+			z-index: 10;
+			content: '';
+			padding: 0;
+			margin:0;
+			border: none;
+			outline: none;
+			text-indent: -9999px;
+			display: block; 
+			cursor:pointer;
+			@include rem(width, 50px);
+			@include rem(height, 50px);
+			@include rem(margin-top, -25px);
+			&.slick-prev {
+				left: 30px;
+				background: url('https://img.eduwill.net/eduwill/img/2021/7/product/210430/pc/btn_prev.png') 0 0 no-repeat; background-size: cover;
+			}
+			&.slick-next {
+				right: 30px;
+				background: url('https://img.eduwill.net/eduwill/img/2021/7/product/210430/pc/btn_next.png') 0 0 no-repeat; background-size: cover;
+			}
+		}
+		.slick-dots {
+			font-size: 0;
+			li {
+				display: inline-block;
+				@include rem(margin, 0 7px);
+				button {
+					@include rem(width, 30px);
+					@include rem(height, 30px);
+					font-size: 0;
+					text-indent: -9999px;
+					border: none;
+					@include rem(border-radius, 30px);
+					background-color: #bbb;
+				}
+				&.slick-active {
+					button {
+						@include rem(width, 90px);
+						background-color: #ffbe00;
+					}
+				}
+			}
+		}
+
+		@-webkit-keyframes bounce {
+			0%,100% { -webkit-transform: translateY(5%); transform: translateY(5%); } 
+			50% { -webkit-transform: translateY(-5%); transform: translateY(-5%); }
+		}
+		@keyframes bounce {
+			0%,100% { -webkit-transform: translateY(5%); transform: translateY(5%); }
+			50% { -webkit-transform: translateY(-5%); transform: translateY(-5%); }
+		}
+
+        .product-slide {
+            .slick-slide { height: auto; }
+        }
+    }
+
+	//  콘텐츠 영역
+	&-banner-1, &-banner-2, &-banner-3 {
+		background: #0e15f1;
+	}
+
+	&-banner-4 {
+		@include bg($url: '#{$img-path}/mobile/bg_banner_4.png', $size: 100% 100%);
+		background-repeat: no-repeat;
+		background-position: center top;
+	}
+
+	&-news, &-search, &-graph-1, &-review, &-graph-2, &-increase, &-winner, &-increase, &-book, &-curriculum, &-free-lecture, &-trophy {
+		background: linear-gradient(to bottom, rgba(255,255,255,1) 90%,rgba(246,246,246,1) 100%);
+	}
+
+    &-title {
+        @include bg($color: #fff, $url: '#{$img-path}/mobile/bg_title.png', $size: 100% 100%);
+		.action{  
+			position: absolute; 
+			top: 14.74%; 
+			left: 74.44%; 
+			width: 16.61%;
+		}
+		.flag{
+			position: absolute;
+			top: 40%;
+			left: 50%;
+			width: 19.44%;
+			animation:bounce 1s infinite both;-webkit-animation:bounce 2s infinite both;
+		}
+    }
+
+    &-benefit {
+        background-color: #fff;
+		.action{  
+			position: absolute; 
+			width: percent(118);
+			&.book {
+				top: percent(1084, 2031);
+				left: percent(83);
+			}
+			&.teacher {
+				top: percent(1484, 2031);
+				left: percent(150);
+			}
+		}
+    }
+
+	&-price {
+		padding: 18% 0;
+		background: linear-gradient(to top, white 90%, #fff9f8 100%);
+		text-align: center;
+		.item-group{
+			position: relative;
+			width: 85%;
+			margin: 0 auto;
+				.col {
+					position: relative;
+					width: 100%;
+					border-radius: 0px 20px 0px 20px;
+					overflow: hidden;
+					@include boxSizing(border-box);
+					@include boxShadow(0 5px 20px 0 rgba(0, 0, 0, .2));
+					.subject {
+						color: #fff;
+						@include vw(46px);
+						font-weight: 900;
+						color: #f10903;
+						letter-spacing: -2px;
+						line-height: 1.4;
+						background: #fff;
+						@include boxSizing(border-box);
+						& > strong {
+							display: block;
+							padding: 9% 5% 5% 5%;
+						}
+						.sub-subject {
+							padding: 5%;
+							line-height: 1.2;
+							@include vw(30px);
+							font-weight: 600;
+							color: #000;
+							border-top: 2px solid #f10903;
+							border-bottom: 1px solid #dddddd;
+							background-color: #fff;
+							span {
+								@include vw(18px);
+								margin-top: 2%;
+								color: #2222;
+							}
+							&.desc {
+								border-top: none;
+								&.btn {
+									.btn {
+										width: 38%;
+										margin: 0 auto;
+										display: block;
+										margin-top: 10px;
+									}
+								}
+							}
+						}
+					}
+					&.item-2 {
+						.subject { color: #3753cb; }
+						.sub-subject { border-top: 2px solid #3753cb; }
+						margin-top: 20%;
+					}
+				}
+				.sale-item{
+					position: relative;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					text-align: left;
+					padding: 6%;
+					.price-box{
+						.price{
+							position: relative;
+							.data-cost{
+								font-family: $font-roboto;
+							}
+						}
+						.before-price{
+							display: inline-block;
+							@include vw(34px);
+							font-weight: 600;
+							color: #989898;
+							white-space: nowrap;
+							&::after{
+								content: '';
+								// background: url('#{$img-path}/pc/icon_arrow.png') 50% 90% no-repeat;
+								@include rem(width, 20px);
+								@include rem(height, 25px);
+								position: absolute;
+								top: 53%;
+								right: -14%;
+							}
+							&::before{
+								content: '';
+								position: absolute;
+								width: 110%;
+								height: 1px;
+								position: absolute;
+								top: 55%;
+								left: 55%;
+								transform: translate(-50%,-55%);
+								background: #989898;
+							}
+							.data-cost{
+								position: relative;
+								color: #989898;
+							}
+						}
+						.after-price{
+							display: block;
+							white-space: nowrap;
+							font-weight: 600;
+							@include vw(50px);
+							color: #e10010;
+							.data-cost{
+								color: #e10010;
+								@include vw(60px);
+							}
+							.ico-cost{
+								vertical-align: super;
+								display: inline-block;
+								@include rem(width, 80px);
+								z-index: 5;
+								position: relative;
+								@include rem(margin-right, -40px);
+								@include breakpoint(maxMobile){ 
+									width: 80px;
+								}
+							}
+						}
+					}
+					.check-box{
+						display: block;
+						white-space: nowrap;
+						input{
+							vertical-align: sub;
+							@include rem(width, 38px);
+							@include rem(height, 38px);
+						}
+						label{
+							font-weight: 600;
+							@include vw(28px);
+							@include rem(padding, 0 15px);
+						}
+					}
+					.action {
+						width: 90%;
+						margin-left: 10%;
+					}
+				}
+				.price-tag {
+					width: 39%;
+					position: absolute;
+					top: -5%;
+					left: 30.4%;
+					z-index: 10;
+				}
+		}
+	}
+
+	&-winner-list {
+		background-color:#ffd000;
+		img{
+			margin-bottom: -5%;
+		}
+		@include rem(padding-bottom, 100px);
+		.winner-wrap {
+			position: relative;
+			perspective: 670px;
+			margin-bottom: -5%;
+			.winner-list{
+				transform: rotateX(40deg);
+				p {
+					line-height: 2;
+					@include vw(18px);
+					font-weight: 400;
+					color: #222;
+					text-align: center;
+				}
+			}
+		}
+	}
+	
+	&-apply-contents {
+		@include rem(padding-bottom, 125px);
+		@include bg($color: #21232e, $url: '#{$img-path}/mobile/bg_apply_contents.png', $size: 100% 100%);
+		.action{
+			width: 86.11%;
+			margin:0 auto;
+			a{
+				display:block;
+				position: relative;
+				@include pointer(80%, 0, 60px, 66px, 12, bounce);
+			}
+		}
+	}
+	
+	&-review {
+		@include rem(padding-bottom, 130px);
+		background: linear-gradient(to bottom, white 90%, #f6f6f6 100%);
+		.action{
+			position: absolute;
+			top:91%;
+			@include rem(right, 50px);
+			width: percent(392, 720);
+		}
+		.slider-contents{
+			position: relative;
+			.slick-list{
+				@include rem(margin, 0 20%);
+			}
+			img{
+				width: 100%;
+				text-align: center;
+			}
+			.slick-dots{
+				@include rem(margin-top, 120px);
+			}
+		}
+	}
+
+	&-trophy {
+		.action {
+			position: absolute;
+			width: percent(134);
+			top: percent(985, 1164);
+			left: percent(294);
+		}
+	}
+
+	&-search{
+		background: linear-gradient(to bottom, rgba(255,255,255,1) 90%,rgba(246,246,246,1) 100%);
+		.wrap{
+			padding: 0;
+		}
+		// .typing{
+		// 	position:absolute;
+		// 	top:49%;
+		// 	left:11%;
+		// 	line-height:1;
+		// 	color:#022222;
+		// 	font-weight:900;
+		// 	@include vw(40px);
+		// 	&:after{
+		// 		content:'';
+		// 		position:relative;
+		// 		@include rem(top, -5px);
+		// 		display: inline-block; 
+		// 		animation-name: cursor; 
+		// 		animation-duration: 0.3s; 
+		// 		animation-iteration-count: infinite; 
+		// 		@include rem(width, 2px);
+		// 		@include rem(height, 40px);
+		// 		background-color:#fff;
+		// 		vertical-align:middle;
+		// 		@keyframes cursor{ 
+		// 			0%{	background-color:#fff;} 
+		// 			50%{background-color:#022222;} 
+		// 			100%{background-color:#fff;} 	
+		// 		}
+		// 	}
+		// }
+	}
+
+	&-guinness {
+		@include rem(padding-bottom, 100px);
+		.action{  
+			position: absolute; 
+			width: percent(118);
+			top: 25%;
+			left: percent(570);
+		}
+
+		.winner-item-list {
+			width: 80%;
+			margin: 0 auto;
+			overflow: hidden;
+			margin-top: -7%;
+			@include transform(perspective(570px) rotateX(45deg));
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				z-index: 1;
+				width: 100%;
+				@include rem(height, 50px);
+				@include linear-gradient(180deg, rgba(248, 247, 240, 1) 0%, rgba(248, 247, 240, 0) 100%);
+			}
+			&:after {
+				content: '';
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: 1;
+				width: 100%;
+				@include rem(height, 50px);
+				@include linear-gradient(0deg, rgba(248, 247, 240, 1) 0%, rgba(248, 247, 240, 0) 100%);
+			}
+			// slick-track issue
+			.slick-track {
+				-webkit-transform: translate(0) !important;
+				-ms-transform: translate(0) !important;
+				transform: translate(0) !important;
+			}
+			.slick-slide {
+				@include rem(margin-top, 30px);
+				img { display: inline-block; }
+			}
+		}
+	}
+
+	&-teacher {
+		.action{  
+			position: absolute; 
+			width: percent(118);
+			top: 22%;
+			left: percent(570);
+		}
+	}
+
+	&-book {
+		@include rem(padding-bottom, 130px);
+		.book-slide {
+			width: percent(616);
+			margin: 0 auto;
+			.book-title {
+				width: 100%;
+				padding: 3% 0;
+				margin: 0 auto;
+				background: #0e15f1;
+				color: #fff;
+				@include vw(30px);
+				font-weight: 700;
+				letter-spacing: -2;
+				text-align: center;
+				span {
+					color: #ffea00;
+				}
+			}
+			.book-list {
+				width: 99.5%;
+				border: 1px solid #0e15f1;
+				.slick-slide {
+					img {
+						width: 98%;
+						margin: 0 auto;
+					}
+				}
+				.slick-arrow {
+					top: 30%;
+					@include rem(width, 24px);
+					@include rem(height, 44px);
+					&.slick-prev {
+						left: -5%;
+						background: url('#{$img-path}/pc/btn_prev.png') 0 0 no-repeat; background-size: cover;
+					}
+					&.slick-next {
+						right: -5%;
+						background: url('#{$img-path}/pc/btn_next.png') 0 0 no-repeat; background-size: cover;
+					}
+				}
+			}
+		}
+		.action{  
+			position: absolute; 
+			width: percent(118);
+			top: 5%;
+			left: percent(570);
+		}
+	}
+
+    &-free-lecture {
+		.gifimg{
+			width:84%;
+			margin:0 auto;
+		}
+    }
+}
+.sector-unbreakable .unbreakable-title .title:before {
+    content: '06';
+    position: absolute;
+    bottom: 110%;
+    left: 0;
+    z-index: -1;
+    font-family: "Roboto", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+	@include vw(40px);
+    font-weight: 900;
+    color: #FF9700;
+}

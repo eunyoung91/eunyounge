@@ -1,0 +1,88 @@
+// button
+.button {
+	display: inline-block;
+	text-align: center;
+	color: $color-base-dark;
+	background: $color_point;
+	@include rem(padding, 14px 0 13px);
+	@include rem(font-size, 18px);
+	/*@include linear-gradient(to bottom, #ffd900 0%, #ffbc44 100%);*/
+	@include boxSizing(border-box);
+	
+	&.is-round {
+		@include rem(border-radius, 50px);
+	}
+
+	&.is-linear {
+		color: $color-base-dark;
+		background: none;
+		@include border('all', 1px, solid, $color-point);
+		@include breakpoint(desktop){
+		}
+	}
+
+	&.is-arrow {
+		text-align: left;
+		color: $color-base;
+		/*background: $button-color;*/
+		@include rem(min-width, 140px);
+		@include rem(padding, 6px 0 7px);
+		@include rem(font-size, 15px);
+		@include rem(border-radius, 36px);
+		@include breakpoint(tablet) {
+			min-width: 145px;
+			padding: 6px 0;
+			border-radius: 70px;
+		}
+		span {
+			position: relative;
+			display: block;
+			@include rem(margin, 0 18px);
+			@include rem(padding-right, 20px);
+			@include breakpoint(tablet) {
+				margin: 0 18px;
+				padding-right: 20px;
+			}
+			&:before,
+			&:after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				right: 0;
+				display: block;
+			}
+			&:before {
+				@include rem(width, 10px);
+				@include rem(height, 1px);
+				background-color: $color-base;
+				@include transition(all, .1s, ease-in-out);
+			}
+			&:after {
+				@include rem(width, 6px);
+				@include rem(height, 6px);
+				@include rem(margin-top, -3px);
+				@include border('top', 1px, solid, $color-base);
+				@include border('right', 1px, solid, $color-base);
+				@include rotate(45deg);
+			}
+		}
+		@include breakpoint(desktop){
+			&:hover,
+			&:active {
+				background: $color-base-light;
+				span:before { width: 15px; }
+			}
+		}
+	}
+	&.check {
+		padding: 0;
+		background: url('#{$img-path}/common/icon_myplan_check.png') no-repeat center center;
+		background-size: 100% auto;
+		@include size(28px, 28px, default);
+	}
+
+	&.disabled {
+		color: $color-base-medium;
+		background: #d4d4d4;
+	}
+}

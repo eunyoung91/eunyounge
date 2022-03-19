@@ -1,0 +1,1131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<title>에듀윌</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Cache-Control" content="No-Cache"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<!-- 공통css :: -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/myroom/dev/css/myroom.css" type="text/css"> 
+<!-- 공통js :: -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/common/web/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/myroom/library/js/myroomUI.js"></script>
+<!-- Import bxslider -->
+<script src="https://img.eduwill.net/resources/common/web/js/bxslider/jquery.bxslider.min.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/js/bxslider/jquery.bxslider.css">
+
+<script type="text/javascript">
+$(function(){
+	
+	
+})
+</script>
+</head>
+<body>
+
+<div id="header">
+	<div class="inner">
+		<h1 class="logo">
+			<a href=""><img src="https://img.eduwill.net/resources/myroom/library/images/logo.png" alt="에듀윌" /></a>
+			<a href="" class="sLogo"><img src="http://img.eduwill.net/resources/myroom/library/images/myroom_tit.png" alt="에듀윌" /></a>
+		</h1>
+		<div class="util">
+			<div class="section_link">
+				<div class="item is_course">
+					<a href="#" class="action is_view"><span>교육과정안내</span></a>
+					<div class="core">
+						<script type="text/javascript">
+							writeLayer1(); // 교육과정안내 레이어
+						</script>
+					</div>
+				</div>
+				<div class="item is_academy">
+					<a href="#" class="action is_view"><span>직영학원</span></a>
+					<div class="core">
+						<script type="text/javascript">
+							writeLayer2(); // 직영학원 레이어
+						</script>
+					</div>
+				</div>
+			</div>
+
+			<div class="logout"><a href="">에듀윌 님 로그아웃</a></div>
+			<ul id="gnb">
+				<li class="home"><a href="">9급 공무원 홈</a></li>
+				<li><a href="">수험정보</a></li>
+				<li><a href="">학습자료실</a></li>
+				<li><a href="">고객센터</a></li>
+			</ul>
+		</div>
+	</div>
+</div><!-- e : #header -->
+ 
+<div id="container">
+	<div id="popupWrap" style="display:none">
+		<!-- 양도, 양수 팝업 -->
+		<div id="new_protectionPop" style="position: absolute; z-index: 10; margin: 56px 0 0 200px; z-index: 1000">
+			<script type="text/JavaScript">
+				function getCookieProtection(name) {
+					var from_idx = document.cookie.indexOf(name+'=');
+					if (from_idx != -1) {
+						from_idx += name.length + 1
+						to_idx = document.cookie.indexOf(';', from_idx)
+							if (to_idx == -1) {
+								to_idx = document.cookie.length
+							}
+						return unescape(document.cookie.substring(from_idx, to_idx))
+					}
+				}
+
+				$(document).ready(function() {
+					//setCookie("new_protectionPop", "yes" ,1);
+				//alert(getCookieProtection("new_protectionPop") );
+					if (getCookieProtection("new_protectionPop") != "no" ) {
+						//alert("a")
+						$("#new_protectionPop").show();
+					} else {
+					//	$("#new_protectionPop").hide();
+					}
+
+				});
+
+				function NapDiv1_Close() {
+					$("#new_protectionPop").hide();
+				}
+
+				function NapDiv1_go(gb) {
+					$.get("http://www.eduwill.net/common/myroom/myroom_index_popup_check.asp?progress=G&gubun=" + gb, function(data) {
+						$("#new_protectionPop").hide();
+						//setCookie("new_protectionPop", "no" ,365);
+
+						if (gb == "1") {
+							alert("ID/수강권 불법양도 반대에 선언하셨습니다.");
+						} else {
+							alert("ID/수강권 불법양수 반대에 선언하셨습니다.");
+						}
+					});
+				}
+
+				function setCookieProtection( name, value, expiredays ) {
+					var todayDate = new Date();
+					todayDate.setDate( todayDate.getDate() + expiredays );
+					document.cookie	=	name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+				}
+				function NapDiv1_getCookie() {
+					//alert("a");
+					setCookieProtection("new_protectionPop", "no" ,30);
+					
+					$("#new_protectionPop").hide();
+				}
+
+				function goLayerPop() {
+					var url = "http://www.eduwill.net/common/popup/popup_myroomIndex.asp";
+					window.open(url,"PopSellType2","width=763,height=580,scrollbars=yes");
+				}
+
+				function ProDiv_Close() {
+					$("#new_protectionPop").hide();
+				}
+			</script>
+
+			<!-- 불법양도 -->
+			<img src="http://www.eduwill.net/Img2/Common/nmyroom_pop1_new.jpg" width="494" height="654" border="0" usemap="#MapClose1">
+			<map name="MapClose1">
+				<area shape="rect" coords="435,621,473,643" href="javascript:ProDiv_Close();" alt="닫기" onfocus="this.blur();">
+				<area shape="rect" coords="333,620,431,641" href="javascript:NapDiv1_getCookie();" alt="오늘하루안보기" onfocus="this.blur();">
+				<area shape="rect" coords="13,129,480,219" href="javascript:NapDiv1_go('1');" alt="NO! 선언하기" onfocus="this.blur();">
+				<area shape="rect" coords="221,339,317,362" href="javascript:goLayerPop();" alt="최근피해사례" onfocus="this.blur();">
+			</map>
+
+			<!-- 불법양수 -->
+			<!-- <img src="http://www.eduwill.net/Img2/Common/nmyroom_pop2_new.jpg" width="494" height="654" border="0" usemap="#MapClose2">
+			<map name="MapClose2">
+				<area shape="rect" coords="435,621,473,643" href="javascript:ProDiv_Close();" alt="닫기" onfocus="this.blur();">
+				<area shape="rect" coords="333,620,431,641" href="javascript:NapDiv1_getCookie();" alt="오늘하루안보기" onfocus="this.blur();">
+				<area shape="rect" coords="13,129,480,219" href="javascript:NapDiv1_go('1');" alt="NO! 선언하기" onfocus="this.blur();">
+				<area shape="rect" coords="221,339,317,362" href="javascript:goLayerPop();" alt="최근피해사례" onfocus="this.blur();">
+			</map> -->
+		</div>
+		<!-- //양도, 양수 팝업 -->
+		
+		<!-- 사이트점검 팝업 -->
+		<div class="notice_popup" id="systemNotiLayer">
+			<div class="inn">
+				<div class="po_tit">시스템 정기점검 안내</div>
+				<div class="po_cont">
+					<p class="txt">보다 나은 서비스 제공을 위한<br /><strong>시스템 정기점검</strong>을 진행할 예정입니다.</p>
+					<table width="100%">
+						<colgroup>
+							<col width="15%" /><col width="85%" />
+						</colgroup>
+						<tbody>
+							<tr>
+								<th>일시</th>
+								<td><strong class="co1" id="preDisplayDate"></strong></td>
+							</tr>
+							<tr>
+								<th>내용</th>
+								<td><strong class="co2" id="preDisplayCont"></strong></td>
+							</tr>
+						</tbody>
+					</table>
+					<br />
+					<p class="txt">이용에 불편을 드려 죄송합니다.<br />보다 나은 서비스 제공을 위해 노력하겠습니다.</p>
+				</div>
+				<div class="po_bot">
+					<a href="#" onclick="javascript:closeOneDayAuto('systemNotiLayer');return false;">오늘 하루 안 보기</a>
+					<span>|</span>
+					<a href="" onclick="document.getElementById('systemNotiLayer').style.display='none'; return false;">닫기 X</a>
+				</div>
+			</div>
+		</div>
+		<style>
+			.notice_popup {position:absolute; top:0px; z-index:1010;  margin:10px 0px 0px 0px; font-family:'맑은고딕', Malgun gothic, Dotum, '돋움'; letter-spacing:-1px; }
+			.notice_popup .inn {width:360px; position:absolute; top:0px; left:0; background:#fff; border:2px solid #0a6aa7;}
+			.notice_popup .inn .po_tit {height:67px; background:#0a6aa7; font-size:24px;  color:#fff; font-weight:600; line-height:67px; text-align:center}
+			.notice_popup .inn .po_cont {padding:16px;}
+			.notice_popup .inn .po_cont .txt {font-size:14px; color:#666; text-align:center; line-height:20px;}
+			.notice_popup .inn .po_cont .txt strong {color:#000}
+			.notice_popup .inn .po_cont table {margin-top:10px; border:solid 2px #d0d0d0; border-width:2px 0}
+			.notice_popup .inn .po_cont table th,
+			.notice_popup .inn .po_cont table td {font-size:14px; color:#666; border:solid 1px #d0d0d0; border-width:1px 0; padding:7px 0; font-weight:400; letter-spacing:-1px}
+			.notice_popup .inn .po_cont table td .co1 {color:#ee3e00}
+			.notice_popup .inn .po_cont table td .co2 {color:#000}
+			.notice_popup .inn .po_cont table th {background:#f1f1f1; text-align:center;}
+			.notice_popup .inn .po_cont table td {text-align:left; padding-left:7px}
+			.notice_popup .inn .po_bot {height:28px; background:#eeeeee; text-align:right; padding:0 8px 0 0}
+			.notice_popup .inn .po_bot:after {content:""; display:block; clear:both} 
+			.notice_popup .inn .po_bot a {line-height:28px; font-size:11px; color:#6f6f6f; }
+			.notice_popup .inn .po_bot span {color:#6f6f6f; font-size:10px; padding:0 3px 0 4px}
+		</style>
+		<!-- //사이트점검 팝업 -->
+		
+		<!-- 일반 팝업 -->
+		<div class="layer_20170912" id="layer_20170912" style="position: absolute; z-index: 10; margin: 56px 0 0 200px; z-index: 1000">
+			<img src="https://img.eduwill.net/Img2/Common/Event/full/6uild/type_a/201709/banner/ban_myroom_before.png" border="0" usemap="#link_20170421" alt="2017년 제 4회 건축토록 풀서비스">
+			<map name="link_20170421">
+				<area shape="rect" coords="30,215,154,256" href="http://www.eduwill.net/6uild/Event/full/20170912_a/index.asp" target="" alt="건축기사" />
+				<area shape="rect" coords="164,215,287,257" href="http://www.eduwill.net/6uild/Event/full/20170912_b/index.asp" target="" alt="토목기사" />
+				<area shape="rect" coords="1,286,139,316" href="#" onclick="javascript:closeOneDayAuto('layer_20170912');return false;" alt="오늘 하루 보지않기" />
+				<area shape="rect" coords="261,288,317,315" href="#" onclick="javascript:document.getElementById('layer_20170912').style.display='none'; return false;" alt="닫기"/>
+			</map>
+		</div>
+		<!-- //일반 팝업 -->
+	</div><!-- e : #popupWrap -->
+
+	<div id="lnb">
+		<ul>
+			<li class="myroom"><a href="" class="step1">나의 강의실</a></li>
+			<li><a href="" class="step1">기존 나의 강의실</a></li>
+			<li><a href="" class="step1">학습활동</a></li>
+			<li><a href="" class="step1">마이페이지</a></li>
+			<li class="addAdimn"><span class="step1">등록된 메뉴1</span>
+				<ul>
+					<li><a href="">서브 메뉴1길게길게길게길게길게길게길게길게길게</a><span class="ico">NEW</span></li>
+					<li><a href="">서브 메뉴2</a><span class="ico">BEST</span></li>
+				</ul>
+			</li>
+			<li class="addAdimn"><span class="step1">등록된 메뉴2</span>
+				<ul>
+					<li><a href="">서브 메뉴1</a><span class="ico">HOT</span></li>
+					<li><a href="">서브 메뉴1길게길게길게길게길게길게길게길게길게</a></li>
+				</ul>
+			</li>
+			<li class="other"><span class="step1" onclick="javascript:toggleFnc(this,'#target_other')">수강중인 다른 강의실</span>
+				<ul style="display:none" id="target_other">
+					<li><a href="">서브 메뉴1<span class="ico">HOT</span></a></li>
+					<li><a href="">서브 메뉴2</a></li>
+				</ul>
+			</li>
+			<li class="info"><span class="step1">수강안내</span>
+				<ul>
+					<li><a href="">모바일 수강방법</a></li>
+					<li><a href="">필수프로그램 설치</a></li>
+					<li><a href="">강의수강시 체크사항</a></li>
+				</ul>
+			</li>
+		</ul>
+		<div class="bannerArea">
+			<img src="https://img.eduwill.net/resources/myroom/library/images/lnb_csBanner.jpg" alt="고객지원센터" usemap="#map_csbanner" />
+			<map name="map_csbanner">
+				<area shape="rect" coords="10,163,169,194" href="" target="" alt="1:1 무료상담" />
+				<area shape="rect" coords="10,203,169,234" href="" target="" alt="컴퓨터 기술지원 바로가기" />
+			</map>
+		</div>
+	</div><!-- e : #lnb -->
+
+	<div id="content" class="mainWrap">
+		<div class="inner">
+			<!-- 학습활동 -->
+			<div class="statusArea">
+				<h2 class="tit">9급공무원 학습활동</h2>
+				<table>
+					<colgroup>
+						<col width="22%" />
+						<col width="53%" />
+						<col width="25%" />
+					</colgroup>
+					<thead>
+					<tr>
+						<th>월간 출석 현황</th>
+						<th>주간 출석 현황</th>
+						<th>이번달 학습량</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td class="stg1">
+							<div class="t1 oneSlider">
+								<span>50%</span>
+							</div>
+							<div class="t2">2017. 03월</div>
+						</td>
+						<td class="stg2">
+							<table class="weekly">
+								<thead>
+								<tr>
+									<th>월</th>
+									<th>화</th>
+									<th>수</th>
+									<th class="today">목</th>
+									<th>금</th>
+									<th>토</th>
+									<th>일</th>
+								</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td><img src="https://img.eduwill.net/resources/myroom/library/images/icon_status_x.png" alt="결석" /></td>
+									<td><img src="https://img.eduwill.net/resources/myroom/library/images/icon_status_o.png" alt="출석" /></td>
+									<td><img src="https://img.eduwill.net/resources/myroom/library/images/icon_status_o.png" alt="출석" /></td>
+									<td><img src="https://img.eduwill.net/resources/myroom/library/images/icon_status_x.png" alt="결석" /></td>
+									<td><img src="https://img.eduwill.net/resources/myroom/library/images/icon_status.png" alt="" /></td>
+									<td><img src="https://img.eduwill.net/resources/myroom/library/images/icon_status.png" alt="" /></td>
+									<td><img src="https://img.eduwill.net/resources/myroom/library/images/icon_status.png" alt="" /></td>
+								</tr>
+								</tbody>
+							</table>
+						</td>
+						<td class="stg3">
+							<div class="t1">강의 수강 개수</div>
+							<div class="t2">112 강</div>
+							<div class="t3">
+								<em>상위</em>
+								<div class="oneSlider">
+									<span>4.2%</span>
+								</div>
+								<div class="time">
+									매일 (00시 00분 기준)
+								</div>
+							</div>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+			<!-- //학습활동 -->
+
+			<!-- 업데이트 강좌 & 공지사항 -->
+			<div class="boardArea">
+				<div class="left">
+					<h2 class="tit">공지사항</h2>
+					<a href="#" class="more">더보기</a>
+					<div class="nodate">게시물이 없습니다.</div>
+					<ul>
+						<li><div class="ellipsis">
+							<a href="">
+								<span class="txt1">공지사항 제목이 노출됩니다. 길게길게길게길게길게</span>
+							</a>
+						</div></li>
+						<li><div class="ellipsis">
+							<a href="">
+								<span class="txt1">공지사항 제목이 노출됩니다.</span>
+							</a>
+						</div></li>
+						<li><div class="ellipsis">
+							<a href="">
+								<span class="txt1">공지사항 제목이 노출됩니다.</span>
+							</a>
+						</div></li>
+					</ul>
+				</div>
+				<div class="right">
+					<h2 class="tit">업데이트 강좌</h2>
+					<a href="#" class="more">더보기</a>
+					<div class="nodate">게시물이 없습니다.</div>
+					<ul>
+						<li><div class="ellipsis">
+							<a href="">
+								<span class="txt1 type1">17. 08. 16 (목)</span>
+								<span class="txt2">IT 패키지반 (사무자동 길게길게길게길게길게</span>
+								<span class="txt3 type1">1건</span>
+							</a>
+						</div></li>
+						<li><div class="ellipsis">
+							<a href="">
+								<span class="txt1 type1">17. 08. 16 (목)</span>
+								<span class="txt2">IT 패키지반 (사무자동</span>
+								<span class="txt3 type1">1건</span>
+							</a>
+						</div></li>
+						<li><div class="ellipsis">
+							<a href="">
+								<span class="txt1 type1">17. 08. 16 (목)</span>
+								<span class="txt2">IT 패키지반 (사무자동</span>
+								<span class="txt3 type1">1건</span>
+							</a>
+						</div></li>
+					</ul>
+				</div>
+			</div>
+			<!-- //업데이트 강좌 & 공지사항 -->
+			
+			<!-- 수강 신청내역 -->
+			<div class="applyArea">
+				<h2 class="tit">수강 신청내역</h2>
+				<div class="tabBtn default">
+					<div href="#" class="active">
+						<span>현재 수강중인 강좌</span>
+					</div>
+					<div href="#">
+						<span>일시중지/종료된 강의</span>
+					</div>
+				</div>
+				<!-- 현재 수강중인 강좌 -->
+				<div class="tabCont">
+					<div class="applyIng">
+						<dl>
+							<dt>
+								<div onclick="goCourse('');" class="pointer">
+									<div class="t1">[9급 공무원] 2018년 9급 확대채용 전담반(이벤트) 길게길게길게길게길게길게길게길게 길게길게길게길게길게길게길게길게</div>
+									<div class="t2">수강기간 2017. 06. 20 ~ 2017. 08. 16 <a href="" ><span>수강중지불가</span></a><span class="i-event">이벤트</span></div>
+								</div>
+								<div class="btnArea">									
+									<a href="" class="btn_b"><span>프리패스 연장신청</span></a>
+									<a href="" class="btn_c"><span>강의실입장</span></a>
+								</div>
+							</dt>
+							<dd id="recentLectureZone">
+								<a href="" class="more">최근수강<br /><span>더보기 +</span></a>							
+								<script src='https://img.eduwill.net/resources/myroom/library/js/Nwagon.js'></script>
+								<ul>
+									<li>
+										<div class="chart">
+											<div id="chart_d0" class="ct"></div>
+											<div class="per">59%</div>
+										</div>
+										<script>
+											var positionPercent = parseInt("59");	// 강의 진도율(%)
+											var options = {
+												'dataset': {
+													title: 'Web accessibility status',
+													values:[positionPercent, (100 - positionPercent)],
+													colorset: ['#ff6600', '#e6e6e6'],
+													fields: ['A', 'B'] 
+												},
+												'donut_width' : 6, 
+												'core_circle_radius':24,
+												'chartDiv': 'chart_d' + '0',
+												'chartType': 'donut',
+												'chartSize': {width:90, height:60}
+											};
+									
+											Nwagon.chart(options);
+											
+										</script>
+										
+										<div class="infoArea">
+											<div class="desc">영어<span class="bar">|</span>성정혜</div>
+											<div class="subj"><span class="co1">10강.</span> 강의명이 노출됩니다. 강의명이 노출됩니다. 강의명이 노출됩니다. 강의명이 노출됩니다.강의명이 노출됩니다. 강의명이 노출됩니다.</div>
+											<div class="date">최근 학습일 YYYY.MM.DD 12:12 </div>
+										</div>
+
+										<div class="btnArea">
+											<a href="" class="btn_d"><span>강의목록</span></a>
+											<a href="" class="btn_e"><span>FULL HD</span></a>
+										</div>
+									</li>
+									<li>
+										<div class="chart">
+											<div id="chart_d01" class="ct"></div>
+											<div class="per">59%</div>
+										</div>
+										<script>
+											var positionPercent = parseInt("59");	// 강의 진도율(%)
+											var options = {
+												'dataset': {
+													title: 'Web accessibility status',
+													values:[positionPercent, (100 - positionPercent)],
+													colorset: ['#ff6600', '#e6e6e6'],
+													fields: ['A', 'B'] 
+												},
+												'donut_width' : 6, 
+												'core_circle_radius':24,
+												'chartDiv': 'chart_d' + '01',
+												'chartType': 'donut',
+												'chartSize': {width:90, height:60}
+											};
+									
+											Nwagon.chart(options);
+											
+										</script>
+										
+										<div class="infoArea">
+											<div class="desc">영어<span class="bar">|</span>성정혜</div>
+											<div class="subj"><span class="co1">10강.</span> 강의명이 노출됩니다. 강의명이 노출됩니다. 강의명이 노출됩니다. 강의명이 노출됩니다.강의명이 노출됩니다. 강의명이 노출됩니다.</div>
+											<div class="date">최근 학습일 YYYY.MM.DD 12:12 <a href="" ><span>수강중지불가</span></a></div>
+										</div>
+
+										<div class="btnArea">
+											<a href="" class="btn_d"><span>강의목록</span></a>
+											<a href="" class="btn_e"><span>FULL HD</span></a>
+										</div>
+									</li>
+								</ul>
+							</dd>
+						</dl>		
+						<dl>
+							<dt>
+								<div onclick="goCourse('');" class="pointer">
+									<div class="t1">[9급 공무원] 2018년 9급 확대채용 전담반(이벤트)</div>
+									<div class="t2">수강기간 2017. 06. 20 ~ 2017. 08. 16 <a href="" ><span>수강중지불가</span></a><span class="i-event">이벤트</span></div>
+								</div>
+								<div class="btnArea">
+									<a href="" class="btn_b"><span>신규강좌 연장신청</span></a>
+									<a href="" class="btn_c"><span>강의실입장</span></a>
+								</div>
+							</dt>
+						</dl>
+						<dl>
+							<dt>
+								<div onclick="goCourse('');" class="pointer">
+									<div class="t1">[9급 공무원] 2018년 9급 확대채용 전담반(이벤트)</div>
+									<div class="t2">수강기간 2017. 06. 20 ~ 2017. 08. 16 <a href="" ><span>수강중지불가</span></a><span class="i-free">무료</span></div>
+								</div>
+								<div class="btnArea">
+									<a href="" class="btn_b"><span>신규강좌 연장신청</span></a>
+									<a href="" class="btn_c"><span>강의실입장</span></a>
+								</div>
+							</dt>
+						</dl>
+					</div>
+					<div class="nodata">현재 수강중인 강좌가 존재하지 않습니다.</div>
+				</div>
+				<!-- //현재 수강중인 강좌 -->
+				<!-- 일시중지/종료된 강의 -->
+				<div class="tabCont applyEnd" style="display:none">
+					<table class="tbStyle">
+						<colgroup>
+							<col width="*" />
+							<col width="200" />
+						</colgroup>
+						<tr>
+							<td class="nodata" colspan="2">
+								일시중지/종료된 강의가 존재하지 않습니다.
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="t1 ellipsis">상품명이 노출됩니다. 상품명이 노출됩니다. 상품명이 노출됩니다. 상품명이 노출됩니다. 상품명이 노출됩니다. 상품명이 노출됩니다. 상품명이 노출됩니다. 상품명이 노출됩니다. 상품명이 노출됩니다.<div>
+								<div class="t2 pt7">수강기간 2017. 06. 20 ~ 2017. 08. 16<div>
+							</td>
+							<td class="alignR">
+								<div class="btnArea"><a href="" class="btn b1"><span>일시중지</span></a></div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="t1 ellipsis">상품명이 노출됩니다. 상품명이 노출됩니다. 상품명이 노출됩니다.<div>
+								<div class="t2 pt7">수강기간 2017. 06. 20 ~ 2017. 08. 16<div>
+							</td>
+							<td class="alignR">
+								<div class="btnArea"><a href="" class="btn b1"><span>수강종료</span></a></div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<!-- //일시중지/종료된 강의 -->
+			</div>
+			<!-- //수강 신청내역 -->
+			
+			<div class="layerDim" style="display:none"></div>
+
+			<!-- layer : 강좌 일시 중지 신청 안내 -->
+			<div class="layerWrap" id="infoPauseLayer" style="width:520px; display:none">
+				<div class="inner">
+					<div class="top">
+						<div class="t2">강좌 일시 중지 신청 안내</div>
+						<div class="closeBtn"><a href="#" onclick="javascript:toggleClsoeFnc('','#infoPauseLayer'); return false;">닫기</a></div>
+					</div>
+					<div class="cont">
+						<div class="infoForm">
+							<dl>
+								<dt>강좌 일시 중지 기능 횟수</dt>
+								<dd>수강기간 내에 1번 중지가 가능합니다.</dd>
+							</dl>
+							<dl>
+								<dt>일시중지 기간</dt>
+								<dd>사용중지 기간은 1주일이며, 1주일 경과 후에는 강좌가 자동으로 시작됩니다.<br />(중지 기간 내 언제든 재시작 가능합니다.)</dd>
+							</dl>
+							<div class="smsCk">
+								<span class="checks">
+									<input name="" type="checkbox" value="">
+									<label>
+										<span class="t1">SMS 신청</span> 
+										<span class="t2">(강좌 자동 재시작 알림, 본인이 직접 재시작 시 제외)</span>
+									</label>
+								</span>
+							</div>
+							<div class="btnArea b1"><span>강좌 일시 중지 신청하기</span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //layer : 강좌 일시 중지 신청 안내 -->
+
+			<!-- layer : 수강 연장 신청 안내 -->
+			<div class="layerWrap" id="infoContinueLayer" style="width:520px; display:none">
+				<div class="inner">
+					<div class="top">
+						<div class="t2">수강 연장 신청 안내</div>
+						<div class="closeBtn"><a href="#" onclick="javascript:toggleClsoeFnc('','#infoContinueLayer'); return false;">닫기</a></div>
+					</div>
+					<div class="cont">
+						<div class="infoForm">
+							<dl>
+								<dt>수강 연장 방법</dt>
+								<dd>보유하고 계신 에듀머니(사이버머니)가 10,000원 이상이면 수강 연장을 신청하실 수 있습니다.</dd>
+								<dd>수강 연장시 에듀머니 10,000원이 차감됩니다.<br />(※ 수강 연장은 강좌가 종료되면 신청하실 수 없습니다.)</dd>
+							</dl>
+							<dl>
+								<dt>수강연장 기간</dt>
+								<dd>수강 연장 기간은 7일입니다.</dd>
+							</dl>
+							<dl>
+								<dt>수강연장 상품</dt>
+								<dd>상품명이 노출됩니다.</dd>
+							</dl>
+							<div class="edumoney">
+								OOO님의 에듀머니 : <span>15,000원</span>
+							</div>
+							<div class="btnArea b1"><span>수강 연장 신청하기</span></div>
+						</div>
+					</div>
+				</div>
+			</div> 
+			<!-- //layer : 수강 연장 신청 안내 -->
+
+			<!-- layer : 최근 수강한 강의 -->
+			<div class="layerWrap" id="newlyListLayer" style="display:none">
+				<div class="inner">
+					<div class="top">
+						<div class="t1">9급공무원</div>
+						<div class="t2">최근 수강한 강의<span class="desc">(상품명이 노출됩니다. 상품명이 노출됩니다. 상품명이 노출됩니다.상품명이 노출됩니다.상품명이 노출됩니다.)</span></div>
+						<div class="closeBtn"><a href="#" onclick="javascript:toggleClsoeFnc('','#newlyListLayer'); return false;">닫기</a></div>
+					</div>
+					<div class="cont applyArea">
+						<div class="newlyList">
+							<!-- 최근 수강한 강의 -->
+							<div class="box">
+								<script src='https://img.eduwill.net/resources/myroom/library/js/Nwagon.js'></script>
+								<table class="tbStyle">
+									<colgroup>
+										<col width="85" />
+										<col width="*" />
+										<col width="125" />
+									</colgroup>
+									<tr>
+										<td>
+											<div  class="chart">
+												<div id="chart_d1_la1" class="ct"></div>
+												<div class="per">59%</div>
+											</div>
+											<script>
+												var positionPercent = parseInt("59");	// 강의 진도율(%)
+												var options = {
+													'dataset': {
+														title: 'Web accessibility status',
+														values:[positionPercent, (100 - positionPercent)],
+														colorset: ['#ff6600', '#e6e6e6'],
+														fields: ['A', 'B'] 
+													},
+													'donut_width' : 6, 
+													'core_circle_radius':24,
+													'chartDiv': 'chart_d' + '1' + '_la' + '1',
+													'chartType': 'donut',
+													'chartSize': {width:90, height:60}
+												};
+										
+												Nwagon.chart(options);
+												
+											</script>
+										</td>
+										<td>
+											<div class="t4">
+												과목명
+												<span class="bar">|</span>
+												교수님
+												<span class="bar">|</span>
+												<span class="t5">최근 학습일 YYYY.MM.DD 12:12 </span>
+											</div>
+											<div class="t1 pt7 ellipsis"><span class="co1">10강.</span> 강의명이 노출됩니다. 강의명이 노출됩니다.</div>
+										</td>
+										<td>
+											<div class="btnArea">
+												<a href="" class="btn b9"><span>FULL HD</span></a>
+											</div>
+											<div class="btnArea">
+												<a href="" class="btn b10"><span>강의목록</span></a>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div  class="chart">
+												<div id="chart_d2_la2" class="ct"></div>
+												<div class="per">59%</div>
+											</div>
+											<script>
+												var positionPercent = parseInt("59");	// 강의 진도율(%)
+												var options = {
+													'dataset': {
+														title: 'Web accessibility status',
+														values:[positionPercent, (100 - positionPercent)],
+														colorset: ['#ff6600', '#e6e6e6'],
+														fields: ['A', 'B'] 
+													},
+													'donut_width' : 6, 
+													'core_circle_radius':24,
+													'chartDiv': 'chart_d' + '2' + '_la' + '2',
+													'chartType': 'donut',
+													'chartSize': {width:90, height:60}
+												};
+										
+												Nwagon.chart(options);
+												
+											</script>
+										</td>
+										<td>
+											<div class="t4">
+												과목명
+												<span class="bar">|</span>
+												교수님
+												<span class="bar">|</span>
+												<span class="t5">최근 학습일 YYYY.MM.DD 12:12 </span>
+											</div>
+											<div class="t1 pt7 ellipsis"><span class="co1">10강.</span> 강의명이 노출됩니다. 강의명이 노출됩니다.</div>
+										</td>
+										<td>
+											<div class="btnArea">
+												<a href="" class="btn b9"><span>FULL HD</span></a>
+											</div>
+											<div class="btnArea">
+												<a href="" class="btn b10"><span>강의목록</span></a>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div  class="chart">
+												<div id="chart_d3_la3" class="ct"></div>
+												<div class="per">59%</div>
+											</div>
+											<script>
+												var positionPercent = parseInt("59");	// 강의 진도율(%)
+												var options = {
+													'dataset': {
+														title: 'Web accessibility status',
+														values:[positionPercent, (100 - positionPercent)],
+														colorset: ['#ff6600', '#e6e6e6'],
+														fields: ['A', 'B'] 
+													},
+													'donut_width' : 6, 
+													'core_circle_radius':24,
+													'chartDiv': 'chart_d' + '3' + '_la' + '3',
+													'chartType': 'donut',
+													'chartSize': {width:90, height:60}
+												};
+										
+												Nwagon.chart(options);
+												
+											</script>
+										</td>
+										<td>
+											<div class="t4">
+												과목명
+												<span class="bar">|</span>
+												교수님
+												<span class="bar">|</span>
+												<span class="t5">최근 학습일 YYYY.MM.DD 12:12 </span>
+											</div>
+											<div class="t1 pt7 ellipsis"><span class="co1">10강.</span> 강의명이 노출됩니다. 강의명이 노출됩니다.</div>
+										</td>
+										<td>
+											<div class="btnArea">
+												<a href="" class="btn b9"><span>FULL HD</span></a>
+											</div>
+											<div class="btnArea">
+												<a href="" class="btn b10"><span>강의목록</span></a>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div  class="chart">
+												<div id="chart_d4_la4" class="ct"></div>
+												<div class="per">59%</div>
+											</div>
+											<script>
+												var positionPercent = parseInt("59");	// 강의 진도율(%)
+												var options = {
+													'dataset': {
+														title: 'Web accessibility status',
+														values:[positionPercent, (100 - positionPercent)],
+														colorset: ['#ff6600', '#e6e6e6'],
+														fields: ['A', 'B'] 
+													},
+													'donut_width' : 6, 
+													'core_circle_radius':24,
+													'chartDiv': 'chart_d' + '4' + '_la' + '4',
+													'chartType': 'donut',
+													'chartSize': {width:90, height:60}
+												};
+										
+												Nwagon.chart(options);
+												
+											</script>
+										</td>
+										<td>
+											<div class="t4">
+												과목명
+												<span class="bar">|</span>
+												교수님
+												<span class="bar">|</span>
+												<span class="t5">최근 학습일 YYYY.MM.DD 12:12 </span>
+											</div>
+											<div class="t1 pt7 ellipsis"><span class="co1">10강.</span> 강의명이 노출됩니다. 강의명이 노출됩니다.</div>
+										</td>
+										<td>
+											<div class="btnArea">
+												<a href="" class="btn b9"><span>FULL HD</span></a>
+											</div>
+											<div class="btnArea">
+												<a href="" class="btn b10"><span>강의목록</span></a>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div  class="chart">
+												<div id="chart_d5_la5" class="ct"></div>
+												<div class="per">59%</div>
+											</div>
+											<script>
+												var positionPercent = parseInt("59");	// 강의 진도율(%)
+												var options = {
+													'dataset': {
+														title: 'Web accessibility status',
+														values:[positionPercent, (100 - positionPercent)],
+														colorset: ['#ff6600', '#e6e6e6'],
+														fields: ['A', 'B'] 
+													},
+													'donut_width' : 6, 
+													'core_circle_radius':24,
+													'chartDiv': 'chart_d' + '5' + '_la' + '5',
+													'chartType': 'donut',
+													'chartSize': {width:90, height:60}
+												};
+										
+												Nwagon.chart(options);
+												
+											</script>
+										</td>
+										<td>
+											<div class="t4">
+												과목명
+												<span class="bar">|</span>
+												교수님
+												<span class="bar">|</span>
+												<span class="t5">최근 학습일 YYYY.MM.DD 12:12 </span>
+											</div>
+											<div class="t1 pt7 ellipsis"><span class="co1">10강.</span> 강의명이 노출됩니다. 강의명이 노출됩니다.</div>
+										</td>
+										<td>
+											<div class="btnArea">
+												<a href="" class="btn b9"><span>FULL HD</span></a>
+											</div>
+											<div class="btnArea">
+												<a href="" class="btn b10"><span>강의목록</span></a>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div  class="chart">
+												<div id="chart_d6_la6" class="ct"></div>
+												<div class="per">59%</div>
+											</div>
+											<script>
+												var positionPercent = parseInt("59");	// 강의 진도율(%)
+												var options = {
+													'dataset': {
+														title: 'Web accessibility status',
+														values:[positionPercent, (100 - positionPercent)],
+														colorset: ['#ff6600', '#e6e6e6'],
+														fields: ['A', 'B'] 
+													},
+													'donut_width' : 6, 
+													'core_circle_radius':24,
+													'chartDiv': 'chart_d' + '6' + '_la' + '6',
+													'chartType': 'donut',
+													'chartSize': {width:90, height:60}
+												};
+										
+												Nwagon.chart(options);
+												
+											</script>
+										</td>
+										<td>
+											<div class="t4">
+												과목명
+												<span class="bar">|</span>
+												교수님
+												<span class="bar">|</span>
+												<span class="t5">최근 학습일 YYYY.MM.DD 12:12 </span>
+											</div>
+											<div class="t1 pt7 ellipsis"><span class="co1">10강.</span> 강의명이 노출됩니다. 강의명이 노출됩니다.</div>
+										</td>
+										<td>
+											<div class="btnArea">
+												<a href="" class="btn b9"><span>FULL HD</span></a>
+											</div>
+											<div class="btnArea">
+												<a href="" class="btn b10"><span>강의목록</span></a>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div  class="chart">
+												<div id="chart_d7_la7" class="ct"></div>
+												<div class="per">59%</div>
+											</div>
+											<script>
+												var positionPercent = parseInt("59");	// 강의 진도율(%)
+												var options = {
+													'dataset': {
+														title: 'Web accessibility status',
+														values:[positionPercent, (100 - positionPercent)],
+														colorset: ['#ff6600', '#e6e6e6'],
+														fields: ['A', 'B'] 
+													},
+													'donut_width' : 6, 
+													'core_circle_radius':24,
+													'chartDiv': 'chart_d' + '7' + '_la' + '7',
+													'chartType': 'donut',
+													'chartSize': {width:90, height:60}
+												};
+										
+												Nwagon.chart(options);
+												
+											</script>
+										</td>
+										<td>
+											<div class="t4">
+												과목명
+												<span class="bar">|</span>
+												교수님
+												<span class="bar">|</span>
+												<span class="t5">최근 학습일 YYYY.MM.DD 12:12 </span>
+											</div>
+											<div class="t1 pt7 ellipsis"><span class="co1">10강.</span> 강의명이 노출됩니다. 강의명이 노출됩니다.</div>
+										</td>
+										<td>
+											<div class="btnArea">
+												<a href="" class="btn b9"><span>FULL HD</span></a>
+											</div>
+											<div class="btnArea">
+												<a href="" class="btn b10"><span>강의목록</span></a>
+											</div>
+										</td>
+									</tr>
+								</table>
+								<div class="listMore"><span>더보기</span></div>	
+							</div>													
+							<!-- //최근 수강한 강의 -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //layer : 최근 수강한 강의 -->
+
+
+
+		</div>
+	</div><!-- e : #content -->
+
+	<div id="aside">
+		<!-- 시험일정 -->
+		<div class="ddayArea">
+			<dl>
+				<dt>
+					<img src="//img.eduwill.net/resources/myroom/library/images/h2_bullet.gif">
+					<!--<strong class="tit"><img src="//img.eduwill.net/resources/myroom/library/images/icon_dday.png" alt="시험일정" /></strong> -->
+				</dt>
+				<dd class="ddaySlide">
+					<ul class="verticalSlide">
+						<li><a href="http://www.eduwill.net/Basic/global_main.asp">
+							<span class="text ellipsis">20회 9급 길게길게길게길게길게길게길게길게길게길게</span>
+							<span class="dday">D-30</span>
+						</a></li>
+						<li><a href="">
+							<span class="text ellipsis">19회 9급 공무원 국가직</span>
+							<span class="dday">D-1</span>
+						</a></li>
+						<li><a href="">
+							<span class="text ellipsis">17회 9급 공무원 국가직</span>
+							<span class="dday">D-25</span>
+						</a></li>
+					</ul>
+				</dd>
+			</dl>
+			<div class="ddayAdd" style="display:none">
+				<ul>
+					<li>
+						<span class="text ellipsis"><a href="">17회 9급 공무원 국가직 길게길게길게길게길게길게길게길게길게길게</a></span>
+						<span class="dday">D-25</span>
+						<span class="date">시험일 : 2017.07.15</span>
+					</li>
+					<li>
+						<span class="text ellipsis"><a href="">19회 9급 공무원 국가직</a></span>
+						<span class="dday">D-1</span>
+						<span class="date">시험일 : 2017.07.15</span>
+					</li>
+					<li>
+						<span class="text ellipsis"><a href="">17회 9급 공무원 국가직</a></span>
+						<span class="dday">D-25</span>
+						<span class="date">시험일 : 2017.07.15</span>
+					</li>
+					<li>
+						<span class="text ellipsis"><a href="">15회 9급 공무원 국가직</a></span>
+						<span class="dday">D-5</span>
+						<span class="date">시험일 : 2017.07.15</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- //시험일정 -->
+		
+		<!-- 이벤트배너 -->
+		<div class="bannerArea">
+			<ul>
+				<li><a href=""><img src="https://img.eduwill.net/resources/myroom/library/images/banner_aside01.jpg" alt="" /></a></li>
+				<li><a href=""><img src="https://img.eduwill.net/resources/myroom/library/images/banner_aside02.jpg" alt="" /></a></li>
+				<li><a href=""><img src="https://img.eduwill.net/resources/myroom/library/images/banner_aside03.jpg" alt="" /></a></li>
+			</ul>
+		</div>
+		<!-- //이벤트배너 -->
+		
+		<!-- 나의 질문/답변 & 학습 전체 질문 -->
+		<div class="tabArea asideTab">
+			<div class="tabBtn default">
+				<div href="#" class="active">
+					<span>나의 질문/답변</span>
+					<a href="" class="more">more</a>
+				</div>
+				<div href="#">
+					<span>학습 전체 질문</span>
+					<a href="" class="more">more</a>
+				</div>
+			</div>
+			<div class="tabCont">
+				<div class="nodate">게시물이 없습니다.</div>
+				<ul>
+					<li><div class="ellipsis">
+						<a href="">
+							<span class="txt1">국어</span>
+							<span class="txt2">1학습 질문 제목이 노출됩니다.</span>
+							<span class="txt3 type1">답변</span>
+						</a>
+					</div></li>
+					<li><div class="ellipsis">
+						<a href="">
+							<span class="txt1">형사소송법</span>
+							<span class="txt2">학습 질문 제목이 노출됩니다.</span>
+							<span class="txt3 type2">대기</span>
+						</a>
+					</div></li>
+					<li><div class="ellipsis">
+						<a href="">
+							<span class="txt1">국어</span>
+							<span class="txt2">학습 질문 제목이 노출됩니다.</span>
+							<span class="txt3 type1">답변</span>
+						</a>
+					</div></li>
+					<li><div class="ellipsis">
+						<a href="">
+							<span class="txt1">형사소송법</span>
+							<span class="txt2">학습 질문 제목이 노출됩니다.</span>
+							<span class="txt3 type2">대기</span>
+						</a>
+					</div></li>
+					<li><div class="ellipsis">
+						<a href="">
+							<span class="txt1">국어</span>
+							<span class="txt2">학습 질문 제목이 노출됩니다.</span>
+							<span class="txt3 type1">답변</span>
+						</a>
+					</div></li>
+				</ul>
+			</div>
+			<div class="tabCont" style="display:none">
+				<div class="nodate">게시물이 없습니다.</div>
+				<ul>
+					<li><div class="ellipsis">
+						<a href="">
+							<span class="txt1">국어</span>
+							<span class="txt2">2학습 질문 제목이 노출됩니다.</span>
+							<span class="txt3 type1">답변</span>
+						</a>
+					</div></li>
+					<li><div class="ellipsis">
+						<a href="">
+							<span class="txt1">형사소송법</span>
+							<span class="txt2">학습 질문 제목이 노출됩니다.</span>
+							<span class="txt3 type2">대기</span>
+						</a>
+					</div></li>
+					<li><div class="ellipsis">
+						<a href="">
+							<span class="txt1">국어</span>
+							<span class="txt2">학습 질문 제목이 노출됩니다.</span>
+							<span class="txt3 type1">답변</span>
+						</a>
+					</div></li>
+					<li><div class="ellipsis">
+						<a href="">
+							<span class="txt1">형사소송법</span>
+							<span class="txt2">학습 질문 제목이 노출됩니다.</span>
+							<span class="txt3 type2">대기</span>
+						</a>
+					</div></li>
+					<li><div class="ellipsis">
+						<a href="">
+							<span class="txt1">국어</span>
+							<span class="txt2">학습 질문 제목이 노출됩니다.</span>
+							<span class="txt3 type1">답변</span>
+						</a>
+					</div></li>
+				</ul>
+			</div>
+		</div>
+		<!-- //나의 질문/답변 & 학습 전체 질문 -->
+	</div><!-- e : #aside -->
+
+</div><!-- e : #container -->
+
+<div id="footer">footer</div>
+</body>
+</html>

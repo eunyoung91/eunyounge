@@ -1,0 +1,105 @@
+.popup-dim2 {
+    display: none;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, .7);
+}
+.popup {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 200;
+    display: none;
+    width: 90%;
+    max-width: 720px;
+    letter-spacing: -1px;
+	background:#fff;
+    @include translateX(-50%);
+    @include boxSizing(border-box);
+    @include breakpoint(desktop){
+        max-width: 1000px;
+    }
+    * { font-family: $font-noto; }
+    .popup-close {
+        position: absolute;
+		@include close(45px, 45px, 1px, #333);
+		cursor:pointer;
+		top: 5px;
+        right:5px;
+    }
+    .popup-body {
+        @include vw(padding, 50px 40px);
+        background-color: #fff;
+		P{
+			text-align: left;
+			line-height: 1.4;
+			@include vw(font-size, 18px);
+			font-weight: 400;
+			color: #222;
+			margin:0;
+		}
+    }
+}
+
+#popupBase{
+	p{
+		display: none;
+		&.brand,
+		&.survey,
+		&.winner, 
+		&.book1, 
+		&.book2, 
+		&.book3, 
+		&.book4{
+			display: block;
+		}
+	}
+}
+// #popupBenefit{
+// 	p{
+// 		display: none;
+// 		&.survey,
+// 		&.book1, 
+// 		&.book2, 
+// 		&.book3, 
+// 		&.book4{
+// 			display: block;
+// 		}
+// 	}
+// }
+#popupBook{
+	p{
+		display: none;
+		&.book1, 
+		&.book2, 
+		&.book3, 
+		&.book4{
+			display: block;
+		}
+	}
+}
+
+#popupCurri1, #popupCurri2{
+	.curri-table .table { 
+		table-layout: fixed; width: 100%; margin: 0 auto; background: #fff; border-collapse: collapse;
+	}
+	.curri-table .table th strong, .curri-table .table td strong { font-weight: bold;}
+	.curri-table .table th.left, .curri-table .table td.left { text-align: left;}
+	.curri-table .table th.right, .curri-table .table td.right { text-align: right;}
+	.curri-table .table th { background-color: #efefef;}
+	.curri-table .table th, .curri-table .table td {
+		font-family: $font-noto;
+		color: #202020; 
+		text-align: center; 
+		border:1px solid #eee; 
+		line-height: 1.2;
+		@include vw(padding, 10px);
+		@include vw(font-size, 18px);
+	}
+}

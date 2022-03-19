@@ -1,0 +1,92 @@
+// background
+.bg_gray { background-color: $bg-color-1; }
+.bg_white { background-color: $color-white; }
+
+// disabled
+.disabled,
+[disabled] {
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+// Grid System
+.grid {
+	position: relative;
+	@extend %clearfix;
+	.col {
+		position: relative;
+		float: left;
+		@include boxSizing(border-box);
+		&-right {
+			float: right;
+		}
+	}
+}
+
+// block for sm
+.block-sm {
+	display: block;
+	@include breakpoint(desktop) {
+		display: inline;
+	}
+}
+
+// block for lg
+.block-lg {
+	display: inline;
+	@include breakpoint(desktop) {
+		display: block;
+	}
+}
+
+// hidden for sm
+.hidden-sm {
+	display: none;
+	@include breakpoint(desktop) {
+		display: block;
+	}
+}
+
+// hidden for lg
+.hidden-lg {
+	display: block;
+	@include breakpoint(desktop) {
+		display: none;
+	}
+}
+
+// list
+ul.list,
+ol.list {
+	&.list_number {
+		list-style: decimal;
+		color: $color-base;
+		@include rem(margin-top, 8px);
+		@include rem(margin-left, 20px);
+		@include breakpoint(tablet) {
+			@include rem(margin-top, 16px);
+		}
+	}
+}
+
+.text {
+	// text color
+	&_white {
+		color: $color-white;
+	}
+	&_base {
+		color: $color-base;
+	}
+	&_base_dark {
+		color: $color-base-dark;
+	}
+	&_base_medium {
+		color: $color-base-medium;
+	}
+	&_base_light {
+		color: $color-base-light;
+	}
+	&_pirmary {
+		color: $color-primary;
+	}
+}

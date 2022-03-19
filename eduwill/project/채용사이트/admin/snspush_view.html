@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<title>에듀윌 채용 관리자</title>
+	<!-- mobile settings
+	<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0" />
+	-->
+	<!-- web fonts :: 나눔바른고딕 -->
+	<link href="https://img.eduwill.net/resources/common/web/css/nbg_webfont.css" rel="stylesheet" type="text/css" />
+	<!-- core css -->
+	<link href="http://img.eduwill.net/resources/recruit/dev/manage/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<!-- theme css -->
+	<link href="http://img.eduwill.net/resources/recruit/dev/manage/css/essentials.css" rel="stylesheet" type="text/css" />
+	<link href="http://img.eduwill.net/resources/recruit/dev/manage/css/layout.css" rel="stylesheet" type="text/css" />
+	<link href="http://img.eduwill.net/resources/recruit/dev/manage/css/green.css" rel="stylesheet" type="text/css" />
+	<!-- custom css -->
+	<link href="http://img.eduwill.net/resources/recruit/dev/manage/css/custom.css" rel="stylesheet" type="text/css" />
+	<!-- datepicker css -->
+	<link href="http://img.eduwill.net/resources/recruit/dev/manage/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
+	<link href="http://img.eduwill.net/resources/recruit/dev/manage/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+
+	<!-- javascript files -->
+	<script type="text/javascript">var plugin_path = 'http://img.eduwill.net/resources/recruit/dev/manage/plugins/';</script>
+	<script src="http://img.eduwill.net/resources/recruit/dev/manage/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+	<script src="http://img.eduwill.net/resources/recruit/dev/manage/plugins/jquery/jquery-ui.min.js" type="text/javascript"></script>
+	<script src="http://img.eduwill.net/resources/recruit/dev/manage/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="http://img.eduwill.net/resources/recruit/dev/manage/js/app.js" type="text/javascript"></script>
+	<script type="text/javascript" src="http://img.eduwill.net/resources/recruit/dev/manage/plugins/printThis/printThis.js"></script><!-- 영역인쇄 js -->
+	<!-- date/rangepicker -->
+	<script src="http://img.eduwill.net/resources/recruit/dev/manage/plugins/bootstrap.daterangepicker/moment.min.js" type="text/javascript"></script>
+	<script src="http://img.eduwill.net/resources/recruit/dev/manage/plugins/bootstrap.daterangepicker/daterangepicker.min.js" type="text/javascript"></script>
+	<script src="http://img.eduwill.net/resources/recruit/dev/manage/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.dpset .input-daterange').datepicker({
+			});
+			$('.sms-list .btn-toggle').on('click', function(){
+				$(this).toggleClass('open')
+
+				if($(this).hasClass('open')) {
+					$(this).text('상태 ▲').parent().next().slideDown(100);
+				} else {
+					$(this).text('상태 ▼').parent().next().slideUp(100);
+				}	
+				
+				return false;
+			});
+		});
+	</script>
+
+</head>
+<body>
+	<!-- wrapper -->
+	<div id="wrapper">
+		<aside id="aside">
+			<nav id="sideNav">
+				<div class="nav-title"><i class="main-icon fa fa-caret-right"></i><span>채용관리</span></div>
+				<!-- aside menu -->
+				<ul class="nav nav-list">
+					<li><a href="recruit_list.html"><i class="main-icon fa fa-book"></i><span>채용공고 &amp; 지원자 관리</span></a></li>
+					<li><a href="#"><i class="main-icon fa fa-thumb-tack"></i><span>인재풀 관리</span></a></li>
+					<li><a href="#"><i class="main-icon fa fa-copy"></i><span>스크랩 관리</span></a></li>
+					<li><a href="member_list.html"><i class="main-icon fa fa-group"></i><span>회원현황 관리</span></a></li>
+					<li>
+						<a href="#">
+							<i class="fa fa-menu-arrow pull-right"></i>
+							<i class="main-icon fa fa-commenting"></i> <span>채용문의 관리</span>
+						</a>
+						<ul><!-- submenus -->
+							<li><a href="faq_list.html">FAQ</a></li>
+							<li><a href="1to1_list.html">1:1 문의</a></li>
+						</ul>
+					</li>
+					<li class="active"><a href="snspush_list.html"><i class="main-icon fa fa-mobile"></i><span>SMS/LMS발송 내역 관리</span></a></li>
+				</ul>
+			</nav>
+			<span id="asidebg"><!-- aside fixed background --></span>
+		</aside>
+		<!-- // aside menu -->
+
+		<!-- header -->
+		<header id="header">
+			<!-- Mobile Button -->
+			<button id="mobileMenuBtn"></button>
+			<!-- Logo -->
+			<div class="logo pull-left"><img src="http://img.eduwill.net/resources/recruit/dev/manage/images/logo_eduwill.png" alt="eduwill" /><span>채용</span></div>
+			<div class="user pull-right"><span>홍길동</span>님 <a href="#" title="로그아웃"><i class="fa fa-sign-out"></i></a></div>
+		</header>
+		<!-- // header -->
+
+		<!-- middle_content -->
+		<section id="middle">
+
+			<!-- page title -->
+			<header id="page-header">
+				<h1>SMS/LMS발송 내역 관리</h1>
+			</header>
+			<!-- // page title -->
+
+			<div id="content" class="padding-20">
+				<div class="panel panel-default">
+					<div class="panel-body">
+						<div class="sms-wrapper recruit-wrapper type-page">						
+							<div class="phone-form">
+								<div class="list-count">총 <span>00</span>명</div>
+								<ul>
+									<li><input type="text" name="" id="" class="form-control" placeholder="[에듀윌 채용]" /></li>
+									<!-- <li><input type="text" name="" id="" class="form-control" placeholder="제목을 입력하세요(필수아님)" /></li> -->
+									<li>
+										<textarea name="" id="" cols="30" rows="12" class="form-control" style="resize:none;"></textarea>
+									</li>
+									<li><input type="text" name="" id="" class="form-control" placeholder="02-2650-3974" disabled="disabled" /></li>
+									<li class="inline-input">
+										<label for="">입력문자</label>
+										<input type="text" id="" name="" class="form-control" readonly="readonly" />
+										<span>1000 byte</span>
+									</li>
+								</ul>
+
+								<!-- <div class="phone-btn">
+									<a href="#" class="btn btn-3d btn-pink btn-sm">발송</a>
+									<a href="#" class="btn btn-3d btn-white btn-sm" data-dismiss="modal" aria-label="Close">취소</a>
+								</div> -->
+							</div>
+							<!-- // phone -->
+
+							<div class="sms-list">
+								<div class="list-title">채용공고 리스트</div>
+								<div class="list-table">
+									<div class="table-responsive">
+										<table class="table table-bordered">
+											<colgroup>
+												<col width="*" />
+											</colgroup>
+											<tbody>
+												<tr>
+													<td>
+														<div class="list-item">
+															[경력] 학원사업본부 부원장 채용 (대전) 총 : 10명
+														</div>
+														<div class="list-checked search-box">
+															<div class="chk">
+																<label class="checkbox" for="ck-01-01">
+																	<input type="checkbox" value="" id="ck-01-01">
+																	<i></i> 전체(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-02">
+																	<input type="checkbox" value="" id="ck-01-02">
+																	<i></i> 지원자심사(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-03">
+																	<input type="checkbox" value="" id="ck-01-03">
+																	<i></i> 서류합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-04">
+																	<input type="checkbox" value="" id="ck-01-04">
+																	<i></i> 1차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-05">
+																	<input type="checkbox" value="" id="ck-01-05">
+																	<i></i> 2차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-06">
+																	<input type="checkbox" value="" id="ck-01-06">
+																	<i></i> 3차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-07">
+																	<input type="checkbox" value="" id="ck-01-07">
+																	<i></i> 최종합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-08">
+																	<input type="checkbox" value="" id="ck-01-08">
+																	<i></i> 불합격(000)
+																</label>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="list-item">
+															[경력] 학원사업본부 부원장 채용 (대전) 총 : 10명
+														</div>
+														<div class="list-checked search-box">
+															<div class="chk">
+																<label class="checkbox" for="ck-01-01">
+																	<input type="checkbox" value="" id="ck-01-01">
+																	<i></i> 전체(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-02">
+																	<input type="checkbox" value="" id="ck-01-02">
+																	<i></i> 지원자심사(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-03">
+																	<input type="checkbox" value="" id="ck-01-03">
+																	<i></i> 서류합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-04">
+																	<input type="checkbox" value="" id="ck-01-04">
+																	<i></i> 1차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-05">
+																	<input type="checkbox" value="" id="ck-01-05">
+																	<i></i> 2차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-06">
+																	<input type="checkbox" value="" id="ck-01-06">
+																	<i></i> 3차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-07">
+																	<input type="checkbox" value="" id="ck-01-07">
+																	<i></i> 최종합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-08">
+																	<input type="checkbox" value="" id="ck-01-08">
+																	<i></i> 불합격(000)
+																</label>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="list-item">
+															[경력] 학원사업본부 부원장 채용 (대전) 총 : 10명
+														</div>
+														<div class="list-checked search-box">
+															<div class="chk">
+																<label class="checkbox" for="ck-01-01">
+																	<input type="checkbox" value="" id="ck-01-01">
+																	<i></i> 전체(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-02">
+																	<input type="checkbox" value="" id="ck-01-02">
+																	<i></i> 지원자심사(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-03">
+																	<input type="checkbox" value="" id="ck-01-03">
+																	<i></i> 서류합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-04">
+																	<input type="checkbox" value="" id="ck-01-04">
+																	<i></i> 1차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-05">
+																	<input type="checkbox" value="" id="ck-01-05">
+																	<i></i> 2차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-06">
+																	<input type="checkbox" value="" id="ck-01-06">
+																	<i></i> 3차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-07">
+																	<input type="checkbox" value="" id="ck-01-07">
+																	<i></i> 최종합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-08">
+																	<input type="checkbox" value="" id="ck-01-08">
+																	<i></i> 불합격(000)
+																</label>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="list-item">
+															[경력] 학원사업본부 부원장 채용 (대전) 총 : 10명
+														</div>
+														<div class="list-checked search-box">
+															<div class="chk">
+																<label class="checkbox" for="ck-01-01">
+																	<input type="checkbox" value="" id="ck-01-01">
+																	<i></i> 전체(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-02">
+																	<input type="checkbox" value="" id="ck-01-02">
+																	<i></i> 지원자심사(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-03">
+																	<input type="checkbox" value="" id="ck-01-03">
+																	<i></i> 서류합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-04">
+																	<input type="checkbox" value="" id="ck-01-04">
+																	<i></i> 1차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-05">
+																	<input type="checkbox" value="" id="ck-01-05">
+																	<i></i> 2차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-06">
+																	<input type="checkbox" value="" id="ck-01-06">
+																	<i></i> 3차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-07">
+																	<input type="checkbox" value="" id="ck-01-07">
+																	<i></i> 최종합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-08">
+																	<input type="checkbox" value="" id="ck-01-08">
+																	<i></i> 불합격(000)
+																</label>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="list-item">
+															[경력] 학원사업본부 부원장 채용 (대전) 총 : 10명
+														</div>
+														<div class="list-checked search-box">
+															<div class="chk">
+																<label class="checkbox" for="ck-01-01">
+																	<input type="checkbox" value="" id="ck-01-01">
+																	<i></i> 전체(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-02">
+																	<input type="checkbox" value="" id="ck-01-02">
+																	<i></i> 지원자심사(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-03">
+																	<input type="checkbox" value="" id="ck-01-03">
+																	<i></i> 서류합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-04">
+																	<input type="checkbox" value="" id="ck-01-04">
+																	<i></i> 1차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-05">
+																	<input type="checkbox" value="" id="ck-01-05">
+																	<i></i> 2차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-06">
+																	<input type="checkbox" value="" id="ck-01-06">
+																	<i></i> 3차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-07">
+																	<input type="checkbox" value="" id="ck-01-07">
+																	<i></i> 최종합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-08">
+																	<input type="checkbox" value="" id="ck-01-08">
+																	<i></i> 불합격(000)
+																</label>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="list-item">
+															[경력] 학원사업본부 부원장 채용 (대전) 총 : 10명
+														</div>
+														<div class="list-checked search-box">
+															<div class="chk">
+																<label class="checkbox" for="ck-01-01">
+																	<input type="checkbox" value="" id="ck-01-01">
+																	<i></i> 전체(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-02">
+																	<input type="checkbox" value="" id="ck-01-02">
+																	<i></i> 지원자심사(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-03">
+																	<input type="checkbox" value="" id="ck-01-03">
+																	<i></i> 서류합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-04">
+																	<input type="checkbox" value="" id="ck-01-04">
+																	<i></i> 1차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-05">
+																	<input type="checkbox" value="" id="ck-01-05">
+																	<i></i> 2차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-06">
+																	<input type="checkbox" value="" id="ck-01-06">
+																	<i></i> 3차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-07">
+																	<input type="checkbox" value="" id="ck-01-07">
+																	<i></i> 최종합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-08">
+																	<input type="checkbox" value="" id="ck-01-08">
+																	<i></i> 불합격(000)
+																</label>
+															</div>
+														</div>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<div class="list-item">
+															[경력] 학원사업본부 부원장 채용 (대전) 총 : 10명
+														</div>
+														<div class="list-checked search-box">
+															<div class="chk">
+																<label class="checkbox" for="ck-01-01">
+																	<input type="checkbox" value="" id="ck-01-01">
+																	<i></i> 전체(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-02">
+																	<input type="checkbox" value="" id="ck-01-02">
+																	<i></i> 지원자심사(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-03">
+																	<input type="checkbox" value="" id="ck-01-03">
+																	<i></i> 서류합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-04">
+																	<input type="checkbox" value="" id="ck-01-04">
+																	<i></i> 1차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-05">
+																	<input type="checkbox" value="" id="ck-01-05">
+																	<i></i> 2차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-06">
+																	<input type="checkbox" value="" id="ck-01-06">
+																	<i></i> 3차면접합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-07">
+																	<input type="checkbox" value="" id="ck-01-07">
+																	<i></i> 최종합격(000)
+																</label>
+
+																<label class="checkbox" for="ck-01-08">
+																	<input type="checkbox" value="" id="ck-01-08">
+																	<i></i> 불합격(000)
+																</label>
+															</div>
+														</div>
+													</td>
+												</tr>
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="text-center margin-top-20">
+									<a href="#" class="btn btn-3d btn-white">목록</a>
+								</div>
+							</div>
+
+							<!-- // sms -list -->
+						</div>
+						<!-- // sms-wrapper -->
+					</div>
+				</div>
+
+			</div>
+		</section>
+		<!-- // middle_content -->
+	</div>
+</body>
+</html>

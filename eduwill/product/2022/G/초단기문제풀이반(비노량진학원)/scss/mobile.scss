@@ -1,0 +1,378 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+@import "module/popup";
+
+.product-eco {
+    * {
+        line-height: normal;
+        font-family: $font-roboto;
+        letter-spacing: -1px;
+    }
+    .wrap,
+    .wrap-full {
+        max-width: 720px;
+    }
+    .holder { position: relative; }
+    p {
+        margin: 0;
+        text-align: left;
+        @include vw(font-size, 20px);
+        color: #666;
+        &.notice { @include rem(margin-top, 10px); }
+    }
+    
+    .btn-fly {
+        position: absolute;
+        display: block;
+        z-index: 1;
+    }
+    .slider-contents {
+        position: relative;
+        margin: 0 6.944%;
+        .slick-dots {
+            position: absolute;
+            bottom: 8%;
+            right: 0;
+            left: 0;
+            font-size: 0;
+            z-index: 1;
+            li {
+                display: inline-block;
+                @include rem(margin, 0 6px);
+                &.slick-active button {
+                    background-color: #ffc20e;
+                }
+            }
+            button {
+                display: block;
+                @include rem(width, 20px);
+                @include rem(height, 20px);
+                color: transparent;
+                border: none;
+                border-radius: 50%;
+                background-color: #ddd;
+                outline: none;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .slick-arrow {
+        @extend %slick-arrow2;
+        border-radius: 50%;
+        &.slick-prev {
+            @include slideArrow(left, 60px, 60px, 2px, #fff, rgba(0,0,0,.4));
+            @include vw(left, -65px);
+            @include vw(margin-top, -50px);
+        }
+        &.slick-next {
+            @include slideArrow(right, 60px, 60px, 2px, #fff, rgba(0,0,0,.4));
+            @include vw(right, -65px);
+            @include vw(margin-top, -50px);
+        }
+    }
+    
+    .icon-hand {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        width: percent(50, 720);
+        img{max-width:100%;}
+        @include animation(moving, 1s, $iteration: infinite){
+            0%, 100% { @include translateY(0); }
+            50% { @include translateY(10px); }
+        }
+    }
+
+    .sector-top-banner {
+        background-color: #ffe000;
+    }
+
+    .sector-title {
+        z-index: 1;
+        background:#2a1514 url('#{$img-path}/mobile/bg_title.jpg') 50% 0 no-repeat;
+        background-size: cover;
+    }
+
+    .sector-winner {
+        .winner-contents {
+            position: relative;
+            padding: 0 11%;
+            @include rem(margin-bottom, 60px);
+            background:#fff url('#{$img-path}/mobile/bg_winner.jpg') 50% 0 no-repeat;
+            background-size: 100% auto;
+            p {
+                text-align: center;
+                line-height: 2;
+                @include vw(font-size, 18px);
+                color: #535353;
+            }
+        }
+
+        .winner-interview {
+            width: percent(495, 720);
+            margin: 0 auto;
+            .col {
+                float: none;
+                width: 100%;
+                @include rem(margin-bottom, 55px);
+                .caption {
+                    @include rem(margin-top, 20px);
+                    @include rem(font-size, 28px);
+                    text-align: left;
+                    color: #000;
+                    font-weight: 500;
+                    line-height: 1.3;
+                }
+            }
+        }
+
+        .btn-box {
+            a {
+                position: relative;
+                display: block;
+                margin: 0 auto;
+                .icon-hand { right: 24%;}
+            }
+            p {
+                @include rem(margin, 14px 0 0);
+                @include rem(font-size, 26px);
+                padding: 0;
+                text-align: center;
+                font-weight: 400;
+                color: #ccc;
+            }
+        }
+    }
+
+    .sector-text {
+        background: #341a19;
+    }
+
+    .sector-curriculum {
+        background: #f6f6f6;
+    }
+
+    .sector-teacher {
+        @include vw(padding-bottom, 90px);
+        
+        .slide-contents {
+            position: relative;
+            width: percent(620);
+            margin: 0 auto;
+            .slick-slide {
+                @include vw(padding, 0 8px);
+                @include boxSizing(border-box);
+            }
+        }
+
+        
+        .t-info {
+            position: absolute;
+            text-align: left;
+            line-height: 1;
+            @include vw(left, 4px);
+            .subject {
+                @include vw(font-size, 20px);
+                @include vw(letter-spacing, -2px);
+                font-weight: 400;
+                color: #222;
+                line-height: 1;
+            }
+            .name {
+                display: inline-block;
+                @include vw(padding-right, 38px);
+                @include vw(font-size, 20px);
+                @include vw(letter-spacing, -2px);
+                font-weight: 700;
+                color: #222;
+                line-height: 1;
+            }
+        }
+
+        .teacher-box {
+            .big-list {
+                .col {
+                    position: relative;
+                    a {
+                        display: inline-block;
+                        @include vw(padding, 0 5px);
+                    }
+                    .t-info {
+                        bottom: 0;
+                        z-index: 1;
+                    }
+                }
+            }
+    
+            .small-list {
+                @extend .grid;
+                @include vw(margin, 30px auto 0);
+                @include vw(height, 888px);
+                width: percent(620, 720);
+                overflow: hidden;
+                @include transition(all, .3s, ease-in);
+                .col {
+                    @extend .col;
+                    position: relative;
+                    width: 32%;
+                    margin: 0 2% 2% 0;
+                    img { width: 100%; }
+                    .t-info {
+                        top: 10%;
+                        left: 9%;
+                        .subject {
+                            @include vw(font-size, 18px);
+                            color: #e7e7e7;
+                        }
+                        .name {
+                            color: #e7e7e7;
+                            padding-right: 0;
+                            @include vw(font-size, 18px);
+                        }
+                    }
+                    &:nth-child(3n) {
+                        margin-right: 0;
+                    }
+                }
+            }
+
+
+            .teacher-action {
+                display: block !important;
+                .btn-teacher-more {
+                    position: relative;
+                    display: inline-block;
+                    @include vw(margin-top, 40px);
+                    @include vw(padding, 15px 60px 15px 30px);
+                    @include vw(font-size, 26px);
+                    border: 1px solid #222;
+                    @include boxSizing(border-box);
+                    @include transition(all, .3s, ease-in);
+                    &:after {
+                        @include arrow(bottom, 10px, 10px, 1px, #222);
+                        @include vw(right, 20px);
+                    }
+                }
+            }
+
+            &.fold {
+                .small-list {
+                    height: 100% !important;
+                    @include transition(all, .3s, ease-in);
+                    & + .teacher-action .btn-teacher-more:after {
+                        @include arrow(top, 10px, 10px, 1px, #222);
+                    }
+                }
+            }
+        }
+
+        .grounds-text {
+            text-align: center !important; 
+            padding: 0;
+            margin: 0;
+            @include vw(margin-top, 20px);
+            @include vw(font-size, 22px);
+            color: rgba(0,0,0, .5);
+        }
+    }
+
+    .sector-acer {
+        @include rem(padding-bottom, 120px);
+        background: #f6f6f6;
+        .holder {
+            width: percent(640, 720);
+            margin: 0 auto;
+            background: #fff;
+            + .holder { @include rem(margin-top, 60px);}
+            &.tab { @include rem(padding-bottom, 80px);}
+            &.title {
+                width: 100%;
+            }
+        }
+        .btn-acer {
+            position: absolute;
+            width: percent(300);
+            left: percent(38);
+            top: percent(380, 493);
+            a {
+                display: inline-block;
+                position: relative;
+                .icon-hand {
+                    width: percent(48, 300);
+                    @include rem(right, -20px);
+                }
+            }
+        }
+        .tab-list {
+            position: relative;
+            width: percent(560, 640);
+            margin: 0 auto;
+            li {
+                float: left;
+                width: 25%;
+                border-left: 2px solid #fff;
+                @include boxSizing(border-box);
+                &:first-child { border-left: 0;}
+                a {
+                    display: block;
+                    @include rem(padding, 20px 0);
+                    @include vw(font-size, 24px);
+                    background: #f6f6f6;
+                    color: #aaa;
+                    font-weight: 700;
+                    letter-spacing: -1px;
+                    line-height: 1.3;
+                    @include boxSizing(border-box);
+                }
+                &.in {
+                    a {
+                        color: #000;
+                        background: #f7cb6c;
+                    }
+                }
+            }
+        }
+        .tab-contents {
+            .item {
+                display: none;
+                &.in { display: block;}
+            }
+        }
+        .notice {
+            width: percent(560, 640);
+            text-align: right;
+            color: rgba(34,34,34, .6);
+            font-weight: 400;
+            line-height: 1.5;
+            @include vw(font-size, 22px);
+            @include rem(margin, 15px auto 0);
+        }
+    }
+
+    .sector-academy {
+        background: #f6f6f6;
+        background: linear-gradient(0deg, #341a19 0%, #341a19 50%, #f6f6f6 50%, #f6f6f6 100%);
+        .academy-list {
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .slick-arrow {
+            &.slick-prev {
+                @include slideArrow(left, 60px, 60px, 2px, #000, rgba(255,255,255,1));
+                left: 0;
+            }
+            &.slick-next {
+                @include slideArrow(right, 60px, 60px, 2px, #000, rgba(255,255,255,1));
+                right: 0;
+            }
+        }
+    }
+}

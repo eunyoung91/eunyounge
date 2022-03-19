@@ -1,0 +1,144 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+</head>
+<body>
+
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/myroom/dev/css/myroom_survey.css">
+<div class="layerSurveyDim"></div>
+<div class="layer_box" id="layer_survey">
+	<div class="layer_popup">
+	   <a href="javascript:;" class="popup_close"><img src="https://img.eduwill.net/resources/myroom/library/images/popup/popup_close.png" alt="닫기" /></a>
+	   <div class="layer_cont">
+			<div class="popup_tit">
+				<span class="name">임아름</span>님, 안녕하세요!<br/>
+				지금 수강 중인 <span class="highlight">[2020] 9급 배영표 국어 기초 특강</span>에 만족 하시나요?
+			</div>
+			<div class="popup_cont">
+				<div class="scroll_box">
+					<dl class="surveyQuestion">
+						<dt>
+							<span class="questionName">현재 강의에 대해 만족하십니까?</span>
+							<span class="point1">[필수]</span>
+						</dt>
+						<dd>
+							<select class="surveyQuestionResponse">
+								<option value="">선택</option>
+								<option value="99">매우 만족</option>
+								<option value="100">만족</option>
+								<option value="101">불만족</option>
+								<option value="102">매우 불만족</option>
+							</select>
+						</dd>
+					</dl>
+
+					<dl class="surveyQuestion">
+						<dt>
+							<span class="questionName">현재 강의를 지인에게 추천하시겠습니까?</span>
+							<span class="point1">[필수]</span>
+						</dt>
+							<dd>
+							<select class="surveyQuestionResponse">
+								<option value="">선택</option>
+								<option value="103">7점 매우추천</option>
+								<option value="104">6점</option>
+								<option value="105">5점</option>
+								<option value="106">4점</option>
+								<option value="107">3점</option>
+								<option value="108">2점</option>
+								<option value="109">1점 매우비추천</option>
+							</select>
+						</dd>
+					</dl>
+
+					<!-- 2020-03-25 -->
+					<dl>
+						<dt><span class="questionName">해당 강좌에 대한 점수를 알려주세요.</span></dt>
+						<dd>
+							<ul class="radio_list">
+								<li><label for="score1"><input type="radio" name="radio" id="score1" class="radio"> 1</label></li>
+								<li><label for="score2"><input type="radio" name="radio" id="score2" class="radio"> 텍스트가 길어집니다</label></li>
+								<li><label for="score3"><input type="radio" name="radio" id="score3" class="radio"> 3</label></li>
+								<li><label for="score4"><input type="radio" name="radio" id="score4" class="radio"> 4</label></li>
+								<li><label for="score5"><input type="radio" name="radio" id="score5" class="radio"> 텍스트가 길어집니다</label></li>
+								<li><label for="score6"><input type="radio" name="radio" id="score6" class="radio"> 6</label></li>
+								<li><label for="score7"><input type="radio" name="radio" id="score7" class="radio"> 7</label></li>
+								<li><label for="score8"><input type="radio" name="radio" id="score8" class="radio"> 8</label></li>
+								<li><label for="score9"><input type="radio" name="radio" id="score9" class="radio"> 9</label></li>
+								<li><label for="score10"><input type="radio" name="radio" id="score10" class="radio"> 10</label></li>
+							</ul>
+						</dd>
+					</dl>
+					<!-- // 2020-03-25 -->
+
+					<dl class="surveyQuestion">
+						<dt>
+							<span class="questionName">현재까지 수강한 강의에 대한 강의평을 남겨주세요.</span>
+							<span class="point1">[필수]</span>
+						</dt>
+						<dd>
+							<!-- 2020-05-06 -->
+							<div class="score">
+								별점
+								<div class="icon">
+									<span class="i-star on" data-value="1">5점 중 1점</span>
+									<span class="i-star on" data-value="2">5점 중 2점</span>
+									<span class="i-star on" data-value="3">5점 중 3점</span>
+									<span class="i-star on" data-value="4">5점 중 4점</span>
+									<span class="i-star on" data-value="5">5점 중 5점</span>
+								</div>
+							</div>
+							<!-- // 2020-05-06 -->
+							<textarea class="ta surveyQuestionResponse" cols="30" rows="10" placeholder="내용을 입력해주세요." onkeyup="emSurveyHandler.textLengthCheck(this, '3000');"></textarea>
+							<p class="textLimitByte">(<span class="nowByte">0</span>/<span class="maxByte">3000</span>)</p>
+							<p class="reviewMessage">제출하신 수강 후기는 추후 마케팅에 사용될 수 있습니다.</p>
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<div class="popup_btn"><a href="javascript:;" class="btn_request">제출</a></div>
+	   </div>
+		<div class="layer_check">
+			<a href="javascript:;">오늘하루 보지 않기</a>
+			<a href="javascript:;">1주일 간 보지 않기</a>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.7.2.min.js"></script>
+<script>
+	$(function(){
+		// 팝업열기(css에서 기본적으로 숨겨놓았고 오늘하루보지않기 체크가 안되어 있으면 아래 명령으로 팝업 열면되용^^)
+		$("#layer_survey").fadeIn();
+
+		// 팝업닫기
+		$("#layer_survey").find(".popup_close").on("click",function(){
+			$("#layer_survey").fadeOut();
+		});
+
+		// 2020-05-06 add
+		$('.score .icon .i-star').on('click', function(){
+			var stars = $('.i-star'),
+				 onStars = parseInt($(this).data('value'), 10);
+
+			for (i = 0; i < stars.length; i++) {
+				$(stars[i]).removeClass('on');
+				//console.log('off');
+			}
+
+			for (i = 0; i < onStars; i++) {
+				$(stars[i]).addClass('on');
+				//console.log('on');
+			}
+		});
+	});
+</script>
+
+ </body>
+</html>

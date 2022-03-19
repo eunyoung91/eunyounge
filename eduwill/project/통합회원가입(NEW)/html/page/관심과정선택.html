@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="content-language" content="kr" />
+<title>로그인</title>
+<link rel="stylesheet" type="text/css" href="http://img.eduwill.net/resources/ea/eadev/css/common.css" />
+<script type="text/javascript" src="../../js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../js/main.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#member_pwd').focus(function() {
+		$(this).prop('type', 'password').val('');
+	});
+});
+</script>
+</head>
+
+<body>
+<div id="wrap">
+	<div id="header">
+		<div class="h_wrap">
+			<h1><img src="http://img.eduwill.net/Img2/Common/Join/new/membership_logo.png" alt="에듀윌"></h1>
+			<div class="hd_spot">
+				<ul class="hd_gnb">
+					<li class="hd_item01"><a class="hd_item active" href="#">로그인</a></li>
+					<li class="hd_item02"><a class="hd_item" href="#">무료회원가입</a></li>
+					<li class="hd_item03"><a class="hd_item" href="#">아이디 / 비밀번호찾기</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- CONTAINER -->
+	<div id="container">
+		<!-- CONTENT -->
+		<div id="content">
+				
+			<div class="g_content member">
+				
+				<div class="join_item">
+					<div class="section_interest"><!-- section_interest -->
+						<div class="holder">
+							<p class="desc">
+								<span class="highlight">홍길동</span>님! 에듀윌 관심과정을 선택해주세요.
+							</p>
+							<p class="subject">
+								관심과정 선택만 해도
+								<span class="highlight">기초 무료특강 제공</span>
+							</p>						
+
+							<div class="form_wrap">
+								<div class="item info">
+									선택한 관심과정에 맞게
+								</div>
+								<div class="item temp1">
+									<ul>
+										<li>
+											<span>기초강의 무료제공</span>
+										</li>
+										<li>
+											<span>시험 및 학습자료 안내</span>	
+										</li>
+									</ul>								
+								</div>
+								<div class="item info">
+									관심과정
+								</div>
+								<div class="item temp2">
+									<div class="wish_radio">
+										<ul class="inp_radio" id="favorGroup">
+											<li>
+												<input type="radio" alt="관심정보" id="witem1" name="wishitem" onclick="Info.findSubCategory($(this),'');" value="1">
+												<label for="witem1">공무원</label>
+											</li>
+											<li>
+												<input type="radio" alt="관심정보" id="witem2" name="wishitem" onclick="Info.findSubCategory($(this),'');" value="2">
+												<label for="witem2">자격증</label>
+											</li>
+											<li>
+												<input type="radio" alt="관심정보" id="witem3" name="wishitem" onclick="Info.findSubCategory($(this),'');" value="3">
+												<label for="witem3">취업</label>
+											</li>
+										</ul>
+									</div>
+
+									<!--  공무원선택시 -->
+									<div class="lic_item" id="favorSubCategory"><ul class="inp_radio"><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_G" name="prgitem" alt="추가 관심정보" value="G"><label for="prg_G">9급공무원</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_7" name="prgitem" alt="추가 관심정보" value="7"><label for="prg_7">7급공무원</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_C" name="prgitem" alt="추가 관심정보" value="C"><label for="prg_C">경찰공무원</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg__104" name="prgitem" alt="추가 관심정보" value="_104"><label for="prg__104">소방공무원</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_T" name="prgitem" alt="추가 관심정보" value="T"><label for="prg_T">계리직공무원</label></li></ul></div>
+									<!--  // 공무원선택시 -->
+
+									<!--  자격증선택시 -->
+									<div class="lic_item" id="favorSubCategory"><ul class="inp_radio"><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_L" name="prgitem" alt="추가 관심정보" value="L"><label for="prg_L">공인중개사</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_J" name="prgitem" alt="추가 관심정보" value="J"><label for="prg_J">주택관리사</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_D" name="prgitem" alt="추가 관심정보" value="D"><label for="prg_D">도로교통사고감정사</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_A" name="prgitem" alt="추가 관심정보" value="A"><label for="prg_A">행정사</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_V" name="prgitem" alt="추가 관심정보" value="V"><label for="prg_V">직업상담사</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_K" name="prgitem" alt="추가 관심정보" value="K"><label for="prg_K">경비지도사</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_S" name="prgitem" alt="추가 관심정보" value="S"><label for="prg_S">사회복지사1급</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_M" name="prgitem" alt="추가 관심정보" value="M"><label for="prg_M">물류관리사</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_U" name="prgitem" alt="추가 관심정보" value="U"><label for="prg_U">재경관리사</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_Q" name="prgitem" alt="추가 관심정보" value="Q"><label for="prg_Q">전기기사</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_X" name="prgitem" alt="추가 관심정보" value="X"><label for="prg_X">전산세무회계</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_Y" name="prgitem" alt="추가 관심정보" value="Y"><label for="prg_Y">소방설비기사/관리사</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_I" name="prgitem" alt="추가 관심정보" value="I"><label for="prg_I">IT</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_5" name="prgitem" alt="추가 관심정보" value="5"><label for="prg_5">ERP정보관리사</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_6" name="prgitem" alt="추가 관심정보" value="6"><label for="prg_6">건축기사/토목기사</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_B" name="prgitem" alt="추가 관심정보" value="B"><label for="prg_B">검정고시</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_F" name="prgitem" alt="추가 관심정보" value="F"><label for="prg_F">유통관리사</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_H" name="prgitem" alt="추가 관심정보" value="H"><label for="prg_H">한국사능력검정</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_1" name="prgitem" alt="추가 관심정보" value="1"><label for="prg_1">한경TESAT/매경TEST</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_8" name="prgitem" alt="추가 관심정보" value="8"><label for="prg_8">ToKL/KBS한국어</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_9" name="prgitem" alt="추가 관심정보" value="9"><label for="prg_9">조경기사</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_P" name="prgitem" alt="추가 관심정보" value="P"><label for="prg_P">농산물품질관리사</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_3" name="prgitem" alt="추가 관심정보" value="3"><label for="prg_3">전기기능사</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg__101" name="prgitem" alt="추가 관심정보" value="_101"><label for="prg__101">국제무역사/무역영어</label></li><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg__103" name="prgitem" alt="추가 관심정보" value="_103"><label for="prg__103">한식조리기능사</label></li></ul></div>
+									<!--  // 자격증선택시 -->
+
+									<!-- 취업선택시 -->
+									<div class="lic_item" id="favorSubCategory"><ul class="inp_radio"><li><input type="radio" onclick="Info.findFavoritePart($(this))" id="prg_Z" name="prgitem" alt="추가 관심정보" value="Z"><label for="prg_Z">공기업/대기업 취업</label></li></ul></div>
+									<!-- // 취업선택시 -->
+
+									<!-- 관심직렬 / 관심지역 -->
+									<div class="gov_item" id="favor_area"><div class="select01"><label for="witems">관심직렬</label><select name="WANTJOB1" id="witems" class="g_select" style="width:"><option value="AD">일반행정직</option><option value="ED">교육행정직</option><option value="TX">세무직</option><option value="CO">경찰직</option><option value="GE">건축직</option><option value="BG">보호직</option><option value="MA">마약수사직</option><option value="AA">회계직</option><option value="SA">사회복지직</option><option value="SO">소방직</option><option value="GU">군무원</option><option value="TO">토목직</option><option value="PO">검찰사무직</option><option value="GY">교정직</option><option value="BO">보건직</option><option value="EC">출입국관리직</option><option value="AG">기계직</option><option value="AC">농업직</option><option value="EL">전기직</option><option value="DT">관세직</option><option value="CP">전산직</option><option value="EA">선거행정직</option><option value="SG">속기직</option><option value="DR">운전직</option><option value="10">계리직</option><option value="SI">시설관리직(방호직)</option><option value="PL">8급국회직</option><option value="NR">8급간호직</option><option value="HD">8급보건진료직</option><option value="EN">환경직</option><option value="KN">고용노동직</option><option value="JS">직업상담직</option></select></div><div class="select02"><label for="witems">관심지역</label><select name="WANTAREA1" id="witems" class="g_select" style="width:"><option value="국가직">국가직</option><option value="서울시">서울시</option><option value="인천시">인천시</option><option value="대구시">대구시</option><option value="대전시">대전시</option><option value="광주시">광주시</option><option value="울산시">울산시</option><option value="부산시">부산시</option><option value="세종시">세종시</option><option value="경기도">경기도</option><option value="강원도">강원도</option><option value="충북">충북</option><option value="충남">충남</option><option value="전북">전북</option><option value="전남">전남</option><option value="경북">경북</option><option value="경남">경남</option><option value="제주도">제주도</option></select></div></div>
+
+									<div class="gov_item" id="favor_area"><div class="select01"><label for="witems">관심분야</label><select name="WANTAREA1" id="witems" class="g_select" style="width:"><option value="공인중개사">공인중개사</option><option value="부동산경매">부동산경매</option><option value="주택관리사">주택관리사</option></select></div><div class="select02"><label for="witems">할인혜택</label><select name="ETC2" id="witems" class="g_select" style="width:"><option value="해당없음">해당없음</option><option value="공인중개사업 종사자">공인중개사업 종사자</option><option value="장애우">장애우</option><option value="국가유공자 ">국가유공자</option><option value="주택관리사 자격증 보유자">주택관리사 자격증 보유자</option><option value="기초생활보호대상자">기초생활보호대상자</option><option value="타사">타사 온오프라인 수강중</option></select></div></div>
+									<!-- // 관심직렬 / 관심지역 -->
+								</div>
+							</div>
+						</div>
+						<div class="btn_group">
+							<a href="#" class="g_btn_a">저장</a>
+						</div>
+					</div><!-- // section_interest -->
+					
+				</div>
+				<!-- // join_item -->
+
+			</div>
+			<!-- // g_content -->
+		</div>
+		<!-- //CONTENT -->
+	</div>
+	<!-- //CONTAINER -->
+
+	<div id="globalFooter" class="members_footer">
+		<div class="certification">
+			<div class="g_inner">
+				<ul class="clearfix">
+					<li><a href="http://www.eduwill.net/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=55703&amp;Page=1&amp;listRecord=15&amp;Key=&amp;KeyWD=&amp;Div=&amp;BestFlag=&amp;Menu=&amp;Progress=" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert01.png" alt="대통령상"></a></li>
+					<li><a href="http://www.eduwill.net/common/board/News_Board_View.asp?ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=103632&amp;Page=1&amp;listRecord=15" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert02.png" alt="법무부"></a></li>
+					<li><a href="http://www.eduwill.net/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=96030&amp;Page=1&amp;listRecord=15&amp;Key=&amp;KeyWD=&amp;Div=&amp;BestFlag=&amp;Menu=&amp;Progress=" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert03.png" alt="미래창조과학부"></a></li>
+					<li><a href="http://www.eduwill.net/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=80604&amp;Page=1&amp;listRecord=15&amp;Key=&amp;KeyWD=&amp;Div=&amp;BestFlag=&amp;Menu=&amp;Progress=" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert04.png" alt="고용노동부"></a></li>
+					<!--<li><a href="http://www.eduwill.net/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&ProgressPageURL=common&M_Idx=15&B_Idx=74169&Page=1&listRecord=15&Key=&KeyWD=&Div=&BestFlag=&Menu=&Progress=" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert05.png" alt="교육과학기술부" /></a></li>-->
+					<li><a href="http://www.eduwill.net/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=34597&amp;Page=17&amp;listRecord=15&amp;Key=Title&amp;KeyWD=&amp;Div=&amp;BestFlag=&amp;Menu=&amp;Progress=" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert06.png" alt="산업지원부"></a></li>
+					<li><a href="http://www.eduwill.net/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=33094&amp;Page=17&amp;listRecord=15&amp;Key=Title&amp;KeyWD=&amp;Div=&amp;BestFlag=&amp;Menu=&amp;Progress=" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert07.png" alt="정보통신부"></a></li>
+					<li><a href="http://www.eduwill.net/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=16100&amp;Page=20&amp;listRecord=15&amp;Key=Title&amp;KeyWD=&amp;Div=&amp;BestFlag=&amp;Menu=&amp;Progress=" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert08.png" alt="과학기술부"></a></li>
+					<li><a href="http://www.eduwill.net/Common/Board/News_Board_View.asp?Go_List_URL=/Common/Board/News_Board_View.asp&amp;ProgressPageURL=Common&amp;M_Idx=15&amp;B_Idx=16070" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert09.png" alt="서울시"></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="g_inner clearfix">
+			<script language="javascript" src="/common/include/js/escrow.js"></script>
+			<div class="foot_logo"><img src="http://www.eduwill.net/Img2/common/ew/footer_logo.gif" alt="Eduwill"></div>
+			<div class="foot_info">
+				<ul class="foot_group clearfix">
+					<li><a href="#" onclick="javascript:view('http://www.eduwill.net/Img2/common/ew/ISMS_cert.jpg','','width=350,height=510'); return false;"><img src="http://img.eduwill.net/Img2/globalMain/btn_isms.png" alt="정보보호관리체계 ISMS 인증획득"></a></li>
+					<li><a href="#" onclick="javascript:window.open('https://www.eprivacy.or.kr:40018/seal/mark.jsp?mark=e&amp;code=2015-N007','','width=500,height=700'); return false;"><img src="http://img.eduwill.net/Img2/globalMain/btn_privacy.png" alt="개인정보보호 우수 사이트"></a></li>
+					<li><a href="http://www.eduwill.net/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=16068" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_forever.png" alt="원격 평생교육 시설 인증획득"></a></li>
+					<li>
+					<a href="#" onclick="goValidEscrow('eduwill'); return false;"><img src="http://img.eduwill.net/Img2/globalMain/btn_lguplus.png" alt="LG U+ 에스크로"></a></li>
+					<li><a href="#" onclick="javascript:thawte_splash(); return false;"><img src="http://img.eduwill.net/Img2/globalMain/btn_thawte.png" alt="thawte"></a></li>
+				</ul>
+
+				<ul class="foot_link clearfix">
+					<li><a href="http://www.eduwill.net/common/company/ceo.asp" target="_blank">회사소개</a></li>
+					<li><a href="http://www.eduwill.net/common/company/recruit_notice.asp" target="_blank">인재채용</a></li>
+					<li><a href="http://www.eduwill.net/common/company/Professor.asp" target="_blank">강사/저자모집</a></li>
+					<li><a href="http://www.eduwill.net/Common/company/Education.asp" target="_blank">고객센터</a></li>
+					<li><a href="http://www.eduwill.net/common/company/partner_info.asp" target="_blank">제휴문의</a></li>
+					<li><a href="http://www.eduwill.net/Common/MyInfo/eduwill_law.asp" target="_blank">이용약관</a></li>
+					<li class="blue"><a href="http://www.eduwill.net/Common/MyInfo/MyInfo_Privacy.asp" target="_blank">개인정보처리방침</a></li>
+					<li><a href="javascript:;" onclick="window.open('http://www.eduwill.net/common/etc/spampop.asp','spampop',width=406,height=393);">이메일추출방지정책</a></li>
+				</ul>
+
+				<address>
+					본사 : 서울시 구로구 디지털로 34길 55 코오롱싸이언스밸리 2차 310호 ㈜ 에듀윌<span>|</span>대표이사 정학동<span>|</span>e-mail : cs@eduwill.net<span>|</span>원격평생교육시설신고 제 207호<br>
+					사업자등록번호 119-81-54852<span>|</span>대표전화 : 1600-6700<span>|</span>고객센터 : 코오롱싸이언스밸리 2차 208호<span>|</span>개인정보 보호책임자 : 남영택<br>
+					법인등록번호 110111-2450031<span>|</span>출판사등록번호 제 18-102호<span>|</span>통신판매신고 구로 제 2008-00077호
+					<p>(주)에듀윌은 LG U+의 SSL방식을 적용하여 고객정보 보안에 만전을 기하고 있습니다. <em class="copy">Copyright (c) 2002~2016 (주)에듀윌 All rights reserved.</em></p>
+				</address>
+
+				<div class="partnership family01">
+					<h4><a href="#"><img src="http://img.eduwill.net/Img2/globalMain/btn_family01.gif" alt="제휴 및 인증기관"></a></h4>
+					<div class="alliance clearfix" style="display: none;">
+						<dl>
+							<dt>제휴기관</dt>
+							<dd>
+								<ul>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_ebs_footer2.gif" alt=""><a href="/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=55703&amp;Page=1&amp;listRecord=10&amp;Key=&amp;KeyWD=&amp;Div=&amp;BestFlag=&amp;Menu=&amp;Progress=" target="_blank">EBS</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_puplenews2.gif" alt=""><a href="/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=40314&amp;Page=3&amp;listRecord=10&amp;Key=Title&amp;KeyWD=&amp;Div=&amp;BestFlag=&amp;Menu=&amp;Progress=" target="_blank">국민일보</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_koreauniver2.gif" alt=""><a href="/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=Common&amp;M_Idx=15&amp;B_Idx=32124" target="_blank">고려대학교</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_sk.gif" alt=""><a href="/common/board/News_Board_View.asp?ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=58062&amp;Page=1&amp;listRecord=15" target="_blank">SK텔레콤</a></li>
+								</ul>
+								<p class="more"><a href="/common/company/partner.asp" target="_blank"><img src="http://www.eduwill.net/Img2/common/ew/btn_more.gif" alt="더보기"></a></p>
+							</dd>
+						</dl>
+
+						<dl>
+							<dt>정부기관</dt>
+							<dd>
+								<ul>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_gov1.gif" alt=""><a href="/Common/Board/News_Board_View.asp?GoListURL=/Common/Board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=55703&amp;Page=1&amp;listRecord=15" target="_blank">대통령상 수상</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_gov2.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=33094" target="_blank">정보통신부장관상 수상</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_gov3.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=16100" target="_blank">과학기술부장관상 수상</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_gov4.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=34597" target="_blank">산업자원부장관상 수상</a></li>
+								</ul>
+							</dd>
+						</dl>
+
+						<dl>
+							<dt>교육기관</dt>
+							<dd>
+								<ul>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_ebs_footer.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=42090" target="_blank">EBS</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_koreauniver.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=32124" target="_blank">고려대학교</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_moj.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=42046" target="_blank">법무부</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_korea.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=41721" target="_blank">한국생산성본부</a></li>
+								</ul>
+							</dd>
+						</dl>
+
+						<dl>
+							<dt>주요인증</dt>
+							<dd>
+								<ul>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_enobiz.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=16119" target="_blank">이노비즈 기업인증</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_enobiz.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=16119" target="_blank">경영혁신형 기업인증</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_erining.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=37852" target="_blank">이러닝 기업인증</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_good.gif" alt=""><a href="http://edua.eduwill.net/Common/etc/venture_info.asp?code=2005#" onclick="PopOpen(this.href,'venture_info','515','600');return false" target="_blank">우수벤처 기업인증</a></li>
+								</ul>
+							</dd>
+						</dl>
+
+						<dl>
+							<dt>언론기관</dt>
+							<dd>
+								<ul>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_sbs.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=38463" target="_blank">SBS</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_koreanews.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=16113" target="_blank">한국일보</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_wowtv.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=40818" target="_blank">한국경제TV</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_puplenews.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=40314" target="_blank">국민일보</a></li>
+								</ul>
+							</dd>
+						</dl>
+						<a href="#" class="close_layer">닫기 X</a>
+					</div>
+				</div>
+				<!-- 제휴기관 -->
+
+				<div class="partnership family02">
+					<h4><a href="#"><img src="http://img.eduwill.net/Img2/globalMain/btn_family02.gif" alt="패밀리사이트"></a></h4>
+					<div class="alliance clearfix" style="display: none;">
+						<dl class="family">
+							<dt>패밀리 사이트</dt>
+							<dd>
+								<ul>
+									<li><a href="http://www.eduwill.net/" target="_blank">자격증/공무원 온라인</a></li>
+									<li><a href="http://www.studywill.net/" target="_blank">원격평생교육원</a></li>
+									<li><a href="http://www.bizwill.net/" target="_blank">기업교육센터</a></li>
+									<li><a href="http://free.eduwill.net/" target="_blank">지식발전소</a></li>
+									<li><a href="http://dream.eduwill.net/" target="_blank">드림교육센터</a></li>
+									<li><a href="http://studio.eduwill.net/" target="_blank">Full HD 이러닝 스튜디오</a></li>
+								</ul>
+								<ul class="last">
+									<li><a href="/common/company/won.asp" target="_blank">자격증/공무원 직영학원</a></li>
+									<li>
+										<div>
+											<strong>[공인중개사 학원]</strong>
+											<p>
+												<a href="http://ch.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울천호</a> |
+												<a href="http://db.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울대방</a> |
+												<a href="http://nw.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울노원</a> |
+												<a href="http://sm.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">부산서면</a> |
+												<a href="http://bc.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">인천부평</a> |
+												<a href="http://sw.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">경기수원</a> |
+												<a href="http://bc.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">경기부천</a>
+											</p>
+											<strong>[주택관리사 학원]</strong>
+											<p>
+												<a href="http://dbj.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울대방</a> |
+												<a href="http://nwj.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울노원</a> |
+												<a href="http://smj.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">부산서면</a> |
+												<a href="http://bpj.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">인천부평</a>
+											</p>
+											<strong>[9급공무원 학원]</strong>
+											<p>
+												<a href="http://dbg.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울대방</a> |
+												<a href="http://nwg.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울노원</a> |
+												<a href="http://smg.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">부산서면</a> |
+												<a href="http://bpg.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">인천부평</a>
+											</p>
+											<strong>[경찰공무원 학원]</strong>
+											<p>
+												<a href="http://nwc.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울노원</a> |
+												<a href="http://smc.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">부산서면</a>
+											</p>
+											<strong>[소방공무원 학원]</strong>
+											<p>
+												<a href="http://nwgso.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울노원</a>
+											</p>
+											<strong>[전기기사 학원]</strong>
+											<p>
+												<a href="http://dbq.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울대방</a>
+											</p>
+										</div>
+									</li>
+								</ul>
+							</dd>
+						</dl>
+						<a href="#" class="close_layer">닫기 X</a>
+					</div>
+				</div>
+				<!-- 패밀리사이트 -->
+
+			</div>
+		</div>
+	</div>
+	<!-- //FOOTER -->
+
+</div>
+<!-- // WRAP -->
+
+</body>
+</html>

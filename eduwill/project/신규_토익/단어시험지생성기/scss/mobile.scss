@@ -1,0 +1,562 @@
+@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "module/animate";  
+@import "module/base";  
+@import "module/motion";  
+@import "module/popup";
+@import "module/mobile";
+
+.toeic.vocatest {
+	* {
+        font-family: $font-noto !important;
+    }
+	&.apply {
+		.contents-header {
+			text-align: left;
+			padding-bottom: 0px !important;
+			.wrap {
+				flex-direction: column;
+				align-items: flex-start !important;
+				padding-top: 32px !important;
+				padding-bottom: 16px !important;
+			}
+			.desc {
+				margin-top: 10px !important;
+				p {
+					span {
+						font-size: 14px !important;
+						font-weight: 400;
+						color: #666666;
+					}
+				}
+			}
+		}
+		.contents-wrap {
+			padding: 0 16px 24px;
+			.sector-toeic-voca {
+				border: 1px solid #E4E4E4;
+				border-radius: 6px;
+				margin-bottom: 16px;
+				.wrap {
+					padding-top: 16px !important;
+					padding-bottom: 16px !important;
+				}
+				ul {
+					&.test-list {
+						margin-bottom: 16px;
+						li {
+							margin-top: 16px;
+							&:first-child {
+								margin-top: 0;
+							}
+							label {
+								display: flex; 
+								justify-content: space-between;
+								font-family: $font-noto; 
+								font-size: 14px; 
+								line-height: 20px; 
+								color: #333; 
+								font-weight: 700; 
+								margin-bottom: 10px; 
+								padding-top: 8px;
+								.btn-tip {
+									font-size: 12px;
+									color: #666666;
+									font-weight: 400;
+									a {
+										position: relative;
+										&:before{
+											content:'';
+											display: inline-block; 
+											position: absolute;
+											top: 2px;
+											left: -17px;
+											width: 14px; 
+											height: 14px; 
+											margin-right: 2px;
+											background-repeat: no-repeat;
+											background-position: 0 0;
+											background-image: url("#{$img-icon-path}/icon_alert_circle.svg");
+										}
+									}
+								}
+							}
+							.voca-scope {
+								.select {
+									width: calc(50% - 2px) !important;
+								}
+								.dash {
+									margin: 0 4px;
+								}
+							}
+							.voca-type {
+								flex-wrap: wrap;
+								label {
+									&.fake-checkbox {
+										margin-right: 23px;
+										.label {
+											font-weight: 400;
+										}
+									}
+								}
+							}
+							.voca-number {
+								justify-content: space-between;
+								.select {
+									width: 88% !important;
+								}
+								.txt {
+									font-size: 14px;
+								}
+							}
+							> div {
+								display: flex;
+								align-items: center;
+							}
+						}
+					}
+					&.test-btn {
+						padding-top: 16px;
+						border-top: 1px solid #EEEFF3;
+						li {
+							.btn-basic {
+								margin-right: 1px;
+							}
+							button {
+								height: 44px !important;
+							}
+						}
+					}
+				}
+			}
+			.sector-toeic-contents {
+				border-radius: 6px;
+				.banner-box {
+					img {
+						width: 100%;
+					}
+				}
+				.step-box {
+					img {
+						width: 100%;
+					}
+				}
+			}
+		}
+		.btn-wrap {
+			&.double {
+				position: relative; display: flex; align-items: center; padding-top: 20px;
+				&::after {
+					content: ""; position: absolute; top: 0; width: 100%; height: 1px; box-shadow: 0 1px 0 0 rgba(238, 239, 243, 1);
+				}
+				button {
+					width: 100%; margin-left: 0;
+					&:last-child {
+						margin-left: 8px;
+					}
+				}
+			}
+		}
+		.btn-wrap {
+			&.center {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+		}
+	}
+	&.test {
+		.contents-wrap {
+			.sector-toeic-vocatest {
+				.vocatest {
+					.vocatest-title {
+						position: relative;
+						width: 100%;
+						display: flex;
+						flex-direction: column;
+						margin-bottom: 16px;
+						.test-title {
+							width: 170px;
+							margin-bottom: -40px;
+							h3 {
+								font-size: 24px;
+								line-height: 1.2;
+								.main-title {
+									font-weight: 700;
+									font-family: $font-eduwill-B !important;
+								}
+								.sub-title {
+									font-weight: 400;
+									font-family: $font-eduwill-R !important;
+								}
+								@media screen and (max-width: 320px) { 
+									font-size: 19px;
+								}
+							}
+						}
+						.test-info {
+							height: 191px;
+							display: flex;
+							align-items: flex-end;
+							justify-content: space-between;
+							.book-info {
+								.info-flag {
+									display: flex;
+									font-size: 12px;
+									font-weight: 700;
+									line-height: 2;
+									border-bottom: 1px solid #000000;
+									margin-bottom: 8px;
+								}
+								ul {
+									li {
+										text-align: left;
+										line-height: 20px;
+										display: flex;
+										span {
+											display: inline-block;
+											font-size: 13px;
+											&.title {
+												width: 40px;
+												color: #777777;
+												margin-right: 7px;
+											}
+											&.info {
+												color: #333333;
+											}
+											@media screen and (max-width: 320px) { 
+												font-size: 10px !important;
+											}
+										}
+										&:nth-child(2) {
+											span {
+												&.info {
+													width: 123px;
+													@media screen and (max-width: 320px) { 
+														width: 100px;
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+							.book-img {
+								width: 119px;
+								height: 176px;
+								img {
+									width: 100%;
+									height: 100%;
+								}
+								@media screen and (max-width: 320px) { 
+									width: 100px;
+									height: 148px;
+								}
+							}
+						}
+					}
+					.vocatest-timer {
+						border: 1px solid #E4E4E4;
+						background: #f8f8f8;
+						padding: 16px;
+						box-sizing: border-box;
+						margin-bottom: 24px;
+						.timer {
+							display: flex;
+							align-items: center;
+							justify-content: space-between;
+							.timer-clock {
+								display: flex;
+								font-size: 24px;
+								font-weight: 700;
+								@media screen and (max-width: 330px) { 
+									font-size: 15px !important;
+								}
+							}
+							.select {
+								width: 120px !important;
+								position: static;
+								@media screen and (max-width: 320px) { 
+									width: 95px !important;
+								}
+								select {
+									@media screen and (max-width: 320px) { 
+										font-size: 10px !important;
+									}
+								}
+							}
+							button {
+								height: 44px !important;
+							}
+						}
+					}
+					.vocatest-result {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						padding: 16px;
+						background: #FDC300;
+						margin-bottom: 24px;
+						.result-score {
+							font-size: 24px;
+							font-weight: 700;
+						}
+					}
+					.vocatest-test {
+						dl {
+							&.quest {
+								margin-bottom: 24px;
+							}
+							dt {
+								font-size: 16px;
+								font-weight: 700;
+								color: #333333;
+								margin-bottom: 8px;
+								span {
+									display: inline-block;
+									width: 19px;
+									margin-right: 18px;
+								}
+							}
+							dd {
+								display: flex;
+								flex-wrap: wrap;
+								overflow:hidden;
+								font-size: 14px;
+								color: #333333;
+								font-weight: 400;
+								label {
+									width: 50%;
+									height: 32px;
+									line-height: 32px;
+									span {
+										font-family: $font-montserrat !important;
+										i {
+											margin-right: 4px;
+											font-style: normal;
+										}
+									}
+									input[type=radio]{
+										position:absolute; 
+										left:-1000em; 
+										display:block; 
+										width:1px; 
+										height:1px; 
+										margin:-1px; opacity:0; text-indent:-1000em; 
+									}
+									input[type=radio]:checked {
+										+span {
+											display: block;
+											position: relative;
+											width: 100%;
+											height: 100%;
+											background:#fffaec;
+											&::before {
+												content:""; 
+												display:block;
+												position:absolute; 
+												top:50%; 
+												left:0; 
+												width: 19px; 
+												height: 14px; 
+												margin-top:-8px; 
+												background:url("//img.eduwill.net/eduwill/img/2021/_115/sub/exam/pc/icon-t-check.svg") no-repeat center center;
+												background-size: contain;
+											}
+										}
+									}
+								}
+							}
+						}
+						&.scoring {
+							.quest { 
+								dt {
+									font-size: 16px;
+									font-weight: 700;
+									color: #333333;
+									text-align: left;
+									margin-bottom: 8px;
+									span {
+										display: inline-block;
+										width: 19px;
+										&.answer-correct {
+											position: relative;
+											&:before{
+												content:""; 
+												display:block;
+												position:absolute; 
+												top: 5px; 
+												left: -10px; 
+												width: 32px; 
+												height: 32px; 
+												margin-top:-8px; 
+												background:url('#{$img-path}/pc/icon_correct.png') no-repeat center center;
+											}
+										}
+										&.answer-wrong {
+											position: relative;
+											&:before{
+												content:""; 
+												display:block;
+												position:absolute; 
+												top: 5px; 
+												left: -9px; 
+												width: 29px; 
+												height: 29px; 
+												margin-top:-8px; 
+												background:url('#{$img-path}/pc/icon_wrong.png') no-repeat center center;
+											}
+										}
+									}
+								}
+								dd {
+									label {
+										input[type=radio]:checked {
+											+span {
+												&::before {
+													display: none;
+												}
+											}
+										}
+										&.answer-correct {
+											position: relative;
+											background: #FFFAEC;
+											color: #FF0000;
+										}
+										&.answer-corrected {
+											background: #FFFAEC;
+										}
+										&.answer-wrong {
+											color: #FF0000;
+										}
+									}
+								}
+							}
+						}
+						.test-btn {
+							button {
+								height: 44px !important;
+								&:nth-child(1) {
+									margin-right: 2px;
+								}
+							}
+							&.scoring {
+								.btn-mail {
+									position: relative;
+									margin-top: 16px;
+									background: #ffd443;
+									border-color: #ffd443;
+									border-radius: 4px;
+									a {
+										display: block;
+										padding: 13px 16px;
+										img {
+											width: 100%;
+										}
+									}
+									button {
+										display: flex;
+										justify-content: space-between;
+										align-items: end;
+										div {
+											display: inline-block;
+										}
+										.icon {
+											width: 45px;
+											height: 45px;
+											@media screen and (max-width: 330px) { 
+												width: 40px;
+												height: 40px;
+											}
+										}
+										.text1 {
+											text-align: left;
+											font-size: 17px;
+											font-weight: 500;
+											margin-left: 10px;
+											@media screen and (max-width: 330px) { 
+												font-size: 14px;
+											}
+											span {
+												font-size: 13px;
+												color: #3D4EC6;
+												@media screen and (max-width: 330px) { 
+													font-size:12px;
+												}
+											}
+										}
+										.text2 {
+											font-size: 11px;
+											color: #010101;
+											margin-left: 15px;
+											@media screen and (max-width: 330px) { 
+												margin-left: 10px;
+												font-size: 5px;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+				.vocatest-other {
+					background: #F8F8F8;
+					padding: 34px 33px 34px 33px;
+					display: flex;
+					justify-content: center;
+					button {
+						position: relative;
+						font-size: 14px !important;
+						font-weight: 400 !important;
+						color: #333333;
+						&.btn-reset {
+							margin-right: 24px;
+							&::after {
+								content: '';
+								position: absolute;
+								top: 5px;
+								right: -12px;
+								width: 1px;
+								height: 16px;
+								background: #dddddd;
+							}
+							&::before {
+								margin-right: 12px !important;
+								width: 18px !important;
+								height: 18px !important;
+								background-size: contain !important;
+							}
+						}
+						&.btn-file {
+							&:before {
+								content: "";
+								position: relative;
+								top: -2px;
+								display: inline-block;
+								width: 20px;
+								height: 20px;
+								margin-right: 12px;
+								background: url('#{$img-icon-path}/icon_file.svg') no-repeat 0 0;
+								vertical-align: middle;
+								background-size: contain;
+							}
+						}
+					}
+					&.scoring {
+						border-bottom: 10px solid #F1F1F1;
+					}
+				}
+			}
+		}
+		.vocatest-ibm {
+			width: 100%;
+			height: 90px;
+			background: #DDDDDD;
+			text-align: center;
+			border-bottom: 10px solid #F1F1F1;
+		}
+	}
+}

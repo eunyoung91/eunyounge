@@ -1,0 +1,265 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/popup";
+$main-color : #ffbf00;
+$sub-color : #fff3cf;
+
+.product {
+    &-eco {
+        background-color: #fff;
+        * {
+            line-height: normal;
+            font-family: $font-noto;
+            letter-spacing: -1px;
+        }
+        .container {
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+        .wrap {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+            &-full {
+                width: 100%;
+            }
+        }
+        .holder { position: relative; }
+        p {
+			line-height:100%;
+            margin: 0;
+            text-align: left;
+            @include vw(font-size, 20px);
+            color: #666;
+            &.notice { @include vw(margin-top, 10px); }
+            &.brand,
+            &.survey { position: absolute; }
+        }
+        .fixbanner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            background: #75fffc;
+            z-index: 777;
+            .pointer{
+                position: absolute;
+                top: 50px;
+                right: 20px;
+                img {
+                    width: 70%;
+                    animation: 0.6s slideUpY ease-in-out infinite alternate;    
+                }
+            }
+        }
+
+		.winner-wrap {
+			position: relative;
+			@include vw(padding, 0 50px 0);
+			perspective: 670px;
+			.img{
+				width: 80%;
+			}
+			.winner-list{
+				transform: rotateX(40deg);
+				p {
+					text-align: center;
+					line-height: 2;
+					@include vw(font-size, 20px);
+					font-weight: 400;
+					color: #222;
+				}
+			}
+		}
+		.slick-dots {
+			width: 100%;
+			@include vw(margin-top, 30px);
+			text-align: center;
+			li {
+				display: inline-block;
+				@include vw(margin, 0 6px);
+				button {
+					@include vw(width, 20px);
+					@include vw(height, 20px);
+					text-indent: -9999em;
+					border: none;
+					border-radius: 50%;
+					background-color: #b2b2b2;
+					outline: none;
+					cursor: pointer;
+				}
+				&.slick-active {
+					button {
+						@include vw(width, 55px);
+						@include vw(border-radius, 15px);
+						background-color: #ffc20e;
+					}
+				}
+			}
+		}
+
+        .slider-contents {
+            position: relative;
+            @include vw(margin, 20px 50px auto 50px);
+	
+            .slick-arrow {
+                position: absolute;
+                top: 50%;
+                z-index: 1;
+                @include vw(width, 40px);
+                @include vw(width, 40px);
+                @include vw(margin-top, -20px);
+                font-size: 0;
+                border: none;
+                background: none;
+                outline: none;
+                cursor: pointer;
+                &.slick-prev {
+                    @include vw(left, 20px);
+                    &:before { right: 0; @include arrow(left, 20px, 20px, 1px, #666); 
+                    @include vw(margin-top, -0px);
+                    }
+                }
+                &.slick-next {
+                    @include vw(right, 20px);
+                    &:before { left: 0; @include arrow(right, 20px, 20px, 1px, #666); 
+                        @include vw(margin-top, -0px);
+                    }
+                }
+            }
+        }
+		.action{
+			a{
+				position: relative;
+				display: inline-block;
+			}
+		}
+		.pointer {
+			&:after {
+				content: '';
+				position: absolute;
+				top:40%; 
+				right:0%; 
+				display: block;
+				@include vw(width, 100px);
+				@include vw(height, 100px);
+				background: url('#{$img-common-path}/icon/pointer/icon_pointer_20.png') no-repeat 0 0;
+				background-size: contain;
+				@include animation(pointerBounce, .8s, $iteration: infinite){
+					0%, 100% { @include translateXY(0, 0); }
+					50% { @include translateXY(10px, 10px); }
+				}
+			}
+		}
+    }
+    &-top { background-color: #ffd701; }
+
+    &-title {
+        background:#000 url(#{$img-path}/mobile/bg_title.jpg) no-repeat 50% 50%;
+        background-size: cover;
+        .action{
+			position: absolute;
+            @include vw(top, 25px);
+            @include vw(right, 50px);
+            @include vw(width, 134px);
+        }
+    }
+
+    &-benefit{
+        background-color: #ffc20e;
+        img{
+            @include vw(margin-top, -175px);
+        }
+    }
+    &-raise{
+        background-color:#f3f3f3;
+    }
+	&-winner{
+        background-color:#f3f3f3;
+		img{
+			width: 80%;
+		}
+		.slider-wrap {
+			.slick-slide {
+				@include vw(margin, 0 10px);
+				img { width: 100%; }
+			}
+		}
+	}
+
+	&-pass {
+        background-color:#f3f3f3;
+		@include vw(padding-top, 60px);
+		@include vw(padding-bottom, 125px);
+        .slider-wrap {
+            margin: 0 percent(40);
+            .slick-slide {
+                @include vw(margin, 0 10px);
+                img { width: 100%; }
+            }
+        }
+        .slider-contents{
+            margin-top: 0;
+        }
+	}
+	
+	&-win-slider{
+		@include vw(padding-bottom, 130px);
+	}
+
+    &-teacher {
+        @include vw(padding-bottom, 125px);
+    }
+    
+	&-book {
+        @include vw(padding-bottom, 125px);
+        .slider-contents{
+            @include vw(padding-top, 50px);
+        }
+    }
+
+	&-curriculum, &-place {
+        @include vw(padding-bottom, 130px);
+    }
+
+    &-sentence{
+        background-color: #52267d;
+    }
+}
+
+//필기패스
+.product-eco.writtenTest{
+    .product-title{
+        background-image:url(#{$img-path}/mobile/bg_title_writtenTest.jpg);
+    }
+    .product-benefit{
+        img{
+            @include vw(margin-top, -500px);
+        }
+    }
+    .product-sentence{
+        background-color: #142e93;
+    }
+}
+
+#popupBase {
+    background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	width: 85%;
+	max-width: 720px;
+	.popup-body{
+		@include vw(font-size, 26px);
+		padding: 5% 5%;
+		word-break: keep-all;
+	}
+}
+

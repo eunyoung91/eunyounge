@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eduwill Ngene</title>
+<!-- Bootstrap -->
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" rel="stylesheet">
+<!-- Datatables -->
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/datatables/css/dataTables.bootstrap.min.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/css/buttons.bootstrap.min.css" rel="stylesheet">
+<!-- Fullcalendar -->
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/fullcalendar/fullcalendar.min.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/vendors/fullcalendar/fullcalendar.print.css" rel="stylesheet" media="print">
+<!-- styles -->
+<link href="https://img.eduwill.net/resources/ngene/live/css/styles.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/css/common.css" rel="stylesheet">
+<link href="https://img.eduwill.net/resources/ngene/live/css/custom.css" rel="stylesheet">
+
+<!-- <link href="https://img.eduwill.net/resources/ibm/admin/dev/css/admin.css" rel="stylesheet"> -->
+<link href="../css/admin.css" rel="stylesheet">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/ngene/live/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/ngene/live/js/jquery-ui.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/ngene/live/js/jquery.form.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap/js/bootstrap.min.js"></script>
+<!-- minor bug fixed 
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+-->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.ko.js"></script>
+<!-- Datatables -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/js/jquery.dataTables.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/js/dataTables.bootstrap.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/dataTables.buttons.min.js?v=1"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/buttons.bootstrap.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/buttons.flash.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/buttons.html5.min.js?v=1"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/buttons.print.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/datatables/buttons/js/jszip.min.js"></script>
+<!-- Fullcalendar -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/moment/min/moment.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/fullcalendar/fullcalendar.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/fullcalendar/lang-all.js"></script>
+<!-- CKEditor 
+    2017.10.26 이경현 수정
+    ckeditor 추가 기능 요청으로 인해, 특정페이지에 상위버전의 editor를 로드함에 따라 부득이하게 예외처리함(사용메뉴 : 사이트 > 총평페이지 관리)
+    ** 조회 controller 에서 model.addAttribute("ckeditor", "N"); 로 사용  
+-->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/ckeditor/ckeditor.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/ckeditor/adapters/jquery.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/js/custom.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/js/common.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/js/ajaxUtil.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/js/datetimepicker.js"></script>
+<!-- flot chart -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.resize.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.time.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.pie.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.tooltip.min.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.axislabels.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.stack.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jshashtable-2.1.js"></script>
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/flot/jquery.flot.symbol.js"></script>
+<!-- Vod Viewer : AquaPlayer -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/ngene/live/js/commonViewer.js"></script>
+<!-- javascript templates -->
+<script src="https://img.eduwill.net/resources/ngene/live/vendors/javascriptTemplates/tmpl.min.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css" type="text/css">
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+</head>
+<body>
+<div id="wrapper"><!-- wrapper -->
+    <div id="header"><!-- header -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/main/main.action"></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="javascript:;">컨텐츠</a></li>
+                        <li><a href="javascript:;">서비스</a></li>
+                        <li><a href="javascript:;">사이트</a></li>
+                        <li><a href="javascript:;">도서몰</a></li>
+                        <li><a href="javascript:;">기업제휴</a></li>
+                        <li><a href="javascript:;">에지인</a></li>
+                        <li><a href="javascript:;">EPM</a></li>
+                        <li class="active"><a href="javascript:;">배너(IBM)</a></li>
+                        <li><a href="javascript:;">관리자</a></li>
+                        <li><a href="javascript:;">개발 <span class="badge">42</span></a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li style="margin-top:18px;">
+                            <div class="form-group" id="divMenuSearch">
+                                <input type="text" class="form-control" placeholder="메뉴명을 입력하세요" id="searchMenu" style="padding:3px 23px 3px 8px;">
+                                <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                            </div>
+                        </li>
+                        <li><a href="/login/logout.action"><span class="glyphicon glyphicon-log-out"></span> 장은실&nbsp;</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div><!--// header -->
+
+    <div id="container"><!-- container -->
+        <div class="page-content">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div id="lnb"><!-- lnb -->
+                        <div class="list-group">
+                            <span class="list-group-item"><strong>배너(IBM) 관리</strong></span>
+                            <a href="javascript:;" class="list-group-item active">배너 관리</a>
+                            <a href="javascript:;" class="list-group-item">템플릿 관리</a>
+                            <a href="javascript:;" class="list-group-item">코드 관리</a>
+                        </div>
+                    </div><!--// lnb -->
+                </div>
+                <div class="col-sm-10">
+                    <div id="content"><!-- content -->
+                        <!-- 이용방법 설명영역 -->
+                        <!-- <nav class="navbar navbar-default navbar-fixed-top">-->
+                        <nav style="position:absolute; top:0px; width:100%; z-index:999;">
+                            <div class="alert alert-info alert-dismissible" id="infomationZone" style="margin-bottom:0px !important; display:none;" role="alert">
+                                <div>
+                                    <strong>&lt;이용방법&gt;</strong><br /><br />
+                                    <span>배너 등록 순서: 배너 그룹 생성 &rarr; 개별 배너 등록 &rarr; 전시 관리</span>
+                                </div>
+                            </div>
+                            <div style="float:right; margin:-2px 5px 20px 0px;">
+                                <a href="#" style="text-decoration:none;" id="openInfoZone"><span class="label label-info">▼ 이용안내 열기</span></a>
+                                <a href="#" style="text-decoration:none; display:none;" id="closeInfoZone"><span class="label label-info">▲ 이용안내 닫기</span></a>
+                            </div>
+                        </nav>
+                        <!-- // 이용방법 설명영역 -->
+
+                        <div id="layer" style="display:none;position:fixed;overflow:hidden;z-index:1;-webkit-overflow-scrolling:touch; margin-top:60px; width:501px;">
+                            <img src="https://i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnCloseLayer" style="cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1" onclick="closeDaumPostcode()" alt="닫기 버튼">
+                        </div>
+
+                        <!-- 배너 관리 -->
+                        <div class="ibm-wrap">
+                            <div class="ibm-contents">
+                                <h3 class="page-header">배너 관리 <span class="text-primary">조회</span></h3>
+
+                                <form action="">
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <div class="form-horizontal">
+                                                <div class="form-group">
+                                                    <div class="col-sm-2">
+                                                        <select class="form-control" id="mainCategory1" name="mainCategory1">
+                                                            <option value="">대분류</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <select class="form-control" id="middleCategory1" name="middleCategory1">
+                                                            <option value="">중분류</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <select class="form-control" id="subCategory1" name="subCategory1">
+                                                            <option value="">소분류</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-sm-2">
+                                                        <select class="form-control" id="tmpltNo" name="tmpltNo">
+                                                            <option value="">배너유형 선택</option>
+                                                            <option value="1">일반 (고정) 배너</option>
+                                                            <option value="2">플로팅 배너</option>
+                                                            <option value="3">토스트 배너</option>
+                                                            <option value="4">레이어 배너</option>
+                                                            <option value="5">하단 띠 배너</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <input type="number" class="form-control" name="bnrNo" id="bnrNo" value="" placeholder="배너번호">
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <input type="text" class="form-control" name="bnrNm" id="bnrNm" value="" placeholder="배너명를 입력해주세요.">
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <label class="checkbox-inline"><input type="checkbox" id="activeYn" name="activeYn" value="Y">서비스 중 인 배너</label>
+                                                        <label class="checkbox-inline"><input type="checkbox" id="delYn" name="delYn" value="N" checked="">삭제배너 비노출</label>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <div class="btn-group" role="group">
+                                                            <button class="btn btn-primary" type="submit">
+                                                                <span class="glyphicon glyphicon-search"></span> 조회
+                                                            </button>
+                                                            <button class="btn btn-default" type="button" onclick="ibmBannerHandler.addForm()">등록</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="loadingArea" style="display:none; position:absolute; z-index:999; width:100%; text-align:center;">
+                                        <img src="https://img.eduwill.net/resources/ngene/live/images/progress.gif" alt="로딩중입니다.">
+                                    </div>
+
+                                    <div class="form-horizontal">
+                                        <div class="form-group dataTables_wrapper">
+                                            <div class="col-sm-6 dataTables_length">
+                                                <label class="control-label">
+                                                    Show&nbsp;&nbsp;
+                                                    <select class="form-control input-sm" id="pageSize" name="pageSize">
+                                                        <option value="10">10</option>
+                                                        <option value="25">25</option>
+                                                        <option value="50">50</option>
+                                                        <option value="100">100</option>
+                                                    </select>
+                                                    &nbsp;&nbsp;entries
+                                                </label>
+                                            </div>
+                                            <div class="btn-group pull-right mt10">
+                                                <button id="btnCopy" class="btn btn-default" type="button">배너 복사</button>
+                                                <button id="btnSelectDelete" class="btn btn-danger" type="button">선택 삭제</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="table-responsive">
+                                        <table id="bannerTable" class="table table-bordered table-hover text-center">
+                                            <colgroup>
+                                                <col style="width: auto;">
+                                            </colgroup>
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col"><input type="checkbox" class="checkbox-all" id="checkboxAll" value=""></th>
+                                                    <th scope="col">No.</th>
+                                                    <th scope="col">배너코드</th>
+                                                    <th scope="col">대분류</th>
+                                                    <th scope="col">중분류</th>
+                                                    <th scope="col">소분류</th>
+                                                    <th scope="col">배너유형</th>
+                                                    <th scope="col">배너명</th>
+                                                    <th scope="col">배너수</th>
+                                                    <th scope="col">미리보기</th>
+                                                    <th scope="col">전시관리</th>
+                                                    <th scope="col">노출여부</th>
+                                                    <th scope="col">노출수</th>
+                                                    <th scope="col">클릭수</th>
+                                                    <th scope="col">노출기간</th>
+                                                    <th scope="col">등록/수정</th>
+                                                    <th scope="col">관리</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><input type="checkbox" class="checkbox1" id="checkbox1" value=""></td>
+                                                    <td>1</td>
+                                                    <td>B010</td>
+                                                    <td>공인중개사</td>
+                                                    <td>과정 메인</td>
+                                                    <td>레이어 배너 영역</td>
+                                                    <td>레이어 딤 배너</td>
+                                                    <td>[공인] 3월 설명회 배너</td>
+                                                    <td>1</td>
+                                                    <td><button class="btn btn-default disabled">미리보기</button></td><!-- disabled : 비활성화 클래스 -->
+                                                    <td><button class="btn btn-info disabled" data-toggle="modal" data-target="#modalDisplay">연결</button></td><!-- disabled : 비활성화 클래스 -->
+                                                    <td>Y</td>
+                                                    <td>100</td>
+                                                    <td>50</td>
+                                                    <td>
+                                                        2019-06-17 00 ~ 2019-06-18 00
+                                                    </td>
+                                                    <td>
+                                                        2019-05-15 13:05:39/tnwlsdlfk<br>
+                                                        2019-05-15 13:06:20/tnwlsdlfk
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button id="bannerCopy1" class="btn btn-primary disabled" type="button">복사</button><!-- disabled : 비활성화 클래스 -->
+                                                            <button id="bannerModify1" class="btn btn-warning disabled" type="button">수정</button>
+                                                            <button id="bannerDelete1" class="btn btn-danger disabled" type="button">삭제</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox" class="checkbox2" id="checkbox2" value=""></td>
+                                                    <td>2</td>
+                                                    <td>B009</td>
+                                                    <td>9급공무원</td>
+                                                    <td>교수 소개</td>
+                                                    <td>하단 띠 배너 영역</td>
+                                                    <td>하단 띠 배너</td>
+                                                    <td>[공무원] 5월 설명회 배너</td>
+                                                    <td>2</td>
+                                                    <td><button class="btn btn-default">미리보기</button></td>
+                                                    <td><button class="btn btn-info" data-toggle="modal" data-target="#modalDisplay">연결</button></td>
+                                                    <td>Y</td>
+                                                    <td>211</td>
+                                                    <td>30</td>
+                                                    <td>
+                                                        2019-06-17 00 ~ 2019-06-18 00
+                                                    </td>
+                                                    <td>
+                                                        2019-05-15 13:05:39/jwyoo<br>
+                                                        2019-05-15 13:06:20/jwyoo
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button id="bannerCopy2" class="btn btn-primary" type="button">복사</button>
+                                                            <button id="bannerModify2" class="btn btn-warning" type="button">수정</button>
+                                                            <button id="bannerDelete2" class="btn btn-danger" type="button">삭제</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox" class="checkbox3" id="checkbox3" value=""></td>
+                                                    <td>3</td>
+                                                    <td>B008</td>
+                                                    <td>공인중개사</td>
+                                                    <td>과정 메인</td>
+                                                    <td>레이어 배너 영역</td>
+                                                    <td>레이어 딤 배너</td>
+                                                    <td>[공인] 3월 설명회 배너</td>
+                                                    <td>1</td>
+                                                    <td><button class="btn btn-default">미리보기</button></td>
+                                                    <td><button class="btn btn-info" data-toggle="modal" data-target="#modalDisplay">연결</button></td>
+                                                    <td>Y</td>
+                                                    <td>100</td>
+                                                    <td>50</td>
+                                                    <td>
+                                                        2019-06-17 00 ~ 2019-06-18 00
+                                                    </td>
+                                                    <td>
+                                                        2019-05-15 13:05:39/jwyoo<br>
+                                                        2019-05-15 13:06:20/jwyoo
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button id="bannerCopy3" class="btn btn-primary" type="button">복사</button>
+                                                            <button id="bannerModify3" class="btn btn-warning" type="button">수정</button>
+                                                            <button id="bannerDelete3" class="btn btn-danger" type="button">삭제</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="no-post"><!-- 비게시 클래스명 : no-post -->
+                                                    <td><input type="checkbox" class="checkbox4" id="checkbox4" value=""></td>
+                                                    <td>4</td>
+                                                    <td>B007</td>
+                                                    <td>공인중개사</td>
+                                                    <td>과정 메인</td>
+                                                    <td>레이어 배너 영역</td>
+                                                    <td>레이어 딤 배너</td>
+                                                    <td>[공인] 3월 설명회 배너</td>
+                                                    <td>1</td>
+                                                    <td><button class="btn btn-default">미리보기</button></td>
+                                                    <td><button class="btn btn-info" data-toggle="modal" data-target="#modalDisplay">연결</button></td>
+                                                    <td>N</td>
+                                                    <td>100</td>
+                                                    <td>50</td>
+                                                    <td>
+                                                        2019-06-17 00 ~ 2019-06-18 00
+                                                    </td>
+                                                    <td>
+                                                        2019-05-15 13:05:39/jwyoo<br>
+                                                        2019-05-15 13:06:20/jwyoo
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button id="bannerCopy4" class="btn btn-primary" type="button">복사</button>
+                                                            <button id="bannerModify4" class="btn btn-warning" type="button">수정</button>
+                                                            <button id="bannerDelete4" class="btn btn-danger" type="button">삭제</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="no-post"><!-- 비게시 클래스명 : no-post -->
+                                                    <td><input type="checkbox" class="checkbox5" id="checkbox5" value=""></td>
+                                                    <td>5</td>
+                                                    <td>B006</td>
+                                                    <td>공인중개사</td>
+                                                    <td>과정 메인</td>
+                                                    <td>레이어 배너 영역</td>
+                                                    <td>레이어 딤 배너</td>
+                                                    <td>[공인] 3월 설명회 배너</td>
+                                                    <td>1</td>
+                                                    <td><button class="btn btn-default">미리보기</button></td>
+                                                    <td><button class="btn btn-info" data-toggle="modal" data-target="#modalDisplay">연결</button></td>
+                                                    <td>N</td>
+                                                    <td>100</td>
+                                                    <td>50</td>
+                                                    <td>
+                                                        2019-06-17 00 ~ 2019-06-18 00
+                                                    </td>
+                                                    <td>
+                                                        2019-05-15 13:05:39/jwyoo<br>
+                                                        2019-05-15 13:06:20/jwyoo
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button id="bannerCopy5" class="btn btn-primary" type="button">복사</button>
+                                                            <button id="bannerModify5" class="btn btn-warning" type="button">수정</button>
+                                                            <button id="bannerDelete5" class="btn btn-danger" type="button">삭제</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox" class="checkbox6" id="checkbox6" value=""></td>
+                                                    <td>6</td>
+                                                    <td>B005</td>
+                                                    <td>공인중개사</td>
+                                                    <td>과정 메인</td>
+                                                    <td>레이어 배너 영역</td>
+                                                    <td>레이어 딤 배너</td>
+                                                    <td>[공인] 3월 설명회 배너</td>
+                                                    <td>1</td>
+                                                    <td><button class="btn btn-default">미리보기</button></td>
+                                                    <td><button class="btn btn-info" data-toggle="modal" data-target="#modalDisplay">연결</button></td>
+                                                    <td>Y</td>
+                                                    <td>100</td>
+                                                    <td>50</td>
+                                                    <td>
+                                                        2019-06-17 00 ~ 2019-06-18 00
+                                                    </td>
+                                                    <td>
+                                                        2019-05-15 13:05:39/jwyoo<br>
+                                                        2019-05-15 13:06:20/jwyoo
+                                                    </td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <button id="bannerCopy6" class="btn btn-primary" type="button">복사</button>
+                                                            <button id="bannerModify6" class="btn btn-warning" type="button">수정</button>
+                                                            <button id="bannerDelete6" class="btn btn-danger" type="button">삭제</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr class="no-data">
+                                                    <td colspan="17">데이터가 존재하지 않습니다.</td><!-- th 총 개수 = colspan 개수 동일 -->
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </form>
+
+                                <div class="row">
+                                    <div class="col-sm-12 text-center">
+                                        <div class="dataTables_paginate paging_simple_numbers" id="tableDefault_paginate">
+                                            <ul class="pagination">
+                                                <li class="page-item page-first" id="paginationFirst"><a class="first" title="첫 페이지" href="javascript:;">첫 페이지</a></li>
+                                                <li class="page-item page-prev" id="paginationPrev"><a class="next" title="이전" href="javascript:;">이전</a></li>
+                                                <li class="page-item active"><a class="current">1</a></li>
+                                                <li class="page-item"><a href="javascript:;">2</a></li>
+                                                <li class="page-item"><a href="javascript:;">3</a></li>
+                                                <li class="page-item"><a href="javascript:;">4</a></li>
+                                                <li class="page-item"><a href="javascript:;">5</a></li>
+                                                <li class="page-item"><a href="javascript:;">6</a></li>
+                                                <li class="page-item"><a href="javascript:;">7</a></li>
+                                                <li class="page-item"><a href="javascript:;">8</a></li>
+                                                <li class="page-item"><a href="javascript:;">9</a></li>
+                                                <li class="page-item"><a href="javascript:;">10</a></li>
+                                                <li class="page-item page-next" id="paginationNext"><a class="next" title="다음" href="javascript:;">다음</a></li>
+                                                <li class="page-item page-last" id="paginationLast"><a class="end" title="마지막 페이지" href="javascript:;">마지막 페이지</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="modalDisplay" tabindex="-1" role="dialog" aria-labelledby="modalDisplayLabel" aria-hidden="true"><!-- Modal -->
+                            <div class="modal-dialog modal-xl" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h4 class="modal-title" id="modalDisplayLabel">​[공인] 3월 설명회 배너<span class="text-primary">레이어 딤 배너</span></h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <form action="">
+                                                    <h5>전시 조회</h5>
+
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-body">
+                                                            <div class="form-horizontal">
+                                                                <div class="form-group">
+                                                                    <div class="col-sm-3 pr0 pl0">
+                                                                        <select class="form-control" id="mainCategory2" name="mainCategory2">
+                                                                            <option value="">대분류</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-sm-3 pr5 pl5">
+                                                                        <select class="form-control" id="middleCategory2" name="middleCategory2">
+                                                                            <option value="">중분류</option>
+                                                                        </select>
+                                                                    </div>
+                
+                                                                    <div class="col-sm-4 pr5 pl0">
+                                                                        <input type="text" class="form-control" name="bannerText2" id="bannerText2" value="" placeholder="소분류 (배너 영역명)">
+                                                                    </div>
+                
+                                                                    <div class="col-sm-2 btn-group pull-right" role="group">
+                                                                        <button class="btn btn-primary" type="button" id="btnDisplaySearch">조회</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="btn-group pull-right">
+                                                            <button id="btnSelectAllDisplay" class="btn btn-info" type="button">선택 연결</button>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="table-responsive mt10">
+                                                        <table id="bannerTable" class="table table-bordered table-hover text-center">
+                                                            <colgroup>
+                                                                <col style="width: auto;">
+                                                            </colgroup>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col"><input type="checkbox" class="checkbox-all" id="checkboxDisplayAll" name="" value=""></th>
+                                                                    <th scope="col">No.</th>
+                                                                    <th scope="col">대분류</th>
+                                                                    <th scope="col">중분류</th>
+                                                                    <th scope="col">소분류</th>
+                                                                    <th scope="col">관리</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><input type="checkbox" id="checkboxDisplay1" name="" value=""></td>
+                                                                    <td>1</td>
+                                                                    <td>공인중개사</td>
+                                                                    <td>과정 메인</td>
+                                                                    <td>레이어 배너 영역</td>
+                                                                    <td>
+                                                                        <button class="btn btn-default disabled">미리보기</button><!-- disabled : 비활성화 클래스 -->
+                                                                        <button class="btn btn-info disabled" data-toggle="modal" data-target="#modalDisplay">연결</button><!-- disabled : 비활성화 클래스 -->
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><input type="checkbox" id="checkboxDisplay2" name="" value=""></td>
+                                                                    <td>2</td>
+                                                                    <td>9급공무원</td>
+                                                                    <td>교수 소개</td>
+                                                                    <td>하단 띠 배너 영역</td>
+                                                                    <td>
+                                                                        <button class="btn btn-default">미리보기</button>
+                                                                        <button class="btn btn-info" data-toggle="modal" data-target="#modalDisplay">연결</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><input type="checkbox" id="checkboxDisplay3" name="" value=""></td>
+                                                                    <td>3</td>
+                                                                    <td>9급공무원</td>
+                                                                    <td>교수 소개</td>
+                                                                    <td>하단 띠 배너 영역</td>
+                                                                    <td>
+                                                                        <button class="btn btn-default">미리보기</button>
+                                                                        <button class="btn btn-info" data-toggle="modal" data-target="#modalDisplay">연결</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="no-data">
+                                                                    <td colspan="6">데이터가 존재하지 않습니다.</td><!-- th 총 개수 = colspan 개수 동일 -->
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <form action="">
+                                                    <div class="row">
+                                                        <h5 class="pull-left">연결된 전시 정보</h5>
+
+                                                        <div class="btn-group pull-right">
+                                                            <button id="btnSelectAllClear" class="btn btn-warning" type="button">선택 해제</button>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="table-responsive">
+                                                        <table id="bannerTable" class="table table-bordered table-hover text-center">
+                                                            <colgroup>
+                                                                <col style="width: auto;">
+                                                            </colgroup>
+                                                            <thead>
+                                                                <tr>
+                                                                    <th scope="col"><input type="checkbox" class="checkbox-all" id="checkboxClearAll" name="" value=""></th>
+                                                                    <th scope="col">No.</th>
+                                                                    <th scope="col">대분류</th>
+                                                                    <th scope="col">중분류</th>
+                                                                    <th scope="col">소분류</th>
+                                                                    <th scope="col">관리</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><input type="checkbox" id="checkboxClear1" name="" value=""></td>
+                                                                    <td>1</td>
+                                                                    <td>공인중개사</td>
+                                                                    <td>과정 메인</td>
+                                                                    <td>레이어 배너 영역</td>
+                                                                    <td>
+                                                                        <button class="btn btn-default disabled">미리보기</button><!-- disabled : 비활성화 클래스 -->
+                                                                        <button class="btn btn-warning disabled" data-toggle="modal" data-target="#modalDisplay">연결해제</button><!-- disabled : 비활성화 클래스 -->
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><input type="checkbox" id="checkboxClear2" name="" value=""></td>
+                                                                    <td>2</td>
+                                                                    <td>9급공무원</td>
+                                                                    <td>교수 소개</td>
+                                                                    <td>하단 띠 배너 영역</td>
+                                                                    <td>
+                                                                        <button class="btn btn-default">미리보기</button>
+                                                                        <button class="btn btn-warning" data-toggle="modal" data-target="#modalDisplay">연결해제</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><input type="checkbox" id="checkboxClear3" name="" value=""></td>
+                                                                    <td>3</td>
+                                                                    <td>9급공무원</td>
+                                                                    <td>교수 소개</td>
+                                                                    <td>하단 띠 배너 영역</td>
+                                                                    <td>
+                                                                        <button class="btn btn-default">미리보기</button>
+                                                                        <button class="btn btn-warning" data-toggle="modal" data-target="#modalDisplay">연결해제</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="no-data">
+                                                                    <td colspan="6">데이터가 존재하지 않습니다.</td><!-- th 총 개수 = colspan 개수 동일 -->
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- // Modal -->
+                        <!-- // 배너 관리 -->
+
+                    </div><!-- // content -->
+                </div>
+            </div>
+        </div>
+    </div><!--// container -->
+    <div id="footer"></div><!-- footer -->
+</div><!-- // wrapper -->
+
+<script>
+    $(function(){
+        $('input[type="checkbox"]').on('click', function(){
+            var $checkboxAll = $(this).parents('.table').children().find('.checkbox-all'),
+                $table = $(this).parents('.table').children('tbody'),
+                _totalChecked = $table.find(':checked:not(.checkbox-all)').length,
+                _totalCheckBoxes = $table.find('input[type="checkbox"]:not(.checkbox-all)').length;
+
+            if( $(this).hasClass('checkbox-all') ){
+                $table.find('input[type="checkbox"]').prop('checked', $(this).prop('checked'));
+                //console.log('모두 선택');
+            } else {
+                if( $(this).prop('checked') ){
+                    //console.log('한개 선택');
+                    if (_totalChecked == _totalCheckBoxes) {
+                        $checkboxAll.prop('checked', true);
+                        //console.log('모두 선택');
+                    }
+                }else{
+                    $checkboxAll.prop('checked', false);
+                }
+            }
+        });
+
+    });
+</script>
+</body>
+</html>

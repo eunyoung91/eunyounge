@@ -1,0 +1,162 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+/* 공통 */
+.bottom_fix_btn {
+	display: none;
+}
+
+
+.product-eco {
+	.btn-reason {
+
+		position: absolute;
+		right: 5vw;
+		border: none;
+		border-radius: 3px;
+		cursor: pointer;
+		padding: 1vw 3.5vw 1vw 2vw ;
+		font-size: 3vw;
+		letter-spacing: -0.2vw;
+		font-weight: 900;
+		background: #e2e2e2;
+		color: #222;
+		border: 1px solid #e4e4e4;
+		z-index:3;
+	
+		&::after {
+			content: '';
+			position: absolute;
+			top:2.48vw;
+			right: 1.6vw;
+			width: 6px;
+			height: 6px;
+			border: 1px solid #222;
+			border-left: none;
+			border-bottom: none;
+			box-sizing: border-box;
+			transform: rotate(45deg);
+	
+		}
+	}
+
+	.slick-dots {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: -10px;
+		li {
+			button {
+				width: 14px;
+				height: 14px;
+				margin-right: 10px;
+				border-radius: 14px;
+				text-indent: -9999px;
+				background: #adadad;
+				border: none;
+				transition: all .3s ease;
+			}
+	
+			&.slick-active {
+	
+				button {
+					width: 38px;
+					background: #fcc00e;
+					border-radius: 20px;
+				}
+			}
+	
+		}
+	}
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.wrap {
+		max-width: 720px;
+		width:100%;
+		position:relative;
+		box-sizing: border-box;
+	}
+	.btn-pointer {
+		display: inline-block;
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			right:-13px;
+			bottom: -20px;
+			width: 57px;
+			height: 65px;
+			background: url(https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png) no-repeat 50% 50%;
+			background-size:100% auto;
+			animation: 0.3s slideupY ease-in-out infinite alternate;
+		}
+		
+	}
+}
+
+
+/* 컨텐츠 */
+.product-eco {
+	overflow: hidden;
+
+	&[data-type="1367"]{
+		
+		.fix-banner {
+			position: fixed;
+			top: 120vw;
+			right: 0;
+			z-index: 100;
+			img {
+				@include vw(width, 132px);
+			}
+		}
+		.visual {
+			background: #cd161a;
+			.btn-reason {
+				top: 56vw;
+				border: none;
+				background: transparent;
+				color: #fff;
+				&::after {
+					border-color: #fff;
+				}
+
+				&.last {
+					top: 165vw;
+				}
+			}			
+		}
+
+		.cont1 {
+			background: #fff4cf;
+		}
+	
+		.product-sentence {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #cd161a;
+			color: #fff;
+			font-weight: 900;
+			height: 18.67vw;
+			font-size: 6.7vw;
+			letter-spacing: -2px;
+			text-align: center;
+			
+			span {
+				color: #fff
+			}
+		}
+	}
+}
+
+
+@import "module/popup";

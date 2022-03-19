@@ -1,0 +1,143 @@
+// form
+fieldset {
+	@extend %textEllipsis;
+	min-width: 0;
+}
+
+.custom-input {
+	@extend %textEllipsis;
+	position: relative;
+	background-color: $bg-color-1;
+	@include rem(height, 40px);
+	@include boxSizing(border-box);
+	.text {
+		width: 100%;
+		height: 100%;
+		word-break: keep-all;
+		word-break: break-all;
+		border-width: 0;
+		border-bottom-width: 1px;
+		border-bottom-style: solid;
+		background: none;
+		@include rem(padding, 0 10px);
+		@include boxSizing(border-box);
+		&:hover,
+		&:active,
+		&:focus {
+			outline: none;
+			border-bottom-color: $color-base-2;
+		}
+	}
+	.disabled,
+	[disabled] {
+		border-width: 0;
+		border-bottom-width: 1px;
+	}
+}
+
+.custom-select {
+	@extend %textEllipsis;
+	position: relative;
+	border-bottom: 1px solid $color-base-2;
+	background-color: $bg-color-1;
+	@include rem(height, 40px);
+	@include boxSizing(border-box);
+	&:after {
+		@include rem(right, 12px);
+		@include arrow(bottom, 8px, 8px, 2px, $color-base-2);
+	}
+	.select {
+		width: 100%;
+		height: 100%;
+		word-break: keep-all;
+		word-break: break-all;
+		border: none;
+		background: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		@include rem(padding, 0 33.5px 0 13px);
+		@include rem(font-size, 18px);
+		@include boxSizing(border-box);
+		&::-ms-expand {
+			display: none;
+		}
+		@include breakpoint(desktop){
+			padding-right: 40px;
+		}
+	}
+}
+
+.fake-checkbox {
+	position: relative;
+	display: block;
+	input[type='checkbox'] {
+		@extend .sr-only;
+		&:checked + label {
+			color: $color-primary;
+			border-color: $color-primary;
+			&:after {
+				background-image: url('#{$img-path}/common/icon_input_checked.png');
+			}
+		}
+	}
+	label {
+		@extend %textEllipsis;
+		display: block;
+		text-align: left;
+		border-bottom: 1px solid $color-base-6;
+		@include rem(padding, 6px 35px 6px 0);
+		@include rem(font-size, 18px);
+		@include boxSizing(border-box);
+		&:after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			display: block;
+			background: url('#{$img-path}/common/icon_input_check.png') no-repeat center center;
+			background-size: 100% auto;
+			@include rem(right, 10px);
+			@include rem(width, 15px);
+			@include rem(height, 15px);
+			@include rem(margin-top, -7.5px);
+		}
+	}
+}
+
+.fake-radio {
+	position: relative;
+	display: block;
+	input[type='radio'] {
+		@extend .sr-only;
+		&:checked + label {
+			color: $color-primary;
+			border-color: $color-primary;
+			&:after {
+				border: 4px solid $color-primary;
+			}
+		}
+	}
+
+	label {
+		@extend %textEllipsis;
+		display: block;
+		text-align: left;
+		border-bottom: 1px solid $color-base-6;
+		@include rem(font-size, 18px);
+		@include rem(padding, 6px 35px 6px 0);
+		@include boxSizing(border-box);
+		&:after {
+			content: '';
+			position: absolute;
+			top: 50%;
+			display: block;
+			border-radius: 50%;
+			background: $bg-color-1;
+			@include rem(right, 10px);
+			@include rem(width, 12px);
+			@include rem(height, 12px);
+			@include rem(margin-top, -6px);
+			@include boxSizing(border-box);
+		}
+	}
+}

@@ -1,0 +1,435 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+// import
+@import url("#{$css-path}/webfont.css");
+@import url("#{$css-path}/reset.css");
+@import url("#{$css-path}/common.css");
+
+.eduwill-popup-dim {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 300;
+    display: block;
+    width: 100%;
+    height: 100%;
+    // z-index: 300;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.popup {
+    position: absolute;
+    z-index: 300;
+    display: inline-block;
+    right: 0;
+    left: 0;
+    max-width: none;
+    vertical-align: top;
+    font-size: 14px;
+	letter-spacing: -.5px;
+    word-break: break-word;
+    word-break: keep-all;
+    -webkit-font-smoothing: antialiased;
+    border-radius: 0;
+    background: none;
+    @include translateX(0);
+    @include breakpoint(desktop){
+        right: auto;
+        left: 50%;
+        max-width: fit-content;
+        margin-left: -178px;
+    }
+    * {
+        line-height: normal; 
+        font-family: $font-noto;
+        @include boxSizing(border-box);
+    }
+    .popup-wrap {
+        width: 100%;
+        max-width: 356px;
+        margin: 0 auto;
+        border: 2px solid $color-primary;
+        @include breakpoint(desktop){
+            width: 356px;
+            max-width: none;
+        }
+    }
+    &.popup-yellow {
+        .popup-wrap { border-color: $color-yellow; }
+        .popup-head {
+            background-color: $color-yellow;
+            font-family: $font-eduwill-B;
+            color: $color-base-0;
+        }
+    }
+    &.popup-forbidden .popup-wrap {
+        max-width: 494px;
+        @include breakpoint(desktop){
+            width: 494px;
+        }
+        .list { font-size: 12px; }
+    }
+	&.popup-windows .popup-wrap {
+		width: 100%;
+		max-width: 100%;
+	}
+    &.popup-obstacle .popup-body,
+    &.popup-site .popup-body {
+        min-height: auto;
+    }
+    .popup-head {
+        padding: 19px;
+        text-align: center;
+        line-height: 1.25;
+        font-size: 24px;
+        font-weight: 700;
+        color: $color-white;
+        background-color: $color-primary;
+    }
+    .popup-body {
+        min-height: 391px;
+        padding: 20px 14px;
+        line-height: 1.4;
+        font-size: 14px;
+        color: $color-base;
+        background-color: $color-white;
+    }
+    .title {
+        margin-top: 8px;
+        text-align: center;
+        line-height: 1.42;
+        font-size: 24px;
+        font-weight: bold;
+        color: $color-base-0;
+    }
+    .paragraph {
+        margin-top: 16px;
+        text-align: center;
+		word-break: keep-all;
+        &:first-child { margin-top: 0; }
+        img { width: 100%; }
+    }
+    .text {
+        &-right { text-align: right; }
+        &-left { text-align: left; }
+        &-center { text-align: center; }
+    }
+    .box {
+        margin-top: 16px;
+        padding: 12px 16px;
+        border: 1px solid $border-color-1;
+        background-color: $bg-color-1;
+        &.box-white { background-color: $color-white; }
+        .item {
+            margin-top: 8px;
+            &:first-child { margin-top: 0; }
+        }
+    }
+    .table {
+        display: table;
+        margin-top: 8px;
+        &:first-child { margin-top: 0; }
+        p {
+            display: table-cell;
+            width: 100%;
+            vertical-align: top;
+            text-align: left;
+            font-size: inherit;
+            &.subject {
+                width: auto;
+                padding-right: 12px;
+                white-space: nowrap;
+                font-weight: 500;
+                color: $color-base-0;
+            }
+        }
+		table {
+			width: 100%;
+			table-layout: fixed;
+			border-collapse: collapse;
+			border: 1px solid $border-color-1;
+			thead {
+				th {
+					padding: 10px 0;
+					text-align: center;
+					color: #333;
+					font-size: 14px;
+					background-color: $bg-color-1;
+					border-bottom: 1px solid $border-color-1;
+					+ th {
+						border-left: 1px solid $border-color-1;
+					}
+				}
+			}
+			tbody {
+				td {
+					padding: 15px;
+					font-size: 14px;
+					vertical-align: top;
+					background: #fff;
+					border-bottom: 1px solid $border-color-1;
+					p {
+						margin-top: 10px;
+						display: block;
+					}
+					+ td {
+						border-left: 1px solid $border-color-1;
+					}
+				}
+			}
+		}
+    }
+    .list {
+        margin-top: 16px;
+        padding: 12px 16px;
+        border: 1px solid $border-color-1;
+        background-color: $bg-color-1;
+        .item {
+            padding: 9px 0 12px;
+            border-top: 1px solid $border-color-3;
+            &:first-child {
+                padding-top: 0;
+                border-top-width: 0;
+            }
+            &:last-child { padding-bottom: 0; }
+        }
+        .sort {
+            line-height: 1;
+            font-size: 0;
+            strong { font-size: 14px; }
+        }
+        .table { margin-top: 6px; }
+    }
+    .logo {
+        display: inline-block;
+        height: 20px;
+        vertical-align: top;
+        font-size: 0;
+        background-repeat: no-repeat;
+        background-position: 0 0;
+        background-size: 100% auto;
+        em { @extend .sr-only; }
+        &-nh { // 농협
+            width: 105px;
+            background-image: url('#{$img-path}/logo_card_nh.png');
+        }
+        &-kb { // 국민은행
+            width: 95px;
+            background-image: url('#{$img-path}/logo_card_kb.png');
+        }
+        &-bc { // 비씨카드
+            width: 64px;
+            background-image: url('#{$img-path}/logo_card_bc.png');
+        }
+        &-sh { // 신한은행
+            width: 73px;
+            background-image: url('#{$img-path}/logo_card_sh.png');
+        }
+        &-ct { // 씨티카드
+            width: 29px;
+            background-image: url('#{$img-path}/logo_card_ct.png');
+        }
+        &-hd { // 현대카드
+            width: 79px;
+            background-image: url('#{$img-path}/logo_card_hd.png');
+        }
+        &-jb { // JB카드
+            width: 60px;
+            background-image: url('#{$img-path}/logo_card_jb.png');
+        }
+        &-lt { // 롯데카드
+            width: 129px;
+            background-image: url('#{$img-path}/logo_card_lt.png');
+        }
+        &-ss { // 삼성카드
+            width: 48px;
+            background-image: url('#{$img-path}/logo_card_ss.png');
+        }
+        &-sk { // 하나SK카드
+            width: 73px;
+            background-image: url('#{$img-path}/logo_card_sk.png');
+        }
+    }
+    .color {
+        &-red {
+            color: $color-warning;
+        }
+        &-black {
+            color: $color-base-0;
+        }
+        &-gray {
+            color: $color-base;
+        }
+        &-blue {
+            color: $color-primary;
+        }
+    }
+    .action {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 0;
+        .btn {
+            min-width: 156px;
+            margin-left: 12px;
+            padding: 10px;
+            font-size: 14px;
+        }
+    }
+    .btn {
+        position: relative;
+        display: inline-block;
+        font-weight: 500;
+        text-align: center;
+        border-width: 1px;
+        border-style: solid;
+        @include boxSizing(border-box);
+        &:first-child { margin-left: 0; }
+        &:only-child {
+            min-width: 234px;
+            font-size: 16px;
+        }
+        &.btn-full { width: 100%; }
+        &.btn-arrow {
+            &:after {
+                content: '';
+                position: absolute;
+                top: 13px;
+                right: 0;
+                width: 37px;
+                height: 43px;
+                background: url('#{$img-path}/icon_cursor_74x86.png') no-repeat 0 0;
+                background-size: 100% auto;
+            }
+        }
+        &.btn-blue {
+            color: $color-white;
+            border-color: $color-primary;
+            background-color: $color-primary;
+        }
+        &.btn-blue-arrow {
+            min-width: 98px;
+            padding: 6px 20px 6px 10px;
+            font-size: 12px;
+            color: $color-white;
+            border-color: $color-primary;
+            border-radius: 2.5px;
+            background-color: $color-primary;
+            &:after {
+                @include arrow(right, 4px, 4px, 1px, #fff);
+                right: 10px;
+            }
+        }
+        &.btn-yellow {
+            color: $color-base-0;
+            border-color: $border-color-2;
+            background-color: $bg-kakao;
+        }
+        &.btn-detail {
+            position: relative;
+            margin-left: 8px;
+            padding-right: 5px;
+            line-height: 1.82;
+            font-size: 11px;
+            color: $color-primary;
+            border-width: 0 0 1px;
+            border-bottom-color: $color-primary;
+            &:after {
+                right: 0;
+                @include arrow(right, 4px, 4px, 1px, $color-primary);
+            }
+        }
+        &.btn-blue-linear {
+            position: relative;
+            font-size: 12px;
+            color: $color-primary;
+            border-width: 1px;
+            border-color: $color-primary;
+            &:after {
+                right: 20px;
+                @include arrow(right, 4px, 4px, 1px, $color-primary);
+            }
+        }
+    }
+    label { cursor: pointer; }
+    .popup-footer {
+        text-align: right;
+        line-height: 1;
+        font-size: 0;
+        background-color: $bg-color-2;
+        a {
+            position: relative;
+            display: inline-block;
+            padding: 8px;
+            line-height: 1;
+            font-size: 11px;
+            color: $color-base-light;
+            &:first-child {
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    display: block;
+                    width: 1px;
+                    height: 10px;
+                    margin-top: -5px;
+                    background-color: $border-color-4;
+                }
+            }
+            &.close span {
+                position: relative;
+                display: inline-block;
+                padding-right: 14px;
+                &:before,
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    width: 1px;
+                    height: 10px;
+                    margin-top: -5px;
+                    margin-right: 5px;
+                    background-color: $color-base-light;
+                }
+                &:before { @include rotate(45deg); }
+                &:after { @include rotate(-45deg); }
+            }
+        }
+    }
+	&.popup-windows .popup-body {
+		.paragraph {
+			.text-title {
+				font-size: 16px;
+				color: $color-base-0;
+				font-weight: 700;
+				line-height: 1.5;
+			}
+			+ .table {
+				margin-top: 20px;
+			}
+		}
+	}
+}
+
+// 2020-07-14 전산세무회계 원서접수 팝업
+.popup-exam-info {
+    .popup-wrap { width: 429px; }
+    .popup-head span {
+        display: block;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    .popup-body {
+        min-height: 300px;
+        .box { margin-top: 0; }
+        .table p.subject { min-width: 75px; }
+    }
+}

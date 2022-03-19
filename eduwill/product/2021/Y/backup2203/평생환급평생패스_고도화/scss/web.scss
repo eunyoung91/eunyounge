@@ -1,0 +1,563 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+// @import "module/comment";
+@import "module/popup";
+
+.btn-reason {
+	position: absolute;
+	right: 0;
+	border: 1px solid #e4e4e4;
+	cursor: pointer;
+	padding: 4px 20px 4px 10px ;
+	font-size: 14px;
+	color: #959595;
+    background: #fff;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top:11.5px;
+		right: 10px;
+		width: 7px;
+		height: 7px;
+		border: 1px solid #959595;
+		border-left: none;
+		border-bottom: none;
+		box-sizing: border-box;
+		transform: rotate(45deg);
+
+	}	
+}
+.product {
+    &-eco {
+		overflow-x: hidden;
+        * {
+            font-family: $font-noto;
+            line-height: normal;
+            letter-spacing: -1px;
+            @include boxSizing(border-box);
+        }
+        .container {
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+        .wrap {
+            position: relative;
+            width: 1200px;
+            margin: 0 auto;     
+            text-align: center;
+            &-full { 
+                width: 100%; 
+            }
+        }
+        .slider-contents {
+            position: relative;
+            width: 100%;
+            .slick-arrow {
+                position: absolute;
+                top: 50%;
+                z-index: 1;
+                width: 40px;
+                height: 40px;
+                margin-top: -20px;
+                font-size: 0;
+                border: none;
+                background: none;
+                outline: none;
+                cursor: pointer;
+                &.slick-prev {
+                    left: 20px;
+                    &:before { right: 0; @include arrow(left, 20px, 20px, 1px, #666); }
+                }
+                &.slick-next {
+                    right: 20px;
+                    &:before { left: 0; @include arrow(right, 20px, 20px, 1px, #666); }
+                }
+            }
+        }
+        .topBanner { 
+            background: #ffca0a url(https://img.eduwill.net/Img2/3nergy/Product/event_new/190801/pc/bg_eventBn.jpg) no-repeat 50% 0;
+        }
+        .banner-follow{
+            top:450px; 
+        }
+        .fix-apply {
+            display:none !important;
+        }
+        .btm-banner {
+            position:fixed;
+            right:0;
+            bottom:0;
+            left:0;
+            z-index:100;
+            background-color:rgba(20,19,70,.85);
+            height: 90px;
+            img {
+                margin-top: -16px;
+            }
+            .pointer {
+                display:block;
+                &::after {
+                    content: '';
+                    width: 80px;
+                    height: 80px;
+                    position: absolute;
+                    top: 30px;
+                    right: 0;
+                    background: url(https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_20.png) 0 0 no-repeat;
+                    background-size: contain;
+                    z-index: 1;
+                    animation: 0.8s pointerBounce ease infinite;
+                    -webkit-animation: 0.8s pointerBounce ease infinite;
+                }
+            }
+        }
+    }
+
+    &-benefit {
+        .btn-reason {
+            top: 240px;
+            right: 35px;        
+        }
+    }
+    &-title {
+        background: url('#{$img-path}/pc/bg_title.jpg') no-repeat 50% 0 / cover;
+    }
+
+    &-payback {
+        background-image: url(#{$img-path}/pc/bg_sale_01.png);
+        background-color: #ffc20f;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        + .product-banner {
+            &.type-a {
+                img {
+                    padding-top: 36px;
+                }
+            }
+        }
+    }
+
+    &-sale {
+        position: relative;
+        @include linear-gradient(to right, #2853f8 0%, #0628c7 100%);
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 170px;
+            background-image: url(#{$img-path}/pc/bg_sale_02.png);
+            background-color: #ffc20f;
+            background-position: 0 100%;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .discount-box {
+            display: table;
+            position: relative;
+            width: 1140px;
+            height: 340px;
+            margin: 0 auto;
+            padding: 52px 64px;
+            border-top-right-radius: 50px;
+            border-bottom-left-radius: 50px;
+            background-color: #fff;
+            text-align: left;
+            @include boxSizing(border-box);
+            .col-a {
+                display: table-cell;
+                position: relative;
+                width: calc(100% - 432px);
+                .tit {
+                    margin: 0;
+                    padding-top: 16px;
+                    font-size: 38px;
+                    font-weight: 800;
+                    color: #222;
+                    letter-spacing: -2px;
+                    line-height: 48px;
+                }
+                ul {
+                    padding-top: 66px;
+                    li {
+                        display: inline-block;
+                        position: relative;
+                        width: 150px;
+                        font-size: 19px;
+                        font-weight: 500;
+                        color: #222;
+                        + li {
+                            &::before {
+                                content: "";
+                                position: absolute;
+                                top: 6px;
+                                left: -16px;
+                                width: 1px;
+                                height: 46px;
+                                background-color: #ddd;
+                            }
+                        }
+                    } 
+                }
+            }
+            .col-b {
+                display: table-cell;
+                position: relative;
+                width: 432px;
+                .row {
+                    .action {
+                        position: absolute;
+                        right: 0;
+                        bottom: -12px;
+                        a {
+                            position: relative;
+                            &::after {
+                                content: '';
+                                width: 80px;
+                                height: 80px;
+                                position: absolute;
+                                top: -20px;
+                                right: -36px;
+                                background: url(https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_20.png) 0 0 no-repeat;
+                                background-size: contain;
+                                z-index: 1;
+                                animation: 0.8s pointerBounce ease infinite;
+                                -webkit-animation: 0.8s pointerBounce ease infinite;
+                            }
+                        }
+                    }
+                    .link {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        a {
+                            display: block;
+                            width: 173px;
+                            height: 32px;
+                            font-size: 16px;
+                            color: #fff;
+                            background: url('#{$img-path}/pc/btn_discount.png') no-repeat 50% 50% / contain;
+                            line-height: 30px;                            
+                            text-align: center;
+                        }
+                    }
+                    .old-price {
+                        display: inline-block;
+                        position: absolute;
+                        top: -10px;
+                        font-family: 'roboto';
+                        font-size: 34px;
+                        font-weight: 800;
+                        color: #bbb;
+                        em {
+                            font-weight: 700;    
+                        }
+                        &::after {
+                            content: "";
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            width: 100%;
+                            height: 1px;
+                            background-color: #bbb;
+                            transform: translate(0, -50%);
+                        }
+                    }
+                    .new-price {
+                        display: inline-block;
+                        position: absolute;
+                        top: 34px;
+                        font-size: 60px;
+                        font-weight: 800;
+                        color: #ec2400;
+                        letter-spacing: -3px;
+                        em {
+                            font-weight: 700;    
+                        }
+                    }
+                }
+            }
+        }
+    }
+ 
+    &-teacher {
+        margin: 0 auto;
+        padding-bottom: 130px;
+        background: url('#{$img-path}/pc/bg_teacher.jpg') no-repeat 50% 50%;
+        .btn-reason {
+            top: 254px;
+            right: 327px;
+        }
+        .slider-teacher {
+            .slick-list {
+                overflow: visible !important;
+            }
+            .slick-slide { 
+                opacity: .3;
+                + .slick-slide {
+                    margin-left: 40px;
+                }
+                img {
+                    @include boxShadow(0 20px 70px 0 rgba(0, 0, 0, .2));
+                    border-radius: 30px;
+                }
+            }
+            .slick-center {
+                opacity: 1;
+            }
+            .slick-arrow {
+                position: absolute;
+                top: 50%;
+                z-index: 1;
+                width: 70px;
+                height: 70px;
+                font-size: 0;
+                border: none;
+                background: none;
+                outline: none;
+                cursor: pointer;
+                transform: translate(0, -50%);
+                &.slick-prev {
+                    left: 29.2%;
+                    &:before {
+                        content: "";
+                        display: block;
+                        width: 70px;
+                        height: 70px;
+                        background: url('#{$img-path}/pc/arrow_prev.png') no-repeat 0 0 / contain;   
+                    }
+                }
+                &.slick-next {
+                    right: 30%;
+                    &:before {
+                        content: "";
+                        display: block;
+                        width: 70px;
+                        height: 70px;
+                        background: url('#{$img-path}/pc/arrow_next.png') no-repeat 0 0 / contain;   
+                    }
+                }
+            }
+        }
+    }
+
+    &-curriculum {
+        padding-bottom: 140px;
+        // @OVerride
+
+        .btn-reason {
+            top: 251px;
+            right: 506px;
+        }
+        .wrap {
+            width: 1100px;
+        }
+        .list {
+            margin-top: 80px;
+            text-align: left;
+            color: #202020;
+            .title {
+                font-size: 30px;
+                font-weight: 700;
+                color: #202020;
+                span {
+                    display: inline-block;
+                    border-bottom: 2px solid #000;
+                }
+            }
+            ul {
+                margin-top: 20px;
+                display: table;
+                li {
+                    width: 155px;
+                    display: table-cell;
+                    vertical-align: top;
+                    + li {
+                        padding-left: 45px;
+                    }
+                    &:last-child {
+                        .lecture_con {
+                            .lecture {
+                                &::after {
+                                    content: none;
+                                }
+                            }
+                        }
+                    }
+                    .lecture_con {
+                        .subject {
+                            color: #202020;
+                            font-size: 22px;
+                            font-weight: 600;
+                            +.lecture {
+                                margin-top: 15px;
+                            }
+                        } 
+                        .lecture {
+                            position: relative;
+                            text-align: center;
+                            padding: 10px;
+                            width: 186px;
+                            height: 184px;
+                            margin-top: 44px;
+                            border-radius: 30px;
+                            border: 3px solid #ffc20e;
+                            background-color: #fff;
+                            display: table;
+                            -webkit-box-sizing: border-box;
+                            box-sizing: border-box;
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                top: 50%;
+                                right: -42px;
+                                width: 34px;
+                                height: 16px;
+                                transform: translate(0, -50%);
+                                background: url('#{$img-path}/pc/arrow_sm.png') no-repeat 0 0 / contain;                           
+                            }
+                            &.highlight {
+                                background: linear-gradient(to bottom, #ffda00 0%, #ffb600 100%);
+                                ::after {
+                                    content: '';
+                                    position: absolute;
+                                    top: -20px;
+                                    right: -13px;
+                                    display: block;
+                                    width: 54px;
+                                    height: 54px;
+                                    background: url('#{$img-path}/pc/icon_strengthen.png') no-repeat 0 0;
+                                    background-size: contain;
+                                    @include animation(flagChange, 1s, $iteration: infinite, $timing: step-start){
+                                        0%, 100% { opacity: 1; }
+                                        50% { opacity: 0; }
+                                    }
+                                }
+                            }
+                            .lecture-info {
+                                display: table-cell;
+                                vertical-align: middle;
+                                strong {
+                                    display: block;
+                                    font-size: 22px;
+                                    word-break: keep-all;
+                                }
+                            }
+                        }
+                        .disc {
+                            color: #202020;
+                            font-size: 20px;
+                            font-weight: 600;
+                            margin-top: 15px;
+                            letter-spacing: -1.5px;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+
+    &-banner {
+        &.type-a {
+            position: relative;
+            padding-top: 20px;
+            @include linear-gradient(to right, #2853f8 0%, #0628c7 100%);
+            &::after {
+                content: "";
+                position: absolute;
+                left: 50%;
+                bottom: -74px;
+                transform: translate(-50%, 0);
+                width: 309px;
+                height: 76px;
+                background-image: url(#{$img-path}/pc/tail.png);
+                background-repeat: no-repeat;
+                background-size: contain;           
+                z-index: 10;     
+            }
+        }
+        &.type-b {
+            padding: 38px 0px;
+            background-color: #ffc20f;
+        }
+    }
+
+    &-management {
+        background: url('#{$img-path}/pc/bg_manage.jpg') no-repeat 0 0 / cover;                           
+        // @OVerride
+        .wrap {
+            width: 1100px;
+        }
+        .slider-contents {
+            margin-top: 80px;
+            background: url('#{$img-path}/pc/wings.png') no-repeat 0 0 / contain;   
+            .slick-list {
+                width: 966px;
+                margin: 0 auto;
+                text-align: center;
+                .slick-slide {
+                    > div {
+                        > div {
+                            width: 796px !important;
+                        }
+                    }
+                }
+            }
+            .slick-dots {
+                width: 100%;
+                margin-top: 44px;
+                text-align: center;
+                li {
+                    display: inline-block;
+                    margin: 0 6px;
+                    button {
+                        width: 20px;
+                        height: 20px;
+                        text-indent: -9999em;
+                        border: none;
+                        border-radius: 50%;
+                        background-color: #b2b2b2;
+                        outline: none;
+                        cursor: pointer;
+                    }
+                    &.slick-active {
+                        button {
+                            width: 70px;
+                            border-radius: 15px;
+                            background-color: #0029d1;
+                        }
+                    }
+                }
+            } 
+        }
+        .hand {
+            margin-top: 40px;
+            margin-left: -160px;
+        }
+    }
+
+    &-roadmap {
+        background-color: #fff6dd;
+        .btn-reason {
+            top: 256px;
+            right: 60px;
+        }
+        img {
+            &:nth-child(2) {
+                margin-top: 86px;
+            }
+        }
+    }
+}
+
+

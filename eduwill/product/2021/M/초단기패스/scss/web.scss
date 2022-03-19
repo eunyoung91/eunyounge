@@ -1,0 +1,239 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+/* 공통 */
+.product-eco {
+	.wrap {
+		width: 1200px;
+	}
+	.btn-pointer {
+		display: inline-block;
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			z-index:7;
+			right: -16px;
+			bottom: -26px;
+			width: 57px;
+			height: 65px;
+			background: url(https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png) no-repeat 50% 50%;
+			background-size:100% auto;
+			animation: 0.3s slideupY ease-in-out infinite alternate;
+		}
+		@keyframes slideupY {
+			0% {
+				transform: translateY(0);
+			}
+			100% {
+				transform: translateY(10px);
+			}
+		}
+	}
+}
+
+.product-eco {
+	overflow: hidden;
+
+	.floating-banner-rt {
+		position:fixed;
+		top:50%;
+		right:0;
+		z-index:100;
+		transform: translateY(-50%);
+	}
+
+	.cont-visual {
+		padding-bottom:22px;
+		background-color:#0023cb;
+		&:before {
+			content:'';
+			position:absolute;
+			top:0;
+			left:50%;
+			transform: translateX(-50%);
+			width:100%;
+			min-width:3000px;
+			height:870px;
+			background:url(#{$img-path}/pc/visual_bg.jpg) no-repeat 0 50%;
+			background-size:100% 100%;
+		}
+		.price-area {
+			position:relative;
+			margin-top: 0;
+			img{
+				position: relative;
+				left:6px;
+			}
+			.price {
+				position: absolute;
+				top: 60px;
+				right: 144px;
+				color: #ee2a00;
+				font-size: 70px;
+				font-weight: 900;
+				letter-spacing: -3.4px;
+			}
+			.btn {
+				position:absolute;
+				right:86px;
+				bottom:100px;
+			}
+		}
+	}
+
+	.cont-review{
+		background:url(#{$img-path}/pc/bg_review.jpg) no-repeat 0 50%;
+	}
+
+	.cont-media {
+		padding-bottom: 123px;
+		.item {
+			position: relative;
+		}
+		.video-list {
+			width:1140px;
+			margin:0 auto;
+			box-sizing: border-box;
+			background-color:#f3f3f3;
+			padding:60px 50px;
+			.list {
+				@extend .grid;
+				text-align: center;
+				margin-top: 43px;
+				&:first-child { margin-top: 0; }
+				.item { @extend .col;}
+				.video {
+					position: relative;
+					width: 506px;
+					height: 285px;
+					a {
+						position: absolute;
+						top: 0;
+						right: 0;
+						bottom: 0;
+						left: 0;
+						z-index: 1;
+					}
+				}
+			}
+		}
+
+	}
+
+	.cont-winner{
+		background:url(#{$img-path}/pc/bg_winner.jpg) no-repeat 50% 0;
+		background-size:cover;
+		.wrap{
+			width:100%;
+			margin:0 auto;
+			text-align: center;
+		}
+		.winner-wrap {
+			position: absolute;
+			top:300px;
+			left:0;
+			right:0;
+			margin:0 auto;
+			max-width:2000px;
+			padding: 0 90px 0 70px;
+			.winner-list{
+				-webkit-transform-origin: 50% 100%;
+				-ms-transform-origin: 50% 100%;
+				transform-origin: 50% 100%;
+				-webkit-transform: perspective(640px) rotateX(40deg);
+				-ms-transform: perspective(640px) rotateX(40deg);
+				transform: perspective(640px) rotateX(40deg); // perspective 수치가 낮을수록 좌우로 확장
+				p {
+					font-family: $font-noto;
+					color: #a69c0e;
+					font-size: 22px;
+					line-height: 1.5;
+					margin:10px 0;
+					font-weight: 700;
+					text-align: center;
+					&:nth-child(2){
+						text-align: left;
+					}
+					&:nth-child(3){
+						text-align: right;
+					}
+				}
+			}
+			.slick-track {
+				-webkit-transform: translate(0) !important;
+				-ms-transform: translate(0) !important;
+				transform: translate(0) !important;
+			}
+		}
+	}
+
+	.cont-award {
+		background-color:#fcf3da;
+		.btn-link {
+			position: absolute;
+			right: 120px;
+			bottom: 141px;
+			width: 160px;
+			height: 60px;
+			font-size:0;
+			text-indent:-99999px;
+			line-height:0;
+		}
+	}
+
+	.cont-teacher {
+		background:#fcf3da;
+		padding-bottom: 128px;
+		.holder{
+			width:1140px;
+			margin:0 auto;
+		}
+		.tab-list {
+			a.item {
+				float:left;
+				width:25%;
+				height:73px;
+				background-color:#ffbe00;
+				display:block;
+				position:relative;
+				color:#081f48;
+				font-size: 30px;
+				font-weight:700;
+				span{
+					line-height:73px;
+				}
+				&.on {
+					background-color:#fff;
+					color:#000;
+					transition:all .3s linear;
+				}
+			}
+		}
+		.tab-cont {
+			display:none;
+			&.on {
+				display:block;
+			}
+		}
+	}
+
+	.cont-provide {
+		background:#fff;
+	}
+
+	.cont-benefit {
+		background:url(#{$img-path}/pc/bg_benefit.jpg) no-repeat 50% 50%;
+		background-size:cover;
+	}
+	.cont-applytitle{
+		background:#fff;
+	}
+}
+
+
+@import "module/popup";

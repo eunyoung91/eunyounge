@@ -1,0 +1,394 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+@import "module/popup";
+
+.product-eco {
+    * {
+        line-height: normal;
+        font-family: $font-roboto;
+        letter-spacing: -1px;
+    }
+    .wrap {
+        width: 100%;
+        max-width: 720px;
+    }
+    p {
+        margin: 0;
+        text-align: left;
+        @include vw(font-size, 20px);
+        color: #666;
+        &.notice { @include vw(margin-top, 10px); }
+    }
+    .slider-contents {
+        position: relative;
+    }
+    .slick-arrow {
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+        padding: 0;
+        font-size: 0;
+        color: transparent;
+        background-color: transparent;
+        text-indent: -9999px;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        @include vw(width, 50px);
+        @include vw(height, 50px);
+        @include vw(margin-top, -25px);
+        &.slick-prev { left: 2%; background-image: url('#{$img-path}/mobile/btn_prev.png'); background-size: cover; }
+        &.slick-next { left: auto; right: 2%; background-image: url('#{$img-path}/mobile/btn_next.png');  background-size: cover; }
+    }
+    .slick-slide {
+        outline: none;
+        a { outline: none;}
+    }
+    .icon-hand {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        width: percent(50);
+        img{max-width:100%;}
+        @include animation(moving, 1s, $iteration: infinite){
+            0%, 100% { @include translateY(0); }
+            50% { @include translateY(10px); }
+        }
+    }
+    .notice {
+        text-align: right;
+        font-weight: 400;
+        color: rgba(0,0,0, .4);
+        line-height: 1.5;
+        @include vw(font-size, 22px);
+        @include vw(letter-spacing, -1.5px);
+    }
+
+    .sector-banner { background-color: #ffe000; }
+
+    .sector-title { @include bg($color: #4050d8); }
+
+    .sector-benefit {
+        background: #ffebac;
+        .eco-puri {
+            position: absolute;
+            @include vw(top, 1618px);
+            right: percent(555);
+            z-index: 1;
+            line-height: 1;
+            font-family: $font-roboto;
+            @include vw(font-size, 32px);
+            font-weight: 700;
+            color: #222;
+            @include vw(letter-spacing, -2px);
+        }
+    }
+
+    .sector-benefit-plus {
+        background: #2847ee;
+        img { @include vw(margin-top, -44px); }
+    }
+
+    .sector-graph { background: #fac601; }
+    .sector-text { background: #4760f1; }
+
+    .sector-review {
+        .notice {
+            padding-right: percent(30);
+            @include vw(margin-top, 10px);
+            font-weight: 500;
+        }
+    }
+
+    .sector-teacher {
+        @include vw(padding-bottom, 90px);
+        
+        .slide-contents {
+            position: relative;
+            width: percent(620);
+            margin: 0 auto;
+            .slick-slide {
+                @include vw(padding, 0 8px);
+                @include boxSizing(border-box);
+            }
+            .slick-arrow {
+                &.slick-prev { @include vw(left, -30px); }
+                &.slick-next { @include vw(right, -30px); }
+            }
+        }
+
+        
+        .t-info {
+            position: absolute;
+            text-align: left;
+            line-height: 1;
+            @include vw(left, 4px);
+            .subject {
+                @include vw(font-size, 24px);
+                @include vw(letter-spacing, -2px);
+                font-weight: 400;
+                color: #222;
+                line-height: 1;
+                @include breakpoint(maxMobileFold) {
+                    font-size: 18px;
+                    line-height: 1.2;
+                }
+            }
+            .name {
+                display: inline-block;
+                @include vw(padding-right, 38px);
+                @include vw(font-size, 24px);
+                @include vw(letter-spacing, -2px);
+                font-weight: 700;
+                color: #222;
+                line-height: 1;
+                @include breakpoint(maxMobileFold) {
+                    font-size: 18px;
+                    line-height: 1.2;
+                }
+            }
+        }
+
+		.teacher-box {
+			.big-list {
+				.col {
+					position: relative;
+					a {
+						display: inline-block;
+						@include vw(padding, 0 5px);
+					}
+					.t-info {
+						bottom: 0;
+						z-index: 1;
+					}
+				}
+			}
+	
+			.small-list {
+				@extend .grid;
+				@include vw(margin, 30px auto 0);
+				@include vw(height, 888px);
+				width: percent(620, 720);
+				overflow: hidden;
+				@include transition(all, .3s, ease-in);
+				.col {
+					@extend .col;
+					position: relative;
+					width: 32%;
+					margin: 0 2% 2% 0;
+					.t-info {
+						top: 10%;
+						left: 9%;
+						.subject {
+							@include vw(font-size, 22px);
+							color: #e7e7e7;
+							@include breakpoint(maxMobileFold) {
+								font-size: 16px;
+							}
+						}
+						.name {
+							color: #e7e7e7;
+							padding-right: 0;
+							@include vw(font-size, 22px);
+							@include breakpoint(maxMobileFold) {
+								font-size: 16px;
+							}
+						}
+					}
+					&:nth-child(3n) {
+						margin-right: 0;
+					}
+				}
+			}
+
+
+			.teacher-action {
+				display: block !important;
+				.btn-teacher-more {
+					position: relative;
+					display: inline-block;
+					@include vw(margin-top, 40px);
+					@include vw(padding, 15px 60px 15px 30px);
+					@include vw(font-size, 26px);
+					border: 1px solid #222;
+					@include boxSizing(border-box);
+					@include transition(all, .3s, ease-in);
+					&:after {
+						@include arrow(bottom, 10px, 10px, 1px, #222);
+						@include vw(right, 20px);
+					}
+				}
+			}
+
+			&.fold {
+				.small-list {
+					height: 100% !important;
+					@include transition(all, .3s, ease-in);
+					& + .teacher-action .btn-teacher-more:after {
+						@include arrow(top, 10px, 10px, 1px, #222);
+					}
+				}
+			}
+		}
+
+        .grounds-text {
+            text-align: center !important; 
+			padding: 0;
+			margin: 0;
+			@include vw(margin-top, 20px);
+            @include vw(font-size, 22px);
+            color: rgba(0,0,0, .5);
+        }
+    }
+
+    .sector-acer {
+        @include vw(padding-bottom, 120px);
+        background: #fff;
+        .btn-acer {
+            @include vw(margin-bottom, 60px);
+            text-align: left;
+            a {
+                display: inline-block;
+                position: relative;
+                .icon-hand { right: 40%;}
+            }
+        }
+        .item {
+            position: relative;
+            .teacher-img {
+                position: absolute;
+                top: percent(240, 1692);
+                width: percent(660);
+                left: 50%;
+                z-index: 1;
+                overflow: hidden;
+                @include translateX(-50%);
+            }
+        }
+        .slick-list,
+        .slick-track {
+            -webkit-transform: translate3d(0, 0, 0) !important;
+            -ms-transform: translate3d(0, 0, 0) !important;
+            transform: translate3d(0, 0, 0) !important;
+        }
+
+        .acer-list {
+            position: relative;
+            width: percent(660);
+            margin: 0 auto;
+            z-index: 2;
+            .slick-slide {
+                outline: none;
+                .col {
+                    position: relative;
+                    border-left: 3px solid #fff;
+                    @include vw(padding-bottom, 15px);
+                    @include boxSizing(border-box);
+                    a {
+                        position: relative;
+                        display: block;
+                        color: #838383;
+                        font-weight: 700;
+                        background: #bcbcbc;
+                        @include vw(padding, 24px 0);
+                        @include vw(font-size, 24px);
+                        @include vw(letter-spacing, -2px);
+                        @include boxSizing(border-box);
+                    }
+                    &.list-1 {
+                        border-left: 0;
+                    }
+                }
+                &.slick-current {
+                    .col {
+                        a {
+                            color: #c8d0ff;
+                            background: #363636;
+                            &:after {
+                                content: '';
+                                display: block;
+                                position: absolute;
+                                top: 100%;
+                                left: 50%;
+                                width: 0;
+                                height: 0;
+                                z-index: 1;
+                                @include translateX(-50%);;
+                                border : {
+                                    width: 0;
+                                    style: solid;
+                                    color: transparent;
+                                    top-color: #363636;
+                                }
+                                @include vw(border-right-width, 10px);
+                                @include vw(border-left-width, 10px);
+                                @include vw(border-top-width, 15px);
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+
+        .acer-contents {
+            position: relative;
+            @include vw(top, -15px);
+            width: percent(660);
+            margin: 0 auto;
+            border: 1px solid #e1e1e1;
+            border-top: 0;
+        }
+
+        .notice {
+            @include vw(margin-top, 20px);
+            padding-right: percent(30, 720);
+            font-weight: 500;
+        }
+
+        .single-slider {
+            width: percent(660);
+            margin: 0 auto;
+            .slick-slide {
+                div {
+                    position: relative;
+                    .label {
+                        position: absolute;
+                        @include vw(top, 30px);
+                        @include vw(right, 30px);
+                        width: percent(186);
+                        height: percent(80, 536);
+                        display: table;
+                        text-align: center;
+                        border-radius: 50px;
+                        background: #fff;
+                        border: 2px solid #4f6af3;
+                        z-index: 10;
+                        @include boxShadow(0 10px 20px 0 rgba(0, 0, 0, .4));
+                        strong {
+                            display: table-cell;
+                            vertical-align: middle;
+                            color: #181818;
+                            font-weight: 700;
+                            @include vw(font-size, 24px);
+                            @include vw(letter-spacing, -2px);
+                        }
+                    }
+                }
+            }
+        }
+        .slick-arrow {
+            &.slick-prev { @include vw(left, -30px); }
+            &.slick-next { @include vw(right, -30px); }
+        }
+    }
+
+    .sector-curriculum { background: #fff; }
+    .sector-price-box { background: #5872f4; }
+}

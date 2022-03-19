@@ -1,0 +1,274 @@
+// display flex
+%flexCenter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-item: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+// clearfix
+%clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: '';
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// text ellipsis
+%textEllipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.sr-only {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    width: 0px;
+    height: 0px;
+    margin: -1px;
+    padding: 0;
+    word-break: keep-all;
+    white-space: nowrap;
+    color: transparent;
+    border: 0;
+    text-indent: -9999px;
+}
+
+
+.grid {
+    @extend %clearfix;
+    @include boxSizing(border-box);
+    .col {
+        float: left;
+    @include boxSizing(border-box);
+    }
+    .col-right {
+        float: right;
+        @include boxSizing(border-box);
+    }
+}
+
+.table {
+    display: table;
+    width: 100%;
+    .table-cell {
+        display: table-cell;
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+    }
+}
+
+%disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.montserrat { font-family: $font-montserrat; }
+.lato { font-family: $font-lato; }
+
+
+%arrow-bottom {
+    position: relative;
+    display: inline-block;
+    padding-right: 15px;
+    &:after {
+        @include arrow(bottom, 5px, 5px, 1px, #444);
+        right: 0;
+    }
+}
+
+%arrow-right {
+    position: relative;
+    display: inline-block;
+    padding-right: 15px;
+    &:after {
+        @include arrow(right, 5px, 5px, 1px, #444);
+        right: 0;
+    }
+}
+
+// 교육과정&직영학원
+%header-layer-inner {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    @include boxShadow(none);
+    .item_box, // 1/28 이후 삭제
+    .item-box {
+        position: relative;
+        padding: 32px 24px 32px;
+        overflow: hidden;
+        &+.appservice { border-top: none; }
+        .group {
+            position: relative;
+            float: left;
+            padding-left: 20px;
+            @include boxSizing(border-box);
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                display: block;
+                width: 1px;
+                height: 100%;
+                background-color: #ececf1;
+            }
+            &1:before { display: none; }
+        }
+        .group_title, // 1/28 이후 삭제
+        .group-title {
+            margin: 0;
+            padding: 19px 0 4px;
+            clear: both;
+            font-size: 13px;
+            font-weight: 500;
+            color: #d73706;
+            &:first-child { padding-top: 0; }
+            & + ul { margin-left: 0; }
+        }
+        dl {
+            text-align: left;
+            padding-top: 30px;
+            @extend %clearfix;
+            &:first-child { padding-top: 0; }
+        }
+        dt {
+            line-height: 1;
+            font-size: 14px;
+            color: #111;
+            font-weight: 500;
+            letter-spacing: -.5px;
+            padding-bottom: 9px
+        }
+        ul {
+            margin-left: 35px;
+            &:first-child { margin-left: 0; }
+            li {
+                // academyPlace.css 영향으로 아래 스타일 추가
+                padding: 0;
+                background: none;
+                font-size: initial;
+                line-height: initial;
+                letter-spacing: initial;
+            }
+            a {
+                padding: 0;
+                line-height: 22px;
+                font-size: 13px;
+                color: #888;
+                font-weight: 300;
+                letter-spacing: -.5px;
+                &:hover {
+                    color: #111;
+                    font-weight: 500;
+                }
+            }
+            .ac a { color: #111; }
+            .i_new {
+                position: relative;
+                top: -1px;
+                display: inline-block;
+                width: 11px;
+                height: 11px;
+                margin-left: 4px;
+                vertical-align: middle;
+                text-indent: -9999em;
+                background: url('#{$img-path}/210127/icon_new1.png') no-repeat 0 0;
+            }
+        }
+    }
+    .appservice {
+        padding: 23px 0 26px 24px;
+        border-top: 1px solid #e3e3e3;
+        background: #f7f7f9;
+        &+.appservice { padding-bottom: 44px; }
+        dl {
+            text-align: left;
+            @extend %clearfix;
+        }
+        dt {
+            padding-bottom: 6px;
+            line-height: 1;
+            font-size: 16px;
+            font-weight: 500;
+            color: #111;
+            letter-spacing: -.5px;
+        }
+        dd {
+            float: left;
+            width: 216px;
+            margin-top: 16px;
+            &:hover a strong,
+            &:hover a span {
+                color: #111;
+                font-weight: 500;
+            }
+            &.app1 a { background-image: url('#{$img-path}/210127/icon_app1.png'); }
+            &.app2 a { background-image: url('#{$img-path}/210127/icon_app2.png'); }
+            &.app3 a { background-image: url('#{$img-path}/210127/icon_app3.png'); }
+            &.app4 a { background-image: url('#{$img-path}/210127/icon_app4.png'); }
+            &.app5 a { background-image: url('#{$img-path}/210127/icon_app5.png'); }
+            &.study1 a { background-image: url('#{$img-path}/210127/icon_web1.png'); }
+            &.study2 a { background-image: url('#{$img-path}/210127/icon_web2.png'); }
+            &.study3 a { background-image: url('#{$img-path}/210127/icon_web3.png'); }
+            &.study4 a { background-image: url('#{$img-path}/210127/icon_web4.png'); }
+            a {
+                display: block;
+                height: 48px;
+                padding: 0 0 0 63px;
+                background-repeat: no-repeat;
+                background-position: 0 0;
+            }
+            strong {
+                display: block;
+                padding-top: 6px;
+                line-height: 1;
+                font-size: 14px;
+                font-weight: 500;
+                color: #111;
+                letter-spacing: -.5px;
+                i {
+                    display: inline-block;
+                    height: 14px;
+                    margin-left: 8px;
+                    padding: 0 2px;
+                    line-height: 16px;
+                    font-size: 11px;
+                    font-weight: 300;
+                    font-style: normal;
+                    color: #111;
+                    letter-spacing: -.5px;
+                    border: .5px solid #767676;
+                    border-radius: 3px;
+                }
+            }
+            span {
+                display: block;
+                padding-top: 7px;
+                line-height: 1;
+                font-size: 13px;
+                font-weight: 300;
+                color: #888;
+                letter-spacing: -.5px;
+            }
+        }
+    }
+}

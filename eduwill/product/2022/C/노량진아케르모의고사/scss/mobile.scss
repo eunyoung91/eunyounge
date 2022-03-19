@@ -1,0 +1,907 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+
+.bottom_fix_btn {
+	display: none;
+}
+
+.promotion {
+	font-family: $font-roboto;
+	@include vw(letter-spacing, -1px);
+	text-align: center;
+
+	.wrap {
+		max-width: 720px;
+	}
+
+	.icon-pointer {
+		@include pointer(50%, 2%, 80px, 88px, 1, bounce);
+	}
+
+	.slick-arrow {
+		position: absolute;
+		top: 50%;
+		z-index: 10;
+		content: "";
+		padding: 0;
+		margin: 0;
+		border: none;
+		outline: none;
+		text-indent: -9999px;
+		display: block;
+		@include vw(width, 60px);
+		@include vw(height, 61px);
+		@include vw(margin-top, -30px);
+		&.slick-prev {
+			left: 3%;
+			background: url("#{$img-path}/pc/btn_prev.png");
+			background-size: cover;
+		}
+		&.slick-next {
+			right: 3%;
+			background: url("#{$img-path}/pc/btn_next.png");
+			background-size: cover;
+		}
+	}
+
+	.sector-fixed {
+		position: fixed;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 30;
+		background-color: rgba(0, 0, 0, 0.8);
+	}
+
+	.highlight { color: #fe4f21;}
+
+	.table-group {
+		width: percent(668);
+		margin: 0 auto;
+		border-top: 1px solid #212121;
+		border-bottom: 1px solid #212121;
+		table {
+			width: 100%;
+			thead {
+				th {
+					@include vw(padding, 15px 0);
+					@include vw(font-size, 22px);
+					text-align: center;
+					font-weight: 700;
+					color: #000;
+					letter-spacing: -1px;
+					background: #eadef9;
+					border-left: 1px solid #c3bdcb;
+					&:first-child { border-left: 0;}
+				}
+			}
+			tbody{
+				td {
+					@include vw(padding, 15px 0);
+					@include vw(font-size, 22px);
+					font-weight: 500;
+					text-align: center;
+					background: #fff;
+					border-left: 1px solid #c3bdcb;
+					border-top: 1px solid #c3bdcb;
+					&:first-child { border-left: 0;}
+				}
+			}
+		}
+		&.table-row {
+			table {
+				tbody {
+					th {
+						@include vw(padding, 20px 0);
+						@include vw(font-size, 22px);
+						color: #000;
+						font-weight: 400;
+						border-top: 1px solid #c3bdcb;
+						background: #f7f3fe;
+					}
+					td {
+						@include vw(padding, 20px 10px 20px 30px);
+						@include vw(font-size, 22px);
+						text-align: left;
+						word-break: keep-all;
+						.small {
+							display: inline-block;
+							color: #a2a2a2;
+							@include vw(margin-left, 5px);
+							@include vw(font-size, 20px);
+						}
+						.icon {
+							display: inline-block;
+							@include vw(margin-right, 5px);
+							@include vw(width, 45px);
+						}
+					}
+					tr {
+						&:first-child {
+							th, td { border-top: 0;}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.sector-title {
+		z-index: 12;
+		overflow: hidden;
+		@include vw(height, 2260px);
+		@include bg($color: #1a1816, $url: "#{$img-path}/mobile/bg_title.jpg", $size: cover);
+		.motion {
+			position: absolute;
+			opacity: 0;
+			left: 0;
+			right: 0;
+			&.laurel-list {
+				@include vw(top, 98px);
+				text-align: center;
+				.eco-3496 {
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					p {
+						display: none;
+						&.brand2 {
+							display: inline-block;
+							@include vw(font-size, 18px);
+							@include vw(letter-spacing, -1.5px);
+							color: #c5b9d5;
+						}
+					}
+				}
+			}
+			&.title-1 {
+				@include vw(top, 290px);
+				@include vw(padding-left, 50px);
+				@include vw(font-size, 36px);
+				@include vw(letter-spacing, -2px);
+				text-align: left;
+				left: 0;
+				right: 0;
+				text-align: left;
+				color: #000;
+				line-height: 1.3;
+				font-weight: 400;
+				strong { font-weight: 900; @include vw(letter-spacing, -2px);}
+			}
+			&.title-2 {
+				@include vw(top, 364px);
+			}
+			&.title-3 {
+				@include vw(top, 496px);
+			}
+			&.title-4 {
+				@include vw(top, 667px);
+			}
+			&.title-5 {
+				@include vw(top, 822px);
+			}
+			&.teacher {
+				@include vw(top, 950px);
+				@include vw(width, 754px);
+				@include vw(margin-left, -367px);
+				left: 50%;
+				right: auto !important;
+				z-index: 2;
+				img { width: 100%; max-width: 100%}
+			}
+			&.tag {
+				@include vw(top, 380px);
+				@include vw(width, 219px);
+				@include vw(right, 35px);
+				left: auto !important;
+				z-index: 3;
+			}
+		}
+		.title-info {
+			position: absolute;
+			@include vw(top, 1613px);
+			left: 0;
+			right: 0;
+			width: 100%;
+			p {
+				&.info {
+					font-weight: 900;
+					color: #212121;
+					line-height: 1.3;
+					@include vw(font-size, 48px);
+					@include vw(letter-spacing, -3px);
+					strong {
+						@include vw(padding-right, 5px);
+						@include vw(letter-spacing, -3px);
+						font-weight: 900;
+						line-height: 1.3;
+						background: linear-gradient(to right, #4d1585, #f2593e);
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+					}
+				}
+				&.hashtag {
+					@include vw(margin-top, 10px);
+					@include vw(letter-spacing, -1px);
+					@include vw(font-size, 24px);
+					line-height: 1;
+					color: #ff5528;
+					font-weight: 700;
+				}
+			}
+
+			.date {
+				position: relative;
+				width: 100%;
+				@include vw(margin, 33px auto 0);
+				@include boxSizing(border-box);
+				.flag {
+					position: absolute;
+					@include vw(top, -30px);
+					@include vw(width, 231px);
+					@include vw(left, 80px);
+					z-index: 1;
+				}
+				.action {
+					position: absolute;
+					@include vw(top, 205px);
+					width: 100%;
+					left: 0;
+					right: 0;
+					z-index: 1;
+				}
+				.row {
+					width: percent(640);
+					margin: 0 auto;
+					@include boxSizing(border-box);
+					@include vw(padding, 22px 0 40px 280px);
+					border: 1px solid #c3bdcb;
+					> div {
+						@include vw(font-size, 24px);
+						@include vw(letter-spacing, -1px);
+						line-height: 1.3;
+						color: #000;
+						font-weight: 700;
+						text-align: left;
+					}
+					&.highlight {
+						@include vw(padding, 22px 0 22px 280px);
+						background: #eadef9;
+						border-bottom: 0;
+					}
+				}
+			}
+		}
+	}
+
+	.sector-info {
+		background: #441d69;
+	}
+
+	.sector-text {
+		background: #ec5c44;
+	}
+
+	.sector-graph {
+		@include bg($color: #441d69, $url: "#{$img-path}/mobile/bg_graph.jpg", $size: cover);
+	}
+
+	.sector-point-1 {
+		background: #f7f3fe;
+	}
+	.sector-point-2 {
+		@include linear-gradient(to bottom, #f7f3fe 1162px, #eadef9 1162px);
+	}
+	.sector-point-3 {
+		background: #f7f3fe;
+		.info-pager {
+			width: 100%;
+			margin: 0 auto;
+			.slick-slide {
+				@include vw(padding, 0 10px 60px);
+				.col {
+					opacity: 0.5;
+					@include vw(padding, 40px 0);
+					@include vw(font-size, 32px);
+					@include vw(letter-spacing, -2px);
+					@include vw(border-radius, 40px);
+					color: #fff;
+					line-height: 1.4;
+					font-weight: 400;
+					background: #ff5528;
+					cursor: pointer;
+					@include boxShadow(0 10px 20px 0 rgba(0, 0, 0, 0.2));
+					@include transition(opacity, 0.5s);
+					strong {
+						font-weight: 900;
+					}
+				}
+				&.slick-current {
+					.col {
+						opacity: 1;
+					}
+				}
+			}
+		}
+		.info-slider {
+			width: 100%;
+			.col {
+				@include vw(padding-bottom, 152px);
+				text-align: center;
+				img {
+					display: inline-block;
+					width: percent(662);
+					border-radius: 23px;
+					@include boxShadow(0 20px 20px 0 rgba(0, 0, 0, 0.2));
+				}
+			}
+		}
+	}
+	.sector-place {
+		padding-bottom: 110px;
+		@include linear-gradient(to bottom, #7331c6 50%, #fff 50%);
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			left: 50%;
+			z-index: 1;
+			@include translateX(-50%);
+			@include vw(top, -51px);
+			@include vw(width, 140px);
+			@include vw(height, 82px);
+			@include bg($url: "#{$img-path}/pc/icon_plus.png", $size: cover);
+		}
+		.notice {
+			@include vw(margin-top, 20px);
+			@include vw(font-size, 20px);
+			@include vw(letter-spacing, -1px);
+			word-break: keep-all;
+			font-weight: 500;
+			line-height: 1.4;
+			color: rgba(34,34,34, .5);
+		}
+	}
+
+	.sector-apply {
+		@include vw(padding, 110px 0 80px);
+		background: #eadef9;
+		.apply-title {
+			@include vw(padding-bottom, 58px);
+			@include vw(font-size, 50px);
+			@include vw(letter-spacing, -2px);
+			color: #212121;
+			font-weight: 700;
+			line-height: 1.3;
+			strong {
+				@include vw(letter-spacing, -2px);
+				line-height: 1.3;
+			}
+			span {
+				display: block;
+				@include vw(font-size, 34px);
+				@include vw(letter-spacing, -1px);
+				font-weight: 700;
+				color: #212121;
+			}
+		}
+		.table-title {
+			position: relative;
+			@include vw(padding, 0 25px);
+			@include vw(margin-bottom, 20px);
+			@include vw(font-size, 34px);
+			@include vw(letter-spacing, -2px);
+			text-align: left;
+			color: #7331c6;
+			font-weight: 700;
+			line-height: 1.3;
+			.notice {
+				position: absolute;
+				bottom: 0;
+				@include vw(right, 25px);
+				@include vw(font-size, 20px);
+				@include vw(letter-spacing, -1px);
+				font-weight: 400;
+				color: rgba(34,34,34, .6);
+			}
+		}
+		.btn-apply {
+			@include vw(margin-top, 30px);
+		}
+	}
+
+	.sector-bar {
+		@include vw(padding, 65px 0);
+		background: #ec5c44;
+		.event-title {
+			@include vw(font-size, 50px);
+			@include vw(letter-spacing, -2px);
+			color: #fff;
+			font-weight: 900;
+			line-height: 1.3;
+			strong {
+				@include vw(font-size, 40px);
+				@include vw(letter-spacing, -2px);
+			}
+			span {
+				display: inline-block;
+				font-weight: 700;
+				@include vw(margin-top, 15px);
+				@include vw(font-size, 24px);
+				@include vw(letter-spacing, -1px);
+				&:before {
+					content: '·';
+					display: inline-block;
+					@include vw(margin-right, 10px);
+				}
+				+ span {
+					@include vw(margin-left, 20px);
+				}
+			}
+		}
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			left: 50%;
+			z-index: 1;
+			@include translateX(-50%);
+			@include vw(bottom, -53px);
+			@include vw(width, 318px);
+			@include vw(height, 55px);
+			@include bg($url: "#{$img-path}/pc/icon_arrow.png", $size: cover);
+		}
+	}
+
+	.sector-event {
+		&.event-2 {
+			@include vw(padding-bottom, 100px);
+			.action {
+				@include vw(margin-top, 80px);
+			}
+		}
+		.form-box {
+			@include vw(padding, 0 30px);
+			width: 100%;
+			margin: 0 auto;
+			@include boxSizing(border-box);
+			.form-input {
+				.col {
+					position: relative;
+					float: none;
+					width: 100%;
+					@include vw(margin-top, 16px);
+					text-align: left;
+					&:first-child { margin-top: 0; }
+					label {
+						display: inline-block;
+						width: 22%;
+						@include vw(line-height, 60px);
+						@include vw(font-size, 24px);
+						color: #343434;
+					}
+					.text {
+						width: 53%;
+						@include vw(height, 60px);
+						@include vw(padding, 10px);
+						vertical-align: top;
+						@include vw(font-size, 22px);
+						font-weight: 400;
+						color: #999;
+						@include vw(border-radius, 5px);
+						background: #fff;
+						border: 1px solid #000;
+						@include boxSizing(border-box);
+					}
+					.full-input {
+						@include vw(margin-top, 16px);
+						padding-left: 22.8%;
+						.text {
+							width: 100%;
+						}
+					}
+					.btn-form {
+						display: inline-block;
+						@include vw(margin-left, 6px);
+						@include vw(height, 60px);
+						@include vw(line-height, 60px);
+						@include vw(font-size, 24px);
+						@include vw(border-radius, 5px);
+						width: 22%;
+						text-align: center;
+						font-weight: 500;
+						color: #222;
+						background: #c9a55e;
+						vertical-align: top;
+					}
+					.form-select {
+						@include vw(margin-left, 140px);
+						height: auto;
+						label {
+							vertical-align: middle;
+							@include vw(line-height, 40px);
+							@include vw(font-size, 20px);
+							color: #666;
+							.radio { margin-top: 0; }
+						}
+					}
+					&.full {
+						.text {
+							width: 77%;
+						}
+					}
+					&.certification {
+						.timer {
+							position: absolute;
+							top: 0;
+							right: 27%;
+							color: #f05273;
+							@include vw(line-height, 60px);
+							@include vw(font-size, 24px);
+							z-index: 1;
+						}
+					}
+					&.other {
+						@include vw(margin-top, 40px);
+						text-align: left;
+						.other-2 {
+							@include vw(margin-top, 10px);
+						}
+						label {
+							display: block;
+							width: 100%;
+						}
+						.label-title {
+							@include vw(font-size, 26px);
+							color: #343434;
+							font-weight: 700;
+							line-height: 1.5;
+							.highlight {
+								display: inline-block;
+								position: relative;
+								z-index: 1;
+								&:before {
+									content: "";
+									display: block;
+									position: absolute;
+									left: 0;
+									right: 0;
+									bottom: 0;
+									width: 100%;
+									@include vw(height, 20px);
+									background: #f9ea85;
+									z-index: -1;
+								}
+							}
+						}
+						.full-input {
+							margin-top: 0;
+							padding: 0;
+							.text {
+								width: 100%;
+								@include vw(height, 165px);
+								resize: none;
+							}
+							select {
+								width: 100%;
+								@include vw(padding, 10px);
+								@include vw(font-size, 22px);
+								@include vw(border-radius, 5px);
+								@include vw(height, 60px);
+								font-weight: 400;
+								color: #000;
+								background-color: #fff;
+								border: 1px solid #000;
+								vertical-align: top;
+								@include boxSizing(border-box);
+							}
+						}
+					}
+				}
+			}
+
+			.action {
+				@include vw(margin-top, 50px);
+				a {
+					position: relative;
+					display: block;
+					@include pointer(50%, 0, 57px, 65px, 12, bounce);
+				}
+			}
+
+			.all-check {
+				@include vw(margin-top, 30px);
+				text-align: left;
+				label {
+					display: inline-block;
+					font-weight: 500;
+					line-height: 1;
+					@include vw(margin-left, 6px);
+					@include vw(font-size, 28px);
+				}
+				input {
+					@include vw(width, 30px);
+					@include vw(height, 30px);
+					vertical-align: middle;
+				}
+			}
+
+			.agree-box {
+				text-align: left;
+				background: #fff;
+				.all-check {
+					@include vw(margin-bottom, 20px);
+					input {
+						@include vw(width, 36px);
+						@include vw(height, 36px);
+						display: inline-block;
+						vertical-align: middle;
+						@include breakpoint(maxMobileFold){
+							width: 25px;
+							height: 25px;
+						}
+					}
+					label {
+						vertical-align: middle;
+						display: inline-block;
+						font-weight: 500;
+						color: #222;
+						@include vw(margin-left, 10px);
+						@include vw(font-size, 30px);
+					}
+				}
+
+				.check-box {
+					@include vw(margin-bottom, 40px);
+					.col {
+						width: 100%;
+						@include vw(margin-top, 20px);
+						.check {
+							@include vw(margin-bottom, 20px);
+							input {
+								@include vw(width, 36px);
+								@include vw(height, 36px);
+								display: inline-block;
+								vertical-align: middle;
+								@include breakpoint(maxMobileFold){
+									width: 25px;
+									height: 25px;
+								}
+							}
+							label {
+								vertical-align: middle;
+								display: inline-block;
+								font-weight: 500;
+								color: rgba(0,0,0, .5);
+								@include vw(margin-left, 10px);
+								@include vw(font-size, 26px);
+								span { color: #e30c24;}
+							}
+						}
+						.scroll-box {
+							@include vw(padding, 20px 30px);
+							@include vw(font-size, 26px);
+							width: 100%;
+							height: 150px;
+							color: rgba(0,0,0, .6);
+							overflow-y: scroll;
+							border: 1px solid #ddd;
+							@include boxSizing(border-box);
+							.scroll-title {
+								@include vw(margin-bottom, 18px);
+								font-weight: 500;
+								color: rgba(0,0,0, 1);
+							}
+							strong {
+								@include vw(font-size, 28px);
+								color: rgba(0,0,0, 1);
+							}
+						}
+					}
+				}
+
+				.action {
+					text-align: center;
+					a {
+						position: relative;
+						display: block;
+						margin: 0 auto;
+						text-align: center;
+						background: url('#{$img-path}/mobile/button2.png') no-repeat center get-vw(8px) / contain;
+						@include boxSizing(border-box);
+						@include vw(width, 526px);
+						@include vw(height, 120px);
+						@include vw(line-height, 108px);
+						strong {
+							@include vw(font-size, 30px);
+							font-weight: 500;
+							color: #fff;
+							&:after {
+								content: '>';
+								display: inline-block;
+								font-family: $font-lato;
+								@include vw(margin-left, 10px);
+								font-weight: 500;
+							}
+						}
+					}
+				}
+			}
+
+			// .agree-box {
+			//     @include vw(margin-top, 18px);
+			//     @include vw(padding, 30px 40px);
+			//     @include vw(height, 280px);
+			//     @include vw(font-size, 24px);
+			//     overflow-y: scroll;
+			//     color: #666;
+			//     font-weight: 300;
+			//     line-height: 1.5;
+			//     text-align: left;
+			//     border: 2px solid #e7e7e7;
+			//     background: #fff;
+			//     @include boxSizing(border-box);
+			//     .title {
+			//         @include vw(margin-bottom, 20px);
+			//         font-weight: 500;
+			//         color: #000;
+			//     }
+			//     .box {
+			//         @include vw(margin-bottom, 20px);
+			//         + .title {
+			//             @include vw(margin-top, 60px);
+			//         }
+			//     }
+			//     .check-list {
+			//         @include vw(margin-top, 15px);
+			//     }
+			//     .period {
+			//         font-weight: 700;
+			//         color: #222;
+			//     }
+			// }
+		}
+		.comment-box {
+			@include vw(margin, 0 40px);
+			.comment-form {
+				.form-item {
+					@extend %clearfix;
+				}
+				.item-desc {
+					width: 100%;
+					@include vw(height, 150px);
+					border: 1px solid #000;
+					@include vw(border-radius, 10px);
+					@include boxSizing(border-box);
+					overflow: hidden;
+					.text-box {
+						width: 100%;
+						@include vw(padding, 15px 20px);
+						@include vw(font-size, 28px);
+						color: #000;
+						border: none;
+						background: none;
+						resize: none;
+						@include boxSizing(border-box);
+					}
+				}
+				.item-action {
+					width: 100%;
+					@include vw(height, 80px);
+					@include vw(margin-top, 10px);
+					@include vw(border-radius, 10px);
+					background: #7600d4;
+					a {
+						display: block;
+						text-align: center;
+						@include vw(line-height, 80px);
+						@include vw(font-size, 28px);
+						font-weight: 500;
+						color: #fff;
+					}
+				}
+			}
+			.comment-notice {
+				@include vw(margin-top, 24px);
+				@include vw(font-size, 18px);
+				color: #aaa;
+				@extend %refer-list;
+			}
+			.comment-list {
+				@include vw(margin-top, 50px);
+				border-bottom: 1px solid #010101;
+				@include boxSizing(border-box);
+				.list-item {
+					font-size: 0;
+					border-top: 1px solid #ccc;
+					&:first-child {
+						border-top-color: #010101;
+					}
+					& > div {
+						display: inline-block;
+						@include vw(padding, 20px 0);
+						vertical-align: top;
+						line-height: 1.5;
+						@include vw(font-size, 24px);
+						font-weight: 500;
+						color: #555;
+						&.item-user {
+							width: 20%;
+							@extend %textEllipsis;
+						}
+						&.item-desc {
+							width: 80%;
+							text-align: left;
+							letter-spacing: -.5px;
+							word-break: break-all;
+						}
+						&:only-child {
+							width: 100%;
+							@include vw(padding, 50px 0);
+							text-align: center;
+							@include vw(font-size, 24px);
+						}
+					}
+					&.nodata {
+						.col {
+							font-size: 18px;
+							font-weight: 500;
+							color: #000;
+						}
+					}
+				}
+			}
+			.list-action {
+				display: block;
+				@include vw(margin-top, 30px);
+				a {
+					display: inline-block;
+					@include vw(min-width, 300px);
+					@include vw(padding, 20px);
+					@include vw(font-size, 24px);
+					color: #555;
+					border: 1px solid #555;
+					@include vw(border-radius, 5px);
+					@include boxSizing(border-box);
+					span {
+						position: relative;
+						display: block;
+						line-height: 1;
+						&:after {
+							@include arrow(bottom, 7px, 7px, 1px, #555);
+							right: 10%;
+							margin-top: -6px;
+						}
+					}
+				}
+			}
+		}
+		.action {
+			.btn-event {
+				z-index: 1;
+				margin: 0 auto;
+				font-weight: 900;
+				color: #fff;
+				@include vw(min-width, 654px);
+				@include vw(padding, 36px 40px);
+				@include vw(font-size, 40px);
+				@include vw(letter-spacing, -2px);
+				@include vw(border-radius, 30px);
+				@include boxSizing(border-box);
+				@include boxShadow(0 0 30px 0 rgba(0, 0, 0, .2));
+				@include linear-gradient(to right, #481378 0, #6922ad 50%, #fa5c37 100%);
+				&:before {
+					@include arrow(right, 15px, 15px, 3px, #fff);
+					@include vw(right, 30px);
+				}
+			}
+		}
+	}
+}

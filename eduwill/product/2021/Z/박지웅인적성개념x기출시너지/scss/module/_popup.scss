@@ -1,0 +1,193 @@
+.dimmed {
+    display: none;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, .7);
+}
+.popup {
+	* { font-family: $font-noto; }
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 300;
+	display: none;
+	width:100%;
+	max-width:720px;
+    text-align: left;
+    letter-spacing: -1px;
+    background-color: #fff;
+    @include boxSizing(border-box);
+	@include translateX(-50%);
+    @include breakpoint(maxMobile){
+		width:900px;
+    }
+	&-body{
+		padding:15% 5%;
+		@include breakpoint(maxMobile){
+			padding:40px;
+		}
+	}
+    &-head {
+        padding: 32px 20px;
+        font-size: 30px;
+        font-weight: 600;
+        color: #000;
+        background-color: #ececec;
+    }
+    &-desc {
+        padding: 20px;
+        li {
+            padding: 10px 0;
+            line-height: 1.2;
+            font-size: 20px;
+            color: #000;
+            border-bottom: 1px solid #ccc;
+        }
+    }
+    &-close {
+        position: absolute;
+        top: 0;
+        right:0;
+		@include close(60px, 60px, 1px, #333);
+		cursor:pointer;
+	}
+    &-close-layer {
+        position: absolute;
+        top: 0;
+        right:0;
+		@include close(60px, 60px, 1px, #333);
+		cursor:pointer;
+	}
+
+	//리스트(강의,교재)
+	&.popup-list {
+		.popup-body {
+			padding: 0;
+		}
+		.popup-close {
+			right: 0 !important;
+			@include close(40px, 40px, 1px, #fff);
+		}
+		.list-title {
+			text-align: left;
+			background: #333;
+			color:#fff;
+			padding: 4%;
+			letter-spacing: -1px;
+			line-height: 1.4;
+			font-weight: 400;
+			@include vw(font-size, 18px);
+			strong {
+				display: block;
+				@include vw(font-size, 30px);
+			}
+		}
+		.tab-box {
+			position: relative;
+			width: 100%;
+			margin: 0 auto;
+			table-layout: fixed;
+			background: #333;
+			.tab-list {
+				display: table;
+				width: 95%;
+				margin: 0 auto;
+				background: #333;
+				li {
+					display: table-cell;
+					vertical-align: middle;
+					@include vw(border-top-left-radius, 18px);
+					@include vw(border-top-right-radius, 18px);
+					&.on {
+						background:#fff;
+						span {
+							color:#333;
+						}
+					}
+					width: 20%;
+					background:#454545;
+					a {
+						display: block;
+						width: 100%;
+						@include vw(padding, 14px 0);
+						text-align: center;
+						@include vw(font-size, 18px);
+						font-weight: 700;
+						color: #000;
+					}
+				}
+			}
+			.tab-view {
+				display:none;
+				position: relative;
+				background: #fff;
+				padding: 4%;
+				height: 380px;
+				overflow-y: auto;
+				@include breakpoint(maxMobile){
+					height: 500px;
+				}
+				.title {
+					@include vw(margin-bottom, 15px);
+					@include vw(padding-bottom, 8px);
+					@include vw(font-size, 20px);
+					font-weight: 600;
+					color: #000;
+					border-bottom: 2px solid #000;
+					&:not(:first-of-type) {
+						@include vw(margin-top, 100px);
+					}
+				}
+				ul {
+					li {
+						line-height: 1.5;
+						@include vw(font-size, 16px);
+						color:#333;
+					}
+				}
+			}
+			.tab-list + .tab-view {
+				display: block;
+			}
+		}
+	}
+
+	//영상
+	&.popup-media {
+        max-width: 720px;
+		.popup-close-layer{
+			top: -60px !important;
+			@include close(60px, 60px, 1px, #fff);
+		}
+		.layer-box {
+			position: relative;
+			max-width: 720px;
+			@include vw(width, 720px);
+			@include vw(height, 410px);
+			iframe, video {
+				position: relative;
+				width: 100%;
+				height: 100%;
+				-o-object-fit: inherit;
+				object-fit: inherit;
+			}
+		}
+	}
+
+	//혜택
+	&.popup-benefit {
+		.popup-body {
+			padding: 0;
+			img {
+				width:100%;
+			}
+		}
+	}
+
+}

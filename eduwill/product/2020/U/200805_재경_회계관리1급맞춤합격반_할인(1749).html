@@ -1,0 +1,781 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ko" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+<title></title>
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/product.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/product.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.min.js"></script>
+<!-- // 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+	컨텐츠 감싸는 부모 : product-eco
+	하단 수강신청 영역 : product-apply
+	하단 수강신청 영역 내 탭 : product-tab
+	하단 수강신청 영역 내 정보 : product-table
+	따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/slick/slick.css" />
+<style>
+/* common */
+.product-eco * { line-height: normal; font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; letter-spacing: -2px; }
+.product-eco .container { position: relative; text-align: center;  background-repeat: no-repeat; background-position: center top; }
+.product-eco .wrap { position: relative; width: 1100px; margin: 0 auto; }
+.product-eco .wrap.full { width: 100%; }
+.product-eco .sr-only { display: inline-block; position: absolute; z-index: -1; clip: rect(0 0 0 0); width: 1px; height: 1px; *height: 0; margin: -1px; padding: 0; overflow: hidden; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }
+.product-eco .bx-wrapper { margin: 0 auto; } 
+.product-eco .bx-wrapper .bx-viewport { left: 0; border: 0; background: none; -webkit-box-shadow: none; box-shadow: none; }
+.product-eco .bx-wrapper img { display: inline; } 
+.product-eco .grid { position: relative; *zoom: 1; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.product-eco .grid:before,
+.product-eco .grid:after { content: ''; display: table; }
+.product-eco .grid:after { clear: both; }
+.product-eco .grid .col { position: relative; float: left; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* contents */
+.product-eco .product-title { background-image: url('https://img.eduwill.net/Img2/Uaccount/Product/event_new/200604_2/pc/bg_title.jpg'); }
+.product-eco .product-title:after { content: ''; position: absolute; bottom: -78px; left: 50%; display: block; width: 188px; height: 78px; margin-left: -94px; background: url('https://img.eduwill.net/Img2/Uaccount/Product/event_new/200604_2/pc/bg_title_tail.jpg') no-repeat 0 0; }
+.product-eco .product-enough { background-color: #fde0ff; }
+.product-eco .product-pass { background-color: #f5f5f5; }
+.product-eco .product-pass .winner-slide-wrap { margin: 0 50px; padding: 30px 50px; border: 1px solid #d2d2d2; border-radius: 10px; background-color: #fff; }
+.product-eco .product-pass .winner-slide-wrap .winners { position: relative; height: 250px; overflow: hidden; }
+.product-eco .product-pass .winners p { padding: 0; margin: 0; text-align: left; font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;  line-height: 1.8; font-size: 16px; font-weight: 400; color: #333; }
+.product-eco .product-pass .title { font-size: 20px; color: #808080; }
+.product-eco .product-pass .title span { display: inline-block; padding: 10px 12px 11px; border-radius: 5px; background-color: #f5f5f5; }
+.product-eco .product-pass .notice { margin-top: 10px; font-size: 16px; color: #aaa; }
+.product-eco .product-pass .interview-wrap { margin: 0 50px; padding-top: 68px; border-top: 1px solid #a3a3a3; }
+.product-eco .product-pass .interview { position: relative; width: 649px; height: 393px; border: 4px solid #a445ad; background-color: #a445ad; }
+.product-eco .product-pass .interview a,
+.product-eco .product-pass .interview iframe { position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; }
+.product-eco .product-teacher { background-color: #f5f5f5; }
+.product-eco .product-teacher .teacher-wrap { margin: 0 42px; }
+.product-eco .product-teacher .teacher { margin-top: 40px; }
+.product-eco .product-teacher .teacher:first-child { margin-top: 0; }
+.product-eco .product-teacher .video { width: 550px; }
+.product-eco .product-responsibility { background-color: #ff8154; }
+
+.product-eco .fixed-banner { position: fixed; top: 20%; right: 0; z-index: 10; width: 195px; text-align: center; line-height: 1.2; font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; }
+.product-eco .fixed-banner .item { margin-top: 10px; padding: 23px 0; border: 1px solid #a445ad; border-radius: 10px; background-color: #fff; }
+.product-eco .fixed-banner .item:first-child { margin-top: 0; }
+.product-eco .fixed-banner .desc { line-height: 1.2; font-size: 23px; font-weight: 700; color: #a445ad; }
+.product-eco .fixed-banner strong { position: relative; z-index: 0; display: inline-block; margin-bottom: 5px; line-height: 1; font-size: 35px; font-weight: 800; color: #ff4e0f; letter-spacing: -1.5px; }
+.product-eco .fixed-banner strong:after { content: ''; position: absolute; right: 0; bottom: 0; left: 0; z-index: -1; width: 100%; height: 20px; background-color: #fff16c; }
+.product-eco .fixed-banner strong span { font-family: 'Montserrat', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; font-size: 38px; }
+
+
+.product-eco .product-sale-info { padding-top: 140px; letter-spacing: -2px; }
+.product-eco .product-sale-info .sale-title { text-align: left; line-height: 1.2; font-size: 58px; font-weight: 700; color: #222; letter-spacing: -3px; }
+.product-eco .product-sale-info .sale-title .highlight { line-height: 1.2; color: #a445ad; }
+.product-eco .product-sale-info .apply-list { margin-bottom: 76px; }
+.product-eco .product-sale-info .table { position: relative; z-index: 0; display: table; width: 100%; }
+.product-eco .product-sale-info .table-cell { display: table-cell; height: 100%; vertical-align: middle; }
+.product-eco .product-sale-info .col { width: 32%; margin-left: 2%; padding: 20px; border: 4px solid #a445ad; background-color: #fff; transition: all .2s; }
+.product-eco .product-sale-info .col:first-child { margin-left: 0; }
+.product-eco .product-sale-info .col > .table { height: 451px; }
+.product-eco .product-sale-info .col > .table .table-cell { vertical-align: top; }
+.product-eco .product-sale-info .title { font-size: 34px; font-weight: 700; color: #a445ad; letter-spacing: -3px; }
+.product-eco .product-sale-info .flag span { display: inline-block; line-height: 1; font-weight: 500; }
+.product-eco .product-sale-info .flag-limit { position: absolute; top: -50px; right: 0; left: 0; }
+.product-eco .product-sale-info .flag-limit span { padding: 5px 30px; font-size: 22px; color: #ff4806; border: 3px solid #ff8154; border-radius: 54px; background-color: #fff; }
+.product-eco .product-sale-info .flag-limit em { color: #ff8154; }
+.product-eco .product-sale-info .flag-discount { margin-top: 4px; }
+.product-eco .product-sale-info .flag-discount span { padding: 3px 7px; font-size: 22px; color: #a445ad; background-color: #fff16c; }
+.product-eco .product-sale-info .flag-discount em { color: #ff4806; }
+.product-eco .product-sale-info .flag-period { margin-top: 15px; text-align: left; line-height: 1.1; font-size: 45px; font-weight: 700; color: #a445ad; }
+.product-eco .product-sale-info .info-list { margin-top: 20px; text-align: left; font-size: 18px; font-weight: 500; color: #333; letter-spacing: -1px; }
+.product-eco .product-sale-info .form-control { margin-top: 17px; text-align: left; font-size: 20px; font-weight: 300; color: #585858; }
+.product-eco .product-sale-info .form-control input { width: 18px; height: 18px; vertical-align: -2px; }
+.product-eco .product-sale-info .price-list { height: 88px; margin-top: 7px; text-align: left; font-weight: 700; }
+.product-eco .product-sale-info .price-list .table-cell { vertical-align: bottom; }
+.product-eco .product-sale-info .price-list strong { font-family: verdana; }
+.product-eco .product-sale-info .price-before { line-height: 1; font-size: 30px; color: #999; text-decoration: line-through; }
+.product-eco .product-sale-info .price-before-desc { text-decoration: none; }
+.product-eco .product-sale-info .price-after { line-height: 1; font-size: 50px; color: #a445ad; }
+.product-eco .product-sale-info .action { margin-top: 15px; }
+.product-eco .product-sale-info .action .btn-apply { position: relative; display: block; padding: 20px 0; line-height: 1; font-size: 30px; font-weight: 700; color: #fff; letter-spacing: -2.5px; border-radius: 5px; background-color: #a445ad; }
+.product-eco .product-sale-info .action .btn-apply:after { content: ''; position: absolute; top: 50%; right: -10%; width: 66px; height: 73px; background: url('https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png') no-repeat 0 0; -webkit-animation: bounce 1s infinite; animation: bounce 1s infinite; }
+
+.product-eco .product-sale-info .col:hover { border-color: #a445ad; background-color: #a445ad; }
+.product-eco .product-sale-info .col:hover .title { color: #fff; }
+.product-eco .product-sale-info .col:hover .flag-period { color: #ff8154; }
+.product-eco .product-sale-info .col:hover .info-list { color: #fff; }
+.product-eco .product-sale-info .col:hover .form-control { color: #fff; }
+.product-eco .product-sale-info .col:hover .price-before { color: #fff; }
+.product-eco .product-sale-info .col:hover .price-after { color: #ff8154; }
+.product-eco .product-sale-info .col:hover .btn-apply { background-color: #ff8154; }
+@-webkit-keyframes bounce {
+	0%, 100% { -webkit-transform: translate(0 ,0); -ms-transform: translate(0 ,0); transform: translate(0 ,0); }
+	50% { -webkit-transform: translate(-10px ,-10px); -ms-transform: translate(-10px ,-10px); transform: translate(-10px ,-10px); }
+}
+@keyframes bounce {
+	0%, 100% { -webkit-transform: translate(0 ,0); -ms-transform: translate(0 ,0); transform: translate(0 ,0); }
+	50% { -webkit-transform: translate(-10px ,-10px); -ms-transform: translate(-10px ,-10px); transform: translate(-10px ,-10px); }
+}
+</style>
+<div class="product-eco">
+	<!-- 문구 수정 -->
+	<div class="fixed-banner">
+		<div class="item item-1">
+			<div class="desc">
+				회원가입시<br /><strong><span>5,000</span>원</strong><br />중복 할인
+			</div>
+		</div>
+	</div>
+	<!-- // 문구 수정 -->
+
+	<div class="container product-title">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/200604_2/pc/title.png" alt="회계관리1급 맞춤합격반" />
+		</div>
+	</div>
+
+	<div class="container product-sale-info">
+		<div class="wrap">
+			<p class="sale-title">
+				<strong class="highlight">마감주의</strong> 회계관리1급 맞춤합격반<br />
+				이 혜택, <strong class="highlight">@JunsaDay@ 마감</strong>
+			</p>
+			<div class="grid apply-list">
+				<div class="col col-1">
+					<div class="table">
+						<div class="table-cell">
+							<div class="flag flag-limit"><span>선착순마감 <em>6만원 특별 할인</em></span></div>
+							<div class="title">9월 대비 0원 합격반</div>
+							<div class="flag flag-discount"><span>회계관리2급 전 강좌 추가 제공 <em>무료</em></span></div>
+							<ul class="info-list">
+								<li>- 합격 시 수강료 0원</li>
+								<li>- 불합격 시 다음 시험까지 연장</li>
+								<li>- 쌩기초특강 제공</li>
+								<li>- 연습문제해설특강 제공</li>
+								<li>- 개정세법특강 제공</li>
+								<li>- 기초회계특강 제공</li>
+								<li>- 입문특강 제공</li>
+							</ul>
+							<div class="form-control">
+								<label for="checkbox1"><input type="checkbox" class="checkbox" id="checkbox1"> 교재포함</label>
+							</div>
+							<div class="table price-list">
+								<div class="table-cell">
+									<div class="price-before"><strong id="priceBefore1">245,000</strong>원</div>
+									<div class="price-after"><strong id="priceAfter1">185,000</strong>원</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="action">
+						<a href="#productApply" class="btn-apply page_move"><span>0원으로 수강하기</span></a>
+					</div>
+				</div>
+				<div class="col col-2">
+					<div class="table">
+						<div class="table-cell">
+							<div class="flag flag-limit"><span>선착순마감 <em>6만원 특별 할인</em></span></div>
+							<div class="title">7월 대비 0원 합격반</div>
+							<div class="flag flag-discount"><span>회계관리2급 전 강좌 추가 제공 <em>무료</em></span></div>
+							<ul class="info-list">
+								<li>- 합격 시 수강료 0원</li>
+								<li>- 불합격 시 다음 시험까지 연장</li>
+								<li>- 쌩기초특강 제공</li>
+								<li>- 연습문제해설특강 제공</li>
+								<li>- 개정세법특강 제공</li>
+								<li>- 기초회계특강 제공</li>
+								<li>- 입문특강 제공</li>
+							</ul>
+							<div class="form-control">
+								<label for="checkbox2"><input type="checkbox" class="checkbox" id="checkbox2"> 교재포함</label>
+							</div>
+							<div class="table price-list">
+								<div class="table-cell">
+									<div class="price-before"><strong id="priceBefore2">225,000</strong>원</div>
+									<div class="price-after"><strong id="priceAfter2">165,000</strong>원</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="action">
+						<a href="#productApply" class="btn-apply page_move"><span>0원으로 수강하기</span></a>
+					</div>
+				</div>
+				<div class="col col-3">
+					<div class="table">
+						<div class="table-cell">
+							<div class="title">3개월 합격 완성반</div>
+							<div class="flag flag-discount"><span>회계관리2급 전 강좌 추가 제공 <em>무료</em></span></div>
+							<ul class="info-list">
+								<li>- 합리적인 수강료</li>
+								<li>- 핵심 압축 커리큘럼</li>
+								<li>- 쌩기초특강 제공</li>
+								<li>- 연습문제해설특강 제공</li>
+								<li>- 개정세법특강 제공</li>
+								<li>- 기초회계특강 제공</li>
+								<li>- 입문특강 제공</li>
+							</ul>
+							<div class="form-control">
+								<label for="checkbox3"><input type="checkbox" class="checkbox" id="checkbox3"> 교재포함</label>
+							</div>
+							<div class="table price-list">
+								<div class="table-cell">
+									<div class="price-before price-before-desc">3개월 무한 수강</div>
+									<div class="price-after"><strong id="priceAfter3">99,000</strong>원</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="action">
+						<a href="#productApply" class="btn-apply page_move"><span>혜택 받고 수강하기</span></a>
+					</div>
+				</div>
+			</div>
+			<img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/200604_2/pc/apply_bottom.jpg" alt="따라만 오세요! 1위* 에듀윌이 가리키는 방향은 오직 합격 입니다" />
+		</div>
+	</div>
+
+	<div class="container product-enough">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/200604_2/pc/enough.jpg" alt="국가공인자격 재경관리사, 지금 시작할 이유가 충분합니다" />
+		</div>
+	</div>
+
+	<div class="container product-rise">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/200604_2/pc/rise.jpg" alt="그 중, 재경관리사에 대한 관심이 폭발적으로 증가하고 있습니다" />
+		</div>
+	</div>
+
+	<div class="container product-pass">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/200604_2/pc/pass_title.jpg" alt="1위* 에듀윌에서 시작하면 결과가 다릅니다 수 많은 찬사가 지금도 업데이트중 입니다">
+
+			<div class="winner-slide-wrap">
+				<p class="title"><span>에듀윌 재경관리사/회계관리 합격자 명단</span></p>
+				<div class="winners">
+                    <p>회계관리1급 이*진</p>
+                    <p>재경관리사 이*열</p>
+                    <p>재경관리사 강*경</p>
+                    <p>회계관리2급 김*솔</p>
+                    <p>회계관리2급 임*재</p>
+                    <p>회계관리2급 서*목</p>
+                    <p>회계관리2급 감*진</p>
+                    <p>회계관리2급 강*나</p>
+                    <p>회계관리2급 고*림</p>
+                    <p>재경관리사 김*준</p>
+                    <p>재경관리사 김*학</p>
+                    <p>회계관리2급 김*현</p>
+                    <p>회계관리1급 박*호</p>
+                    <p>재경관리사 박*정</p>
+                    <p>재경관리사 박*민</p>
+                    <p>회계관리2급 배*열</p>
+                    <p>회계관리1급 서*진</p>
+                    <p>회계관리2급 신*호</p>
+                    <p>재경관리사 이*균</p>
+                    <p>회계관리2급 정*석</p>
+                    <p>회계관리2급 강*라</p>
+                    <p>재경관리사 권*우</p>
+                    <p>회계관리2급 권*성</p>
+                    <p>회계관리1급 김*봉</p>
+                    <p>재경관리사 김*해</p>
+                    <p>재경관리사 김*진</p>
+                    <p>재경관리사 김*진</p>
+                    <p>회계관리2급 김*양</p>
+                    <p>회계관리1급 남*호</p>
+                    <p>회계관리2급 노*찬</p>
+                    <p>회계관리1급 박*호</p>
+                    <p>회계관리2급 오*경</p>
+                    <p>회계관리1급 유*환</p>
+                    <p>재경관리사 윤*해</p>
+                    <p>재경관리사 윤*린</p>
+                    <p>재경관리사 이*건</p>
+                    <p>회계관리1급 이*경</p>
+                    <p>회계관리1급 이*호</p>
+                    <p>회계관리1급 이*결</p>
+                    <p>회계관리2급 임*범</p>
+                    <p>회계관리2급 임*리</p>
+                    <p>회계관리1급 장*정</p>
+                    <p>회계관리2급 정*정</p>
+                    <p>회계관리1급 정*석</p>
+                    <p>재경관리사 차*보</p>
+                    <p>재경관리사 최*훈</p>
+                    <p>회계관리2급 최*리</p>
+                    <p>재경관리사 최*지</p>
+                    <p>재경관리사 최*승</p>
+                    <p>회계관리2급 한*희</p>
+                    <p>재경관리사 한*모</p>
+                    <p>회계관리1급 한*숙</p>
+                    <p>재경관리사 황*철</p>
+                    <p>재경관리사 고*림</p>
+                    <p>회계관리2급 김*영</p>
+                    <p>재경관리사 김*경</p>
+                    <p>회계관리1급 김*나</p>
+                    <p>회계관리2급 김*성</p>
+                    <p>회계관리2급 김*영</p>
+                    <p>회계관리1급 박*진</p>
+                    <p>재경관리사 석*홍</p>
+                    <p>회계관리2급 송*경</p>
+                    <p>회계관리2급 안*민</p>
+                    <p>회계관리1급 안*옥</p>
+                    <p>회계관리2급 유*정</p>
+                    <p>재경관리사 이*주</p>
+                    <p>회계관리2급 이*현</p>
+                    <p>재경관리사 이*숙</p>
+                    <p>재경관리사 이*은</p>
+                    <p>회계관리1급 이*윤</p>
+                    <p>재경관리사 이*현</p>
+                    <p>재경관리사 이*선</p>
+                    <p>재경관리사 이*원</p>
+                    <p>회계관리1급 장*종</p>
+                    <p>재경관리사 장*웅</p>
+                    <p>회계관리2급 추*석</p>
+                    <p>재경관리사 하*현</p>
+                    <p>재경관리사 한*엽</p>
+                    <p>회계관리2급 홍*채</p>
+                    <p>재경관리사 황*미</p>
+                    <p>재경관리사 김*현</p>
+                    <p>재경관리사 김*지</p>
+                    <p>재경관리사 김*수</p>
+                    <p>재경관리사 김*영</p>
+                    <p>회계관리1급 도*</p>
+                    <p>재경관리사 박*혁</p>
+                    <p>재경관리사 박*형</p>
+                    <p>재경관리사 배*윤</p>
+                    <p>회계관리2급 백*영</p>
+                    <p>재경관리사 신*정</p>
+                    <p>회계관리1급 유*현</p>
+                    <p>회계관리2급 은*희</p>
+                    <p>재경관리사 이*리</p>
+                    <p>회계관리1급 이*원</p>
+                    <p>회계관리2급 이*규</p>
+                    <p>재경관리사 장*수</p>
+                    <p>회계관리1급 전*민</p>
+                    <p>재경관리사 정*림</p>
+                    <p>재경관리사 진*태</p>
+                    <p>재경관리사 고*준</p>
+                    <p>재경관리사 권*경</p>
+                    <p>재경관리사 김*룡</p>
+                    <p>회계관리1급 김*웅</p>
+                    <p>회계관리1급 김*현</p>
+                    <p>재경관리사 김*용</p>
+                    <p>재경관리사 김*름</p>
+                    <p>재경관리사 김*은</p>
+                    <p>재경관리사 김*혜</p>
+                    <p>재경관리사 김*정</p>
+                    <p>회계관리2급 노*성</p>
+                    <p>재경관리사 민*홍</p>
+                    <p>회계관리2급 박*봄</p>
+                    <p>재경관리사 박*성</p>
+                    <p>재경관리사 박*진</p>
+                    <p>회계관리1급 백*민</p>
+                    <p>재경관리사 서*자</p>
+                    <p>회계관리2급 송*은</p>
+                    <p>재경관리사 우*연</p>
+                    <p>재경관리사 위*연</p>
+                    <p>재경관리사 윤*섭</p>
+                    <p>회계관리2급 이*주</p>
+                    <p>재경관리사 이*민</p>
+                    <p>회계관리1급 이*주</p>
+                    <p>재경관리사 이*진</p>
+                    <p>재경관리사 이*나</p>
+                    <p>회계관리2급 이*훈</p>
+                    <p>회계관리1급 이*진</p>
+                    <p>회계관리2급 이*범</p>
+                    <p>회계관리1급 임*혜</p>
+                    <p>회계관리2급 장*희</p>
+                    <p>재경관리사 장*환</p>
+                    <p>재경관리사 장*혜</p>
+                    <p>회계관리2급 장*리</p>
+                    <p>재경관리사 정*민</p>
+                    <p>회계관리2급 조*정</p>
+                    <p>재경관리사 고*량</p>
+                    <p>재경관리사 권*인</p>
+                    <p>재경관리사 김*민</p>
+                    <p>재경관리사 김*진</p>
+                    <p>재경관리사 김*선</p>
+                    <p>회계관리1급 김*우</p>
+                    <p>회계관리1급 김*환</p>
+                    <p>회계관리1급 남*현</p>
+                    <p>회계관리1급 노*선</p>
+                    <p>재경관리사 박*영</p>
+                    <p>재경관리사 변*선</p>
+                    <p>회계관리2급 신*경</p>
+                    <p>재경관리사 안*영</p>
+                    <p>재경관리사 엄*아</p>
+                    <p>재경관리사 오*환</p>
+                    <p>회계관리2급 윤*용</p>
+                    <p>재경관리사 이*주</p>
+                    <p>회계관리1급 이*수</p>
+                    <p>재경관리사 이*아</p>
+                    <p>회계관리2급 이*영</p>
+                    <p>재경관리사 이*민</p>
+                    <p>재경관리사 이*지</p>
+                    <p>재경관리사 임*진</p>
+                    <p>재경관리사 장*웅</p>
+                    <p>재경관리사 전*순</p>
+                    <p>회계관리2급 진*인</p>
+                    <p>회계관리1급 강*성</p>
+                    <p>회계관리1급 강*훈</p>
+                    <p>재경관리사 강*혜</p>
+                    <p>회계관리1급 권*록</p>
+                    <p>회계관리1급 권*정</p>
+                    <p>회계관리2급 김*찬</p>
+                    <p>재경관리사 김*준</p>
+                    <p>재경관리사 김*민</p>
+                    <p>재경관리사 김*영</p>
+                    <p>회계관리2급 김*제</p>
+                    <p>재경관리사 김*우</p>
+                    <p>재경관리사 김*헌</p>
+                    <p>회계관리2급 김*현</p>
+                    <p>회계관리2급 김*기</p>
+                    <p>회계관리2급 김*준</p>
+                    <p>재경관리사 민*기</p>
+                    <p>회계관리1급 박*현</p>
+                    <p>회계관리1급 변*섭</p>
+                    <p>재경관리사 서*은</p>
+                    <p>회계관리2급 송*원</p>
+                    <p>회계관리2급 송*림</p>
+                    <p>회계관리1급 신*경</p>
+                    <p>회계관리2급 신*환</p>
+                    <p>재경관리사 안*지</p>
+                    <p>회계관리2급 원*휘</p>
+                    <p>회계관리1급 윤*진</p>
+                    <p>회계관리2급 윤*영</p>
+                    <p>재경관리사 이*민</p>
+                    <p>회계관리1급 이*민</p>
+                    <p>회계관리2급 이*웅</p>
+                    <p>재경관리사 이*름</p>
+                    <p>재경관리사 이*우</p>
+                    <p>재경관리사 임*준</p>
+                    <p>회계관리2급 장*진</p>
+                    <p>재경관리사 전*우</p>
+                    <p>재경관리사 전*훈</p>
+                    <p>재경관리사 전*호</p>
+                    <p>회계관리2급 정*리</p>
+                    <p>재경관리사 정*진</p>
+                    <p>재경관리사 조*재</p>
+                    <p>재경관리사 최*영</p>
+                    <p>회계관리2급 하*찬</p>
+                    <p>회계관리2급 한*진</p>
+                    <p>회계관리2급 함*원</p>
+                    <p>재경관리사 강*혜</p>
+                    <p>회계관리1급 고*현</p>
+                    <p>재경관리사 권*록</p>
+                    <p>회계관리1급 권*영</p>
+                    <p>회계관리2급 권*중</p>
+                    <p>재경관리사 권*진</p>
+                    <p>회계관리2급 김*화</p>
+                    <p>재경관리사 김*수</p>
+                    <p>재경관리사 김*현</p>
+                    <p>재경관리사 김*은</p>
+                    <p>재경관리사 김*빈</p>
+                    <p>재경관리사 김*희</p>
+                    <p>회계관리2급 김*수</p>
+                    <p>재경관리사 김*환</p>
+                    <p>재경관리사 김*선</p>
+                    <p>재경관리사 김*리</p>
+                    <p>회계관리2급 김*동</p>
+                    <p>재경관리사 도*희</p>
+                    <p>재경관리사 문*돈</p>
+                    <p>재경관리사 문*원</p>
+                    <p>재경관리사 박*영</p>
+                    <p>재경관리사 박*슬</p>
+                    <p>회계관리1급 박*호</p>
+                    <p>회계관리1급 박*경</p>
+                    <p>회계관리1급 박*현</p>
+                    <p>회계관리2급 변*훈</p>
+                    <p>재경관리사 서*수</p>
+                    <p>회계관리2급 서*원</p>
+                    <p>재경관리사 서*혁</p>
+                    <p>회계관리1급 서*석</p>
+                    <p>회계관리1급 신*라</p>
+                    <p>회계관리2급 신*현</p>
+                    <p>회계관리1급 안*진</p>
+                    <p>재경관리사 양*호</p>
+                    <p>회계관리2급 예*문</p>
+                    <p>회계관리2급 윤*호</p>
+                    <p>재경관리사 이*호</p>
+                    <p>재경관리사 이*원</p>
+                    <p>회계관리1급 이*준</p>
+                    <p>재경관리사 이*진</p>
+                    <p>재경관리사 이*경</p>
+                    <p>재경관리사 이*민</p>
+                    <p>회계관리1급 이*희</p>
+                    <p>재경관리사 이*혁</p>
+                    <p>회계관리2급 이*은</p>
+                    <p>재경관리사 이*식</p>
+                    <p>재경관리사 임*윤</p>
+                    <p>재경관리사 임*호</p>
+                    <p>재경관리사 임*택</p>
+                    <p>회계관리2급 임*혜</p>
+                    <p>회계관리2급 정*연</p>
+                    <p>재경관리사 정*열</p>
+                    <p>재경관리사 정*민</p>
+                    <p>재경관리사 정*혜</p>
+                    <p>재경관리사 정*주</p>
+                    <p>재경관리사 정*구</p>
+                    <p>재경관리사 조*진</p>
+                    <p>회계관리2급 조*영</p>
+                    <p>재경관리사 최*대</p>
+                    <p>재경관리사 최*준</p>
+                    <p>재경관리사 최*은</p>
+                    <p>재경관리사 최*용</p>
+                    <p>회계관리2급 최*람</p>
+                    <p>회계관리2급 현*수</p>
+                    <p>회계관리2급 서*석</p>
+                    <p>재경관리사 강*성</p>
+                    <p>재경관리사 권*영</p>
+                    <p>회계관리2급 김*준</p>
+                    <p>회계관리1급 김*수</p>
+                    <p>재경관리사 김*기</p>
+                    <p>회계관리2급 김*나</p>
+                    <p>재경관리사 김*연</p>
+                    <p>회계관리2급 김*해</p>
+                    <p>회계관리1급 김*현</p>
+                    <p>재경관리사 남*석</p>
+                    <p>재경관리사 남*수</p>
+                    <p>재경관리사 박*웅</p>
+                    <p>재경관리사 박*현</p>
+                    <p>회계관리1급 박*혁</p>
+                    <p>회계관리2급 서*롬</p>
+                    <p>재경관리사 송*환</p>
+                    <p>회계관리1급 신*선</p>
+                    <p>재경관리사 신*철</p>
+                    <p>회계관리1급 윤*경</p>
+                    <p>회계관리2급 이*원</p>
+                    <p>재경관리사 이*경</p>
+                    <p>재경관리사 이*훈</p>
+                    <p>회계관리2급 이*재</p>
+                    <p>회계관리1급 이*안나</p>
+                    <p>재경관리사 이*하</p>
+                    <p>회계관리2급 이*호</p>
+                    <p>회계관리1급 이*연</p>
+                    <p>회계관리1급 이*현</p>
+                    <p>회계관리1급 임*현</p>
+                    <p>재경관리사 정*빈</p>
+                    <p>재경관리사 정*성</p>
+                    <p>회계관리2급 강*성</p>
+                    <p>회계관리1급 권*주</p>
+                    <p>재경관리사 김*연</p>
+                    <p>재경관리사 김*현</p>
+                    <p>회계관리1급 나*원</p>
+                    <p>재경관리사 맹*희</p>
+                    <p>재경관리사 박*규</p>
+                    <p>재경관리사 손*윤</p>
+                    <p>회계관리2급 송*혜</p>
+                    <p>재경관리사 안*기</p>
+                    <p>재경관리사 양*진</p>
+                    <p>재경관리사 연*혜</p>
+                    <p>회계관리1급 이*성</p>
+                    <p>재경관리사 이*진</p>
+                    <p>재경관리사 이*현</p>
+                    <p>회계관리1급 이*효</p>
+                    <p>재경관리사 이*진</p>
+                    <p>재경관리사 임*호</p>
+                    <p>재경관리사 정*희</p>
+                    <p>회계관리1급 정*욱</p>
+                    <p>회계관리2급 최*경</p>
+                    <p>재경관리사 홍*근</p>
+                    <p>회계관리2급 김*옥</p>
+                    <p>회계관리1급 김*봉</p>
+                    <p>회계관리1급 김*득</p>
+                    <p>회계관리1급 김*수</p>
+                    <p>회계관리1급 김*숙</p>
+                    <p>회계관리1급 문*상</p>
+                    <p>회계관리2급 박*환</p>
+                    <p>회계관리2급 박*현</p>
+                    <p>회계관리1급 신*래</p>
+                    <p>재경관리사 신*호</p>
+                    <p>재경관리사 심*영</p>
+                    <p>회계관리1급 안*기</p>
+                    <p>재경관리사 안*환</p>
+                    <p>회계관리2급 안*아</p>
+                    <p>회계관리1급 윤*주</p>
+                    <p>재경관리사 이*영</p>
+                    <p>회계관리2급 이*영</p>
+                    <p>재경관리사 이*연</p>
+                    <p>회계관리1급 임*국</p>
+                    <p>재경관리사 정*연</p>
+                    <p>회계관리2급 정*성</p>
+                    <p>회계관리2급 천*영</p>
+                    <p>재경관리사 최*아</p>
+                    <p>재경관리사 최*영</p>
+                    <p>회계관리1급 한*예</p>
+                    <p>재경관리사 한*혜</p>
+                    <p>회계관리1급 경*표</p>
+                    <p>회계관리1급 권*준</p>
+                    <p>회계관리1급 권*희</p>
+                    <p>재경관리사 김*향</p>
+                    <p>재경관리사 남*지</p>
+                    <p>회계관리2급 문*윤</p>
+                    <p>회계관리1급 서*수</p>
+                    <p>재경관리사 안*지</p>
+                    <p>재경관리사 양*범</p>
+                    <p>재경관리사 유*석</p>
+                    <p>재경관리사 윤*란</p>
+                    <p>재경관리사 이*빈</p>
+                    <p>재경관리사 이*슬</p>
+                    <p>재경관리사 장*은</p>
+                    <p>재경관리사 전*진</p>
+                    <p>재경관리사 정*영</p>
+                    <p>회계관리1급 지*은</p>
+                    <p>회계관리2급 진*성</p>
+                    <p>회계관리2급 최*연</p>
+                    <p>재경관리사 최*영</p>
+                    <p>재경관리사 홍*민</p>
+				</div>
+			</div>
+
+			<p class="notice">*에듀윌 재경관리사/회계관리1,2급 합격자 누적명단(2018~2020년 1회시험)</p>
+
+			<div class="grid interview-wrap">
+				<div class="col interview">
+					<iframe src="https://www.youtube.com/embed/XuRvidsiPIE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+					
+				</div>
+				<div class="col desc">
+					<img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/200604_2/pc/pass_1.jpg" alt="합격생 신민호" />
+				</div>
+			</div>
+			<img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/200604_2/pc/pass_2.jpg" alt="합격수기" usemap="#mapPass" />
+			<map name="mapPass" id="mapPass">
+				<area shape="rect" coords="48,836,245,871" href="//account.eduwill.net/Uaccount/community/study/pass_list_190531.asp?M_idx=14" alt="실시간 후기 더보기">
+			</map>
+		</div>
+	</div>
+
+	<div class="container product-support">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/200604_2/pc/support.jpg" alt="주저하지 마세요,  1위* 에듀윌에서 빠르게 합격할 수 있도록 지원합니다" />
+		</div>
+	</div>
+
+	<div class="container product-teacher">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/200604_2/pc/teacher_title.jpg" alt="꿈을 현실로 만들어주는 전문교수진이 합격까지 함께합니다" />
+			<div class="teacher-wrap">
+				<div class="grid teacher">
+					<div class="col video">
+						<video width="100%" height="100%" autoplay muted loop class="video-fast">
+							<source src="https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20200604/sample_h.mp4" type="video/mp4">
+						</video>
+					</div>
+					<div class="col desc">
+						<img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/200604_2/pc/teacher_1.jpg" alt="" />
+					</div>
+				</div>
+				<div class="grid teacher">
+					<div class="col video">
+						<video width="100%" height="100%" autoplay muted loop class="video-fast">
+							<source src="https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20200604/sample_k.mp4" type="video/mp4">
+						</video>
+					</div>
+					<div class="col desc">
+						<img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/200604_2/pc/teacher_2.jpg" alt="" />
+					</div>
+				</div>
+				<div class="grid teacher">
+					<div class="col video">
+						<video width="100%" height="100%" autoplay muted loop class="video-fast">
+							<source src="https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20200604/sample_g.mp4" type="video/mp4">
+						</video>
+					</div>
+					<div class="col desc">
+						<img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/200604_2/pc/teacher_3.jpg" alt="" />
+					</div>
+				</div>
+			</div>
+			<img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/200604_2/pc/teacher_4.jpg" alt="꿈을 현실로 만들어주는 전문교수진이 합격까지 함께합니다" />
+		</div>
+	</div>
+
+	<div class="container product-responsibility">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/200604_2/pc/responsibility.jpg" alt="" />
+		</div>
+	</div>
+
+	<div class="container product-apply-title">
+		<img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/200604_2/pc/apply_title.jpg" alt="맞춤합격반 수강하고 합격하기 ">
+	</div>
+</div>
+
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/live/js/slick/slick.js"></script>
+<script>
+	$(function(){
+		$(window).on('load', function(){
+            $('.winners').slick({
+                autoplay: true,
+                autoplaySpeed: 0,
+                infinite: true,
+                cssEase: 'linear',
+                arrows: false,
+                slidesToScroll: 1,
+                speed: 1000,
+                slidesToShow: 9,
+                vertical: true,
+                slidesPerRow: 5,
+            });
+
+			$('.apply-list input[type="checkbox"]').on('click', function(){
+				var _parent = $(this).parents('.col'),
+					_idx = _parent.index();
+
+				var _priceBefore;
+				var _priceAfter;
+				if( $(this).prop('checked') ){
+					switch(_idx){
+						case 0:
+							_priceBefore = '290,000';
+							_priceAfter = '230,000';
+							break;
+						case 1:
+							_priceBefore = '270,000';
+							_priceAfter = '210,000';
+							break;
+						case 2:
+							_priceAfter = '144,000';
+							break;
+					};
+				} else {
+					switch(_idx){
+						case 0:
+							_priceBefore = '245,000';
+							_priceAfter = '185,000';
+							break;
+						case 1:
+							_priceBefore = '225,000';
+							_priceAfter = '165,000';
+							break;
+						case 2:
+							_priceAfter = '99,000';
+							break;
+					};
+				}
+
+				_parent.children().find('.price-before strong').html(_priceBefore);
+				_parent.children().find('.price-after strong').html(_priceAfter);
+			});
+		});
+	});
+
+	/* play video twice as fast */
+	document.querySelector('video').defaultPlaybackRate = 1.0;
+	document.querySelector('video').play();
+
+	/* now play three times as fast just for the heck of it */
+	var $videos =document.querySelectorAll('video');
+	for (var i=0; i<$videos.length; i++){
+		$videos[i].playbackRate = 1.8;
+	}
+</script>
+
+</body>
+</html>

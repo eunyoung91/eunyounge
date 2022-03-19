@@ -1,0 +1,468 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+// animation
+@-webkit-keyframes flagChange {
+	0%, 100% {opacity: 1;} 50% { opacity: 0;}
+}
+@keyframes flagChange {
+	0%, 100% {opacity: 1;} 50% { opacity: 0;}
+}
+@-webkit-keyframes slideUpY {
+	0% {
+		-webkit-transform: translate(0,10px);
+		transform: translate(0, 10px);
+	}
+	100% {
+		-webkit-transform: translate(-10px, 0);
+		transform: translate(-10px, 0);
+	}
+}
+@keyframes slideUpY {
+	0% {
+		-webkit-transform: translate(0,10px);
+		transform: translate(0, 10px);
+	}
+	100% {
+		-webkit-transform: translate(-10px, 0);
+		transform: translate(-10px, 0);
+	}
+}
+
+.product-eco{
+    background-color:#fff; position: relative;text-align:center;overflow: hidden;font-family: $font-noto;letter-spacing: -1px;
+    *, *:before, *:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+    img{border:0;vertical-align:top;line-height:0;font-size:0;}   
+    .clearfix:after{content:'';display:block;clear:both;}
+	.wrap{position:relative;width:100%;max-width:720px;margin:0 auto;text-align:center;font-family:'Noto Sans KR',Sans-Serif;letter-spacing:-1px;}
+	.section{position:relative;padding:0;margin:0;border-bottom:0;}
+    a{display:inline-block;outline: none;}
+	.content{ position: relative;}
+
+	.pointer {
+        position: relative;
+        display: inline-block;
+        &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 10%;
+			@include rem(width,66px);
+			@include rem(height,73px);
+			background: url('https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png') no-repeat 0 0;
+			background-size:cover;
+            -webkit-animation: .4s slideUpY ease-in-out infinite alternate;
+            animation: .4s slideUpY ease-in-out infinite alternate;
+            z-index: 1;
+        }
+    }
+
+    .slick-slider {
+        .slick-arrow {
+            position: absolute;
+            top: -18%;
+            z-index: 10;
+			@include rem(width,25px);
+			@include rem(height,41px);
+			margin-top:0;
+            border: none;
+            font-size: 0;
+            text-indent: -9999px;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            outline: none;
+            cursor: pointer;
+            &.slick-prev { right: 16%; background-image: url('https://img.eduwill.net/eduwill/img/2021/J/product/210118/mobile/btn_prev.png');background-size:cover; }
+            &.slick-next { right: 7%; background-image: url('https://img.eduwill.net/eduwill/img/2021/J/product/210118/mobile/btn_next.png');background-size:cover; }
+        }
+	}
+
+	.notice-box{
+		position:absolute;
+		z-index:7;
+		left:6.944%;
+		right:6.944%;
+		text-align:left;
+		bottom:auto;
+		top:80%;
+		p{
+			color:#b0b0b0;
+			@include vw(18px);
+			font-family:$font-noto;
+			line-height: 1.4;
+			padding-left: 0 !important;
+			letter-spacing: -1px;
+			font-weight:400;
+			margin:0;
+		}
+	}
+
+	.section{
+		&-title{
+			position: relative;
+			z-index: 2;
+			background: url('https://img.eduwill.net/eduwill/img/2021/J/product/210118/mobile/bg_title.jpg') no-repeat center top;
+			background-size: cover;
+			.wrap { width: 100%; }
+			.notice-box{
+				margin:0 auto;
+				top:89.30%;
+				p{
+					color: #8f94a7;
+				}
+			}
+		}
+		&-prepare{
+			.notice-box{
+				position:absolute;top:85%;
+			}
+		}
+		&-plus{
+			background-color: #ffbe00;
+			.notice-box{
+				position:absolute;top:84%;
+				p{
+					color:#c89e39;
+				}
+			}
+		}
+		&-price{
+			background:#2f3863;
+			.action{
+				position: absolute;
+				z-index:7;
+				top:77.83%;
+				bottom:14.15%;
+				left:6.945%;
+				right:6.945%;
+				margin:0 auto;
+				a{
+					width:100%;
+					height:100%;
+					position: relative;
+				}
+			}
+		}
+		&-coupon{
+			background:#f6f6f6;
+		}
+		&-winner{
+			@include rem(padding-bottom, 200px);
+			.winner-contents{
+				max-width:720px;
+				margin:0 auto;
+				text-align: center;
+				@include rem(padding, 40px 50px);
+				div{
+					margin:0 auto;
+					p{
+						line-height:1.4;
+						color:#111;
+						@include vw(22px);
+						//text-align:left;
+						font-weight: normal;
+						@include rem(margin-top, 12px);
+					}
+				}
+			}
+			.winner-list{
+				border-bottom: 1px solid #0f0f0f;
+			}
+			.notice-box{
+				position: relative;
+				width:88.88%;
+			}
+
+		}
+		&-words{
+			background:#f6f6f6;
+			.notice-box{
+				position: absolute;
+				top:74%;
+			}
+		}
+		&-prove{
+			background:#f6f6f6;
+			.wrap{
+				width:100%;
+				max-width:100%;
+				background:#f6f6f6;
+			}
+			.slick-list,
+			.slick-track {
+				-webkit-transform: translate3d(0, 0, 0) !important;
+				-ms-transform: translate3d(0, 0, 0) !important;
+				transform: translate3d(0, 0, 0) !important;
+
+			}
+			.tab-wrap {
+				.tab-list {
+					max-width:720px;
+					@include rem(height,110px);
+					margin:0 auto;
+					.slick-list{
+						@extend %clearfix;
+					}
+					.slick-slide {
+						@extend %clearfix;
+						width: 25% !important;
+						float:left;
+						cursor: pointer;
+						border:1px solid #ccc;
+						background-color:#e1e1e1;
+						@include boxSizing(border-box);
+						span {
+							display:block;
+							@include rem(height,110px);
+							@include vw(24px);
+							letter-spacing: -1px;
+							font-weight: 500;
+							color: #111;
+						}
+						&.slick-current {
+							color: #030303;
+							border-color: #d4d4d4;
+							background-color: #fff;
+							border-bottom: none;
+							span{
+								background:#fff;
+							}
+						}
+						> div > div{
+							display:table !important;
+							width:100%;
+							span{
+								display:table-cell;
+								vertical-align: middle;
+							}
+						}
+					}
+				}
+				.tab-contents{
+					margin:0 auto;
+					background:#fff;
+					.slick-slide img{
+						margin:0 auto;
+					}
+				}
+			}
+		}
+
+		&-trophy{
+			background:#fff;
+		}
+		&-answer{
+			background:#f6f6f6;
+		}
+		&-review{
+			background:#fff;
+			@include rem(padding-bottom,200px);
+			.content{
+				.slickSlider{
+					padding:0 6.945%;
+				}
+			}
+		}
+		&-no1{
+			background:#fff;
+			.content{
+				.slickSlider{
+					padding:0 6.945%;
+				}
+			}
+		}
+		&-media{
+			background:#ffbf00;
+			@include rem(padding-bottom, 120px);
+			.media-wrap{
+				padding:0 6.945%;
+			}
+			.media-box{
+				position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+				iframe{
+					position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+				}
+			}
+			.text-box{
+				color: #111;
+				@include vw(28px);
+				line-height: 1.4;
+				@include rem(padding,20px 0 40px);
+			}
+		}
+
+		&-no2{
+			.book-wrap {
+				// .notice-box{
+				// 	position: absolute;
+				// 	top:604px;
+				// 	left:120px;
+				// 	z-index:7;
+				// }
+			}
+			.quest-wrap {
+				.content{
+					.slickSlider{
+						padding:0 17.78%;
+						@include rem(margin-bottom,26px);
+					}
+					.slick-arrow {
+						position: absolute;
+						top: -5%;
+						right:5%;
+						z-index: 10;
+						@include rem(width,25px);
+						@include rem(height,41px);
+						margin-top:0;
+						border: none;
+						font-size: 0;
+						text-indent: -9999px;
+						background-color: transparent;
+						background-repeat: no-repeat;
+						background-position: 0 0;
+						outline: none;
+						cursor: pointer;
+						&.slick-prev { right: 26%; background-image: url('https://img.eduwill.net/eduwill/img/2021/J/product/210118/mobile/btn_prev.png');background-size:cover; }
+						&.slick-next { right: 19%; background-image: url('https://img.eduwill.net/eduwill/img/2021/J/product/210118/mobile/btn_next.png');background-size:cover; }
+					}
+				}
+				.action { 
+					position: relative;
+					z-index:7;
+					width:54.86%;
+					margin:0 auto;
+					@include rem(padding-bottom,140px);
+					a{
+						width:100%;
+						height:100%;
+					}
+				}
+				// .notice-box{
+				// 	position: absolute;
+				// 	top:223px;
+				// 	left:85px;
+				// 	z-index:7;
+				// }
+			}
+
+		}
+		&-no3{
+			.gif { 
+				width:100%;
+				margin: 0 auto;
+				img{
+					width:100%;
+				}
+			}
+			// .notice-box{
+			// 	position: absolute;
+			// 	top:516px;
+			// 	right:155px;
+			// }
+		}
+		&-no4{
+			background:#f5f5f5;
+			.slick-list,
+			.slick-track {
+				-webkit-transform: translate3d(0, 0, 0) !important;
+				-ms-transform: translate3d(0, 0, 0) !important;
+				transform: translate3d(0, 0, 0) !important;
+			}
+			.puri-wrap {
+				@extend %clearfix;
+				background:#f5f5f5;
+			}
+			.puri-list {
+				@include rem(padding, 50px 0);
+				@include boxSizing(border-box);
+				.slick-slide{
+					display:table;padding:0 20%;
+					> div{
+						display: table-cell; text-align: center; vertical-align: middle;
+					}
+				}
+				a {
+					width: 100%;
+					text-align: left;
+					font-family:$font-noto;
+					font-weight: 400;
+					color: #999;
+					outline: none;
+					@include rem(margin-top, 30px);
+					@include rem(line-height, 28px);
+					@include vw(24px);
+					em {
+						display: inline-block;
+						vertical-align: top;
+						text-align: center;
+						font-weight: 400;
+						border-radius: 50%;
+						border: 1px solid #999;
+						@include vw(18px);
+						@include rem(width, 30px);
+						@include rem(height, 30px);
+						@include rem(line-height, 28px);
+						@include rem(margin-right, 10px);
+					}
+				}
+				.slick-current {
+					a {
+						color: #222;
+						em {
+							color: #fff;
+							border-color: #222;
+							background-color: #222;
+						}
+					}
+				}
+			}
+			.puri-contents {
+				@include boxSizing(border-box);
+			}
+			
+		}
+		&-no5{
+			background:#fff;
+			@include rem(padding-bottom, 150px);
+			.content{
+				.slickSlider{
+					padding:0 6.945%;
+				}
+			}
+		}
+		&-no6{
+			background:#f5f5f5;
+			.video-box{
+				margin:0 auto;
+				video{
+					width:90.909%;
+					height:auto;
+				}
+			}
+
+		}
+		&-option{
+			background:#2e3863;
+		}
+		&-item{
+			background:#f6f6f6;
+		}
+		&-banner{
+			&.yellow{
+				background:#ffbf00;
+			}
+			&.navy{
+				background:#2e3863;
+			}
+		}
+
+	}
+
+
+}
+

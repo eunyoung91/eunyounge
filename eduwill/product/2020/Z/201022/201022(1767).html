@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>에듀윌</title>
+<link rel="stylesheet" href="https://www.eduwill.net/eduwill/live/libs/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/reset.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/common.css" />
+<script src="https://img.eduwill.net/eduwill/live/libs/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://img.eduwill.net/eduwill/live/libs/bxslider/jquery.bxslider.min.js"></script>
+<script src="https://img.eduwill.net/eduwill/live/libs/greensock/TweenMax.min.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+    컨텐츠 감싸는 부모 : product-eco
+    하단 수강신청 영역 : product-apply
+    하단 수강신청 영역 내 탭 : product-tab
+    하단 수강신청 영역 내 가격 : product-price
+    하단 수강신청 영역 내 정보 : product-table
+    따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<!-- eco 영역 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/css/product/public/200914/web.css">
+<style>
+    .product-graph{background-color:#eaeaea;background-image:url(https://img.eduwill.net/resources/img/public/product/200914/pc/bg_graph_201022.jpg);background-size:cover}
+    .product-map .title,.product-map .location li strong{font-weight:900}
+    .product-map .location li{font-weight:500}
+    .popup{max-width:600px}
+    table{text-align:center;width:90%;margin:5% auto;box-sizing:border-box}
+    .popup-inner table th{border-top:2px solid #000;border-bottom:2px solid #000;background-color:#f1f1f1}
+    .popup-inner table td{font-weight:500;border-bottom:1px solid #b5b5b5}
+    .popup-inner table th:not(:last-child),.popup-inner table td:not(:last-child){border-right:1px solid #b5b5b5}
+    .popup-inner table th,.popup-inner table td{padding:16px 0;font-size:3.05556vw;color:#333}
+    @media screen and (min-width: 720px) {
+    .popup{width:600px}
+    .popup-inner table th,.popup-inner table td{font-size:18px}
+    }
+</style>
+
+<div class="product-eco">
+    <div class="banner-follow">
+        <img alt="퀵메뉴" src="https://img.eduwill.net/resources/img/public/product/200914/pc/banner_follow.png" usemap="#mapFollow" />
+        <map id="mapFollow" name="mapFollow">
+            <area alt="취업 A TO Z 종합반 수강신청" class="page-move" coords="17,7,227,163" href="#productApply" shape="rect" />
+            <area alt="공기업 강좌 커리큘럼" class="page-move" coords="17,163,227,263" data-tab="0" href="#productCurriculum" shape="rect" />
+            <area alt="대기업 강좌 커리큘럼" class="page-move" coords="17,263,227,363" data-tab="1" href="#productCurriculum" shape="rect" />
+            <area alt="무료혜택 자세히 보기" class="page-move" coords="17,363,227,463" href="#productPlus" shape="rect" />
+            <area alt="오시는길 자세히 보기" class="page-move" coords="17,463,227,567" href="#productMap" shape="rect" />
+            <area alt="TOP" class="page-move" coords="17,567,227,608" href="#productContents" shape="rect" />
+        </map>
+    </div>
+    <div class="container product-top-banner">
+        <div class="wrap">
+            <img alt="2년 연속 취업교육 1위 에듀윌" src="https://img.eduwill.net/resources/img/public/product/200914/pc/banner_top.jpg" />
+        </div>
+    </div>
+    <div class="container product-title">
+        <div class="wrap">
+            <img alt="대기업 공기업 종합반" src="https://img.eduwill.net/resources/img/public/product/200914/pc/title.png" />
+        </div>
+    </div>
+    <div class="container product-benefit">
+        <div class="wrap">
+            <img alt="A TO Z 종합반 특별 혜택" src="https://img.eduwill.net/resources/img/public/product/200914/pc/benefit_201022.jpg" />
+            <div class="action">
+                <a class="btn btn-apply-1 page-move" href="#productApply">
+                    <span>파격적인 혜택 받고 취뽀하기!</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container product-intro">
+        <div class="wrap">
+            <img alt="성공한 미래를 앞당기는 투자 지금 에듀윌 강남 취업아카데미에서 시작 하세요!" src="https://img.eduwill.net/resources/img/public/product/200914/pc/intro_201022.jpg" />
+        </div>
+    </div>
+    <div class="container product-discount">
+        <div class="wrap">
+            <div class="price-box">
+                <!-- 공기업 종합반 -->
+                <div class="box box-1">
+                    <div class="title">공기업 종합반</div>
+                    <div class="holder">
+                        <div class="item-list">
+                            <div class="item item-1">
+                                <div class="subject">
+                                    <p>1or2<br />개월</p>
+                                </div>
+                                <div class="desc">
+                                    <p>자소서+NCS(기본/실전)+면접
+                                        <a class="btn btn-detail" data-popup-open="schedule1" href="javascript:;">
+                                            <span>자세히 &gt;</span>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item item-2">
+                                <div class="subject"><p>컨설팅</p></div>
+                                <div class="desc"><p>방영황 교수님<br />1:1 프리미엄 컨설팅</p></div>
+                            </div>
+                            <div class="item item-3">
+                                <div class="subject"><p>진단</p></div>
+                                <div class="desc"><p>스펙분석 : 결과지 제공</p></div>
+                            </div>
+                            <div class="item item-4">
+                                <div class="subject"><p>스터디</p></div>
+                                <div class="desc"><p>필기+자소서+면접 스터디</p></div>
+                            </div>
+                            <div class="item item-5">
+                                <div class="subject"><p>복습</p></div>
+                                <div class="desc"><p>NCS 인강제공</p></div>
+                            </div>
+                            <div class="item item-6">
+                                <div class="subject"><p>면접</p></div>
+                                <div class="desc"><p>면접VR 솔루션 3회 무료이용</p></div>
+                            </div>
+                        </div>
+                        <div class="price-list">
+                            <div class="price-before">
+                                <span class="discount">20% 할인</span>
+                                <strong>930,000원</strong>
+                            </div>
+                            <div class="price-after">744,000원</div>
+                        </div>
+                        <div class="action">
+                            <a class="btn btn-apply-2 page-move" href="#productApply">
+                                <span>공기업 종합반 수강신청 하기</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- // 공기업 종합반 -->
+                <!-- 대기업 종합반 -->
+                <div class="box box-2">
+                    <div class="title">대기업 종합반</div>
+                    <div class="holder">
+                        <div class="item-list">
+                            <div class="item item-1">
+                                <div class="subject"><p>1개월</p></div>
+                                <div class="desc">
+                                    <p>자소서+인적성+면접
+                                        <a class="btn btn-detail" data-popup-open="schedule2" href="javascript:;"><span>자세히 &gt;</span></a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="item item-2">
+                                <div class="subject"><p>컨설팅</p></div>
+                                <div class="desc"><p>김치성 교수님<br />1:1 프리미엄 컨설팅</p></div>
+                            </div>
+                            <div class="item item-3">
+                                <div class="subject"><p>진단</p></div>
+                                <div class="desc"><p>스펙분석 : 결과지 제공</p></div>
+                            </div>
+                            <div class="item item-4">
+                                <div class="subject"><p>스터디</p></div>
+                                <div class="desc"><p>필기+자소서+면접 스터디</p></div>
+                            </div>
+                            <div class="item item-5">
+                                <div class="subject"><p>복습</p></div>
+                                <div class="desc"><p>인적성 인강제공</p></div>
+                            </div>
+                            <div class="item item-6">
+                                <div class="subject"><p>면접</p></div>
+                                <div class="desc"><p>면접VR 솔루션 3회 무료이용</p></div>
+                            </div>
+                        </div>
+                        <div class="price-list">
+                            <div class="price-before">
+                                <span class="discount">20% 할인</span>
+                                <strong>590,000원</strong>
+                            </div>
+                            <div class="price-after">475,000원</div>
+                        </div>
+                        <div class="action">
+                            <a class="btn btn-apply-2 page-move" href="#productApply">
+                                <span>대기업 종합반 수강신청 하기</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- // 대기업 종합반 -->
+            </div>
+            <div class="plus" id="productPlus">
+                <img alt="서비스는 제대로, 무료 혜택 클라스" src="https://img.eduwill.net/resources/img/public/product/200914/pc/plus_201022.png" />
+            </div>
+        </div>
+    </div>
+    <div class="container product-graph">
+        <div class="wrap">
+            <img alt="취업 컨텐츠 이용자 216% 폭발적 증가 수치로 증명된 취업대세 에듀윌" src="https://img.eduwill.net/resources/img/public/product/200914/pc/graph_201022.png" />
+        </div>
+    </div>
+    <div class="container product-curriculum">
+        <div class="wrap">
+            <img alt="01  빠른 취업 목표 설계! 효율적 합격 커리큘럼" src="https://img.eduwill.net/resources/img/public/product/200914/pc/curriculum.jpg" />
+            <div class="tab-wrap" id="productCurriculum">
+                <ul class="tab-list">
+                    <li class="in"><a href="javascript:;"><span>공기업 취업 종합반 커리큘럼</span></a></li>
+                    <li><a href="javascript:;"><span>대기업 취업 종합반 커리큘럼</span></a></li>
+                </ul>
+                <div class="tab-contents">
+                    <div class="item in">
+                        <img alt="공기업 취업 종합반 커리큘럼 상세" src="https://img.eduwill.net/resources/img/public/product/200914/pc/tab_1_201022.jpg" />
+                    </div>
+                    <div class="item">
+                        <img alt="대기업 취업 종합반 커리큘럼 상세" src="https://img.eduwill.net/resources/img/public/product/200914/pc/tab_2_201022.jpg" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container product-teacher">
+        <div class="wrap">
+            <img alt="02  취업 성공 미래를 앞당겨줄, 최고의 강사진" src="https://img.eduwill.net/resources/img/public/product/200914/pc/teacher_201022.jpg" />
+        </div>
+    </div>
+    <div class="container product-review">
+        <div class="wrap">
+            <img alt="+수강생이 인정한 강의 실력"
+                src="https://img.eduwill.net/resources/img/public/product/200914/pc/review_title.jpg" />
+            <div class="slide-wrap">
+                <div class="review-slide" id="reviewSlide">
+                    <img alt="후기 1" src="https://img.eduwill.net/resources/img/public/product/200914/pc/slide_1.png" />
+                    <img alt="후기 2" src="https://img.eduwill.net/resources/img/public/product/200914/pc/slide_2.png" />
+                    <img alt="후기 3" src="https://img.eduwill.net/resources/img/public/product/200914/pc/slide_3.png" />
+                    <img alt="후기 4" src="https://img.eduwill.net/resources/img/public/product/200914/pc/slide_4.png" />
+                    <img alt="후기 5" src="https://img.eduwill.net/resources/img/public/product/200914/pc/slide_5.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container product-book">
+        <div class="wrap">
+            <img alt="03  베스트셀러 1위 교재 기반 강의" src="https://img.eduwill.net/resources/img/public/product/200914/pc/book_201022.jpg" usemap="#mapBook" />
+            <map id="mapBook" name="mapBook">
+                <area alt="교재미리보기" coords="112,695,498,753" href="https://book.eduwill.net/pds/AddOn/vrphoto/output/Ebook/iBooks/0100002364/book.html?goods_id=&amp;Sid=N" shape="rect" target="_blank" />
+                <area alt="교재미리보기" coords="599,695,984,753" href="https://book.eduwill.net/pds/AddOn/vrphoto/output/Ebook/iBooks/0100002360/book.html?goods_id=&amp;Sid=N" shape="rect" target="_blank" />
+            </map>
+        </div>
+    </div>
+    <div class="container product-system">
+        <div class="wrap">
+            <img alt="04  최다 합격자 배출 노하우가 반영된 에듀윌의 합격 관리 시스템 " src="https://img.eduwill.net/resources/img/public/product/200914/pc/system_201022.jpg" />
+        </div>
+    </div>
+    <div class="container product-academy">
+        <div class="wrap">
+            <img alt="05  취업 합격을 위한 쾌적한 시설" src="https://img.eduwill.net/resources/img/public/product/200914/pc/academy_201022.jpg" />
+        </div>
+    </div>
+    <div class="container product-map" id="productMap">
+        <div class="wrap">
+            <div class="title">강남역 1, 3, 4번 출구 5분 이내<br />에듀윌 강남 취업아카데미에서 만나요</div>
+            <div class="map">
+                <img alt="지도" src="https://img.eduwill.net/resources/img/public/product/200914/pc/map.jpg" />
+            </div>
+            <div class="location">
+                <ul>
+                    <li><strong>주소 : </strong>서울 강남구 테헤란로 8길 37 한동빌딩</li>
+                    <li><strong>상담 및 문의 : </strong>02-6486-0600</li>
+                    <li><strong>운영 시간 : </strong>[월~금] 09:00~22:00, [토] 09:00~18:00<br />
+                        <span class="indent">[일/공휴일] 09:00~18:00(전화상담만 가능)</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container product-list">
+        <div class="wrap">
+            <div class="title">에듀윌 취업 아카데미 강의 LIST</div>
+            <div class="eco-list">
+
+
+                <!-- <table cellpadding="0" cellspacing="0" summary="구분, 과목, 강의명, 강사, 가격으로 구분되는 표">
+                    <caption>아카데미 강의 목록</caption>
+               
+                    <thead>
+                        <tr>
+                            <th scope="col">과목</th>
+                            <th scope="col">강의명</th>
+                            <th scope="col">가격</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>자소서+인적성+면접</td>
+                            <td>A TO Z 종합반</td>
+                            <td>472,000</td>
+                        </tr>
+                        <tr>
+                            <td>인적성</td>
+                            <td>인적성 1개월</td>
+                            <td>306,000</td>
+                        </tr>
+                        <tr>
+                            <td>1:1 자소서 첨삭 &amp; 면접</td>
+                            <td>대기업 1:1 자소서 첨삭<br />
+                            1:1 면접 컨설팅</td>
+                            <td>150,000<br />
+                            (1시간)</td>
+                        </tr>
+                        <tr>
+                            <td>자소서 현장첨삭</td>
+                            <td>자소서 1:1 첨삭완성반</td>
+                            <td>297,500</td>
+                        </tr>
+                        <tr>
+                            <td>자소서+NCS+면접</td>
+                            <td>A TO Z 2개월 종합반</td>
+                            <td>744,000</td>
+                        </tr>
+                        <tr>
+                            <td>자소서+NCS+면접</td>
+                            <td>A TO Z 1개월 단기완성반</td>
+                            <td>744,000</td>
+                        </tr>
+                        <tr>
+                            <td>자소서+NCS+면접</td>
+                            <td>A TO Z 속성주말반</td>
+                            <td>432,000</td>
+                        </tr>
+                        <tr>
+                            <td>NCS</td>
+                            <td>2개월 완성반</td>
+                            <td>504,000</td>
+                        </tr>
+                        <tr>
+                            <td>NCS</td>
+                            <td>1개월 단기완성반</td>
+                            <td>504,000</td>
+                        </tr>
+                        <tr>
+                            <td>NCS</td>
+                            <td>1개월 속성주말반</td>
+                            <td>204,000</td>
+                        </tr>
+                        <tr>
+                            <td>NCS</td>
+                            <td>기본완성반</td>
+                            <td>331,500</td>
+                        </tr>
+                        <tr>
+                            <td>NCS</td>
+                            <td>실전 문제풀이반</td>
+                            <td>204,000</td>
+                        </tr>
+                        <tr>
+                            <td>자소서, 면접</td>
+                            <td>주말반</td>
+                            <td>255,000</td>
+                        </tr>
+                        <tr>
+                            <td>자소서, 면접</td>
+                            <td>주중반</td>
+                            <td>255,000</td>
+                        </tr>
+                        <tr>
+                            <td>1:1 자소서 첨삭 &amp; 면접</td>
+                            <td>공기업 1:1 자소서 첨삭<br />
+                            1:1 면접 컨설팅</td>
+                            <td>150,000원<br />
+                            (1시간)</td>
+                        </tr>
+                        <tr>
+                            <td>study</td>
+                            <td>1달 관리형 스터디</td>
+                            <td>80,000원</td>
+                        </tr>
+                        <tr>
+                            <td>One Day Class</td>
+                            <td>공기업 / 대기업<br />
+                            채용공고 시 개설 예정</td>
+                            <td>추후공지</td>
+                        </tr>
+                    </tbody>
+                </table> -->
+                
+
+            </div>
+            <!-- 강의 리스트 1781 -->
+        </div>
+    </div>
+</div>
+<!-- popup -->
+<div class="dimmed"></div>
+<div class="popup popup-schedule" id="popupSchedule1">
+    <div class="popup-inner">
+  
+        <div class="eco-major">
+            
+            <!-- <div class="popup_head">공기업 취업 종합반 구성 강좌</div>
+        
+            <table class="popup_desc">
+                <colgroup>
+                    <col width="22%"/>
+                    <col width="auto"/>
+                    <col width="auto"/>
+                </colgroup>
+
+                <tr>
+                    <th scope="col">1개월반</th>
+                    <th colspan="3">11/2(월) ~ 11/27(금)</th>
+                    <th colspan="2">11/3(화) ~ 11/26(목)</th>
+                </tr>
+                <tr>
+                    <td scope="col">시간</td>
+                    <td scope="col">월</td>
+                    <td scope="col">수</td>
+                    <td scope="col">금</td>
+                    <td scope="col">화</td>
+                    <td scope="col">목</td>
+                </tr>
+                <tr>
+                    <td scope="row">19:00 ~ 22:00</td>
+                    <td scope="row" colspan="3">NCS 기본</td>
+                    <td scope="row" colspan="2">NCS 실전</td>
+                </tr>
+                <tr>
+                    <td colspan="6">자소서/면접 추후 공지</td>
+                </tr>
+            </table>
+            <table class="popup_desc">
+                <tr>
+                    <th scope="col">1개월반</th>
+                    <th colspan="3">11/2(월) ~ 11/27(금)</th>
+                    <th colspan="2">11/3(화) ~ 11/26(목)</th>
+                </tr>
+                <tr>
+                    <td scope="col">시간</td>
+                    <td scope="col">월</td>
+                    <td scope="col">수</td>
+                    <td scope="col">금</td>
+                    <td scope="col">화</td>
+                    <td scope="col">목</td>
+                </tr>
+                <tr>
+                    <td scope="row">19:00 ~ 22:00</td>
+                    <td scope="row" colspan="3">NCS 기본</td>
+                    <td scope="row" colspan="2">NCS 실전</td>
+                </tr>
+                <tr>
+                    <td colspan="6">자소서/면접 추후 공지</td>
+                </tr>
+            </table>
+            <div class="popup_info"><br />
+            * 일정 변동 시에는 안내 문자 또는 메일이 발송됩니다.<br />
+            (마이페이지에서 연락처를 확인해주세요)</div> -->
+            
+        </div>
+        <!-- 대기업시간표 1779 -->
+    </div>
+    <a class="popup-close" data-popup-close="schedule1" href="javascript:;">
+        <span>팝업 닫기</span>
+    </a>
+</div>
+<div class="popup popup-schedule" id="popupSchedule2">
+    <div class="popup-inner">
+        <div class="eco-public">
+
+            <!-- <div class="popup_head">대기업 취업 종합반 구성 강좌</div>
+            <table class="popup_desc">
+                <colgroup>
+                    <col width="auto"/>
+                    <col width="auto"/>
+                </colgroup>
+
+                <tr>
+                    <th scope="col">1개월반</th>
+                    <th colspan="3">11/3(화) ~ 11/27(금)</th>
+                </tr>
+                <tr>
+                    <td scope="col">시간/요일</td>
+                    <td scope="col">화</td>
+                    <td scope="col">목</td>
+                    <td scope="col">금</td>
+                </tr>
+                <tr>
+                    <td scope="row">14:00 ~ 17:00</td>
+                    <td scope="row">수리,추리</td>
+                    <td scope="row">언어</td>
+                    <td scope="row">수리,추리</td>
+                </tr>
+                <tr>
+                    <td colspan="4">자소서/면접 추후 공지</td>
+                </tr>
+            </table>
+        
+            <div class="popup_info">* 일정 변동 시에는 안내 문자 또는 메일이 발송됩니다.<br />
+            (마이페이지에서 연락처를 확인해주세요)</div> -->
+
+        </div>
+        <!-- 공기업시간표 1780 -->
+    </div>
+    <a class="popup-close" data-popup-close="schedule2" href="javascript:;">
+        <span>팝업 닫기</span>
+    </a>
+</div>
+<!-- // popup -->
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/greensock/TweenMax.min.js"></script>
+<script type="text/javascript"
+    src="https://img.eduwill.net/eduwill/live/libs/waterwheelCarousel/jquery.waterwheelCarousel.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/script.js"></script>
+<script>
+    getEcoDynamicForClass(1779, 'eco-major');
+    getEcoDynamicForClass(1780, 'eco-public');
+    getEcoDynamicForClass(1781, 'eco-list');
+
+    $(function () {
+        init();
+    });
+
+    function init() {
+        addSlide();
+        addTab();
+        addEvent();
+        pageMove('.page-move');
+    }
+
+    function addEvent() {
+        // popup open
+        $('[data-popup-open]').on('click', function () {
+            var _data = $(this).data('popupOpen');
+            //console.log(_data);
+
+            if (_data == 'schedule1') {
+                popupOpen('.dimmed', 'popupSchedule1');
+            } else if (_data == 'schedule2') {
+                popupOpen('.dimmed', 'popupSchedule2');
+            }
+        });
+
+        // popup close
+        $('[data-popup-close]').on('click', function () {
+            var _data = $(this).data('popupClose');
+            //console.log(_data);
+
+            if (_data == 'schedule1') {
+                popupClose('.dimmed', 'popupSchedule1');
+            } else if (_data == 'schedule2') {
+                popupClose('.dimmed', 'popupSchedule2');
+            }
+        });
+    }
+
+    function addTab() {
+        $('[data-tab]').on('click', function () {
+            var _data = $(this).data('tab');
+            tabControl(_data);
+        });
+
+        $('.tab-list li a').on('click', function () {
+            var _idx = $(this).closest('li').index();
+            tabControl(_idx);
+        });
+    }
+
+    function tabControl(_idx) {
+        var $tabList = $('.tab-list');
+        $tabList.children().eq(_idx).addClass('in').siblings().removeClass('in');
+        $tabList.next().children().eq(_idx).addClass('in').siblings().removeClass('in');
+    }
+
+    function addSlide() {
+        _carousel = $('.review-slide').waterwheelCarousel({
+            orientation: 'vertical',
+            flankingItems: 1,
+            autoPlay: 3000
+        });
+    }
+</script>
+<!-- // eco 영역 -->
+
+
+
+<div id="productApply"></div>
+</body>
+</html>

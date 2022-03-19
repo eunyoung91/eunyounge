@@ -1,0 +1,98 @@
+.layer {
+    &-dim,
+	&-dimmed {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10000;
+        background: #000;
+        opacity: .8;
+        overflow: hidden;
+    }
+
+    &-review {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 10001;
+        max-width: 768px;
+        margin: 0 auto;
+        @include boxSizing(border-box);
+
+        
+        .layer-close {
+            @include close(60px, 60px, 2px, #fff);
+            top: -60px;
+            z-index: 10002;
+        }
+        
+        .layer-box {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            iframe, video{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: inherit;
+            }
+        }
+
+    }
+
+	&-base {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		z-index: 10001;
+		max-width: 768px;
+		margin: 0 auto;
+		@include boxSizing(border-box);
+		
+		.layer-close {
+			@include close(60px, 60px, 2px, #fff);
+			top: -60px;
+			z-index: 10002;
+		}
+
+		.layer-body {
+			position: relative;
+			background: #fff;
+			text-align: left;
+			border: 1px solid #000;
+			line-height: 1.5;
+			color: #333;
+			font-weight: 400;
+			font-family: $font-roboto;
+			@include rem(padding, 60px);
+			@include vw(28px);
+			.layer-title {
+				color: #000;
+				font-weight: 900;
+				line-height: 1.3;
+				@include rem(margin-bottom, 20px);
+				@include rem(letter-spacing, -2px);
+				@include vw(35px);
+			}
+			@include breakpoint(maxMobileFold) {
+				font-size: 16px;
+				.layer-title {
+					font-size: 30px;
+				}
+			}
+		}
+	}
+}

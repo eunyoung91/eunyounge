@@ -1,0 +1,308 @@
+// display flex
+%flexCenter {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-item: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+
+// clearfix
+%clearfix {
+	*zoom: 1;
+	&:before,
+	&:after {
+		content: '';
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+// text ellipsis
+%textEllipsis {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
+// background tail
+%tail {
+	position: absolute;
+	right: 0;
+	left: 0;
+	display: block;
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	background-size: auto 100%;
+}
+
+// d-day
+%d-day {
+	float: right;
+	@include rem(margin-top, 0);
+	@include rem(padding, 4px 20px);
+	@include rem(border-radius, 30px 0 0 30px);
+	@include breakpoint(tablet){
+		padding-top: 0;
+		padding-bottom: 0;
+		@include rem(margin-top, -12px);
+		@include rem(border-radius, 26px);
+	}
+	.col {
+		text-align: right;
+		float: none;
+		@include rem(font-size, 20px);
+		color: $color-base-1;
+		&.title {
+			display: none;
+			@include rem(margin-top, 2px);
+			@include rem(font-size, 16px);
+			@include breakpoint(tablet){
+				display: block;
+			}
+		}
+	}
+}
+
+// title-info
+%title-info {
+	@extend %clearfix;
+	@include rem(margin, 21px 0 0 20px);
+	@include breakpoint(tablet){
+		@include rem(margin, 20px 0 0);
+	}
+	.heading {
+		float: left;
+	}
+	.d-day {
+		@extend %d-day;
+	}
+}
+
+// feedback
+%feedback {
+	margin: 0 auto;
+	@include rem(width, 320px);
+	@include breakpoint(minMobile){
+		@include rem(width, 280px);
+	}
+	@include breakpoint(desktop){
+		float: right;
+		clear: right;
+	}
+	.holder {
+		position: relative;
+		@include rem(padding, 16px 20px 20px);
+		@include rem(border-radius, 3px);
+		@include boxShadow(none);
+		@include linear-gradient(to right, #fa5363 0%, #ff9a44 100%);
+		border: none;
+		&:after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			border-top: 18px solid #db4857;
+			border-left: 23px solid transparent;
+			@include rem(bottom, -17px);
+			@include rem(left, 2px);
+		}
+	}
+	p {
+		text-align: center;
+		color: #fff;
+		@include rem(font-size, 16px);
+		&.subject {
+			font-weight: 700;
+			@include rem(margin-top, 2px);
+		}
+		&.desc {
+			@include rem(margin-top, 13px);
+			@include rem(font-size, 14px);
+		}
+	}
+}
+
+// frame
+%frame {
+	position: relative;
+	background-color: $color-white;
+	@include boxShadow(0 6px 20px 0 rgba(2, 9, 37, .1));
+	@include breakpoint(tablet){
+		border-radius: 3px;
+	}
+}
+
+// progressbar
+%progressbar {
+	overflow: visible;
+	line-height: 1;
+	border: none; 
+	background-color: #dadbdd;
+	@include rem(height, 6px);
+	@include rem(border-radius, 12px);
+	@include breakpoint(tablet){
+		height: 8px;
+	}
+	.ui-widget-header {
+		border: none;
+		margin-left: 0;
+		@include rem(border-radius, 12px);
+	}
+}
+
+// guide button
+%guide {
+	width: auto;
+	min-width: auto;
+	background: $color-white;
+	border: 1px solid $border-color-1;
+	@include rem(padding, 2px 5px 2px 10px);
+	@include rem(border-radius, 20px);
+	@include breakpoint(tablet){
+		padding: 1px 2px 1px 5px;
+	}
+	span {
+		display: block;
+		color: $color-base-1;
+		@include rem(font-size, 12px);
+		&:after {
+			content: '?';
+			display: inline-block;
+			line-height: 18px;
+			font-family: verdana;
+			border-radius: 50%;
+			background-color: $bg-color-2;
+			@include rem(width, 18px);
+			@include rem(height, 18px);
+			@include rem(margin-left, 2px);
+		}
+	}
+}
+
+// control button(prev/next)
+%controler {
+	text-align: center;
+	.button {
+		position: relative;
+		font-weight: 700;
+		color: $color-base-1;
+		border-color: $color-base-1;
+		background: $color-white;
+		@include rem(padding, 8px 0 9px);
+		@include rem(min-width, 50px);
+		@include rem(font-size, 15px);
+		@include breakpoint(desktop){
+			&:hover,
+			&:active {
+				color: $color-base-1;
+				border-color: $color-base-1;
+				background: $color-white;
+			}
+		}
+		&:before {
+			content: '';
+			position: absolute;
+			top: 50%;
+			right: 0;
+			background-color: $border-color-1;
+			@include rem(width, 1px);
+			@include rem(height, 12px);
+			@include rem(margin-top, -6px);
+		}
+		&.is-last {
+			@include rem(padding-right, 12px);
+			span {
+				@include rem(padding-left, 20px);
+				&:after {
+					left: 0;
+					@include arrow(left, 10px, 10px, 2px, $color-base-1);
+				}
+			}
+		}
+		&.is-next {
+			@include rem(padding-left, 12px);
+			&:before { display: none; }
+			span {
+				padding-left: 0;
+				@include rem(padding-right, 20px);
+				&:after {
+					right: 0;
+					@include arrow(right, 10px, 10px, 2px, $color-base-1);
+				}
+			}
+		}
+		&:only-child:before { display: none; }
+		span {
+			position: relative;
+			display: inline-block;
+			@include rem(padding-left, 26px);
+			&:after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				display: block;
+				@include rem(margin-top, -8px);
+			}
+		}
+	}
+}
+
+// graph
+%graph-area {
+	position: relative;
+	@include rem(margin, 0 auto);
+	@include boxSizing(border-box);
+	canvas {
+		position: relative;
+		z-index: 1;
+		width: 100% !important;
+		height: 100% !important;
+	}
+}
+
+%condition {
+	position: absolute;
+	@include animation(moving3, 2s, $iteration: infinite) {
+		0% { @include translateY(0); }
+		50% { @include translateY(-10%); }
+		100% { @include translateY(0); }
+	}
+}
+
+%shortcut {
+	position: fixed;
+	right: 2.78%;
+	bottom: 2%;
+	left: 2.78%;
+	z-index: map-get($z-index, modal);
+	text-align: center;
+	font-size: 0;
+	@include breakpoint(minMobile){
+		right: 0;
+		left: 0;
+	}
+	[data-shortcut] {
+		display: inline-block;
+		vertical-align: middle;
+		border: 6px solid rgba(51, 51, 51, .2);
+		@include rem(border-radius, 40px);
+		@include boxSizing(border-box);
+		span {
+			position: relative;
+			display: inline-block;
+			color: $color-white;
+			background-color: rgba(51, 51, 51, .9);
+			@include rem(font-size, 16px);
+			@include rem(padding, 7px 35px 7px 15px);
+			@include rem(border-radius, 40px);
+		}
+	}
+}

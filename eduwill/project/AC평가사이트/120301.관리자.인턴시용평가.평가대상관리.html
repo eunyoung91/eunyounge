@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>에듀윌 AC(Assessment Center)</title>
+<link rel="Bookmark Icon" href="https://img.eduwill.net/resources/kpi/dev/images/favicon.ico" />
+<link rel="icon" href="https://img.eduwill.net/resources/kpi/dev/images/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="https://img.eduwill.net/resources/kpi/dev/images/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/essentials.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/layout.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/custom.css" />
+<!-- javascript files -->
+<script type="text/javascript">var plugin_path = '//img.eduwill.net/resources/kpi/dev/plugins/';</script>
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>  
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/js/ajaxUtil.js" type="text/javascript"></script>
+<!-- validation -->
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/form.validate/jquery.form.min.js" type="text/javascript"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/form.validate/jquery.validation.min.js" type="text/javascript"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/js/custom.js?v=5601933057d80" type="text/javascript"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/js/common.js?v=573d7300eea40" type="text/javascript"></script>
+<!-- 토스트메시지 -->
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/kpi/dev/plugins/toastr/toastr.min.css" />
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+<!-- 컨펌모달 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/jquery-confirm/jquery-confirm.min.css">
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+<!-- print -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/kpi/dev/plugins/printThis/printThis.js"></script>
+<!-- editable -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap-editable.min.js"></script>
+</head>
+<body class="page-manage is-fixed"><!-- body class : page-manage is-fixed -->
+
+<div id="wrapper" class="clearfix"><!-- wrapper -->
+	<aside id="aside"><!-- aside -->
+		<nav id="sideNav">
+			<ul class="nav nav-list d1">
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>에듀윌 필독서</span>
+					</a>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>멘토링 설문</span>
+					</a>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>인턴 업무실적표</span>
+					</a>
+				</li>
+				<li class="d1 menu-open el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-balance-scale"></i>
+						<span>목표 수립</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">업적목표</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">역량목표</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1 menu-open el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-pencil-square-o"></i>
+						<span>평가서작성</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">업적평가</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">역량평가</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>평가결과</span>
+					</a>
+				</li>
+				<li class="d1 menu-open el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-pencil-square-o"></i>
+						<span>Peer Review</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">Peer Review 작성</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">Peer Review 결과</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-book"></i>
+						<span>목표관리</span>
+					</a>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-book"></i>
+						<span>PeerReview 관리</span>
+					</a>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-book"></i>
+						<span>인턴평가 관리</span>
+					</a>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-book"></i>
+						<span>시용평가 관리</span>
+					</a>
+				</li>
+				<li class="d1 menu-open el_primary active">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>관리자</span>
+					</a>
+					<!-- 2018-08-24 -->
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<span>업적/역량</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가대상 관리</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가목표 관리</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가점수 관리</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가시기 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+						<li class="d2">
+							<span>Peer Review</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3">
+									<a href="javascript:;" class="d3">결과 관리</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">등록 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+						<li class="d2 active">
+							<span>인턴/시용평가</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3 active">
+									<a href="javascript:;" class="d3">평가대상 관리</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">인턴평가 관리</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">시용평가 관리</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">인턴평가 PT자료</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">에듀윌 필독서 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+					</ul><!-- // 2depth -->
+					<!-- // 2018-08-24 -->
+				</li>
+			</ul>
+		</nav>
+	</aside><!-- // aside -->
+
+	<header id="header"><!-- header -->
+		<h1 class="logo pull-left">
+			<a href="javascript:;">
+				<img src="https://img.eduwill.net/resources/kpi/dev/images/logo_eduwill.jpg" alt="eduwill Assessment Center" />
+			</a>
+		</h1>
+		<div class="user pull-right">
+			<span>홍길동</span>님 
+			<a href="#" title="로그아웃"><i class="fa fa-sign-out"></i></a>
+		</div>
+	</header><!-- // header -->
+
+	<section id="middle"><!-- middle -->
+		<div id="page-header">
+			<h2>관리자 &gt; 인턴/시용평가 &gt; 평가대상 관리</h2>
+		</div>
+
+		<div id="content" class="padding-20"><!-- content -->
+			<form name="frm1" id="frm1" method="post" action="/manage/intern/index">
+				<div class="container section-search-form alert alert-info">
+					<div class="wrap row">
+						<input type="text" class="form-control datepicker" data-format="yyyy-mm-dd" id="fromdt" name="fromdt" value="" style="margin-left:10px;" autocomplete="off">
+						<input type="text" class="form-control datepicker" data-format="yyyy-mm-dd" id="todt" name="todt" value="" autocomplete="off">
+
+						<select name="dept_idx" id="dept_idx" class="form-control">
+							<option value="">부서 선택</option>
+							<option value="79">마케팅커뮤니케이션실</option>
+							<option value="54">ceo직할</option>
+							<option value="3">경영지원본부</option>
+							<option value="94">CM본부</option>
+							<option value="4">자격증혁신실</option>
+							<option value="5">IE본부</option>
+							<option value="6">출판사업본부</option>
+							<option value="7">평생교육원</option>
+							<option value="8">고객센터</option>
+							<option value="11">학원사업본부</option>
+							<option value="115">test22</option>
+						</select>
+
+						<select name="team_idx" id="team_idx" class="form-control">
+							<option value="">팀 선택</option>
+						</select>
+
+						<select name="ass_type" id="ass_type" class="form-control">
+							<option value="">평가 구분</option>
+							<option value="SC001" data-rfval1="6">인턴</option>
+							<option value="SC002" data-rfval1="3">시용</option>
+						</select>
+
+						<input type="text" id="emp_name" name="emp_name" class="text form-control" value="" placeholder="이름을 입력하세요.">
+						<button type="button" class="btn btn-teal" id="btnSearch">조회</button>
+					</div>
+				</div>
+			</form>
+
+			<div class="section-manage row"><!-- section-manage -->
+				<div class="col-md-12" id="divAssList">
+
+					<style>
+						#ulAutoEmp li.active {
+							background : #ccc;
+							font-weight: bold;
+						}
+						#ulAutoEmp li:hover {
+							background : #ccc;
+							cursor : pointer;
+							font-weight: bold;
+						}
+					</style>
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3><strong class="text-warning" id="dept_name"></strong> 평가대상</h3>
+						</div>
+						<div class="panel-body">
+							<div class="table-responsive">
+								<form name="frmAssess" id="frmAssess">
+									<table class="table table-bordered" id="tblAssess">
+										<caption>평가대상 목록</caption>
+										<colgroup>
+											<col style="width: 6%;">
+											<col style="width: 10%;">
+											<col style="width: 10%;">
+											<col style="width: 5%;">
+											<col style="width: 8%;">
+											<col style="width: 13%;">
+											<col style="width: auto;" span="3">
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col" class="">평가구분</th>
+												<th scope="col" class="">팀</th>
+												<th scope="col" class="name">이름</th>
+												<th scope="col" class="rank">직급</th>
+												<th scope="col" class="date">입사일</th>
+												<th scope="col" class="level">평가기간</th>
+												<th scope="col" class="evaluation-1st">1차</th>
+												<th scope="col" class="evaluation-2nd">2차</th>
+												<th scope="col" class="evaluation-2nd">멘토</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="assItem" data-ldap_id="jwkum">
+												<td class="">인턴</td>
+												<td class="">인프라개발팀</td>
+												<td class="name">
+													금종원(jwkum)
+													<input type="hidden" name="ldap_id" value="jwkum">
+													<input type="hidden" name="dept_idx" value="57">
+												</td>
+												<td class="rank">과장</td>
+												<td>2018-09-21</td>
+												<td>2018-09-21~2019-03-20</td>
+												<td class="evaluation-1st">
+													<input type="text" class="text form-control js-dropdown" name="assessor1" value="김성경(skkim2)" data-selected="Y" autocomplete="off">
+												</td>
+												<td class="evaluation-2nd">
+													<input type="text" class="text form-control js-dropdown" name="assessor2" value="박지혜(jhpark3)" data-selected="Y" autocomplete="off">
+												</td>
+												<td class="evaluation-mentor">
+													<input type="text" class="text form-control js-dropdown" name="mentor" value="김성경(skkim2)" data-selected="Y" autocomplete="off">
+												</td>
+											</tr>
+											<tr class="assItem" data-ldap_id="jhpark3">
+												<td class="">인턴</td>
+												<td class="">인프라개발팀</td>
+												<td class="name">
+													박지혜(jhpark3)
+													<input type="hidden" name="ldap_id" value="jhpark3">
+													<input type="hidden" name="dept_idx" value="57">
+												</td>
+												<td class="rank">과장</td>
+												<td>2018-09-21</td>
+												<td>2018-09-21~2019-03-20</td>
+												<td class="evaluation-1st">
+													<input type="text" class="text form-control js-dropdown" name="assessor1" value="박지혜(jhpark3)" data-selected="Y" autocomplete="off">
+												</td>
+												<td class="evaluation-2nd">
+													<input type="text" class="text form-control js-dropdown" name="assessor2" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-mentor">
+													<input type="text" class="text form-control js-dropdown" name="mentor" value="" autocomplete="off">
+												</td>
+											</tr>
+											<tr class="assItem" data-ldap_id="gjpung">
+												<td class="">인턴</td>
+												<td class="">인프라개발팀</td>
+												<td class="name">
+													풍기정(gjpung)
+													<input type="hidden" name="ldap_id" value="gjpung">
+													<input type="hidden" name="dept_idx" value="57">
+												</td>
+												<td class="rank">과장</td>
+												<td>2018-09-21</td>
+												<td>2018-09-21~2019-03-20</td>
+												<td class="evaluation-1st">
+													<input type="text" class="text form-control js-dropdown" name="assessor1" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-2nd">
+													<input type="text" class="text form-control js-dropdown" name="assessor2" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-mentor">
+													<input type="text" class="text form-control js-dropdown" name="mentor" value="" autocomplete="off">
+												</td>
+											</tr>
+											<tr class="assItem" data-ldap_id="kwhan">
+												<td class="">인턴</td>
+												<td class="">인프라개발팀</td>
+												<td class="name">
+													한기완(kwhan)
+													<input type="hidden" name="ldap_id" value="kwhan">
+													<input type="hidden" name="dept_idx" value="57">
+												</td>
+												<td class="rank">과장</td>
+												<td>2018-09-21</td>
+												<td>2018-09-21~2019-03-20</td>
+												<td class="evaluation-1st">
+													<input type="text" class="text form-control js-dropdown" name="assessor1" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-2nd">
+													<input type="text" class="text form-control js-dropdown" name="assessor2" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-mentor">
+													<input type="text" class="text form-control js-dropdown" name="mentor" value="" autocomplete="off">
+												</td>
+											</tr>
+											<tr class="assItem" data-ldap_id="sjoh">
+												<td class="">인턴</td>
+												<td class="">인프라개발팀</td>
+												<td class="name">
+													오선지(sjoh)
+													<input type="hidden" name="ldap_id" value="sjoh">
+													<input type="hidden" name="dept_idx" value="57">
+												</td>
+												<td class="rank">대리</td>
+												<td>2018-09-21</td>
+												<td>2018-09-21~2019-03-20</td>
+												<td class="evaluation-1st">
+													<input type="text" class="text form-control js-dropdown" name="assessor1" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-2nd">
+													<input type="text" class="text form-control js-dropdown" name="assessor2" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-mentor">
+													<input type="text" class="text form-control js-dropdown" name="mentor" value="" autocomplete="off">
+												</td>
+											</tr>
+											<tr class="assItem" data-ldap_id="choh">
+												<td class="">인턴</td>
+												<td class="">인프라개발팀</td>
+												<td class="name">
+													오충환(choh)
+													<input type="hidden" name="ldap_id" value="choh">
+													<input type="hidden" name="dept_idx" value="57">
+												</td>
+												<td class="rank">대리</td>
+												<td>2018-09-21</td>
+												<td>2018-09-21~2019-03-20</td>
+												<td class="evaluation-1st">
+													<input type="text" class="text form-control js-dropdown" name="assessor1" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-2nd">
+													<input type="text" class="text form-control js-dropdown" name="assessor2" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-mentor">
+													<input type="text" class="text form-control js-dropdown" name="mentor" value="" autocomplete="off">
+												</td>
+											</tr>
+											<tr class="assItem" data-ldap_id="khlee2">
+												<td class="">인턴</td>
+												<td class="">인프라개발팀</td>
+												<td class="name">
+													이경현(khlee2)
+													<input type="hidden" name="ldap_id" value="khlee2">
+													<input type="hidden" name="dept_idx" value="57">
+												</td>
+												<td class="rank">대리</td>
+												<td>2018-09-21</td>
+												<td>2018-09-21~2019-03-20</td>
+												<td class="evaluation-1st">
+													<input type="text" class="text form-control js-dropdown" name="assessor1" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-2nd">
+													<input type="text" class="text form-control js-dropdown" name="assessor2" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-mentor">
+													<input type="text" class="text form-control js-dropdown" name="mentor" value="" autocomplete="off">
+												</td>
+											</tr>
+											<tr class="assItem" data-ldap_id="TEST12">
+												<td class="">인턴</td>
+												<td class="">인프라개발팀</td>
+												<td class="name">
+													직원테스트(TEST12)
+													<input type="hidden" name="ldap_id" value="TEST12">
+													<input type="hidden" name="dept_idx" value="57">
+												</td>
+												<td class="rank">대리</td>
+												<td>2018-09-21</td>
+												<td>2018-09-21~2019-03-20</td>
+												<td class="evaluation-1st">
+													<input type="text" class="text form-control js-dropdown" name="assessor1" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-2nd">
+													<input type="text" class="text form-control js-dropdown" name="assessor2" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-mentor">
+													<input type="text" class="text form-control js-dropdown" name="mentor" value="" autocomplete="off">
+												</td>
+											</tr>
+											<tr class="assItem" data-ldap_id="shkim9">
+												<td class="">인턴</td>
+												<td class="">인프라개발팀</td>
+												<td class="name">
+													김선호(shkim9)
+													<input type="hidden" name="ldap_id" value="shkim9">
+													<input type="hidden" name="dept_idx" value="57">
+												</td>
+												<td class="rank">주임</td>
+												<td>2018-09-21</td>
+												<td>2018-09-21~2019-03-20</td>
+												<td class="evaluation-1st">
+													<input type="text" class="text form-control js-dropdown" name="assessor1" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-2nd">
+													<input type="text" class="text form-control js-dropdown" name="assessor2" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-mentor">
+													<input type="text" class="text form-control js-dropdown" name="mentor" value="" autocomplete="off">
+												</td>
+											</tr>
+											<tr class="assItem" data-ldap_id="ybkim1">
+												<td class="">인턴</td>
+												<td class="">인프라개발팀</td>
+												<td class="name">
+													김영배(ybkim1)
+													<input type="hidden" name="ldap_id" value="ybkim1">
+													<input type="hidden" name="dept_idx" value="57">
+												</td>
+												<td class="rank">주임</td>
+												<td>2018-09-21</td>
+												<td>2018-09-21~2019-03-20</td>
+												<td class="evaluation-1st">
+													<input type="text" class="text form-control js-dropdown" name="assessor1" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-2nd">
+													<input type="text" class="text form-control js-dropdown" name="assessor2" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-mentor">
+													<input type="text" class="text form-control js-dropdown" name="mentor" value="" autocomplete="off">
+												</td>
+											</tr>
+											<tr class="assItem" data-ldap_id="mhyang">
+												<td class="">인턴</td>
+												<td class="">인프라개발팀</td>
+												<td class="name">
+													양민희(mhyang)
+													<input type="hidden" name="ldap_id" value="mhyang">
+													<input type="hidden" name="dept_idx" value="57">
+												</td>
+												<td class="rank">사원</td>
+												<td>2018-09-21</td>
+												<td>2018-09-21~2019-03-20</td>
+												<td class="evaluation-1st">
+													<input type="text" class="text form-control js-dropdown" name="assessor1" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-2nd">
+													<input type="text" class="text form-control js-dropdown" name="assessor2" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-mentor">
+													<input type="text" class="text form-control js-dropdown" name="mentor" value="" autocomplete="off">
+												</td>
+											</tr>
+											<tr class="assItem" data-ldap_id="hychoi1">
+												<td class="">인턴</td>
+												<td class="">인프라개발팀</td>
+												<td class="name">
+													최현욱(hychoi1)
+													<input type="hidden" name="ldap_id" value="hychoi1">
+													<input type="hidden" name="dept_idx" value="57">
+												</td>
+												<td class="rank">사원</td>
+												<td>2018-09-21</td>
+												<td>2018-09-21~2019-03-20</td>
+												<td class="evaluation-1st">
+													<input type="text" class="text form-control js-dropdown" name="assessor1" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-2nd">
+													<input type="text" class="text form-control js-dropdown" name="assessor2" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-mentor">
+													<input type="text" class="text form-control js-dropdown" name="mentor" value="" autocomplete="off">
+												</td>
+											</tr>
+											<tr class="assItem" data-ldap_id="khham">
+												<td class="">인턴</td>
+												<td class="">인프라개발팀</td>
+												<td class="name">
+													함경호(khham)
+													<input type="hidden" name="ldap_id" value="khham">
+													<input type="hidden" name="dept_idx" value="57">
+												</td>
+												<td class="rank">사원</td>
+												<td>2018-09-21</td>
+												<td>2018-09-21~2019-03-20</td>
+												<td class="evaluation-1st">
+													<input type="text" class="text form-control js-dropdown" name="assessor1" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-2nd">
+													<input type="text" class="text form-control js-dropdown" name="assessor2" value="" autocomplete="off">
+												</td>
+												<td class="evaluation-mentor">
+													<input type="text" class="text form-control js-dropdown" name="mentor" value="" autocomplete="off">
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</form>
+							</div>
+							<div class="margin-top-50 text-center">
+								<a href="javascript:;" class="btn btn-blue btn-lg width-100" id="btnSave">
+									<span>저장</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- // section-manage -->
+		</div><!-- // content -->
+	</section><!-- // middle -->
+</div><!-- // wrapper -->
+
+<script type="text/javascript">
+	(function($){
+	})(window.jQuery);
+</script>
+</body>
+</html>

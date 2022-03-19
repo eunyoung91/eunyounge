@@ -1,0 +1,59 @@
+.ibm-band {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: map-get($z-index, bottom);
+    text-align: center;
+    @include breakpoint(desktop){
+        height: 80px;
+    }
+    &.band-top { top: 0; bottom: auto; }
+    &.band-bottom { bottom: 0; }
+    .ibm-inner { position: inherit; }
+    .ibm-item {
+        position: static;
+        margin-top: 0;
+        // @include rem(min-width, 80px);
+        // @include rem(min-height, 80px);
+    }
+    .ibm-banner {
+        @include breakpoint(desktop){
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            max-width: 1010px;
+            width: 100%;
+            margin: 0 auto;
+            // z-index: map-get($z-index, base);
+            // @include translateX(-50%);
+        }
+        img {
+            width: 100%;
+            max-width: 100%;
+            vertical-align: top;
+            @include breakpoint(desktop){
+                width: auto;
+                max-width: none;
+            }
+        }
+    }
+    .ibm-action {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: map-get($z-index, close);
+        @include breakpoint(desktop){
+            right: auto;
+            left: 50%;
+            margin-left: 480px;
+        }
+        a {
+            width: 40px;
+            height: 40px;
+            span { @extend .sr-only; }
+        }
+    }
+    .ibm-dim { display: none; }
+}

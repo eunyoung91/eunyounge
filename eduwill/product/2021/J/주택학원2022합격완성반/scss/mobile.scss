@@ -1,0 +1,54 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "base/animation";  
+@import "base/common";  
+
+
+// .bottom_fix_btn{display:none;}
+.product-eco{
+	overflow: hidden;
+	.house{
+		&-visual{
+			@include bg($url: '#{$img-path}/mobile/bg_visual.jpg', $size: cover);
+			&:after{
+				display: none;
+			}
+		}
+
+		&-price{
+			.before-price{
+				@include vw(30px);
+				color:#333 !important;
+				text-decoration: none !important;
+			}
+			.btn-apply{
+				&:before{ top:55% !important; right:0 !important; }
+				@include pointer(50%, 10%, 38px, 43px, 12, bounce);
+			}
+		}
+
+		&-provide{
+			background-image:none;
+			background-color:#c32d3e;
+			&:after{background-image:url('#{$img-path}/mobile/icon_provide.png');}
+			.list-group ul li{
+				background-color: #c32d3e;
+    			border: 1px solid #eb6f7d;
+				&:last-child(){width: 47.22222%;}
+			}
+			.list-text{
+				color:#ec878f;	
+			}
+		}
+
+		&-academy-teacher{ display:block !important;}
+		&-hjc{ display:block !important;}
+		&-roadmap{ display:block !important;}
+
+	}
+}
+
+
+

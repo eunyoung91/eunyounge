@@ -1,0 +1,230 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+/* 공통 */
+
+.product-eco {
+	.btn-reason {
+
+		position: absolute;
+		right: 8vw;
+		border: none;
+		cursor: pointer;
+		padding: 1vw 3.5vw 1vw 2vw ;
+		font-size: 3vw;
+		letter-spacing: -0.2vw;
+		font-weight: 900;
+		color: #939393;
+		background: transparent;
+	
+		&::after {
+			content: '';
+			position: absolute;
+			top:2.48vw;
+			right: 1.6vw;
+			width: 6px;
+			height: 6px;
+			border: 1px solid #939393;
+			border-left: none;
+			border-bottom: none;
+			box-sizing: border-box;
+			transform: rotate(45deg);
+	
+		}
+	}
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.wrap {
+		max-width: 720px;
+		width:100%;
+		position:relative;
+		box-sizing: border-box;
+	}
+	.btn-pointer {
+		display: inline-block;
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			right:-13px;
+			bottom: -20px;
+			width: 57px;
+			height: 65px;
+			background: url(https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png) no-repeat 50% 50%;
+			background-size:100% auto;
+			animation: 0.3s slideupY ease-in-out infinite alternate;
+		}
+		@keyframes slideupY {
+			0% {
+				transform: translateY(0);
+			}
+			100% {
+				transform: translateY(10px);
+			}
+		}
+	}
+
+	@keyframes bounce {
+		0%,100% {
+			-webkit-transform: translateY(5px);
+			transform: translateY(5px);
+		}
+		50% {
+			-webkit-transform: translateY(5px);
+			transform: translateY(-5px);
+		}
+	}
+
+	@-webkit-keyframes bounce {
+		0%, 100% {
+			-webkit-transform: translateY(5px);
+			transform: translateY(5px);
+		}
+		50% {
+			-webkit-transform: translateY(5px);
+			transform: translateY(-5px);
+		}
+	}
+	.bounce {
+		position: absolute;
+		animation: bounce 2s infinite both;
+	  
+	  }
+}
+
+
+/* 컨텐츠 */
+.product-eco {
+	overflow: hidden;
+
+	&[data-type="2839"]{
+		
+		.visual {
+			background:url(#{$img-path}/mobile/2839/visual_bg.png) no-repeat 50% 50%;
+			background-size:cover;
+
+			.btn-reason {
+				top: 57vw;
+				color: #fff;
+				&::after {
+					border-color: #fff;
+				}
+			}
+
+			.move-img {
+				position:absolute;
+				bottom: percent(215,765);
+				left: percent(200,720);
+				width: percent(165,720);
+				animation:bounce 2s infinite both;
+			}
+			
+		}
+	
+		.cont1 {
+			.btn-reason {
+				top: 35vw;
+			}
+		}
+		.cont2 {
+			background: #1832a3;
+			@include vw(padding-bottom, 90px);
+			.price-area {
+				position: relative;
+				background: #fff;
+				border-radius: 10px;
+				width: 85%;
+				@include vw(padding, 40px 38px 40px 38px);
+				box-sizing: border-box;
+				margin: 0 auto;
+				@include boxShadow(6px 9px 17px 0px rgba(0, 0, 0, .5));
+				.num {
+					font-family:$font-roboto;
+				}
+				.title {
+					text-align: center;
+
+					h3 {
+						@include vw(font-size, 50px);
+						color: #222;
+						font-weight: 900;
+						letter-spacing: -3px;
+						font-family: $font-noto;
+					}
+					
+				}
+				.price {
+					font-weight:700;
+					text-align:left;
+					line-height:1.1;
+					letter-spacing:-1px;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					@include vw(margin-top, 15px);
+					.before {
+						height: 100%;
+						color:#bbb;
+						@include vw(font-size, 40px);
+						text-decoration:line-through;
+					}
+					.after {
+						text-align: right;
+						color:#eb2200;
+						@include vw(font-size, 54px);
+						.num {
+							@include vw(font-size, 77px);
+						}
+					}
+				}
+				.btn-area {
+					font-size:0;
+					line-height:0;
+					text-align: center;
+					@include vw(margin-top, 30px);
+
+					.btn-link {
+						position:absolute;
+						bottom:1.5vw;
+						left:26%;
+						@include vw(width, 290px);
+					}
+				}
+			}
+		}
+
+		#edoContent2 {
+			.ecoCont3 {
+				display: flex !important;
+			}
+		}
+	
+	}
+	
+	.product-sentence {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #1832a3;
+		color: #fff;
+		font-weight: 900;
+		height: 18.67vw;
+		font-size: 7vw;
+		letter-spacing: -1px;
+		text-align: center;
+		
+		
+	}
+
+}
+
+
+@import "module/popup";

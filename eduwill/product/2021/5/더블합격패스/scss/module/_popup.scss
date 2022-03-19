@@ -1,0 +1,70 @@
+.dimmed {
+    display: none;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-color: rgba( 0, 0, 0, .7);
+}
+
+.popup {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 110;
+    display: none;
+    width: 90%;
+    max-width: 720px;
+    letter-spacing: -1px;
+    @include breakpoint(desktop){
+        max-width: 1000px;
+    }
+    * { font-family: $font-noto; }
+    @include translateX(-50%);
+    @include boxSizing(border-box);
+    &-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #cd3a15;
+        @include closeButton(#cd3a15, 20px, 2px, #fff);
+        cursor: pointer;
+        @include breakpoint(desktop){
+            top: -40px;
+        }
+        span { @extend .sr-only; }
+    }
+    .popup-body {
+        @include rem(padding, 25px);
+        text-align: left;
+        line-height: 1.4;
+        @include vw(20px);
+        font-weight: 400;
+        color: #222;
+        border: 2px solid #cd3a15;
+        background-color: #fff;
+    }
+    &-base {
+        .eco-1992,
+        .eco-base {
+            p {
+                display: none;
+                margin: 0;
+                line-height: 1.4;
+                @include vw(20px);
+                font-weight: 400;
+                color: #222;
+                &.survey1,
+                &.compare,
+                &.book { display: block; }
+                @include breakpoint(maxMobile){
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,490 @@
+.ibm {
+    position: relative;
+    display: block;
+    line-height: 1;
+    font-size: 0;
+    word-break: break-word;
+    word-break: keep-all;
+    -webkit-font-smoothing: antialiased;
+    * {
+        line-height: normal; 
+        font-family: $font-noto;
+        @include boxSizing(border-box);
+    }
+    // reset after modify
+    p, h1, h2, h3, h4, h5, h6, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textarea, button, select, option, img, div {
+        margin: 0;
+        padding: 0;
+    }
+    img {
+        vertical-align: top;
+        max-width: 100%;
+        @include breakpoint(maxMobile){
+            max-width: none;
+        }
+    }
+
+    .ibm-inner {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        &[data-ibm-slide] {
+            .ibm-item { margin-top: 0; }
+        }
+        .ibm-item {
+            margin-top: 10px;
+            overflow: hidden;
+            &:first-child,
+            &:only-child { margin-top: 0; }
+        }
+
+        .slick-list {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .slick-list * {
+            outline: none;
+            &:link,
+            &:active,
+            &:hover,
+            &:focus,
+            &:focus-within { outline: none; }
+        }
+        // .slick-slide {
+        //     width: auto !important;
+        //     @include breakpoint(maxMobile){
+        //         width: auto;
+        //     }
+        // }
+        .slick-arrow {
+            // position: absolute;
+            // top: 50%;
+            z-index: map-get($z-index, control);
+            // width: 50px;
+            // height: 50px;
+            // padding: 0;
+            // cursor: pointer;
+            // outline: none;
+            // @include translateY(-50%);
+            // @extend %hidden;
+            // &:before {
+            //     left: 50%;
+            //     margin-left: -5px;
+            // }
+            &.slick-prev {
+                left: 0;
+                @include slideArrow(left, 50px, 50px, 2px, #fff);
+            }
+            &.slick-next {
+                right: 0;
+                @include slideArrow(right, 50px, 50px, 2px, #fff);
+            }
+        }
+        .slick-dots {
+            position: absolute;
+            @include rem(top, 12px);
+            @include rem(right, 12px);
+            li {
+                display: inline-block;
+                @include rem(width, 10px);
+                @include rem(height, 10px);
+                @include rem(margin, 0 8px);
+                border-radius: 50%;
+                background-color: #fff;
+                cursor: pointer;
+                opacity: .5;
+                @include transition(all, .5s);
+                @extend %hidden;
+                @include breakpoint(desktop){
+                    margin: 0 4px;
+                }
+                button {
+                    @extend .sr-only;
+                }
+                &.slick-active {
+                    @include rem(width, 20px);
+                    @include rem(border-radius, 10px);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .ibm-item {
+        position: relative;
+        z-index: 0;
+        width: 100%;
+        text-align: center;
+        //background: url('#{$img-path}/loading.gif') no-repeat center center;
+        background-size: auto 100%;
+        &.ibm-item-video {
+            .ibm-wings:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, .6);
+            }
+        }
+        img {
+            display: inline-block;
+            max-width: 100%;
+            margin: 0 auto;
+            @include breakpoint(maxMobile){
+                max-width: none;
+            }
+        }
+    }
+
+    .ibm-banner {
+        position: relative;
+        display: inline-block;
+        z-index: 2;
+    }
+
+    .ibm-deadline {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        @include rem(padding, 5px 0);
+        font-weight: 900;
+        &.ibm-bottom { top: auto; bottom: 0; }
+        p {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;
+            @include vw(26px);
+            letter-spacing: -1px;
+            @include breakpoint(custom){
+                @include vw(18px);
+            }
+            @include breakpoint(desktop){
+                font-size: 28px;
+            }
+            &.ibm-timer {
+                @include rem(margin, 0 10px);
+                span:first-child em { min-width: auto; }
+            }
+            // &.ibm-text {
+            //     @include rem(padding-top, 4px);
+            //     line-height: normal;
+            //     &.text-1 {
+            //         float: left;
+            //         min-width: 18%;
+            //         text-align: right;
+            //         @include breakpoint(maxMobile){
+            //             min-width: 20%;
+            //         }
+            //     }
+            //     &.text-2 {
+            //         float: right;
+            //         min-width: 19%;
+            //         text-align: left;
+            //         @include breakpoint(maxMobile){
+            //             min-width: 22%;
+            //         }
+            //     }
+            // }
+        }
+        span {
+            line-height: 1;
+            em {
+                display: inline-block;
+                @include rem(min-width, 40px);
+                font-family: $font-roboto;
+                @include vw(30px);
+                @include breakpoint(custom){
+                    @include vw(20px);
+                }
+                @include breakpoint(desktop){
+                    font-size: 34px;
+                }
+                &.unit {
+                    min-width: auto;
+                    font-family: $font-noto;
+                }
+            }
+        }
+    }
+
+    .ibm-customize {
+        .ibm-text-list {
+            position: absolute;
+            top: 0;
+            display: block;
+            height: 100%;
+            &:nth-child(1):nth-last-child(3),
+            &:nth-child(2):nth-last-child(2),
+            &:nth-child(3):nth-last-child(1) { width: calc(100%/3); }
+            &:nth-child(1):nth-last-child(3) { left: 0; }
+            &:nth-child(2):nth-last-child(2) { left: 33.33%; }
+            &:nth-child(3):nth-last-child(1) { left: 66.66%; }
+
+            &:nth-child(1):nth-last-child(2),
+            &:nth-child(2):nth-last-child(1) {
+                width: 50%;
+                &:after { top: 65%; }
+            }
+            &:nth-child(1):nth-last-child(2) { left: 0; }
+            &:nth-child(2):nth-last-child(1) { left: 50%; }
+
+            &:nth-child(1):nth-last-child(1) {
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+            }
+        }
+        .ibm-text {
+            position: absolute;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+    }
+
+    .ibm-links {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        a {
+            position: absolute;
+            top: 0;
+            display: inline-block;
+            height: 100%;
+            &:nth-child(1):nth-last-child(3),
+            &:nth-child(2):nth-last-child(2),
+            &:nth-child(3):nth-last-child(1) { width: calc(100%/3); width: 33.33%; }
+            &:nth-child(1):nth-last-child(3) { left: 0; }
+            &:nth-child(2):nth-last-child(2) { left: 33.33%; }
+            &:nth-child(3):nth-last-child(1) { left: 66.66%; }
+
+            &:nth-child(1):nth-last-child(2),
+            &:nth-child(2):nth-last-child(1) {
+                width: 50%;
+                &:after { top: 65%; }
+            }
+            &:nth-child(1):nth-last-child(2):after { margin-left: 165px; }
+            &:nth-child(2):nth-last-child(1):after { margin-left: 65px; }
+            &:nth-child(1):nth-last-child(2) { left: 0; }
+            &:nth-child(2):nth-last-child(1) { left: 50%; }
+
+            &:nth-child(1):nth-last-child(1) {
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                &:after { margin-left: -140px; }
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 72%;
+                left: 50%;
+                display: none;
+                width: 36px;
+                height: 41px;
+                background: url('#{$img-pointer-path}/icon_pointer_12.png') no-repeat 0 0;
+                background-size: 100% auto;
+                @include animation(pointerBounce, 1s, $iteration: infinite){
+                    0%, 100% { @include translateXY(0, 0); }
+                    50% { @include translateXY(10px, 10px); }
+                }
+                .progress_flow .ibm-layer & {
+                    display: block;
+                    top: 90%;
+                    left: 75%;
+                    margin-left: 0;
+                }
+            }
+
+            &:not(a[target]) {
+                &:after { display: none !important; }
+            }
+        }
+    }
+
+    .ibm-action {
+        font-size: 0;
+        a {
+            display: inline-block;
+            text-align: center;
+            @include vw(26px);
+            color: #000;
+            @include breakpoint(desktop){
+                font-size: 13px;
+            }
+            span {
+                position: relative;
+                display: block;
+                line-height: 1;
+            }
+        }
+    }
+
+    .ibm-wings {
+        div {
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: map-get($z-index, wings);
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center top;
+            background-size: cover;
+            &:nth-child(1):nth-last-child(2),
+            &:nth-child(2):nth-last-child(1) { width: 50%; }
+            &:nth-child(1):nth-last-child(2) { left: 0; }
+            &:nth-child(2):nth-last-child(1) { left: 50%; }
+
+            &:nth-child(1):nth-last-child(1) { left: 0; width: 100%; }
+        }
+        video { 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 1;
+            width: auto;
+            height: auto;
+            min-width: 100%;
+            min-height: 100%;
+            background-color: #000;
+            @include translateXY(-50%, -50%);
+        }
+    }
+
+    .ibm-dim {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: none;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .7);
+    }
+
+    .ibm-close {
+        z-index: map-get($z-index, close);
+        display: block;
+    }
+    // 과정메인 메인 슬라이드
+    .main-slide & {
+        height: 542px;
+        background: #f9f9f9 url('//img.eduwill.net/resources/common/web/images/loader/loading.gif') no-repeat center center;
+        background-size: auto;
+        .ibm-wrap,
+        .ibm-inner,
+        .ibm-item { height: 542px; }
+        .ibm-inner {
+            .slick-dots {
+                top: auto;
+                @include rem(bottom, 60px);
+                left: 0;
+                @include breakpoint(desktop){
+                    bottom: 10%;
+                }
+                li {
+                    width: 20px;
+                    height: 20px;
+                    background-color: #666;
+                    opacity: 1;
+                    &.slick-active { background-color: #fff; }
+                }
+            }
+        }
+        .ibm-wings {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 542px;
+            overflow: hidden;
+        }
+        .ibm-links a {
+            height: 542px;
+            &:after { display: block; top: 73%; }
+            &:nth-child(1):nth-last-child(2):after,
+            &:nth-child(2):nth-last-child(1):after { top: 73%; }
+        }
+        .ibm-item-video {
+            .ibm-links a:nth-child(1):nth-last-child(1):after {
+                top: 360px;
+                margin-left: 200px;
+            }
+        }
+        .ibm-item-video {
+            .ibm-links a:nth-child(1):nth-last-child(2):after,
+            .ibm-links a:nth-child(2):nth-last-child(1):after { top: 65%; }
+        }
+    }
+    .main-slide .slideRight-banner & {
+        height: auto;
+        background: none;
+        .ibm-wrap,
+        .ibm-inner,
+        .ibm-item { height: auto; }
+        .ibm-wings { height: auto; }
+        .ibm-links a { height: auto; }
+    }
+    // 전기기사 대방학원
+    .dbq .main-slide & {
+        .ibm-links a {
+            &:after { display: none; }
+        }
+        .ibm-item-video {
+            .ibm-links a {
+                &:after { display: block; }
+                &:nth-child(1):nth-last-child(2):after,
+                &:nth-child(2):nth-last-child(1):after { top: 65%; }
+            }
+        }
+
+    }
+
+    .invest .main-slide &,
+    .kor .main-slide & {
+        .ibm-item-video {
+            .ibm-links a:nth-child(1):nth-last-child(2):after,
+            .ibm-links a:nth-child(2):nth-last-child(1):after { top: 68%; }
+            // .ibm-links a:nth-child(1):nth-last-child(2) { width: 64%; }
+            // .ibm-links a:nth-child(2):nth-last-child(1) { left: 64%; width: 36%; }
+            // .ibm-links a:nth-child(1):nth-last-child(2):after { margin-left: 285px; }
+            // .ibm-links a:nth-child(2):nth-last-child(1):after { margin-left: -50px; }
+            .ibm-links a:nth-child(1):nth-last-child(2):after { margin-left: 210px; }
+        }
+    }
+
+    .trade .main-slide & {
+        .ibm-item-video {
+            .ibm-links a:nth-child(1):nth-last-child(2):after,
+            .ibm-links a:nth-child(2):nth-last-child(1):after { top: 72%; }
+            // .ibm-links a:nth-child(1):nth-last-child(2) { width: 64%; }
+            // .ibm-links a:nth-child(2):nth-last-child(1) { left: 64%; width: 36%; }
+            // .ibm-links a:nth-child(1):nth-last-child(2):after { margin-left: 285px; }
+            // .ibm-links a:nth-child(2):nth-last-child(1):after { margin-left: -50px; }
+            .ibm-links a:nth-child(1):nth-last-child(2):after { margin-left: 210px; }
+        }
+    }
+    .trade .main-slide & {
+        .ibm-links a:nth-child(1):nth-last-child(2):after,
+        .ibm-links a:nth-child(2):nth-last-child(1):after { top: 75%; }
+    }
+}

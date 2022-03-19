@@ -1,0 +1,446 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+
+#fixApply{
+	display:none !important;
+}
+.product {
+    &-eco {
+        line-height: normal;
+        letter-spacing: -1px;
+        * { font-family: $font-noto; }
+        p {
+            line-height: inherit;
+            font-size: inherit;
+            color: inherit;
+        }
+        .container {
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+        .wrap {
+            position: relative;
+            width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+            &-full {
+                width: 100%;
+			}
+			.content{
+				position: relative;
+			}
+		}
+        .btn {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            @include boxSizing(border-box);
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 50%;
+                right: 0;
+                width: 66px;
+                height: 73px;
+				background: url('#{$img-common-path}/icon/pointer/icon_pointer_1.png') no-repeat 0 0;
+				background-size:contain;
+                @include animation(bounce2, 1s, $iteration: infinite){
+					0%, 100% { @include translateXY(0, 0); }
+					50% { @include translateXY(10px, 10px); }
+                }
+            }
+		}
+		.slick-arrow {
+            position: absolute;
+            top: 50%;
+            z-index: 10;
+            width: 17px;
+            height: 35px;
+            margin-top: -17.5px;
+            border: none;
+            font-size: 0;
+            text-indent: -9999px;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            outline: none;
+            cursor: pointer;
+            &.slick-prev { left: 0; background-image: url('https://img.eduwill.net/resources/img/public/product/201215/pc/btn_prev.png'); }
+            &.slick-next { right: 0; background-image: url('https://img.eduwill.net/resources/img/public/product/201215/pc/btn_next.png'); }
+        }
+		.circle-red{
+			position: absolute;
+			top:0;
+			right:0;
+			z-index:7;
+			width:150px;
+			height:150px;
+			border-radius:75px;
+			display:table;
+			background:#eb3c28;
+			box-shadow: 3px 5px 8px 3px rgba(0, 0, 0, 0.2);
+			@include animation(bounce, 1s, $iteration: infinite){
+				0%, 100% { @include translateY(0); }
+				50% { @include translateY(10px); }
+			}
+			> span{
+				display:table-cell;
+				vertical-align: middle;
+				text-align: center;
+				color:#fff;
+				font-size: 26px;
+				font-weight:900;
+				line-height:1.4;
+			}
+		}
+		.bottom-banner{
+			position: fixed;
+			top:auto;
+			bottom:0;
+			left:0;
+			right:0;
+			z-index:10;
+			width:100%;
+			background:#292e33;
+			.wrap {
+				.logo{
+					position: absolute;
+					bottom:10px;
+					left:49px;
+				}
+				.action{
+					top:17px;
+					right:48px;
+				}
+			}
+			.flag{
+				span{
+					border:2px solid #fff;
+					border-radius:30px;
+					color:#fff;
+					padding:5px 13px;
+					font-size:19px;
+					font-weight:600;
+				}
+			}
+			.warn{
+				span{
+					color:#fdd000;
+					font-size: 18px;
+					font-weight:700;
+				}
+			}
+			.action{
+				position: absolute;
+				top:9px;
+				right:0;
+				a{
+					&:after{
+						top:20%;
+						right:-10%;
+					}
+				}
+			}
+		}
+		.left-banner{
+			position: fixed;
+            top: 340px;
+            left: 50%;
+            z-index: 10;
+            margin-left: -755px;
+		}
+        .right-banner {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            z-index: 10;
+            margin-left: 550px;
+		}
+    }
+    &-title {
+        background-color: #dfefff;
+        background-image: url('https://img.eduwill.net/resources/img/public/product/201215/pc/bg_title.jpg');
+		background-size: cover;
+		a.baselayer{
+			position: absolute;
+			top:207px;
+			right:50px;
+		}
+		.action{
+			position: absolute;
+			top:1139px;
+			left:0;
+			right:0;
+			margin:0 auto;
+		}
+	}
+	&-text-banner{
+		background:#102c59;
+		.wrap{
+			&:after{
+				content:'';
+				position: absolute;
+				left:0;
+				right:0;
+				margin:0 auto;
+				bottom:-51px;
+				background: url('https://img.eduwill.net/resources/img/public/product/201215/pc/bg_text_banner.png') no-repeat 50% 0;
+				background-size: cover;
+				width:141px;
+				height:51px;
+				z-index:7;
+			}
+		}
+	}
+
+
+    &-price-zone{
+		&.second{ background:#f7f7f7; }
+		background: #f7f7f7 url('https://img.eduwill.net/resources/img/public/product/201215/pc/bg_pricezone.png') no-repeat 50% 0;
+		background-size:cover;
+		padding-top: 98px;
+		padding-bottom: 200px;
+		.action{
+			position: relative;
+			right:50px;
+			text-align: right;
+			margin-bottom: 14px;
+			a{
+				&:first-child{
+					margin-right: 5px;
+				}
+			}
+		}
+        .price-box {
+			@extend .grid;
+			margin:0 auto;
+			padding:0 50px;
+            .box {
+				@extend .col;
+				text-align: left;
+				width:100%;
+				padding: 43px 0 0 43px;
+				position: relative;
+				background-color: #fff;
+				box-shadow: 3px 5px 8px 3px rgba(0, 0, 0, 0.2);
+                &-1 {
+					border:5px solid #102c59;
+					border-right:none;
+					.action{ background:#102c59;}
+				}
+            }
+			.holder{
+				width:680px;
+				padding-bottom: 35px;
+				@include boxSizing(border-box);
+				@extend .grid;
+			}
+			.title-label{
+				position: absolute;
+				top: -28px;
+				left: 20px;
+				padding: 4px 20px;
+				background: #ffde00;
+				color: #000;
+				font-size: 24px;
+				font-weight: 600;
+				border-radius: 20px;
+			}
+            .title-list {
+				@extend .col;
+				line-height:1;
+				width:55%;
+                font-size: 26px;
+                font-weight: 500;
+				color: #000;
+				letter-spacing: -3px;
+				text-align: left;
+				strong{
+					font-size: 50px;
+					display:inline-block;
+					padding-bottom: 18px;
+				}
+            }
+            .price-list {
+				@extend .col;
+				width:45%;
+				line-height: 1;
+				text-align: left;
+                .price-before {
+                    strong {
+                        position: relative;
+                        display: block;
+                        font-size: 30px;
+                        font-weight: 400;
+						color: #828282;
+						em{
+							font-size: 40px;
+							font-family: 'Roboto';
+						}
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            top: 50%;
+                            right: 0;
+                            left: 0;
+                            width: 213px;
+                            height: 21px;
+                            background: url('https://img.eduwill.net/resources/img/public/product/201215/pc/icon_arrow.png') no-repeat 0 0;
+                        }
+                    }
+                }
+                .price-after {
+                    font-size: 40px;
+                    font-weight: 700;
+					color: #eb3c28;
+					padding-top: 20px;
+					em{
+						font-size: 60px;
+						line-height:1;
+						font-family: 'Roboto';
+					}
+                }
+			}
+			.action{
+				position: absolute;
+				top:0;
+				right:0;
+				left:auto;
+				bottom:0;
+				width:272px;
+				height:100%;
+				display:table;
+				a{
+					display:table-cell;
+					vertical-align: middle;
+					text-align: center;
+					color:#fff;
+					font-weight:700;
+					font-size: 34px;
+					em{
+						color:#ffde00;
+					}
+					&:after{
+						right:-10%;
+					}
+				}
+			}
+        }
+ 
+	}
+	&-pass {
+        padding: 30px 0 60px 0;
+		background: #fdd000 url('https://img.eduwill.net/resources/img/public/product/201215//pc/bg_logoslide.jpg') no-repeat 50% 0;
+		background-size:cover;
+        .wrap { @extend %clearfix; }
+        .slider-box {
+            float: left;
+            @include boxSizing(border-box);
+            width: 800px;
+			height: 560px;
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                right: 0;
+                left: 0;
+                z-index: 1;
+                display: block;
+                width: 100%;
+                height: 150px;
+                background: transparent;
+            }
+            &:before { top: 0; background: linear-gradient(0deg, rgba(253,208,0,.1) 0%, rgba(253,208,0,1) 100%); }
+            &:after { bottom: 0; background: linear-gradient(0deg, rgba(253,208,0,1) 0%, rgba(253,208,0,.1) 100%); }
+            .slider-logo { height: 100%; }
+            .slick-list {
+                height: 100% !important;
+                .logo {
+                    display: table;
+                    height: 80px;
+                }
+                p {
+                    display: table-cell;
+                    vertical-align: middle;
+                    text-align: left;
+                    font-size: 17px;
+					&:nth-child(2){ padding-left: 15px; min-width:200px; }
+					&:nth-child(3){ padding-left: 20px; }
+                    &:nth-child(4){ padding-left: 15px; min-width:200px; }
+                }
+            }
+        }
+        .text-box {
+			position: absolute;
+			top:200px;
+			right:0;
+			font-size: 45px;
+			color:#222;
+			font-weight:700;
+			text-align: left;
+			letter-spacing: -3px;
+        }
+	}
+	&-service{
+		.carousel-box{
+			position: absolute;
+			top:60px;
+			left:0;
+			right:0;
+			margin:0 auto;
+			.carousel-slide{
+				width:100%;
+				height:725px;
+			}
+		}
+	}
+	&-book{
+		background:#fff;
+        .circle-red {
+			top:174px;
+			&.first{
+				left:312px;
+				right:auto;
+			}
+			&.second{
+				right:75px;
+				left:auto;
+			}
+		}
+	}
+	&-benefit{
+		background:#e6f2ff;
+		.baselayer{
+			position: absolute;
+			top:222px;
+			right:4px;
+		}
+	}
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

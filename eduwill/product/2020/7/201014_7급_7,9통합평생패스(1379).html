@@ -1,0 +1,530 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ko">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+<title>자동화 페이지</title>
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Gov2/Common/Css/Main_20140204.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/template.css" /><!-- Content Template -->
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Product/goods/auto/apply_common.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="https://www.eduwill.net/Common/event/freebook/naver/jquery.bxslider.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/gnb_alarm.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jQuery/plugin/scrollfix.js"></script> 
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+<body>
+<!-- body 내만 작업 -->
+
+<link rel="stylesheet" href="https://www.eduwill.net/Common/js/jQuery/bxslider/jquery.bxslider.css"><!-- bxSlider CSS file -->
+<style>
+	/* common */
+    .product-eco { position:relative;}
+    .product-eco .pc-only{display: block;}
+    .product-eco .mobile-only{display: none;}
+    .product-eco *,.product-eco :before,.product-eco :after{font-family:'Noto Sans KR',Sans-Serif;letter-spacing:-1px;font-weight:400;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}
+	.sr-only { position: absolute; z-index: -1; clip: rect(0 0 0 0); display: inline-block; width: 1px; height: 1px; *height: 0; margin: -1px; padding: 0; overflow: hidden; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }
+
+	.product-eco .bx-wrapper { margin: 0 auto !important; } 
+	.product-eco .bx-wrapper .bx-viewport { background: none; box-shadow: none; border: 0;left: 0;} 
+	.product-eco .bx-wrapper img { display: inline; } 
+    .product-eco .bx-wrapper .bx-controls-direction a{width:65px;height:65px;margin-top:0;transform:translate(0,-50%)}
+    .bx-wrapper .bx-prev{left: -30px;background: url('https://img.eduwill.net/Img2/7even/product/event/201014/pc/prev.png') no-repeat 50% 0 } 
+    .bx-wrapper .bx-next{right: -35px; background: url('https://img.eduwill.net/Img2/7even/product/event/201014/pc/next.png') no-repeat 50% 0 } 
+    .bx-wrapper .bx-next:hover {background-position: 0px 0px;}
+
+	/* hidden */
+	.product-eco .sr_only { display: inline-block; position: absolute; z-index: -1; clip: rect(0 0 0 0); width: 1px; height: 1px; *height: 0; margin: -1px; padding: 0; overflow: hidden; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }
+	/* Grid System */
+	.product-eco .grid { position: relative; *zoom: 1; -webkit-box-sizing: border-box; box-sizing: border-box; }
+	.product-eco .grid:before,
+	.product-eco .grid:after { content: ''; display: table; }
+	.product-eco .grid:after { clear: both; }
+	.product-eco .grid .col { float: left; -webkit-box-sizing: border-box; box-sizing: border-box; }
+	/* contents */
+	.product-eco .section { position: relative; width: 100%; min-width: 1200px;}
+	.product-eco .section .wrap { position: relative; width: 1100px; margin: 0 auto; }
+    .product-eco .section .article { position:relative;}
+    
+    .product-eco .action{margin-top:35px}
+    .product-eco [class*="section"] .title{position:absolute;font-size:40px;color:#000;margin:0;line-height:1.2;text-align:left;letter-spacing:-3px}
+    .product-eco [class*="section"] .title span{display:block;letter-spacing:inherit}
+   
+    .product-eco .section-title{height:1069px;background:url(https://img.eduwill.net/Img2/7even/product/event/201014/pc/bg_title.jpg) no-repeat 50% 0;  background-size: cover; margin-bottom: 255px;}
+    .product-eco .section-title .text{position:absolute;top:882px;left:860px}
+    .product-eco .section-title .text p{font-size:30px;color:#0400a0;font-weight:800;text-align:left;letter-spacing:-3px;width:95%;word-break:keep-all}
+    .product-eco .section-title .ico{position:absolute;top:525px;left:770px}
+    .product-eco .section-title .noti{position:absolute;right:3px;top:91.5%}
+    .product-eco .section-title .noti p{margin:3px 0;color:#c9c9c9;font-size:15px;letter-spacing:-1.5px;text-align:right}
+
+   
+    .product-eco .section-benefit a{position:absolute;top:341px;left:50%;margin-left:-240px}
+    .product-eco .section-benefit a:after{content:'';display:block;position:absolute;top:47px;right:5px;width:37px;height:39px;animation:bounce 1s infinite both;background:url(https://img.eduwill.net/Img2/7even/product/event/201014/pc/pointer.png) 0 0 no-repeat}
+    .product-eco .section-benefit .title{font-weight:800;left:80px;top:-10px}
+    .product-eco .section-benefit .title span{color:#2d26b4;font-weight:inherit}
+   
+    .product-eco .section-graph{background:url(https://img.eduwill.net/Img2/7even/product/event/201014/pc/bg_diagonal.jpg) no-repeat 50% 0}
+   
+    .product-eco .section-winner{padding-bottom:162px;background:#fff url(https://img.eduwill.net/Img2/7even/product/event/201014/pc/bg_table.png) 50% 61% no-repeat}
+    .product-eco .section-winner .winner-title{padding:84px 0 0}
+    .product-eco .section-winner .movie_wrap{position:relative}
+    .product-eco .section-winner .movie_wrap .movie{position:relative;margin:auto;width:835px;height:470px;-webkit-box-shadow:0 10px 30px 0 rgba(0,0,0,0.4);-moz-box-shadow:0 10px 30px 0 rgba(0,0,0,0.4);box-shadow:0 10px 30px 0 rgba(0,0,0,0.4)}
+    .product-eco .section-winner .movie_wrap .movie .move_click1{z-index:10;display:block;position:absolute;top:0;left:0}
+    .product-eco .review-wrap{margin:85px auto 0 auto; width:1000px; }
+    .product-eco .section-winner .bx-viewport{border:4px solid #e6e6e6}
+    .product-eco .section-winner .review_slider li{position:relative;padding:60px 55px;width:1000px !important;height:256px;background:#fff;box-sizing:border-box}
+    .product-eco .section-winner .review_slider li p{margin:0;padding:0;text-align:left;font-size:24px;word-break:keep-all;color:#222;font-weight:400;line-height:1.5;letter-spacing:-1px;font-family:'Noto Sans KR',Sans-Serif}
+    .product-eco .section-winner .review_slider li p span{font-weight:700;position:relative;z-index:1}
+    .product-eco .section-winner .review_slider li p.name{position:absolute;bottom:30px;right:25px;text-align:right;font-size:18px;font-weight:400;color:#222}
+    @keyframes bounce {
+    0%,100%{-webkit-transform:translateY(5px);transform:translateY(5px)}
+    50%{-webkit-transform:translateY(-5px);transform:translateY(-5px)}
+    }
+   
+    .product-eco .section-price .price{position: relative ; margin-bottom:100px;}
+    .product-eco .section-price .price .sale{position:absolute;bottom:0;left:277px}
+    .product-eco .section-price .price .sale .col{position:relative;width:272px;height:255px;padding:35px 0 53px;margin-right:2px}
+    .product-eco .section-price .price .origin,.product-eco .section-price .price .disc{margin:0;line-height:1.1;color:#000}
+    .product-eco .section-price .price .origin{font-size:24px;font-weight:700}
+    .product-eco .section-price .price .disc{font-size:40px;color:#352eb9;font-weight:700}
+    .product-eco .section-price .price em,.product-eco .section-price .price span{font-weight:inherit}
+    .product-eco .section-price .price .sale .flag{color:#fff;background:#000;font-size:15px;width:75px;padding:4px;position:absolute;top:0;left:0;font-weight:600}
+    .product-eco .section-price .price .sale .flag span{animation:flagChange 1s infinite}
+    @-webkit-keyframes flagChange {
+    0%,100%{opacity:1}
+    50%{opacity:0}
+    }
+    @keyframes flagChange {
+    0%,100%{opacity:1}
+    50%{opacity:0}
+    }
+    .product-eco .section-price .price .sale .action{position:absolute;left:50%;bottom:55px;transform:translate(-50%,0)}
+    .product-eco .section-price .price .sale .action:after{content:'';position:absolute;z-index:1;display:block;bottom:-10px;right:-10px;width:53px;height:63px;background:url(https://img.eduwill.net/Img2/license/Product/event_new/191118/pc/icon_cursor.png) no-repeat 50% 0;background-size:contain;-webkit-animation:.35s jump ease-in-out infinite alternate;animation:.35s jump ease-in-out infinite alternate}
+    @-webkit-keyframes jump {
+    0%{-webkit-transform:scale(1);transform:scale(1)}
+    100%{-webkit-transform:scale(0.95);transform:scale(0.95)}
+    }
+    @keyframes jump {
+    0%{-webkit-transform:scale(1);transform:scale(1)}
+    100%{-webkit-transform:scale(0.95);transform:scale(0.95)}
+    }
+
+    .product-eco .section_subTitle{background-color:#04009f}
+   
+    .product-eco .section02{padding-bottom:65px}
+   
+    .product-eco .section05{background:url(https://img.eduwill.net/Img2/7even/product/event/201014/pc/bg_diagonal.jpg) no-repeat 50% 0}
+   
+    .product-eco .section06{padding-bottom:95px}
+    .product-eco .section06 .title{top:62px;left:48px}
+    .product-eco .section06 .title span{font-weight:700;}
+   
+    .product-eco .section07{padding-bottom:100px}
+    .product-eco .section07 .tab{width:1000px;margin:0 auto}
+    .product-eco .section07 .tab .text{margin-top:70px}
+    .product-eco .section07 .tab-list{margin-bottom:20px}
+    .product-eco .section07 .tab-list:after{content:'';display:block;clear:both}
+    .product-eco .section07 .tab-list li{float:left;width:246px;height:65px;margin-left:5px;border-radius:6px 6px 0 0;border:6px solid #d3d3d3}
+    .product-eco .section07 .tab-list li:first-child{margin-left:0}
+    .product-eco .section07 .tab-list li a{display:table;width:100%;height:100%}
+    .product-eco .section07 .tab-list li span{color:#000;display:table-cell;vertical-align:middle;font-size:24px;font-weight:300;letter-spacing:-1px}
+    .product-eco .section07 .tab-list li span strong{font-weight:700;letter-spacing:-1px}
+    .product-eco .section07 .tab-list li.on{border:6px solid #f4d972}
+    .product-eco .section07 .tab-view{display:none;border-radius:0 0 6px 6px;overflow:hidden}
+   
+    .product-eco .section08{position:relative;width:100%;background:url(https://img.eduwill.net/Img2/7even/product/event/201014/pc/bg_diagonal.jpg) no-repeat 50% 0}
+    .product-eco .section08 .action{position:absolute;bottom:200px;right:240px}
+    .product-eco .section08 .bx-wrapper .bx-prev{left:0}
+    .product-eco .section08 .bx-wrapper .bx-next{right:0}
+    .product-eco .section08 .bx-wrapper{position:relative;width:1000px}
+    .product-eco .section08 .bx-wrapper .bx-viewport{box-shadow:none;border:none;left:0;height:830px!important}
+   
+    .product-eco .power_slider > a .motion{width:1100px;position:relative;margin:0 auto}
+    .product-eco .power_slider span{display:block;opacity:0;-webkit-transition:all .55s ease-in-out;transition:all .65s ease-in-out}
+    .product-eco .power_slider span.left_con{position:absolute;-webkit-transform:translateX(-600px) translateY(0);transform:translateX(-600px) translateY(0);z-index:4}
+    .product-eco .power_slider span.right_con{position:absolute;-webkit-transform:translateX(600px) translateY(0);transform:translateX(600px) translateY(0);z-index:3}
+    .product-eco .power_slider .active span{opacity:1;-webkit-transform:translateX(0) translateY(0);transform:translateX(0) translateY(0)}
+    .product-eco .power_slider span.left_con{left:80px;right:auto;top:80px}
+    .product-eco .power_slider span.right_con{left:auto;right:90px;top:0;display:block;height:700px;width:450px}
+    .product-eco .power_slider span.right_con img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+    .product-eco .bx-pager{position:absolute;left:50%;right:auto;top:606px;height:18px;padding-top:0;text-align:left;z-index:999999;width:1100px;margin-left:-555px}
+    .product-eco .bx-pager-item{display:inline-block;overflow:hidden;margin:0;vertical-align:top}
+    .product-eco .bx-pager-item > a{display:block;width:12px;height:12px;margin:0;background:#4a4a59;-webkit-border-radius:6px;border-radius:6px;text-indent:-100000px;text-indent:0;white-space:nowrap;text-shadow:none;color:transparent;-webkit-transition:all .2s ease-in-out;transition:all .2s ease-in-out}
+    .product-eco .bx-pager-item > a.active{width:50px;background:#fff}
+
+    .product-eco .section09{padding-bottom:120px}
+
+    .product-eco .section_apply{background-color:#04009f}
+    .product-eco .section_apply .noti{position:absolute;bottom:13%;left:40%}
+    .product-eco .section_apply .noti p{font-size:16px;color:rgba(255, 255, 255, 0.5);font-weight:100;letter-spacing:-2px}
+
+    .product-eco .floating{position:fixed;right:0;top:400px;z-index:3000;width:202px}
+</style>
+<!-- 상품컨텐츠 -->
+<div class="product-eco">
+    <div class="top-banner" style="text-align: center; background-color: #fff000;">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/Img2/Common/Banner/topBanner/pc/200922/top_banner_seven.png" alt="공무원 1위 에듀윌 합격자 수 215% 증가!">
+        </div>
+    </div>
+    <!-- <div class="eco-topBanner"></div> -->
+
+	<div class="section section-title">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/title.png" alt="7급 평생패스">
+            <img class="ico" src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/ico_plus.png" alt="플러스">
+            
+            <div class="text">
+                <!-- <p>2022년까지 합격 시 100% 환급**</p> -->
+                <p>언제든 합격 시 100% 환급**</p>
+            </div>
+
+            <div class="noti">
+                <p>**  제세공과금 22% 제외</p>
+                <p>*20.01.17 온라인 학습관리 서비스 기준</p>
+            </div>
+        </div>
+	</div>
+    <!-- // title -->
+    
+    <!-- <div class="eco-event"></div> -->
+    <div class="eco-onair"></div>
+
+	<div class="section section-benefit">
+		<div class="wrap">
+            <p class="title">
+                지금 수강하고 87만원 상당의 <span>합격 4종 혜택까지 무료로 누리세요!</span>
+            </p>
+			<img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/benefit.jpg" alt="지금 수강하고 00만원 상당의 합격 4종 혜택까지 무료로 누리세요!" />
+		</div>
+    </div>
+    
+	<div class="section section-graph">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/graph.png" alt="에듀윌 7급 패스 매출 188% 성장! 애써 말하지 않아도 수험생이 직접 전합니다." />
+		</div>
+	</div>
+
+	<div class="section section-winner">
+		<div class="wrap">
+				<img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/winner_title.jpg" alt="6개월 만에 3관왕 달성! 에듀윌 7급 평생패스의 퀄리티, 합격생이 증명합니다" />
+            
+			<div class="movie_wrap">
+                <div class="movie">
+                    <a href="#" class="move_click1">
+                        <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/movie_thum.png" alt="영상보기 클릭" />
+                    </a>
+                    <iframe id="mvi" src='' frameborder='no' scrolling='no' marginwidth='0' marginheight='0' width='100%' height='100%' allow='autoplay' allowfullscreen></iframe>
+                </div>
+        
+			</div><!-- // movie_wrap -->
+
+			<div class="review-wrap">
+				<ul class="review_slider">
+					<li>
+						<p>"개인적으로 "1타강사"라는 타이틀보다는 <span>"얼마나 다양한 강의를 배속과 횟수 제한 없이 볼 수 있는가"를 우선시했습니다.</span>"</p>
+						<p class="name">
+							- 7급 합격생  이**
+						</p>
+					</li>
+					<li>
+						<p>"에듀윌은 기본서도 다 알아서 배송이 되고, <span>1:1 컨설턴트처럼 관리</span>를 해주신다고 해서 본격적으로 마음을 잡고 시작하게 된 것 같습니다."</p>
+						<p class="name">
+							- 7급 합격생 박**
+						</p>
+					</li>
+					<li>
+						<p>"특히 한국사는 <span>신형철 선생님의 그 글씨만큼이나 깔끔한 강의 덕분에 말 그대로 효자과목이었습니다.</span> 강의 때마다 그토록 가보라던 국립중앙박물관, 꼭 가보겠습니다."</p>
+						<p class="name">
+							- 7급 합격생 고**
+						</p>
+					</li>
+					<li>
+						<p>"김욱 교수님의 강의는 명쾌했습니다. <span>주요 판례나 법은 정확히 외우시고 반복해서 설명</span>해주신 덕분에 중요한 내용이 무엇인지를 알게되고, 굳이 외우려고 하지 않아도 잘 외워졌습니다." </p>
+						<p class="name">
+							- 7급 합격생 김**
+						</p>
+					</li>
+					<li>
+						<p>"기본서 회독은 에듀윌에서 제공해 준 진도표에 따라서 했습니다. 처음에는 전혀 무슨 소리인지 모르겠던 것들이 <span>회독과 반복이 계속되니 점차 이해하고 잘 외워졌고 맞추는 문제 수도 점점 늘었습니다."</span></p>
+						<p class="name">
+							- 7급 합격생 김**
+						</p>
+					</li>
+				</ul>
+            </div><!-- // review-wrap -->
+            
+            <div class="action">
+                <a href="https://event.eduwill.net/Event/2019/7/Gov_VictoryStory#/" target="_blank">
+                    <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/btn_reivew.png" alt="더 많은 합격 수기 보러가기">
+                </a>
+            </div>
+		</div>
+    </div>
+    
+    <div class="section section-price">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/price_title.jpg" alt="수치로 증명된 에듀윌 합격 노하우 이제 여러분이 경험할 차례입니다.">
+            <div class="eco-price"></div>
+            <!-- <div class="price">
+                <img class="pc-only" src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/price.png" alt="7급 평생패스/7,9급 통합 평생패스/7급 1+1 합격패스">
+                <div class="grid sale">
+                    <div class="col">
+                        <div class="flag"><span>오늘마감</span></div>
+                        <p class="origin"><span class="sr-only">정가</span>1,090,000<span>원</span></p>
+                        <p class="disc"><span class="sr-only">할인가</span><em>990,000<span>원</span></em></p>
+                        <div class="action">
+                            <a href="#productApply" class="page_move page-move">
+                               <img class="pc-only" src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/btn_price.png"  alt="할인받고 수강신청">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="flag"><span>10일한정</span></div>
+                        <p class="origin"><span class="sr-only">정가</span>1,140,000<span>원</span></p>
+                        <p class="disc"><span class="sr-only">할인가</span><em>1,040,000<span>원</span></em></p>
+                        <div class="action">
+                            <a href="#productApply" class="page_move page-move">
+                               <img class="pc-only" src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/btn_price.png"  alt="할인받고 수강신청">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <p class="origin"><span class="sr-only">정가</span>990,000<span>원</span></p>
+                        <p class="disc"><span class="sr-only">할인가</span><em>890,000<span>원</span></em></p>
+                        <div class="action">
+                            <a href="https://seven.eduwill.net/Common/Product/goods/auto/index.asp?masterSeq=MTg1NjE=&amp;histYn" target="_blank">
+                               <img class="pc-only" src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/btn_price.png"  alt="할인받고 수강신청">
+                            </a>
+                        </div>
+                    </div>
+                 </div>
+             </div> -->
+        </div>
+    </div>
+
+	<div class="section section_subTitle">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/sub_title.jpg" alt="10가지 합격전략으로 더욱 견고해진 All NEW 7급 평생패스를 소개합니다.">
+		</div>
+	</div>
+
+	<div class="section section01">
+		<div class="article nth_01">
+			<div class="wrap">
+				<img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/img_01.jpg" alt="합격전략01. 합격할 때까지 필요한 만큼 대비하도록 전교수진, 전강좌 무제한 수강" />
+			</div>
+		</div>
+	</div>
+
+	<div class="section section02">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/img_02.jpg" alt="합격전략02. 처음 도입되는 7급 PSAT, 남들보다 앞선 시작 격이 다른 전문 PSAT 교수진" />
+            
+            <div class="action">
+                <a href="https://event.eduwill.net/Simple/7/NewPSAT_200429_7" target="_blank">
+                    <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/btn_section02.png" alt="PSAT 전문 교수진의 합격전략 확인하기">
+                </a>
+            </div>
+        </div>
+	</div>
+
+	<div class="section section03">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/img_03.jpg" alt="합격전략03. 따로 준비하면 번거로운 검정시험까지 에듀윌에선 모두 무료제공" />
+		</div>
+	</div>
+
+	<div class="section section04">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/img_04.jpg" alt="합격전략04. 합격생의 100%가 선택한 평생패스 8회독 커리큘럼" />
+		</div>
+	</div>
+
+	<div class="section section05">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/img_05.png" alt="합격전략05. 회독 맞춤형 교재로 효율적인 학습이 가능한 베스트셀러 1위 수험서" />
+		</div>
+	</div>
+
+	<div class="section section06">
+		<div class="wrap">
+            <p class="title"><em class="eco-section06-title"></em> 문제로 매일매일 실전대비<span>에듀윌 문풀훈련소</span></p>
+            <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/img_06.jpg" alt="고퀄리티 문항, 1대1 맞춤훈련, 간편한 오답노트, 자투리 시간 활용가능" />
+            <div class="action">
+                <a href="https://puri.eduwill.net/qs/intro/7" target="_blank">
+                    <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/btn_section06.png" alt="문풀훈련소 더 알아보기">
+                </a>
+            </div>
+		</div>
+	</div>
+
+	<div class="section section07">
+		<div class="wrap">
+            <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/img_07.jpg" alt="합격전략07. 혼자 하지 마세요, 합격까지 함께하는 업계유일 1대1코칭 시스템" />
+
+            <div class="holder tab">
+                <div class="tab-box">
+                    <ul class="tab-list">
+                        <li class="on"><a href="javascript:;"><span><strong>#초시생필수</strong></span></a></li>
+                        <li><a href="javascript:;"><span><strong>#슬럼프퇴치</strong></span></a></li>
+                        <li><a href="javascript:;"><span><strong>#꿀팁전문가</strong></span></a></li>
+                        <li><a href="javascript:;"><span><strong>#합격전략가</strong></span></a></li>
+                    </ul>
+                    <div class="tab-view" style="display: block;">
+                        <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/tab01.jpg" alt="강재민 교수">
+                    </div>
+                    <div class="tab-view">
+                        <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/tab02.jpg" alt="최주영 교수">
+                    </div>
+                    <div class="tab-view">
+                        <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/tab03.jpg" alt="황사빈 교수">
+                    </div>
+                    <div class="tab-view">
+                        <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/tab04.jpg" alt="김기만 교수">
+                    </div>
+                </div>
+            </div>
+
+            <div class="action">
+                <a href="https://event.eduwill.net/Simple/7/Smart_200131?eco=15" target="_blank">
+                    <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/btn_section07.png" alt="1대1 코칭 시스템 더 알아보기">
+                </a>
+            </div>
+		</div>
+	</div>
+
+    <div class="section section08_title">
+		<div class="wrap">
+            <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/img_08.jpg" alt="합격전략08. 결국 끝까지 해내는 힘 에듀윌 합격생활" />
+        </div>
+    </div>
+
+	<div class="section section08">
+		<div class="wrap">
+            <div class="power_slider">
+                <div class="motion">
+                    <span class="left_con"><img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/phone01.png" alt="슬라이드01" /></span>
+                    <span class="right_con"><img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/txt_1.png" alt="슬라이드01" /></span>
+                </div>
+                <div class="motion">
+                    <span class="left_con"><img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/phone02.png" alt="슬라이드02" /></span>
+                    <span class="right_con"><img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/txt_2.png" alt="슬라이드02" /></span>
+                </div>
+                <div class="motion">
+                    <span class="left_con"><img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/phone03.png" alt="슬라이드03" /></span>
+                    <span class="right_con"><img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/txt_3.png" alt="슬라이드03" /></span>
+                </div>
+
+                <div class="motion">
+                    <span class="left_con"><img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/phone04.png" alt="슬라이드04" /></span>
+                    <span class="right_con"><img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/txt_4.png" alt="슬라이드04" /></span>
+                </div>
+            </div>
+
+            <div class="action">
+                <a href="https://life.eduwill.net/intro" target="_blank" >
+                    <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/btn_section08.png" alt="합격생활 더 알아보기">
+                </a>
+            </div>
+
+		</div>
+    </div>
+    
+    <div class="section section09">
+		<div class="wrap">
+            <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/img_09.jpg" alt="합격전략09. 공시에 대한 모든 Q and A가 있는 곳 에듀윌 지식인" />
+            <div class="action">
+                <a href="https://king.eduwill.net/" target="_blank">
+                    <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/btn_section09.png" alt="에듀윌 지식인 더 알아보기">
+                </a>
+            </div>
+		</div>
+    </div>
+    
+    <div class="section section10">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/img_10.jpg" alt="합격전략10. 수험생활의 시작부터 끝까지 풀케어 에듀윌 합격 컨텐츠" />
+		</div>
+	</div>
+
+	<div class="section section_apply">
+		<div class="wrap">
+            <img src="https://img.eduwill.net/Img2/7even/product/event/201014/pc/apply.jpg" alt="이 모든 것이 0원 합격 시 수강료를 전액 환급해 드립니다. 하단에 있는 유의사항을 꼭 확인하세요. * 제세공과금 22% 제외">
+            <div class="noti">
+                <!-- <p>※  제세공과금 22% 제외</p> -->
+            </div>
+		</div>
+	</div>
+
+</div>
+<!-- // 상품컨텐츠 -->
+<script type="text/javascript">
+    getEcoDynamicForClass(1501, 'eco-event');
+    getEcoDynamicForClass(2060, 'eco-topBanner');
+    getEcoDynamicForClass(2004, 'eco-onair'); //설명회 이벤트
+	getEcoDynamicForClass(2242, 'eco-price'); // pc 가격비교표
+	getEcoDynamicForClass(1413, 'eco-section06-title'); // 타이틀
+
+	$(function() {
+    	var reivewSlider = $('.review_slider').bxSlider({ 
+			// mode: 'horizontal',
+			minSlides:1,
+			maxSlides:1,
+			slideWidth: 1000,
+			slideMargin: 2,
+			moveSlides: 1,
+			auto:true,
+			pause: 3000,
+			pager: false,
+			infiniteLoop: true,
+            onSlideAfter: function() {
+                reivewSlider.stopAuto();
+                reivewSlider.startAuto();
+            }
+		});
+
+        $(".power_slider").bxSlider({
+			auto:true,
+			mode:'fade',
+            pager: false,
+			pause:4000,
+			onSliderLoad: function(currentIndex) {
+				$('.power_slider').children().eq(currentIndex).addClass('active');
+			},
+			onSlideAfter: function($slideElement){
+				$('.power_slider').children().removeClass('active');
+				$slideElement.addClass('active');
+			}
+		});
+
+		$(".move_click1").click(function(){
+			$(this).hide();
+			$('#mvi').attr('src', "https://tv.naver.com/embed/4937687?autoPlay=true");
+			return false;
+		});
+
+        var _tabList = $(".tab-list").find("li");
+		var _tabView = $(".tab-view");
+
+		
+		_tabList.on("click", function(){
+			var idx = $(this).index();
+			tabControl(idx);
+		});
+		function tabControl($idx){
+			_tabList.removeClass("on");
+			_tabList.eq($idx).addClass("on");
+
+			_tabView.hide();
+			_tabView.eq($idx).show();
+		}
+
+	});
+</script>
+<!-- // body 내만 작업 --> 
+</body>
+</html>

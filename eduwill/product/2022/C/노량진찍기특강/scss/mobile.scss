@@ -1,0 +1,426 @@
+@charset "utf-8";
+
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+
+.eco-3496 p {
+    display: none;
+    text-align: left;
+    line-height: 1.2;
+    @include vw(font-size, 18px);
+    font-weight: 300;
+    color: #999;
+    &.compare {
+        display: block;
+        @include vw(margin-left, 40px);
+    }
+}
+
+.product-eco {
+    overflow: hidden;
+    * {
+        margin: 0;
+        padding: 0;
+        line-height: normal;
+        font-family: $font-roboto;
+        font-size: inherit;
+        color: inherit;
+        @include vw(letter-spacing, -1px);
+    }
+    .wrap,
+    .wrap-full {
+        max-width: 720px;
+    }
+    .icon-pointer {
+        @include pointer(50%, 0, 110px, 107px, 20, bounce);
+    }
+
+    .sector-title {
+        @include vw(padding-bottom, 90px);
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            right: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            z-index: -1;
+        }
+        &::before {
+            top: 0;
+            @include vw(height, 958px);
+            @include bg($color: #f9f1f0, $url: "#{$img-path}/mobile/bg_title.jpg", $size: cover);
+        }
+        &::after {
+            @include vw(top, 958px);
+            @include vw(height, 1022px);
+            background: linear-gradient(to bottom, #f64a43 80%, #e04640 100%);
+        }
+        .period {
+            margin: 0;
+            font-family: $font-roboto;
+            @include vw(font-size, 66px);
+            font-weight: 900;
+            color: #fff;
+        }
+        .action {
+            @include vw(margin-top, 10px);
+            a {
+                display: inline-block;
+                @include vw(min-width, 640px);
+                @include vw(padding, 35px 0);
+                @include vw(font-size, 40px);
+                font-weight: 900;
+                color: #fff;
+                @include vw(border-radius, 30px);
+                background: linear-gradient(to bottom, #2d333d 0%, #22272e 100%);
+            }
+        }
+    }
+
+    .sector-band {
+        background-color: #f64a43;
+        &::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            z-index: 1;
+            display: block;
+            @include vw(width, 309px);
+            @include vw(height, 75px);
+            @include translateX(-50%);
+            @include bg($url: "//img.eduwill.net/eduwill/img/2022/G/common/bg/bg_tail_red.png", $size: cover);
+        }
+    }
+
+    .sector-intro {
+        @include vw(padding-bottom, 160px);
+        background-color: #2d333d;
+        .action {
+            a {
+                display: inline-block;
+                @include vw(min-width, 640px);
+                @include vw(padding, 35px 0);
+                @include vw(font-size, 40px);
+                font-weight: 900;
+                color: #fff;
+                @include vw(border-radius, 30px);
+                background: linear-gradient(to bottom, #f64a43 0%, #d9413b 100%);
+            }
+        }
+    }
+
+    .sector-point {
+        background-color: #ececec;
+    }
+
+    .sector-winner {
+        @include vw(padding-bottom, 130px);
+        @include linear-gradient(to bottom, #fff 65%, #f1f0ec 65%);
+        .interview-box {
+            .swiper-container {
+                @include vw(padding-bottom, 60px);
+            }
+            .swiper-container-horizontal >.swiper-scrollbar {
+                @include vw(right, 40px);
+                @include vw(left, 40px);
+                width: auto;
+            }
+            .swiper-slide {
+                width: 80%;
+                a {
+                    display: inline-block;
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+            .swiper-scrollbar {
+                background: #000;
+            }
+            .swiper-scrollbar-drag {
+                background: #f0cc0f;
+            }
+        }
+
+        .winner-box {
+            position: relative;
+            @include vw(padding-top, 60px);
+            @include bg($url: "//img.eduwill.net/eduwill/img/2022/C/common/bg/bg_winner.jpg", $size: auto 100%);
+            .winner-list {
+                position: relative;
+                @include vw(height, 420px);
+                @include vw(margin, 0 265px 0 40px);
+                text-align: left;
+                overflow: hidden;
+                &::before,
+                &::after {
+                    content: "";
+                    position: absolute;
+                    right: 0;
+                    left: 0;
+                    z-index: 1;
+                    display: block;
+                    width: 100%;
+                    @include vw(height, 40px);
+                }
+                &::before {
+                    top: 0;
+                    background: transparent;
+                    background: linear-gradient(0deg, transparent 0%, #fff 100%);
+                }
+                &::after {
+                    bottom: 0;
+                    background: #fff;
+                    background: linear-gradient(0deg, #fff 0%, transparent 100%);
+                }
+                .slick-slide {
+                    @include vw(padding, 5px 0);
+                    border: none;
+                }
+                p {
+                    margin: 0;
+                    line-height: 2;
+                    @include vw(font-size, 22px);
+                    font-weight: 500;
+                    color: #222b34;
+                }
+            }
+            
+            .noti {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                margin: 0 0 0 30px;
+                right: auto;
+                font-size: 18px;
+                color: #999;
+            }
+        }
+
+        .review-box {
+            @include vw(margin, 0 40px);
+            background-color: #fff;
+            overflow: hidden;
+            .slick-vertical .slick-slide {
+                font-size: 0;
+                border-top: 1px solid #f4f4f4;
+                @include boxSizing(border-box);
+                & > div {
+                    vertical-align: top;
+                    line-height: 1;
+                }
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+            .item {
+                @include vw(padding, 20px 0 20px 10px);
+                text-align: left;
+                line-height: 1;
+                @include vw(font-size, 24px);
+                @include boxSizing(border-box);
+                @extend %textEllipsis;
+                strong {
+                    display: inline-block;
+                    margin-right: 1%;
+                    padding-right: 1%;
+                    font-weight: 700;
+                    color: #000;
+                    border-right: 1px solid #000;
+                }
+                span {
+                    color: #999;
+                }
+            }
+        }
+
+        .action {
+            @include vw(margin, 40px 40px 0);
+        }
+    }
+
+    .sector-apply {
+        @include vw(padding-bottom, 100px);
+        background-color: #2d333d;
+        .wrap {
+            text-align: left;
+        }
+        .apply-title {
+            @include vw(padding, 120px 40px 0);
+            line-height: 1.2;
+            @include vw(font-size, 55px);
+            font-weight: 700;
+            color: #fff;
+            @include vw(letter-spacing, -2px);
+            span {
+                font-family: $font-roboto;
+                @include vw(font-size, 60px);
+                color: #f64a43;
+            }
+            .desc {
+                @include vw(margin, 40px 0 0);
+                @include vw(font-size, 26px);
+                font-weight: 400;
+            }
+        }
+
+        .apply-box {
+            @include vw(margin, 100px 40px 0);
+            .box-title {
+                position: relative;
+                display: inline-block;
+                @include vw(padding, 12px 32px);
+                @include vw(font-size, 32px);
+                font-weight: 700;
+                color: #fff;
+                @include vw(border-width, 2px);
+                border-style: solid;
+                border-color: #fff;
+                @include vw(border-radius, 75px);
+                .flag-event {
+                    position: absolute;
+                    @include vw(top, -50px);
+                    @include vw(right, -100px);
+                    @include vw(width, 120px);
+                }
+            }
+
+            .apply-list {
+                .list {
+                    @extend .grid;
+                    @include vw(margin-top, 30px);
+                    & > div {
+                        @extend .col;
+                        display: table;
+                        @include vw(height, 270px);
+                        color: #1f2530;
+                        background-color: #fff;
+                        &.list-action {
+                            float: none;
+                            @include vw(height, 120px);
+                        }
+                    }
+                    .list-title {
+                        width: 25%;
+                        @include vw(padding, 35px 0);
+                        text-align: center;
+                        @include vw(border-radius, 30px 0 0 30px);
+                        .cell {
+                            @include vw(font-size, 36px);
+                            font-weight: 700;
+                            @include vw(border-right-width, 2px);
+                            border-right-style: solid;
+                            border-right-color: #eaeae8;
+                            span {
+                                font-family: $font-roboto;
+                                color: #f64a43;
+                            }
+                        }
+                    }
+                    .list-info {
+                        width: 75%;
+                        @include vw(padding-left, 30px);
+                        @include vw(border-radius, 0 30px 30px 0);
+                        .cell {
+                            .period {
+                                @include vw(font-size, 28px);
+                                font-weight: 700;
+                            }
+                            .desc {
+                                @include vw(font-size, 26px);
+                            }
+                            .price-box {
+                                @include vw(margin-top, 20px);
+                            }
+                            .price-label {
+                                display: inline-block;
+                                @include vw(padding, 8px 20px);
+                                @include vw(font-size, 22px);
+                                font-weight: 700;
+                                @include vw(border-radius, 50px);
+                                background-color: #ffe851;
+                            }
+                            .price-list {
+                                display: inline-block;
+                                strong {
+                                    display: inline-block;
+                                    @include vw(letter-spacing, -3px);
+                                }
+                                .price-before {
+                                    position: relative;
+                                    @include vw(margin, 0 5px);
+                                    @include vw(padding, 0 10px);
+                                    @include vw(font-size, 23px);
+                                    color: #a9a9a9;
+                                    &::before,
+                                    &::after {
+                                        content: "";
+                                        position: absolute;
+                                        top: 50%;
+                                        @include vw(height, 2px);
+                                        background-color: #a9a9a9;
+                                    }
+                                    &::before {
+                                        left: 0;
+                                        width: 100%;
+                                    }
+                                    &::after {
+                                        left: 95%;
+                                        @include vw(width, 10px);
+                                        @include vw(margin-top, -3px);
+                                        @include rotate(45deg);
+                                    }
+                                    span {
+                                        @include vw(font-size, 35px);
+                                    }
+                                }
+                                .price-after {
+                                    @include vw(font-size, 23px);
+                                    span {
+                                        @include vw(font-size, 60px);
+                                        color: #f64a43;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .list-action {
+                        width: 100%;
+                        text-align: center;
+                        @include vw(border-radius, 30px 30px 0 30px);
+                        background-color: #f64a43;
+                        .cell {
+                            @include vw(font-size, 40px);
+                            font-weight: 700;
+                            color: #fff;
+                        }
+                    }
+                }
+                .cell {
+                    display: table-cell;
+                    height: 100%;
+                    vertical-align: middle;
+                    line-height: 1.2;
+                }
+            }
+        }
+
+        .notice-box {
+            @include vw(margin, 100px 40px 0);
+            @include vw(font-size, 20px);
+            color: #7d7f82;
+            .notice-title {
+                font-weight: 700;
+            }
+            .notice-list {
+                @include vw(margin-top, 10px);
+            }
+        }
+    }
+}

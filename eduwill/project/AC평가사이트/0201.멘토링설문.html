@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>에듀윌 AC(Assessment Center)</title>
+<link rel="Bookmark Icon" href="https://img.eduwill.net/resources/kpi/dev/images/favicon.ico" />
+<link rel="icon" href="https://img.eduwill.net/resources/kpi/dev/images/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="https://img.eduwill.net/resources/kpi/dev/images/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/essentials.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/layout.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/custom.css" />
+<!-- javascript files -->
+<script type="text/javascript">var plugin_path = '//img.eduwill.net/resources/kpi/dev/plugins/';</script>
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>  
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/js/ajaxUtil.js" type="text/javascript"></script>
+<!-- validation -->
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/form.validate/jquery.form.min.js" type="text/javascript"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/form.validate/jquery.validation.min.js" type="text/javascript"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/js/custom.js?v=5601933057d80" type="text/javascript"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/js/common.js?v=573d7300eea40" type="text/javascript"></script>
+<!-- 토스트메시지 -->
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/kpi/dev/plugins/toastr/toastr.min.css" />
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+<!-- 컨펌모달 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/jquery-confirm/jquery-confirm.min.css">
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+<!-- print -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/kpi/dev/plugins/printThis/printThis.js"></script>
+<!-- editable -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap-editable.min.js"></script>
+</head>
+<body class="page-mentoring"><!-- body class : page-mentoring -->
+
+<div id="wrapper" class="clearfix"><!-- wrapper -->
+	<aside id="aside"><!-- aside -->
+		<nav id="sideNav">
+			<ul class="nav nav-list d1">
+				<li class="d1 active">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-book"></i>
+						<span>에듀윌 필독서</span>
+					</a>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-comment"></i>
+						<span>멘토링 설문</span>
+					</a>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>인턴 업무실적표</span>
+					</a>
+				</li>
+				<li class="d1 menu-open el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-balance-scale"></i>
+						<span>목표 수립</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">업적목표</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">역량목표</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1 menu-open el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-pencil-square-o"></i>
+						<span>평가서작성</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">업적평가</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">역량평가</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-table"></i>
+						<span>평가결과</span>
+					</a>
+				</li>
+				<li class="d1 menu-open el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-pencil-square-o"></i>
+						<span>Peer Review</span>
+					</a>
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<a href="javascript:;" class="d2">Peer Review 작성</a>
+						</li>
+						<li class="d2">
+							<a href="javascript:;" class="d2">Peer Review 결과</a>
+						</li>
+					</ul>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-book"></i>
+						<span>목표관리</span>
+					</a>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-book"></i>
+						<span>PeerReview 관리</span>
+					</a>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-book"></i>
+						<span>인턴평가 관리</span>
+					</a>
+				</li>
+				<li class="d1">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-book"></i>
+						<span>시용평가 관리</span>
+					</a>
+				</li>
+				<li class="d1 menu-open el_primary">
+					<a href="javascript:;" class="d1">
+						<i class="main-icon fa fa-gears"></i>
+						<span>관리자</span>
+					</a>
+					<!-- 2018-08-24 -->
+					<ul class="d2"><!-- 2depth -->
+						<li class="d2">
+							<span>업적/역량</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가대상 관리</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가목표 관리</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가점수 관리</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가시기 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+						<li class="d2">
+							<span>Peer Review</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3">
+									<a href="javascript:;" class="d3">결과 관리</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">등록 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+						<li class="d2">
+							<span>인턴/시용평가</span>
+							<ul class="d3"><!-- 3depth -->
+								<li class="d3">
+									<a href="javascript:;" class="d3">평가대상 관리</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">인턴평가 관리</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">시용평가 관리</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">인턴평가 PT자료</a>
+								</li>
+								<li class="d3">
+									<a href="javascript:;" class="d3">에듀윌 필독서 관리</a>
+								</li>
+							</ul><!-- // 3depth -->
+						</li>
+					</ul><!-- // 2depth -->
+					<!-- // 2018-08-24 -->
+				</li>
+			</ul>
+		</nav>
+	</aside><!-- // aside -->
+
+	<header id="header"><!-- header -->
+		<h1 class="logo pull-left">
+			<a href="javascript:;">
+				<img src="https://img.eduwill.net/resources/kpi/dev/images/logo_eduwill.jpg" alt="eduwill Assessment Center" />
+			</a>
+		</h1>
+		<div class="user pull-right">
+			<span>홍길동</span>님 
+			<a href="#" title="로그아웃"><i class="fa fa-sign-out"></i></a>
+		</div>
+	</header><!-- // header -->
+
+	<section id="middle"><!-- middle -->
+
+		<div id="content" class="padding-20"><!-- content -->
+
+			<div id="page-header">
+				<h2>멘토링 설문</h2>
+			</div>
+
+			<div class="container section-search-form alert alert-info"><!-- section-search-form -->
+				<div class="wrap row">
+					<form action="">
+						<select name="" id="selectMentee" class="form-control margin-left-15">
+							<option value="0">멘티 선택</option>
+							<option value="1">김길동</option>
+							<option value="2">노길동</option>
+							<option value="3">도길동</option>
+							<option value="4">오길동</option>
+							<option value="5">홍길동</option>
+						</select>
+						<button type="button" class="btn btn-teal">조회</button>
+					</form>
+				</div>
+			</div><!-- // section-search-form -->
+
+			<div class="container section-survey nopadding margin-top-20"><!-- section-survey -->
+				<form action="">
+					<div class="table-responsive table-basic"><!-- table-basic -->
+						<table class="table table-bordered table-row" summary="멘티 소속, 멘티 이름 / 직급, 멘티 입사일, 멘토링 기간으로 구분되는 표">
+							<caption>기본정보</caption>
+							<colgroup>
+								<col style="width: 15%;" />
+								<col style="width: 35%;" />
+								<col style="width: 15%;" />
+								<col style="width: 35%;" />
+							</colgroup>
+							<tbody>
+								<tr><!-- row -->
+									<th scope="row">멘티 소속</th>
+									<td class="team">인프라개발팀</td>
+									<th scope="row">멘티 이름 / 직급</th>
+									<td class="name">박지혜 인턴</td>
+								</tr>
+								<tr><!-- row -->
+									<th scope="row">멘티 입사일</th>
+									<td class="date">2018-01-01</td>
+									<th scope="row">멘토링 기간</th>
+									<td class="date">2018-01-01 ~ 2018-03-31</td>
+								</tr>
+							</tbody>
+						</table>
+					</div><!-- // table-basic -->
+
+					<div class="table-responsive table-survey"><!-- table-survey -->
+						<table class="table table-bordered table-col" summary="번호, 질문, 답변으로 구분되는 표">
+							<caption>멘토링 설문</caption>
+							<colgroup>
+								<col style="width: 10%;" />
+								<col style="width: auto;" />
+								<col style="width: 20%;" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">NO</th>
+									<th scope="col">질문</th>
+									<th scope="col">답변</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><!-- row -->
+									<td>1</td>
+									<td class="text-left">멘티의 근무태도는 좋습니까? (결석, 지각, 회의시간 등 준수 여부)</td>
+									<td>
+										<label for="radioYes1" class="radio">
+											<input type="radio" id="radioYes1" name="radio1" />
+											<i></i>그렇다
+										</label>
+										<label for="radioNo1" class="radio">
+											<input type="radio" id="radioNo1" name="radio1" />
+											<i></i>아니다
+										</label>
+										<label for="radioNotKnow1" class="radio">
+											<input type="radio" id="radioNotKnow1" name="radio1" />
+											<i></i> 모른다
+										</label>
+									</td>
+								</tr>
+								<tr><!-- row -->
+									<td>2</td>
+									<td class="text-left">조직문화에 잘 적응하고 수용성이 좋습니까? (월삼토, 워크샵, 행사 등 자발적 참석 여부)</td>
+									<td>
+										<label for="radioYes2" class="radio">
+											<input type="radio" id="radioYes2" name="radio2" />
+											<i></i>그렇다
+										</label>
+										<label for="radioNo2" class="radio">
+											<input type="radio" id="radioNo2" name="radio2" />
+											<i></i>아니다
+										</label>
+										<label for="radioNotKnow2" class="radio">
+											<input type="radio" id="radioNotKnow2" name="radio2" />
+											<i></i> 모른다
+										</label>
+									</td>
+								</tr>
+								<tr><!-- row -->
+									<td>3</td>
+									<td class="text-left">상사 또는 멘토가 지시한 사항을 잘 준수하고 따르려고 노력합니까?</td>
+									<td>
+										<label for="radioYes3" class="radio">
+											<input type="radio" id="radioYes3" name="radio3" />
+											<i></i>그렇다
+										</label>
+										<label for="radioNo3" class="radio">
+											<input type="radio" id="radioNo3" name="radio3" />
+											<i></i>아니다
+										</label>
+										<label for="radioNotKnow3" class="radio">
+											<input type="radio" id="radioNotKnow3" name="radio3" />
+											<i></i> 모른다
+										</label>
+									</td>
+								</tr>
+								<tr><!-- row -->
+									<td>4</td>
+									<td class="text-left">평상시 표정이 밝고, 웃는 모습을 자주 볼 수 있습니까?</td>
+									<td>
+										<label for="radioYes4" class="radio">
+											<input type="radio" id="radioYes4" name="radio4" />
+											<i></i>그렇다
+										</label>
+										<label for="radioNo4" class="radio">
+											<input type="radio" id="radioNo4" name="radio4" />
+											<i></i>아니다
+										</label>
+										<label for="radioNotKnow4" class="radio">
+											<input type="radio" id="radioNotKnow4" name="radio4" />
+											<i></i> 모른다
+										</label>
+									</td>
+								</tr>
+								<tr><!-- row -->
+									<td>5</td>
+									<td class="text-left">본인 직무에 대한 전문성은 가지고 있습니까?</td>
+									<td>
+										<label for="radioYes5" class="radio">
+											<input type="radio" id="radioYes5" name="radio5" />
+											<i></i>그렇다
+										</label>
+										<label for="radioNo5" class="radio">
+											<input type="radio" id="radioNo5" name="radio5" />
+											<i></i>아니다
+										</label>
+										<label for="radioNotKnow5" class="radio">
+											<input type="radio" id="radioNotKnow5" name="radio5" />
+											<i></i> 모른다
+										</label>
+									</td>
+								</tr>
+								<tr><!-- row -->
+									<td>6</td>
+									<td class="text-left">다른 동료들과의 관계가 호의적이고 좋은 편입니까?</td>
+									<td>
+										<label for="radioYes6" class="radio">
+											<input type="radio" id="radioYes6" name="radio6" />
+											<i></i>그렇다
+										</label>
+										<label for="radioNo6" class="radio">
+											<input type="radio" id="radioNo6" name="radio6" />
+											<i></i>아니다
+										</label>
+										<label for="radioNotKnow6" class="radio">
+											<input type="radio" id="radioNotKnow6" name="radio6" />
+											<i></i> 모른다
+										</label>
+									</td>
+								</tr>
+								<tr><!-- row -->
+									<td>7</td>
+									<td class="text-left">T.G.I.F, 밴드 등 사내 활동에 잘 참여하고 있습니까?</td>
+									<td>
+										<label for="radioYes7" class="radio">
+											<input type="radio" id="radioYes7" name="radio7" />
+											<i></i>그렇다
+										</label>
+										<label for="radioNo7" class="radio">
+											<input type="radio" id="radioNo7" name="radio7" />
+											<i></i>아니다
+										</label>
+										<label for="radioNotKnow7" class="radio">
+											<input type="radio" id="radioNotKnow7" name="radio7" />
+											<i></i> 모른다
+										</label>
+									</td>
+								</tr>
+								<tr><!-- row -->
+									<td>8</td>
+									<td class="text-left">타 부서와의 업무 협조성이 좋은 편입니까?</td>
+									<td>
+										<label for="radioYes8" class="radio">
+											<input type="radio" id="radioYes8" name="radio8" />
+											<i></i>그렇다
+										</label>
+										<label for="radioNo8" class="radio">
+											<input type="radio" id="radioNo8" name="radio8" />
+											<i></i>아니다
+										</label>
+										<label for="radioNotKnow8" class="radio">
+											<input type="radio" id="radioNotKnow8" name="radio8" />
+											<i></i> 모른다
+										</label>
+									</td>
+								</tr>
+								<tr><!-- row -->
+									<td>9</td>
+									<td class="text-left">자신의 의사를 논리적으로 표현하는 커뮤니케이션 역량이 좋은 편입니까?</td>
+									<td>
+										<label for="radioYes9" class="radio">
+											<input type="radio" id="radioYes9" name="radio9" />
+											<i></i>그렇다
+										</label>
+										<label for="radioNo9" class="radio">
+											<input type="radio" id="radioNo9" name="radio9" />
+											<i></i>아니다
+										</label>
+										<label for="radioNotKnow9" class="radio">
+											<input type="radio" id="radioNotKnow9" name="radio9" />
+											<i></i> 모른다
+										</label>
+									</td>
+								</tr>
+								<tr><!-- row -->
+									<td>10</td>
+									<td class="text-left">사고가 긍정적이며, 부서 공통 업무에 적극적으로 참여하는 편입니까?</td>
+									<td>
+										<label for="radioYes10" class="radio">
+											<input type="radio" id="radioYes10" name="radio10" />
+											<i></i>그렇다
+										</label>
+										<label for="radioNo10" class="radio">
+											<input type="radio" id="radioNo10" name="radio10" />
+											<i></i>아니다
+										</label>
+										<label for="radioNotKnow10" class="radio">
+											<input type="radio" id="radioNotKnow10" name="radio10" />
+											<i></i> 모른다
+										</label>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div><!-- // table-survey -->
+
+					<div class="section-title">
+						<h3 class="title">종합의견</h3>
+					</div>
+
+					<div class="table-responsive table-opinion"><!-- table-opinion -->
+						<table cellpadding="0" cellspacing="0" class="table table-bordered table-col" summary="구분, 의견으로 구분되는 표">
+							<caption>종합의견</caption>
+							<colgroup>
+								<col style="width: 20%;" />
+								<col style="width: auto;" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">구분</th>
+									<th scope="col">의견</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr><!-- row -->
+									<td class="text-left">멘티의 장점</td>
+									<td class="text-left">
+										<textarea name="" id="" class="text form-control full required" placeholder="1가지 이상은 작성해주세요."></textarea>
+									</td>
+								</tr>
+								<tr><!-- row -->
+									<td class="text-left">멘티의 개선 / 보완해야 할 점</td>
+									<td class="text-left">
+										<textarea name="" id="" class="text form-control full required" placeholder="1가지 이상은 작성해주세요."></textarea>
+									</td>
+								</tr>
+								<tr><!-- row -->
+									<td class="text-left">멘티에게 멘토 / 부서장이 지원해주어야 할 사항</td>
+									<td class="text-left">
+										<textarea name="" id="" class="text form-control full required" placeholder="1가지 이상은 작성해주세요."></textarea>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div><!-- // table-opinion -->
+
+					<div class="margin-top-50 text-center">
+						<button type="button" class="btn btn-primary btn-lg width-150">저장</button>
+					</div>
+				</form>
+			</div>
+
+		</div><!-- // content -->
+	</section><!-- // middle -->
+</div><!-- // wrapper -->
+
+<script type="text/javascript">
+	(function($){
+	})(window.jQuery);
+</script>
+</body>
+</html>

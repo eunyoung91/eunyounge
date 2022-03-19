@@ -1,0 +1,186 @@
+// wrap
+#wrap {
+	position: relative;
+}
+
+// header
+#header {
+	@extend .grid;
+	.upper {
+		padding: 30px 0;
+		height: 84px;
+		@include boxSizing(border-box);
+		a { display: inline-block;}
+		.eduwill {
+            width: 86px;
+            /*height: 25px;
+			background: url('#{$img_path}/logo.png');*/
+			height: 30px;
+			background: url('https://img.eduwill.net/Img2/Common/BI/type2/live/logo.svg');
+			background-size: cover;
+		}
+		.logo_text {
+			position: relative;
+			top: -3px;
+			color: $color_base_dark;
+			font-size: 23px;
+			margin-left:8px;
+			span {
+				letter-spacing: -1px;
+			}
+		}
+	}
+	.util {
+		position: absolute;
+		top: 33px;
+		right: 0;
+		text-align: right;
+		.search {
+			position: relative;
+			display: inline-block;
+			a {
+				position: relative;
+				display: block;
+				width: 180px;
+				height: 30px;
+				background: $bg_color_3;
+				border-radius: 50px;
+				&:after {
+					content: '';
+					display: block;
+					position: absolute;
+					right: 16px;
+					top: 50%;
+					width: 17px;
+					height: 17px;
+					margin-top: -9px;
+					background: url('#{$img_path}/btn_search.png') 0 0 no-repeat;
+					background-size: 100%;
+				}
+			}
+			.search_layer {
+				position: absolute;
+				top: -9px;
+				right: 0;
+				width: 450px;
+				height: 45px;
+				border-bottom: 1px solid $border_color_black;
+				@include boxSizing(border-box);
+				background: $bg_color_1;
+				.search_inner {
+					&:after {
+						content:'';
+						display: block;
+						clear: both;
+					}
+					input {
+						float: left;
+						padding: 0 8px;
+						width: 400px;
+						height: 42px;
+						font-size: 15px;
+						font-weight: 400;
+						color: $color_black;
+						border: 0;
+						@include boxSizing(border-box);
+						&:focus {
+							outline:none;
+						}
+					}
+					.btn_search {
+						float: left;
+						width: 50px;
+						height: 44px;
+						border: 0;
+						cursor: pointer;
+						background: url('#{$img_path}/btn_search.png') 50% 50% no-repeat;
+						&:focus {
+							outline:none;
+						}
+					}
+				}
+			}
+		}
+		.login {
+			position: relative;
+			display: inline-block;
+			line-height: 30px;
+			vertical-align: top;
+			margin-left: 27px;
+			.user {
+				display: inline-block;
+			}
+			.btn_join {
+				color: $color_base_medium;
+				font-size: 12px;
+				font-weight: 400;
+				margin-right: 13px;
+			}
+			.btn_login {
+				padding: 0 16px;
+				border-radius: 3px;
+				background: $button_color_1;
+				color: $color_base_dark;
+				font-size: 12px;
+				&:hover {
+					background: $button_color_2;
+				}
+			}
+			.btn_logout {
+				padding-right: 27px;
+				font-size: 12px;
+				text-align: right;
+				color: $color_base_medium;
+				background: url('#{$img_path}/ico_logout.png') 94% 50% no-repeat;
+				span {
+					font-weight: 500;
+				}
+			}
+		}
+	}
+	.lower {
+		position: relative;
+		height: 48px;
+		.gnb {
+			.col {
+				margin-left: 55px;
+				&:first-child { margin-left: 0;}
+				a {
+					display: block;
+					@include boxSizing(border-box);
+					font-size: 15px;
+					color: $color_base;
+					font-weight: 400;
+					line-height: 48px;
+					border-bottom: 2px solid #fff;
+					&:hover{
+						color: $color_black;
+					}
+				}
+			}
+			.in {
+				a {
+					color: $color_black;
+					border-bottom-color: $border_color_gnb;
+				}
+			}
+		}
+	}
+}
+
+
+// container
+#container {
+	padding-bottom: 70px;
+	height: 100%;
+	background-color: $bg_color_1;
+}
+
+// inner
+.inner {
+	position: relative;
+	margin: 0 auto;
+	@extend %clearfix;
+	width: $layout_desktop;
+	padding: 0;
+}

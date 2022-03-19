@@ -1,0 +1,41 @@
+@mixin clearfix() {
+    zoom: 1;
+
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+@mixin innerlayout() {
+    width: 1100px;
+    margin: 0 auto;
+    position: relative; 
+}
+
+@mixin float-width($f, $w) {
+    float: $f;
+    width: $w;
+}
+
+@mixin background-name-ext-repeat-poistion($n, $e, $r, $p) {
+    background-image: url("http://img.eduwill.net/resources/search/dev/images/" + $n + "." + $e);
+    background-repeat: $r;
+    background-position: $p; 
+}
+
+@mixin font-family-size-weight-color($f, $s, $w, $c) {
+    font-family: $f;
+    font-size: $s;
+    font-weight: $w;
+    color: $c;
+}
+
+@mixin placeholder-color($c) {
+    &::placeholder {color: $c; }
+    &::-webkit-input-placeholder {color: $c; }
+    &::-moz-placeholder {color: $c; }
+    &:-ms-input-placeholder {color: $c; }
+    &:-moz-placeholder {color: $c; }
+}

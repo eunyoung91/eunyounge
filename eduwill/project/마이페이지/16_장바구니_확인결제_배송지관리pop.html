@@ -1,0 +1,839 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+<title>에듀윌</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Cache-Control" content="No-Cache"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=1240, initial-scale=1, maximum-scale=1, minimum-scale=0.25, user-scalable=yes">
+<!-- 공통css :: -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/myroom/dev/css/myroom.css" type="text/css"> 
+<!-- 공통js :: -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/common/web/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/myroom/dev/js/myroomUI.js"></script>
+<!-- Import bxslider -->
+<script src="https://img.eduwill.net/resources/common/web/js/bxslider/jquery.bxslider.min.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/js/bxslider/jquery.bxslider.css">
+<!-- Import shadow -->
+<script src="https://img.eduwill.net/resources/myroom/dev/js/jquery.animate-shadow.js"></script>
+<!-- Import mCustomScrollbar -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/common/web/js/mCustomScoll/jquery.mousewheel.min.js"></script><!-- mousewheel plugins -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/common/web/js/mCustomScoll/jquery.mCustomScrollbar.min.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/js/mCustomScoll/jquery.mCustomScrollbar.min.css" />
+<!-- Import scrollfix -->
+<script src="https://img.eduwill.net/resources/common/web/js/scrollfix.js"></script>
+<script type="text/javascript">
+$(function(){		
+	$(".totalpay").scrollFix({});
+	$(window).scroll(function () {
+		if($(".totalpay").length != 0) {
+			if($(window).scrollTop() >= ($('.payment').offset().top + $('.payment').height()) - $(".totalpay").height()) {
+				$(".totalpay").css({
+					'position':'absolute',
+					'top': $('.payment').height() - $(".totalpay").height(),
+					'left' : 0
+				})
+			}
+		}	
+	})
+
+	if($('.agreement dd').length >= 1) {
+		$('.agreement dd').mCustomScrollbar({
+			theme: 'minimal-dark'
+		});
+	}
+
+	$('.message select').on('change',function(){
+		var selOption = $('.message select option:selected').attr('class')
+		if(selOption == 'sel_msgTxt') {
+			$('#msgTxt').show()
+		} else {
+			$('#msgTxt').hide()
+		}
+	})
+
+	
+})
+
+
+</script>
+</head>
+<body>
+<div id="header">
+	<div class="inner">
+		<div class="section1">
+			<h1 class="logo">
+				<a href=""><img src="https://img.eduwill.net/resources/myroom/library/images/logo_type1.png" alt="에듀윌" /></a>
+			</h1>
+			<div class="util">
+				<div class="logout"><a href="">에듀윌님 로그아웃</a></div>
+				<div class="section_link">
+					<div class="item is_course">
+						<a href="#" class="action is_view"><span>교육과정안내</span></a>
+						<div class="core">
+							<script type="text/javascript">
+								writeLayer1(); // 교육과정안내 레이어
+							</script>
+						</div>
+					</div>
+					<div class="item is_academy">
+						<a href="#" class="action is_view"><span>직영학원</span></a>
+						<div class="core">
+							<script type="text/javascript">
+								writeLayer2(); // 직영학원 레이어
+							</script>
+						</div>
+					</div>
+					<div class="item is_sugang">
+						<a href="#" class="action is_view"><span>수강중인 강의실</span></a>
+						<div class="core">
+							<div class="sugang_list">
+								<ul>
+									<li><a href="">수강1</a></li>
+									<li><a href="">수강2</a></li>
+									<li><a href="">수강3</a></li>
+									<li><a href="">수강4</a></li>
+									<li><a href="">수강5</a></li>
+									<li><a href="">수강6</a></li>
+									<li><a href="">수강7</a></li>
+									<li><a href="">수강8</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section2">
+			<div class="logo2">
+				<a href="#" class="l1"><span>9급공무원</span></a>
+				<a href="#" class="l2"><span>마이페이지</span></a>
+				<span class="l3"><img src="https://img.eduwill.net/resources/myroom/library/images/beta_icon2.gif" alt="beta"></span>
+			</div>
+			<ul id="gnb">
+				<li><a href="">고객센터</a></li>
+				<li class="myroom"><a href="">나의강의실</a></li>
+			</ul>
+		</div>
+	</div>
+</div><!-- e : #header -->
+
+<div id="container">
+	<div id="lnb">
+		<ul>
+			<li class="myroom"><a href="" class="step1">마이페이지</a></li>
+			<li><a href="" class="step1 type1 hover">장바구니</a></li>
+			<li><a href="" class="step1 type1">할인권</a></li>
+			<li><a href="" class="step1 type1">포인트/에듀머니</a></li>
+			<li><a href="" class="step1 type1">교재/배송정보</a></li>
+			<li><a href="" class="step1 type1">결제내역</a></li>
+			<li><a href="" class="step1 type1">증빙서류발급</a></li>
+			<li><a href="" class="step1 type1">수강료 환급신청</a></li>
+			<li><a href="" class="step1 type1">회원정보수정</a></li>
+		</ul>
+		<div class="bannerArea">
+			<img src="https://img.eduwill.net/resources/myroom/library/images/lnb_csBanner.jpg" alt="고객지원센터" usemap="#map_csbanner" />
+			<map name="map_c=sbanner">
+				<area shape="rect" coords="10,163,169,194" href="" target="" alt="1:1 무료상담" />
+				<area shape="rect" coords="10,203,169,234" href="" target="" alt="컴퓨터 기술지원 바로가기" />
+			</map>
+		</div>
+	</div><!-- e : #lnb -->
+
+	<div id="content">
+		<div class="inner">
+			<div class="cartWrap">
+				<h2 class="tit">확인/결제</h2>
+				<div class="depth">
+					<ul>
+						<li class="d1"><span>장바구니</span></li>
+						<li class="d2 on"><span>확인/결제</span></li>
+						<li class="d3"><span>주문완료</span></li>
+					</ul>
+				</div>		
+				<div class="box">
+					<div class="lst effect_em">
+						<table>
+							<colgroup><col width="*"><col width="170"><col width="170"></colgroup>
+							<tr>
+								<td class="detail">
+									<div class="item">
+										<dl>
+											<dt><div>공인중개사</div></dt>
+											<dd><div><span class="i-event">이벤트</span><span>[패키지]</span><a href="">공인중개사 평생회원반_라이브클래스</a><em class="priceDel">890,000원</em><em class="priceSale">790,000원</em><a href="" class="btn_itemView open">열기</a></div></dd>
+										</dl>
+										<ul>
+											<li><span>[강의]</span>공인중개사 기본이론<em>180,000원</em></li>
+											<li><span>[강의]</span>공인중개사 기출문제 문제풀이 30일 완성반<em>50,000원</em></li>
+											<li><span>[교재]</span>공인중개사 기본서 6과목 포함<em>86,000원</em></li>
+										</ul>
+									</div>
+									<div class="itemView">
+										<dl>
+											<dt>강좌구성</dt>
+											<dd>기초이론 + 기본이론 + 심화이론 + 핵심이론 + 문제풀이 + 모의고사 + 마무리특강</dd>
+										</dl>
+										<dl>
+											<dt>수강교재</dt>
+											<dd>
+												2018년 1,2차 기본서 6권 + 핵심요약집 2권 (총 8권)<br>
+												※ 본 상품에는 정가 375,000원 상당의 교재가 포함되었습니다. <br>
+												※ 2019년 교재부터는 별도 구매입니다.
+											</dd>
+										</dl>
+									</div>
+								</td>
+								<td class="amount">									
+								</td>
+								<td class="price">
+									<div>소계 : <em>790,000원</em></div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="lst effect_em">
+						<table>
+							<colgroup><col width="*"><col width="170"><col width="170"></colgroup>
+							<tr>
+								<td class="detail">
+									<div class="item">
+										<dl>
+											<dt><div>공인중개사</div></dt>
+											<dd><div><span>[강의 + 교재]</span><a href="">공인중개사 평생회원반_라이브클래스</a><em>890,000원</em><a href="" class="btn_itemView open">열기</a></div></dd>
+										</dl>
+									</div>
+									<div class="itemView">
+										<dl>
+											<dt>강좌구성</dt>
+											<dd>기초이론 + 기본이론 + 심화이론 + 핵심이론 + 문제풀이 + 모의고사 + 마무리특강</dd>
+										</dl>
+										<dl>
+											<dt>수강교재</dt>
+											<dd>
+												2018년 1,2차 기본서 6권 + 핵심요약집 2권 (총 8권)<br>
+												※ 본 상품에는 정가 375,000원 상당의 교재가 포함되었습니다. <br>
+												※ 2019년 교재부터는 별도 구매입니다.
+											</dd>
+										</dl>
+									</div>
+								</td>
+								<td class="amount">									
+								</td>
+								<td class="price">
+									<div>소계 : <em>890,000원</em></div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="lst effect_em">
+						<table>
+							<colgroup><col width="*"><col width="170"><col width="170"></colgroup>
+							<tr>
+								<td class="detail">
+									<div class="item">
+										<dl>
+											<dt><div>주택관리사</div></dt>
+											<dd><div><span>[강의]</span><a href="">주택관리사 단기완성반</a><em>120,000원</em><a href="" class="btn_itemView open">열기</a></div></dd>
+										</dl>
+									</div>
+									<div class="itemView">
+										<dl>
+											<dt>강좌구성</dt>
+											<dd>기초이론 + 기본이론 + 심화이론 + 핵심이론 + 문제풀이 + 모의고사 + 마무리특강</dd>
+										</dl>
+										<dl>
+											<dt>수강교재</dt>
+											<dd>
+												2018년 1,2차 기본서 6권 + 핵심요약집 2권 (총 8권)<br>
+												※ 본 상품에는 정가 375,000원 상당의 교재가 포함되었습니다. <br>
+												※ 2019년 교재부터는 별도 구매입니다.
+											</dd>
+										</dl>
+									</div>
+								</td>
+								<td class="amount">									
+								</td>
+								<td class="price">
+									<div>소계 : <em>120,000원</em></div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="lst effect_em">
+						<table>
+							<colgroup><col width="*"><col width="170"><col width="170"></colgroup>
+							<tr>
+								<td class="detail">
+									<div class="item">
+										<dl>
+											<dt><div>공무원</div></dt>
+											<dd><div><span>[교재]</span><a href="">민법 핵심문제풀이</a><em>30,000원</em><a href="" class="btn_itemView open">열기</a></div></dd>
+										</dl>
+									</div>
+									<div class="itemView">
+										<dl>
+											<dt>강좌구성</dt>
+											<dd>기초이론 + 기본이론 + 심화이론 + 핵심이론 + 문제풀이 + 모의고사 + 마무리특강</dd>
+										</dl>
+										<dl>
+											<dt>수강교재</dt>
+											<dd>
+												2018년 1,2차 기본서 6권 + 핵심요약집 2권 (총 8권)<br>
+												※ 본 상품에는 정가 375,000원 상당의 교재가 포함되었습니다. <br>
+												※ 2019년 교재부터는 별도 구매입니다.
+											</dd>
+										</dl>
+									</div>
+								</td>
+								<td class="amount">
+									<span>수량</span>
+									<em>X 2</em>										
+								</td>
+								<td class="price">
+									<div>소계 : <em>60,000원</em></div>
+								</td>
+							</tr>
+						</table>
+					</div>
+					<div class="lst deliveryPay">
+						<table>
+							<colgroup><col width="*"><col width="340"></colgroup>
+							<tr>
+								<td class="delivery">
+									<span>※ 동시결제 3만원 미만 유료배송</span>
+								</td>
+								<td class="deliveryCk">	
+									<span>배송비 : <i>2,500원</i></span>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="payment">
+					<div class="left">
+						<div class="tit type1">수강시작일 입력</div>
+						<ul class="inputForm">
+							<li class="selDate">
+								<em>날짜 선택</em>
+								<div>
+									<select class="selectForm">
+										<option>오늘부터 바로 시작</option>
+										<option>2018년 1월 23일 시작</option>
+										<option>2018년 1월 24일 시작</option>
+										<option>2018년 1월 25일 시작</option>
+										<option>2018년 1월 26일 시작</option>
+										<option>2018년 1월 27일 시작</option>
+										<option>2018년 1월 28일 시작</option>
+									</select>								
+								</div>
+							</li>
+						</ul>
+						<div class="infoDate">
+							<dl>
+								<dt>※ 강의 시작일 선택 전, 꼭 읽어보세요</dt>
+								<dd>
+									교재와 함께 주문 시에는 교재수령기간을 고려하여 강의 시작일을 3 ~ 5일 후로 선택하시는 것이 좋습니다.<br>
+									또한 바로 시작을 선택한 경우에는 카드나 실시간 계좌이체는 결제하자마자 바로 수강을 하실 수 있으나 무통장의 경우에는 입금확인 시간 후에 수강이 가능하오니 아래의 시간을 참고하시기 바랍니다.
+								</dd>
+							</dl>
+						</div>
+
+						<div class="tit">배송지 정보</div>
+
+						<div class="infoDate">
+							<dl>
+								<dt>배송시간</dt>
+								<dd>
+									월~금 : 2시전 결제 시 당일발송(오전9시, 오후2시 하루 2회 확인)<br>
+									토~일, 기타 공휴일 : 휴무종료 익영업일 발송
+								</dd>
+							</dl>							
+						</div>
+
+						<ul class="inputForm">
+							<li class="addCk">
+								<em>배송지선택</em>
+								<div>
+									<span class="radios"><input type="radio" id="addCk1" name="addCk"><label for="addCk1">회원정보와 동일</label></span>
+									<span class="radios"><input type="radio" id="addCk2" name="addCk"><label for="addCk2">새 배송지 입력</label></span>
+									<span class="radios"><input type="radio" id="addCk3" name="addCk"><label for="addCk3">최근 배송지</label></span>
+									<a href="#" class="btn" onclick="$('#deliveryLayer2').show(); return false;">최근배송지</a>
+									<a href="#" class="btn" onclick="$('#deliveryLayer').show(); return false;">배송지관리</a>
+								</div>
+							</li>
+							<li class="name">
+								<em>받으시는 분</em>
+								<div>
+									<input type="text" class="input_1">
+								</div>
+							</li>
+							<li class="phone">
+								<em>휴대폰 번호</em>
+								<div>
+									<input type="text" class="input_1">
+									<span class="hyphen"></span>
+									<input type="text" class="input_1">
+									<span class="hyphen"></span>
+									<input type="text" class="input_1">
+								</div>
+							</li>
+							<li class="email">
+								<em>이메일주소</em>
+								<div>
+									<input type="text" class="input_1">
+								</div>
+							</li>
+							<li class="address">
+								<em>주소</em>
+								<div>
+									<p class="group">
+										<input type="text" class="input_1">
+										<span class="blank"></span>
+										<a href="" class="btn">주소찾기</a>
+									</p>
+									<p class="group">
+										<input type="text" class="input_2">
+										<span class="blank"></span>
+										<input type="text" class="input_3">
+									</p>
+								</div>
+							</li>
+							<li class="message">
+								<em>배송 메시지</em>
+								<div>
+									<select class="selectForm">
+										<option>메시지를 선택해주세요</option>
+										<option>배송전에 연락주세요.</option>
+										<option>부재시 경비(관리)실에 맡겨주세요.</option>
+										<option class="sel_msgTxt">메시지 직접입력</option>
+									</select>
+									<p class="group" style="display:none" id="msgTxt">
+										<input type="text" class="input_1">
+									</p>
+								</div>
+							</li>
+						</ul>
+						<div class="updateAgree">
+							<span class="txt">변경 된 정보는 고객님의 회원정보에 업데이트 됩니다.  정보 변경에 동의 하시겠습니까?</span>
+							<div>
+								<span class="radios"><input type="radio" id="updateAgreeY" name="updateAgree"><label for="updateAgreeY">예</label></span>
+								<span class="radios"><input type="radio" id="updateAgreeN" name="updateAgree"><label for="updateAgreeN">아니오</label></span>
+							</div>
+						</div>
+						<div class="tit">할인받기</div>
+						<ul class="inputForm">
+							<li class="coupon">
+								<em>쿠폰선택</em>
+								<div>
+									<select class="selectForm">
+										<option>사용하려는 쿠폰을 선택하세요</option>
+										<option>12월 나에게 보내는 합격 축하카드 이벤트(크리스마스)</option>
+									</select>
+									<span class="blank"></span>
+									<a href="" class="btn">신규등록하기</a>
+								</div>
+							</li>
+							<li class="edumoney">
+								<em>에듀머니</em>
+								<div>
+									<span class="grp1">보유 에듀머니<em>105,000원</em></span>
+									<span class="grp2 checks"><input type="checkbox" id="allmomey"><label for="allmomey">전액사용</label></span>
+									<span class="grp3"><input type="text" class="input_1"> 원</span>
+								</div>
+							</li>
+						</ul>
+						<div class="tit type2">결제방법 선택</div>
+						<div class="process">
+							<div class="select">
+								<span class="radios"><input type="radio" id="pay3" name="pay" checked><label for="pay3">신용카드</label></span>
+								<span class="radios"><input type="radio" id="pay1" name="pay"><label for="pay1">실시간 계좌이체</label></span>
+								<span class="radios"><input type="radio" id="pay2" name="pay"><label for="pay2">무통장입금</label></span>							
+								<span class="radios"><input type="radio" id="pay4" name="pay"><label for="pay4">ARS 신용카드 (1644-6991)</label></span>
+							</div>
+							<div class="info">
+								<dl>
+									<dt>실시간 계좌이체</dt>
+									<dd>인터넷 공인인증서를 통한 온라인 결제 입니다<br>실시간 계좌이체는 10분 이내로 입금확인 할 수 있으며, 1,000이상 주문 시 가능합니다.</dd>
+								</dl>
+							</div>
+							<div class="info">
+								<dl>
+									<dt>무통장 입금</dt>
+									<dd>입금하실 은행을 선택하시면, 회원님의 고유 계좌번호(가상계좌)를 지정해 드립니다.<br>7일 이내에 입금이 확인되지 않으면 고객님의 주문은 자동 취소됩니다.<br>주문하신 분과 입금하시는 분이 달라도 정상적으로 입금 확인이 이루어 집니다.</dd>
+								</dl>
+							</div>
+							<div class="info">
+								<dl>
+									<dt>카드 결제</dt>
+									<dd>30만원 이상 결제 시, 공인인증서가 필수 입니다.<br>공인인증서가 준비되지 않은 경우, 고객센터로(1600-6700) 연락주시면 전화상으로 결제가 가능합니다.<a href="" class="btn">무이자 할부 안내</a></dd>
+								</dl>
+							</div>
+							<div class="info">
+								<dl>
+									<dt>ARS 신용카드</dt>
+									<dd>공인인증서 없이 30만원 이상의 금액을 카드로 결제하는 방법입니다.<br>1644-6991로 결제 진행 후 고객님의 휴대폰에 수신된 ARS 신용카드 결제확인 승인번호를 아래에 입력해 주시면 승인번호 확인 후 바로 주문하신 강좌 수강이 가능합니다.</dd>
+								</dl>
+							</div>
+							<div class="pushARS">
+								<div class="admission">
+									<label for="adNum">승인번호 입력</label>
+									<input type="text" id="adNum">
+								</div>
+								<ul class="desc">
+									<li><span>※</span> 결제 확인 처리 후, 주문하신 강좌가 오픈되면 SMS로 공지됩니다 (강좌오픈은 상담 시간내 가능)</li>
+									<li><span>※</span> ARS 결제 시 개인정보 데이터는 보관되지 않고 암호화되어 카드 인증에만 사용됩니다.</li>
+									<li><span>※</span> 개인정보는 안전하게 보호되오니 안심하시고 이용하시기 바랍니다.</li>
+								</ul>
+								<div class="serviceCenter">
+									<div>
+										<strong>상담문의</strong>
+										<span class="num">1600-6700</span>
+									</div>
+									<div>
+										<strong>상담시간</strong>
+										<span>평일 : 오전 9시 ~ 오후 5시<br>주말/공휴일 : 오전9시 ~ 오후 5시</span>
+									</div>
+								</div>
+							</div>
+							<div class="agreement">
+								<dl>
+									<dt>확인 및 유의사항<span class="checks"><input type="checkbox" id="agreeAll"><label for="agreeAll">전체동의하기</label></span></dt>
+									<dd>
+											<p class="dep1">가. 동영상 학습비의 구매계약 철회, 변경 등</p>
+											<div class="txt">
+											1. 청약 철회<br><br>
+
+												(1) 원칙<br>
+												디지털 콘텐츠(동영상 강의 등) 또는 재화(교재·도서 등)를 구매한 이용자는 수신확인의 통지를 받은 날로부터 7일(또는 공급을 받거나 공급이 개시된 날로부터 7일) 이내에 청약의 철회를 할 수 있습니다.<br>
+												표시, 광고 내용과 다르거나 계약내용과 다르게 이행된 경우에는 공급받은 날로부터 3월 이내, 그 사실을 안 날 또는 알 수 있었던 날로부터 30일 이내에 청약철회 등을 할 수 있습니다.<br><br>
+
+												(2) 이용자의 청약철회권이 제한되는 경우<br>
+												가. 이용자의 책임있는 사유로 “디지털 콘텐츠” 또는 재화 등이 멸실되거나 훼손된 경우<br>
+												나. 이용자의 사용 또는 일부소비로 “디지털 콘텐츠” 또는 재화 등의 가치가 현저히 감소한 경우<br>
+												다. 시간의 경과에 의해 재판매가 곤란할 정도로 “디지털 콘텐츠” 또는 재화의 가치가 현저히 감소한 경우<br>
+												라. 복제가 가능한 “디지털 콘텐츠” 또는 재화 등의 포장을 훼손한 경우 <br><br>
+
+											 2. 학습비 반환<br><br>
+
+												평생교육법 제28조, 동 시행령 제23조 및 별표3에 따른 학습비 반환에 관하여는 다음의 각호와 같이 정합니다.<br><br>
+
+												<table>
+													<colgroup>
+													<col width="15%">
+													<col width="15%">
+													<col width="35%">
+													<col width="35%">
+													</colgroup>
+													<thead>
+													<tr>
+														<th colspan="2">구분</th>
+														<th>반환사유 발생일</th>
+														<th>반환금액</th>
+													</tr>
+													</thead>
+													<tbody>
+													<tr>
+														<td colspan="2">1. 법 제28조 제4항 제1호 및 제2호에 따른 반환사유의 경우</td>
+														<td>수업을 할 수 없거나, 수업 장소를 제공할 수 없게 된 날</td>
+														<td>이미 낸 학습비를 일할 계산한 금액</td>
+													</tr>
+													<tr>
+														<td rowspan="6">2. 학습자가 본인의 의사로 학습을   포기한 경우</td>
+														<td rowspan="4">가. 학습비 징수기간이 1개월 이내인 경우</td>
+														<td>수업시작 전</td>
+														<td>이미 낸 학습비 전액</td>
+													</tr>
+													<tr>
+														<td>총수업시간의 1/3이 지나기 이전</td>
+														<td>이미 낸 학습비의 2/3 해당액</td>
+													</tr>
+													<tr>
+														<td>총수업시간의 1/2이 지나기 이전</td>
+														<td>이미 낸 학습비의 1/2 해당액</td>
+													</tr>
+													<tr>
+														<td>총수업시간의 1/2이 지난 후</td>
+														<td>반환하지 아니함</td>
+													</tr>
+													<tr>
+														<td rowspan="2">나. 학습비 징수기간이 1개월을 초과하는 경우</td>
+														<td>수업시작 전</td>
+														<td>이미 낸 학습비 전액</td>
+													</tr>
+													<tr>
+														<td>수업시작 이후</td>
+														<td>반환사유가 발생한 그 달의 반환 대상 학습비(가목에 따라 산출된 반환 대상 학습비를 말한다)와 나머지 달의 학습비 전액을 합산한 금액</td>
+													</tr>
+													</tbody>
+												</table><br>
+
+												비고<br>
+												가. "학습비 징수기간"이란 징수된 총학습비에 따른 총수업일을 말한다.<br>
+												나. "총수업시간"이란 학습비 징수기간 중의 총수업시간을 말한다.<br>
+												다. 반환금액의 산정은 반환사유가 발생한 날까지 경과된 수업시간을 기준으로 한다.<br>
+												라. 원격교습의 경우 반환금액은 수업내용을 실제 수강한 부분(인터넷으로 수강하거나 학습기기로 저장한 것을 말한다)에 해당하는 금액을 뺀 금액으로 한다.<br><br>
+
+												※ 학습비 징수기간이 1개월을 초과하는 디지털 콘텐츠에 대해 이용자가 계약해지를 하는 경우에는 위약금(이용대금의 10%)을 공제할 수 있습니다.<br>
+												※ 일부 디지털 콘텐츠의 경우[예: 1년 이상의 무료 수강 연장 상품(1+1, 평생회원반 등)]은 365일 기준으로 하며, 이용자의 기간 내 응시시험 불합격 확인에 의한 수업연장 기간을 포함하지 않습니다.<br>
+												※ 이용자가 할인에 의해 학습비를 결제하였을 경우, 학습비 반환금액의 기준은 할인이 적용되어 실제 결제한 금액에 의하여 정합니다.<br>
+												※ 학습비 반환사유가 발생한 날부터 5일(영업일 기준) 이내에 반환합니다.<br><br>
+
+												3. 기타<br><br>
+												※ "에듀윌 원격평생교육시설"과 이용자가 체결한 구매계약에 의해서 제공되는 내역이 디지털 콘텐츠(동영상 등)의 학습비와 재화(교재·도서 등)가 포함되었을 경우, 각각 구분하여 학습비 반환 및 환급 기준을 적용합니다.<br>
+												※ 미성년자와 거래에 관한 계약시 법정대리인이 그 계약에 동의하지 아니하면 미성년자 본인 또는 법정대리인이 그 계약을 취소할 수 있습니다.<br><br>
+											</div>
+											<p class="dep1">나. 교재·도서의 반품 및 환불</p>
+											<div class="txt">
+												다음 각호의 경우에는, 배송된 재화일 지라도 교재·도서를 반품받은 다음 5일(영업일 기준) 이내에 이용자의 요구에 따라 즉시 환급, 반품 및 교환조치를 합니다. 단, 이용자의 그 반품 및 교환조치의 요구기간은 배송된 날로부터 7일 이내로 합니다.<br><br>
+
+												  &nbsp;&nbsp;&nbsp;1. 배송된 재화가 주문내용과 상이하거나 "에듀윌 원격평생교육시설"이 제공하는 "서비스"에서 게시된 정보와 상이할 경우<br>
+												  &nbsp;&nbsp;&nbsp;2. 배송된 재화가 파손, 손상되었거나 오염되었을 경우 (단, 이용자의 고의·과실이 없어야 합니다.)<br>
+												  &nbsp;&nbsp;&nbsp;3. 재화가 광고에 표시된 배송기간보다 늦게 배송된 경우<br><br>
+
+												  이용자가 교재·도서를 구매 후 사용하여 상품가치에 손상을 입혔을 경우, 어떠한 사유에서도 환불 및 반품이 되지 않습니다.
+												  또한 완질의 경우 완성품으로 일부의 교재를 사용한 경우에도 전량 환불 및 반품이 되지 않습니다.<br><br>
+											</div>
+											<p class="dep1">다. 기타</p>
+											<div class="txt">
+												"에듀윌 원격평생교육시설"과 이용자가 체결한 구매계약에 의해서 제공되는 내역이 디지털 콘텐츠(동영상 등)의 학습비와 재화(교재·도서 등)가 포함되었을 경우, 각각 구분하여 학습비 반환 및 환급 기준을 적용합니다.
+											</div>
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</div>
+					<div class="right">
+						<div class="totalpay">
+							<ul>
+								<li>
+									<em>총 합계</em>
+									<span>1,070,000원</span>
+								</li>
+								<li>
+									<em>배송비</em>
+									<span>+ 2,500원</span>
+								</li>
+								<li>
+									<em>할인금액</em>
+									<span>- 5,000원</span>
+								</li>
+							</ul>
+							<div class="total">
+								<em>총 결제금액</em>
+								<span><strong>1,072,500</strong><i>원</i></span>
+							</div>
+							<div class="btnWrap">								
+								<a href="">결제하기</a>
+								<a href="">ARS 결제 확인요청</a>
+								<a href="" class="b2"><span>이전 페이지</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="layerDim" style="display:none"></div>
+			
+			<!-- layer : 배송지관리 -->
+			<div class="layerWrap" id="deliveryLayer" style="display:block">
+				<div class="inner">
+					<div class="top">
+						<div class="t1">마이페이지</div>
+						<div class="t2">배송지 관리</div>
+						<div class="closeBtn"><a href="#" onclick="javascript:toggleClsoeFnc('','#deliveryLayer'); return false;">닫기</a></div>
+					</div>
+					<div class="cont" id="deliveryList" style="display:none">
+						<div class="desc">
+							<span>※ 배송지는 최대 5개까지 저장 가능합니다.</span>
+							<a href="#" onclick="$(this).parents('#deliveryList').hide().siblings('.cont').show(); return false" class="btn btn1">신규등록</a>
+						</div>
+						<table class="tbStyle3">
+							<colgroup>
+								<col width="60">
+								<col width="60">
+								<col width="60">
+								<col width="*">
+								<col width="120">
+								<col width="60">
+							</colgroup>
+							<thead>
+							<tr>
+								<th class="bdlNo">선택</th>
+								<th>배송지</th>
+								<th>수령인</th>
+								<th>주소</th>
+								<th>휴대폰번호</th>
+								<th>관리</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td class="bdlNo" colspan="6"><div class="nodata">등록된 배송지가 없습니다.</div></td>
+							</tr>
+							<tr>
+								<td class="bdlNo"><a href="" class="btn btn1">선택</a></td>
+								<td>회사</td>
+								<td>이제훈</td>
+								<td class="alignL">[015-585] 서울시 구로구 디지털로34길<br>55 코오롱싸이언 스밸리 2차 310호</td>
+								<td>010-5555-4183</td>
+								<td>
+									<div><a href="" class="btn btn2">수정</a></div>
+									<div class="mt4"><a href="" class="btn btn2">삭제</a></div>
+								</td>
+							</tr>
+							<tr>
+								<td class="bdlNo"><a href="" class="btn btn1">선택</a></td>
+								<td>회사</td>
+								<td>이제훈</td>
+								<td class="alignL">[015-585] 서울시 구로구 디지털로34길<br>55 코오롱싸이언 스밸리 2차 310호</td>
+								<td>010-5555-4183</td>
+								<td>
+									<div><a href="" class="btn btn2">수정</a></div>
+									<div class="mt4"><a href="" class="btn btn2">삭제</a></div>
+								</td>
+							</tr>
+							<tr>
+								<td class="bdlNo"><a href="" class="btn btn1">선택</a></td>
+								<td>회사</td>
+								<td>이제훈</td>
+								<td class="alignL">[015-585] 서울시 구로구 디지털로34길<br>55 코오롱싸이언 스밸리 2차 310호</td>
+								<td>010-5555-4183</td>
+								<td>
+									<div><a href="" class="btn btn2">수정</a></div>
+									<div class="mt4"><a href="" class="btn btn2">삭제</a></div>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="cont" id="deliveryInput">
+						<div class="desc">
+							<a href="#" onclick="$(this).parents('#deliveryInput').hide().siblings('.cont').show(); return false" class="btn btn2">목록</a>
+						</div>
+						<table class="tbStyle4">
+							<colgroup>
+								<col width="117">
+								<col width="*">
+							</colgroup>
+							<tbody>
+							<tr>
+								<th>배송지명</th>
+								<td class="subj">
+									<input type="text" class="input_1">
+								</td>
+							</tr>
+							<tr>
+								<th>받으시는 분</th>
+								<td class="name">
+									<input type="text" class="input_1">
+								</td>
+							</tr>
+							<tr>
+								<th>휴대폰번호</th>
+								<td class="phone">
+									<input type="text" class="input_1">
+									<span class="hyphen"></span>
+									<input type="text" class="input_1">
+									<span class="hyphen"></span>
+									<input type="text" class="input_1">
+								</td>
+							</tr>
+							<tr>
+								<th>주소</th>
+								<td class="address">
+									<p class="group">
+										<input type="text" class="input_1">
+										<span class="blank"></span>
+										<a href="" class="btn">주소찾기</a>
+									</p>
+									<p class="group">
+										<input type="text" class="input_2">
+									</p>
+									<p class="group">
+										<input type="text" class="input_3">
+									</p>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+						<div class="btnArea">
+							<a href="" class="btn">등록하기</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- //layer : 배송지관리 -->
+
+			<!-- layer : 최근배송지 -->
+			<div class="layerWrap" id="deliveryLayer2" style="display:none">
+				<div class="inner">
+					<div class="top">
+						<div class="t1">마이페이지</div>
+						<div class="t2">최근배송지</div>
+						<div class="closeBtn"><a href="#" onclick="javascript:toggleClsoeFnc('','#deliveryLayer2'); return false;">닫기</a></div>
+					</div>
+					<div class="cont" id="deliveryList">
+						<div class="desc">
+							<span>※ 배송지는 최대 5개까지 저장 가능합니다.</span>
+						</div>
+						<table class="tbStyle3">
+							<colgroup>
+								<col width="60">
+								<col width="60">
+								<col width="60">
+								<col width="*">
+								<col width="120">
+							</colgroup>
+							<thead>
+							<tr>
+								<th class="bdlNo">선택</th>
+								<th>배송지</th>
+								<th>수령인</th>
+								<th>주소</th>
+								<th>휴대폰번호</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td class="bdlNo" colspan="5"><div class="nodata">등록된 배송지가 없습니다.</div></td>
+							</tr>
+							<tr>
+								<td class="bdlNo"><a href="" class="btn btn1">선택</a></td>
+								<td>회사</td>
+								<td>이제훈</td>
+								<td class="alignL">[015-585] 서울시 구로구 디지털로34길<br>55 코오롱싸이언 스밸리 2차 310호</td>
+								<td>010-5555-4183</td>
+							</tr>
+							<tr>
+								<td class="bdlNo"><a href="" class="btn btn1">선택</a></td>
+								<td>회사</td>
+								<td>이제훈</td>
+								<td class="alignL">[015-585] 서울시 구로구 디지털로34길<br>55 코오롱싸이언 스밸리 2차 310호</td>
+								<td>010-5555-4183</td>
+							</tr>
+							<tr>
+								<td class="bdlNo"><a href="" class="btn btn1">선택</a></td>
+								<td>회사</td>
+								<td>이제훈</td>
+								<td class="alignL">[015-585] 서울시 구로구 디지털로34길<br>55 코오롱싸이언 스밸리 2차 310호</td>
+								<td>010-5555-4183</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<!-- //layer : 최근배송지 -->
+		</div>
+	</div><!-- e : #content -->
+
+</div><!-- e : #container -->
+
+
+
+
+
+<div id="footer" style="height:202px">footer</div>
+</body>
+</html>

@@ -1,0 +1,194 @@
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+// @import "module/popup";
+// @import "module/popupPC";
+
+.product-eco {
+		overflow-x: hidden;
+		.only-pc { display: block;}
+		.only-mobile { display: none;}
+		* {
+			line-height: normal;
+			font-family: $font-roboto;
+			letter-spacing: -1px;
+		}
+		.container {
+			position: relative;
+			.item {
+				position: relative;
+			}
+		}
+		.wrap {
+			position: relative;
+			width: 1300px;
+			margin: 0 auto;
+			text-align: center;
+			.product-full {
+				width: 100%;
+			}
+		}
+		.banner-follow {
+			position: fixed;
+			top: 150px;
+			right: 0;
+			z-index: 101;
+			& > div {
+				margin-top: 20px;
+				&:first-child { margin-top: 0; }
+			}
+		}
+		.fix-bottom {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 120px;
+			z-index: 11;
+			padding: 24px 0 0 0;
+			background: rgba(0,0,0, .8);
+			@include boxSizing(border-box);
+			.wrap {
+				strong {
+					display: inline-block;
+					font-size: 45px;
+					font-weight: 900;
+					color: #fff;
+					letter-spacing: -2px;
+				}
+				a {
+					position: relative;
+					display: inline-block;
+					margin-left: 20px;
+					width: 275px;
+					height: 70px;
+					text-align: center;
+					vertical-align: top;
+					border-radius: 100px;
+					@include linear-gradient(to right, #fa5800 0%, #eb260a 100%);
+					span {
+						@include arrow2(right, 12px, 12px, 3px, #fff);
+						display: block;
+						padding-right: 6px;
+						font-size: 30px;
+						font-weight: 900;
+						color: #fff;
+						line-height: 70px;
+						letter-spacing: -2px;
+						&:after {
+							position: absolute;
+							top: 50%;
+							margin-top: -6px;
+							right: 30px;
+						}
+					}
+					@include pointer(60%, 0, 57px, 65px, 12, bounce);
+				}
+			}
+		}
+		.grounds-text {
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 1.5;
+			color: rgba(0,0,0, .4);
+		}
+		p {
+			margin: 0;
+			padding: 0;
+			font-size: 14px;
+			color: #666;
+			font-family: $font-roboto;
+			&.fly,
+			&.eco { position: absolute; }
+		}
+		.eco-puri {
+			display: inline-block;
+		}
+
+    .sector {
+		&-title {
+			.bg-wrap {
+				position: relative;
+				height: 100%;
+				@include bg($color: #e35427, $url: '#{$img-path}/pc/bg_title.jpg', $size: cover);
+			}
+			.flag {
+				position: absolute;
+				top: 80px;
+				right: 23px;
+			}
+		}
+		&-banner {
+			&.banner-1 {
+				@include bg($url: '#{$img-path}/pc/bg_banner_1.jpg', $size: cover);
+			}
+			&.banner-2 { 
+				@include bg($url: '#{$img-path}/pc/bg_banner_2.jpg', $size: cover);
+			}
+			&.banner-3 {
+				background: #e75122;
+			}
+		}
+		&-check-1 { 
+			background: #fff;
+		}
+		&-check-2 { 
+			background: #ffefcd;
+		}
+		&-info {
+			background: #ededed;
+			.action { 
+				display: block; 
+				position: absolute; 
+				bottom: 118px; 
+				right: 168px; 
+				z-index: 1;
+			}
+		}
+		&-review {
+			@include bg($color: #da582f, $url: '#{$img-path}/pc/bg_review.jpg', $size: cover);
+		}
+		&-book {
+			padding-bottom: 142px;
+			background: #992501;
+			.action {
+				text-align: center
+			}
+		}
+		&-event {
+            @extend %clearfix;
+			background: #ffdfad;
+			img {
+				margin-top: -51px;
+			}
+            .product-list {
+                width: 1200px;
+                margin: 0 auto 150px;
+                img { margin: 0; }
+                & > div {
+                    display: inline-block;
+                    margin: 0 -40px 0 0;
+					&:nth-child(3) {
+						margin-top: -42px;
+					}
+                    button {
+                        display: inline-block;
+                        margin: 0;
+                        padding: 0;
+                        vertical-align: middle;
+                        white-space: nowrap;
+                        font-family: inherit;
+                        text-decoration: none;
+                        border: none;
+                        background: transparent;
+                        outline: 0;
+                        cursor: pointer;
+                    }
+                }
+            }
+		}
+	}
+}

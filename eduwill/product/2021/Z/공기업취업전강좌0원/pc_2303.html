@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>에듀윌</title>
+<link rel="stylesheet" href="https://www.eduwill.net/eduwill/live/libs/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/reset.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/common.css" />
+<script src="https://img.eduwill.net/eduwill/live/libs/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://img.eduwill.net/eduwill/live/libs/bxslider/jquery.bxslider.min.js"></script>
+<script src="https://img.eduwill.net/eduwill/live/libs/greensock/TweenMax.min.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+    컨텐츠 감싸는 부모 : product-eco
+    하단 수강신청 영역 : product-apply
+    하단 수강신청 영역 내 탭 : product-tab
+    하단 수강신청 영역 내 가격 : product-price
+    하단 수강신청 영역 내 정보 : product-table
+    따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+<!-- <link rel="stylesheet" href="css/web.css"> -->
+<!-- eco 영역 -->
+<link href="https://img.eduwill.net/resources/eduwill/live/js/slick/slick.css" rel="stylesheet" />
+<link href="https://img.eduwill.net/eduwill/live/libs/swiper/swiper.min.css" rel="stylesheet" />
+<link href="https://img.eduwill.net/resources/eduwill/live/css/main/public/counter.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+	.fix-apply { display: none !important;}
+	.product-eco { background: #fff;position: relative;margin: 0 auto;text-align: center;}
+	.product-eco * { font-family: "Noto Sans KR", sans-serif, '맑은고딕','Malgun Gothic','돋움', Dotum, '굴림', Gulim, Tahoma, sans-serif, verdana;  letter-spacing: -1px;}
+	.product-eco img { vertical-align: top; }
+	.product-eco .container {position: relative;background-repeat: no-repeat;background-position: center top;}
+	.product-eco .wrap { position: relative;width: 1100px;margin: 0 auto;background-repeat: no-repeat;background-position: center top;text-align: center;}
+	.product-eco .wrap .content { position: relative;}
+	.product-eco .sr-only { position: absolute;width: 1px;height: 1px;padding: 0;margin: -1px;overflow: hidden;clip: rect(0,0,0,0);border: 0;}
+
+	.grid { box-sizing: border-box; -webkit-box-sizing: border-box; *zoom: 1; }
+	.grid:before,
+	.grid:after { content: ''; display: table; }
+	.grid:after { clear: both; }
+	.grid .col { float: left; box-sizing: border-box; -webkit-box-sizing: border-box; }
+
+	.product-eco .icon-hand{position:absolute;top:50%;z-index:1;-webkit-animation-name:updown;animation-name:updown;-webkit-animation-duration:1s;animation-duration:1s;-webkit-animation-iteration-count:infinite;animation-iteration-count:infinite;-webkit-animation-timing-function:ease;animation-timing-function:ease;-webkit-animation-direction:normal;animation-direction:normal}
+
+	@keyframes updown {
+		0%, 100% {-webkit-transform: translateY(0);transform: translateY(0);}
+		50% {-webkit-transform: translateY(-10px);transform: translateY(-10px);}
+	}
+
+	/* 상단타이머 */
+	.product-eco .banner-timer { position: fixed; bottom: 0; left: 0; right: 0;  width: 100%; height: 89px; background: #1b2021; z-index: 1000;}
+	.product-eco .banner-timer .countdown { width: 1100px; margin: 0 auto; padding: 18px 0; text-align: center; line-height: 1; z-index: 1;}
+	.product-eco .banner-timer .countdown .end-title { margin-right: 15px; width: 84px; height: 37px; text-align: center; color: #fff; font-size: 18px; font-weight: 400; line-height: 37px; background: #999;}
+	.product-eco .banner-timer .countdown .day-box {display: inline-block;}
+	.product-eco .banner-timer .countdown p {position: relative;margin: 0;padding: 0;display: inline-block; vertical-align: middle; color: #fff;font-size: 36px; line-height: 50px;font-weight: 700;font-family: 'Noto Sans KR', Sans-Serif;padding-right: 5px;}
+	.product-eco .banner-timer .countdown p em,
+	.product-eco .banner-timer .countdown p span { padding: 0 4px; letter-spacing: 4px;}
+	.product-eco .banner-timer .countdown p span { display: inline-block; min-width: 60px; text-align: center;}
+	.product-eco .banner-timer .countdown .action { position: relative;display: inline-block;line-height: 1;vertical-align: top;margin-left: 30px;}
+	.product-eco .banner-timer .countdown .action .icon-hand { right: 0;}
+	.product-eco .banner-timer .countdown .action .icon-hand img { width: 50px;}
+
+	.product-eco .floating{ position: fixed;top:16.4%;left:50%;z-index:7;margin-left: 600px;}
+	.product-eco .floating .pointer{ position: absolute;top:98px;right:10px;}
+	.product-eco .floating .pointer img{ width:36px;}
+
+	.product-eco .section-title{ height: 1605px; background:#183879 url('https://img.eduwill.net/Img2/public/product/201208/pc/bg_title.jpg') no-repeat 50% top; background-size:cover; }
+	.product-eco .section-title .tit-1{position:absolute;top:711px;left:50%;transform:translate(-50%,0)}
+	.product-eco .section-title .service{position:relative;z-index:2;}
+	.product-eco .section-title .flash{position: absolute;left:948px;top:64px;}
+	.product-eco .section-title .flash .on{position: absolute;left:0;top:0;animation:.5s flash ease-in-out infinite alternate;-webkit-animation: .5s flash ease-in-out infinite alternate;}
+	@-webkit-keyframes flash { 0% { opacity: 1;} 100% { opacity: 0;} }
+	@keyframes flash { 0% { opacity: 1;} 100% { opacity: 0;} }
+	.product-eco .section-title .action{position:absolute;top:217px;right:200px}
+	.product-eco .section-benefit{padding-top:280px;padding-bottom:80px;background-color:#ffd900;}
+	.product-eco .section-gisu{height:102px;background:url('https://img.eduwill.net/Img2/public/product/201208/pc/bg_gisu_repeat.jpg') repeat-x left top;}
+	.product-eco .section-gisu .wrap{height:100%;background:url('https://img.eduwill.net/Img2/public/product/201208/pc/bg_gisu.jpg') no-repeat 50% top;}
+
+	.product-eco .section-gisu .timer_type{ width:100%;min-width:1000px;margin:0 auto;padding:23px 0;line-height: 1;}
+	.product-eco .section-gisu .timer_type:after{content:'';display:block;clear:both;}
+	.product-eco .section-gisu .timer_type p{ position: relative;margin:0;padding:0;display: inline-block;line-height: 1;vertical-align: middle; color:#fff;font-size:34px;margin-right: 7px;font-weight:700;}
+	.product-eco .section-gisu .timer_type .subject em:before{ content:'';position: absolute;width:1px;height:22px;background:#fff;top:2px;right:-18px;}
+	.product-eco .section-gisu .timer_type .subject{ color:#fff;font-size:36px;font-weight:400;text-align: left;margin-right:10px;}
+	.product-eco .section-gisu .timer_type .subject em{ color:#fff;font-weight: 700;position: relative;display: inline-block;font-style: normal;}
+	/* //상단타이머 */
+
+	/* 가격표 */
+	.product-eco .section-price{padding:0px 0 127px;}
+	.product-eco .section-price p{margin:0;line-height:1;}
+	.product-eco .section-price .icon-hand {position: absolute;top: 60%; right: 25px;}
+	.product-eco .section-price .icon-hand img { width: 50px;}
+
+	.product-eco .section-price .btn-lecture{position:absolute;right:49px;top:175px;}
+	.product-eco .section-price .text-lecture{position:absolute;left:73px;top:15px;color:#fff;font-size:28px;font-family:"Noto Sans KR", sans-serif;font-weight:700;letter-spacing:-1px;}
+
+	.product-eco .section-price .price-table{position:relative}
+	.product-eco .section-price .price-box{position:absolute;left:140px;bottom:35px}
+	
+	.product-eco .section-price .item {display: table; width: 300px; padding-left: 35px; padding-right: 28px;}
+	.product-eco .section-price .item.item-3{margin-top: 8px;}
+	.product-eco .section-price .item.item-3 .before-price .price{color: #000;    float: right;}
+	.product-eco .section-price .item p{display: table-cell; vertical-align: middle;}
+
+	.product-eco .section-price .before-price{width: 170px;}
+	.product-eco .section-price .before-price label{float: left;}
+	.product-eco .section-price .before-price input[type=radio]{float:left;width:23px;height:23px;vertical-align:middle;margin:5px 3px 0 0;padding:0}
+	.product-eco .section-price .before-price .price{position:relative;color:#afafaf;font-size:30px;font-weight:700;font-family:"Noto Sans KR",sans-serif;margin-left:7px}
+	.product-eco .section-price .before-price .arrow:after{content:'';position:absolute;width:145px;height:10px;top:50%;left:50%;transform:translate(-50%,-50%);background:url(https://img.eduwill.net/Img2/public/product/201208/pc/arrow.png) 50% 0 no-repeat;background-size:contain}
+	.product-eco .section-price .before-price .price span{font-size:20px;font-weight:500}
+
+	.product-eco .section-price .price-agree{position:relative}
+	.product-eco .section-price .price-agree .btn-agree{position:absolute;top:50%;right:0;transform:translate(0,-50%)}
+	.product-eco .section-price .price-agree .agree-check{margin-top:30px;text-align:left;margin-left:50px}
+	.product-eco .section-price .price-agree .agree-check p{display: inline-block;}
+	.product-eco .section-price .price-agree .agree-check input[type=checkbox]{display:inline-block;vertical-align:top;width:20px;height:20px}
+	.product-eco .section-price .price-agree .agree-check label{display: inline-block; text-align: left; color: #000; font-size: 20px; margin-left: 10px;}
+	.product-eco .section-price .price-agree .agree-check label p{line-height: 1.3; font-size: 20px}
+	.product-eco .section-price .btn-price{display:inline-block; position: relative; margin: 60px auto 0;}
+	.product-eco .section-price .btn-price .notice{display: block; color: #929292; font-size: 18px; margin-top: 20px;}
+	/* // 가격표 */
+
+	.product-eco .section-item3 { background-color:#ededed;}
+	.product-eco .section-item3 .action{position:absolute;top:319px;right:73px}
+	.product-eco .section-item3 .slider-box {position: absolute;top: 355px;right: 50px;-webkit-box-sizing: border-box;box-sizing: border-box;width: 400px;height: 400px;}
+	.product-eco .section-item3 .slider-box:before,
+	.product-eco .section-item3 .slider-box:after {content: '';position: absolute;right: 0;left: 0;z-index: 1;display: block;width: 100%;height: 150px;background: transparent;}
+	.product-eco .section-item3 .slider-box:before {top: 0;background: -webkit-gradient(linear, left bottom, left top, from(rgba(255, 255, 255, 0.1)), to(white));background: linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0%, white 100%);}
+	.product-eco .section-item3 .slider-box:after {bottom: 0;background: -webkit-gradient(linear, left bottom, left top, from(white), to(rgba(255, 255, 255, 0.1)));background: linear-gradient(0deg, white 0%, rgba(255, 255, 255, 0.1) 100%);}
+	.product-eco .section-item3 .slider-box .slider-logo {height: 100%;}
+	.product-eco .section-item3 .slider-box .slick-list {height: 100% !important;}
+	.product-eco .section-item3 .slider-box .slick-list .logo {display: table;height: 80px;}
+	.product-eco .section-item3 .slider-box .slick-list .logo img {margin: 0 auto;}
+	.product-eco .section-item3 .slider-box .slick-list p {display: table-cell;vertical-align: middle;font-size: 17px;width: 200px;margin: 0 auto;}
+	.product-eco .section-item3 .slider-box .slick-list p:nth-child(2) {text-align: left;}
+
+	.product-eco .section-video .video-box {position:absolute;top:327px;left:91px;width:700px;}
+	.product-eco .section-video .video-box .btn-play {position: absolute;top: 0;left: 0;width: 100%;height: 100%;}
+	.product-eco .section-video .video-button-prev {left:50px;width:29px;height:60px;margin-top:-30px;background: url(https://img.eduwill.net/Img2/public/product/201208/pc/btn_prev_210225.png) no-repeat 50% top;}
+	.product-eco .section-video .video-button-next {right:50px;width:29px;height:60px;margin-top:-30px;background: url(https://img.eduwill.net/Img2/public/product/201208/pc/btn_next_210225.png) no-repeat 50% top;}
+	.product-eco .section-video .swiper-button-prev:after,
+	.product-eco .section-video .swiper-button-next:after {content:none !important;}
+	.product-eco .section-video .action {display:inline-block;position:relative;margin-top:33px;}
+	.product-eco .section-video .action .icon-hand {right:0;}
+
+	.product-eco .section-item4 { background: #fff; }
+
+	.product-eco .section-slide{ padding-bottom: 120px; background: #433af6; }
+
+	.product-eco .section-slide #slideBenefit{position:relative;width:1100px;}
+	.product-eco .section-slide .swiper-slide{margin-left:40px;width:400px;}
+	.product-eco .section-slide .cover_left{ width:10px;height:562px;position: absolute;top:262px;left:0;background:#433af6;box-shadow: 10px 0 10px 0 #322bb7;z-index:99;}
+	.product-eco .section-slide .cover_right{ width:10px;height:562px;position: absolute;top:262px;right:0;background:#433af6;box-shadow: -10px 0 10px 0 #322bb7;z-index:99;}
+
+	.product-eco .section-item5 { background: #fff;}
+	.product-eco .section-item5 .slide_box{ position: relative; }
+	/* .product-eco .section-item5 .slider1{position:absolute;left:550px;top:191px;}
+	.product-eco .section-item5 .slider2{position:absolute;left:550px;top:541px;}
+	.product-eco .section-item5 .slider3{position:absolute;left:550px;top:891px;} */
+	/* .product-eco .section-item5 .swiper-container{width: 440px;} */
+
+
+	/* layer */
+	.dimmed{ display:none;position: fixed; left: 0px; top: 0px; width: 100%; height: 100%;z-index:2000; background-color: rgba( 0, 0, 0, 0.7);}
+	.popup-style { font-family: "Noto Sans KR", Sans-Serif; display: none;position:absolute;left:50%;top:0;z-index:2001;transform: translateX(-50%);-webkit-transform: translateX(-50%);-o-transform: translateX(-50%);-moz-transform: translateX(-50%);}
+	.popup-style { width:720px;height:auto;background-color:#fff;line-height:1;letter-spacing: -1px;padding:0; box-sizing:border-box;}
+	.popup-close{position:absolute;top:0;right:0;display:block;width:60px;height:60px}
+	.popup-close span{position:absolute;display:inline-block;overflow:hidden;clip:rect(0 0 0 0);width:0;height:0;margin:-1px;padding:0;word-break:keep-all;white-space:nowrap;color:transparent;border:0;text-indent:-9999px}
+	.popup-close:before,.popup-close:after{content:'';position:absolute;top:50%;left:50%;display:block;width:30px;height:1px;margin-left:-15px;background-color:#fff}
+	.popup-close:before{-webkit-transform:rotate(45deg);transform:rotate(45deg)}
+	.popup-close:after{-webkit-transform:rotate(315deg);transform:rotate(315deg)}
+	.popup-cont .tab-title{text-align:left;font-weight:700;background:#333;color:#fff;padding:4%;letter-spacing:-1px;line-height:1.4;font-size:1.875rem}
+	.popup-cont .tab-title span{display:block;font-size:.78125rem}
+	.popup-cont .lecture-list,.popup-cont .books-list{height:500px;overflow-y:auto}
+	.popup-cont dl dt { padding: 0 20px; text-align: left; font-size: 20px; color: #222; font-weight: 400; line-height: 40px; background: #f1f1f1; border-bottom: 1px solid #ddd; border-top: 1px solid #ddd;}
+	.popup-cont dl dd { text-align: left; padding: 20px; font-size: 16px; color: #222; line-height: 1.7;}
+	.popup-cont dl dd ul li:not(:first-child){margin-top:1.3%}
+	@media screen and (min-width: 720px) {
+	.popup-cont .tab-title{font-size:30px}
+	.popup-cont .tab-title span{font-size:15px}
+	}
+
+	.popup-cont dl dt { padding: 0 20px; text-align: left; font-size: 20px; color: #222; font-weight: 400; line-height: 40px; background: #f1f1f1; border-bottom: 1px solid #ddd; border-top: 1px solid #ddd;}
+	.popup-cont dl dd { text-align: left; padding: 20px; font-size: 16px; color: #222; line-height: 1.7;}
+	@media screen and (min-width: 720px) {
+	.popup-cont .tab-title{font-size:30px}
+	.popup-cont .tab-title span{font-size:15px}
+	}
+	/* 환급조건 팝업 */
+	.popup#popupAgree .popup_body dt{font-weight: 600; font-size: 15px;}
+	.popup#popupAgree .popup_body .item:not(:first-child){margin-top: 20px;}
+	.popup#popupAgree .popup_body .item dd>ul>li{margin-top: 10px; font-weight: 600; word-break: keep-all;}
+	.popup#popupAgree .popup_body .item dd ul li .info{display: block;}
+	.popup#popupAgree .popup_body .item dd ul li a{color: #fff;}
+	.popup#popupAgree .popup_body .item dd ul li a:visited{color: #fff;}
+	.popup#popupAgree .popup_body .item dd ul li .info span{display: block;}
+	/* //환급조건 팝업 */
+
+	.section-husBenefit{margin-bottom:60px}
+	.section-husBenefit img{vertical-align: middle;}
+	.section-husBenefit img:not(:last-child){margin-right:50px}
+	/*.section-husBenefit .img-benefit{width:300px;}*/
+
+	.section-choose{background:#ffd900;padding-bottom:110px}
+	.section-choose .chooseSlide{position:relative}
+	.section-choose .choose-button{position:absolute;top:50%;transform:translate(-50%,0);z-index:10}
+	.choose-button-next{right:80px;width:70px;height:70px;background:url(https://img.eduwill.net/Img2/public/product/201208/pc/choose-button-next.png) 0 0 no-repeat}
+	.choose-button-prev{left:140px;width:70px;height:70px;background:url(https://img.eduwill.net/Img2/public/product/201208/pc/choose-button-prev.png) 0 0 no-repeat}
+	.section-choose .swiper-container-3d .swiper-slide{opacity:.5}
+	.section-choose .swiper-container-3d .swiper-slide.swiper-slide-active{opacity:1!important}
+	.section-choose .swiper-container-3d .swiper-slide-shadow-left{background-image:linear-gradient(to left,rgba(255,255,255,.9),rgba(0,0,0,0))}
+	.section-choose .swiper-container-3d .swiper-slide-shadow-right{background-image:linear-gradient(to left,rgba(255,255,255,.9),rgba(0,0,0,0))}
+
+	.section-item5 .swiper-container-3d .swiper-slide{opacity:.5}
+	.section-item5 .swiper-container-3d .swiper-slide.swiper-slide-active{opacity:1!important}
+	.section-item5 .swiper-container-3d .swiper-slide-shadow-top{background-image:linear-gradient(to left,rgba(255,255,255,.9),rgba(0,0,0,0))}
+	.section-item5 .swiper-container-3d .swiper-slide-shadow-bottom{background-image:linear-gradient(to left,rgba(255,255,255,.9),rgba(0,0,0,0))}
+	.section-item5 .rivewSlide{margin-bottom:100px;}
+	.section-item5 .swiper-container{width:100%;height:100%!important}
+	.section-item5 .swiper-slide{height:auto!important;text-align:center;font-size:18px;background:#fff;display:-webkit-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-pack:center;-ms-flex-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-align:center;-ms-flex-align:center;-webkit-align-items:center;align-items:center}
+	.section-item5 .rivewSlide .review-button-prev {left:50px;width:29px;height:60px;margin-top:-30px;background: url(https://img.eduwill.net/Img2/public/product/201208/pc/btn_prev_210225.png) no-repeat 50% top;}
+	.section-item5 .rivewSlide .review-button-next {right:50px;width:29px;height:60px;margin-top:-30px;background: url(https://img.eduwill.net/Img2/public/product/201208/pc/btn_next_210225.png) no-repeat 50% top;}
+	.section-item5 .rivewSlide .swiper-button-prev:after,
+	.section-item5 .rivewSlide .swiper-button-next:after {content:none !important;}
+
+	.flag{-webkit-animation:change 1s step-start infinite;animation:change 1s step-start infinite;width:100px;position:absolute;top:250px;left:170px;border-radius:50px;padding:10px 20px;font-weight:600;font-size:20px}
+
+	@-webkit-keyframes change {
+	0%{color:#fff;background:#d90d0e}
+	50%{color:#000;background:#ffd900}
+	100%{color:#fff;background:#d90d0e}
+	}
+
+	@keyframes flickeringly {
+		0%{color:#fff;background:#d90d0e}
+		50%{color:#000;background:#ffd900}
+		100%{color:#fff;background:#d90d0e}
+	}
+	.popup_body{background-color: rgb(0,0,0,0.9);color:#fff;font-weight:300;font-size:.75rem;width:100%;padding:5%;text-align:left;-webkit-box-sizing:border-box;box-sizing:border-box;line-height:1.5}
+</style>
+<div class="product-eco" id="productEco">
+	<div class="eco-2684"></div>
+
+	<div class="banner-timer">
+		<div class="countdown">
+			<p class="end-title">@gisu@</p>
+
+			<div class="day-box">
+				<p><em>D-</em><span class="day">0</span><em>일</em></p>
+
+				<p><span class="hour">00</span><em> : </em></p>
+
+				<p><span class="min">00</span><em> : </em></p>
+
+				<p><span class="sec">00</span><em>.</em></p>
+
+				<p><span class="msec">00</span></p>
+			</div>
+
+			<div class="action"><a class="page_move" href="#sectionPrice"><span class="icon-hand"> <img alt=""
+							src="https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png" /> </span> <img
+						alt="마감전 신청하기" src="https://img.eduwill.net/Img2/public/product/201208/pc/btn_timer.png" /> </a>
+			</div>
+		</div>
+	</div>
+	<!-- <div id="floatingBanner201208" style="position: fixed; top: 311px; left: 200px; z-index: 1030;">
+				<img src="https://img.eduwill.net/Img2/public/product/201208/pc/floatting.png" alt="하반기 할인쿠폰 15% 제공" usemap="#mapFloatingBanner201208">
+				<map name="mapFloatingBanner201208" id="mapFloatingBanner201208">
+					<area shape="circle" coords="100,100,99" href="https://event.eduwill.net/Event/2020/B/PassReview_201208?ECO_MODE=S" alt="자세히보기">
+					<area shape="rect" coords="27,210,175,229" href="#" alt="오늘 하루 열지 않기" onclick="javascript:closeOneDayAuto('floatingBanner201208');return false;">
+					<area shape="circle" coords="185,16,14" href="#" alt="팝업 닫기" onclick="javascript:document.getElementById('floatingBanner201208').style.display='none'; return false;">
+				</map>
+			</div> -->
+
+	<div class="container section-title">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/title_210225.png" />
+			<img alt="수강료 최대 300% 현금 환급" class="tit-1" src="https://img.eduwill.net/Img2/public/product/201208/pc/title.gif" />
+
+			<div class="floating"><img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/quick.png"
+					usemap="#mapfloating" /><map name="mapfloating"><area alt="수강신청" class="page_move"
+						coords="47,97,201,139" href="#sectionPrice" shape="rect" /> <area alt="수강강의리스트"
+						class="btn-lecture" coords="18,162,227,261" href="javascript:;"
+						onclick="popupOpen('.dimmed', 'popupLecture')" shape="rect" /> <area alt="수강에 필요한 교재 리스트"
+						class="btn-book" coords="18,263,227,361" href="javascript:;"
+						onclick="popupOpen('.dimmed', 'popupBooks')" shape="rect" /> <area alt="맞춤형대비가 필요한 이유"
+						class="page_move" coords="18,363,227,461" href="#sectionItem4" shape="rect" /> <area
+						alt="진단평가 기반 맞춤 커리큘럼" class="page_move" coords="18,461,227,571" href="#sectionItem5"
+						shape="rect" /> <area alt="무료혜택 자세히보기" class="page_move" coords="227,679,18,572"
+						href="#sectionFree" shape="rect" /> <area alt="TOP" class="page_move" coords="227,679,16,738"
+						href="#productEco" shape="rect" /></map></div>
+
+			<div class="section-husBenefit"><img alt="" class="img-benefit"
+					src="https://img.eduwill.net/Img2/public/product/201208/pc/benefit_01_off.png" /> <img alt=""
+					class="img-benefit"
+					src="https://img.eduwill.net/Img2/public/product/201208/pc/benefit_02_off.png" /> <img alt=""
+					class="img-benefit" src="https://img.eduwill.net/Img2/public/product/201208/pc/benefit_03_off.png"
+					style="margin-top: 20px" /></div>
+
+			<div class="service"><img alt=""
+					src="https://img.eduwill.net/Img2/public/product/201208/pc/service_210126.png" /> <span
+					class="flash"> <img alt=""
+						src="https://img.eduwill.net/Img2/public/product/201208/pc/flash_off.png" /> <img alt=""
+						class="on" src="https://img.eduwill.net/Img2/public/product/201208/pc/flash_on.png" /> </span>
+			</div>
+		</div>
+	</div>
+
+	<div class="container section-benefit">
+		<div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/benefit_210126.gif" />
+		</div>
+	</div>
+	<!-- <div class="container section-gisu">
+				<div class="wrap">
+					<div class="timer_type">
+						<p class="clock_img">
+							<img alt="시계" src="https://img.eduwill.net/Img2/public/product/201208/pc/ico_clock.png" />
+						</p>
+						<p class="subject">@gisu@</p>
+						<p>@gisuday@</p>
+					</div>
+				</div>
+			</div> -->
+
+	<div class="container section-price" id="sectionPrice">
+		<div class="wrap">
+			<div class="price-table"><img alt=""
+					src="https://img.eduwill.net/Img2/public/product/201208/pc/price_210225.jpg" />
+				<div class="flag"><span> BEST </span></div>
+				<a class="btn-lecture" href="javascript:;" onclick="popupOpen('.dimmed', 'popupLecture');"> <img
+						alt="강의리스트"
+						src="https://img.eduwill.net/Img2/public/product/201208/pc/btn_lecture_210126.png" /> </a>
+				<!-- <p class="text-lecture">
+							공기업 전강좌 180일 무제한 수강
+						</p> -->
+
+				<div class="price-box grid">
+					<div class="item item-1 col">
+						<p class="before-price"><input checked="checked" id="priceCheck-1" name="ProductCd" type="radio"
+								value="0" /> <label class="price arrow" for="priceCheck-1">280,000<span>원</span></label>
+						</p>
+
+						<p class="after-price"><img alt="0원"
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/payback.png" /></p>
+					</div>
+
+					<div class="item item-2 col">
+						<p class="before-price"><input id="priceCheck-2" name="ProductCd" type="radio" value="1" />
+							<label class="price arrow" for="priceCheck-2">230,000<span>원</span></label></p>
+
+						<p class="after-price"><img alt="0원"
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/payback.png" /></p>
+					</div>
+
+					<div class="item item-3 col">
+						<p class="before-price"><input id="priceCheck-3" name="ProductCd" type="radio" value="2" />
+							<label class="price" for="priceCheck-3">170,000<span>원</span></label></p>
+					</div>
+				</div>
+			</div>
+
+			<div class="price-agree"><a class="btn-agree" href="javascript:;"
+					onclick="popupOpen('.dimmed', 'popupAgree');"><img alt="강의리스트"
+						src="https://img.eduwill.net/Img2/public/product/201208/pc/btn_agree.png" /> </a>
+
+				<div class="agree-check"><input id="agreeCehck" name="agreeCehck" type="checkbox" /> <label
+						class="price arrow" for="agreeCehck"> </label>
+
+					<p><label class="price arrow" for="agreeCehck">환급 안내사항 내용을 모두 확인 및 이해하였으며, 이에 동의합니다.<br />
+							120일 합격 할인반은 환급 대상에 포함되지 않습니다.</label></p>
+					<label class="price arrow" for="agreeCehck"> </label>
+				</div>
+			</div>
+
+			<div class="btn-price"><a href="javascript:PaymentGo();"><span class="icon-hand"> <img alt=""
+							src="https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png" /> </span> <img
+						alt="수강신청" src="https://img.eduwill.net/Img2/public/product/201208/pc/btn_apply.png" /> </a>
+				<span class="notice">* 미션 달성 시/ 제세공과금 제외/상세내용 하단 유의사항 참고</span></div>
+		</div>
+	</div>
+
+	<div class="container section-item3">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/img_item3_210225.png" />
+			<div class="slider-box">
+				<div class="slider-logo">
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>sae****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>skygh****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>dawoo****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>rmaehdd****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>cothd****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>chl****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>mandy****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>think****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>wldnjs****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>homi****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>duswlt****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>tae7****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>mang****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>dntks****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>sugars****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>mva****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>cybe****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>jonghyu****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>s18026****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>cjk****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>sunghy****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>kpj****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>co****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>tif****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>syj****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>jieun****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>approach****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>kuy****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>ph****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>sylph****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>hhb****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>wldn****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>minstone****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>yjs****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>ss****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>eunbin****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>ky****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>ga****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>qorrl****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>c****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>think****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>chi****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>wjswnst****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_korail.png" alt="코레일"></p>
+						<p>코레일 합격<br>suhyun****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>anemon****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>kymin****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>s260****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>diana****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>ske****</p>
+					</div>
+					<div class="logo">
+						<p><img src="https://img.eduwill.net/eduwill/img/2021/Z/product/210122/pc/logo_kepco.png" alt="한국전력공사"></p>
+						<p>한국전력공사 합격<br>ihn0****</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container section-video">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/video_title.jpg" />
+			<div class="video-box">
+                <div class="video video1">
+                    <video width="100%" height="100%" controls="" poster="">
+                        <source src="http://pmp.eduwill.net/eduwillpmp/eduwill/flv/20210129/HGS_Interview.mp4" type="video/mp4">
+                    </video>
+                    <a href="javascript:;" class="btn-play" id="btn-play1">
+                        <img src="https://img.eduwill.net/Img2/public/product/201208/pc/video_thumb.png" alt="영상 썸네일">
+                    </a>
+                </div>
+            </div>
+			<div class="video-slider">
+				<div class="swiper-container videoSlider">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img alt="슬라이드" src="https://img.eduwill.net/Img2/public/product/201208/pc/video_slide01.png" /></div>
+						<div class="swiper-slide"><img alt="슬라이드" src="https://img.eduwill.net/Img2/public/product/201208/pc/video_slide02.png" /></div>
+						<div class="swiper-slide"><img alt="슬라이드" src="https://img.eduwill.net/Img2/public/product/201208/pc/video_slide03.png" /></div>
+					</div>
+					<div class="swiper-button-next video-button-next"></div>
+					<div class="swiper-button-prev video-button-prev"></div>
+				</div>
+			</div>
+			<div class="action">
+				<a href="http://event.eduwill.net/VictoryStory/Z/Public_Enterprise" target="_blank" title="새창열기">
+					<span class="icon-hand">
+						<img alt="" src="https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png">
+					</span>
+					<img alt="마감전 신청하기" src="https://img.eduwill.net/Img2/public/product/201208/pc/btn_review.png">
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container section-item4" id="sectionItem4">
+		<div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/img_item4.jpg" /></div>
+	</div>
+
+	<div class="container section-slide">
+		<div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/tit_slide1.png" />
+			<div id="slideBenefit">
+				<div class="swiper-container slideBenefit">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/img_slide1.jpg" /></div>
+
+						<div class="swiper-slide"><img
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/img_slide2.jpg" /></div>
+
+						<div class="swiper-slide"><img
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/img_slide3_210126.jpg" />
+						</div>
+
+						<div class="swiper-slide"><img
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/img_slide4.jpg" /></div>
+
+						<div class="swiper-slide"><img
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/img_slide5.jpg" /></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="cover_left"></div>
+
+			<div class="cover_right"></div>
+		</div>
+	</div>
+
+	<div class="container section-item5" id="sectionItem5">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/item5_1.jpg" />
+			<img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/item5_2.jpg" />
+			<img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/item5_3_210225.jpg" />
+			<img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/item5_4_210126.jpg" />
+			<img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/item5_5.jpg" />
+			<img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/item5_5_plus_210225.jpg" />
+			<div class="rivewSlide">
+				<div class="swiper-container slideRivew">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img alt="슬라이드" src="https://img.eduwill.net/Img2/public/product/201208/pc/r_slide01.png" /></div>
+						<div class="swiper-slide"><img alt="슬라이드" src="https://img.eduwill.net/Img2/public/product/201208/pc/r_slide02.png" /></div>
+						<div class="swiper-slide"><img alt="슬라이드" src="https://img.eduwill.net/Img2/public/product/201208/pc/r_slide03.png" /></div>
+						<div class="swiper-slide"><img alt="슬라이드" src="https://img.eduwill.net/Img2/public/product/201208/pc/r_slide04.png" /></div>
+						<div class="swiper-slide"><img alt="슬라이드" src="https://img.eduwill.net/Img2/public/product/201208/pc/r_slide05.png" /></div>
+					</div>
+					<div class="swiper-button-next review-button-next"></div>
+					<div class="swiper-button-prev review-button-prev"></div>
+				</div>
+			</div>
+			<div id="sectionFree">
+				<img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/item5_6_210126.jpg" />
+			</div>
+		</div>
+	</div>
+
+	<div class="container section-choose">
+		<div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/choose.jpg" />
+			<div class="chooseSlide">
+				<div class="swiper-container slideChoose">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img alt="슬라이드"
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/c_slide01.png" /></div>
+
+						<div class="swiper-slide"><img alt="슬라이드"
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/c_slide02.png" /></div>
+
+						<div class="swiper-slide"><img alt="슬라이드"
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/c_slide03.png" /></div>
+
+						<div class="swiper-slide"><img alt="슬라이드"
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/c_slide04.png" /></div>
+
+						<div class="swiper-slide"><img alt="슬라이드"
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/c_slide05.png" /></div>
+
+						<div class="swiper-slide"><img alt="슬라이드"
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/c_slide06.png" /></div>
+
+						<div class="swiper-slide"><img alt="슬라이드"
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/c_slide07.png" /></div>
+
+						<div class="swiper-slide"><img alt="슬라이드"
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/c_slide08.png" /></div>
+
+						<div class="swiper-slide"><img alt="슬라이드"
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/c_slide09.png" /></div>
+					</div>
+				</div>
+				<!-- 네비게이션 버튼 -->
+
+				<div class="choose-button choose-button-next"></div>
+				<!-- 다음 버튼 (오른쪽에 있는 버튼) -->
+
+				<div class="choose-button choose-button-prev"></div>
+				<!-- 이전 버튼 -->
+			</div>
+		</div>
+	</div>
+
+	<div class="container section-slide">
+		<div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/tit_slide1.png" />
+			<div id="slideBenefit">
+				<div class="swiper-container slideBenefit">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide"><img
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/img_slide1.jpg" /></div>
+
+						<div class="swiper-slide"><img
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/img_slide2.jpg" /></div>
+
+						<div class="swiper-slide"><img
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/img_slide3_210126.jpg" />
+						</div>
+
+						<div class="swiper-slide"><img
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/img_slide4.jpg" /></div>
+
+						<div class="swiper-slide"><img
+								src="https://img.eduwill.net/Img2/public/product/201208/pc/img_slide5.jpg" /></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="cover_left"></div>
+
+			<div class="cover_right"></div>
+		</div>
+	</div>
+	<!-- <div class="container section-gisu">
+				<div class="wrap">
+					<div class="timer_type">
+						<p class="clock_img">
+							<img alt="시계" src="https://img.eduwill.net/Img2/public/product/201208/pc/ico_clock.png" />
+						</p>
+						<p class="subject">
+							@gisu@
+						</p>
+						<p>
+							@gisuday@
+						</p>
+					</div>
+				</div>
+			</div> -->
+	<!-- <div class="container section-price">
+				<div class="wrap">
+					<img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/price.png" />
+					<a class="btn-lecture" href="javascript:;">
+						<img alt="강의리스트" src="https://img.eduwill.net/Img2/public/product/201208/pc/btn-lecture.png" />
+					</a>
+					<p class="text-lecture">
+						공기업 전강좌 180일 무제한 수강
+					</p>
+					<p class="before-price">
+						<span class="price">
+							250,000원
+						</span>
+						<span class="arrow">
+							<img alt="" src="https://img.eduwill.net/Img2/public/product/201208/pc/arrow.png" />
+						</span>
+					</p>
+					<a class="btn-price page_move" href="#productApply">
+						<span class="icon-hand">
+							<img alt="" src="https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png" />
+						</span>
+						<img alt="수강신청" src="https://img.eduwill.net/Img2/public/product/201208/pc/btn_apply.png" />
+					</a>
+				</div>
+			</div> -->
+	<!-- popup -->
+
+	<div class="dimmed"></div>
+
+	<div class="popup popup_open popup-style" id="popupLecture"><a class="popup-close" href="javascript:;"
+			onclick="popupClose('.dimmed', 'popupLecture');"><span>팝업 닫기</span></a>
+
+		<div class="popup-cont">
+			<div class="tab-title">강의리스트 <span> *오픈 예정 강의는 업데이트 후 수강하실수 있습니다. </span></div>
+
+			<div class="lecture-list"></div>
+			<!-- 강의리스트 1880 -->
+		</div>
+	</div>
+
+	<div class="popup popup_open popup-style" id="popupBooks"><a class="popup-close" href="javascript:;"
+			onclick="popupClose('.dimmed', 'popupBooks');"><span> 팝업 닫기 </span> </a>
+
+		<div class="popup-cont">
+			<div class="tab-title">교재리스트 <span> *교재 구매는 선택사항이며 별도 구매해야 합니다. </span></div>
+
+			<div class="books-list"></div>
+			<!-- 교재리스트 1881 -->
+		</div>
+	</div>
+	<!-- // popup -->
+
+	<div class="popup popup_open popup-style" id="layer1"><a class="popup-close" href="javascript:;"
+			onclick="popupClose('.dimmed', 'layer1');"><span> 팝업 닫기 </span> </a>
+
+		<div class="popup_body">
+			<div>[합격자수 2,557% 증가] 에듀윌 취업 서류, 필기, 면접 전형 합격자 인증 건 수 비교(2015~19년vs2020년)<br />
+				[컨텐츠 이용자 338% 증가] 2019 8월vs2020 8월 에듀윌 대기업 취업 컨텐츠 이용자수 비교<br />
+				[정부기관상 13관왕] 과학기술정보통신부 장관상 수상(2019.12), 여성가족부 장관상 수상(2017.4), 법무부 장관상 수상(2015.5), 미래창조과학부장관상
+				수상(2014.12), 고용노동부장관상 표창 수상(2013.5), 산업자원부장관상 수상(2007.10), 정보통신부장관상 수상(2007.6), 과학기술부장관상 수상(2006.04),
+				서울특별시장상 수상 (2004.12), 2010년 11월, 2019년 7월, 2019년 12월 대통령 표창 수상, 2020년 12월 국무총리상 수상<br />
+				[베스트셀러 1위] 코레일 봉투모의고사 - YES24 수험서 자격증 취업/상식/적성검사 공사 공단 수험서 한국철도공사 베스트셀러 1위(2019년12월3주, 주별 베스트) 외
+				다수<br />
+				[2년연속 취업교육 1위] 2019-2020 한국브랜드만족지수 취업교육 1위</div>
+		</div>
+	</div>
+
+	<div class="popup popup_open popup-style" id="popupAgree"><a class="popup-close" href="javascript:;"
+			onclick="popupClose('.dimmed', 'popupAgree');"><span> 팝업 닫기 </span> </a>
+
+		<div class="popup_body">
+			<div>
+				<div class="item item-1">
+					<dl>
+						<dt>■ 환급 조건</dt>
+						<dd>
+							<ul>
+								<li>
+									<div class="tit">[출석 환급조건] (100% 환급)</div>
+
+									<div class="subject">
+										<ul>
+											<li>수강 시작일로부터 120일 연속 매일 50분 이상 강의 수강 시 수강료 100% 현금 환급 (제세공과금 22% 공제)</li>
+											<li></li>
+											<li>수강기간 종료 후 매일 50분 이상 강의 수강 인증 캡쳐 이미지 제출 필요 (나의강의실 ▶ 출석환급반 출석기록 메뉴에서 확인
+												가능)</li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<div class="tit">[합격 환급조건] (200% 환급)</div>
+
+									<div class="subject">
+										<ul>
+											<li>수강기간 내 아래 [환급 대상 기업 리스트] 기업에 최종 합격 후</li>
+											<li></li>
+											<li>수강기간 종료 후 에듀윌 사이트 내에서 합격 수기 작성 및 환급 신청 시 수강료 200% 현금 환급 (제세공과금 22% 공제)
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<div class="tit">[출석+합격 환급조건] (300% 환급)</div>
+
+									<div class="subject">
+										<ul>
+											<li>위 출석 환급조건 및 합격 환급조건을 모두 만족 시 수강료 300% 현금 환급 (제세공과금 22% 공제)</li>
+											<li></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+
+				<div class="item item-2">
+					<dl>
+						<dt>■ 환급 일정 및 유의사항</dt>
+						<dd>
+							<ul>
+								<li>
+									<div class="tit">[지급일정]</div>
+
+									<div class="subject">
+										<ul>
+											<li>20년 12월 31일까지 환급 요청건은 21년 1월중 지급 예정</li>
+											<li></li>
+											<li>(* 이후 요청건에 대해서는 추후 공지 예정, 지급 일정은 사정에 따라 변경될 수 있음)</li>
+											<li></li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<div class="tit">[환급 유의사항]</div>
+
+									<div class="subject">
+										<ul>
+											<li>1. 합격 환급은 상품 상세 페이지에 기재된 환급 대상 기업에 한합니다. (해당 기업 이외에는 환급 불가)</li>
+											<li>2. 수강기간 내 합격한 경우에만 합격 환급 대상자로 인정됩니다.</li>
+											<li>3. 합격 환급 신청 시 해당 상품 구매 아이디(회원정보)와 합격증, 본인 신분증 사본의 이름(실명)이 동일해야 환급이
+												가능합니다.</li>
+											<li>4. 출석 환급 신청 시 제출한 이미지에 120일 연속 출석 내용이 모두 확인되어야만 환급이 가능합니다.</li>
+											<li>5. 수강기간 종료 후 2주 내 환급을 신청해야 합니다. (이후 환급 신청 불가)</li>
+											<li>6. 실 수강료에서 제세 공과금 22% 공제 후 환급됩니다.7. 모바일 환경에서는 출석 여부 확인이 불가능하니, PC로
+												수강하는것을 권장합니다.</li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<div class="tit">[신청절차]</div>
+
+									<div class="subject">
+										<ul>
+											<li>① 수강기간내에 최종 합격 시, 에듀윌 &#39;합격수기 게시판&#39;(http://eduwill.kr/UPJF)에 합격수기를
+												작성 및 등록</li>
+											<li>② 공지사항에 게시되는 안내사항에 따라 아래 서류 제출하면 신청 완료
+												<div class="info">해당 서류 : 합격기업 채용공고문 (채용분야,기업명 지원기간 확인 必), 최종 합격증(이름,
+													기업명, 최종합격여부가 확인되어야 함) , 신분증 , 통장사본 <span>※ 합격수기에 허위사실 기재 시 환급 대상에서
+														제외될 수 있습니다.</span> <span>※작성하신 합격 후기는 에듀윌의 상품 홍보 및 마케팅을 위한
+														온/오프라인 홍보물 제작에 활용될 수 있으며, 에듀윌은 합격 후기의 내용 상 의미가 변경되지 않는 선에서 작성자의
+														동의 없이 편집 및 변형할 수 있습니다.</span></div>
+											</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+
+				<div class="item item-3">
+					<dl>
+						<dt>■ 합격환급 상세내용</dt>
+						<dd>
+							<ul>
+								<li>
+									<div class="tit">[신청대상]</div>
+
+									<div class="subject">
+										<ul>
+											<li>아래 환급 대상 기업에 한함</li>
+											<li></li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<div class="tit">[환급 대상 기업 리스트]</div>
+
+									<div class="subject">
+										<ul>
+											<li>▶환급대상 공기업: 잡알리오 기준 340개 공공기관 (<a
+													href="https://job.alio.go.kr/orginfo.do"
+													target="_blank"><span>https://job.alio.go.kr/orginfo.do</span></a>)
+											</li>
+											<li>▶환급대상
+												대기업:삼성전자,현대자동차,포스코,LG전자,기아자동차,한화,SK하이닉스,GS칼텍스,현대모비스,SK에너지,에스케이트레이딩인터네셔널,삼성디스플레이,삼성생명,삼성물산,LG화학,S-OIL,포스코인터네셔널,LG디스플레이,KT,한화생명,삼성화재해상보험,현대오일뱅크,현대제철,CJ제일제당,두산,롯데쇼핑,이마트,SK텔레콤,현대글로비스,현대건설,롯데케미칼,현대해상,두산중공업,교보생명보험,SK네트웍스,미래에셋대우,GS건설,현대중공업,SK종합화학,대한항공,LG유플러스,KB손해보험,한화토탈,대림산업,대우건설,농협생명보험,삼성에스디에스,lG상사,코리안리,대우조선해양,한국지엠,NH투자증권,CJ대한통운,삼성SDI,한화케이칼,SK인천석유화학,흥국생명보험,메리츠종금증권,GS리테일,메리츠화재,삼성전기,LG이노텍,현대위아,두산인프라코어,SK건설,엘에스니꼬동제련,한화손해보험,에스엔아이코퍼레이션,아시아나항공,포스코건설,고려아연,SK가스,한국타이어,LG생활건강,케이비증권,홈플러스,호텔롯데,현대엔지니어링,이랜드월드,동국제강,
+												SK D&amp;D</li>
+											<li>▶환급대상 금융권 : 신한은행, 국민은행, 우리은행, IBK기업은행, 하나은행, 농협은행, 제주은행, 경남은행, 전북은행,
+												부산은행, 대구은행</li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<div class="tit">[신청절차]</div>
+
+									<div class="subject">
+										<ul>
+											<li>① 수강기간내에 최종 합격 시, 에듀윌 &#39;합격수기 게시판&#39;(<a
+													href="http://eduwill.kr/UPJF"
+													target="_blank">http://eduwill.kr/UPJF</a>)에 합격수기를 작성 및 등록</li>
+											<li>② 공지사항에 게시되는 안내사항에 따라 아래 서류 제출하면 신청 완료
+												<div class="info">해당 서류 : 합격기업 채용공고문 (채용분야,기업명 지원기간 확인 必), 최종 합격증(이름,
+													기업명, 최종합격여부가 확인되어야 함) , 신분증 , 통장사본 <span>※ 합격수기에 허위사실 기재 시 환급 대상에서
+														제외될 수 있습니다.</span> <span>※작성하신 합격 후기는 에듀윌의 상품 홍보 및 마케팅을 위한
+														온/오프라인 홍보물 제작에 활용될 수 있으며, 에듀윌은 합격 후기의 내용 상 의미가 변경되지 않는 선에서 작성자의
+														동의 없이 편집 및 변형할 수 있습니다.</span></div>
+											</li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/swiper/swiper.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/dev/js/greensock/TweenMax.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/dev/js/counter/jquery.incremental-counter.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/slick/slick.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/eduf.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/script.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/dev/js/greensock/TweenMax.min.js"></script>
+<script>
+
+	var _productCodeList = [];
+	$(function () {
+		init();
+		getEcoDynamicForClass(2684, 'eco-2684');
+		getEcoDynamicForClass(1880, 'lecture-list');
+		getEcoDynamicForClass(1881, 'books-list');
+		getEcoDynamicForClass(2088, '15disc');
+		$(".incremental-counter").incrementalCounter();
+		$(".incremental-counter .num:eq(1)").before("<div class='comma'>,</div>");
+
+		//365일, 180일, 120일
+		var productObj = {
+			a: "21Z0Z0012C|1",
+			b: "21Z0Z0006C|1",
+			c: "21Z0Z0004C|1"
+		}
+
+		for (var prd in productObj) {
+			_productCodeList.push(productObj[prd]);
+		}
+	});
+
+	function init() {
+		addEvent();
+		pageMove('.page_move');
+		popupOpen('.dimmed', 'popup_open');
+		popupClose('.dimmed', 'popup_open');
+	}
+
+	function addEvent() {
+		/* 타이머 : Jul 1, 2020,20:59-> 달, 일, 년도, 시간 순으로 변경하면 됨*/
+		getTimer('.banner-timer', 'March 01, 2021,23:59:59');
+
+
+		var swiper1 = new Swiper('.slideChoose', {
+			effect: 'coverflow',
+			centeredSlides: true,
+			slidesPerView: 'auto',
+			spaceBetween: 40,
+			// slidesOffsetBefore: 0
+			autoplay: {
+				delay: 2000,
+			},
+			loop: true,
+			coverflowEffect: {
+				rotate: 0,
+				stretch: 200,
+				modifier: 2,
+				slideShadows: true,
+				loopedSlides: 3,
+				slidesPerView: 1.3,
+			},
+			on: {
+				setTranslate: function () { },
+			},
+			navigation: { // 네비게이션 설정
+				nextEl: '.choose-button-next', // 다음 버튼 클래스명
+				prevEl: '.choose-button-prev', // 이번 버튼 클래스명
+			},
+		});
+
+		var swiper2 = new Swiper('.slideBenefit', {
+			centeredSlides: true,
+			slidesPerView: 'auto',
+			spaceBetween: 40,
+			autoplay: {
+				delay: 2000,
+			},
+
+			loop: true
+		});
+
+		var swiper3 = new Swiper('.slideRivew', {
+			autoplay: {
+				delay: 3000,
+			},
+			slidesPerView: 'auto',
+			centeredSlides: true,
+			loop: true,
+			spaceBetween: 30,
+			loop: true,
+			navigation: {
+				nextEl: '.review-button-next',
+				prevEl: '.review-button-prev',
+			},
+		});
+
+		var swiper4 = new Swiper('.videoSlider', {
+			autoplay: {
+				delay: 3000,
+			},
+			slidesPerView: 'auto',
+			centeredSlides: true,
+			loop: true,
+			spaceBetween: 30,
+			navigation: {
+				nextEl: '.video-button-next',
+				prevEl: '.video-button-prev',
+			},
+		});
+
+		$('.section-item3 .slider-logo').slick({
+			autoplay: true,
+			autoplaySpeed: 0,
+			infinite: true,
+			cssEase: 'linear',
+			arrows: false,
+			slidesToScroll: 1,
+			speed: 1500,
+			vertical: true,
+			useTransform: false,
+		});
+
+		// 이미지교체
+		$(".img-benefit").hover(function () {
+			$(this).attr("src", function (index, attr) {
+				return attr.replace("_off.png", "_on.png");
+			});
+		}, function () {
+			$(this).attr("src", function (index, attr) {
+				return attr.replace("_on.png", "_off.png");
+			});
+		});
+
+		$(".btn-play").on("click",function(){
+			var len = $(this).attr("id").length-1;
+			var idx = $(this).attr("id").substr(len, 1);
+			var max = 1;
+			for(var i=1; i<=max; i++){
+				if(i != idx){
+					$("#btn-play"+i).show();
+					$(".video"+i).children("video")[0].pause();
+					$(".video"+i).children("video")[0].currentTime = 0;
+				}
+			}
+			$("#btn-play"+idx).hide();
+			$(".video" + idx).show();
+			$(".video"+ idx).children("video")[0].play();
+		});
+	}
+
+	function PaymentGo() {
+		if ($("#loginUserId").val() == "") {
+			document.location.href = 'https://ea.eduwill.net/login/login.action?systemCd=eduwill&&redirectUrl=https://energy.eduwill.net/Common/Product/goods/auto/index.asp?masterSeq=MjY5NDE=';
+		} else {
+			var ProductObj = $('input:radio[name="ProductCd"]:checked').val();
+
+			if ($('input:radio[name=ProductCd]').is(':checked') == false) {
+				alert('상품을 선택하여 주십시오.');
+				return;
+			} else {
+
+				if ($('input:checkbox[name=agreeCehck]').is(':checked') == false) {
+					alert('환급조건 동의사항에 체크를 해 주셔야 합니다.');
+					return;
+				} else {
+					var productCode = encodeURIComponent(_productCodeList[ProductObj]);
+
+					insertPaymentNew(productCode, '', '');
+				}
+
+			}
+		}
+	}
+</script>
+<!-- // eco 영역 -->
+</body>
+
+</html>

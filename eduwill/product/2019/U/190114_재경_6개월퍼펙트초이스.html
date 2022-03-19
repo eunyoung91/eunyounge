@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+<title></title>
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Gov2/Common/Css/Main_20140204.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/template.css" /><!-- Content Template -->
+<link rel="stylesheet" href="https://www.eduwill.net/Common/js/jQuery/bxslider/jquery.bxslider.css" /><!-- bxSlider CSS file -->
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Product/goods/auto/apply_common.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="https://www.eduwill.net/Common/event/freebook/naver/jquery.bxslider.js"></script>
+<!-- // 자동화 페이지 포함 -->
+<body>
+<!-- body 내만 작업 -->
+
+<style type="text/css">
+	.pushcoms_contentIn img { vertical-align: top; }
+	.container { position: relative; background-repeat: no-repeat; background-position: center top; }
+	.container .wrap { position: relative; width: 1100px; margin: 0 auto; }
+
+	.section_a { padding-bottom: 285px; background-color: #0c1a2f; background-image: url('https://img.eduwill.net/Img2/Uaccount/Product/event_new/180104/bg_a.jpg'); }
+	.section_b { margin-top: -285px; margin-bottom: -345px; }
+	.section_c { padding-top: 345px; }
+	.section_d,
+	.section_f,
+	.section_h { background-color: #f1f1f1; }
+
+	.section_apply { background-color: #0c1a2f; }
+
+	.banner_follow { position: fixed; top: 50%; left: 50%; z-index: 1; margin-top: -120px; margin-left: 531px; }
+</style>
+
+<!-- 상품컨텐츠 -->
+<div class="tpl_product">
+
+    <!-- 수강신청 버튼 개선 -->
+    <div class="g_fix_apply" id="g_fix_apply">
+        <div class="gf_apply">
+            <a href="#apply_anchor">
+                <img src="https://img.eduwill.net/Img2/Common/Product/event_new/common_apply.png" alt="수강신청" />
+            </a>
+        </div>
+    </div>
+    <!-- //수강신청 버튼 개선 -->
+
+    <div id="pushcoms_contentIn" class="pushcoms_contentIn">
+
+        <div style="background:#182134 url(https://img.eduwill.net/Img2/Uaccount/Product/event_new/180919/bg_title.jpg) no-repeat 50% top;">
+            <img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/180919/title.png" alt="6개월 퍼펙트초이스" />
+        </div>
+
+        <div style="background:#e0f127;">
+            <img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/180919/intro01.png" alt="" />
+        </div>
+
+        <div>
+            <img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/180919/item01.png" alt="" />
+        </div>
+
+        <div style="background:#f8f8f8;">
+            <img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/180919/item02.png" alt="" />
+        </div>
+
+        <div>
+            <img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/180919/item03_190114.png" alt="에듀윌, 선택의 이유" />
+        </div>
+
+        <div style="background:#3d4e7c;">
+            <img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/180919/item04.png" alt="" />
+        </div>
+
+        <div id="item_anchor">
+            <img src="https://img.eduwill.net/Img2/Uaccount/Product/event_new/180919/text01.png" alt="수강신청" />
+        </div>
+    </div>
+
+</div>
+<!-- // 상품컨텐츠 -->
+
+<script type="text/javascript">
+	$(function() {
+
+		var $window = $(window),
+			 $document = $(document);
+
+		$window.scroll(function(){
+			if ( $(window).scrollTop() >= $($("#apply_anchor").offset()).top - 700 ) {
+				$(".g_fix_apply").hide();
+			} else {
+				$(".g_fix_apply").show();
+			}
+		});
+
+		// layer open
+		$document.on('click', '.layer_open', function(e){
+			var _el = $(this).attr('href'),
+				 $target = $(_el);
+
+			e.preventDefault();
+			$target.addClass('in');
+		});
+
+		// layer close
+		$document.on('click', '.layer_close', function(e){
+			var $this = $(this),
+				 $target = $this.parents('.layer');
+
+			e.preventDefault();
+			$target.removeClass('in');
+		});
+	});
+
+	/***********************************************************************************
+	* 페이지를 특정위치로 이동시키는 함수
+	* 페이지 상단으로부터 100px 위치로 1초안에 이동함 : movePagePosition(100, 1000);
+	***********************************************************************************/
+	function movePagePosition(topPosition, delayTime){
+		$('html, body').animate({scrollTop : topPosition}, delayTime);	// 특정위치로 화면스크롤 이동
+	}
+</script>
+
+<!-- // body 내만 작업 -->
+</body>
+</html>

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="content-language" content="kr" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<title>독한에듀윌 2.0</title>
+<link rel="stylesheet" type="text/css" href="http://img.eduwill.net/resources/dokhan/dev/common/js/bxslider/jquery.bxslider.css" /><!-- bxSlider CSS file -->
+<link rel="stylesheet" type="text/css" href="http://img.eduwill.net/resources/dokhan/dev/web/css/common.css" />
+<link rel="stylesheet" type="text/css" href="http://img.eduwill.net/resources/dokhan/dev/web/css/ui_style.css" />
+<link rel="stylesheet" type="text/css" href="http://img.eduwill.net/resources/dokhan/dev/web/css/jquery-ui.css" />
+
+<script type="text/javascript" src="http://img.eduwill.net/resources/dokhan/dev/common/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="http://img.eduwill.net/resources/dokhan/dev/common/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://img.eduwill.net/resources/dokhan/dev/common/js/bxslider/jquery.bxslider.min.js"></script><!-- bxSlider Javascript file -->
+<script type="text/javascript" src="http://img.eduwill.net/resources/dokhan/dev/web/js/frontui.js"></script>
+<script type="text/javascript" src="http://img.eduwill.net/resources/dokhan/dev/web/js/ie-checker.js"></script>
+<script type="text/javascript">
+$(function(){
+	// 슬라이드
+	slider = $('#slider').bxSlider({
+		auto:true,
+		mode:'fade',
+		pause:5000,
+		speed:500,
+		pager:false,
+		controls:false,
+		autoStart:true,
+		autoControls:false,
+		onSliderLoad: function() {
+			$('.bar').css({"width":"0px"});
+			$('.bar').stop().animate({"width":"100%"},5000);
+		},
+		onSlideBefore: function ($slideElement, oldIndex, newIndex) {
+			$('.bar').css({"width":"0px"});
+			if(oldIndex==0){
+				$('.bar').stop().animate({"width":"100%"},5000);
+			}else{
+				$('.bar').css({"width":"0px"});
+			}
+			if(oldIndex==1){
+				$('.bar').stop().animate({"width":"100%"},5000);
+			}else{
+				$('.bar').css({"width":"0px"});
+			}
+			if(oldIndex==2){
+				$('.bar').stop().animate({"width":"100%"},5000);
+			}else{
+				$('.bar').css({"width":"0px"});
+			}
+			if(oldIndex==3){
+				$('.bar').stop().animate({"width":"100%"},5000);
+			}else{
+				$('.bar').css({"width":"0px"});
+			}
+			if(oldIndex==4){
+				$('.bar').stop().animate({"width":"100%"},5000);
+			}else{
+				$('.bar').css({"width":"0px"});
+			}
+			slider.startAuto();
+		}
+	});
+
+	$('.btn_apply').each(function(i){
+		$(this).mouseenter(function(){
+			$(this).find('.square').animate({
+				width: '100%'
+			}, 400);
+			$(this).find('span').animate({
+				'border-color' : '#c00322'
+			}, 400);
+		});
+
+		$(this).mouseleave(function(){
+			$(this).find('.square').animate({
+				width: '0'
+			}, 400);
+			$(this).find('span').animate({
+				'border-color' : '#fff'
+			}, 400);
+		});
+	});
+
+});
+</script>
+
+</head>
+
+<body class="main"><!-- 메인페이지 body에 main클래스 추가 -->
+<div id="wrap">
+	<div id="header" class=""><!-- 마우스오버 시 헤더에 on클래스 추가, 마우스아웃 시 on 클래스 제거 -->
+		<div class="inner">
+			<h1>독한에듀윌 2.0 <a href="#" class="fb"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_fb_off.png" alt="페이스북공유하기" /></a></h1>
+			<ul class="toplink">
+				<li><a href="#">나의강의실</a></li>
+				<li><a href="#">수험정보</a></li>
+				<li><a href="#">학습자료실</a></li>
+				<li><a href="#">고객상담실</a></li>
+				<li><a href="#" class="btn_member">로그아웃</a></li>
+			</ul>
+			<div id="gnb">
+				<ul class="gnb_menu">
+					<li class="depth01">
+						<a href="#"><span>독한소개</span> <span class="gnb_bar"></span></a>
+						<ul class="snb">
+							<li><a href="#">독한소개</a></li>
+						</ul>
+					</li>
+					<li class="depth02">
+						<a href="#"><span>독한계획</span> <span class="gnb_bar"></span></a>
+						<ul class="snb">
+							<li><a href="#">신청하기</a></li>
+							<li><a href="#">독한학습플랜</a></li>
+						</ul>
+					</li>
+					<li class="depth03">
+						<a href="#"><span>독한관리</span> <span class="gnb_bar"></span></a>
+						<ul class="snb">
+							<li><a href="#">관리설정</a></li>
+							<li><a href="#">1:1 학습고민 상담</a></li>
+						</ul>
+					</li>
+					<li class="depth04">
+						<a href="#"><span>독한수강</span> <span class="gnb_bar"></span></a>
+						<ul class="snb">
+							<li><a href="#">독한모드</a></li>
+							<li><a href="#">독한무료특강</a></li>
+						</ul>
+					</li>
+					<li class="depth05">
+						<a href="#"><span>독한경쟁</span> <span class="gnb_bar"></span></a>
+						<ul class="snb">
+							<li><a href="#">경쟁모드/랭킹</a></li>
+							<li><a href="depth05/quiz01.html">기상퀴즈</a></li>
+							<li><a href="depth05/quiz02.html">기출퀴즈</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="bgBlack"></div>
+	</div>
+	
+	<div id="visual">
+		<div class="visual_con">
+			<ul class="bxslider" id="slider">
+				<li class="scon01">
+					<div class="visual_wrap">
+						<div class="m_smalltxt">
+							스스로에 한계를 두지마라.<br />
+							Don't put a ceiling on yourself.
+						</div>
+						<div class="m_group">
+							<div class="m_title01">
+								합격을 만드는 새로운 변화의 시작
+								<div class="title_a">나의 <span>시간은</span> 독하다</div>
+								<div class="loading"><span class="bar"></span></div>
+							</div>
+				
+							<div class="m_btn_set">
+								<dl>
+									<dt>온라인 학습관리 사상 가장 혁신적인 시스템</dt>
+									<dd>대상 : 독한 학습관리가 필요한 유료 수강생</dd>
+								</dl>
+								<a href="javascript:void(0);" class="btn_apply" id="btnPledge"><span>신청하기</span><em class="square"></em></a>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li class="scon02">
+					<div class="visual_wrap">
+						<div class="m_smalltxt">
+							스스로에 한계를 두지마라.<br />
+							Don't put a ceiling on yourself.
+						</div>
+						<div class="m_group">
+							<div class="m_title01">
+								합격을 만드는 새로운 변화의 시작
+								<div class="title_a">나의 <span>마인드는</span> 독하다</div>
+								<div class="loading"><span class="bar"></span></div>
+							</div>
+				
+							<div class="m_btn_set">
+								<dl>
+									<dt>온라인 학습관리 사상 가장 혁신적인 시스템</dt>
+									<dd>대상 : 독한 학습관리가 필요한 유료 수강생</dd>
+								</dl>
+								<a href="javascript:void(0);" class="btn_apply" id="btnPledge"><span>신청하기</span><em class="square"></em></a>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li class="scon03">
+					<div class="visual_wrap">
+						<div class="m_smalltxt">
+							스스로에 한계를 두지마라.<br />
+							Don't put a ceiling on yourself.
+						</div>
+						<div class="m_group">
+							<div class="m_title01">
+								합격을 만드는 새로운 변화의 시작
+								<div class="title_a">나의 <span>학습은</span> 독하다</div>
+								<div class="loading"><span class="bar"></span></div>
+							</div>
+				
+							<div class="m_btn_set">
+								<dl>
+									<dt>온라인 학습관리 사상 가장 혁신적인 시스템</dt>
+									<dd>대상 : 독한 학습관리가 필요한 유료 수강생</dd>
+								</dl>
+								<a href="javascript:void(0);" class="btn_apply" id="btnPledge"><span>신청하기</span><em class="square"></em></a>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li class="scon04">
+					<div class="visual_wrap">
+						<div class="m_smalltxt">
+							스스로에 한계를 두지마라.<br />
+							Don't put a ceiling on yourself.
+						</div>
+						<div class="m_group">
+							<div class="m_title01">
+								합격을 만드는 새로운 변화의 시작
+								<div class="title_a">나의 <span>경쟁은</span> 독하다</div>
+								<div class="loading"><span class="bar"></span></div>
+							</div>
+				
+							<div class="m_btn_set">
+								<dl>
+									<dt>온라인 학습관리 사상 가장 혁신적인 시스템</dt>
+									<dd>대상 : 독한 학습관리가 필요한 유료 수강생</dd>
+								</dl>
+								<a href="javascript:void(0);" class="btn_apply" id="btnPledge"><span>신청하기</span><em class="square"></em></a>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li class="scon05">
+					<div class="visual_wrap">
+						<div class="m_smalltxt">
+							스스로에 한계를 두지마라.<br />
+							Don't put a ceiling on yourself.
+						</div>
+						<div class="m_group">
+							<div class="m_title01">
+								합격을 만드는 새로운 변화의 시작
+								<div class="title_a">나의 <span>목표는</span> 독하다</div>
+								<div class="loading"><span class="bar"></span></div>
+							</div>
+				
+							<div class="m_btn_set">
+								<dl>
+									<dt>온라인 학습관리 사상 가장 혁신적인 시스템</dt>
+									<dd>대상 : 독한 학습관리가 필요한 유료 수강생</dd>
+								</dl>
+								<a href="javascript:void(0);" class="btn_apply" id="btnPledge"><span>신청하기</span><em class="square"></em></a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<!-- // 독한소개 슬라이드내용 -->
+			</ul>
+		</div>
+	</div>
+
+	<div id="content">
+		<!-- s: 독한서약서 레이어 -->
+		<div id="oath" class="oath_layer" style="display:;">
+			<div class="oath_top">
+				<div class="o_title"><u>독한 서약서</u></div>
+				<div class="o_txt">
+					본인 <strong>이진욱</strong>은(는)<br />
+					<select name="" id="">
+						<option value="9급공무원">9급공무원</option>
+						<option value="경찰공무원">경찰공무원</option>
+					</select>
+					 시험에 합격할 때 까지
+					<ol>
+						<li>1. 매일 독한에듀윌의 기상알림을 받자마자 일어나서</li>
+						<li>2. 기상퀴즈를 성실히 풀겠으며,</li>
+						<li>3. 학습관리 전문가가 설계한 학습계획에 따라 열심히 공부하겠습니다.</li>
+						<li>4. 강제 집중할 수 있는 독한모드로 열심히 강의를 듣고,</li>
+						<li>5. 매일 빠뜨리지 않고 기출퀴즈를 풀며 익히도록 하겠습니다.</li>
+					</ol>
+		
+					<!--<div class="agree_oath">
+						<label class="control control-checkbox" for="yesOath">
+							<input type="checkbox" name="sms03" id="yesOath" />
+							독한 서약에 동의합니다.
+							<div class="control_indicator"></div>
+						</label>
+					</div>-->
+				</div>
+			</div>
+		
+			<div class="setting_form">
+				<ul>
+					<li class="form_name">
+						<dl>
+							<dt><label for="set_name">이름</label></dt>
+							<dd><input type="text" name="" id="set_name" /></dd>
+						</dl>
+					</li>
+					
+					<li class="form_phone">
+						<dl>
+							<dt><label for="set_phone">휴대폰번호</label></dt>
+							<dd>
+								<input type="text" name="" id="set_phone" maxlength="3" />
+								<span>-</span>
+								<input type="text" name="" id="" maxlength="4" />
+								<span>-</span>
+								<input type="text" name="" id="" maxlength="4" />
+							</dd>
+						</dl>
+					</li>
+					<li class="form_sms_agree">
+						<ul>
+							<li>
+								<strong>SMS 수신동의</strong>
+								<input type="radio" name="" id="smsAgree1" />
+								<label for="smsAgree1">수신허용</label>
+								<input type="radio" name="" id="smsAgree2" />
+								<label for="smsAgree2">수신거부</label>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<p>※ 휴대폰 번호가 정확한지 확인해주세요.<br />　 휴대폰 번호로 이벤트 당첨 시 경품이 전송됩니다.</p>
+				<a href="#" class="btn_a">신청하기</a>
+			</div>
+		
+			<div class="layer_bottom">
+				<div class="app_txt">
+					기상알림, 독려알림, 나의 학습계획 알림은<br />독한에듀윌 합격앱 푸시로 발송됩니다.<br />
+					<span>(합격앱 설치 후, 로그인 하지 않을 경우 알림 수신이<br />불가능합니다.)</span>
+				</div>
+			</div>
+			<a href="#" class="close_layer" onclick="javascript:document.getElementById('oath').style.display='none';return false;"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_close_layer02.png" alt="닫기" /></a>
+		</div>
+		<!-- e : 독한서약서 레이어 -->
+		
+		<!-- s : 신청완료 레이어 -->
+		<div id="oathx" class="oath_layer finish" style="display:none;">
+			<div class="oath_top">
+				<div class="o_title"><u>더 독해져라!</u></div>
+				<div class="o_txt">
+					독한에듀윌 2.0 신청이 완료되었습니다.
+					<p>
+						여러분이 결심했던 그 초심을 잃지 않도록,<br />
+						매일 목표 이상의 학습량을 달성할 수 있도록,<br />
+						합격을 위해서라면 학습 계획부터 시간/학습/마인드까지<br />
+						<strong class="red">이제는 더 독해져야 합니다.</strong><br /><br />
+						여러분이 시험에 합격하는 그날까지<br />
+						독한에듀윌과 함께 독하게 학습해주시기 바랍니다.
+					</p>
+					<div class="alc">
+						<a href="#" class="btn_a">학습계획 선택하기</a>
+					</div>
+				</div>
+			</div>
+			<a href="#" class="close_layer" onclick="javascript:document.getElementById('oathx').style.display='none';return false;"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_close_layer02.png" alt="닫기" /></a>
+		</div>
+		<!-- e : 신청완료 레이어 -->
+		
+		<!-- s : 합격출사표 이벤트 -->
+		<div class="letter_event">
+			<div class="inner">
+				<div class="fromdata">
+					<div class="form_group">
+						<div class="form_title">보내는 분</div>
+						<ul>
+							<li><input type="text" id="" name="" placeholder="이름" class="inputs fname" disabled="disabled" /><input type="text" id="" name="" placeholder="연락처" class="inputs fphone" disabled="disabled" /></li>
+							<li><input type="text" id="" name="" class="inputs zipcode" /><input type="button" class="btn_d" value="우편번호" /></li>
+							<li><input type="text" id="" name="" class="inputs add1" /><input type="text" id="" name="" class="inputs add2" /></li>
+						</ul>
+					</div>
+						
+					<div class="form_group">
+						<div class="form_title">받는 분</div>
+						<ul>
+							<li><input type="text" id="" name="" placeholder="이름" class="inputs fname" /><input type="text" id="" name="" placeholder="연락처" class="inputs fphone" /></li>
+							<li><input type="text" id="" name="" class="inputs zipcode" /><input type="button" class="btn_d" value="우편번호" /></li>
+							<li><input type="text" id="" name="" class="inputs add1" /><input type="text" id="" name="" class="inputs add2" /></li>
+						</ul>
+					</div>
+					<p class="txt">※ 당첨 시, 혜택 수령을 위해 정확한 정보를 입력해주시기 바랍니다.</p>
+				</div>
+						
+				<div class="letter_form">
+					<div class="letter_title">
+						<input type="text" id="" name="" class="inputs" placeholder="제목" />
+					</div>
+					<div class="letter_paper">
+						<textarea name="" id="" cols="30" rows="10"></textarea>
+					</div>
+				</div>
+
+				<div class="button_box">
+					<dl>
+						<dt>개인정보 이용동의 안내 <span>(필수)</span></dt>
+						<dd>- 개인정보의 수집, 이용 목적 : 독한에듀윌 합격 출사표 이벤트 참여</dd>
+						<dd>- 개인정보의 수집 항목 : 아이디, 이름, 휴대번호, 주소</dd>
+						<dd>- 개인정보의 보유 및 이용기간 : 1년</dd>
+						<dd class="agree_form">
+							<label class="control control-checkbox" for="agreeAll">
+								<input type="checkbox" name="" id="agreeAll" />
+								전체 동의 합니다.
+								<div class="control_indicator"></div>
+							</label>
+						</dd>
+					</dl>
+					<a href="#" class="btn_send"><span>합격 출사표 제출하기</span></a>
+				</div>
+
+				<div class="letter_list">
+					<div class="state">출사표 접수 현황 : <strong>123</strong>건</div>
+					<div class="list_board">
+						<table cellspacing="0" cellpadding="0" border="0" width="100%">
+							<caption>출사표 접수 리스트</caption>
+							<colgroup>
+								<col width="8%" />
+								<col width="*" />
+								<col width="10%" />
+								<col width="18%" />
+							</colgroup>
+							<thead>
+								<tr>
+									<th scope="col">NO</th>
+									<th scope="col">제목</th>
+									<th scope="col">작성자</th>
+									<th scope="col">등록일</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="num">20</td>
+									<td class="list_title"><a href="#">세상에서 가장 사랑하는 나의 엄마께... 엄마 사랑해!!!</a></td>
+									<td>이*욱</td>
+									<td class="date">2016-10-12 15:15</td>
+								</tr>
+								<tr>
+									<td class="num">20</td>
+									<td class="list_title"><a href="#">세상에서 가장 사랑하는 나의 엄마께... 엄마 사랑해!!!</a></td>
+									<td>이*욱</td>
+									<td class="date">2016-10-12 15:15</td>
+								</tr>
+								<tr>
+									<td class="num">20</td>
+									<td class="list_title"><a href="#">세상에서 가장 사랑하는 나의 엄마께... 엄마 사랑해!!!</a></td>
+									<td>이*욱</td>
+									<td class="date">2016-10-12 15:15</td>
+								</tr>
+								<tr>
+									<td class="num">20</td>
+									<td class="list_title"><a href="#">세상에서 가장 사랑하는 나의 엄마께... 엄마 사랑해!!!</a></td>
+									<td>이*욱</td>
+									<td class="date">2016-10-12 15:15</td>
+								</tr>
+								<tr>
+									<td class="num">20</td>
+									<td class="list_title"><a href="#">세상에서 가장 사랑하는 나의 엄마께... 엄마 사랑해!!!</a></td>
+									<td>이*욱</td>
+									<td class="date">2016-10-12 15:15</td>
+								</tr>
+							</tbody>
+						</table>
+				
+						<div class="bbs_paging">
+							<a href="#" class="prev"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_pgprev.png" alt="이전으로" /></a>
+							
+							<a href="#" class="num first on"><span>1</span></a>
+							<a href="#" class="num"><span>2</span></a>
+							<a href="#" class="num"><span>3</span></a>
+							<a href="#" class="num"><span>4</span></a>
+							<a href="#" class="num"><span>5</span></a>
+							<a href="#" class="num"><span>6</span></a>
+							<a href="#" class="num"><span>7</span></a>
+							<a href="#" class="num"><span>8</span></a>
+							<a href="#" class="num"><span>9</span></a>
+							<a href="#" class="num"><span>10</span></a>
+							
+							<a href="#" class="next"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_pgnext.png" alt="다음으로" /></a>
+						</div>
+					</div>
+
+					<!-- s : 출사표 상세보기 레이어 -->
+					<div id="letterLayer" class="letter_layer">
+						<div class="letter_con">
+							<div class="l_title">아버지 어머니... 지금까지 너무 고생 많으셨습니다...</div>
+							<div class="writer">이*욱</div>
+							<div class="l_txt">
+								도널드 트럼프 공화당 후보가 8일(이하 현지시간) 미국 대통령 선거에서 승리했다. 부동산재벌 아웃사이더 트럼프의 반란이자, 기성 정치권의 패배다. 미국 보수정권 공화당은 8년 만에 정권을 탈환했다. 상.하원 의회도 다수당으로 모두 장악했다. 버락 오바마 대통령과 민주당이 주도하던 시대는 막을 내렸다. 미국 전반에 보수의 색깔이 입혀질 것으로 전망된다. 그러나 미국은 둘로 갈라졌다. 숨죽이며 미국 대선을 지켜본 전 세계는 트럼프의 '미국 우선주의'가 가져올 변화에 불확실성이 높아졌다. 이날 트럼프는 승리가 확정된 직후 "미국을 우선하겠다. 하지만 모든 국가를 공정하게 대하겠다. 미국은 분열의 상처를 묶고 단합해야 한다"고 했다. 힐러리 클린턴 민주당 후보는 패배를 인정했다.<br />
+								이날 오후 7시 현재(한국시간) 선거인단은 트럼프가 289명으로 클린턴(218명)을 크게 앞섰다. 전체 선거인단 538명에서 매직넘버인 과반 270명을 넘기면서 차기 대통령으로 당선이 확정됐다.<br />
+								그간 유력기관들이 했던 여론조사의 예측과 분석은 모두 빗나갔다. 트럼프는 주요 경합주를 대거 석권했다. 최대 격전지인 플로리다와 노스캐롤라이나, 오하이오주에서 앞서 나가면서 트럼프는 개표 초반부터 승기를 잡았다.
+							</div>
+							<div class="alc">
+								<a href="#" class="btn_a" onclick="javascript:document.getElementById('letterLayer').style.display='none';return false;"><strong>닫기</strong></a>
+							</div>
+						</div>
+					</div>
+					<!-- e : 출사표 상세보기 레이어 -->
+				</div>
+			</div>
+		</div>
+		<!-- e : 합격출사표 이벤트 -->
+	</div>
+	<!-- e : #content -->
+
+	<!-- foot :: 에듀윌은 합격이다 -->
+	<div class="foot_slogan">
+		<div>
+			<p class="slogan"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/foot_slogan.png" alt="에듀윌은 합격이다" /></p>
+			<p class="telnum"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/foot_tel.png" alt="에듀윌과 함께하면 합격이 빠르고 쉬워집니다. 문의사항/1600-6700" /></p>
+		</div>
+	</div>
+	<!-- // foot :: 에듀윌은 합격이다 -->
+	<div class="dimm"></div>
+</div>
+<!-- // #wrap -->
+</body>
+</html>

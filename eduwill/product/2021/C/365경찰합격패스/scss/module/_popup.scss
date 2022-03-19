@@ -1,0 +1,189 @@
+.layer {
+    &-dim,
+	&-dimmed {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10000;
+        background: #000;
+        opacity: .8;
+        overflow: hidden;
+    }
+
+    &-review {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 10001;
+        max-width: 768px;
+        margin: 0 auto;
+        @include boxSizing(border-box);
+
+        
+        .layer-close {
+            @include close(60px, 60px, 2px, #fff);
+            top: -60px;
+            z-index: 10002;
+        }
+        
+        .layer-box {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            iframe, video{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: inherit;
+            }
+        }
+
+    }
+}
+
+.rationale-dimmed {display:none;position: fixed;left: 0px;top: 0px;width: 100%;height: 100%;z-index: 10000;background-color: rgba(0, 0, 0, 0.5);}
+.rationale-popup {
+	display:none;
+	font-family: "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+	position: absolute;
+	left: 50%;
+	top: 0;
+	z-index: 20000;
+	transform: translateX(-50%);
+	-webkit-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	-moz-transform: translateX(-50%);
+	max-width: 620px;
+	width: 100%;
+	height: auto;
+	background-color: #fff;
+	line-height: 1;
+	letter-spacing: -1px;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border-radius: none;
+}
+
+.rationale-popup .rationale-close {
+	cursor: pointer;
+	display: inline-block;
+	width: 13.88889vw;
+	height: 13.88889vw;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2002;
+}
+
+.rationale-popup .rationale-close:before, .rationale-popup .rationale-close:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: block;
+	width: 30px;
+	height: 2px;
+	margin-left: -15px;
+	background-color: #ffffff;
+}
+
+.rationale-popup .rationale-close:before {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.rationale-popup .rationale-close:after {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.rationale-popup .rationale-title {
+	background-color: #454545;
+	text-align: left;
+	padding-top: 4.44444vw;
+	padding-left: 3.33333vw;
+	padding-bottom: 4.44444vw;
+	border-bottom: 1px solid #000000;
+}
+
+.rationale-popup .rationale-title strong {
+	color: #ffffff;
+	font-size: 4.5vw;
+	font-family: "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+	font-weight: 700;
+}
+
+
+.rationale-popup .rationale-cont {
+	padding: 1.5rem 1.25rem;
+	text-align:left;
+}
+
+.rationale-popup .rationale-cont .benefit-list table {
+	width: 100%;
+	border: 1px solid #dddddd;
+}
+
+.rationale-popup .rationale-cont .benefit-list table tr {
+	border-bottom: 1px solid #dddddd;
+	text-align: center;	
+}
+
+.rationale-popup .rationale-cont .benefit-list table td {
+	font-size: 3.5vw;
+	font-family: "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+	font-weight: 400;
+	color: #000000;
+}
+
+.rationale-popup .rationale-cont p {
+	font-size: 3.33333vw;
+	line-height: 1.27;
+	letter-spacing: -0.73px;
+	color: #131415;
+	opacity: 0.4;
+}
+
+@media screen and (min-width: 530px) {
+
+	.rationale-popup .rationale-close {
+		width: 80px;
+		height: 80px;
+	}
+	.rationale-popup .rationale-close:before, .rationale-popup .rationale-close:after {background-color:#ffffff;}
+
+	 .rationale-popup .rationale-title {
+		padding-top: 32px;
+		padding-left: 24px;
+		padding-bottom: 32px;
+	 }
+
+	.rationale-popup .rationale-title strong {
+		font-size: 25px;
+	}
+
+	.rationale-popup .rationale-cont {
+		padding: 30px 20px;
+	}
+
+	.rationale-popup .rationale-cont .benefit-list table td {
+		font-size: 20px;
+		padding-top: 9px;
+		padding-bottom: 9px;
+	}
+
+	.rationale-popup .rationale-cont p {
+		font-size: 14px;
+	}
+}

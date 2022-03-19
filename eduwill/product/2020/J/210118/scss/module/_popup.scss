@@ -1,0 +1,111 @@
+.dimmed {
+    display: none;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    background-color: rgba( 0, 0, 0, .7);
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 11000;
+    width: 100%;
+    max-width: 1000px;
+    font-family: 'Noto Sans KR';
+    color: #000;
+    background-color: #fff;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    &-head {
+        padding: 20px 30px;
+        text-align: left;
+        line-height: normal;
+        font-size: 30px;
+        font-weight: 700;
+        color: #fff;
+        background-color: #000;
+    }
+    &-body {
+        .movies {
+            width: 100%;
+			padding-bottom: 56.25%;
+			height:0;
+			overflow: hidden;
+            iframe {
+				position: absolute;
+				top:0;
+				left:0;
+				right:0;
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    &-close {
+        position: absolute;
+        top: 0;
+        right: -60px;
+        a {
+            display: block;
+            @include close(60px, 60px, 1px, #fff);
+        }
+    }
+    &-benefit {
+        max-width: 800px;
+        .popup-close { right: 0; }
+    }
+    &-book {
+        max-width: 800px;
+        .popup-body { padding: 50px 30px; }
+        .popup-close { right: 0; }
+        .book-list { font-size: 0; }
+        .book {
+            display: inline-block;
+            input {
+                position: absolute;
+                display: inline-block;
+                overflow: hidden;
+                clip: rect(0 0 0 0);
+                width: 0px;
+                height: 0px;
+                margin: -1px;
+                padding: 0;
+                word-break: keep-all;
+                white-space: nowrap;
+                color: transparent;
+                border: 0;
+                text-indent: -9999px;
+                &:checked + label { background-color: #f6f6f6; }
+            }
+            label {
+                position: relative;
+                display: block;
+                cursor: pointer;
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    right: 10%;
+                    display: block;
+                    width: 66px;
+                    height: 73px;
+                    background: url('https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png') no-repeat 0 0;
+                    -webkit-animation: .4s slideUpY ease-in-out infinite alternate;
+                    animation: .4s slideUpY ease-in-out infinite alternate;
+                }
+                &:hover:after { display: block; }
+            }
+        }
+        .notice { margin-top: 20px; font-size: 14px; }
+    }
+}

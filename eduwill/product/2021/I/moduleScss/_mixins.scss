@@ -1,0 +1,86 @@
+@function parseInt($n) {
+	// The mixin relies on a function to parse the integer from a value with a unit
+	@return $n / ($n * 0 + 1);
+}
+
+
+// transition
+// @include transition(all, .3s, ease-out);
+@mixin transition($what, $time, $how: null) {
+    @each $prefix in -webkit-, -o-, '' {
+        #{$prefix}transition: $what $time $how;
+    }
+
+    @if $how {
+        transition-timing-function: $how;
+    } @else {
+        transition-timing-function: ease-out;
+    }
+}
+
+// transition delay
+// @include transitionDelay(.1s);
+@mixin transitionDelay($delay) {
+    @each $prefix in -webkit-, -o-, '' {
+        #{$prefix}transition-delay: $delay;
+    }
+}
+
+@mixin breakpoint($point) {
+	@if $point == desktop {
+		@media screen and (min-width: 1100px) { @content ; }
+	}
+	@if $point == minDesktop {
+		@media screen and (min-width: 1024px) { @content ; }
+	}
+	@if $point == maxMobile {
+		@media screen and (min-width: 720px) { @content ; }
+	}
+	@if $point == maxMobileFold {
+		@media screen and (min-width: 530px) { @content ; }
+	}
+	@else if $point == minMobile {
+		@media screen and (max-width: 320px) { @content ; }
+	}
+}
+
+
+@mixin vw($prop, $vlus) {
+	$px: ();
+	$vw: ();
+
+	@each $vlu in $vlus {
+		@if $vlu == 0 or $vlu == auto {
+			$px: append($px, $vlu);
+			$vw: append($vw, $vlu);
+		} @else {
+			$unit: unit($vlu);
+			$val: parseInt($vlu);
+
+			@if $unit == 'px' {
+				$px: append($px, $vlu);
+				$max-mobile: 720;
+				$vw-context: ($max-mobile * .01) * 1;
+				$vw: append($vw, (($val/$vw-context) * 1 + vw));
+			}
+
+			@if $unit == 'vw' {
+				$px: append($px, ($val * 16 + px));
+				$vw: append($vw, $vlu);
+			}
+		}
+	}
+
+	@if $px == $vw {
+		#{$prop}: $px;
+	} @else {
+		#{$prop}: $vw;
+		@include breakpoint(maxMobile){
+			#{$prop}: $px;
+		}
+	}
+}
+@function get-vw($target) { 
+	$vw-context: (720*.01) * 1px;
+	@return ($target/$vw-context) * 1vw;
+}

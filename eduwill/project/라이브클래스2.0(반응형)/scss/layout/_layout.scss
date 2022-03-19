@@ -1,0 +1,796 @@
+body {
+	&.fix { position: fixed; width: 100%;}
+	position: relative;
+}
+
+// wrap
+#wrap {
+	position: relative;
+	width: 100%;
+	min-width: 320px;
+	left: 0;
+	@include transition(all, .3s, ease);
+	.is-mymenu & {
+		position: fixed;
+		left: 100%;
+		height: 100vh;
+		overflow: hidden;
+		transition-delay: .1s;
+	}
+	&:before {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: map-get($z-index, dim);
+		visibility: hidden;
+		width: 100%;
+		height: 100%;
+		background-color: $color-base-dark;
+		opacity: 0;
+		@include transition(all, .2s, ease);
+		transition-delay: .3s;
+		.is-mymenu & {
+			visibility: visible;
+			opacity: .5;
+			transition-delay: .1s;
+		}
+	}
+
+	/* width */
+	::-webkit-scrollbar {
+		width: 4px;
+	}
+	
+	/* Track */
+	::-webkit-scrollbar-track {
+		background: #f1f1f1;
+	}
+	
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		background: #888;
+	}
+	
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		background: #666;
+	}
+}
+
+// header
+#header {
+	@extend .grid;
+	height: 54px;
+	@include border('bottom', 1px, solid, $border-color);
+	@include boxSizing(border-box);
+	@include breakpoint(desktop){
+		height: 84px;
+		border-bottom: 0;
+	}
+	.heading {
+		display: inline-block;
+		vertical-align: top;
+		font-size: 0;
+		@include breakpoint(tablet){
+			padding-left: 10px;
+		}
+		@include breakpoint(desktop){
+			padding-left: 0;
+		}
+		a {
+			display: inline-block;
+			vertical-align: top;
+			line-height: 1;
+			@include rem(font-size, 15px);
+			@include breakpoint(desktop){
+				@include rem(font-size, 22px);
+			}
+		}
+		.eduwill {
+			font-size: 0;
+			@include rem(padding, 12px 0 13px);
+			@include breakpoint(desktop){
+				@include rem(padding, 28px 0);
+			}
+		}
+		.home {
+			position: relative;
+			@include rem(padding, 16px 0 15px);
+			@include rem(margin-left, 6px);
+			@include rem(font-size, 22px);
+			@include breakpoint(desktop){
+				@include rem(margin-left, 6px);
+				@include rem(padding, 31px 0 30px);
+				@include rem(font-size, 23px);
+			}
+			.logo {
+				position: absolute;
+				top: 20%;
+				left: 100%;
+				display: block;
+				@include breakpoint(desktop){
+					top: 33%;
+				}
+			}
+		}
+	}
+	.upper {
+		//@extend .col;
+		//@include border('bottom', 1px, solid, $border-color);
+		@include rem(padding-left, 51px);
+		@include breakpoint(desktop){
+			display: inline-block;
+			padding-left: 0;
+			border-bottom-width: 0;
+		}
+	}
+	.lower {
+		@include rem(padding, 0 10px);
+		@include breakpoint(desktop){
+			float: right;
+			padding-left: 0;
+		}
+		.gnb {
+			display: table;
+			width: 100%;
+			text-align: center;
+			@include breakpoint(desktop){
+				@include rem(margin-top, 40px);
+			}
+			li {
+				display: table-cell;
+				float: none;
+				@include rem(font-size, 15px);
+				@include breakpoint(desktop){
+					width: auto;
+					@include rem(padding, 0 11px);
+					@include rem(font-size, 17px);
+					&:before {
+						top: 50%;
+						left: 0;
+						background-color: $border-color;
+						@include rem(width, 1px);
+						@include rem(height, 11px);
+						@include rem(margin-top, -5.5px);
+					}
+					&:last-child {
+						padding-right: 0;
+					}
+				}
+				&:before,
+				&:after {
+					content: '';
+					position: absolute;
+					display: block;
+				}
+				&:first-child:before {
+					display: none;
+				}
+				&:only-child {
+					float: left;
+					font-weight: 700;
+					@include rem(font-size, 17px);
+					a {
+						@include rem(padding, 12px 0);
+						@include breakpoint(desktop){
+							@include rem(padding, 17px 11px 18px);
+						}
+					}
+				}
+				&.in {
+					color: $color-primary;
+					a:after {
+						@include border('bottom', 2px, solid, $border-color-active);
+					}
+				}
+				a {
+					position: relative;
+					display: block;
+					font-weight: 500;
+					@include rem(padding, 13px 4px 14px);
+					@include breakpoint(desktop){
+						@include rem(padding, 17px 11px 18px);
+					}
+					&:after {
+						content: '';
+						position: absolute;
+						right: 0;
+						left: 0;
+						display: block;
+						width: 100%;
+						@include rem(bottom, -1px);
+					}
+					span {
+						position: relative;
+						display: inline-block;
+					}
+				}
+			}
+		}
+	}
+
+	.util {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		@include breakpoint(desktop){
+			top: 24px;
+			right: 1rem;
+			left: auto;
+		}
+		a {
+			position: absolute;
+			top: 0;
+			display: inline-block;
+			@include breakpoint(desktop){
+				position: relative;
+				vertical-align: top;
+				color: $color-base;
+				@include rem(margin-left, 20px);
+				@include rem(padding, 6px 0);
+				&:first-child {
+					margin-left: 0;
+				}
+			}
+			&.login {
+				color: $color-base;
+			}
+			&.menu {
+				@include rem(left, 0);
+				@include breakpoint(desktop){
+					display: none;
+				}
+			}
+			&.alarm {
+				@include rem(right, 5px);
+				.count {
+					position: absolute;
+					display: inline-block;
+					line-height: 1.5;
+					color: $color-white;
+					background-color: $color-warning;
+					@include rem(top, 8px);
+					@include rem(right, 8px);
+					@include rem(min-height, 16px);
+					@include rem(padding, 0 4px);
+					@include rem(font-size, 11px);
+					@include rem(border-radius, 10px);
+					@include breakpoint(desktop){
+						position: static;
+						top: 1px;
+						right: 0;
+						vertical-align: top;
+						@include rem(padding, 0 5px);
+					}
+				}
+				@include breakpoint(desktop){
+					.icon.alarm {
+						width: auto;
+						height: auto;
+						line-height: 1;
+						vertical-align: middle;
+						background: none;
+					}
+					i {
+						position: static;
+						display: inline;
+						width: auto;
+						height: auto;
+						clip: inherit;
+						margin: 0;
+						overflow: visible;
+						vertical-align: middle;
+						text-indent: inherit;
+						font-style: normal;
+						color: $color-base;
+						@include rem(font-size, 14px);
+					}
+				}
+			}
+			&.user {
+				display: none;
+				@include breakpoint(desktop){
+					display: inline-block;
+					color: $color-base-medium;
+					&.logout {
+						background-repeat: no-repeat;
+						background-position: right center;
+						background-image: url('#{$img-path}/icon_logout.png');
+						background-size: 12px 9px;
+						@include rem(padding-right, 20px);
+					}
+				}
+			}
+			&.puri {
+				display: none;
+				@include breakpoint(desktop){
+					display: inline-block;
+				}
+			}
+			&.life {
+				display: none;
+				@include breakpoint(desktop){
+					display: inline-block;
+				}
+			}
+			&.myroom {
+				display: none;
+				@include breakpoint(desktop){
+					display: inline-block;
+				}
+			}
+			i { @extend %sr-only }
+		}
+	}
+}
+
+// myMenu
+.my-menu {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: -100%;
+	z-index: map-get($z-index, modal);
+	width: 100%;
+	max-width: 100%;
+	height: 100%;
+	background: $color-white url('#{$img-path}/main_visual.png') center bottom no-repeat;
+	background-size: 180%;
+	@include transition(all, .3s, ease);
+	.is-mymenu & {
+		left: 0;
+		transition-delay: .1s;
+	}
+	@include breakpoint(desktop){
+		display: none;
+	}
+	.menu-wrap {
+		position: relative;
+		height: 100%;
+	}
+	.menu-head {
+		position: relative;
+		text-align: center;
+	}
+	.heading {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		@include rem(font-size, 20px);
+		@include translateY(200%);
+		@include rwdHeight(380) {
+			@include translateY(100%);
+		}
+		a {
+			display: inline-block;
+			vertical-align: top;
+			//line-height: 1;
+			&.home {
+				position: relative;
+				//top: 2px;
+				.logo {
+					position: absolute;
+					right: 0;
+					@include rem(top, -22px);
+				}
+			}
+		}
+	}
+	.menu-close { @include close(50px, 50px, 2px, $color-base-dark); }
+	.menu-body {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		left: 0;
+		text-align: center;
+		@include translateY(-50%);
+		@include rwdHeight(380) {
+			@include translateY(-40%);
+		}
+		.action {
+			display: block;
+			@include rem(padding, 0 60px);
+			.button {
+				display: inline-block;
+				text-align: center;
+				background: $color-point;
+				width: 100%;
+				@include rem(border-radius, 50px);
+				@include rem(padding, 14px 0 13px);
+				@include boxSizing(border-box);
+				span {
+					color: $color-base-dark;
+					font-weight: 500;
+					@include rem(font-size, 18px);
+				}
+				&.join {
+					background: $color-white;
+					@include border('all', 1px, solid, $color-point);
+				}
+			}
+			@include rwdHeight(380) {
+				@include rem(padding, 0 30px);
+				.button {
+					width: 48%;
+					@include rem(margin, 0 3px);
+				}
+			}
+
+			&-menu {
+				display: none;
+				@include rem(padding, 36px 60px 0);
+				@include rwdHeight(380) {
+					padding: 0;
+				}
+				.col {
+					width: 50%;
+					color: $color-base;
+					@include rem(font-size, 15px);
+					@include rem(padding-bottom, 36px);
+					.icon {
+						display: block;
+						margin: 0 auto 10px;
+						border-radius: 50%;
+						background-color: $color-point;
+						&.eduwill {
+							background-color: $bg-color-1;
+						}
+					}
+					&:nth-child(3),
+					&:nth-child(4) { padding-bottom: 0;}
+				}
+			}
+			a {
+				display: block;
+				width: auto;
+				@include rem(margin-top, 13px);
+			}
+		}
+	}
+	.info {
+		@include rem(margin-bottom, 62px);
+		@include rem(font-size, 18px);
+		@include rwdHeight(380) {
+			@include rem(padding, 0 30px);
+			@include rem(margin-bottom, 20px);
+			span {
+				display: inline-block;
+			}
+		}
+	}
+	.welcome {
+		display: none;
+		@include rem(font-size, 21px);
+	}
+	.menu-footer {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		.live-class-logo { 
+			display: block;
+			text-align: center;
+			color: $color_base;
+			letter-spacing: 5px;
+			font-family: $armata;
+			font-weight: 700;
+			@include rem(font-size, 16px);
+			@include rem(padding-bottom, 20px);
+			.icon { 
+				@include rem(margin-right, 8px);
+			}
+		}
+		.comment {
+			width: 100%;
+			text-align: center;
+			a {
+				font-weight: 700;
+				color: $color-base-dark;
+				@include rem(font-size, 13px);
+			}
+		}
+		.logout {
+			display: none;
+			width: 100%;
+			text-align: center;
+			@include border(top, 1px, solid, $border-color);
+			span {
+				display: inline-block;
+				color: $color-base;
+				background-repeat: no-repeat;
+				background-position: right center;
+				background-image: url('#{$img-path}/icon_logout.png');
+				background-size: auto 9px;
+				font-weight: 500;
+				@include rem(padding-right, 15px);
+				@include rem(font-size, 13px);
+			}
+			a {
+				border: 0;
+			}
+		}
+		a {
+			display: block;
+			font-weight: 400;
+			@include rem(padding, 13px 0);
+		}
+	}
+	&-login {
+		.menu-head {
+			text-align: left;
+			@extend .grid;
+		}
+		.heading {
+			@extend .col;
+			@include rem(padding, 20px 0 0 20px);
+			@include rem(font-size, 19px);
+			@include translateY(0);
+			a {
+				display: inline-block;
+				vertical-align: top;
+				line-height: 1;
+				&.home {
+                    position: relative;
+                    @include rem(margin-left, 1px);
+                    @include rem(padding, 1px 0 4px);
+					@include rem(font-size, 22px);
+					.logo {
+						position: absolute;
+						left: 104%;
+						@include rem(top, -7px);
+					}
+				}
+			}
+		}
+		.menu-body {
+			@include translateY(-60%);
+			@include rwdHeight(380) {
+				@include translateY(-40%);
+			}
+			.info { display: none;}
+			.welcome {
+				display: block;
+				@include rwdHeight(380) {
+					@include rem(margin-bottom, 20px);
+					span {
+						display: inline-block;
+					}
+				}
+			}
+			.action {
+				display: none;
+				&-menu {
+					display: block;
+					@include rwdHeight(380) {
+						.col {
+							width: 25%;
+						}
+					}
+				}
+			}
+		}
+		.menu-footer {
+			.live-class-logo { display: none;}
+			.comment {
+				display: block;
+			}
+			.logout { display: block;}
+		}
+	}
+}
+
+// container
+#container {
+	height: 100%;
+	background: $bg-color-1;
+	@include breakpoint(tablet){
+		
+	}
+}
+
+// inner
+.inner {
+	position: relative;
+	margin: 0 auto;
+	@extend %clearfix;
+	@include breakpoint(tablet){
+		
+	}
+	@include breakpoint(desktop){
+		width: $layout-desktop;
+		padding: 0;
+	}
+}
+
+.section {
+	background: $color-white;
+	@include rem(padding-top, 21px);
+	@include rem(margin-bottom, 15px);
+	@include border('bottom', 1px, solid, $border-color);
+	@include breakpoint(desktop){
+		padding-bottom: 27px;
+		margin-bottom: 0;
+		border-bottom: 0;
+	}
+	&.gate-section {
+		padding: 0;
+		margin-bottom: 0;
+		border-bottom: 0;
+	}
+}
+
+.layerWrap {
+	&#alarmLayer {
+		top: 5%;
+		right: 5%;
+		left: 5%;
+		bottom: 5%;
+		width: auto;
+		height: auto;
+		margin: 0;
+		@include breakpoint(desktop){
+			top: 50%;
+			right: auto;
+			left: 50%;
+			width: 800px;
+			height: 638px;
+			margin: -320px 0 0 -400px;
+		}
+		.inner {
+			width: auto;
+			height: 100%;
+			@include breakpoint(desktop){
+				padding: 0;
+			}
+		}
+		.cont {
+			height: calc(100% - 49px);
+			@include boxSizing(border-box);
+			@include breakpoint(desktop){
+				height: calc(100% - 69px);
+			}
+		}
+		.nodata {
+			position: relative;
+			top: 0;
+			padding-top: 0;
+		}
+		.top {
+			@include rem(padding, 10px 15px);
+			@include breakpoint(desktop){
+				@include rem(padding, 20px 30px);
+			}
+			.btn_alarm {
+				@include rem(top, 10px);
+				@include breakpoint(desktop){
+					@include rem(top, 20px);
+				}
+				a {
+					@include rem(padding, 0 5px);
+					@include rem(font-size, 13px);
+					&.btn_refresh {
+						padding: 0;
+					}
+				}
+			}
+			.closeLayer {
+				@include rem(top, 16px);
+				@include breakpoint(desktop){
+					@include rem(top, 26px);
+				}
+			}
+		}
+		.alarmList {
+			height: 100%;
+			max-height: 100%;
+			@include breakpoint(desktop){
+				max-height: 529px;
+			}
+			ul li {
+				padding: 0;
+				&.checks {
+					dl {
+						background-color: #ebedf1;
+						@include rem(border-radius, 5px);
+					}
+					dt { background-image: url('#{$img-path}/icon_alarm_check.png'); }
+				}
+				&.unchecks dt { background-image: url('#{$img-path}/icon_alarm_uncheck.png'); }
+				&.open {
+					dl { background-color: $color-white; }
+					dd { display: block; }
+				}
+				dl {
+					position: relative;
+					cursor: pointer;
+					@include rem(padding, 0 45px 0 14px);
+					@include breakpoint(desktop){
+						@include rem(padding-right, 40px);
+					}
+					dt {
+						margin-right: 0;
+						padding-right: 0;
+						border-radius: 0;
+						word-break: break-all;
+						background-size: 15px;
+						@include breakpoint(desktop){
+							@include rem(padding-right, 150px);
+						}
+					}
+					.subj { @include rem(font-size, 15px); }
+					.date {
+						position: static;
+						top: auto;
+						right: auto;
+						text-align: left;
+						@include rem(margin-top, 10px);
+						@include rem(font-size, 13px);
+						@include breakpoint(desktop){
+							position: absolute;
+							margin-top: 0;
+							@include rem(top, 18px);
+							@include rem(right, 39px);
+						}
+					}
+				}
+				.delete {
+					background-image: url('#{$img-path}/icon_delete_uncheck.png');
+					background-position: center center;
+					background-size: 50%;
+					@include rem(top, 10px);
+					@include rem(right, 10px);
+					@include rem(width, 30px);
+					@include rem(height, 30px);
+					@include breakpoint(desktop){
+						top: 10px;
+						right: 7px;
+					}
+				}
+			}
+		}
+		.listMore {
+			width: 100%;
+			text-align: center;
+			span { margin-left: 0; }
+			@include breakpoint(desktop){
+				width: 200px;
+			}
+		}
+	}
+}
+
+.loading-bar {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background-color: $dim;
+	img { position: absolute; top: 50%; left: 50%; margin: -20px 0 0 -20px; width: 40px;}
+	z-index: map-get($z-index, dim);
+	@include breakpoint(desktop){
+		img { width: 60px; }
+	}
+}
+
+.loading {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -20px 0 0 -20px;
+	z-index: 10;
+	img { width: 40px;}
+	@include breakpoint(desktop){
+		margin: -30px 0 0 -30px;
+		img { width: 60px;}
+	}
+}

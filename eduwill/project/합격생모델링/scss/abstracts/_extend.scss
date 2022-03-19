@@ -1,0 +1,164 @@
+// display flex
+%flexCenter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-item: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+// 플로팅 해제
+%clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: '';
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+// 말줄임
+%textEllipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+// 말줄임 해제
+%textEllipsisClear {
+    white-space: normal;
+    text-overflow: unset;
+    overflow: unset;
+}
+
+// 숨김처리
+.hidden,
+.sr_only,
+.sr-only {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    width: 0px;
+    height: 0px;
+    margin: -1px;
+    padding: 0;
+    word-break: keep-all;
+    white-space: nowrap;
+    color: transparent;
+    border: 0;
+    text-indent: -9999px;
+}
+
+
+// 그리드 작업
+.grid {
+    position: relative;
+    @extend %clearfix;
+    @include boxSizing(border-box);
+    .col {
+        position: relative;
+        float: left;
+        @include boxSizing(border-box);
+        &-right {
+            position: relative;
+            float: right;
+            @include boxSizing(border-box);
+        }
+    }
+}
+
+// 테이블 작업
+.table {
+    display: table;
+    table-layout: fixed;
+    .table-cell {
+        display: table-cell;
+        height: 100%;
+        vertical-align: middle;
+    }
+}
+
+// 선택불가
+%disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+// slick plugins dots reset
+%slick-dots {
+    button {
+        position: absolute;
+        display: inline-block;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        width: 0px;
+        height: 0px;
+        margin: -1px;
+        padding: 0;
+        word-break: keep-all;
+        white-space: nowrap;
+        color: transparent;
+        border: 0;
+        text-indent: -9999px;
+    }
+}
+
+%slick-dots2 {
+    font-size: 0;
+    li { display: inline-block; }
+    button {
+        display: block;
+        width: 100%;
+        height: 100%;
+        font-size: 0;
+        color: transparent;
+        text-indent: -9999px;
+        border: 0;
+        background: none;
+    }
+}
+
+// slick plugins arrow reset
+%slick-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    content: '';
+    padding: 0;
+    margin:0;
+    border: none;
+    background: none;
+    outline: none;
+    text-indent: -9999px;
+    display: block;
+    border-width: 0;
+    border-style: solid;
+    @include transform(rotate(45deg) translateY(-50%));
+}
+
+// 가변
+%variable {
+    &:only-child,
+    &:nth-child(1):nth-last-child(1) { width: 100%; }
+
+    &:nth-child(1):nth-last-child(2),
+    &:nth-child(2):nth-last-child(1) { width: 50%; }
+
+    &:nth-child(1):nth-last-child(3),
+    &:nth-child(2):nth-last-child(2),
+    &:nth-child(3):nth-last-child(1) { width: 33.33%; width: calc(100% / 3); }
+
+    &:nth-child(1):nth-last-child(4),
+    &:nth-child(2):nth-last-child(3),
+    &:nth-child(3):nth-last-child(2),
+    &:nth-child(4):nth-last-child(1) { width: 25%; }
+}

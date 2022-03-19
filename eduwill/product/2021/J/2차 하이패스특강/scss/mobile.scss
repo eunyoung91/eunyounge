@@ -1,0 +1,146 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+
+.product-eco{
+	background-color:#fff;
+	position: relative;
+	text-align:center;
+	overflow: hidden;
+	font-family:$font-noto;
+	letter-spacing: -1px;
+
+	*, *:before, *:after{
+		-webkit-box-sizing:border-box;
+		-moz-box-sizing:border-box;
+		box-sizing:border-box;
+	}
+
+	img{
+		border:0;
+		vertical-align:top;
+		line-height:0;
+		font-size:0;
+	}
+
+	.clearfix:after{
+		content:'';
+		display:block;
+		clear:both;
+	}
+
+	.wrap{
+		position:relative;
+		width:100%;
+		max-width:720px;
+		margin:0 auto;
+		text-align:center;
+		font-family:'Noto Sans KR',Sans-Serif;
+		letter-spacing:-1px;
+	}
+
+	.section{
+		position:relative;
+		padding:0;
+		margin:0;
+		border-bottom:0;
+	}
+
+	a{
+		display:inline-block;
+		outline: none;
+	}
+
+	.content{
+		position: relative;
+	}
+
+	section{
+		position:relative;
+	}
+
+	.section{
+		&-title{
+			position: relative;
+			background: #0f2139 url('#{$img-path}/pc/title_bg.jpg') no-repeat 50% 0;
+			background-size: cover;
+			img{
+				@include vw(margin-bottom, -160px);
+			}
+		}
+		&-cont1{
+			@include vw(padding-bottom, 120px);
+			.cont1-btn{
+				@include vw(width, 641px);
+				@include vw(border-radius, 60px);
+				box-shadow: 5px 15px 15px 0 rgba(0, 0, 0, 0.15);
+			}
+		}
+		&-cont2{
+			background: #f7f7f7;
+			.timer-txt{
+				position: absolute;
+				@include vw(top, 120px);
+				@include vw(left, 455px);
+				font-family: $font-roboto;
+				color: #427cff;
+				@include vw(font-size, 54px);
+				font-weight: 900;
+				text-align: left;
+				line-height: 1;
+				letter-spacing: -3px;
+				strong{
+					font-weight: 900;
+				}
+			}
+			.cont2-step{
+				position: relative;
+				.step{
+					position: absolute;
+					display: none;
+					left: 0;
+					&1{
+						@include vw(top, -11px);
+					}
+					&2{
+						@include vw(top, 286px);
+					}
+					&.on{
+						display: block;
+					}
+				}
+			}
+		}
+		&-cont3{
+			.video-box{
+				position: relative;
+				@include vw(width, 620px);
+				margin: 0 auto;
+				.cont3-thumb{
+					width: 100%;
+				}
+			}
+		}
+		&-cont4{
+			background: #427cff;
+			&::after{
+				content: '';
+				display: block;
+				position: absolute;
+				@include vw(width, 132px);
+				@include vw(height, 132px);
+				@include vw(top, -65px);
+				left: 50%;
+				transform: translateX(-50%);
+				background: url('#{$img-path}/pc/icon_pluse.png') no-repeat top left;
+				background-size: cover;
+			}
+		}
+	}
+
+}
+

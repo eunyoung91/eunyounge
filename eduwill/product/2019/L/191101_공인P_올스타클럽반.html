@@ -1,0 +1,493 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<head>
+<title>공인중개사</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><!-- IE7 호환성보기 강제해제 -->
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Gov2/Common/Css/Main_20140204.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/template.css" /><!-- Content Template -->
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<link rel="stylesheet" href="https://www.eduwill.net/Common/event/freebook/naver/jquery.bxslider.css" type="text/css">
+<script type="text/JavaScript" src="https://www.eduwill.net/Common/event/freebook/naver/jquery.bxslider.js"></script>
+</head>
+<body>
+<!-- body 내만 작업 -->
+<style>
+	#container{ padding:0;margin:0;}
+	.sr_only { position: absolute; display: inline-block; overflow: hidden; clip: rect(0 0 0 0); width: 0px; height: 0px; margin: -1px; padding: 0; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }    
+	.product img { vertical-align: top; }
+	.content { position:relative; background-repeat: no-repeat; background-position: center top; }    
+	.content .wrap { position:relative; width:1100px; margin: 0 auto; text-align:center; } 
+	.content .wrap .item { position:relative; text-align: center; } 
+	.content .area_item { position:relative; }
+	.content .area_extra { position:relative; margin:0 0 20px 0; }
+	.product .title { background:#eeeff0 url(https://img.eduwill.net/Img2/license/Product/event_new/181101_02/bg_title.jpg) no-repeat 50% top; }
+	.product .s1{ background:#173485 url(https://img.eduwill.net/Img2/license/Product/event_new/181101_02/bg_intro01.jpg) no-repeat 50% top;}
+	.section_winner { background:#e1e9f3 url(https://img.eduwill.net/Img2/license/Product/event_new/180412/bg_info03.jpg) no-repeat 50% top; }    
+	.section_tab { background:url(https://img.eduwill.net/Img2/license/Product/event_new/181025/bg_end.jpg) no-repeat 50% top; }   
+	.content .text_info { position:absolute; width:1100px; text-align:left; font-family:'맑은 고딕', 'Malgun gothic', '돋움', 'dotum'; letter-spacing:0; line-height:20px; font-size:13px; letter-spacing: -1px; color:#bcbcbc; z-index:10; }
+	.content .text_info span { display:inline-block; padding-left:10px;}
+	.content .sub_text { position:absolute; font-family: '맑은 고딕', 'Malgun gothic'; letter-spacing:-1px; z-index:10; } 
+	.content .sub_text01 { height:36px; line-height:32px; color:#111111; font-size:32px; text-align:left; } 
+	.content .sub_text02 { height:22px; line-height:18px; color:#ffffff; font-size:14px; font-weight:bold; text-align:center; } 
+	.content .sub_text03 { height:34px; line-height:30px; color:#111111; font-size:29px; text-align:left; font-weight:normal; }
+	.content .sub_text04 { height:36px; line-height:32px; color:#202020; font-size:27px; text-align:center; font-weight:normal; }
+	.content .sub_text img { vertical-align:top; } 
+	.content .sub_text span { color:#666666; font-size:16px; } 
+
+	.inner_list { position:relative; width:1100px; height:484px; text-align:left; padding:41px 0 41px 0; margin:0 auto; background:url(https://img.eduwill.net/Img2/license/Product/event_new/181025/bg_slide01.jpg) no-repeat 50% bottom; }
+	.list_passer { width:1100px; height:484px; overflow:hidden; }
+	.list_passer .bx-wrapper .bx-viewport { height:484px !important; border: none; background: none; box-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; }
+	.list_passer li { color:#333333; line-height:27px; text-align:left; font-family: '맑은 고딕', 'Malgun gothic'; font-size:17px; letter-spacing: -1px; padding:15px 0 15px 0; }
+	.list_passer li dl { position:relative; width:886px; height:91px; padding:0 0 0 214px; }
+	.list_passer li dt { position:absolute; left:106px; top:0; width:91px; height:65px; color:#ffffff; line-height:23px; text-align:center; font-size:18px; font-weight:bold; padding:26px 0 0 0; background:url(https://img.eduwill.net/Img2/license/Product/event_new/181025/bg_slide_list.png) no-repeat 50% 50%;}
+	.list_passer li dd { }
+	.list_passer li dd span { display:block; color:#0038d6; line-height:27px; font-size:20px; font-weight:bold; }
+
+	/* photo_list */
+	.photo_list { margin: -8px 0 0 -8px; *zoom: 1; }
+	.photo_list:before,
+	.photo_list:after { content: ''; display: table; }
+	.photo_list:after { clear: both; }
+	.photo_list li { float: left; width:222px; -webkit-box-sizing: border-box; box-sizing: border-box; }
+	.photo_list .core { margin:8px 0 0 8px; }
+	.photo_list img { width: 100%; }
+	.zoomify { cursor: pointer; cursor: crosshair; cursor: -webkit-zoom-in; cursor: zoom-in; }
+	.photo_list.is_big { margin: -10px 0 0 -10px; }
+	.photo_list.is_big li { width: 50%; }
+	.photo_list.is_big li.nth_child_1 { width: 100%; float: none; }
+	.photo_list.is_big .core { margin: 10px 0 0 10px; }
+
+	.photo_list.is_big li.solo { height: 380px; }
+	.photo_list.is_big li.cover { overflow: hidden; }
+	body.cover { height: 100%; overflow: hidden; }
+</style>
+
+<!-- 상품컨텐츠 -->
+<div id="container">
+    <!-- 수강신청 버튼 개선 -->
+    <div class="g_fix_apply" id="g_fix_apply" style="z-index:1000;">
+        <div class="gf_apply">
+            <a href="#apply_anchor"><img src="https://img.eduwill.net/Img2/Common/Product/event_new/common_apply.png" border="0" alt="수강신청" /></a>
+        </div>
+    </div>
+    <!-- //수강신청 버튼 개선 -->
+    <div id="contents" class="product">
+        <div class="content title">
+            <div class="wrap">
+                <img src="https://img.eduwill.net/Img2/license/Product/event_new/191102/title.png" alt="올스타클럽반" />
+            </div>
+        </div>
+        <div class="content s1">
+            <img src="https://img.eduwill.net/Img2/license/Product/event_new/191102/s1.png" alt="" />
+        </div> 
+        <div class="content" style="padding:0 0 91px 0;">
+            <div class="wrap">
+                <div class="area_item">
+                    <div class="text_info" style="left:0; top:309px;">
+                        *최근 3개년도(2015~2017) 2차 시험 기준<br />
+                        *에듀윌 직영학원 합격생 데이터 기준<br />
+                        *한국산업인력공단 접수 321,527명 합격률 19%<br />
+                        *에듀윌 직영 7개 학원 접수 2,827명 합격률 56%
+                    </div>
+                    <img src="https://img.eduwill.net/Img2/license/Product/event_new/181101_02/info01.png" alt="" />
+                </div>
+                <div class="area_item">
+                    <div class="text_info" style="left:0; top:169px;">
+                        * KRI 한국기록원 한국기록원 단일 교육기관<br />
+                        <span>2016,2017년 공인중개사 한 회차 최대 합격자 배출 공식 인증, 합격자 수 1위</span><br />
+                        * 한국기록원(KRI)은 대한민국 최고 기록을 검증 및 수집,<br />
+                        <span>세계 기네스북 등재를 대행하는 공식 인증 기관입니다.</span>
+                    </div>
+                    <img src="https://img.eduwill.net/Img2/license/Product/event_new/181101_02/info02.png" alt="" />
+                </div>
+                <div class="area_item">
+                    <div class="sub_text sub_text03" style="left:0; top:75px;">
+                        <img src="https://img.eduwill.net/Img2/license/Product/event_new/181025/sub_text01.png" alt="" />
+                        <strong>10,429,428</strong><img src="https://img.eduwill.net/Img2/license/Product/event_new/181025/sub_text02.png" alt="" />
+                    </div>
+                    <div class="text_info" style="left:0; top:170px;">
+                        * 2014~2018 공인중개사 시험후기, 합격수기 누적 조회수
+                    </div>
+                    <img src="https://img.eduwill.net/Img2/license/Product/event_new/181101_02/info03.png" alt="소중한 수강생들의 합격수기" usemap="#map_info03" />
+                    <map name="map_info03" id="map_info03">
+                        <area shape="rect" coords="887,173,1100,214" href="//www.eduwill.net/license2/community/study/newpass/pass_list.asp" target="_blank" alt="더 많은 합격수기 확인하기" />
+                    </map>
+                    <div class="inner_list">
+                        <div class="list_passer">
+                            <ul id="slider_list" class="bxslider">
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />박선*</dt>
+                                        <dd>
+                                            <span>직장맘, 1년만에 1,2차 동차 합격</span>
+                                            직장 생활하면서 노후 준비를 설계하던 중 공인중개사 시험에 도전했습니다.<br />
+                                            모든 교수님들 말씀 믿고 꾸준히 하시면 이런 결과가 옵니다^^
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />차영*</dt>
+                                        <dd>
+                                            <span>목표를 향한 도전과 합격의 기쁨</span>
+                                            엄마가 합격까지 하는 모습을 보고 아이들도 노력의 결실에 대해<br />
+                                            많은 생각을 할 수 있는 계기가 마련된 것 같습니다
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />최효*</dt>
+                                        <dd>
+                                            <span>실력있는 교수님 덕분에 합격</span>
+                                            중간중간 진도 체크도 해서 긴장감 갖게 해주시고<br />
+                                            전화상담도 굉장히 신속하게 친절하게 잘해주시고
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />임인*</dt>
+                                        <dd>
+                                            <span>65세의 나이에 동차 합격하다</span>
+                                            나이는 숫자에 불과하다는 명언이 있습니다. 나이때문에 망설이시는 분들께 좋은 사례가 되었으면 합니다.<br />
+                                            저는 이제 제3의 직업으로 노후를 보낼까 합니다.
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />반미*</dt>
+                                        <dd>
+                                            <span>워킹맘, 공인중개사에 도전하다</span>
+                                            결코 만만한 시험이 아니기에, 좋은 교수님들을 만나야 합니다.<br />
+                                            처음부터 제대로 된 교수님을 만나야 시간도 돈도 날리지 않습니다.
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />이상*</dt>
+                                        <dd>
+                                            <span>나이 60에 합격! 마음만 먹으면 누구든 가능합니다.</span>
+                                            누구나 책만 놓지 않으면 합격한다고 생각합니다!<br />
+                                            머리와 나이는 정말 상관없다고 생각합니다. 마음만 먹으면 누구든 가능한 것 같습니다.
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />김소*</dt>
+                                        <dd>
+                                            <span>에듀윌과 하얗게 불태운 1년</span>
+                                            전국의 수많은 학원과 강의가 있었지만 저는 고민하지 않았습니다. "최다 합격생 배출"이라는 타이틀 하나만으로<br />
+                                            모든 설명이 되었기에 망설임없이 에듀윌 인터넷강의를 선택하였습니다.
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />박진*</dt>
+                                        <dd>
+                                            <span>아이둘 엄마의 동차 합격수기</span>
+                                            아이 둘 키우면서 할 수 있을까 매번 나 자신과의 싸움이었던 것 같아요.<br />
+                                            제가 이런말 하게 될 줄 몰랐는데, 인강 최대한 안 밀리게 열심히 들으시고 교수님들 믿고 가시면 됩니다
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />이현*</dt>
+                                        <dd>
+                                            <span>자영업의 한계, 공인중개사 시험에 도전하다</span>
+                                            장사를 하면서 병행한 공부가 성과를 거두어 정말 기쁘고<br />
+                                            또한 제 운에 운을 불어 넣어준 에듀윌 교수님들과 임직원께도 정말 감사한 마음입니다.
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />김규*</dt>
+                                        <dd>
+                                            <span>30대 직장생활 하면서 시작한 공부 끝에 합격</span>
+                                            공부 방법에 대한 요령이 없었기에 교수님들께서 알려주는 대로, 시키는 대로만 했습니다.<br />
+                                            어찌보면 미련할 수도 있겠네요. 하지만 저에게도 이렇게 합격 수기를 쓰는 날이 왔습니다.
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />원정*</dt>
+                                        <dd>
+                                            <span>남편의 권유로 시작한 공인중개사, 합격했습니다.</span>
+                                            나이만큼 반복하면 된다는 교수님 말씀에 마음 편히 먹고 다시 책을 들여다 봤습니다. <br />
+                                            그러다보니 어느새 시험을 봤고, 좋은 결과를 얻었습니다.
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />전미*</dt>
+                                        <dd>
+                                            <span>56세 도전의 한해가 어떻게 지나갔는지... 넘 좋다!!</span>
+                                            참으로 후회없는 한해를 보낸듯 2017년 가는 해가 섭섭치 않아요.<br />
+                                            이 나이에 자존심을 지켜내어 어깨를 으쓱하게 도와주신 에듀윌 교수님들께 감사드립니다
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />이용*</dt>
+                                        <dd>
+                                            <span>포기하지 않으면 반드시 합격합니다</span>
+                                            교수님들 덕분에 공부가 즐거워졌고 정말 열심히 할 수 있었습니다.<br />
+                                            합격자 모임에서 교수님들을 만난 날, 그간의 고생이 눈 녹듯 사라지고 모든 것이 다 행복해졌습니다.
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />조성*</dt>
+                                        <dd>
+                                            <span>다시 시작할 수 있는 기회를 얻었습니다</span>
+                                            누가 봐도 말 한마디 한마디가 완벽한, 볼수록 신기한 교수님들!<br />
+                                            제2의 인생을 시작할 수 있는 기회를 훌륭하신 교수님들의 도움으로 잡을 수 있게 되었습니다.
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />김은*</dt>
+                                        <dd>
+                                            <span>시부모님 모시면서 세아이 키우는 엄마도 할 수 있다</span>
+                                            교수님들이 하라는 것들을 꾸준히 하니 8월부터 결과가 나오기 시작했습니다.<br />
+                                            강의를 미루지 않고 듣기만 해도 결과가 나오는 것 같아요.
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />박준*</dt>
+                                        <dd>
+                                            <span>평범한 식당 아저씨도 동차합격 할 수 있다!!</span>
+                                            정말 힘들고 괴로워도 포기하지 않고, 꼭!! 합격할 수 있다는 굳은 믿음을 가지시고 <br />
+                                            끝까지 열심히 하신다면 합격이라는 좋은 결과가 여러분들 앞에 놓여있게 될거란걸 확신합니다
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />강동*</dt>
+                                        <dd>
+                                            <span>직장인도 동차합격, 어렵지 않습니다</span>
+                                            딱 1년간, 직장 끝나고 저녁시간 쪼개서 공부했습니다.<br />
+                                            강의만 들어도 자연스럽게 복습이 되도록 짜여져 있기 때문에 복습도 필요없었습니다.
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />김양*</dt>
+                                        <dd>
+                                            <span>기쁨 두 배, 자신감도 두 배! 최종합격</span>
+                                            '아이들에게 엄마가 도전하고 노력하는 모습을 보여주자' 하고 용기를 냈습니다<br />
+                                            대한민국 주부님들, 시작해 보세요! 에듀윌의 실력있는 교수님들과 끝까지 함께한다면 꼭 합격하실 겁니다.
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />손영*</dt>
+                                        <dd>
+                                            <span>반복이 기적을 만든다</span>
+                                            오십대 중반, 아들 장가보내느라 어정거리다가 늦게 시작했지만 나름 열심히 공부했습니다.<br />
+                                            모든 교수님들이 말씀하신 '반복이 기적을 만든다'는 말이 진리인 것 같아요.
+                                        </dd>
+                                    </dl>
+                                </li>
+                                <li>
+                                    <dl>
+                                        <dt>합격생<br />김소*</dt>
+                                        <dd>
+                                            <span>전 교수님들 강의를 모두 수강했습니다</span>
+                                            강의는 명강의고 기본서는 대박입니다. 이 시험은 100점 맞든 60점 맞든<br />
+                                            합격이라는 결과는 동일하니까요 욕심 부리지 마시고 교수님들이 하라는 대로만 하세요.
+                                        </dd>
+                                    </dl>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content section_winner">
+            <div class="wrap">
+                <img src="https://img.eduwill.net/Img2/license/Product/event_new/180412/info03.png" alt="비교불가! 국내 최대 규모 공인중개사 합격자모임" usemap="#map_info04" />
+                <map name="map_info04" id="map_info04">
+                    <area shape="rect" coords="398,229,601,272" href="//www.eduwill.net/license2/promotion/171215/index.asp" target="_blank" alt="합격자모임 더보기 ">
+                </map>
+            </div>
+        </div>
+
+        <div class="content" style="background:#242f51;">
+            <img src="https://img.eduwill.net/Img2/license/Product/event_new/191102/text02.png" alt="공인중개사의 확실한 합격 올스타 클럽반과 함께 하시면 됩니다." />
+        </div>
+
+        <div class="content">
+            <div class="wrap">
+                <img src="https://img.eduwill.net/Img2/license/Product/event_new/181101_02/item01_title.png" alt="" />
+                <div class="area_item">
+                    <div class="text_info" style="left:0; top:344px;">
+                        * 가장 많이 검색하는 사이트 1위(2017.11.1~11.19 네이버 데이터랩 검색트랜드 융합분석<br />
+                        * 합격자수 최고기록 (2018.1 한국기록원 제27회, 28회 공인중개사 시험 단일교육기관 최다합격자)
+                    </div>
+                    <img src="https://img.eduwill.net/Img2/license/Product/event_new/191102/item01_img01.png" alt="합격의 필수조건 3회 반복학습 완성" />
+                </div>
+                <div class="area_item">
+                    <div class="text_info" style="left:0; top:320px;">
+                        * 공인중개사 28회 기출문제와 에듀윌 교재/모의고사 일치비교
+                    </div>
+                    <img src="https://img.eduwill.net/Img2/license/Product/event_new/181101_02/item01_img02.png" usemap="#map_item01_01" alt="" />
+                    <map name="map_item01_01" id="map_item01_01">
+                        <area shape="rect" coords="0,386,173,421" href="//www.eduwill.net/license2/promotion/171129/index.asp" target="_blank" alt="합격비법 자세히 보기" />
+                    </map>
+                </div>
+
+                <div class="area_item">
+                    <div class="text_info" style="left:0; top:368px;">
+                        * 에듀윌 공인중개사 전국 실전모의고사는<br />
+                        <span>유료회원이면 무료로 신청 가능한 프리미엄 서비스입니다.</span><br />
+                    </div>
+                    <img src="https://img.eduwill.net/Img2/license/Product/event_new/181101_02/item01_img04.png" alt="" />
+                </div>
+
+                <div class="area_item">
+                    <div class="sub_text sub_text01" style="left:0; top:89px; width:800px;">
+                        <strong>35</strong><img src="https://img.eduwill.net/Img2/license/Product/event_new/181101_02/sub_text.png" alt="" /><span>(YES24 기준)</span>
+                    </div>
+                    <div class="sub_text sub_text02" style="left:573px; top:267px; width:74px;">35개월 연속</div>
+                    <div class="text_info" style="left:0; top:285px;">
+						* YES24 공인중개사 부문 월별 베스트 1위(2016.12~2019.10)<br/>
+						* YES24 공인중개사 부문 1차 기본서 판매량 1위(2019.10기준)<br/>
+						* 인터파크 공인중개사 부문 1차 기본서 판매량 1위(2019.10기준)<br/>
+						* 교보문고 공인중개사 부문 1차 기본서 판매량 1위(2019.10기준)<br/>
+						* 알라딘 공인중개사 부문 1차 기본서 판매량 1위(2019.10기준)<br/>
+                    </div>
+                    <img src="https://img.eduwill.net/Img2/license/Product/event_new/191102/item01_img05.png" alt="" />
+                </div>
+            </div>
+        </div>
+
+        <div class="content" style="background:#f4f4f4;">
+            <div class="wrap">
+                <div class="text_info" style="left:0; top:616px; text-align:left;">
+                    * KRI 한국기록원 한국기록원 단일 교육기관&nbsp;&nbsp;2016,2017년 공인중개사 한 회차 최대 합격자 배출 공식 인증, 합격자 수 1위
+                </div>
+               <img src="https://img.eduwill.net/Img2/license/Product/event_new/191102/item02.png" alt="전문 교수진 라인업" />
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="wrap">
+                <img src="https://img.eduwill.net/Img2/license/Product/event_new/181101_02/item03.png" usemap="#map_item03" alt="" />
+                <map name="map_item03" id="map_item03">
+                    <area shape="rect" coords="0,526,202,561" href="//dokhan.eduwill.net/web/intro/index.will?MASTER_NO=3" target="_blank" alt="독한 에듀윌 자세히 보기" />
+                </map>
+            </div>
+        </div>
+        <div class="content" style="background:#f4f4f4;padding:0 0 100px 0;">
+            <div class="wrap" style="width:1110px;">
+				<div class="text_info" style="left:0; top:590px;">* 동문회 사이트 이용을 위해서는 반드시 강의+교재 상품을 구매하셔야 합니다.</div>
+                <img src="https://img.eduwill.net/Img2/license/Product/event_new/181101_02/item04.png" usemap="#map_item04" alt="전국구 인맥 네트워크" />
+                <map name="map_item04" id="map_item04">
+                    <area shape="rect" coords="0,544,269,579" href="//us.eduwill.net/" target="_blank" alt="공인중개사 동문회 자세히 보기" />
+                </map>
+                <ul class="photo_list">
+					<li><div class="core"><img src="https://img.eduwill.net/Img2/license/Product/event_new/181025/photo01.jpg" class="img-responsive img-thumbnail zoomify" alt="" /></div></li>
+					<li><div class="core"><img src="https://img.eduwill.net/Img2/license/Product/event_new/181025/photo02.jpg" class="img-responsive img-thumbnail zoomify" alt="" /></div></li>
+					<li><div class="core"><img src="https://img.eduwill.net/Img2/license/Product/event_new/181025/photo03.jpg" class="img-responsive img-thumbnail zoomify" alt="" /></div></li>
+					<li><div class="core"><img src="https://img.eduwill.net/Img2/license/Product/event_new/181025/photo04.jpg" class="img-responsive img-thumbnail zoomify" alt="" /></div></li>
+					<li><div class="core"><img src="https://img.eduwill.net/Img2/license/Product/event_new/181025/photo05.jpg" class="img-responsive img-thumbnail zoomify" alt="" /></div></li>
+					<li><div class="core"><img src="https://img.eduwill.net/Img2/license/Product/event_new/181025/photo06.jpg" class="img-responsive img-thumbnail zoomify" alt="" /></div></li>
+					<li><div class="core"><img src="https://img.eduwill.net/Img2/license/Product/event_new/181025/photo07.jpg" class="img-responsive img-thumbnail zoomify" alt="" /></div></li>
+					<li><div class="core"><img src="https://img.eduwill.net/Img2/license/Product/event_new/181025/photo08.jpg" class="img-responsive img-thumbnail zoomify" alt="" /></div></li>
+					<li><div class="core"><img src="https://img.eduwill.net/Img2/license/Product/event_new/181025/photo09.jpg" class="img-responsive img-thumbnail zoomify" alt="" /></div></li>
+					<li><div class="core"><img src="https://img.eduwill.net/Img2/license/Product/event_new/181025/photo10.jpg" class="img-responsive img-thumbnail zoomify" alt="" /></div></li>
+                </ul>
+				<script type="text/javascript">
+					$(document).ready(function(){
+						// zoomify
+						$('.photo_list .zoomify').zoomify(); // Default settings
+						// img click event
+						$('.photo_list .zoomify').on('click', function(e){
+							var $this = $(this);
+							$('body').toggleClass('cover');
+							if ( $this.hasClass('solo') ){
+								$this.closest('li').toggleClass('cover');
+							}
+						});
+						// Close onclick on another element
+						$('.zoomify').on('zoom-in.zoomify', function(e){
+							$(document).on('click', function(e){
+								if ( $(e.target).hasClass('zoomify-shadow') ) {
+									$('body').removeClass('cover');
+									$('.photo_list li.solo').addClass('cover');
+								}
+							});
+						});
+					});
+				</script>
+            </div>
+        </div>
+        <div class="content">
+            <div class="wrap">
+                <img src="https://img.eduwill.net/Img2/license/Product/event_new/181101_02/item05.png" alt="최적의 학습환경" />
+            </div>
+        </div>
+        <div class="content" style="background:#242f51;">
+            <img src="https://img.eduwill.net/Img2/license/Product/event_new/181101_02/text03.png" alt="" />
+        </div>
+        <div class="content section_apply" id="apply_anchor" style="background: #721fb3;">
+            <img src="https://img.eduwill.net/Img2/license/Product/event_new/181101_02/text04.png" alt="수강신청" />
+        </div>
+    </div>
+</div>
+<!-- // 상품컨텐츠 -->
+
+<link rel="stylesheet" href="https://www.eduwill.net/license2/promotion/171215/zoomify.css" /><!-- plugins css : zoomify -->
+<script type="text/javascript" src="https://www.eduwill.net/license2/promotion/171215/zoomify.js"></script><!-- plugins : zoomify -->
+<script type="text/javascript">
+	 $(function() {
+		var $window = $(window),
+			 $document = $(document);
+		
+		$window.scroll(function(){    
+			if ( $(window).scrollTop() >= $("#apply_anchor").offset().top - 700 ) {    
+				$(".g_fix_apply").hide();    
+			} else {    
+				$(".g_fix_apply").show();    
+			}
+		});
+	 });
+
+	// 합격자명단
+	$(function() {
+		var ticker01 = $('#slider_list').bxSlider({
+			mode: 'vertical',
+			auto: true,
+			pause: 2000,
+			minSlides: 4,
+			moveSlides: 1,
+			maxSlides: 4,
+			pager: false,
+			controls: false,
+			infiniteLoop: true
+		});
+	});
+</script>
+<!-- // body 내만 작업 -->
+</body>
+</html>

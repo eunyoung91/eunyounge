@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>에공회</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Cache-Control" content="No-Cache"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+
+<link rel="Bookmark Icon" href="https://img.eduwill.net/resources/event/live/images/favicon.ico">
+<link rel="icon" href="https://img.eduwill.net/resources/event/live/images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://img.eduwill.net/resources/event/live/images/favicon.ico" type="image/x-icon">
+
+<!-- 공통css :: -->
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/eduwill/live/libs/swiper/swiper.min.css" />
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/eduwill/live/libs/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel='stylesheet' type='text/css' href='https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' >
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/eduwill/dev/css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/network.css" />
+
+<!-- 공통js :: -->
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/jquery/jquery-2.1.4.min.js"></script>
+<script type="text/javaScript" src="https://img.eduwill.net/eduwill/live/libs/swiper/swiper.min.js"></script>
+<script type="text/javaScript" src="https://img.eduwill.net/eduwill/live/libs/slick/slick.min.js"></script>
+<script type="text/javaScript" src="https://img.eduwill.net/eduwill/live/libs/greensock/TweenMax.min.js"></script>
+<script type="text/javascript" src="js/network.js"></script>
+
+</head>
+<body>
+<div id="wrap">
+<!-- header -->
+<header>
+    <div class="wrap">
+        <div class="logo">
+            <a href="javascript:;" class="logo-img"><img src="https://img.eduwill.net/Img2/Common/BI/type2/dev/logo.svg" alt="" /><strong class="logo-text">공인중개사 동문회</strong></a>
+            <a href="javascript:;" class="logo-title">부동산거래망</a>
+        </div>
+       
+        <div id="menu">
+            <a href="javascript:;" class="menu-icon" >
+                <span> </span>
+                <span> </span>
+                <span> </span>
+            </a>
+        </div>
+        
+        <nav id="gnb">
+            <ul>
+                <li>
+                    <a href="javascript:;">매물등록</a>
+                    <span class="ico-tooltip"><img src="https://img.eduwill.net/resources/land/dev/images/network/icon-question-circle.png" srcset="https://img.eduwill.net/resources/land/dev/images/network/icon-question-circle@2x.png 2x" alt="" /></span>
+                    <div class="layer-tooltip"><span class="sr-only">매물등록은 데스크탑에서만 가능합니다.</span></div>
+                </li>
+                <li><a href="javascript:;">공동중개</a></li>
+                <li><a href="javascript:;">매물관리</a></li>
+                <li><a href="javascript:;">내정보</a></li>
+                <li><a href="javascript:;">고객센터</a></li>
+                <li><a href="javascript:;">동문회홈</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!--// header -->
+
+<!-- container -->
+<div id="container">
+    <!-- contents -->
+    <div id="contents" class="estate-list">
+        <div class="list-select-top grid">
+            <div class="select-group">
+                <select class="select">
+                    <option value="">아파트/오피스텔</option>
+                </select>
+            </div>
+
+            <div class="select-group">
+                <select class="select">
+                    <option value="">전체</option>
+                    <option value="">전체</option>
+                    <option value="">전체</option>
+                    <option value="">전체</option>
+                    <option value="">전체</option>
+                    <option value="">전체</option>
+                </select>
+            </div>
+
+            <div class="select-group">
+                <select class="select">
+                    <option value="">전체거래</option>
+                    <option value="">전체</option>
+                    <option value="">전체</option>
+                    <option value="">전체</option>
+                    <option value="">전체</option>
+                    <option value="">전체</option>
+                </select>
+            </div>
+
+            <a href="javascript:;" class="btn-search">상세검색</a>
+        </div>
+
+        <div id="map"></div>
+
+        <div class="layer-list">
+            <div class="layer-list-tab tab-list">
+                <ul>
+                    <li class="on"><a href="javascript:;">최신순</a></li>
+                    <li><a href="javascript:;">면적순</a></li>
+                    <li><a href="javascript:;">낮은가격순</a></li>
+                    <li><a href="javascript:;">높은가격순</a></li>
+                    <li>매물 <span class="total">42개</span></a></li>
+                </ul>
+            </div>
+            <div class="layer-list-view">
+                <!-- 
+                    * 데이터가 없을때 : 데이터가 없을때 $(".layer-list-tab").hide() 처리해야 될듯
+                
+                <div class="layer-list-nodata">
+                    <img src="https://img.eduwill.net/resources/land/dev/images/network/img-nodata.png" srcset="https://img.eduwill.net/resources/land/dev/images/network/img-nodata@2x.png 2x" alt="" />
+                    <p class="only-pc">
+                        <strong>해당 지역에 등록된 매물이 없습니다.</strong>
+                        <span>다른 위치로 이동하시거나<br/>매물/거래 유형을 변경해보세요.</span>
+                    </p>
+
+                    <p class="only-mo">
+                        <strong>해당 기준의 매물이 없습니다.<br/>검색조건을 초기화합니다.</strong>
+                        <a href="javascript:;" class="btn btn-primary">확인</a>
+                    </p>
+                </div>
+                -->
+                <!-- 데이터가 있을때 -->
+                <a href="javascript:;">
+                    <p class="name">정든한진6차</p>
+                    <p class="price">매매 1억 5,700만원</p>
+                    <p class="info"><span class="type">아파트</span>방3개, 98.69/84.9㎡, 6/23층<br/><span class="ellipsis">남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억</span></p>
+                    <p class="tel"><span class="tag">에공회 공인중개사</span>010-0000-0000</p>
+                </a>
+
+                <a href="javascript:;">
+                    <p class="name">정든한진6차</p>
+                    <p class="price">매매 1억 5,700만원</p>
+                    <p class="info"><span class="type">빌라</span>방3개, 98.69/84.9㎡, 6/23층<br/><span class="ellipsis">남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억</span></p>
+                    <p class="tel"><span class="tag">에공회 공인중개사</span>010-0000-0000</p>
+                </a>
+                <a href="javascript:;">
+                    <p class="name">정든한진6차</p>
+                    <p class="price">매매 1억 5,700만원</p>
+                    <p class="info"><span class="type">빌라</span>방3개, 98.69/84.9㎡, 6/23층<br/><span class="ellipsis">남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억</span></p>
+                    <p class="tel"><span class="tag">에공회 공인중개사</span>010-0000-0000</p>
+                </a>
+                <a href="javascript:;">
+                    <p class="name">정든한진6차</p>
+                    <p class="price">매매 1억 5,700만원</p>
+                    <p class="info"><span class="type">아파트</span>방3개, 98.69/84.9㎡, 6/23층<br/><span class="ellipsis">남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억</span></p>
+                    <p class="tel"><span class="tag">에공회 공인중개사</span>010-0000-0000</p>
+                </a>
+                <a href="javascript:;">
+                    <p class="name">정든한진6차</p>
+                    <p class="price">매매 1억 5,700만원</p>
+                    <p class="info"><span class="type">빌라</span>방3개, 98.69/84.9㎡, 6/23층<br/><span class="ellipsis">남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억</span></p>
+                    <p class="tel"><span class="tag">에공회 공인중개사</span>010-0000-0000</p>
+                </a>
+                <a href="javascript:;">
+                    <p class="name">정든한진6차</p>
+                    <p class="price">매매 1억 5,700만원</p>
+                    <p class="info"><span class="type">아파트</span>방3개, 98.69/84.9㎡, 6/23층<br/><span class="ellipsis">남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억</span></p>
+                    <p class="tel"><span class="tag">에공회 공인중개사</span>010-0000-0000</p>
+                </a>
+                <a href="javascript:;">
+                    <p class="name">정든한진6차</p>
+                    <p class="price">매매 1억 5,700만원</p>
+                    <p class="info"><span class="type">빌라</span>방3개, 98.69/84.9㎡, 6/23층<br/><span class="ellipsis">남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억</span></p>
+                    <p class="tel"><span class="tag">에공회 공인중개사</span>010-0000-0000</p>
+                </a>
+                <a href="javascript:;">
+                    <p class="name">정든한진6차</p>
+                    <p class="price">매매 1억 5,700만원</p>
+                    <p class="info"><span class="type">빌라</span>방3개, 98.69/84.9㎡, 6/23층<br/><span class="ellipsis">남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억</span></p>
+                    <p class="tel"><span class="tag">에공회 공인중개사</span>010-0000-0000</p>
+                </a>
+                <a href="javascript:;">
+                    <p class="name">정든한진6차</p>
+                    <p class="price">매매 1억 5,700만원</p>
+                    <p class="info"><span class="type">아파트</span>방3개, 98.69/84.9㎡, 6/23층<br/><span class="ellipsis">남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억</span></p>
+                    <p class="tel"><span class="tag">에공회 공인중개사</span>010-0000-0000</p>
+                </a>
+                <a href="javascript:;">
+                    <p class="name">정든한진6차</p>
+                    <p class="price">매매 1억 5,700만원</p>
+                    <p class="info"><span class="type">빌라</span>방3개, 98.69/84.9㎡, 6/23층<br/><span class="ellipsis">남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억남향.로얄층.한강영구조망권.깨끗함.전세3.4억</span></p>
+                    <p class="tel"><span class="tag">에공회 공인중개사</span>010-0000-0000</p>
+                </a>
+
+            </div>
+            <div class="layer-list-footer">
+                <p class="copyright-logo">
+                    <img src="https://img.eduwill.net/resources/land/dev/images/network/copyright-logo.png" srcset="https://img.eduwill.net/resources/land/dev/images/network/copyright-logo@2x.png 2x" class="copyright-logo" alt="" />
+                </p>
+                <p class="copyright-text">
+                    Copyright © (주)에듀윌 Corp.All rights reserved.
+                </p>
+            </div>
+        </div>
+
+        <div class="layer-search grid">
+            <div class="search-box grid">
+                <div class="ico-map"><img src="https://img.eduwill.net/resources/land/dev/images/network/icon-map-marker-tint.png" srcset="https://img.eduwill.net/resources/land/dev/images/network/icon-map-marker-tint@2x.png 2x" alt="" /></div>
+                <div class="select-group">
+                    <select class="select mid">
+                        <option value="">시/도</option>
+                        <option value="">세종특별자치시</option>
+                        <option value="">경기도</option>
+                        <option value="">전체</option>
+                        <option value="">전체</option>
+                        <option value="">전체</option>
+                    </select>
+                </div>
+
+                <div class="select-group">
+                    <select class="select mid">
+                        <option value="">시/군/구</option>
+                        <option value="">경기도</option>
+                        <option value="">고양시 일산동구</option>
+                        <option value="">전체</option>
+                        <option value="">전체</option>
+                        <option value="">전체</option>
+                    </select>
+                </div>
+
+                <div class="select-group">
+                    <select class="select mid">
+                        <option value="">읍/면/동</option>
+                        <option value="">정발산동</option>
+                        <option value="">전체</option>
+                        <option value="">전체</option>
+                        <option value="">전체</option>
+                        <option value="">전체</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <input type="text" value="" placeholder="지역명으로 검색" />
+                <a href="javascript:;" class="btn-layer-search"><img src="https://img.eduwill.net/resources/land/dev/images/network/icon-search.png" srcset="https://img.eduwill.net/resources/land/dev/images/network/icon-search@2x.png 2x" alt="" /></a>
+            </div>
+        </div>
+        <div class="fixed-map">
+            <img src="https://img.eduwill.net/resources/land/dev/images/network/floating-map.png" srcset="https://img.eduwill.net/resources/land/dev/images/network/floating-map@2x.png 2x" alt="" />
+        </div>
+        <div class="fixed-banner">
+            <a href="javascript:;" class="btn-layer-view">매물 <strong>42개</strong> 보기</a>
+        </div>
+    </div> <!--// contents -->
+</div><!-- //container -->
+
+<!-- footer -->
+<footer>
+    <div data-eduwill-eco-content="128"></div>
+</footer>
+<!-- //footer -->
+</div>
+
+<div class="dim"></div>
+<div class="dimmed"></div>
+<div class="popup" id="popup-search">
+    <div class="popup-tit">
+        상세검색
+        <div class="popup-close"><a href="javascript:;"><span class="sr-only">닫기</span></a></div>
+    </div>
+    <div class="popup-cont">
+        <div class="popup-info-list grid">
+            <dl>
+                <dt>매물유형</dt>
+                <dd>
+                    <div class="btn-group">
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn1" checked="checked">
+                            <span class="checkmark">아파트/오피스텔</span>
+                        </label>
+                        
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn1">
+                            <span class="checkmark">분양권</span>
+                        </label>
+
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn1">
+                            <span class="checkmark">원룸/투름</span>
+                        </label>
+                        
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn1">
+                            <span class="checkmark">빌라/주택</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn1">
+                            <span class="checkmark">상가/사무실/공장/숙박</span>
+                        </label>
+                        
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn1">
+                            <span class="checkmark">토지/임야</span>
+                        </label>
+                        
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn1">
+                            <span class="checkmark">재개발</span>
+                        </label>
+                    </div>
+                </dd>
+            </dl>
+            <dl>
+                <dt>매물 세부 유형</dt>
+                <dd>
+                    <div class="btn-group">
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn2" checked="checked">
+                            <span class="checkmark">아파트/주상복합</span>
+                        </label>
+                        
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn2">
+                            <span class="checkmark">오피스텔</span>
+                        </label>
+                    </div>
+                </dd>
+            </dl>
+            <dl>
+                <dt>거래 유형</dt>
+                <dd>
+                    <div class="btn-group">
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn3" checked="checked">
+                            <span class="checkmark">전체</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn3">
+                            <span class="checkmark">매매</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn3">
+                            <span class="checkmark">전세</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn3">
+                            <span class="checkmark">월세</span>
+                        </label>
+                    </div>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>매매가/전세가/보증금</dt>
+                <dd>
+                    <div class="form-group grid">
+                        <div class="select-group">
+                            <select class="select mid">
+                                <option value="">5000만원</option>
+                            </select>
+                        </div>
+                        <div class="wave">~</div>
+                        <div class="select-group ">
+                            <select class="select mid">
+                                <option value="">전체</option>
+                            </select>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>월세</dt>
+                <dd>
+                    <div class="form-group grid">
+                        <div class="select-group">
+                            <select class="select mid">
+                                <option value="">전체</option>
+                            </select>
+                        </div>
+                        <div class="wave">~</div>
+                        <div class="select-group ">
+                            <select class="select mid">
+                                <option value="">전체</option>
+                            </select>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>면적</dt>
+                <dd>
+                    <div class="form-group grid">
+                        <div class="select-group">
+                            <select class="select mid">
+                                <option value="">전체</option>
+                            </select>
+                        </div>
+                        <div class="wave">~</div>
+                        <div class="select-group ">
+                            <select class="select mid">
+                                <option value="">전체</option>
+                            </select>
+                        </div>
+                    </div>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>방 수</dt>
+                <dd>
+                    <div class="btn-group">
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn4" checked="checked">
+                            <span class="checkmark">전체</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn4">
+                            <span class="checkmark">1개</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn4">
+                            <span class="checkmark">2개</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn4">
+                            <span class="checkmark">3개</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn4">
+                            <span class="checkmark">4개 이상</span>
+                        </label>
+                    </div>
+                </dd>
+            </dl>
+            <dl>
+                <dt>욕실 수</dt>
+                <dd>
+                    <div class="btn-group">
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn5" checked="checked">
+                            <span class="checkmark">전체</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn5">
+                            <span class="checkmark">1개</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn5">
+                            <span class="checkmark">2개</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn5">
+                            <span class="checkmark">3개</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn5">
+                            <span class="checkmark">4개 이상</span>
+                        </label>
+                    </div>
+                </dd>
+            </dl>
+            <dl>
+                <dt>준공연도</dt>
+                <dd>
+                    <div class="btn-group">
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn6" checked="checked">
+                            <span class="checkmark">전체</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn6">
+                            <span class="checkmark">입주예정</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn6">
+                            <span class="checkmark">2년</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn6">
+                            <span class="checkmark">5년</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn6">
+                            <span class="checkmark">10년</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn6">
+                            <span class="checkmark">15년</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn6">
+                            <span class="checkmark">15년 이상</span>
+                        </label>
+                    </div>
+                </dd>
+            </dl>
+            <dl>
+                <dt>방향</dt>
+                <dd>
+                    <div class="btn-group">
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn7" checked="checked">
+                            <span class="checkmark">전체</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn7">
+                            <span class="checkmark">동</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn7">
+                            <span class="checkmark">서</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn7">
+                            <span class="checkmark">남</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn7">
+                            <span class="checkmark">북</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn7">
+                            <span class="checkmark">남동</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn7">
+                            <span class="checkmark">남서</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn7">
+                            <span class="checkmark">북동</span>
+                        </label>
+                        <label class="btn-basic">
+                            <input type="radio" name="radiobtn7">
+                            <span class="checkmark">북서</span>
+                        </label>
+                    </div>
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="popup-btn">
+        <a href="javascript:;" class="btn btn-default">검색 조건 초기화</a>
+        <a href="javascript:;" class="btn btn-primary">적용</a>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=c27ec973e5cbf6973f64e8611dc89c06"></script>
+<script>
+    var container = document.getElementById('map');
+    var options = {
+        center: new kakao.maps.LatLng(33.450701, 126.570667),
+        level: 3
+    };
+
+    var map = new kakao.maps.Map(container, options);
+</script>
+</body>
+</html>

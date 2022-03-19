@@ -1,0 +1,138 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+// .bottom_fix_btn { display: none !important;}
+.product-eco {
+	overflow: hidden;
+	.section {
+		position: relative;
+		padding: 0;
+		margin: 0;
+		border-bottom: 0;
+	}
+	.wrap {
+		width: 100%;
+		max-width: 720px;
+	}
+
+	.section-slide {
+		.swiper-container {
+			width: 100%;
+			height: 100%;
+			padding: 10% 0 12%;
+		}
+		.swiper-container-horizontal {
+			>.swiper-pagination-bullets {
+				bottom: auto;
+				top: 0;
+				left: 31%;
+				color: #999;
+				@include vw(font-size, 24px);
+			}
+			.swiper-pagination-fraction {
+				bottom: auto;
+				top: 0;
+				left: 31%;
+				color: #999;
+				@include vw(font-size, 24px);
+				.swiper-pagination-current {
+					color: #222;
+				}
+				.swiper-pagination-custom {
+					bottom: auto;
+					top: 0;
+					left: 31%;
+					color: #999;
+					@include vw(font-size, 24px);
+				}
+			}
+		}
+
+		.swiper-slide {
+			@include vw(width, 450px);
+			margin-left: 5%;
+			border-radius: 15px;
+			background-color: #fff;
+			box-shadow: 15px 15px 30px 0px rgba(0, 0, 0, 0.15);
+			transition: all 0.5s ease;
+			&.swiper-slide-active {
+				background-color: #ffd471;
+				transition: all 0.5s ease;
+			}
+			.lecture-box {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+
+	.section-title {
+		background: url('#{$img-path}/mobile/bg_title.jpg') no-repeat 50% 100%;
+		background-size: cover;
+	}
+
+	.section-item2 {
+		background-color: #f2f2f2;
+	}
+
+	.section-item3 {
+		background-size: cover;
+		.btn-view {
+			position: absolute;
+			left: 50%;
+			bottom: 22%;
+			display: block;
+			width: 55.55%;
+			transform: translateX(-50%);
+			display: inline-block;
+		}
+		.notice{
+			position: absolute;
+			top:84%;
+			z-index:7;
+		}
+	}
+	
+	.section-movie {
+		position: relative;
+		overflow: hidden;
+		video {
+			position: absolute;
+			left: 50%;
+			top: 0;
+			transform: translateX(-50%);
+			z-index: 0;
+		}
+		img {
+			position: relative;
+			z-index: 1;
+		}
+	}
+
+	.section-apply-title{
+		.title-banner{
+			@include rem(padding, 100px 50px);
+			@include vw(font-size, 50px);
+			letter-spacing: -1.5px;
+			line-height:1.4;
+			font-weight: bold;
+			text-align: left;
+			color:#333;
+		}	
+	}
+	.notice{
+		@include rem(padding, 0 50px);
+		@include vw(font-size, 18px);
+		text-align: left;
+		color:#999;
+	}
+}
+
+@import "module/popup";

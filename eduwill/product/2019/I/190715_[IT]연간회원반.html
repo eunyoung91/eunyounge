@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><!-- IE7 호환성보기 강제해제 -->
+<title>IT</title>
+
+ <link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" type="text/css"> 
+ <link rel="stylesheet" href="https://www.eduwill.net/IT2/Common/Css/Main_new.css" type="text/css"> 
+ <link rel="stylesheet" href="https://www.eduwill.net/Common/Css/template.css" type="text/css"><!-- Content Template --> 
+
+ <script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.7.2.min.js"></script> 
+ <script type="text/javascript" src="https://www.eduwill.net/common/js/common_script_2014.js"></script>
+</head>
+
+<body>
+<!-- 컨텐츠 영역 시작 -->  
+  
+ <style type="text/css"> 
+ 	/* Custom CSS */ 
+	.product_contentIn .wrap { position:relative; width: 1000px; margin:0 auto;}
+ 	.product_contentIn li img { vertical-align:top;} 
+	.product_contentIn .text_info { position:absolute; color:#b4b4b4; font-family:'맑은고딕', 'Malgun gothic'; letter-spacing:-1px; text-align:left; z-index:10; }
+	.product_contentIn .text_bg { background:#35b4bb; }
+	.welcome_coupon { position: absolute; top: 436px; right: -40px; z-index: 1; animation:bounce 2s infinite both;}
+	@keyframes bounce { 0%,100% { -webkit-transform: translateY(10px); transform: translateY(10px); } 50% { -webkit-transform: translateY(-10px); transform: translateY(-10px); } }
+ </style> 
+  
+ <!-- 샘플: 상품컨텐츠 --> 
+ <div class="tpl_product"> 
+  
+ 	<!-- 수강신청 버튼 개선 --> 
+ 	<div class="g_fix_apply" id="g_fix_apply"> 
+ 		<div class="gf_apply"> 
+ 			<a href="#item_apply"><img src="https://www.eduwill.net/Img2/Common/Product/event_new/common_apply.png" border="0" alt="수강신청" /></a> 
+ 		</div> 
+ 	</div> 
+ 	<!-- //수강신청 버튼 개선 --> 
+  
+ 	<ul id="product_contentIn" class="product_contentIn">  
+  		<!-- s : 상단 이미지 영역 -->  
+  		<li style="background:url(https://img.eduwill.net/Img2/IT2/Product/event_new/180716/pt_title.jpg) 50% 0 repeat-x;">  
+  			<div style="background:url(https://img.eduwill.net/Img2/IT2/Product/event_new/180716/bg_title.jpg) 50% 0 no-repeat;">
+				<div class="wrap">
+  					<div class="welcome_coupon">
+						<img src="https://img.eduwill.net/Img2/Flow/Product/welcome_coupon.png" alt="회원 가입 시 5,000원 즉시할인">
+					</div>
+  					<img src="https://img.eduwill.net/Img2/IT2/Product/event_new/180716/title.png" alt="연간회원반">
+  				</div>
+  			</div>  
+  		</li>  
+    
+ 		<li> 
+ 			<img src="https://img.eduwill.net/Img2/IT2/Product/event_new/180716/intro.png" alt=""> 
+ 		</li> 
+  
+ 		<li class="text_bg"> 
+ 			<img src="https://img.eduwill.net/Img2/IT2/Product/event_new/180716/text01.png" alt=""> 
+ 		</li>  
+  
+  		<li style="">  
+ 			<div style="position:relative; width:1000px; padding:100px 0 0 0; margin:0 auto;"> 
+ 				<div style="position:absolute; right:0; top:-100px; width:200px; height:200px; z-index:10;"> 
+ 					<img src="https://img.eduwill.net/Img2/IT2/Product/event_new/180716/item_object.png" alt=""> 
+ 				</div> 
+  				<img src="https://img.eduwill.net/Img2/IT2/Product/event_new/180716/item01_181224.png" alt=""> 
+ 				<img src="https://img.eduwill.net/Img2/IT2/Product/event_new/180716/item02.png" alt=""> 
+ 				<img src="https://img.eduwill.net/Img2/IT2/Product/event_new/180716/item03_181224.png" alt=""> 
+ 			</div> 
+  		</li> 
+  
+  		<li style="background:#f2f2f2;"> 
+  			<img src="https://img.eduwill.net/Img2/IT2/Product/event_new/180716/item04.png" alt="">  
+  		</li>  
+  		 
+ 		<li id="item_apply" class="text_bg">  
+   			<img src="https://img.eduwill.net/Img2/IT2/Product/event_new/180716/text02.png" alt="수강신청">   
+   		</li>   
+  	</ul>
+ </div> 
+ <!-- // 상품컨텐츠 -->
+
+<script type="text/javascript"> 
+ 	var ClassApplyScroller = function(target_anchor_id, div_id) { 
+ 		var target_height = $("#" + target_anchor_id).offset().top; 
+ 		var window_height = $(window.top).height(); 
+  
+ 		var scroller = function() { 
+  
+ 			if ( ( $(document).scrollTop() + window_height ) >= target_height) { 
+ 				$("#" + div_id).hide(); 
+ 			} else { 
+ 				$("#" + div_id).show(); 
+ 			} 
+ 		}; 
+  
+ 		return { scroller : scroller }; 
+ 	}; 
+  
+ 	$(document).ready( function() { 
+ 		$(window).scroll(function(){ 
+ 			if ( $(window).scrollTop() >= $("#item_apply").offset().top - 800 ) { 
+ 				$(".g_fix_apply").hide(); 
+ 			} else { 
+ 				$(".g_fix_apply").show(); 
+ 			} 
+ 		});
+		
+		
+ 	}); 
+ </script>
+
+</body>
+</html>

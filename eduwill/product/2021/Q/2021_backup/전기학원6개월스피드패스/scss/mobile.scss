@@ -1,0 +1,261 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/popup";
+$main-color : #ffbf00;
+$sub-color : #fff3cf;
+
+.product {
+    &-eco {
+        @include rem(padding-bottom, 130px);
+        background-color: #fff;
+        * {
+            line-height: normal;
+            font-family: $font-noto;
+            letter-spacing: -1px;
+        }
+        .container {
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+        .wrap {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+            &-full {
+                width: 100%;
+            }
+        }
+        .holder { position: relative; }
+        p {
+			line-height:100%;
+            margin: 0;
+            text-align: left;
+            @include vw(20px);
+            color: #666;
+            &.notice { @include rem(margin-top, 10px); }
+            &.brand,
+            &.survey { position: absolute; }
+        }
+        .fixbanner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            background: #75fffc;
+            z-index: 777;
+            .pointer{
+                position: absolute;
+                top: 50px;
+                right: 20px;
+                img {
+                    width: 70%;
+                    animation: 0.6s slideUpY ease-in-out infinite alternate;    
+                }
+            }
+        }
+
+		.winner-wrap {
+			position: relative;
+			@include rem(padding, 0 50px 0);
+			perspective: 670px;
+			.img{
+				width: 80%;
+			}
+			.winner-list{
+				transform: rotateX(40deg);
+				p {
+					text-align: center;
+					line-height: 2;
+					@include vw(20px);
+					font-weight: 400;
+					color: #222;
+				}
+			}
+		}
+		.slick-dots {
+			width: 100%;
+			@include rem(margin-top, 30px);
+			text-align: center;
+			li {
+				display: inline-block;
+				@include rem(margin, 0 6px);
+				button {
+					@include rem(width, 20px);
+					@include rem(height, 20px);
+					text-indent: -9999em;
+					border: none;
+					border-radius: 50%;
+					background-color: #b2b2b2;
+					outline: none;
+					cursor: pointer;
+				}
+				&.slick-active {
+					button {
+						@include rem(width, 55px);
+						@include rem(border-radius, 15px);
+						background-color: #ffc20e;
+					}
+				}
+			}
+		}
+
+        .slider-contents {
+            position: relative;
+            @include rem(margin, 60px 50px auto 50px);
+	
+            .slick-arrow {
+                position: absolute;
+                top: 50%;
+                z-index: 1;
+                @include rem(width, 40px);
+                @include rem(width, 40px);
+                @include rem(margin-top, -20px);
+                font-size: 0;
+                border: none;
+                background: none;
+                outline: none;
+                cursor: pointer;
+                &.slick-prev {
+                    @include rem(left, 20px);
+                    &:before { right: 0; @include arrow(left, 20px, 20px, 1px, #666); 
+                    @include rem(margin-top, -0px);
+                    }
+                }
+                &.slick-next {
+                    @include rem(right, 20px);
+                    &:before { left: 0; @include arrow(right, 20px, 20px, 1px, #666); 
+                        @include rem(margin-top, -0px);
+                    }
+                }
+            }
+        }
+		.action{
+			a{
+				position: relative;
+				display: inline-block;
+			}
+		}
+		.pointer {
+			&:after {
+				content: '';
+				position: absolute;
+				top:40%; 
+				right:0%; 
+				display: block;
+				@include rem(width, 100px);
+				@include rem(height, 100px);
+				background: url('#{$img-common-path}/icon/pointer/icon_pointer_20.png') no-repeat 0 0;
+				background-size: contain;
+				@include animation(pointerBounce, .8s, $iteration: infinite){
+					0%, 100% { @include translateXY(0, 0); }
+					50% { @include translateXY(10px, 10px); }
+				}
+			}
+		}
+    }
+    &-top { background-color: #ffd701; }
+
+    &-title {
+        background-color: #ffc20e;
+        .action{
+			position: absolute;
+		    top: 1.7%;
+    		right: 7%;
+			@include rem(width, 135px);
+        }
+    }
+
+    &-raise{
+        background-color: #f3f3f3;;
+    }
+    
+	&-winner{
+        background-color:#f3f3f3;
+		img{
+			width: 80%;
+		}
+		.slider-wrap {
+			.slick-slide {
+				@include rem(margin, 0 10px);
+				img { width: 100%; }
+			}
+		}
+	}
+
+	&-pass {
+        background-color:#f3f3f3;
+		@include rem(padding-top, 60px);
+		@include rem(padding-bottom, 125px);
+        .slider-wrap {
+            margin: 0 percent(40);
+            .slick-slide {
+                @include rem(margin, 0 10px);
+                img { width: 100%; }
+            }
+        }
+        .slider-contents{
+            margin-top: 0;
+        }
+	}
+
+    &-graph{
+		background-color: #7b30c1;
+		@include rem(padding-bottom, 130px);
+		.item{
+			position: relative;
+			.action{
+				position: absolute;
+				left: 50%;
+			@include rem(bottom, 65px);
+				transform: translate(-50%,0);
+				@include rem(width, 560px);
+			}
+		}
+
+		.slick-dots {
+			li{
+				button{
+					background-color: #562287;
+				}
+			}
+		}
+	}
+	
+	&-win-slider{
+		@include rem(padding-bottom, 130px);
+	}
+
+    &-teacher {
+        @include rem(padding-bottom, 125px);
+    }
+    
+	&-book {
+        @include rem(padding-bottom, 125px);
+    }
+
+	&-curriculum {
+        @include rem(padding-bottom, 130px);
+    }
+}
+
+#popupBase {
+    background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	width: 85%;
+	max-width: 720px;
+	.popup-body{
+		@include vw(26px);
+		padding: 5% 5%;
+		word-break: keep-all;
+	}
+}
+

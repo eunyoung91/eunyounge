@@ -1,0 +1,259 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "module/popup";  
+
+#contents{
+	min-width:1200px;overflow:hidden;
+
+    .fix-right{
+        position:fixed;left:50%;margin-left:650px;top:30%;z-index:10;
+        a{
+            display:block;width:189px;
+            margin-bottom:15px;
+        //    @include boxShadow(1px 1px 10px 0px rgba(0, 0, 0, 0.17)); 
+        //    border-bottom-left-radius: 30px;
+		//    border-top-right-radius: 30px;
+		   line-height:1;font-size:0;
+        }
+    }
+
+	.land{
+		&-content{
+			.item-group-box{
+				width:100%;
+				.item-benefit{
+					margin-bottom:25px;
+					&.grid-4 .col{width:23%;}
+				}
+
+				.notice{color:#767575;}
+			}
+			&.gp {
+				.item-group-box{
+					.item-benefit{
+						&.grid-4 .col{
+							width:20%;
+							&:nth-child(2) { width: 30%;}
+						}
+					}
+	
+					.notice{color:#767575;}
+				}
+			}
+		}
+
+        &-title{
+            background: url('#{$img-path}/pc/bg_title.jpg') no-repeat 50% 0;
+			background-size:cover;
+        }
+
+        &-academy-review2{
+            padding-top:250px;
+            padding-bottom:100px;
+            background-color:#e3efff;
+        }
+
+		&-benefit{
+			.title {opacity:1;}
+			.notice{position:absolute;left:33px;bottom:100px;}
+		}
+
+		&-provide{
+			.title {opacity:1;}
+		}
+
+		&-provide{padding-bottom:100px;}
+
+		&-uland{
+			background: url('#{$img-path}/pc/bg_uland.jpg') no-repeat 50% 0;
+			background-size:cover;
+			.floating-uland{position:absolute;left:50%;top:100px;margin-left:450px;}
+		}
+
+		&-lecture{
+			background: url('#{$img-path}/pc/bg_lecture.jpg') no-repeat 50% 0;
+			background-size:cover;
+		}
+
+		&-price{
+			 .item-group{
+				bottom:-250px;
+				.item-subject {
+					strong {
+						font-weight: 900;
+						font-size: 40px;
+						letter-spacing: -2px;
+						line-height: 1;
+						background: linear-gradient(to right, #ff6b00, #ed2800);
+						-webkit-background-clip: text;
+						-webkit-text-fill-color: transparent;
+					}
+				}
+			}
+		}
+
+		&-winner-list{
+			padding-top:200px;
+		}
+
+		&-reason-networkbook{
+			margin-top:-3px;
+		}
+
+		&-prize{border-top:1px solid #e6e6e6;}
+
+		&-reason-title{
+			.title{
+				padding-top:100px;
+			}
+		}
+		&-teacher{
+			padding-bottom:100px;
+		}
+
+
+
+		&-agency{
+			.btn-text{position:absolute;left:205px;top:210px;}
+			&.gp {
+				padding-bottom: 100px;
+				.agency-slider {
+					padding-top: 40px;
+				}
+				.slick-dots {
+					position: absolute;
+					left: 0;
+					right: 0;
+					text-align: right;
+					width: 99%;
+					@include px2vw(top, -20);
+					li {
+						display: inline-block;
+						button {
+							cursor: pointer;
+							text-indent: -10000em;
+							border: 0;
+							border-radius: 0;
+							@include px2vw(width, 20);
+							@include px2vw(height, 20);
+							background-color: #fff;
+							border: 1px solid #000;
+						}
+						&.slick-active {
+							button {
+								background: #000;
+								border-color: #000;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&-service{
+			background-color:#fefdee;
+
+		}
+
+		&-bouns{display:none;}
+
+        &-service2{
+            position:relative;
+            &:after{
+                content:'';position:absolute;left:0;bottom:0;width:100%;z-index:1;
+                @include px2vw(height, 220);background-color:#f9f9f9;
+            }
+
+            img{position:relative;z-index:2;}
+        }
+
+
+	}
+
+    &.workers{
+        .land{
+           &-content {
+               .slick-arrow.slick-prev{left:-40px;}
+               .slick-arrow.slick-next{right:-28px;}
+           }
+            &-winner-list{
+                padding-top:0 !important;
+            }
+        }
+    }
+
+	&.yearly{
+		.land{
+			&-title{
+				background-image: url('#{$img-path}/pc/bg_title_210825.jpg');
+			}
+
+			&-provide{
+				background:#c32d3e;
+				&:after{
+					background-image: url('#{$img-path}/pc/icon_provide_red.png');
+				}
+
+				.list-group{
+					margin:44px auto 0;
+					ul li{
+						background-color: #c32d3e;
+						border: 1px solid #eb6f7d;
+					}
+				}
+
+				.list-text{color:#fa8d9a;}
+			}
+	
+			&-winner-list{
+                padding-top:0 !important;
+            }
+		 }
+	}
+    
+	&.short {
+		.land{
+			&-title{
+				background-image: url('#{$img-path}/pc/bg_title_short.jpg');
+			}
+
+			&-provide{
+				background:#03b355;
+				&:after{
+					background-image: url('#{$img-path}/pc/icon_provide_short.png');
+				}
+
+				.list-group{
+					margin:44px auto 0;
+					ul li{
+						background-color: #03c45e;
+						border: 1px solid #73ec80;
+					}
+				}
+
+				.list-text{color:#a0dfbe;}
+			}
+
+			&-price {
+				.item-group {
+					margin-left: -570px;
+				}
+			}
+
+			&-curriculum {
+				background: #e6fbd8;
+			}
+	
+			&-winner-list{
+				padding-top:0 !important;
+			}
+		}
+	}
+}
+
+
+
+
+

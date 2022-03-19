@@ -1,0 +1,838 @@
+@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "module/animate";  
+@import "module/base";  
+@import "module/motion";  
+@import "module/popup";
+@import "module/mobile";
+
+.custom input[type="text"] {
+    width:100%; font-family: $font-noto; font-size: 14px; line-height: 20px; margin-top: 14px; color: #333; padding: 12px 14px; border-radius: 4px; box-sizing: border-box;
+}
+input[type="text"]:active, input[type="text"]:focus {
+    border: 1px solid #fdc300;
+}
+.custom input[type="text"]:disabled {
+    color: #bfbfbf; border: 1px solid #ddd; background: #f5f5f5;
+}
+.custom input[type="checkbox"]:disabled ~ span {
+    color: #bfbfbf;
+}
+.custom input[type="checkbox"]:disabled + .checkbox {
+    i {
+        border: 1px solid #e0e0e0; background: #f2f2f2;
+    }
+}
+.custom input[type="checkbox"], .custom input[type="radio"] {
+    display: none;
+}
+.custom label {
+    display: flex;
+    align-items: center;
+}
+.custom label span {
+    font-family: $font-noto; font-size: 14px; line-height: 20px;
+}
+.custom input[type="checkbox"] + .checkbox {
+    margin-right: 4px;
+    i {
+        position:relative; display: inline-block; vertical-align: middle; width: 18px; height: 18px; border: 1px solid #bfbfbf; border-radius: 4px; background: #fff; box-sizing: border-box; cursor: pointer;
+    }
+}
+.custom input[type="checkbox"]:checked + .checkbox {
+    i {
+        border-color: #fdc300;
+        background: #fdc300;
+    }
+
+    ::before {
+        content: ""; position: absolute; top: -1px; right: -4px; display: block; width: 15px; height: 12px; background: url("//img.eduwill.net/eduwill/img/2021/_115/sub/activities/pc/icn-check.svg") no-repeat center center;
+    }
+}
+.custom input[type="radio"] + .radio {
+    margin-right:7px;
+    i { 
+        display: inline-block; vertical-align: middle; width: 18px; height: 18px; border: 1px solid #bfbfbf; border-radius: 50%; background: #fff; box-sizing: border-box;
+    }
+}
+.custom input[type="radio"]:checked + .radio {
+    i {
+        border: 4px solid #fdc300;
+    }
+}
+
+.toeic {
+    * {
+        font-family: $font-noto !important;
+    }
+    .page_title {
+        position: relative;
+        height: 48px;
+        text-align: left;
+        background: #fff;
+        border-bottom: 1px solid #eaeaf4;
+        h2 {
+            max-width: 100%;
+            font-size: 1rem;
+            padding: 12px 48px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            @include boxSizing(Border-box);
+        }
+        .action {
+            a {
+                position: absolute;
+                top: 0;
+                display: block;
+                width: 48px;
+                height: 48px;
+                background: url('#{$img-icon-path}/icon_back.svg') no-repeat;
+                background-position: center center;
+                background-size: 24px;
+            }
+        }
+        .btn_back {
+            &:after {
+                display: none;
+            }
+            &:before {
+                display: none;
+            }
+        }
+    }
+    &.studygroup {
+        // 1124 id="contents" 안에 요소 배치작업
+        padding-bottom: 24px;
+        .contents-header {
+            padding-bottom: 0;
+            .wrap {
+                padding: 24px 16px 16px;
+            }
+            h3 {
+                font-family: $font-noto; font-weight: 700; font-size: 18px; line-height: 36px; color: #000;
+            }
+            a {
+                display: flex; align-items: center; font-family: $font-noto; font-size: 13px; line-height: 20px; color: #333;
+                i {
+                    display: inline-block; width: 16px; height: 16px; background: url("https://img.eduwill.net/eduwill/img/2021/_115/sub/studygroup/mobile/ico_next.svg");
+                }
+            }
+        }
+        .contents-wrap {
+            .control-header {
+                margin-bottom: 12px;
+            }
+        }
+        .filter-wrap {
+            position: relative; padding: 14px 0;
+            .wrap {
+                padding: 0 !important;
+            }
+            &::before {
+                content: ""; position: absolute; top: 0; width: 100%; height: 1px; display: block; box-shadow: 0 -1px 0 rgba(238, 239, 243, 1);
+            }
+            &::after {
+                content: ""; position: absolute; bottom: 0; width: 100%; height: 1px; display: block; box-shadow: 0 1px 0 rgba(238, 239, 243, 1);
+            }
+            p {
+                font-family:$font-noto; font-size: 13px; line-height: 19px; color: #777;
+                span {
+                    font-weight: 700; color: #000;
+                }
+            }
+            .btn-wrap {
+                display: flex; align-items: center;
+                span {
+                    display: block; width: 1px; height: 12px; margin: 0 8px; background: #e4e4e4;
+                }
+                button {
+                    position: relative; display: flex; align-items: center; font-family: $font-noto; font-size: 13px; line-height: 20px; color: #333; padding: 0 8px;
+                    i {
+                        display: inline-block; width: 16px; height: 16px; margin-right: 4px;
+                    }
+                    &.viewer {
+                        i {
+                            background: url("https://img.eduwill.net/eduwill/img/2021/_115/sub/studygroup/mobile/ico_viewer.svg");
+                        }
+                    }
+                    &.filter {
+                        i {
+                            background: url("https://img.eduwill.net/eduwill/img/2021/_115/sub/studygroup/mobile/ico_filter.svg");
+                        }
+                    }
+                }
+            }
+        }
+        .sector-list {
+            .wrap {
+                padding: 0 16px;
+            }
+        }
+        .study-list {
+            margin: 16px 0;
+            ul {
+                li {
+                    border: 1px soliD #e4e4e4; border-radius: 6px;
+                    a {
+                        display: block; padding: 16px; 
+                    }
+                    &:not(:last-child) {
+                        margin-bottom: 8px;
+                    }
+                    // 1124 list none 영역 작업
+                    &.none {
+                        position: relative;
+                        a {
+                            opacity: 0.4;
+                        }
+                        &::after {
+                            content: ""; position: absolute; top: 4px; left: 4px; width: 28px; height: 28px; display: block; background: url("https://img.eduwill.net/eduwill/img/2021/_115/common/icon/icon_view_none.svg")no-repeat;
+                        }
+                    }
+                    .list-header {
+                        display: flex; align-items: center; justify-content: space-between;
+                        
+                        > span {
+                            font-family: $font-noto; font-size: 12px; line-height: 18px; color: #999;
+                        }
+                    }
+                    .list-content {
+                        h1 {
+                            display: block; width: 100%; font-family: $font-noto; font-size: 15px; line-height: 20px; color: #000; margin: 12px 0 4px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+                        }
+                        dl {
+                            display: flex; align-items: center; flex-wrap: wrap;
+                            dd {
+                                position: relative; font-family: $font-noto; font-size: 13px; line-height: 18px; color: #999;
+                                &:not(:last-child) {
+                                    &::after {
+                                        content: ""; display: inline-block; vertical-align: middle; width: 1px; height: 13px; margin: 0 8px; margin-top: -2px; background: #999;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .more-btn {
+            display: flex; align-items: center; width: 102px; height: 40px; font-family: $font-noto; font-size: 14px; line-height: 21px; color: #000; padding: 7px 32px; border: 1px solid #e4e4e4; border-radius: 24px;
+        }
+        .contents-fix-area {
+            z-index: 999; position: fixed; left: 0; bottom: -150%; width: 100%; max-height: 50vh; padding: 0 16px 76px; border-radius: 16px 16px 0 0; background: #fff; box-sizing: border-box; overflow: hidden; box-shadow: 0 -3px 10px 0 rgba(0,0,0,0.1); transition: all .3s; overflow: hidden;
+            &.show {
+                bottom: 0;
+            }
+            .close-area {
+                padding: 12px 0 16px;
+            }
+            .line {
+                display: block; width: 48px; height: 5px; margin: 0 auto; border-radius: 5px; background: #ddd;
+            }
+            .filter-wrapper {
+                max-height: calc( 50vh - 109px); overflow: auto;
+                li {
+                    display: block; margin-bottom: 8px; padding: 0 16px 0; border: 1px solid #e4e4e4; border-radius: 8px; background: #fafafa;
+                }
+                .filter-title {
+                    position: relative; padding: 12px 20px 12px 0; cursor: pointer;
+                    h3 {
+                        font-family: $font-noto; font-size: 13px; line-height: 19px; font-weight: 700;
+                    }
+                    i {
+                        position: absolute; top: 50%; right: 5px; display: inline-block; width: 20px; height: 20px; background: url("//img.eduwill.net/eduwill/img/2021/_115/sub/activities/pc/arrow-down.svg") no-repeat; transition: 0.2s; transform: translateY(-50%);
+                    }
+                    &.active {
+                        i {
+                            transform: rotate(180deg) translateY(50%);
+                        }
+                    }
+                    &.active::after {
+                        content: ""; position: absolute; bottom: 0; left: 0; display: block; width: 100%; height: 1px; box-shadow: 0 -1px 0 0 rgba(238, 239, 243, 1);
+                    }
+                }
+                .filter-body {
+                    display: none; margin: 12px 0;
+                    > div {
+                        display: flex; flex-wrap: wrap; width: 100%;
+                        &.dates:not(:first-child) {
+                            margin-top: 12px;
+                        }
+                    }
+                    &.double {
+                        > div {
+                            flex-wrap: unset;
+                        }
+                        .select {
+                            width: 100%;
+                            &:last-child {
+                                margin-left: 8px;
+                            }
+                        }
+                    }
+                    .divide {
+                        width: 100%; display: flex;
+                        &:last-child {
+                            margin-top: 12px;
+                        }
+                    }
+                    label {
+                        margin-right: 12px; padding-right: 10px;
+                        &.full {
+                            width: 100%; margin-top: 12px;
+                            input {
+                                min-width: 160px; width: calc(100% - 70px); margin: 0; margin-left: 12px; background: #fff;
+                                &:disabled {
+                                    background: #f5f5f5;
+                                }
+                            }
+                        }
+                    }
+                    .else {
+                        flex-direction: column; margin-top: 12px;
+                        .choose-date {
+                            display: none; max-width:296px; width: 100%;
+                            ul {
+                                display: flex; flex-wrap: wrap;
+                                li {
+                                    width: 25%; margin-bottom: 0; padding: 0; border: none; border-radius: 0;
+                                    &:not(:nth-child(n+5):nth-child(-n+7)) {
+                                        margin-bottom: 12px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .btn-wrap {
+                position: absolute; left: 0; bottom: 16px; display: flex; align-items: unset; width: 100%; padding: 0 16px; padding-top: 16px; box-sizing: border-box;
+                .search {
+                    width: 100%; font-family: $font-noto; font-size: 14px; line-height: 20px; color: #333; padding: 12px; border-radius: 6px; background: #fdc300;
+                }
+                .reset {
+                    display: flex; align-items: center; font-family: $font-noto; font-size: 14px; line-height: 20px; color: #333; margin-right: 20px; padding: 8px; border: none; background-color: transparent; 
+                    i  { 
+                        display: inline-block; width: 16px; height: 16px; margin-right: 8px; background: url("//img.eduwill.net/eduwill/img/2021/_115/sub/studygroup/pc/ico_reset.svg")no-repeat
+                    }
+                }
+            }
+        }
+    
+        // 상세페이지
+        &.detail {
+            .detail-title {
+                h3 {
+                    font-family: $font-noto; font-size: 20px; line-height: 28px; margin-bottom: 4px;
+                }
+                .wrap {
+                    padding-bottom: 0 !important;
+                    > div {
+                        display: flex; align-items: center;
+                        p {
+                            font-family: $font-noto; font-size: 12px; line-height: 18px; color: #333;
+                        }
+    
+                        > span {
+                            font-family: $font-noto; font-size: 12px; line-height: 18px; color: #777; margin-left: 6px;
+                        }
+                    }
+                }
+            }
+            .detail-top {
+                padding: 16px 0 10px; border-bottom: 1px solid #000;
+                .status-wrap {
+                    display: flex; align-items: center; 
+                    .dates {
+                        font-family: $font-noto; font-size: 15px; line-height: 22px; color: #333; margin-left: 8px;
+                    }
+                }
+            }
+            .detail-table {
+                dl {
+                    display: flex; flex-wrap: wrap;
+                    > div {
+                        display: flex; align-items: center; width: 50%; padding: 10px 0; border-bottom: 1px solid #e4e4e4;
+                        dt {
+                            min-width: 36px; font-family: $font-noto; font-size: 13px; line-height: 18px; color: #777;
+                        }
+                        dd {
+                            font-family: $font-noto; font-size: 13px; line-height: 18px; color: #333;
+                        }
+                        &:nth-child(even) {
+                            dt {
+                                margin-left: 16px;
+                            }
+                        }
+                        &.full {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+            .detail-confirm {
+                // 1124 margin-bottom 추가
+                margin-top: 12px; margin-bottom: 24px; padding: 16px; border: 1px solid #e4e4e4; background: #f5f5f5; box-sizing: border-box;
+                .switch-wrap {
+                    span {
+                        font-family: $font-noto; font-size: 13px; line-height: 20px; color: #000;
+                    }
+                }
+                .btn-wrap {
+                    display: flex;
+                    button {
+                        width: 64px; color: #333; margin: 0; padding: 8px 12px;
+                        &:last-child {
+                            margin-left: 4px;
+                        }
+                    }
+                }
+            }
+    
+        }
+        .text-area {
+            margin-bottom: 8px;
+            p {
+                font-family: $font-noto; font-size: 14px; line-height: 20px;
+            }
+        }
+        .comment-wrap {
+            .write-wrap {
+                p {
+                    font-family: $font-noto; font-weight: 700; font-size: 18px; line-height: 25px; color: #000;
+                    span {
+                        font-size: 13px; line-height: 19px; color: #666; margin-left: 4px;
+                    }
+                }
+                textarea {
+                    width: 100%; font-family: $font-noto; font-size: 14px; line-height: 20px; color: #333; margin: 8px 0; padding: 12px 14px; border: 1px solid #ddd; border-radius: 4px; background: #fff;
+                    &::placeholder {
+                        font-size: 14px; line-height: 20px; color: #bfbfbf;
+                    }
+                    &:focus {
+                        border-color: #fcd300;
+                    }
+                }
+                button {
+                    width: 100%; font-family: $font-noto; font-size: 14px; line-height: 20px; color: #333; padding: 12px; border-radius: 4px; background: #fdc300;
+                    &:disabled {
+                        color: #bfbfbf; background: #f5f5f5;
+                    }
+                }
+            }
+        }
+        .comment-list {
+            .wrap {
+                padding-bottom: 16px;
+            }
+            li {
+                position: relative; margin-bottom: 16px; padding-bottom: 16px;
+                &::after {
+                    content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; box-shadow: 0 -1px 0 0 rgba(238, 239, 243, 1);
+                }
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                
+                // 1124 추가영역 게시글 숨기기
+                .fake-switch-box{
+                    position: absolute; top: 0; right: 0; display: flex; align-items: center;
+                    .switch {
+                        position: relative; width: 32px; height: 18px; margin-right: 8px;
+                        
+                        input {
+                            width: 0; height: 0; opacity: 0;
+                        }
+                        label {
+                            position: absolute; top: 0; left: 0; right: 0; height: 18px; border-radius: 18px; background-color: #ddd; cursor: pointer; transition: .3s;
+                            &::before {
+                                position: absolute; content: ""; width:14px; height: 14px; left: 2px; bottom: 2px; background: #fff; transition: .3s; border-radius: 50%; box-shadow: 0 0 4px rgba(0,0,0, 0.25);
+                            }
+                        }
+                        input:checked + label {
+                            background: #fdc300;
+                        }
+                        input:checked + label::before {
+                            transform: translateX(14px);
+                        }
+                    }
+                    > span {
+                        font-family: $font-noto; font-size: 13px; line-height: 20px; color: #666;
+                    }
+                }
+                &.none {
+                    h3 {
+                        opacity: 0.4;
+                    }
+                    .content {
+                        opacity: 0.4;
+                    }
+                    .write-area {
+                        opacity: 0.4;
+                    }
+                }
+            }
+            h3 {
+                font-family: $font-noto; font-weight: 400; font-size: 13px; line-height: 19px; color: #999;
+            }
+            p {
+                font-family: $font-noto; font-size: 14px; line-height: 20px; color: #000; margin-top: 16px;
+            }
+            .btn-wrap {
+                margin-top: 16px;
+                button {
+                    width: 73px; margin: 0; padding: 8px;
+                }
+            }
+            .write-area {
+                // 1124 display: none 제거
+                margin-top: 8px;
+                textarea {
+                    width: 100%; height: 64px; font-family: $font-noto; font-size: 14px; line-height: 20px; padding: 12px 14px 32px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box;
+                    &:focus {
+                        border-color: #fcd300;
+                    }
+                }
+                .btn-wrap {
+                    display: flex; align-items: center; margin-top: 8px;
+                    button {
+                        width: 100%;
+                        &:last-child {
+                            margin-left: 4px;
+                        }
+                    }
+                }
+            }
+        }
+        &.comment {
+            background: #f8f8f8;
+        }
+        &.write {
+            .contents-header {
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    display: block;
+                    width: calc(100% - 32px);
+                    height: 1px;
+                    margin: 0 auto;
+                    background: #000;
+                }
+            }
+            .write-title {
+                .wrap {
+                    display: flex; align-items: center; justify-content: space-between; padding-bottom: 16px; border-bottom: 1px solid #000;
+                    h3 {
+                        font-family: $font-noto; font-size: 18px; line-height: 36px; color: #000;
+                    }
+                    .dots {
+                        display: flex; align-items: center;
+                        .dot {
+                            display: block; width: 6px; height: 6px; margin-left: 4px; border-radius: 6px; background: #e4e4e4;
+                            &:first-child {
+                                margin-left: 0;
+                            }
+                            &.active {
+                                width: 12px; background: #000;
+                            }
+                        }
+                    }
+                }
+            }
+            .sector-list {
+                position: relative;
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: -16px;
+                    left: 0;
+                    right: 0;
+                    display: block;
+                    width: calc(100% - 32px);
+                    height: 1px;
+                    margin: 0 auto;
+                    background: rgba(238, 239, 243, 1);
+                }
+                .wrap {
+                    padding-top: 0;
+                }
+                ul {
+                    margin-top:24px;;
+                    li {
+                        margin-top: 16px;
+                        &:first-child {
+                            margin-top: 0;
+                        }
+                        &:last-child {
+                            margin-bottom: 16px;
+                        }
+                        p {
+                            display: block; font-family: $font-noto; font-size: 14px; line-height: 21px; color: #333; font-weight: 700; margin-bottom: 10px;;
+                        }
+                        .select {
+                            width: 100%;
+                            + input[type=text] {
+                                margin-top: 10px;
+                                border: 1px solid #ddd;
+                            }
+                        }
+                        input[type="text"] {
+                            width: 100%; font-family: $font-noto; font-size: 14px; line-height: 20px; padding: 12px 14px; border-radius: 4px;
+                            &:focus {
+                                border-color: #fdc300;
+                            }
+                        }
+                        textarea {
+                            height: 297px; font-family: $font-noto; padding: 12px 14px; border: 1px solid #ddd; border-radius: 4px;
+                            &:focus {
+                                border-color: #fdc300;
+                            }
+                        }
+                        > div:not(.placeholder) {
+                            display: flex; align-items: center; justify-content: space-between;
+                            .select {
+                                width: calc(50% - 3px);
+                            }
+                            select{
+                                &:not(:first-child) {
+                                    margin-left: 8px;
+                                }
+                            }
+                            > span {
+                                display:block; min-width: 24px; text-align: center; font-family: $font-noto; font-size: 18px; line-height: 44px; color: #333;
+                            }
+                            input[type="text"] {
+                                width: 100%;
+    
+                                &[name="datepicker"] {
+                                    padding-left: 44px; background: url(//img.eduwill.net/eduwill/img/2021/_115/sub/activities/pc/icn-cal.svg) no-repeat 14px center;
+                                }
+                            }
+                            &.date {
+                                display: block;
+                                .select {
+                                    width: 100%;
+                                }
+                                .checkwrap {
+                                    display: none;
+                                    ul {
+                                        max-width: 320px; display: flex; flex-wrap: wrap; margin-top: 10px;
+                                        li {
+                                            margin-top: 0; margin-right: 18px;
+                                            &:last-child {
+                                                margin-right: 0;
+                                            }
+                                            label {
+                                                font-weight: 400; padding: 0; margin-bottom: 16px;
+                                            }
+                                            &:nth-child(n+6):nth-child(-n+7) {
+                                                label {
+                                                    margin-bottom: 0;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .placeholder {
+                            position: relative;
+                            label {
+                                z-index: -1;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                font-size: 14px;
+                                line-height: 20px;
+                                color: #bfbfbf;
+                                padding: 12px 14px;
+                                span {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
+                }
+                .warning {
+                    margin-top: 16px;
+                    padding: 16px;
+                    border-radius: 4px;
+                    background: #f5f5f5;
+                    h3 {
+                        font-size: 14px;
+                        font-weight: 700;
+                        line-height: 20px;
+                        color: #777;
+                    }
+                    ul {
+                        margin-top: 4px;
+                        li {
+                            position: relative;
+                            font-size: 13px;
+                            line-height: 18px;
+                            color: #999999;
+                            margin: 0;
+                            padding-left: 16px;
+                            &::before {
+                                content: "※";
+                                position: absolute;
+                                left: 0;
+                            }
+                        }
+                    }
+                }
+            }
+            .btn-wrap {
+                padding: 0 16px;
+                &.double {
+                    position: relative; display: flex; align-items: center; padding-top: 20px;
+                    button {
+                        width: 100%; margin-left: 0;
+                        &:last-child {
+                            margin-left: 8px;
+                        }
+                    }
+                }
+            }
+        }
+        .sector-notice {
+            .wrap {
+                padding: 0 16px;
+                .notice-contents {
+                    padding: 16px;
+                    background: #fafafa;
+                    ul {
+                        li {
+                            position: relative;
+                            padding-left: 10px;
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                left: 0;
+                                top: 12px;
+                                width: 2px;
+                                height: 2px;
+                                border-radius: 1005;
+                                background: #333;
+                            }
+                            a {
+                                font-size: 14px;
+                                line-height: 20px;
+                                color: #333;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .btn-wrap {
+        &.center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.divider {
+    width: 100%;
+    height: 10px;
+    background: #f1f1f1;
+}
+
+.contents-top-area {
+    position: relative; padding: 12px;
+    .wrap {
+        display: flex; align-items: center;
+        .back {
+            display:block; width: 24px; height: 24px; margin-right: 16px; background: url("//img.eduwill.net/eduwill/img/2021/_115/sub/studygroup/mobile/ico_back.svg");
+        }
+        h1 {
+            font-family: $font-noto; font-weight: 700; font-size: 15px; line-height: 16px;
+        }
+    }
+}
+::placeholder {
+    font-family: $font-noto;
+}
+.popup-wrapper {
+    z-index: 1000; position: fixed; display: none; align-items: center; justify-content: center; width: 100%; height: 100%; top: 0; left: 0; background: rgba(0,0,0, 0.25);
+    .modal {
+        display: block; max-width: 90%; width: 100%; margin: 0 auto; border-radius: 12px; background: #fff; box-shadow: 0 12px 24px 0 rgba(0,0,0,0.1);
+        .popup-header {
+            position: relative; display: flex; align-items: center; justify-content: space-between; padding: 16px 24px;
+            h1 {
+                font-family: $font-noto; font-size: 20px; line-height: 28px;
+            }
+            &::after {
+                content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; box-shadow: 0 -1px 0 0 rgba(238, 239, 243, 1);
+            }
+            button {
+                width: 24px; height: 24px; background: url("//img.eduwill.net/eduwill/img/2021/_115/sub/studygroup/mobile/ico_close.svg")no-repeat;
+            }
+        }
+        .popup-body {
+            padding: 24px;
+            p {
+                font-family: $font-noto; font-size: 15px; line-height: 21px; color: #666;
+            }
+            .btn-wrap {
+                display: flex; align-items: center; margin-top: 16px;
+                button {
+                    width: 100%; margin: 0;
+                    &:last-child {
+                        margin-left: 4px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 360px ) {
+    .studygroup {
+        .contents-fix-area {
+            .filter-wrapper {
+                .filter-body {
+                    label {
+                        margin-right: 10px;
+                        &:nth-child(4) {
+                            margin-top: 16px !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .custom {
+        label {
+            span {
+                font-size: 12px;
+            }
+        }
+        input[type="checkbox"] {
+            + {
+                .checkbox {
+                    i {
+                        width: 14px;
+                        height: 14px;
+                    }
+                }
+            }
+        }
+        input[type="text"] {
+            font-size: 12px;
+            &::placeholder {
+                font-size: 12px;
+            }
+        }
+    }
+}

@@ -1,0 +1,103 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "base/animation";  
+@import "base/common";  
+
+
+// .bottom_fix_btn{display:none;}
+.product-eco{
+	.wrap{
+		max-width:720px;
+		position: relative;
+		margin:0 auto;
+		text-align: center;
+	}
+	.section{
+		&-top-banner{
+			background-color: #ffbe00;
+		}
+
+		&-visual{
+			@include bg($url: '#{$img-path}/mobile/bg_visual.jpg', $size: cover);
+			.fly{
+				position: absolute;
+				z-index:7;
+				top:88%;
+				left:0;
+				right:0;
+				margin:0 auto;
+			}
+			.notice{
+				@include rem(padding,0 50px);
+				color: #999;
+				@include vw(18px);
+				text-align: left;
+				line-height: 1.4;
+				letter-spacing: -1px;
+			}
+		}
+	}
+
+	.land{
+
+		&-price{
+			.btn-apply{
+				&:before{ top:55% !important; right:0 !important; }
+				@include pointer(50%, 10%, 38px, 43px, 12, bounce);
+			}
+		}
+
+		&-benefit{
+			.list-group ul li:last-child{
+				width:98%;
+			}
+		}
+
+
+		&-provide{
+			.wrap{ padding:0;}
+			padding-bottom: 0;
+			&:after{
+				display:none;
+			}
+			background-color:#f7f7f7;
+			background:#f7f7f7;
+			.title{
+				.main{
+					color:#222;
+				}
+				.notice{
+					@include rem(padding, 0 50px);
+					@include rem(margin-bottom, 50px);
+				}
+			}
+		}
+
+		&-reason-title{
+			@include rem(padding-top, 100px);
+		}
+
+		&-teacher{
+			.slick-arrow{top:4%;}
+		}
+
+		&-network{
+			background:none;
+		}
+
+		&-case{
+			.wrap{
+				padding:0;
+				.title{
+					@include rem(padding,0 50px 0 50px);
+				}
+			}
+		}
+		&-bookevent{
+			background-color:#fcf8eb;
+		}
+	}
+}
+

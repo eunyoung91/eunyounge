@@ -1,0 +1,170 @@
+// clearfix
+%clearfix {
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: '';
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+%textEllipsis {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+}
+
+.slideY {
+    position: absolute;
+    -webkit-animation: 0.4s slideUpY ease-in-out infinite alternate;
+            animation: 0.4s slideUpY ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes slideUpY {
+    0% {
+      -webkit-transform: translate(0, 5px);
+              transform: translate(0, 5px);
+    }
+    100% {
+      -webkit-transform: translate(-5px, 0);
+              transform: translate(-5px, 0);
+    }
+  }
+  
+  @keyframes slideUpY {
+    0% {
+      -webkit-transform: translate(0, 5px);
+              transform: translate(0, 5px);
+    }
+    100% {
+      -webkit-transform: translate(-5px, 0);
+              transform: translate(-5px, 0);
+    }
+  }
+  
+.sr-only {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    width: 0px;
+    height: 0px;
+    margin: -1px;
+    padding: 0;
+    word-break: keep-all;
+    white-space: nowrap;
+    color: transparent;
+    border: 0;
+    text-indent: -9999px;
+}
+
+
+.grid {
+    @extend %clearfix;
+    @include boxSizing(border-box);
+    .col {
+        float: left;
+        @include boxSizing(border-box);
+    }
+}
+
+
+
+// motion
+.container {
+    
+	  .motion-1_up { opacity: 0; @include translateY(0px); @include transition(all, .5s); }
+    .motion-2_up { opacity: 0; @include translateY(0px); @include transition(all, .5s); }
+
+    .motion-1 { opacity: 0; @include translateY(50px); @include transition(all, .5s); }
+    .motion-2 { opacity: 0; @include translateY(50px); @include transition(all, .5s); }
+    .motion-3 { opacity: 0; @include translateY(50px); @include transition(all, .5s); }
+    .motion-4 { opacity: 0; @include translateY(50px); @include transition(all, .5s); }
+    .motion-5 { opacity: 0; @include translateY(50px); @include transition(all, .5s); }
+    .motion-6 { opacity: 0; @include translateY(50px); @include transition(all, .5s); }
+    .motion-7 { opacity: 0; @include translateY(50px); @include transition(all, .5s); }
+
+  	.motion-1_1 { opacity: 0; @include translateY(70px); @include transition(all, .5s); }
+    .motion-2_1 { opacity: 0; @include translateY(70px); @include transition(all, .5s); }
+    .motion-3_1 { opacity: 0; @include translateY(70px); @include transition(all, .5s); }
+    .motion-4_1 { opacity: 0; @include translateY(70px); @include transition(all, .5s); }
+    .motion-5_1 { opacity: 0; @include translateY(70px); @include transition(all, .5s); }
+    .motion-6_1 { opacity: 0; @include translateY(70px); @include transition(all, .5s); }
+    .motion-7_1 { opacity: 0; @include translateY(70px); @include transition(all, .5s); }
+
+    .motion-laurel-1 { opacity: 0; @include scale(.1, .1); @include transition(all, .5s); }
+    .motion-laurel-2 { opacity: 0; @include scale(.1, .1); @include transition(all, .5s); }
+    .motion-laurel-3 { opacity: 0; @include scale(.1, .1); @include transition(all, .5s); }
+    .motion-laurel-4 { opacity: 0; @include scale(.1, .1); @include transition(all, .5s); }
+    .motion-laurel-5 { opacity: 0; @include scale(.1, .1); @include transition(all, .5s); }
+    .motion-laurel-6 { opacity: 0; @include scale(.1, .1); @include transition(all, .5s); }
+    .motion-laurel-7 { opacity: 0; @include scale(.1, .1); @include transition(all, .5s); }
+    .motion-laurel-8 { opacity: 0; @include scale(.1, .1); @include transition(all, .5s); }
+
+
+    &.active {
+
+		    .motion-1_up { opacity: 1; @include translateY(120px); @include transitionDelay(.7s); }
+        .motion-2_up { opacity: 1; @include translateY(70px); @include transitionDelay(.9s); }
+
+        .motion-1 { opacity: 1; @include translateY(0); @include transitionDelay(.1s); }
+        .motion-2 { opacity: 1; @include translateY(0); @include transitionDelay(.3s); }
+        .motion-3 { opacity: 1; @include translateY(0); @include transitionDelay(.5s); }
+        .motion-4 { opacity: 1; @include translateY(0); @include transitionDelay(.7s); }
+        .motion-5 { opacity: 1; @include translateY(0); @include transitionDelay(.9s); }
+        .motion-6 { opacity: 1; @include translateY(0); @include transitionDelay(1.1s); }
+        .motion-7 { opacity: 1; @include translateY(0); @include transitionDelay(1.3s); }
+
+		    .motion-1_1 { opacity: 1; @include translateY(0); @include transitionDelay(.1s); }
+        .motion-2_1 { opacity: 1; @include translateY(0); @include transitionDelay(.4s); }
+        .motion-3_1 { opacity: 1; @include translateY(0); @include transitionDelay(.7s); }
+        .motion-4_1 { opacity: 1; @include translateY(0); @include transitionDelay(1s); }
+        .motion-5_1 { opacity: 1; @include translateY(0); @include transitionDelay(1.3s); }
+        .motion-6_1 { opacity: 1; @include translateY(0); @include transitionDelay(1.6s); }
+        .motion-7_1 { opacity: 1; @include translateY(0); @include transitionDelay(1.9s); }
+
+        .motion-laurel-1 { opacity: 1; @include scale(1, 1); @include transitionDelay(.1s); }
+        .motion-laurel-2 { opacity: 1; @include scale(1, 1); @include transitionDelay(.3s); }
+        .motion-laurel-3 { opacity: 1; @include scale(1, 1); @include transitionDelay(.5s); }
+        .motion-laurel-4 { opacity: 1; @include scale(1, 1); @include transitionDelay(.7s); }
+        .motion-laurel-5 { opacity: 1; @include scale(1, 1); @include transitionDelay(.9s); }
+        .motion-laurel-6 { opacity: 1; @include scale(1, 1); @include transitionDelay(1.1s); }
+        .motion-laurel-7 { opacity: 1; @include scale(1, 1); @include transitionDelay(1.3s); }
+        .motion-laurel-8 { opacity: 1; @include scale(1, 1); @include transitionDelay(1.6s); }
+
+
+		.bounce {
+			animation: bounce 1.5s infinite both;
+		}
+		  
+		@-webkit-keyframes bounce {
+		0%, 100% {
+			-webkit-transform: translateY(5px);
+			transform: translateY(5px);
+			opacity:1;
+		}
+		50% {
+			-webkit-transform: translateY(-5px);
+			transform: translateY(-5px);
+			opacity:.3;
+		}
+		}
+
+		.bounce2 {
+			animation: bounce2 1.5s infinite both;
+		}
+		@-webkit-keyframes bounce2 {
+			0%, 100% {
+				-webkit-transform: translateY(5px);
+				transform: translateY(5px);
+			}
+			50% {
+				-webkit-transform: translateY(-5px);
+				transform: translateY(-5px);
+			}
+			}
+    }
+}

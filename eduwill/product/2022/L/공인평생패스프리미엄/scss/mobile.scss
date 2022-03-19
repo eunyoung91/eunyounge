@@ -1,0 +1,563 @@
+﻿@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "abstracts/variables";
+
+.product-eco{
+	overflow: hidden;
+	*, *:before, *:after{
+		font-family:$font-roboto;
+		@include vw(letter-spacing, -1px);
+	}
+	.wrap{
+		position:relative;
+		width: 100%;
+		max-width: 720px;
+		margin:0 auto;
+		text-align:center;
+	}
+
+	.holder, .item { position: relative;}
+
+	.btn-text, .btn-grounds{
+		display:inline-block;
+		color:#8a8a8a;
+		line-height:1;
+		font-weight:400;
+		@include vw(font-size, 20px);
+		span{
+			vertical-align: middle;
+			line-height: 1;
+			@include vw(padding-right, 16px);
+			@include arrow(right, 8px, 8px, 1px, #8a8a8a);
+			&:before{right:0;}
+		}
+	}
+
+	.grounds-text {
+		text-align: left;
+		color: #bfbfbf;
+		line-height: 1.3;
+		@include vw(font-size, 20px);
+		word-break: keep-all;
+	}
+
+	.swiper-wrap {
+		@include vw(padding, 0 50px);
+		@include vw(margin-top, 40px);
+	}
+	.swiper-progress{
+		position:relative;
+		@include vw(padding-bottom, 46px);
+		.swiper-slide{
+			width: 80%;
+			@include vw(border-radius,24px);
+			@include boxShadow(0px 12px 14px -3px rgba(0, 0, 0, 0.08));
+			// &:first-child{@include vw(margin-left,30px);}
+			// &:last-child{@include vw(margin-right,60px);}
+		}
+
+		.swiper-pagination-progressbar{
+			top:auto;
+			bottom:0;
+			.swiper-pagination-progressbar-fill{
+				background-color:#f4582e;
+			}
+		}
+	}
+
+	.sector-title {
+		background: url('#{$img-path}/mobile/bg_title.jpg') no-repeat 50% 0;
+		background-size:cover;
+		.effect-color {
+			position: absolute;
+			@include vw(top, 444px);
+			left: 0;
+			right: 0;
+			u {
+				@include vw(padding, 0 3px 8px 3px);
+				@include vw(font-size, 24px);
+				display: inline-block;
+				line-height: 1;
+				text-decoration: none;
+				font-weight: 700;
+				color: #ffb379;
+				@include animation(effectColor, 1s, $timing: step-end, $iteration: infinite){
+					0%, 100% { border-bottom: 1px solid #ffb379; color: #ffb379;}
+					50% { border-bottom: 1px solid #fff; color: #fff;}
+				}
+			}
+		}
+	}
+
+	.sector-price {
+		@include vw(padding-bottom, 100px);
+		.price-title {
+			@include vw(padding, 0 50px 20px);
+			text-align: left;
+			font-weight: 900;
+			color: #222;
+			line-height: 1.3;
+			@include vw(font-size, 42px);
+			@include vw(letter-spacing, -2px);
+			strong {
+				color: #0e43d7;
+				font-weight: 900;
+				line-height: 1.3;
+				@include vw(font-size, 42px);
+				@include vw(letter-spacing, -2px);
+			}
+			em {
+				font-weight: 400;
+				color: #bbb;
+				vertical-align: top;
+				@include vw(font-size, 28px);
+			}
+		}
+		.btn-base {
+			position: relative;
+			text-align: left;
+			@include vw(padding, 0 50px);
+		}
+		.tab-group {
+			@include vw(margin, 40px auto 0);
+			width: percent(620);
+			.tab-list {
+				display:flex;
+				flex-wrap:wrap;
+				li {
+					@extend .col;
+					@include vw(padding, 27px 0);
+					@include vw(font-size, 22px);
+					color: #8a8a8a;
+					font-weight: 700;
+					text-align: center;
+					width: 50%;
+					background: #e5e5e5;
+					strong { font-weight: 700;}
+					&.active {
+						color: #fff;
+						background: #0e43d7;
+						strong { color: #ffb379;}
+					}
+					&:only-child { width: 100%;}
+				}
+			}
+			.tab-view {
+				display: none;
+				&.active { display: block;}
+				.price-title {
+					padding: 0;
+					@include vw(padding-top, 100px);
+					@include vw(margin-bottom, 40px);
+				}
+				.price-wrap {
+					border-style: solid;
+					border-color: #062891;
+					@include vw(border-width, 4px);
+					border-top: 0;
+					@include vw(margin-bottom, 16px);
+					.price-row {
+						width: 100%;
+						display: table;
+						table-layout: fixed;
+						border-bottom: 1px solid #f1f1f1;
+						&.bg-yellow { background: #fff6e1;}
+						.col {
+							display: table-cell;
+							vertical-align: middle;
+							text-align: left;
+							font-weight: 500;
+							line-height: 1.4;
+							word-break: keep-all;
+							@include vw(padding, 25px 20px 25px 25px);
+							@include vw(font-size, 22px);
+							@include boxSizing(border-box);
+							&.col-title {
+								width: 20%;
+								color: #8a8a8a;
+							}
+							&.col-desc {
+								width: 80%;
+								color: #222;
+							}
+							.small {
+								color: #bfbfbf;
+							}
+							.highlight {
+								color: #f4582e;
+							}
+							.bold {
+								font-weight: 700;
+							}
+						}
+						&.first {
+							background: #062891;
+							.col {
+								width: 50%;
+								&.before-won {
+									@include vw(padding-left, 65px);
+									p {
+										color: #fff;
+										font-weight: 700;
+										@include vw(font-size, 22px);
+										@include vw(margin-bottom, 10px);
+									}
+									strong {
+										font-weight: 900;
+										color: #a4a9b7;
+										line-height: 1;
+										text-decoration: line-through;
+										font-family: $font-roboto;
+										@include vw(font-size, 36px);
+									}
+								}
+								&.after-won {
+									@include vw(padding-left, 40px);
+									@include vw(font-size, 40px);
+									@include vw(letter-spacing, -1px);
+									color: #fff;
+									line-height: 1;
+									font-weight: 900;
+									strong {
+										font-weight: 900;
+										line-height: 1;
+										font-family: $font-roboto;
+										@include vw(font-size, 85px);
+										@include vw(letter-spacing, -4px);
+									}
+								}
+							}
+						}
+					}
+				}
+
+				.price-upgrade {
+					@include vw(margin-bottom, 20px);
+					width: 100%;
+					.col {
+						width: 100%;
+						@include boxSizing(border-box);
+						&.col-title {
+							@include vw(padding, 14px 38px);
+							@include vw(font-size, 20px);
+							text-align: left;
+							font-weight: 700;
+							line-height: 1.3;
+							color: #fff;
+							background: #0e43d7;
+							strong { color: #ffb379;}
+						}
+						&.col-price {
+							@include vw(padding, 14px 38px);
+							text-align: left;
+							background: #062891;
+							strong {
+								display: inline-block;
+								line-height: 1;
+								&.after-won {
+									@include vw(margin-left, 20px);
+									@include vw(font-size, 85px);
+									font-weight: 900;
+									color: #fff;
+								}
+								&.before-won {
+									@include vw(font-size, 36px);
+									color: #a4a9b7;
+									font-weight: 700;
+									text-decoration: line-through;
+								}
+								span { @include vw(font-size, 40px); font-weight: 700; line-height: 1;}
+							}
+						}
+					}
+				}
+
+
+				.check-box {
+					position: relative;
+					@include vw(margin, 50px 0 30px);
+					@include vw(padding-left, 34px);
+					input[type="checkbox"] {
+						display: block;
+						position: absolute;
+						@include vw(top, 3px);
+						left: 0;
+						z-index: 1;
+						@include vw(width, 24px);
+						@include vw(height, 24px);
+					}
+					label {
+						@include vw(font-size, 22px);
+						display: inline-block;
+						text-align: left;
+						color: #222;
+						font-weight: 500;
+						line-height: 1.4;
+					}
+				}
+			}
+		}
+	}
+
+	.sector-apply{
+		background-color:#f3f3f3;
+		.wrap {
+			@include vw(padding, 60px 50px);
+			@include boxSizing(border-box);
+		}
+		.title{
+			@include vw(margin-bottom, 25px);
+			@include vw(font-size, 28px);
+			color:#222;
+			font-weight:700;
+			text-align:left;
+		}
+
+		.btn-group{
+			width: 100%;
+			a{
+				display: block;
+				width: 100%;
+				background-color:#fff;
+				border:1px solid #e5e5e5;
+				@include vw(margin-top, 10px);
+				@include arrow(right, 10px, 10px, 1px, #8a8a8a);
+				@include vw(padding, 26px 32px);
+				@include boxSizing(border-box);
+				p{
+					text-align:left;
+					color:#222;
+					font-weight:400;
+					line-height:1;
+					@include vw(font-size, 22px);
+					strong {
+						@include vw(font-size, 22px);
+						@include vw(margin-right, 10px);
+						display: inline-block;
+						color:#f4582e;
+						font-weight:700;
+					}
+				
+				}
+			}
+		}
+	}
+
+	.sector-teacher {
+		@include vw(padding-bottom, 120px);
+		background: url('#{$img-path}/mobile/bg_teacher.jpg') no-repeat 50% 0;
+		background-size:cover;
+		.btn-text {
+			position: absolute;
+			@include vw(top, 310px);
+			left: 0;
+			right: 0;
+			z-index: 1;
+		}
+	}
+
+	.sector-pass {
+		@include vw(padding-bottom, 120px);
+		background: #f3f3f3;
+	}
+
+	.sector-bestrecord{
+		position: relative;
+		width: 100%;
+		text-align: center;
+		overflow: hidden;
+		background-color: #000;
+	
+		.bg-video {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: auto;
+			height: auto;
+			min-width: 100%;
+			min-height: 100%;
+			-webkit-transform: translateX(-50%) translateY(-50%);
+			transform: translateX(-50%) translateY(-50%);
+		}
+	}
+
+	.sector-winner {
+		@include vw(padding, 60px 0 120px);
+		.winner-title{
+			color:#222;
+			font-weight:700;
+			line-height: 1;
+			@include vw(margin-bottom, 40px);
+			@include vw(font-size, 32px);
+		}
+		.winner-list {
+			overflow:hidden;
+			@include vw(padding, 10px);
+			@include boxSizing(border-box);
+			p {
+				text-align: center;
+				color: #8a8a8a;
+				font-weight: 500;
+				margin:0;
+				line-height: 2;
+				@include vw(font-size, 20px);
+			}
+		}
+
+		.grounds-text{
+			@include vw(padding, 0 100px);
+			@include vw(margin-top, 40px);
+			text-align:center;
+		}
+	}
+
+	.sector-fastpass {
+		background: #f3f3f3;
+	}
+
+	.sector-service{
+		@include vw(padding-bottom, 120px);
+		background-color:#f3f3f3;
+		.tab-group{
+			width: percent(620);
+			margin: 0 auto;
+			.tab-list {
+				display:flex;
+				flex-wrap:wrap;
+				li{
+					position:relative;
+					@include vw(padding, 30px 0);
+					@include vw(font-size, 22px);
+					display:inline-block;
+					cursor:pointer;
+					color:#000;
+					width:25%;
+					line-height: 1.3;
+					border-bottom:1px solid #d5d5d5;font-weight:700;color:#8a8a8a;background-color:#fff;
+					&.active{
+						color:#222;
+						&:after{content:'';position:absolute;left:0;bottom:0;background-color:#222222;height:6px;width:100%;}
+					}
+				}
+			}
+			.tab-view {
+				display: none;
+				&.active { display: block;}
+			}
+		}
+
+	}
+
+	.sector-book {
+		@include vw(padding-bottom, 120px);
+		@include linear-gradient(to bottom, #f3f3f3 50%, #fff 50%);
+		.btn-text {
+			position: absolute;
+			@include vw(top, 335px);
+			left: 0;
+			right: 0;
+			z-index: 1;
+		}
+	}
+
+	.sector-management {
+		background: #ebecef url('#{$img-path}/mobile/bg_management.jpg') no-repeat 50% 0;
+		background-size:cover;
+		.frame-contents{
+			position:relative;
+			width: 100%;
+			@include vw(padding-bottom, 160px);
+			background: #ebecef url('#{$img-path}/mobile/bg_frame.png') no-repeat 50% bottom;
+			background-size: auto auto;
+			@include breakpoint(maxMobile){
+				@include vw(padding-bottom, 220px);
+			}
+			.frame-list{
+				overflow: hidden;
+			}
+			.slick-slide {
+				@include vw(padding, 0 20px);
+				img {
+					width: 100%;
+					height: 100%;
+				}
+			}
+			.cover-left{
+				position:absolute;
+				top: 0;
+				z-index: 1;
+				width: 15%;
+				left: 0;
+				height: 100%;
+				@include linear-gradient(to right, #ebecef 20%, rgba(0,0,0, .0) 100%);
+			}
+			.cover-right{
+				position:absolute;
+				top:0;
+				z-index: 1;
+				width: 15%;
+				height: 100%;
+				right: 0;
+				@include linear-gradient(to right, rgba(0,0,0, .0) 20%, #ebecef 80%);
+			}
+			.notice{
+				position:absolute;
+				left: 0;
+				right: 0;
+				text-align: center;
+				color:#938a8a;
+				@include vw(bottom, 50px);
+				@include vw(font-size, 20px);
+				@include breakpoint(maxMobile){
+					font-size: 14px;
+				}
+			}
+		}
+
+	}
+
+	.sector-us {
+		@include vw(padding-bottom, 120px);
+		.btn-text {
+			position: absolute;
+			@include vw(top, 400px);
+			left: 0;
+			right: 0;
+			z-index: 1;
+		}
+	}
+
+	.sector-uland {
+		background: #f4582e;
+		
+		.effect-color{
+			position:absolute;
+			@include vw(top, 625px);
+			@include vw(left, 74px);
+			@include vw(padding, 10px 16px);
+			@include vw(font-size, 22px);
+			line-height:1;
+			font-weight:700;
+			border-radius:3px;
+			color:#fff;
+			background-color:#000;
+			@include animation(effectColor2, 1s, $timing: step-end, $iteration: infinite){
+				0%, 100% {	background-color:#000;}
+				50% { 	background-color:#f4582e; }
+			}
+
+		}
+
+		+ .sector-price {
+			@include vw(padding-top, 100px);
+		}
+
+	}
+
+	&.normal {
+		.sector-title {
+			background: url('#{$img-path}/mobile/bg_title_normal.jpg') no-repeat 50% 0;
+			background-size:cover;
+		}
+	}
+}

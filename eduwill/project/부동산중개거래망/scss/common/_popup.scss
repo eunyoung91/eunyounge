@@ -1,0 +1,201 @@
+.dimmed,
+.dim { display:none;position: fixed; left: 0px; top: 0px; width: 100%; height: 100%;z-index:10; background-color: rgba( 0, 0, 0, 0.5);}
+.dimmed{z-index:12; }
+.popup{
+    *, *:before, *:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+    display: none;position:absolute;left:0;top:0;z-index:13;padding:26px 24px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;background-color:#fff;width:100%;margin-left:0;text-align:left;font-family:$font-noto;
+
+    select {
+        border-radius:0; /* 아이폰 사파리 보더 없애기 */ 
+        -webkit-appearance:none; /* 화살표 없애기 for chrome*/ 
+        -moz-appearance:none; /* 화살표 없애기 for firefox*/ 
+        appearance:none /* 화살표 없애기 공통*/
+    }
+
+    /* IE 에서 Select box 화살표 제거 */ 
+    select::-ms-expand { display: none; }
+
+    @media screen and (min-width: 400px) {
+        width:400px;left:50%;margin-left:-200px;
+    }
+
+    &-close{
+        position:absolute;top:0;right:0;width:56px;height:56px;z-index:3;
+        @media screen and (min-width: 400px) {
+            top:-25px;right:-25px;
+        }
+        a{
+          display:inline-block;width:56px;height:56px;
+          &:before,
+          &:after {content:'';position:absolute;top:50%;left:50%;display:block;width:30px;height:1px;margin-left:-15px;background-color:#222;}
+          &:before{-webkit-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg);}
+          &:after{-webkit-transform:rotate(-45deg);-ms-transform:rotate(-45deg);transform:rotate(-45deg);}
+        }
+    }
+
+    &-tit{
+        position:fixed;left:0;top:0;z-index:2;padding-top:20px;padding-left:22px;height:56px;background-color:#fff;width:100%;font-size: 20px;font-weight: bold;line-height: 1;letter-spacing: -0.5px;color: #212121;
+        @media screen and (min-width: 400px) {
+            position:relative;padding:0;height:auto;
+        }
+    }
+
+    &-cont{
+        margin-top:26px;
+        .popup-text{
+            margin-bottom:24px;
+            background-color: #f4f9fe;
+            padding:16px 12px;
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: justify;
+            color: #212121;
+            .highlight{color: #0475f4;}
+            .highlight2{color:#f84848;}
+            strong{
+                font-size: 15px;font-weight: bold;
+            }
+
+            span{
+                color: #0475f4;
+            }
+
+            li{padding-left:10px;text-indent:-10px;}
+        }
+
+        .popup-info-top{
+            background-color:#f4f9fe;
+            padding:24px;text-align: center;
+            >div{
+                line-height: 1;letter-spacing: normal;
+            }
+            .info-picture{
+                background-color:#fff;width:149px;height:98px;overflow:hidden;margin:0 auto;object-fit: contain;margin-bottom:14px;
+                img{width:100%;}
+            }
+            .info-ceo{font-size: 16px;color: #212121;margin-bottom:8px;}
+            .info-tel{font-size: 24px;color: #0475f4;margin-bottom:18px;}
+            .info-text{
+                font-size: 14px;line-height: 1.4;color: #888888;
+                height:40px;overflow:hidden;
+                &.active{
+                    height:auto;
+                }
+            }
+
+            .btn-text{
+                display:inline-block;margin-top:16px;color: #212121;font-size: 12px; line-height: 1;letter-spacing: -0.43px;padding-right:16px;
+                background:url(#{$img-path}/icon-angle-down@2x.png) no-repeat 0 50%;
+                background-size:24px 24px;
+                padding-left:24px;
+                &.active{
+                    background-image:url(#{$img-path}/icon-angle-up@2x.png);
+                }
+            }
+        }
+
+        .popup-info-list{
+            margin-top:20px;
+            dl{
+                margin-bottom:10px;
+                dt,dd{font-size: 14px;letter-spacing: normal;}
+                dt{width:20%;color: #888888;vertical-align:top;padding-top:1px;}
+                dd{width:80%;text-align:left;color: #212121;}
+            }
+        }
+    }
+
+    &-btn{
+        text-align:center;
+        font-size:0;
+       
+        @media screen and (min-width: 720px) {
+           
+        }
+        .btn{
+            display:inline-block;
+            width: 48%;
+            border-radius: 2px;
+            border: solid 1px #e5e5e5;
+            background-color: #ffffff;     
+            letter-spacing: -0.5px;
+            text-align: center;
+            color: #212121;
+            vertical-align: middle;
+            padding:12px;
+            font-size: 14px;
+            margin-right:10px;
+            &:last-child{margin-right:0;}
+            &:hover{
+                background-color: rgba(0, 0, 0, 0.04);
+            }
+            &.btn-primary{
+                background-color: #0475f4;
+                border: solid 1px #0475f4;
+                color:#fff;
+                &:hover{background-color: #0363cf;}
+            }
+            @media screen and (min-width: 720px) {
+                width: 152px;
+            }
+        }
+    }
+
+}
+
+#popup-search{
+    padding:0;
+    .popup-close{right:0;top:0;}
+    .popup-tit{
+        padding:22px 22px 0;
+    }
+    .popup-cont{
+        padding-left:22px;
+        padding-right:22px;
+
+        .btn-basic .checkmark{
+            padding:9px 14px;
+        }
+
+        .select-group .select{
+            height:40px;line-height:40px;
+        }
+
+        .popup-info-list{
+            dl{
+                dt{width:100%;margin-bottom:10px;}
+                dd{width:100%;}
+            }
+
+            .wave{padding:0 5px;height:40px;line-height:40px;color: #212121;font-size:13px;}
+        }
+    }
+
+    .popup-btn{
+        padding:10px;margin-top:10px;
+        border-top:1px solid #e5e5e5;
+        a{margin-top:0;}
+
+
+    }
+
+    @media screen and (min-width: 400px) {
+        width:100%;left:0;margin-left:0;
+        .popup-tit{
+            padding:26px 22px 0;
+        }
+        .popup-cont{
+            padding:0 24px;
+            .popup-info-list{
+                dl{
+                    dt{width:20%;color:#212121;}
+                    dd{width:80%;}
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 852px) {
+        width:852px;left:50%;margin-left:-426px;
+    }
+}

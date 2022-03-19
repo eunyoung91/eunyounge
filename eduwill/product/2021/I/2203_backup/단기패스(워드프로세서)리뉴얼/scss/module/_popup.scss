@@ -1,0 +1,115 @@
+.dimmed {
+    display: none;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba( 0, 0, 0, .7);
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 1001;
+    width: 100%;
+    font-family: $font-noto;
+    background-color: #fff;
+    @include translateX(-50%);
+	max-width:720px;
+    &-body {
+        position: relative;
+		padding:4%;
+		color:#333;
+        text-align: left;
+        p {
+            @include vw(24px);
+            font-weight: 700;
+            @include breakpoint(desktop){
+                font-size: 18px;
+            }
+            & + p,
+            & + ul { @include rem(margin-top, 10px); }
+        }
+        ul {
+            @include rem(margin-top, 10px);
+            @include vw(22px);
+            @include breakpoint(desktop){
+                font-size: 16px;
+            }
+            li {
+                @include rem(margin-top, 5px);
+                &:first-child { margin-top: 0; }
+            }
+            & + p { @include rem(margin-top, 10px); }
+        }
+    }
+
+    &-close {
+        position: absolute;
+		z-index:10;
+        top: 0;
+        right: 0;
+		height: 0 !important;
+		width: 0 !important;
+		@include breakpoint(maxMobile){
+			top: 10px;
+			right: 10px;
+		}
+		&:after{
+			display: none !important;
+		}
+		&:before{
+			display: none !important;
+		}
+        a { @include close(40px, 40px, 1px, #333); }
+    }
+
+    &-video {
+        max-width: 640px;
+        @include breakpoint(maxMobile){
+            max-width: 1000px;
+        }
+        .video-box {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+			video{
+				width: 100%;
+				height: 100%;
+			}
+        }
+    }
+
+    &-base {
+        max-width: 640px;
+        @include breakpoint(maxMobile){
+            max-width: 1000px;
+        }
+        .popup-body {
+			line-height:1.2;
+			text-align: left;
+			@include vw(22px);
+            @include breakpoint(desktop){
+                font-size: 16px;
+            }
+			strong{
+				display: inline-block;
+				line-height:1.5;
+				@include vw(24px);
+				@include breakpoint(desktop){
+					font-size: 18px;
+				}
+			}
+        }
+    }
+}

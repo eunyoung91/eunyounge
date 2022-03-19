@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신청 팝업</title>
+</head>
+<body>
+
+<!--
+    https://s-event.eduwill.net/Publish/Brief/2021/G/211220
+
+    이벤트 기준으로 작업된 신청 팝업.
+    공무원/CPTA에 최근 반영된 신청 팝업.
+    \FRONT_END\template\scss\module\_popup.scss 사용.
+-->
+
+<div class="popup-dim"></div>
+<div class="popup" id="popupApply">
+    <div class="popup-close">
+        <a href="javascript:;" onclick="popupClose('.popup-dim', 'popupApply');"><span class="hidden">팝업 닫기</span></a>
+    </div>
+
+    <div class="popup-title"><strong>상담 예약하기</strong></div>
+    <form id="">
+        <div class="popup-cont">
+                <p class="text-box nomember">에듀윌 회원이신가요?<a href="javascript:void(0);">로그인</a></p>
+                <p class="text-box nomember">회원 정보 수정이 필요하신가요?<a href="javascript:void(0);">회원정보수정</a></p>
+            <div class="form-box">
+                <dl class="form-list">
+                    <dt class="form-title">관심과정</dt>
+                    <dd class="form-control">
+                        <select name="" id="">
+                            <option value="선택">선택</option>
+                        </select>
+                    </dd>
+                </dl>
+
+                <dl class="form-list">
+                    <dt class="form-title">이름</dt>
+                    <dd class="form-control">
+                        <input type="text" id="form_name" name="userNm" value="홍길동" maxlength="20" class="ipt" />
+                    </dd>
+                </dl>
+
+                <dl class="form-list">
+                    <dt class="form-title">연락처</dt>
+                    <dd class="form-control">
+                        <input type="tel" id="form_phone" name="userHp" value="010-0000-0000" maxlength="11" class="ipt" />
+                        <a href="javascript:;" class="btn-small btn-receive">인증하기</a>
+                        <!-- disabled : 버튼 비활성화 -->
+                    </dd>
+                </dl>
+
+                <dl class="form-list certification">
+                    <dt class="form-title">인증번호</dt>
+                    <dd class="form-control">
+                        <input type="tel" value="" maxlength="6" id="form_number" name="userInputCode" placeholder="5분 이내에 입력" class="ipt ipt_s" />
+                        <a href="javascript:;" class="btn-small btn-check">확인</a>
+                        <!-- disabled : 버튼 비활성화 -->
+                        <div class="timer">05:00</div>
+                    </dd>
+                </dl>
+
+                <dl class="form-list">
+                    <dt class="form-title">상담 희망일</dt>
+                    <dd class="form-control">
+                        <select name="" id="">
+                            <option value="선택">선택</option>
+                        </select>
+                    </dd>
+                </dl>
+            </div>
+
+            <div class="info-box">
+                <strong>[ 유의사항 ]</strong><br>
+                - 상담은 순차적으로 진행되며, 예약자가 많을 경우, 대기시간이 발생될 수 있습니다.<br>
+                - 상담예약을 하신 경우에는 12/22(수)까지 본방사수 특별할인가 적용이 가능합니다.
+            </div>
+
+            <div class="check-box">
+                <p class="form-title">개인정보 수집 및 이용에 대한 동의 <span class="highlight">(필수)</span></p>
+                <div class="scroll-box">
+                    <p>
+                        ㈜에듀윌은 본 이벤트를 위해 다음과 같이 참여자의 개인정보를 수집 및 이용합니다.<br><br>
+                        - 수집 및 이용 목적 : 상담 신청자 확인, 고객 전화 상담, 사은품 발송<br>
+                        - 수집항목 : 이름, 휴대폰번호, 관심과정, 상담희망일<br>
+                        - 보유 및 이용 기간 : <em>상담 신청 마감 후 60일</em><br>
+                        귀하는 개인정보 수집 및 이용에 동의하지 않으실 수 있으나, 동의하지 않으실 경우 참여가 제한됩니다.<br>
+                        <strong class="blue">- 12/20(월) 상담을 신청하신 경우, 해당 날짜에는 야간 상담만 가능합니다.</strong>
+                    </p>
+                </div>
+                <div class="fake-check">
+                    <input type="checkbox" class="input-check" name="personalYn" id="personalYn" value="Y">
+                    <label for="personalYn" class="label-check"><span class="sr-only">동의</span></label>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="popup-btn">
+        <button type="button" class="btn-apply"><span>예약하기</span></button>
+        <button type="button" class="btn-cancle" onclick="popupClose('.popup-dim', 'popupApply');"><span>취소하기</span></button>
+    </div>
+</div>
+
+
+</body>
+</html>

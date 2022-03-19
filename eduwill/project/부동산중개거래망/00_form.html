@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>에공회</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="Pragma" content="no-cache"/>
+<meta http-equiv="Cache-Control" content="No-Cache"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+
+<link rel="Bookmark Icon" href="https://img.eduwill.net/resources/event/live/images/favicon.ico">
+<link rel="icon" href="https://img.eduwill.net/resources/event/live/images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="https://img.eduwill.net/resources/event/live/images/favicon.ico" type="image/x-icon">
+
+<!-- 공통css :: -->
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/eduwill/live/libs/swiper/swiper.min.css" />
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/eduwill/live/libs/slick/slick.css" />
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel='stylesheet' type='text/css' href='https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' >
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/eduwill/dev/css/reset.css" />
+<link rel="stylesheet" type="text/css" href="css/network.css" />
+
+<!-- 공통js :: -->
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/jquery/jquery-2.1.4.min.js"></script>
+<script type="text/javaScript" src="https://img.eduwill.net/eduwill/live/libs/swiper/swiper.min.js"></script>
+<script type="text/javaScript" src="https://img.eduwill.net/eduwill/live/libs/slick/slick.min.js"></script>
+<script type="text/javaScript" src="https://img.eduwill.net/eduwill/live/libs/greensock/TweenMax.min.js"></script>
+<script type="text/javascript" src="js/network.js"></script>
+</head>
+<body>
+<div id="wrap">
+<!-- header -->
+<header>
+    <div class="wrap">
+        <div class="logo">
+            <a href="javascript:;" class="logo-img"><img src="https://img.eduwill.net/Img2/Common/BI/type2/dev/logo.svg" alt="" /></a>
+            <a href="javascript:;" class="logo-title"><strong class="logo-text">공인중개사 동문회</strong>부동산거래망</a>
+        </div>
+        
+        <div id="menu">
+            <a href="javascript:;" class="menu-icon" >
+                <span> </span>
+                <span> </span>
+                <span> </span>
+            </a>
+        </div>
+        
+        <nav id="gnb">
+            <ul>
+                <li>
+                    <a href="javascript:;">매물등록</a>
+                    <span class="ico-tooltip"><img src="https://img.eduwill.net/resources/land/dev/images/network/icon-question-circle.png" srcset="https://img.eduwill.net/resources/land/dev/images/network/icon-question-circle@2x.png 2x" alt="" /></span>
+                    <div class="layer-tooltip"><span class="sr-only">매물등록은 데스크탑에서만 가능합니다.</span></div>
+                </li>
+                <li><a href="javascript:;">공동중개</a></li>
+                <li><a href="javascript:;">매물관리</a></li>
+                <li><a href="javascript:;">내정보</a></li>
+                <li><a href="javascript:;">고객센터</a></li>
+                <li><a href="javascript:;">동문회홈</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<!--// header -->
+
+<!-- container -->
+<div id="container">
+    <!-- contents -->
+    <div id="contents">
+        <div class="wrap">
+            <h3 class="maintitle">폼 등록</h3>
+
+            <div class="type-box grid">
+                <p class="subtitle">기본 정보</p>
+                <dl>
+                    <dt>input[type="text"]</dt>
+                    <dd>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" v-model="message" placeholder="여기를 수정해보세요" />
+                            </div>
+                        </div>
+                        <div class="form-group bt-1">
+                            <div class="text-group">
+                                메시지 : {{message}}
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>textarea</dt>
+                    <dd>
+                        <div class="form-group">
+                            <div class="textarea-group">
+                                <textarea cols="100" rows="100" v-model="message2" placeholder="여러줄을 입력해보세요"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group bt-1">
+                            <div class="text-group" >
+                                메시지 : <p style="white-space: pre-line">{{message2}}</p>
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>checkbox<br/>(한개)</dt>
+                    <dd>
+                        <div class="form-group wide grid">
+                            <div class="check-group col-0">
+                                <input type="checkbox" id="check" v-model="checked" >
+                                <label for="check"><span></span>{{checked}} 동의합니다.</label>
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>checkbox<br/>(여러개)</dt>
+                    <dd>
+                        <div class="form-group wide grid">
+                            <div class="check-group col-0">
+                                <input type="checkbox" id="check1" value="전기료" v-model="checkedlist" >
+                                <label for="check1"><span></span>전기료</label>
+                            </div>
+                            <div class="check-group col-0">
+                                <input type="checkbox" id="check2" value="가스비" v-model="checkedlist" >
+                                <label for="check2"><span></span>가스비</label>
+                            </div>
+                            <div class="check-group col-0">
+                                <input type="checkbox" id="check3" value="수도세" v-model="checkedlist" >
+                                <label for="check3"><span></span>수도세</label>
+                            </div>
+                            <div class="check-group col-0">
+                                <input type="checkbox" id="check4" value="인터넷" v-model="checkedlist" >
+                                <label for="check4"><span></span>인터넷</label>
+                            </div>
+                            <div class="check-group col-0">
+                                <input type="checkbox" id="check5" value="TV"  v-model="checkedlist" >
+                                <label for="check5"><span></span>TV</label>
+                            </div>
+                        </div>
+                        <div class="form-group bt-1">
+                            <div class="text-group" >
+                                체크한 리스트 : {{checkedlist}}
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>radio</dt>
+                    <dd>
+                        <div class="form-group">
+                            <div class="btn-group">
+                                <label class="btn-basic">
+                                    <input type="radio" name="radiobtn7" value="라디오1" v-model="picked">
+                                    <span class="checkmark">해당없음</span>
+                                </label>
+                                
+                                <label class="btn-basic">
+                                    <input type="radio" name="radiobtn7" value="라디오2" v-model="picked">
+                                    <span class="checkmark">재건축예정</span>
+                                </label>
+                                <label class="btn-basic">
+                                    <input type="radio" name="radiobtn7" value="라디오3" v-model="picked">
+                                    <span class="checkmark">재개발예정</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group bt-1">
+                            <div class="text-group" >
+                                체크한 리스트 : {{picked}}
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>selectbox<br/>한개</dt>
+                    <dd>
+                        <div class="form-group grid">
+                            <div class="select-group mr-10">
+                                <select class="select wide" v-model="selected">
+                                    <option value="전체" >전체</option>
+                                    <option value="셀렉트1">셀렉트1</option>
+                                    <option value="셀렉트2">셀렉트2</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group bt-1">
+                            <div class="text-group" >
+                                셀렉트값 : {{selected}}
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>selectbox<br/>여러개</dt>
+                    <dd>
+                        <div class="form-group grid">
+                            <div class="select-group mr-10">
+                                <select class="select wide" v-model="selected2" multiple>
+                                    <option value="전체">전체</option>
+                                    <option value="개별난방1">개별난방1</option>
+                                    <option value="개별난방2">개별난방2</option>
+                                    <option value="개별난방3">개별난방3</option>
+                                    <option value="개별난방4">개별난방4</option>
+                                    <option value="개별난방5">개별난방5</option>
+                                    <option value="개별난방6">개별난방6</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group bt-1">
+                            <div class="text-group" >
+                                셀렉트값 : {{selected2}}
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>selectbox<br/>동적옵션렌더링</dt>
+                    <dd>
+                        <div class="form-group grid">
+                            <div class="select-group mr-10">
+                                <select class="select wide" v-model="selected3">
+                                    <option v-for="option in options" v-bind:value="option.value">
+                                        {{option.text}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group bt-1">
+                            <div class="text-group" >
+                                셀렉트값 : {{selected3}}
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>값바인딩하기(체크박스)</dt>
+                    <dd>
+                        <div class="form-group wide grid">
+                            <div class="check-group col-0">
+                                <input type="checkbox" id="check100" v-model="toggle" true-value="yes" false-value="no" />
+                                <label for="check100"><span></span>{{toggle}} 동의합니다.</label>
+                            </div>
+                        </div>
+                        <div class="form-group bt-1">
+                            <div class="text-group" >
+                                toggle넘기기 : {{toggle}}
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>값바인딩하기(라디오박스)</dt>
+                    <dd>
+                        <div class="form-group wide grid">
+                            <label class="btn-basic">
+                                <input type="radio" v-model="pick" v-bind:value="a">
+                                <span class="checkmark">해당없음</span>
+                            </label>
+                        </div>
+                        <div class="form-group bt-1">
+                            <div class="text-group" >
+                                bind값넘기기 : {{pick}}
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>값바인딩하기(셀렉트옵션)</dt>
+                    <dd>
+                        <div class="form-group wide grid">
+                            <select class="select wide" v-model="selected4">
+                                <option v-bind:value="{number:123}">
+                                    123
+                                </option>
+                            </select>
+                        </div>
+                        <div class="form-group bt-1">
+                            <div class="text-group" >
+                                셀렉트박스 : {{selected4.number}}
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+
+            <div class="btn-action">
+                <a href="javascript:;" class="btn btn-default">취소</a>
+                <a href="javascript:;" class="btn btn-primary">등록</a>
+            </div>
+        </div>
+    </div> <!--// contents -->
+</div><!-- //container -->
+
+<!-- footer -->
+<footer>
+    <div data-eduwill-eco-content="128"></div>
+</footer>
+<!-- //footer -->
+</div>
+<div class="dim"></div>
+<script type="text/javascript" src="https://img.eduwill.net/resources/common/web/js/es6-promise/es6-promise.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/common/web/js/es6-promise/es6-promise.auto.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/common/web/js/babel-polyfill/polyfill.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/common/web/js/vue/vue.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/common/web/js/axios/axios.min.js"></script>
+<script>
+    var $this = new Vue({
+         el: '#wrap',
+         data: {
+            message:"",
+            message2:"",
+            checked:true,
+            checkedlist:[],
+            picked:[],
+            selected:'전체',
+            selected2:'',
+            selected3:'A',
+            options:[
+                {text:'One', value:'A'},
+                {text:'Two', value:'B'},
+                {text:'Three', value:'C'},
+            ],
+            toggle:false,
+            pick:'',
+            selected4:{number:'123'},
+            a:123
+
+         },
+   
+   
+         created: function() {
+             
+         },
+   
+         mounted: function() {
+              
+         },
+   
+         methods: {
+
+         }
+     })
+ </script>
+</body>
+</html>

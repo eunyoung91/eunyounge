@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ko" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+<title></title>
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/product.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.min.js"></script>
+<!-- // 자동화 페이지 포함 -->
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+	컨텐츠 감싸는 부모 : product-eco
+	하단 수강신청 영역 : product-apply
+	하단 수강신청 안내 : product-table
+	따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/libs/swiper/swiper.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<style type="text/css">
+	.product-eco{position: relative;text-align:center;min-width:1100px;overflow: hidden;font-family:'Noto Sans KR', Sans-Serif;letter-spacing: -1px;}
+    .product-eco *, .product-eco *:before, .product-eco *:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+    .product-eco img{border:0;vertical-align:top;line-height:0;font-size:0;}   
+    .product-eco .clearfix:after{content:'';display:block;clear:both;}
+    .product-eco .wrap{position:relative;width:1100px;margin:0 auto;}
+    .product-eco a{display:inline-block;}
+    .product-eco strong{line-height:100%;}
+    .product-eco p{line-height:100%;margin:0;}
+	
+	.fix-box{display:none;position:absolute;left:50%;top:490px;margin-left:570px;width:210px;text-align:center;z-index:2;}
+	.fix-box a{margin-bottom:29px;}
+
+	.fix-right{display:none;position:fixed;left:50%;top:50px;margin-left:600px;display:none;}
+
+	.section-title{position:relative;background:url(https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/bg_title.jpg) no-repeat 50% 0;background-size:cover;}
+	.section-price{padding-top:100px;}
+	.section-winner{padding-top:100px;}
+
+	.price_box{position:relative;}
+	.fly{font-family:Verdana, 'Noto Sans KR', Sans-Serif;letter-spacing: -4px;font-weight:700;}
+	.fly1{position:absolute;left:50px;top:70px;color:#f84d4e;font-size:36px;}
+	.fly2{position:absolute;left:50px;top:208px;color:#999999;font-size:50px;}
+	.fly3{position:absolute;left:340px;top:204px;color:#585858;font-size:20px;font-weight:400;}
+	.fly4{position:absolute;left:512px;top:208px;color:#f84d4e;font-size:50px;}
+
+	.btn_apply{position:absolute;left:806px;top:182px;}
+	.ico_hand{position:absolute;right:-30px;bottom:-40px;animation: 0.4s slideUpY ease-in-out infinite alternate;}
+    @keyframes slideUpY {
+        0% {
+            -webkit-transform: translate(0,10px);
+            transform: translate(0, 10px);
+        }
+        100% {
+            -webkit-transform: translate(-10px, 0);
+            transform: translate(-10px, 0);
+        }
+    }
+
+	#slide_box{width:100%;padding:70px 0 100px;}
+    #slide_box .swiper-button-prev:after, .swiper-container-rtl .swiper-button-next:after{content:'';display:none;}
+    #slide_box .swiper-button-next:after, .swiper-container-rtl .swiper-button-prev:after{content:'';display:none;}
+
+	.section-reason{background-color:#f7f7f7;}
+	.story_box{position:relative;}
+	.btn_story{position:absolute;left:862px;top:690px;}
+
+
+	.section-tab{background-color:#f7f7f7;padding-bottom:100px;}
+	.tab_list{width:100%;}
+	.tab_list:after{content:'';display:block;clear:both;}
+	.tab_list li{float:left;width:20%;height:80px;line-height:80px;vertical-align:middle;border-left:1px solid #fff;}
+	.tab_list li a{display:block;background-color:#585858;color:#999;font-size:22px;font-family:'Noto Sans KR', Sans-Serif;font-weight:700;border-top-left-radius:5px;border-top-right-radius:5px;}
+	.tab_list li.on a{background-color:#fff;color:#585858;}
+
+	.tab_view{display:none;}
+	.tab_list+.tab_view{display:block;}
+</style>
+
+<div class="product-eco">
+
+    <div style="text-align: center; background-color: #ffe000;">
+		<img src="https://img.eduwill.net//Img2/banner/200729/topBanner_200729.gif" alt="따끈따끈 2020 최신강의 업데이트 중">
+    </div>
+    
+	<div class="fix-box">
+		<a href="javascript:;"><img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/fix-right1.png" alt="" /></a>
+		<a href="javascript:;"><img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/fix-right2.png" alt="" /></a>
+	</div>
+
+	<a href="javascript:;" class="fix-right"><img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/fix-right.png" alt="" /></a>
+
+	<div class="section-title">
+		<div class="wrap">
+			<div class="flag-earlybird" style="position: absolute; top: 115px; left: 50%; margin-left: 570px; z-index: 10;"><img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/banner/ealrybird_banner.png" alt="2020+2021 교재제공 이벤트 중!"></div>
+			<img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/title_200729.png" alt="" />
+		</div>	
+	</div>
+
+	<div class="section-price">
+		<div class="wrap">
+			<div class="price_box">
+				<img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/bg_price_200729.jpg" alt="" />
+	
+				<div class="fly fly1">이 혜택,  @JunsaDay@ 마감</div>
+				<div class="fly fly2">850,000원</div>
+				<div class="fly fly3">10만원 할인 적용</div>
+				<div class="fly fly4">750,000원</div>
+
+				<a href="#sectionApplyTitle" class="page_move btn_apply">
+					<img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/btn_apply.png" alt="" />
+					<span class="ico_hand"><img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/ico_hand.png" alt="" /></span>
+				</a>
+
+			</div>
+		</div>	
+	</div>
+
+	<div class="section-winner">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/tit_winner.jpg" alt="" />
+			<img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/img_winner.jpg" alt="" />
+			<div id="slide_box" class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/img_slide1.png" alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/img_slide2.png" alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/img_slide3.png" alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/img_slide4.png" alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/img_slide5.png" alt="" />
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/img_slide6.png" alt="" />
+                    </div>
+                </div>
+                <div class="swiper-button-next"> <img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/btn_next.png" alt="" /></div>
+                <div class="swiper-button-prev"> <img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/btn_prev.png" alt="" /></div>
+            </div>
+		</div>	
+	</div>
+
+
+	<div class="section-reason">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/img_reason.jpg" alt="" />
+		</div>	
+	</div>
+
+	<div class="section-offer">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/img_item1_200729.jpg" alt="" />
+			<img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/img_item2_200729.jpg" alt="" />
+			<img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/img_item3.jpg" alt="" />
+			<div class="story_box">
+				<img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/img_item4.jpg" alt="" />
+				<a href="https://event.eduwill.net/Event/2020/A/NewPasser_200204" target="_blank" class="btn_story"><img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/btn_story.png" alt="" /></a>
+			</div>
+		</div>	
+	</div>
+
+	<div class="section-tab">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/tit_tab.jpg" alt="" />
+			<div class="tab_box">
+				<ul class="tab_list">
+					<li class="on"><a href="javascript:;">김지원 교수</a></li>
+					<li><a href="javascript:;">김용철 교수</a> </li>
+					<li><a href="javascript:;">남진우 교수</a></li>
+					<li><a href="javascript:;">이상기 교수</a> </li>
+					<li><a href="javascript:;">이준희 교수</a></li>
+				</ul>
+				<div class="tab_view"><img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/tab_view1.jpg" alt="" /></div>
+				<div class="tab_view"><img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/tab_view2.jpg" alt="" /></div>
+				<div class="tab_view"><img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/tab_view3.jpg" alt="" /></div>
+				<div class="tab_view"><img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/tab_view4.jpg" alt="" /></div>
+				<div class="tab_view"><img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/tab_view5.jpg" alt="" /></div>
+			</div>
+		</div>	
+	</div>
+
+
+	<div class="section-offer">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/img_offer1.jpg" alt="" />
+			<img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/img_offer2_200729.jpg" alt="" />
+		</div>	
+	</div>
+
+	<div class="section-apply-title" id="sectionApplyTitle">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/aHaengjung/product/event_new/200316/pc/tit_apply.jpg" alt="" />
+		</div>
+	</div>
+
+</div>
+
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/dev/js/greensock/TweenMax.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/swiper/swiper.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		create();
+		addEvent();
+	});
+
+	var _w;
+
+	function create(){
+		_w = $(window);
+
+	}
+
+	function addEvent(){
+		scrollListener( null );
+		_w.on( "scroll", scrollListener );
+
+		$(".tab_list").children("li").on("click", function(){
+            var idx = $(this).index();
+            tabControl(idx);
+        });
+		       
+		new Swiper('#slide_box', {
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+			loop: true,
+			centeredSlides: true,
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+		});
+        
+
+	}
+
+	function scrollListener( $e ){
+		var sT = _w.scrollTop();
+		if(sT > $(".section-title").height()){
+			$(".fix-box").hide();
+			$(".fix-right").fadeIn();
+		}else{
+			$(".fix-box").fadeIn();
+			$(".fix-right").hide();
+		}
+	}
+
+	function tabControl(idx){
+		var tabList = $(".tab_list").children("li");
+		tabList.removeClass("on");
+		tabList.eq(idx).addClass("on");
+			
+		$(".tab_view").hide();
+		$(".tab_view").eq(idx).show();
+	}
+
+</script>
+
+</body>
+</html>

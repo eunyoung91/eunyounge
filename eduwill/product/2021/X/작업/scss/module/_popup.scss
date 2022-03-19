@@ -1,0 +1,224 @@
+.popup-dim {
+    display: none;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9990;
+    background-color: rgba(0, 0, 0, .7);
+}
+
+.popup {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 9999;
+    display: none;
+    width: 90%;
+    max-width: 720px;
+    letter-spacing: -1px;
+    @include translateX(-50%);
+    @include boxSizing(border-box);
+    @include breakpoint(desktop){
+    max-width: 1000px;
+    }
+	
+    * { font-family: $font-noto; }
+    .popup-close {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        @include closeButton(#000, 20px, 2px, #fff);
+        cursor: pointer;
+        span { @extend .sr-only; }
+    }
+    .popup-body {
+        @include rem(padding, 25px);
+        text-align: left;
+        line-height: 1.4;
+        @include vw(font-size,18px);
+        font-weight: 400;
+        color: #222;
+        background-color: #fff;
+        & > div {
+            margin-top: 20px;
+            &:first-child { margin-top: 0; }
+        }
+        div:first-child strong { margin-top: 0; }
+        p { @include vw(font-size,16px); }
+        strong {
+            display: block;
+            @include rem(margin-top, 20px);
+            @include vw(font-size,18px);
+        }
+    }
+    &.popup-base {
+        .popup-body {
+            @include rem(max-height, 600px);
+            overflow-y: auto;
+        }
+    }
+	&.popup-teacher {
+        @include breakpoint(desktop){
+            max-width: 1000px;
+        }
+        .popup-body {
+            @include rem(max-height, 600px);
+            overflow-y: auto;
+            .teacher-core {
+                @include rem(margin-top, 40px);
+            }
+            .teacher-ace,
+            .teacher-core {
+                color: #222;
+                @include breakpoint(desktop){
+                    display: inline-block;
+                    width: 48%;
+                    margin-top: 0;
+                    vertical-align: top;
+                }
+            }
+            .teacher-title {
+                @include vw(font-size,22px);
+                font-weight: 900;
+                span { color: #ffd219; }
+            }
+            .teacher-name {
+                @include rem(margin-top, 20px);
+                @include vw(font-size,21px);
+                font-weight: 700;
+            }
+            .teacher-profile {
+                @include rem(margin-top, 20px);
+                @include vw(font-size,20px);
+                font-weight: 500;
+            }
+            .teacher-profile-list {
+                @include rem(margin-top, 10px);
+                @include vw(font-size,18px);
+                font-weight: 300;
+            }
+        }
+        .popup-close {
+            top: -30px;
+            right: 0;
+            @include breakpoint(desktop){
+                top: -40px;
+            }
+        }
+    }
+}
+.eco-base-text {
+    display: none;
+    line-height: 1.5;
+    @include vw(font-size,20px);
+    font-weight: 400;
+    color: #222;
+    letter-spacing: -1px;
+    @include breakpoint(desktop){
+        font-size: 14px;
+    }
+}
+/*전산팝업*/
+.eco-1718 p {
+    @extend .eco-base-text;
+    #popupBase .base-1 &.datalab-2,
+    #popupBase .base-2 &.brand,
+    #popupBase .base-3 &.book-1,
+    #popupBase .base-3 &.book-2,
+    #popupBase .base-3 &.book-3,
+    #popupBase .base-3 &.book-4,
+    #popupBase .base-3 &.book-5,
+    #popupBase .base-4 &.teacher-1,
+    #popupBase .base-4 &.teacher-2,
+    #popupBase .base-4 &.teacher-3,
+    #popupBase .base-4 &.teacher-4,
+    #popupBase .base-4 &.teacher-5,
+    #popupBase .base-4 &.teacher-6,
+    #popupBase .base-4 &.teacher-7,
+    #popupBase .base-4 &.teacher-8,
+    #popupBase .base-4 &.teacher-9,
+	#popupBase .base-4 &.teacher-10,
+	#popupBase .base-4 &.teacher-11,
+	#popupBase .base-4 &.teacher-12,
+	#popupBase .base-4 &.teacher-13,
+	#popupBase .base-4 &.teacher-14,
+    #popupBase .base-5 &.compare-2,
+    #popupBase .base-6 &.service-2,
+    #popupBase .base-7 &.prize-2,
+    #popupBase .base-8 &.survey-3,
+    #popupBase .base-9 &.product,
+    #popupBase .base-10 &.brand2019,
+    #popupBase .base-10 &.brand2020,
+    #popupBase .base-10 &.brand,
+    #popupBase .base-11 &.datalab-3,
+    .popup-curriculum &.brand {
+        display: block;
+        span { display: block; }
+    }
+    .popup-curriculum &.brand {
+        @include vw(font-size,14px);
+    }
+}
+/*재경팝업*/
+.eco-3222 p {
+    @extend .eco-base-text;
+    #popupBase & { display: block; }
+	&.search,
+	&.datalab{display: none !important}
+}
+/*ERP팝업*/
+.eco-1992 p {
+    @extend .eco-base-text;
+    #popupBase .base-1 &.datalab4,
+    #popupBase .base-2 &.brand,
+    #popupBase .base-3 &.book1,
+    #popupBase .base-3 &.book2,
+    #popupBase .base-3 &.book3,
+    #popupBase .base-3 &.book4,
+    #popupBase .base-3 &.book5,
+    #popupBase .base-3 &.book6,
+    #popupBase .base-4 &.survey3,
+    #popupBase .base-4 &.survey4,
+    #popupBase .base-4 &.survey5,
+    #popupBase .base-4 &.survey6,
+    #popupBase .base-5 &.survey7,
+    #popupBase .base-6 &.prize2,
+    #popupTeacher1 &.ysg1,
+    #popupTeacher1 &.ysg2,
+    #popupTeacher1 &.ysg3,
+    #popupTeacher2 &.bmj1,
+    #popupTeacher2 &.bmj2,
+    #popupTeacher2 &.bmj3 {
+        display: block;
+    }
+}
+/*한매팝업*/
+.eco-3475 p {
+    @extend .eco-base-text;
+    #popupBase .base-1 &.brand1,
+    #popupBase .base-2 &.brand2,
+    #popupBase .base-3 &.book1,
+    #popupBase .base-3 &.book2,
+    #popupBase .base-4 &.sks1,
+    #popupBase .base-4 &.sks2,
+    #popupBase .base-4 &.jph1,
+    #popupBase .base-4 &.jph2,
+    #popupBase .base-4 &.ljh1,
+    #popupBase .base-5 &.rate1,
+    #popupBase .base-6 &.prize1 {
+        display: block;
+        span { display: block; }
+    }
+}
+/*한국사*/
+.eco-3514 p{
+	color:#333 !important;
+	font-family: $font-noto;
+}
+
+
+

@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="content-language" content="kr" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<title>독한에듀윌 2.0</title>
+<link rel="stylesheet" type="text/css" href="http://img.eduwill.net/resources/dokhan/dev/common/js/bxslider/jquery.bxslider.css" /><!-- bxSlider CSS file -->
+<link rel="stylesheet" type="text/css" href="http://img.eduwill.net/resources/dokhan/dev/web/css/common.css" />
+<link rel="stylesheet" type="text/css" href="http://img.eduwill.net/resources/dokhan/dev/web/css/ui_style.css" />
+<link rel="stylesheet" type="text/css" href="http://img.eduwill.net/resources/dokhan/dev/web/css/jquery-ui.css" />
+
+<script type="text/javascript" src="http://img.eduwill.net/resources/dokhan/live/common/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="http://img.eduwill.net/resources/dokhan/live/common/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://img.eduwill.net/resources/dokhan/live/common/js/bxslider/jquery.bxslider.min.js"></script><!-- bxSlider Javascript file -->
+<script type="text/javascript" src="http://img.eduwill.net/resources/dokhan/live/web/js/frontui.js"></script>
+<script type="text/javascript" src="http://img.eduwill.net/resources/dokhan/live/web/js/ie-checker.js"></script>
+<script type="text/javascript">
+	$(function(){
+		// 슬라이드
+		slider = $('#slider').bxSlider({
+			auto:true,
+			mode:'fade',
+			pause:5000,
+			speed:500,
+			pager:false,
+			controls:false,
+			autoStart:true,
+			autoControls:false,
+			onSliderLoad: function() {
+				$('.bar').css({"width":"0px"});
+				$('.bar').stop().animate({"width":"100%"},5000);
+			},
+			onSlideBefore: function ($slideElement, oldIndex, newIndex) {
+				$('.bar').css({"width":"0px"});
+				if(oldIndex==0){
+					$('.bar').stop().animate({"width":"100%"},5000);
+				}else{
+					$('.bar').css({"width":"0px"});
+				}
+				if(oldIndex==1){
+					$('.bar').stop().animate({"width":"100%"},5000);
+				}else{
+					$('.bar').css({"width":"0px"});
+				}
+				if(oldIndex==2){
+					$('.bar').stop().animate({"width":"100%"},5000);
+				}else{
+					$('.bar').css({"width":"0px"});
+				}
+				if(oldIndex==3){
+					$('.bar').stop().animate({"width":"100%"},5000);
+				}else{
+					$('.bar').css({"width":"0px"});
+				}
+				if(oldIndex==4){
+					$('.bar').stop().animate({"width":"100%"},5000);
+				}else{
+					$('.bar').css({"width":"0px"});
+				}
+				slider.startAuto();
+			}
+		});
+
+		$('.btn_apply').each(function(i){
+			$(this).mouseenter(function(){
+				$(this).find('.square').animate({
+					width: '100%'
+				}, 400);
+				$(this).find('span').animate({
+					'border-color' : '#c00322'
+				}, 400);
+			});
+
+			$(this).mouseleave(function(){
+				$(this).find('.square').animate({
+					width: '0'
+				}, 400);
+				$(this).find('span').animate({
+					'border-color' : '#fff'
+				}, 400);
+			});
+		});
+
+	});
+</script>
+
+</head>
+
+<body class="main"><!-- 메인페이지 body에 main클래스 추가 -->
+<div id="wrap">
+	<div id="header" class=""><!-- 마우스오버 시 헤더에 on클래스 추가, 마우스아웃 시 on 클래스 제거 -->
+		<div class="inner">
+			<h1>독한에듀윌 2.0 <a href="#" class="fb"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_fb_off.png" alt="페이스북공유하기" /></a></h1>
+			<ul class="toplink">
+				<li><a href="#">나의강의실</a></li>
+				<li><a href="#">수험정보</a></li>
+				<li><a href="#">학습자료실</a></li>
+				<li><a href="#">고객상담실</a></li>
+				<li><a href="#" class="btn_member">로그아웃</a></li>
+			</ul>
+			<div id="gnb">
+				<ul class="gnb_menu">
+					<li class="depth01">
+						<a href="#"><span>독한소개</span> <span class="gnb_bar"></span></a>
+						<ul class="snb">
+							<li><a href="#">독한소개</a></li>
+						</ul>
+					</li>
+					<li class="depth02">
+						<a href="#"><span>독한계획</span> <span class="gnb_bar"></span></a>
+						<ul class="snb">
+							<li><a href="#">신청하기</a></li>
+							<li><a href="#">독한학습플랜</a></li>
+						</ul>
+					</li>
+					<li class="depth03">
+						<a href="#"><span>독한관리</span> <span class="gnb_bar"></span></a>
+						<ul class="snb">
+							<li><a href="#">관리설정</a></li>
+							<li><a href="#">1:1 학습고민 상담</a></li>
+						</ul>
+					</li>
+					<li class="depth04">
+						<a href="#"><span>독한수강</span> <span class="gnb_bar"></span></a>
+						<ul class="snb">
+							<li><a href="#">독한모드</a></li>
+							<li><a href="#">독한무료특강</a></li>
+						</ul>
+					</li>
+					<li class="depth05">
+						<a href="#"><span>독한경쟁</span> <span class="gnb_bar"></span></a>
+						<ul class="snb">
+							<li><a href="#">경쟁모드/랭킹</a></li>
+							<li><a href="depth05/quiz01.html">기상퀴즈</a></li>
+							<li><a href="depth05/quiz02.html">기출퀴즈</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="bgBlack"></div>
+	</div>
+	
+	<div id="visual">
+		<div class="visual_con">
+			<ul class="bxslider" id="slider">
+				<li class="scon01">
+					<div class="visual_wrap">
+						<div class="m_smalltxt">
+							스스로에 한계를 두지마라.<br />
+							Don't put a ceiling on yourself.
+						</div>
+						<div class="m_group">
+							<div class="m_title01">
+								합격을 만드는 새로운 변화의 시작
+								<div class="title_a">나의 <span>시간은</span> 독하다</div>
+								<div class="loading"><span class="bar"></span></div>
+							</div>
+				
+							<div class="m_btn_set">
+								<dl>
+									<dt>온라인 학습관리 사상 가장 혁신적인 시스템</dt>
+									<dd>대상 : 독한 학습관리가 필요한 유료 수강생</dd>
+								</dl>
+								<a href="javascript:void(0);" class="btn_apply" id="btnPledge"><span>신청하기</span><em class="square"></em></a>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li class="scon02">
+					<div class="visual_wrap">
+						<div class="m_smalltxt">
+							스스로에 한계를 두지마라.<br />
+							Don't put a ceiling on yourself.
+						</div>
+						<div class="m_group">
+							<div class="m_title01">
+								합격을 만드는 새로운 변화의 시작
+								<div class="title_a">나의 <span>마인드는</span> 독하다</div>
+								<div class="loading"><span class="bar"></span></div>
+							</div>
+				
+							<div class="m_btn_set">
+								<dl>
+									<dt>온라인 학습관리 사상 가장 혁신적인 시스템</dt>
+									<dd>대상 : 독한 학습관리가 필요한 유료 수강생</dd>
+								</dl>
+								<a href="javascript:void(0);" class="btn_apply" id="btnPledge"><span>신청하기</span><em class="square"></em></a>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li class="scon03">
+					<div class="visual_wrap">
+						<div class="m_smalltxt">
+							스스로에 한계를 두지마라.<br />
+							Don't put a ceiling on yourself.
+						</div>
+						<div class="m_group">
+							<div class="m_title01">
+								합격을 만드는 새로운 변화의 시작
+								<div class="title_a">나의 <span>학습은</span> 독하다</div>
+								<div class="loading"><span class="bar"></span></div>
+							</div>
+				
+							<div class="m_btn_set">
+								<dl>
+									<dt>온라인 학습관리 사상 가장 혁신적인 시스템</dt>
+									<dd>대상 : 독한 학습관리가 필요한 유료 수강생</dd>
+								</dl>
+								<a href="javascript:void(0);" class="btn_apply" id="btnPledge"><span>신청하기</span><em class="square"></em></a>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li class="scon04">
+					<div class="visual_wrap">
+						<div class="m_smalltxt">
+							스스로에 한계를 두지마라.<br />
+							Don't put a ceiling on yourself.
+						</div>
+						<div class="m_group">
+							<div class="m_title01">
+								합격을 만드는 새로운 변화의 시작
+								<div class="title_a">나의 <span>경쟁은</span> 독하다</div>
+								<div class="loading"><span class="bar"></span></div>
+							</div>
+				
+							<div class="m_btn_set">
+								<dl>
+									<dt>온라인 학습관리 사상 가장 혁신적인 시스템</dt>
+									<dd>대상 : 독한 학습관리가 필요한 유료 수강생</dd>
+								</dl>
+								<a href="javascript:void(0);" class="btn_apply" id="btnPledge"><span>신청하기</span><em class="square"></em></a>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li class="scon05">
+					<div class="visual_wrap">
+						<div class="m_smalltxt">
+							스스로에 한계를 두지마라.<br />
+							Don't put a ceiling on yourself.
+						</div>
+						<div class="m_group">
+							<div class="m_title01">
+								합격을 만드는 새로운 변화의 시작
+								<div class="title_a">나의 <span>목표는</span> 독하다</div>
+								<div class="loading"><span class="bar"></span></div>
+							</div>
+				
+							<div class="m_btn_set">
+								<dl>
+									<dt>온라인 학습관리 사상 가장 혁신적인 시스템</dt>
+									<dd>대상 : 독한 학습관리가 필요한 유료 수강생</dd>
+								</dl>
+								<a href="javascript:void(0);" class="btn_apply" id="btnPledge"><span>신청하기</span><em class="square"></em></a>
+							</div>
+						</div>
+					</div>
+				</li>
+				<!-- // 독한소개 슬라이드내용 -->
+			</ul>
+		</div>
+	</div>
+
+	<div class="contents">
+		<!-- s: 독한서약서 레이어 -->
+		<div id="dokhnaPledge" class="oath_layer" style="display:none;">
+			<form id="pledgeForm">
+				<input type="hidden" name="masterNo" id="masterNo" value="1">
+				<input type="hidden" name="userType" id="userType" value="">
+				<div class="oath_top">
+					<div class="o_title"><u>독한 서약서</u></div>
+					<div class="o_txt">
+						본인 <strong></strong>은(는)<br>
+						
+						9급공무원 시험에 합격할 때 까지
+						<ol>
+							<li>1. 매일 독한에듀윌의 기상알림을 받자마자 일어나서</li>
+							<li>2. 기상퀴즈를 성실히 풀겠으며,</li>
+							<li>3. 학습관리 전문가가 설계한 학습계획에 따라 열심히 공부하겠습니다.</li>
+							<li>4. 강제 집중할 수 있는 독한모드로 열심히 강의를 듣고,</li>
+							<li>5. 매일 빠뜨리지 않고 기출퀴즈를 풀며 익히도록 하겠습니다.</li>
+						</ol>
+					</div>
+				</div>
+			
+				<div class="setting_form">
+					<ul>
+						<li class="form_name">
+							<dl>
+								<dt><label for="set_name">이름</label></dt>
+								<dd><input id="userName" name="userName" type="text" value="" readonly=""></dd>
+							</dl>
+						</li>
+						
+						<li class="form_phone">
+							<dl>
+								<dt><label for="set_phone">휴대폰번호</label></dt>
+								<dd>
+									<input type="text" id="hp1" name="hp1" value="" maxlength="3">
+									<span>-</span>
+									<input type="text" id="hp2" name="hp2" value="" maxlength="4">
+									<span>-</span>
+									<input type="text" id="hp3" name="hp3" value="" maxlength="4">
+								</dd>
+							</dl>
+						</li>
+						
+						<li class="form_sms_agree">
+							<ul>
+								<li>
+									<strong>SMS 수신동의</strong>
+									<input type="radio" name="smsYn" id="smsAgree1" value="Y" checked="">
+									<label for="smsAgree1">수신허용</label>
+									<input type="radio" name="smsYn" id="smsAgree2" value="N">
+									<label for="smsAgree2">수신거부</label>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<p>※ 휴대폰 번호가 정확한지 확인해주세요.<br>　 휴대폰 번호로 이벤트 당첨 시 경품이 전송됩니다.</p>
+					<a href="javascript:void(0);" class="btn_a" onclick="joinDokhan();">신청하기</a>
+				</div>
+			
+				<div class="layer_bottom">
+					<div class="app_txt">
+						기상알림, 독려알림, 나의 학습계획 알림은<br>독한에듀윌 독한합격앱 푸시로 발송됩니다.<br>
+						<span>(독한합격앱 설치 후, 로그인 하지 않을 경우 알림 수신이<br>불가능합니다.)</span>
+					</div>
+				</div>
+				<a href="javascript:void(0);" class="close_layer" onclick="hide('pledge');"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/btn_close_layer02.png" alt="닫기"></a>
+			</form>
+		</div>
+		<!-- e : 독한서약서 레이어 -->
+
+		<!-- s : 신청완료 레이어 -->
+		<div id="dokhnaPledgeOK" class="oath_layer finish" style="display:none;">
+			<div class="oath_top">
+				<div class="o_title"><u>더 독해져라!</u></div>
+				<div class="o_txt">
+					독한에듀윌 2.0 신청이 완료되었습니다.
+					<p>
+						여러분이 결심했던 그 초심을 잃지 않도록,<br>
+						매일 목표 이상의 학습량을 달성할 수 있도록,<br>
+						합격을 위해서라면 학습 계획부터 시간/학습/마인드까지<br>
+						<strong class="red">이제는 더 독해져야 합니다.</strong><br><br>
+						여러분이 시험에 합격하는 그날까지<br>
+						독한에듀윌과 함께 독하게 학습해주시기 바랍니다.
+					</p>
+					<div class="alc">
+						<a href="/web/plan/index.will" class="btn_a">학습계획 선택하기</a>
+					</div>
+				</div>
+			</div>
+			<a href="javascript:void(0);" class="close_layer" onclick="javascript:document.location.reload();"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/btn_close_layer02.png" alt="닫기"></a>
+		</div>
+		<!-- e : 신청완료 레이어 -->
+
+		<!-- s : 독한에듀윌 학습중인 사람 수 -->
+		<div class="used_person">
+			<strong>8,155</strong> 명의 경쟁자들이 독하게 학습 중입니다.
+		</div>
+		<!-- e : 독한에듀윌 학습중인 사람 수 -->
+
+		<!-- s : 독한소개 퀵메뉴 -->
+		<div class="fixQuick" style="display: block; top: 350px;">
+			<div class="dday">
+				<ul>
+					<li>
+						<span><p>2019 공무원 국가직 시험일정</p></span>
+						<strong>D - 47</strong>
+					</li>
+				
+					<li>
+						<span><p>2019 공무원 서울시(추가) 시험일정</p></span>
+						<strong>D - 5</strong>
+					</li>
+				
+					<li>
+						<span><p>2019 공무원 법원직 시험일정</p></span>
+						<strong>D - 5</strong>
+					</li>
+				</ul>
+			</div>
+			
+			<dl>
+				<dt>독한에듀윌 2.0</dt>
+				<dd>
+					<ul>
+						<li class="apply"><a href="javascript:documentVerticalMove('dhApply',70);"><span>신청하기</span></a></li>
+						<li><a href="javascript:documentVerticalMove('dhPlan',70);"><span>독한계획</span></a></li>
+						<li><a href="javascript:documentVerticalMove('dhManage',10);"><span>독한관리</span></a></li>
+						<li><a href="javascript:documentVerticalMove('dhSugang',20);"><span>독한수강</span></a></li>
+						<li><a href="javascript:documentVerticalMove('dhCompetition',20);"><span>독한경쟁</span></a></li>
+					</ul>
+				</dd>
+				<dd class="top"><a href="javascript:documentVerticalMove('wrap', 0);"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/btn_top.png" alt="TOP"></a></dd>
+			</dl>
+		</div>
+		<!-- e : 독한소개 퀵메뉴 -->
+
+		<div class="intro_section intro01">
+			<img src="https://img.eduwill.net/resources/dokhan/live/web/image/Gov2/item01.png" alt="시행착오 없이 한 번에 합격하라! 합격으로 검증된 독한에듀윌 ">
+		</div>
+		<div class="intro_section intro02">
+			<img src="https://img.eduwill.net/resources/dokhan/live/web/image/Gov2/item02.png" alt="이제 온라인에서도! 에듀윌의 프리미엄 학습관리를 받을 수 있습니다.">
+		</div>
+
+		<div class="intro_section intro08">
+			<div class="intro_con">
+				<img src="https://img.eduwill.net/resources/dokhan/live/web/image/170317/intro08_title.png" alt="24시간 학습 경쟁이 시작된다!">
+				<div class="menu">
+					<dl>
+						<dt>온라인 학습관리 서비스</dt>
+						<dd>에듀윌 수강생이면 누구나! 무료로! 누릴 수 있는 혜택</dd>
+					</dl>
+					<ul>
+						<li>
+							<a href="#"><span>독한계획</span></a>
+							<ul>
+								<li><a href="#">맞춤형 학습계획</a></li>
+								<li><a href="#">나의 학습 현황</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#"><span>독한관리</span></a>
+							<ul>
+								<li><a href="#">기상알림</a></li>
+								<li><a href="#">독려알림</a></li>
+								<li><a href="#">1:1 학습상담</a></li>
+								<li><a href="#">독한반 교수상담</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#"><span>독한수강</span></a>
+							<ul>
+								<li><a href="#">독한모드 플레이어</a></li>
+								<li><a href="#">전체 수강 현황</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#"><span>독한경쟁</span></a>
+							<ul>
+								<li><a href="#">기상퀴즈</a></li>
+								<li><a href="#">기출퀴즈</a></li>
+								<li><a href="#">나의경쟁</a></li>
+								
+									<li><a href="#">기수경쟁</a></li>
+								
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<!-- s : 독한계획 영역 -->
+		<div id="dhPlan" class="intro_section slide">
+			<div class="intro_con">
+				<img src="https://img.eduwill.net/resources/dokhan/live/web/image/170317/slide_title.png" alt="독한계획 합격은 철저한 계획에서 시작된다! 검증된 학습 계획도 없이 그냥 강의만 듣는다? 학습관리 전문가가 설계한 맞춤형 학습 계획과 단계별 학습 노하우를 제공합니다. 더불어, 기간별·과목별 학습 성과를 파악하여 효율적인 학습이 가능하도록 도와드립니다.">
+				<div class="slide_con">
+					<ul id="slider2" class="bxslider">
+						<li class="slide01"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/Gov2/slide01.png" alt="학습관리 전문가의 맞춤형 학습계획 제공"></li>
+						<li class="slide02"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/Gov2/slide02.png" alt="나에게 맞는 학습 계획 유형 선택"></li>
+						<li class="slide03"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/Gov2/slide03.png" alt="오늘의 학습 계획에 따라 학습"></li>
+						<li class="slide04"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/Gov2/slide04.png" alt="학습 완료 알림 및 학습 달성률 체크"></li>
+						<li class="slide05"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/Gov2/slide05.png" alt="나의 학습 결과 확인"></li>
+					</ul>
+					<div id="pager" class="bx-pager">
+						<a data-slide-index="0" class="bx-pager01" href=""><span class="bx_thumb01"></span></a>
+						<a data-slide-index="1" class="bx-pager02" href=""><span class="bx_thumb02"></span></a>
+						<a data-slide-index="2" class="bx-pager03" href=""><span class="bx_thumb03"></span></a>
+						<a data-slide-index="3" class="bx-pager04" href=""><span class="bx_thumb04"></span></a>
+						<a data-slide-index="4" class="bx-pager05" href=""><span class="bx_thumb05"></span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- e : 독한계획 영역 -->
+
+		<!-- s : 독한관리 영역 -->
+		<div id="dhManage" class="intro_section intro05">
+			<div class="intro_con">
+				<img src="https://img.eduwill.net/resources/dokhan/live/web/image/170317/item05_title.gif" alt="독한관리 학습부터 마인드까지 독하게 관리한다!">
+				<div class="psh_slide">
+					<div class="bx-wrapper" style="max-width: 100%;">
+						<ul id="slider3" class="bxslider">
+							<li><img src="https://img.eduwill.net/resources/dokhan/live/web/image/item05_psh01.gif" alt=""></li>
+							<li><img src="https://img.eduwill.net/resources/dokhan/live/web/image/item05_psh02.gif" alt=""></li>
+							<li><img src="https://img.eduwill.net/resources/dokhan/live/web/image/item05_psh03.gif" alt=""></li>
+						</ul>
+					</div>
+					<div id="pager2" class="bx-pager">
+						<a data-slide-index="0" class="bx-pager01" href=""><span class="bx_thumb01"></span></a>
+						<a data-slide-index="1" class="bx-pager02" href=""><span class="bx_thumb02"></span></a>
+						<a data-slide-index="2" class="bx-pager03" href=""><span class="bx_thumb03"></span></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- e : 독한관리 영역 -->
+
+		<!-- s : 독한수강 영역 -->
+		<div id="dhSugang" class="intro_section intro06">
+			<div class="intro_con">
+				<img src="https://img.eduwill.net/resources/dokhan/live/web/image/170317/item06_title.png" alt="독한수강 온라인 강의도&nbsp;독하게&nbsp;강제&nbsp;집중한다! 딴짓하기 참~좋은 ‘인강’  잠깐만 방심해도 무너지는 집중력. 독한모드로 수강하면  방심은 No! 집중력은 UP! 제대로 몰입할 수 있는 학습환경을 제공하여 여러분의 학습 효율을 최상으로 끌어올릴 수 있습니다.">
+				<div class="sugang_slide">
+					<!-- <a href="#" class="btn_mode01"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/btn_mode01.gif" alt="독한모드로 열심히 공부하면?"></a> -->
+					<img src="https://img.eduwill.net/resources/dokhan/live/web/image/Gov2/item06_img01.png" alt="">
+				</div>
+				<div class="sugang_gift">
+					<a href="#" class="btn_mode02"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/btn_mode02.gif" alt="독한모드 자세히보기"></a>
+					<p><img src="https://img.eduwill.net/resources/dokhan/live/web/image/item06_img02.png" alt=""></p>
+					<!-- <img src="https://img.eduwill.net/resources/dokhan/live/web/image/gift.gif" alt=""> -->
+				</div>
+			</div>
+		</div>
+		<!-- e : 독한수강 영역 -->
+
+		<!-- s : 독한경쟁 영역 -->
+		<div id="dhCompetition" class="intro_section intro07">
+			<div class="intro_con">
+				<img src="https://img.eduwill.net/resources/dokhan/live/web/image/170317/item07_title.png" alt="독한경쟁 합격까지 모든 것이 경쟁이다!">
+				<div class="slide_con">
+					<div id="pager3" class="bx-pager m3">
+						<a data-slide-index="0" class="bx-pager01" href=""><span class="bx_thumb01">기상/기출퀴즈</span></a>
+						<a data-slide-index="1" class="bx-pager03 " href=""><span class="bx_thumb03">나의경쟁</span></a>
+						<a data-slide-index="2" class="bx-pager04" href=""><span class="bx_thumb04">기수경쟁</span></a>
+					</div>
+					<ul id="slider4" class="bxslider">
+						<li class="slide01"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/Gov2/slide04_01_190218.jpg" alt="기상/기출퀴즈"></li>
+						<li class="slide02"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/Gov2/slide04_03.jpg" alt="나의경쟁"></li>
+						<li class="slide03"><a href="http://www.eduwill.net/Gov2/promotion/161201/index.asp" target="_blank"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/Gov2/slide04_04.jpg" alt="기수경쟁"></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- e : 독한경쟁 영역 -->
+
+		<!-- s : 독한신청 영역 -->
+		<div class="intro_section apply">
+			<a id="dhApply"></a>
+			<img src="https://img.eduwill.net/resources/dokhan/live/web/image/apply_img.jpg" alt="언제 어디서나 200% 활용 PC와 모바일로 독하게 학습한다!">
+			<div class="applybtn">
+				<dl>
+					<dt>시간낭비 하지 말고, 지금 시작하라!</dt>
+					<dd>에듀윌 유료 수강생이라면 누구나 독한에듀윌을 무료로 이용할 수 있습니다.<br>
+						독하게 공부할 각오가 되어 있는 분이라면 독한 서약서를 작성해주세요.</dd>
+				</dl>
+				<a href="javascript:void(0);" id="btnPledge"><span>독한에듀윌 신청</span><em class="square"></em></a>
+			</div>
+		</div>
+		<!-- e : 독한신청 영역 -->
+
+		<!-- s : 독한 상품배너 및 FAQ 영역 -->
+		<div class="service_title"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/service_title.gif" alt="독한에듀윌 이용방법 독한에듀윌은 수강생에게만 제공되는 프리미엄 서비스 입니다."></div>
+		<div class="banner_list">
+			<div data-eduwill-eco-content="45"><a href="https://gov.eduwill.net/Common/Product/goods/auto/index.asp?masterSeq=NTM1Mw==" target="_blank"><img src="http://img.eduwill.net/Img2/Gov2/promotion/180928/ebn_full.jpg"></a><iframe src="https://img.eduwill.net/resources/eco/eco_log_collect.html?contentId=45" width="0" height="0" frameborder="0" style="width:0px;height:0px;display: block;"></iframe></div> <!-- 상품배너 ECO 콘텐츠로 변경 by 송현주 2017-08-25 -->
+		</div>
+
+		<div id="dhProductFAQ" class="service_section">
+			<div class="faq_section">
+				<div class="faq_title01"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/faq_title01.gif" alt="더 궁금한 점이 있다면?"></div>
+				<a href="#" class="collapse_open"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/btn_collapse_open.gif" alt="Faq 펼쳐보기"></a>
+				
+				<div class="faq_list">
+					<div class="faq_title02"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/faq_title02.gif" alt="독한에듀윌 FAQ"></div>
+					<div class="faq_tab">
+						<ul>
+							<li class="on"><a href="#faq01">신청 및 탈퇴</a></li>
+							<li><a href="#faq02">알림 서비스</a></li>
+							<li><a href="#faq03">독한모드</a></li>
+							<li><a href="#faq04">출석/퀴즈</a></li>
+						</ul>
+					</div>
+					<div id="faq01" class="faq_con">
+						<div class="faq_title03">
+							<u>신청 및 탈퇴</u>
+						</div>
+						<dl>
+							<dt>독한에듀윌 가입 조건은 어떻게 되나요?</dt>
+							<dd>결재 내역이 있는 유료 회원만 신청 가능합니다.</dd>
+							
+							<dt>가입만 하면 모든 서비스를 바로 이용할 수 있나요?</dt>
+							<dd>가입 즉시 모든 서비스 이용이 가능합니다.<br>
+								<span>※ 단, 독한계획은 학습계획 선택 후 익일부터 이용이 가능합니다.<br>
+								알림 서비스는 독한합격앱 설치 및 로그인 후 수신이 가능하며, 익일부터 발송 됩니다.<br>
+								스마트폰에 독한합격앱 어플 수신거부가 되어 있을 경우, 알림이 발송되지 않습니다. 
+								<a href="//studyapp.eduwill.net" target="_blank"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/btn_app.gif" alt="독한합격앱 설치"></a>
+								</span>
+							</dd>
+							
+								<dt>이전 독한에듀윌 이용자는 자동으로 가입되나요? 새로 가입해야 하나요?</dt>
+								<dd>2016년 12월 1일 기준, 각 과정(9급, 경찰) 수강중인 기존 회원은 자동 가입됩니다.<br>
+									<span>단, 학원 수강생의 경우 자동 가입되지 않으므로 고객센터로 요청해주시기 바랍니다.</span>
+								</dd>
+							
+						</dl>
+					</div>
+					<div id="faq02" class="faq_con">
+						<div class="faq_title03">
+							<u>알림 서비스</u>
+						</div>
+						<dl>
+							
+								<dt>기상문자가 오지 않습니다.</dt>
+								<dd>2016년 12월 1일 이후로, 기상 SMS 문자 서비스가 종료 되었습니다.<br>
+									<span>독한에듀윌 2.0 서비스에서는 독한합격앱 어플에서 “독한에듀윌 푸시 알림”으로 발송됩니다.
+									 <a href="//studyapp.eduwill.net" target="_blank"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/btn_app.gif" alt="독한합격앱 설치"></a>
+									</span>
+								</dd>
+							
+							<dt>기상알림이 오지 않습니다. 알림 수신 방법은 무엇인가요?</dt>
+							<dd>독한에듀윌 독한합격앱 「알림 수신」&nbsp;방법<br>
+								<span>
+									① 스마트폰에서 독한합격앱 어플을 설치합니다.  <a href="//studyapp.eduwill.net" target="_blank"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/btn_app.gif" alt="독한합격앱 설치"></a><br>
+									② 설치한 독한합격앱 어플을 실행하여 본인 아이디로 로그인 합니다.<br>
+									③ 스마트폰 설정에서 독한합격앱 푸시 허용으로 설정합니다.<br>
+									④ 독한에듀윌 사이트&gt; 독한관리&gt; 관리설정에서 수신하고 싶은 항목을 "수신허용"으로 체크합니다.<br>
+									⑤ 익일(다음날)부터 푸시 받고 열공합니다.<br>
+									　[참고] 독한합격앱 푸시 수신허용 시, 에듀윌에서 발송하는&nbsp;마케팅/기타 정보&nbsp;푸시도 함께 수신 될 수 있습니다.
+								</span>
+							</dd>
+						</dl>
+					</div>
+					<div id="faq03" class="faq_con">
+						<div class="faq_title03">
+							<u>독한모드</u>
+						</div>
+						<dl>
+							<dt>독한모드가 무엇인가요?</dt>
+							<dd>독한모드는 독한에듀윌 회원분들에게만 제공되는 강의 플레이어입니다. (사용 여부는 선택 사항 입니다.)<br>
+								<span>오직 재생만 가능하며, 정지/ 일시정지/ 재생바(Bar) 조작이 금지되어 있어 강의에만 집중할 수 있도록 도움을 드리는 플레이어입니다.<br>
+								* PC/모바일 브라우저 및 디바이스 사양에 따라 기능 제한에 차이가 있을 수 있습니다.
+								</span>
+							</dd>
+							<dt>독한에듀윌에 가입하면 무조건 독한모드로 수강해야 하나요?</dt>
+							<dd>아닙니다. 독한모드는 선택사항이며 수강생이 편한 플레이어로 이용해주시면 됩니다. (고화질/ Full HD/ 독한모드 중 선택하여 수강 가능)<br>
+								<!-- <span>
+									단, 독한모드를 사용하는 수강생을 위한 이벤트가 진행되고 있는 점 참고 부탁 드립니다.
+								</span> -->
+							</dd>
+						</dl>
+					</div>
+					<div id="faq04" class="faq_con">
+						<div class="faq_title03">
+							<u>출석/퀴즈</u>
+						</div>
+						<dl>
+							<dt>골든타임 멤버는 어떻게 될 수 있나요?</dt>
+							<dd>매일 오전 6시 ~ 6시 30분 출석하시면, 오늘의 골든타임 멤버에 선정되실 수 있습니다.</dd>
+							
+							<dt>출석 기준과 방법은 무엇인가요?</dt>
+							<dd>06시 ~ 24시 나의강의실 입실 시간 기준으로 출석이 체크됩니다.<br>
+								<span>* 00시 00분 ~ 05시 59분 사이의 출석은 경쟁에 포함되지 않습니다.</span>
+							</dd>
+							
+							<dt>기상퀴즈/ 기출퀴즈 문제 풀이 시간은 어떻게 되나요?</dt>
+							<dd>기상퀴즈 : 매일(월~금) 06시 ~ 09시, 기출퀴즈: 매일(월~금) 06시 ~ 24시 문제 풀이가 가능합니다.&nbsp;(PC/모바일 가능)</dd>
+						</dl>
+					</div>
+					<a href="#" class="collapse_close"><img src="https://img.eduwill.net/resources/dokhan/live/web/image/btn_collapse_close.gif" alt="Faq 접어두기"></a>
+				</div>
+			</div>
+		</div>
+		<!-- e : 독한 상품배너 및 FAQ 영역 -->
+
+	</div>
+	<!-- e : #content -->
+
+	<!-- foot :: 에듀윌은 합격이다 -->
+	<div class="foot_slogan">
+		<div>
+			<p class="slogan"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/foot_slogan.png" alt="에듀윌은 합격이다" /></p>
+			<p class="telnum"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/foot_tel.png" alt="에듀윌과 함께하면 합격이 빠르고 쉬워집니다. 문의사항/1600-6700" /></p>
+		</div>
+	</div>
+	<!-- // foot :: 에듀윌은 합격이다 -->
+	<div class="dimm"></div>
+</div>
+<!-- // #wrap -->
+</body>
+</html>

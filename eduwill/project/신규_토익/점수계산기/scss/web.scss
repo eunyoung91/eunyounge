@@ -1,0 +1,188 @@
+@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "module/animate";  
+@import "module/base";  
+@import "module/motion";  
+@import "module/popup";  
+
+
+.toeic.calculator{
+    width:1100px; margin:64px auto;
+    .contents-header{
+        .wrap{
+            h3{
+                font-family:$font-noto; font-size:24px; font-weight:700; padding:0 0 24px 0;
+            }
+        }
+    }
+    .contents-wrap{   
+        .sector-toeic-calc{
+            .wrap{
+                > dl{
+                    position:relative; height:116px; padding:37px 0 0 37px; margin-bottom:24px; background:#F8F8F8; box-sizing: border-box; border-radius:12px;
+                    dt{
+                        position:relative; float:left; font-family:$font-noto; font-size:18px; font-weight:700; color: rgba(0, 0, 0, 0.7); margin-right:34px;
+                    }
+                    dt:before{
+                        content:""; display:block; position:absolute; top:-13px; left:-13px; z-index:2; width:9px; height:9px; background:#FDC300; border-radius:4.5px;
+                    }
+                    dd{
+                        float:left; font-size:14px; font-family:$font-noto; font-weight:400; letter-spacing: -0.02em; color: rgba(0, 0, 0, 0.5);
+                        span{
+                            font-weight:700; color:#fb9797;
+                        }
+                    }
+                }
+                > dl:after{
+                    content:""; display:block; clear:both;
+                }
+                > dl:before{
+                    content:""; display:block; position:absolute; bottom:0; right:47px; z-index:2; width:261px; height:174px; background-image: url('#{$img-path}/pc/img-toeic-calc-top.svg');
+                }
+                .cal-box{
+                    float:left; width:calc(50% - 12.5px); padding:36px 32px; border:1px solid #E4E4E4; box-sizing:border-box; border-radius:12px;
+                    &:nth-child(3){
+                        float:right;
+                    }
+                    h5{
+                        font-family:$font-noto; font-size:28px; font-weight:400; line-height:36px;
+                        strong{
+                            font-weight:700;
+                        }
+                        +p{
+                            margin:12px 0 32px 0; font-family:$font-noto; font-size:14px; font-weight:400; color:#999;
+                        }
+                    }
+                    .t-box{
+                        position:relative; float:left; width:calc(50% - 5px); padding:84px 16px 16px; margin-bottom:32px; border-radius:10px; background:#FDECEC; box-sizing:border-box;
+                        strong{
+                            position:relative; display:block; margin-bottom:10px; font-family:$font-noto; font-size:14px; font-weight:400; line-height:20px; text-align:center; 
+                        }
+                        strong:before{
+                            content:""; display:block; position:absolute; bottom:30px; left:50%; z-index:2; width:59px; height:54px; margin-left:-29px; background: url('#{$img-path}/pc/icn-lc.svg') no-repeat center;
+                        }
+                        input[type=text]{
+                            width:calc(100% - 24px); height:44px; border:1px solid #ddd; font-family:$font-noto; font-size:14px; font-weight:400; line-height:44px; background:#fff; text-indent:14px; border-radius:4px;
+                        }
+                        input[type=text]::placeholder{
+                          color:#BFBFBF;
+                        }
+                        input[type=text]:focus{
+                            border:1px solid #FDC300; box-shadow: 0px 0px 6px rgba(253, 195, 0, 0.3);
+                        }
+                        span{
+                            position:absolute; bottom:16px; right:16px; line-height:44px; font-size:16px;
+                        }
+                    }
+                    .rc{
+                        float:right; background:#ECF4FB;
+                        strong:before{
+                            width:62px; height:51px; margin-left:-31px; background: url('#{$img-path}/pc/icn-rc.svg') no-repeat center;
+                        }
+                    }
+                    button{
+                        clear:both; display:block; width:234px; height:52px; margin:auto; line-height:50px; text-align:center; font-family:$font-noto; font-size:16px; font-weight:400; background:#FDC300; border-radius:4px;
+                    }
+                    button:disabled{
+                        background:#f5f5f5; color:#BFBFBF;
+                    }
+                }
+                .result-box{
+                    padding:36px 32px; border:1px solid #E4E4E4; border-radius:6px;
+                    h5{
+                        margin-bottom:24px; font-family:$font-noto; font-size:24px; font-weight:400; line-height:28px;
+                        span{
+                            font-weight:700;
+                        }
+                    }
+                    .table{
+                        float:left; width:calc(50% - 16px); background:#FAFAFA; margin-bottom:32px;
+                        table{
+                            table-layout:fixed; border-collapse:collapse; border-spacing:0; width:100%; border:2px solid #efefef;
+                            thead{
+                                th{
+                                    padding:55px 10px 9px; border-right:2px solid #efefef; 
+                                    &:first-child{
+                                       border-right:1px solid #efefef;
+                                    }
+                                    p{
+                                        position:relative; font-family:$font-noto; font-size:14px; font-weight:400; line-height:20px;
+                                        &.hard{
+                                            
+                                        }
+                                    }
+                                    p:before{
+                                        content:""; display:block; position:absolute; bottom:26px; left:50%; margin-left:-20px; width:40px; height:40px;
+                                    }
+                                    .hard:before{
+                                        background: url('#{$img-path}/pc/icn-hard.png') no-repeat center center;
+                                    }
+                                    .normal:before{
+                                        background: url('#{$img-path}/pc/icn-normal.png') no-repeat center center;
+                                    }
+                                    .easy:before{
+                                        background: url('#{$img-path}/pc/icn-easy.png') no-repeat center center;
+                                    }
+                                }
+                            }
+                            tfoot{
+                                th{
+                                    padding:10px; border-top:2px solid #efefef; border-right:1px solid #efefef; text-align:left; font-family:$font-noto; font-size:14px; font-weight:700; line-height:20px;
+                                }
+                                td{
+                                    padding:10px; border-top:2px solid #efefef; border-right:2px solid #efefef; text-align:right;
+                                    p{
+                                        font-family:$font-noto; font-size:14px; font-weight:700; line-height:20px; color:#FF0000;
+                                    }
+                                }
+                            }
+                            tbody{
+                                tr:first-child{
+                                    th{
+                                        background:#fdecec;
+                                    }
+                                }
+                                th{
+                                    padding:8px 10px; background:#ecf4fb; border-top:2px solid #efefef; border-right:1px solid #efefef; text-align:left;  font-family:$font-noto; font-size:14px; font-weight:400; line-height:20px; color:#333;
+                                }
+                                td{
+                                    padding:8px 10px; border-top:2px solid #efefef; border-right:2px solid #efefef; text-align:right; background:#fff;
+                                    p{
+                                        font-family:$font-noto; font-size:14px; font-weight:400; line-height:20px; color:#666;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .banner{
+                        float:right; width:502px;
+                        img{
+                            width:100%;
+                        }
+                    }
+                    button{
+                        clear:both; display:block; width:234px; height:52px; margin:auto; box-sizing:border-box; border:1px solid #BFBFBF; border-radius:4px; font-family:$font-noto; font-size:16px; font-weight:400; line-height:50px;
+                    }
+
+                }
+                .result-box:after{
+                    content:""; display:block; clear:both;
+                }
+                .next-ba{
+                    clear:both; padding-top:24px;
+                    a{
+                        position:relative; display:block; height:96px; padding:0 32px; line-height:94px; border:1px solid #E4E4E4; box-sizing:border-box; border-radius:12px; font-family:$font-noto; font-size:24px; font-weight:700; overflow:hidden;
+                        span{
+                            display:inline-block; position:relative; top:-2px; left:9px; width:9px; height:16px; background: url('#{$img-path}/pc/icn-arrow.svg') no-repeat center center; vertical-align:middle;
+                        }
+                    }
+                    a:before{
+                    content:""; display:block; position:absolute; top:9px; right:104px; z-index:2; width:207px; height:95px; background: url('#{$img-path}/pc/img-next-ba.svg') no-repeat center;
+                    }
+                }
+            }
+        }
+    }
+}

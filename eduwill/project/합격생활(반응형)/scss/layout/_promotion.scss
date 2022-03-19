@@ -1,0 +1,952 @@
+// variables overlap
+$color-base: #666;
+$color-base-2: #333;
+$color-primary: #ff5f43;
+$color-primary-hover: #e62a29;
+$color-secondary: #0d6b64;
+$color-info: #efefef;
+$border-color-1: #ebebeb;
+$bg-color-1: #efefef;
+$bg-color-2: #f9f9f9;
+
+.promotion {
+	position: relative;
+	color: $color-base-1;
+	.container { position: relative; }
+	.wrap {
+		position: relative;
+		width: 100%;
+		max-width: 720px;
+		margin: 0 auto;
+		@extend %clearfix;
+		@include boxSizing(border-box);
+		@include breakpoint(desktop){
+			width: $layout-desktop;
+			max-width: 100%;
+		}
+	}
+	&-title {
+		z-index: 1;
+		text-align: center;
+		background: url('#{$img-path}/promotion/191030/bgxy_title.jpg') repeat 0 0;
+		.wrap {
+			@include breakpoint(desktop){ width: 100%; }
+		}
+		&:after {
+			content: '';
+			position: absolute;
+			left: 50%;
+			display: block;
+			background: url('#{$img-path}/promotion/191030/mobile/bg_title_tail.png') no-repeat 0 0;
+			background-size: 100% auto;
+			@include rem(bottom, -55px);
+			@include rem(width, 120px);
+			@include rem(height, 55px);
+			@include translateX(-50%);
+			@include breakpoint(tablet){
+				@include rem(bottom, -110px);
+				@include rem(width, 240px);
+				@include rem(height, 110px);
+			}
+			@include breakpoint(desktop){
+				bottom: -110px;
+				width: 240px;
+				height: 110px;
+				background-image: url('#{$img-path}/promotion/191030/pc/bg_title_tail.png');
+				background-size: auto;
+			}
+		}
+		.motion {
+			opacity: 0;
+			&-1 {
+				@include breakpoint(desktop){
+					margin-top: 73px;
+				}
+			}
+			&-2 {
+				@include breakpoint(desktop){
+					.promotion-191030 & {
+						margin-top: 37px;
+					}
+					.promotion-191209 & {
+						margin-top: 5px;
+					}
+				}
+			}
+			&-3 {
+				position: relative;
+				img {
+					display: block;
+					margin: 0 auto;
+					@include animation(opacityChange3, 1s, $iteration: infinite, $timing: step-start){
+						0%, 100% { opacity: 0; }
+						50% { opacity: 1; }
+					}
+				}
+				@include breakpoint(desktop){
+					margin-top: 22px;
+				}
+				&:after {
+					content: '';
+					position: absolute;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					left: 0;
+					display: block;
+					width: 100%;
+					height: 100%;
+					background-repeat: no-repeat;
+					background-position: center center;
+					background-size: 100% auto;
+					@include animation(opacityChange4, 1s, $iteration: infinite, $timing: step-start){
+						0%, 100% { opacity: 1; }
+						50% { opacity: 0; }
+					}
+					@include breakpoint(desktop){
+						background-size: auto;
+					}
+					.promotion-191030 & {
+						background-image: url('#{$img-path}/promotion/191030/mobile/title_3_on.png');
+						@include breakpoint(desktop){
+							background-image: url('#{$img-path}/promotion/191030/pc/title_3_on.png');
+						}
+					}
+					.promotion-191209 & {
+						background-image: url('#{$img-path}/promotion/191209/mobile/title_3_on.png');
+						@include breakpoint(desktop){
+							background-image: url('#{$img-path}/promotion/191209/pc/title_3_on.png');
+						}
+					}
+				}
+			}
+			&-4 {
+				color: $color-base-2;
+				@include rem(margin-top, 10px);
+				@include rem(font-size, 12px);
+				@include breakpoint(tablet){
+					@include rem(font-size, 24px);
+				}
+				@include breakpoint(desktop){
+					margin-top: 9px;
+					.promotion-191030 & {
+						font-size: 14px;
+					}
+					.promotion-191209 & {
+						font-size: 16px;
+					}
+				}
+			}
+			&-5 {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 50%;
+				@include breakpoint(desktop){
+					top: 101px;
+					left: 50%;
+					right: auto;
+					margin-left: -250px;
+				}
+			}
+			&-6 {
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 50%;
+				@include breakpoint(desktop){
+					top: 101px;
+					right: auto;
+					margin-left: 156px;
+				}
+			}
+			&-7 {
+				@include breakpoint(desktop){
+					margin-top: -72px;
+				}
+			}
+			&-season {
+				@include rem(margin-top, -15px);
+				@include breakpoint(desktop){
+					margin-top: 0;
+				}
+			}
+		}
+		.period {
+			position: absolute;
+			color: rgba(18, 18, 18, .9);
+			background-color: rgba(78, 119, 118, .2);
+			opacity: 0;
+			@include rem(top, 12px);
+			@include rem(right, 10px);
+			@include rem(padding, 2px 12px);
+			@include rem(font-size, 12px);
+			@include rem(border-radius, 40px);
+			@include breakpoint(tablet){
+				right: 0;
+				@include rem(font-size, 24px);
+			}
+			@include breakpoint(desktop){
+				right: auto;
+				left: 50%;
+				margin-left: 420px;
+				padding: 5px 23px 6px;
+				font-size: 14px;
+				border-radius: 30px;
+			}
+		}
+	}
+	&-benefit {
+		text-align: center;
+		.number {
+			margin: 0 auto;
+			@include rem(width, 35px);
+			@include rem(height, 35px);
+			@include breakpoint(tablet){
+				@include rem(width, 70px);
+				@include rem(height, 70px);
+			}
+			@include breakpoint(desktop){
+				width: 60px;
+				height: 60px;
+			}
+			span {
+				height: 100%;
+				font-family: $armata;
+				font-weight: 600;
+				@include rem(font-size, 25px);
+				@extend %flexCenter;
+				@include breakpoint(tablet){
+					@include rem(font-size, 50px);
+				}
+				@include breakpoint(desktop){
+					font-size: 40px;
+				}
+			}
+		}
+		.title {
+			letter-spacing: -2.5px;
+			@include rem(margin-top, 20px);
+			@include breakpoint(tablet){
+				@include rem(margin-top, 40px);
+			}
+			@include breakpoint(desktop){
+				margin-top: 29px;
+			}
+			span {
+				display: block;
+				line-height: 1.35;
+				font-weight: 700;
+				@include rem(font-size, 37px);
+				@include breakpoint(tablet){
+					display: inline-block;
+					@include rem(margin-left, 8px);
+					&:first-child { margin-left: 0; }
+					@include rem(font-size, 74px);
+				}
+				@include breakpoint(desktop){
+					font-size: 50px;
+				}
+			}
+		}
+		.desc {
+			line-height: 1.6;
+			font-weight: 700;
+			letter-spacing: -1px;
+			@include rem(margin-top, 20px);
+			@include rem(font-size, 12px);
+			@include breakpoint(tablet){
+				@include rem(margin-top, 40px);
+				@include rem(font-size, 24px);
+			}
+			@include breakpoint(desktop){
+				margin-top: 26px;
+				font-size: 18px;
+			}
+		}
+		.step {
+			@extend %clearfix;
+			.item {
+				float: none;
+				@include breakpoint(desktop){
+					float: left;
+				}
+			}
+		}
+		.action .button {
+			position: relative;
+			width: 100%;
+		}
+		.notice {
+			line-height: 1.6;
+			font-weight: 700;
+			@include rem(margin-top, 15px);
+			@include rem(font-size, 12px);
+			@include breakpoint(tablet){
+				@include rem(margin-top, 30px);
+				@include rem(font-size, 24px);
+			}
+			@include breakpoint(desktop){
+				margin-top: 19px;
+				font-size: 12px;
+			}
+		}
+		&.benefit-1 {
+			background: url('#{$img-path}/promotion/191030/bgxy_benefit_1.jpg') repeat 0 0;
+			@include rem(padding-bottom, 50px);
+			@include breakpoint(tablet){
+				@include rem(padding-bottom, 100px);
+			}
+			.number { 
+				color: $color-white;
+				background-color: $color-primary;
+			}
+			.title span { color: $color-primary; }
+			.step {
+				@include breakpoint(desktop){
+					margin: 47px 0 0 30px;
+				}
+				.item {
+					background: url('#{$img-path}/promotion/191030/mobile/bg_example.png') no-repeat 0 0;
+					background-size: 100% auto;
+					@include rem(width, 360px);
+					@include rem(height, 435px);
+					@include rem(margin, 25px auto 0);
+					@include breakpoint(minMobile){
+						@include rem(width, 320px);
+						@include rem(height, 395px);
+					}
+					@include breakpoint(tablet){
+						@include rem(width, 720px);
+						@include rem(height, 870px);
+						@include rem(margin, 50px auto 0);
+					}
+					@include breakpoint(desktop){
+						width: 330px;
+						height: 529px;
+						margin: 0 0 0 25px;
+						background-image: url('#{$img-path}/promotion/191030/pc/bg_example.png');
+						background-size: auto;
+					}
+					&:first-child {
+						@include rem(margin-top, 30px);
+						@include breakpoint(tablet){
+							@include rem(margin-top, 60px);
+						}
+						@include breakpoint(desktop){
+							margin: 0;
+						}
+					}
+				}
+			}
+			.core {
+				padding: 0 17.2%;
+				text-align: left;
+				color: $color-base-2;
+				@include rem(padding-top, 20px);
+				@include breakpoint(tablet){
+					@include rem(padding-top, 40px);
+				}
+				@include breakpoint(desktop){
+					padding: 24px 20px;
+				}
+				.subject {
+					line-height: 1.35;
+					@include rem(font-size, 20px);
+					@include breakpoint(tablet){
+						@include rem(font-size, 40px);
+					}
+					@include breakpoint(desktop){
+						font-size: 24px;
+						padding: 0 5px;
+					}
+					strong {
+						display: block;
+						@include rem(font-size, 15px);
+						@include breakpoint(tablet){
+							@include rem(font-size, 30px);
+						}
+						@include breakpoint(desktop){
+							font-size: 18px;
+						}
+					}
+				}
+				.example {
+					@include rem(margin-top, 15px);
+					@include breakpoint(tablet){
+						@include rem(margin-top, 30px);
+					}
+					@include breakpoint(desktop){
+						margin-top: 20px;
+					}
+				}
+			}
+			.action {
+				margin: 0 8.33%;
+				@include breakpoint(desktop){
+					width: 380px;
+					margin: 0 auto;
+				}
+				.button {
+					background: $color-primary;
+					@include rem(padding, 12.5px 0);
+					@include rem(font-size, 20px);
+					@include boxShadow(0 15px 27px 0 rgba(10, 3, 38, .3));
+					@include breakpoint(tablet){
+						@include rem(padding, 25px 0);
+						@include rem(font-size, 40px);
+					}
+					@include breakpoint(desktop){
+						padding: 17px 0;
+						font-size: 24px;
+					}
+					&:after {
+						content: '';
+						position: absolute;
+						display: block;
+						background: url('#{$img-path}/promotion/191030/mobile/icon_finger.png') no-repeat 0 0;
+						background-size: 100% auto;
+						@include rem(top, 29px);
+						@include rem(right, -7.5px);
+						@include rem(width, 63.5px);
+						@include rem(height, 72px);
+						@include animation(moving, 1.5s, $iteration: infinite){
+							0%, 100% { @include translateXY(0, 0); }
+							50% { @include translateXY(10%, 10%); }
+						}
+						@include breakpoint(tablet){
+							@include rem(top, 58px);
+							@include rem(right, -15px);
+							@include rem(width, 127px);
+							@include rem(height, 144px);
+						}
+						@include breakpoint(desktop){
+							top: 32px;
+							right: -13px;
+							width: 70px;
+							height: 80px;
+							background-image: url('#{$img-path}/promotion/191030/pc/icon_finger.png');
+							background-size: auto;
+						}
+					}
+				}
+			}
+		}
+		&.benefit-2 {
+			background-color: $color-secondary; 
+			@include rem(padding-bottom, 25px);
+			@include breakpoint(tablet){
+				@include rem(padding-bottom, 50px);
+			}
+			@include breakpoint(desktop){
+				padding-bottom: 22px;
+			}
+			.number {
+				@include rem(margin-top, 75px);
+				color: $color-secondary;
+				background-color: $color-white;
+				@include breakpoint(tablet){
+					@include rem(margin-top, 150px);
+				}
+				@include breakpoint(desktop){
+					margin-top: 100px;
+				}
+			}
+			.title span,
+			.desc { color: $color-white; }
+			.action .col {
+				float: left;
+				width: 50%;
+				margin: 0;
+			}
+			.step {
+				margin: 0 8.33%;
+				@include breakpoint(desktop){
+					margin: 0 50px;
+				}
+				.item {
+					@include rem(margin-top, 15px);
+					@include breakpoint(tablet){
+						@include rem(margin-top, 30px);
+					}
+					@include breakpoint(desktop){
+						float: left;
+						width: 320px;
+						height: 250px;
+						margin: 0;
+						padding-left: 20px;
+						&:nth-child(1) { padding-right: 10px; }
+						&:nth-child(2) { padding: 0 10px; }
+						&:nth-child(3) { padding-left: 10px; }
+					}
+					&:first-child {
+						margin-top: 0;
+						@include breakpoint(desktop){
+							padding-left: 0;
+						}
+					}
+				}
+				.core {
+					background-color: $color-white;
+					@include rem(padding, 15px 15px 20px);
+					@include rem(border-radius, 15px);
+					@include breakpoint(tablet){
+						@include rem(padding, 30px 30px 40px);
+						@include rem(border-radius, 30px);
+					}
+					@include breakpoint(desktop){
+						height: 100%;
+						padding: 15px;
+						@include boxSizing(border-box);
+					}
+				}
+				.subject {
+					text-align: left;
+					letter-spacing: -2px;
+					@include rem(font-size, 16px);
+					@include breakpoint(tablet){
+						@include rem(font-size, 32px);
+					}
+					@include breakpoint(desktop){
+						font-size: 16px;
+						letter-spacing: 0;
+					}
+					strong {
+						display: block;
+						text-align: center;
+						font-family: $roboto;
+						color: $color-white;
+						letter-spacing: -.5px;
+						background-color: $color-secondary;
+						@include rem(width, 63px);
+						@include rem(margin-bottom, 5px);
+						@include rem(padding, 1px 0 2px);
+						@include rem(font-size, 13px);
+						@include rem(border-radius, 48px);
+						@include breakpoint(tablet){
+							@include rem(width, 126px);
+							@include rem(margin-bottom, 10px);
+							@include rem(padding, 5px 0 6px);
+							@include rem(font-size, 25px);
+						}
+						@include breakpoint(desktop){
+							width: 77px;
+							padding: 5px 0 6px;
+							font-size: 13px;
+							border-radius: 30px;
+						}
+					}
+				}
+				.action .col {
+					@include rem(padding-top, 12px);
+					@include breakpoint(tablet){
+						@include rem(padding-top, 24px);
+					}
+					@include breakpoint(desktop){
+						padding-top: 10px;
+					}
+					&:nth-child(odd){
+						@include rem(padding-right, 6px);
+						@include breakpoint(tablet){
+							@include rem(padding-right, 12px);
+						}
+						@include breakpoint(desktop){
+							padding-right: 5px;
+						}
+					}
+					&:nth-child(even){
+						@include rem(padding-left, 6px);
+						@include breakpoint(tablet){
+							@include rem(padding-left, 12px);
+						}
+						@include breakpoint(desktop){
+							padding-left: 5px;
+						}
+					}
+				}
+				&-1 {
+					.col {
+						margin-top: 0;
+						@include breakpoint(desktop){
+							margin-top: 30px;
+						}
+						&:first-child .button {
+							background: $color-base-2;
+							@include breakpoint(desktop){
+								&:hover { background: $color-primary-hover; }
+							}
+						}
+						&:last-child .button {
+							background: $color-primary;
+							@include breakpoint(desktop){
+								&:hover { background: $color-primary-hover; }
+							}
+						}
+					}
+					.button {
+						vertical-align: top;
+						@include rem(height, 80px);
+						@include rem(font-size, 15px);
+						@include boxShadow(0 22px 30px 0 rgba(34, 35, 57, .2));
+						@include breakpoint(tablet){
+							@include rem(height, 160px);
+							@include rem(font-size, 30px);
+						}
+						@include breakpoint(desktop){
+							height: 80px;
+							font-size: 15px;
+						}
+						span {
+							height: 100%;
+							@extend %flexCenter;
+						}
+					}
+				}
+				&-2 {
+					.button {
+						background: $color-info;
+						@include rem(padding, 5px 0 6px);
+						@include breakpoint(tablet){
+							@include rem(padding, 17px 0 18px);
+						}
+						@include breakpoint(desktop){
+							padding: 6px 0 7px;
+						}
+						span {
+							font-weight: 700;
+							color: $color-base-2;
+							@include rem(font-size, 15px);
+							@include breakpoint(tablet){
+								@include rem(font-size, 30px);
+							}
+							@include breakpoint(desktop){
+								font-size: 15px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	&-comment {
+		background-color: $color-white;
+		@include rem(padding-bottom, 26px);
+		@include breakpoint(tablet){
+			@include rem(padding-bottom, 52px);
+		}
+		@include breakpoint(desktop){
+			padding-bottom: 38px;
+		}
+		.wrap {
+			padding: 0 5.56%;
+			@include rem(padding-top, 22.5px);
+			@include breakpoint(tablet){
+				@include rem(padding-top, 45px);
+			}
+			@include breakpoint(desktop){
+				padding: 50px 100px 0;
+			}
+		}
+		.form-control {
+			border: 1.5px solid $color-primary;
+			@include breakpoint(desktop){
+				border-width: 3px;
+			}
+			.text {
+				width: 80%;
+				border: none;
+				color: #010101;
+				@include rem(height, 40px);
+				@include rem(padding-left, 10px);
+				@include rem(line-height, 40px);
+				@include rem(font-size, 14px);
+				@include breakpoint(tablet){
+					@include rem(height, 90px);
+					@include rem(line-height, 90px);
+					@include rem(font-size, 28px);
+				}
+				@include breakpoint(desktop){
+					height: 57px;
+					line-height: 57px;
+					font-size: 20px;
+				}
+			}
+			.button {
+				float: right;
+				width: 20%;
+				@include rem(height, 40px);
+				background: $color-primary;
+				@include rem(padding, 6px 0);
+				@include breakpoint(tablet){
+					@include rem(height, 90px);
+					@include rem(padding, 22px 0);
+				}
+				@include breakpoint(desktop){
+					height: 57px;
+					padding: 12px 0;
+				}
+				span {
+					@include rem(font-size, 15px);
+					@include breakpoint(tablet){
+						@include rem(font-size, 30px);
+					}
+					@include breakpoint(desktop){
+						font-size: 22px;
+					}
+				}
+			}
+		}
+		.notice {
+			@include rem(margin-top, 10px);
+			@include breakpoint(tablet){
+				@include rem(margin-top, 20px);
+			}
+			@include breakpoint(desktop){
+				margin-top: 10px;
+			}
+			li {
+				position: relative;
+				color: $color-base-4;
+				@include rem(padding-left, 15px);
+				@include rem(font-size, 14px);
+				@include breakpoint(tablet){
+					@include rem(padding-left, 25px);
+					@include rem(font-size, 24px);
+				}
+				@include breakpoint(desktop){
+					padding-left: 15px;
+					font-size: 12px;
+				}
+				&:before {
+					content: '※';
+					position: absolute;
+					top: 0;
+					left: 0;
+					display: block;
+				}
+			}
+		}
+		.comment-list {
+			@include rem(margin-top, 20px);
+			@include breakpoint(tablet){
+				@include rem(margin-top, 40px);
+			}
+			.list {
+				text-align: center;
+				font-family: $roboto;
+				border-top: 1px solid $border-color-1;
+				@include rem(padding, 10px 0);
+				@include breakpoint(tablet){
+					@include rem(padding, 20px 0);
+				}
+				&:first-child {
+					border-top-width: 1.5px;
+					border-top-color: $color-base-4;
+					@include breakpoint(tablet){
+						border-top-width: 3px;
+					}
+					@include breakpoint(desktop){
+						border-top-width: 2px;
+					}
+				}
+				&:last-child {
+					border-bottom: 1.5px solid $color-base-4;
+					@include breakpoint(tablet){
+						border-bottom-width: 3px;
+					}
+					@include breakpoint(desktop){
+						border-bottom-width: 2px;
+					}
+				}
+				&.empty {
+					padding: 0;
+					border: none;
+					background-color: $bg-color-2;
+					@include rem(height, 123px);
+					@include breakpoint(tablet){
+						@include rem(height, 246px);
+					}
+					@include breakpoint(desktop){
+						height: 120px;
+					}
+					.col {
+						float: none;
+						width: 100%;
+						height: 100%;
+						text-align: center;
+						color: $color-base-4;
+						@extend %flexCenter;
+						@include rem(font-size, 14px);
+						@include breakpoint(tablet){
+							@include rem(font-size, 28px);
+						}
+						@include breakpoint(desktop){
+							font-size: 14px;
+						}
+					}
+				}
+				.col {
+					@include rem(font-size, 12px);
+					@include breakpoint(tablet){
+						@include rem(font-size, 24px);
+					}
+					@include breakpoint(desktop){
+						font-size: 13px;
+					}
+					&.number {
+						width: 15%;
+						@include breakpoint(desktop){
+							width: 10%;
+						}
+					}
+					&.user {
+						width: 20%;
+						text-align: left;
+						@extend %textEllipsis;
+						@include breakpoint(desktop){
+							width: 15%;
+						}
+					}
+					&.content {
+						width: 65%;
+						text-align: left;
+						color: $color-base-2;
+						@extend %textEllipsis;
+						@include breakpoint(desktop){
+							width: 75%;
+						}
+					}
+				}
+			}
+		}
+		.pagination {
+			position: relative;
+			text-align: center;
+			color: $color-base-2;
+			@include rem(margin-top, 11px);
+			@include rem(font-size, 14px);
+			@include breakpoint(tablet){
+				@include rem(margin-top, 22px);
+				@include rem(font-size, 28px);
+			}
+			@include breakpoint(desktop){
+				width: 400px;
+				margin-right: auto;
+				margin-left: auto;
+				font-size: 14px;
+			}
+			.count {
+				display: inline-block;
+				@include rem(line-height, 40px);
+				@include breakpoint(tablet){
+					@include rem(line-height, 80px);
+				}
+				@include breakpoint(desktop){
+					line-height: 30px;
+				}
+			}
+			.control {
+				position: absolute;
+				display: block;
+				top: 0;
+				@include rem(width, 40px);
+				@include rem(height, 40px);
+				@include breakpoint(tablet){
+					@include rem(width, 80px);
+					@include rem(height, 80px);
+				}
+				@include breakpoint(desktop){
+					@include rem(width, 30px);
+					@include rem(height, 30px)
+				}
+				span { @extend .sr-only; }
+				&.prev {
+					left: 0;
+					&:after {
+						left: 50%;
+						@include arrow(left, 8px, 8px, 2px, $color-base-2);
+						@include breakpoint(tablet){
+							@include arrow(left, 16px, 16px, 2px, $color-base-2);
+						}
+						@include breakpoint(desktop){
+							@include arrow(left, 8px, 8px, 2px, $color-base-2);
+						}
+					}
+				}
+				&.next {
+					right: 0;
+					&:after {
+						right: 50%;
+						@include arrow(right, 8px, 8px, 2px, $color-base-2);
+						@include breakpoint(tablet){
+							@include arrow(right, 16px, 16px, 2px, $color-base-2);
+						}
+						@include breakpoint(desktop){
+							@include arrow(right, 8px, 8px, 2px, $color-base-2);
+						}
+					}
+				}
+			}
+		}
+	}
+	&-notice {
+		background-color: $bg-color-1;
+		@include rem(padding-bottom, 40px);
+		@include breakpoint(tablet){
+			@include rem(padding-bottom, 80px);
+		}
+		@include breakpoint(desktop){
+			padding-bottom: 60px;
+		}
+		.wrap {
+			padding: 0 5.56%;
+			@include rem(padding-top, 40px);
+			@include breakpoint(tablet){
+				@include rem(padding-top, 80px);
+			}
+			@include breakpoint(desktop){
+				padding: 60px 200px 0;
+			}
+		}
+		.title {
+			font-weight: 700;
+			@include rem(font-size, 18px);
+			@include breakpoint(tablet){
+				@include rem(font-size, 36px);
+			}
+			@include breakpoint(desktop){
+				font-size: 18px;
+			}
+		}
+		.list {
+			li {
+				font-weight: 400;
+				@include rem(margin-top, 15px);
+				@include rem(font-size, 14px);
+				@include breakpoint(tablet){
+					@include rem(margin-top, 30px);
+					@include rem(font-size, 28px);
+				}
+				@include breakpoint(desktop){
+					font-size: 14px;
+				}
+				strong { font-weight: 700; }
+				li {
+					position: relative;
+					margin-top: 0;
+					line-height: 1.5;
+					@include rem(padding-left, 10px);
+					@include breakpoint(desktop){
+						line-height: 2;
+					}
+					&:before {
+						content: '·';
+						position: absolute;
+						top: 0;
+						left: 0;
+					}
+				}
+			}
+		}
+	}
+}

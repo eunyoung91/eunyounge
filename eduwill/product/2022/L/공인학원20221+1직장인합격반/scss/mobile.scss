@@ -1,0 +1,226 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+
+#contents{
+	.land{
+		&-content{
+            .pointer{
+                @include pointer(50%, 10%, 43px, 53px, 12, bounce);         
+            }
+		}
+
+        &-title{
+            background: url('#{$img-path}/mobile/bg_title.jpg') no-repeat 50% 50%;
+			background-size:cover;
+        }
+
+        &-lecture{
+            @include rem(padding-bottom, 100px);
+			background: url('https://img.eduwill.net/eduwill/img/2021/L/product/210818_2/mobile/bg_lecture.jpg') no-repeat 50% 0;
+			background-size:cover;
+		}
+
+		&-price{
+            background-color:#ffbe00;
+			 .item-group{
+                @include rem(top, -100px);
+			}
+
+            .notice{
+                @include rem(margin-top, 30px);
+            }
+
+            .item-group-price{
+                padding:0;border:none;
+                .btn-apply{margin-top:0;}
+            }
+		}
+
+
+		&-benefit{
+            background-color:#ffbe00;
+            .wrap{padding:0;}
+            .title{@include rem(padding-top, 5px);}
+			.notice{position:absolute;left:10%;bottom:3%;color:#fff;opacity:0.7;}
+		}
+
+		&-provide{
+            @include rem(padding-bottom, 100px);
+			.title {opacity:1;}
+		}
+
+        &-reason-winners{
+            @include rem(padding-top, 100px);
+        }
+
+        &-exam{display:block !important;}
+        &-teacher{
+            .teacher-list{margin-top:0;}
+            display:block !important;
+        }
+
+        &-academy-review{
+			background-color:#ffbf00;
+		}
+
+
+		&-uland{
+            .wrap{padding:0;}
+			background: url('https://img.eduwill.net/eduwill/img/2021/L/product/210818_2/mobile/bg_uland.jpg') no-repeat 50% 0;
+			background-size:cover;
+			.floating-uland{position:absolute;right:5%;top:12%;width:percent(150);}
+		}
+
+        &-package{
+            background: url('https://img.eduwill.net/eduwill/img/2021/L/product/210818_2/mobile/bg_package.jpg') no-repeat 50% 0;
+			background-size:cover;
+            display:block !important;
+            &:after{display:none;}
+            .img-content{
+                +.img-content{display:none;}
+            }
+        }
+
+        &-agency{
+            .title{
+				padding-top:0;
+				& > div.main{margin-top:0;}
+			}
+			
+            .agency-list{
+                padding:0 percent(50);
+                @include rem(margin-top, 50px);
+            }
+
+            .notice{
+                @include rem(margin-top, 30px);
+                text-align:center;color:#000;font-weight:700;@include vw(30px);
+            }
+        }
+
+		&-reason-qna{
+			display:none;
+		}
+
+		&-prize2{
+			display:none;
+		}
+	}
+
+	&.yearly{
+		.land{
+			&-title{
+				background-image: url('#{$img-path}/mobile/bg_title_210825.jpg') 
+			}
+
+			&-benefit{
+				.title{
+					@include rem(padding-top,80px);
+				}
+			}
+
+			&-provide{
+				background:#c32d3e;
+				&:after{
+					background-image: url('#{$img-path}/pc/icon_provide_red.png');
+				}
+
+				.list-group{
+					ul li{
+						background-color: #c32d3e;
+						border: 1px solid #eb6f7d;
+					}
+				}
+
+				.list-text{color:#fa8d9a;}
+			}
+
+		}
+	}
+
+	&.short{
+		width: 100% !important;
+		.land{
+			&-title{
+				background-image: url('#{$img-path}/mobile/bg_title_short.jpg') 
+			}
+
+			&-price {
+				background: #fff;
+				.item-group {
+					.item-subject {
+						strong {
+							color: #ea1d00;
+							font-weight: 900;
+							@include px2vw(letter-spacing, -2);
+							@include vw(50px);
+						}
+					}
+					.item-benefit {
+						.row {
+							position: relative;
+							@include px2vw(padding-left, 16);
+							@include px2vw(margin-top, 5);
+							@include vw(28px);
+							font-weight: 700;
+							line-height: 1.4;
+							color: #000;
+							strong {
+								font-weight: 700;
+								color: #000;
+								word-break: keep-all;
+								@include vw(28px);
+								@include px2vw(letter-spacing, -1.5);
+								line-height: 1.4;
+							}
+							&:before {
+								content: '·';
+								display: block;
+								position: absolute;
+								top: 0;
+								left: 0;
+							}
+							&:first-child { margin-top: 0;}
+						}
+					}
+				}
+
+				
+			}
+
+			&-benefit{
+				background-color: #fff;
+				.notice {
+					color: rgba(0,0,0, .6);
+				}
+			}
+
+			&-provide{
+				background:#03b355;
+				&:after{
+					background-image: url('#{$img-path}/pc/icon_provide_short.png');
+				}
+
+				.list-group{
+					ul li{
+						background-color: #03c45e;
+						border: 1px solid #73ec80;
+					}
+				}
+
+				.list-text{color:#a0dfbe;}
+			}
+
+		}
+	}
+
+	&.workers {
+		.land{
+			&-title{
+				background-image: url('#{$img-path}/mobile/bg_title_worker.jpg') 
+			}
+		}
+	}
+}

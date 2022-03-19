@@ -1,0 +1,423 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+
+.product-eco {
+	* { font-family: $font-noto; }
+    line-height: normal;
+    letter-spacing: -1px;
+
+    /*공통영역*/
+	.wrap {
+        position: relative;
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+    }
+	/*//공통영역*/
+	.point-color{color:#2452ea !important;}
+	.bg{
+		background-color: #f3f3f3;
+		.btn-text{background-color: #fff;}
+	}
+	.sale-area{
+		overflow: hidden;
+		text-align: left;
+		box-sizing: border-box;
+		width:100%;
+		@include vw(padding,20px 50px 0);
+		&.bottom{margin:0 auto;}
+		.sale-info{
+			width:100%;
+			&:hover{
+				.price-box{border:2px solid #2452ea;}
+				.sale-btn{ a{background:#2452ea;}}
+			}
+			&:first-child, 
+			&:nth-child(2){	@include vw(margin-bottom,60px);}
+			&:nth-child(even){
+			
+				.price-box{
+				
+				}
+			}
+			.price-box{
+				background:#fff;
+				border: 1px solid #e3e3e3;
+				box-sizing: border-box;
+				overflow: hidden;
+				.sale-top {
+					border-right: 1px solid #e4e4e4;
+					box-shadow: border-box;
+					@include vw(margin-top,20px);
+					float:left;
+					width:28%;
+				@include vw(padding,0 20px 20px)
+					.name{
+						@include vw(font-size, 28px);
+						font-weight: 900;
+						color:#222;
+						display: block;
+					}
+					.ab{
+						@include vw(font-size,14px);
+					}
+				}
+				.sale-middle {
+					@include vw(padding,20px);
+					@include vw(margin-top,6px);
+					float:right;
+					width:65%;
+					box-sizing: border-box;
+				
+					.flag {
+						display: inline-block;
+						margin-right:5px;
+						@include vw(font-size, 18px);
+						font-weight: 600;
+						@include vw(padding,5px 15px);
+						@include vw(border-radius,5px);
+						@include animation(flagEvent, .8s, $iteration: infinite, $timing: step-start){
+							0%, 100% { color: #fff; background-color:#2452ea; }
+							50% { color: #000; background-color:#ffdf4b}
+						}
+					}
+				}
+				.sale-bottom{
+					.check-box{
+						input,
+						label{position: relative;@include vw(left,10px);@include vw(top,-10px);@include vw(font-size,18px);
+						}
+					}
+				}
+			
+				.price{
+					font-family: 'Roboto';
+					&.before-price{
+						color:#8a8a8a;
+						@include vw(font-size, 22px);
+						position: relative;
+						font-weight: 600;
+						display: inline-block;
+						.data-cost{		
+							font-family: 'Roboto';
+							&:before{
+								content: '';
+								width:100%;
+								height: 1px;
+								background-color: #8a8a8a;
+								position: absolute;
+								left:0;
+								top:50%;
+							}
+						}
+					}
+					&.after-price{
+						@include vw(font-size,30px);
+						font-weight: 900;
+						color:#000;
+						.data-cost{
+							@include vw(font-size,60px);
+							font-family: 'Roboto';
+							letter-spacing: -3.3px;
+						}
+
+					}
+				}
+			}
+			.sale-btn{
+				text-align: center;
+				overflow: hidden;
+				@include vw(margin-top,15px);
+				a{
+					display: block;
+					height:100%;
+					@include vw(padding, 20px 30px 20px 20px);
+					@include vw(font-size, 22px);
+					color:#fff;
+					background: #222;
+					font-weight: 900;
+					
+				
+				}
+			}
+		}
+	}
+	.action{
+		@include vw(width,120px);
+		@include vw(border-radius,5px);
+		overflow: hidden;
+		position: absolute;
+		@include vw(font-size,18px);
+		&.t-left{top:0; @include vw(left,50px)}
+		&.t-right{top:0;@include vw(right,50px)}
+		&.t-center{top:0;left:0;right:0;margin:0 atuo;}
+		&.b-left{bottom:0;@include vw(left,50px)}
+		&.b-right{bottom:0;@include vw(right,50px)}
+		&.b-center{bottom:0;left:0;right:0;margin:0 atuo;}
+	}
+		/*리뷰슬라이드*/
+	.review-slide{
+		@include vw(padding,40px 0);
+		box-shadow: 10px 3px 32px 0px rgba(0, 0, 0, 0.08);
+		-webkit-box-shadow:10px 3px 32px 0px rgba(0, 0, 0, 0.08);
+		-moz-box-shadow:10px 3px 32px 0px rgba(0, 0, 0, 0.08);
+		background: #fff;
+			.list{
+				position: relative;
+				.txt{
+					position: relative;
+					strong{
+						text-align: left;
+						display: block;
+						@include vw(padding,10px 80px 0);
+					}
+					p{
+						color:#606060;
+						@include vw(font-size, 20px);
+						text-align: left;
+						font-weight: 300;
+						@include vw(padding,10px 80px);
+						word-break: keep-all;
+						.point-color{
+							color:#7637e9;
+							font-weight: 600;
+						}
+						&.pass-p{color:rgba(34,34,34,0.5);@include vw(font-size,18px);}
+					}
+				}
+			}
+			&.title-s{
+				background: transparent;
+				box-shadow: none;
+				padding:0;
+				.slick-arrow {
+					transform: translateY(-270%);
+				}
+			}
+
+			&.review-s{
+				.txt{
+					position: absolute;
+					@include vw(bottom,184px);
+					@include vw(left,10px);
+					&.txt2{	
+						@include vw(bottom,152px);
+					}
+				}
+			}
+			&.teachers-s{
+			
+			}
+			&.curriculum-s{
+			
+			}
+			&.book-s{
+				.txt{
+					top:30px;
+					left:230px;
+				}
+			}
+			.slick-arrow {
+				transform: translateY(-205%);
+			}
+	}
+	/*슬라이드 arrow*/
+	.slick-arrow {
+			@extend %slick-arrow;
+			&.slick-prev {
+				@include slideArrow(left,100px, 100px, 3px, #000);
+				left:0;
+				background: none
+			}
+			&.slick-next {
+				@include slideArrow(right, 100px, 100px, 3px, #000);
+				right: 0;
+				background: none
+			}
+	}
+	/*슬라이드 dots*/
+	.slick-dots {
+			width: 100%;
+			@include vw(margin-top, 20px);
+			text-align: center;
+			li{
+				display: inline-block;
+				@include vw(margin,0 6px);
+				button {
+					@include vw	(width, 20px);
+					@include vw(height, 20px);
+					text-indent: -9999em;
+					border: none;
+					border-radius: 50%;
+					background-color: #cfcfcf;
+					outline: none;
+					cursor: pointer;
+				}
+				&.slick-active {
+					button {
+						@include vw(width,60px);
+						@include vw(border-radius,15px);
+						background-color: #2452ea;
+					}
+				}
+			}
+	}
+	.sub{
+		position: relative;
+		color:#bfbfbf;
+		@include vw(top,-30px);
+		@include vw(font-size,14px);
+		
+	}
+	.sector{
+		&-title {
+			@include bg($url: '#{$img-path}/mobile/bg_title.jpg', $size: cover);
+			.action {
+				@include vw(right,50px);
+				@include vw(top,234px);
+				z-index: 99;
+			}
+			@include breakpoint(desktop){
+				background-size:100% 100%
+			}
+		}
+		&-benefit {
+			@include vw(padding-top,20px);
+			.content-title{
+				text-align: center;
+				@include vw(margin-bottom,20px);
+				strong{
+					font-weight: 600;
+					@include vw(font-size, 40px);
+				}
+				.point-color{	@include vw(font-size, 40px);}
+			}
+			.action{
+				@include vw(bottom,110px);
+			}
+		
+		}
+		&-sale{
+			.action{
+				@include vw(right,145px);
+				@include vw(top,171px);
+			}
+		}
+		&-sale{
+			@include vw(padding-bottom,120px)
+		}
+		&-start{
+			position: relative;
+			&:after{
+				content: "";
+				width:100%;
+				height:580px;
+				position: absolute;
+				bottom:0;
+				left:0;
+				background-color: #f3f3f3;
+				z-index: -9;
+			}
+			.slick-dots{
+				@include vw(bottom,50px);
+			}
+			.action{
+				width:auto !important;
+				@include vw(bottom,20px);
+				.btn-text{
+					.point-color{color:#ffdf4b !important}
+					background-color: #2452ea;
+					color:#fff;
+				}
+			}
+		}
+		&-recommend{
+			.action{
+			@include vw(bottom,70px);
+			@include vw(right,50px);
+			}
+		}
+		&-band{
+			position: relative;
+			@include vw(padding,10px 0 20px);
+			@include bg($color: #13183b, $url: '#{$img-path}/mobile/bg_band.jpg', $size: cover);
+			line-height: 1.3;
+			.eco-1718{
+				position: relative;
+				top:-7px !important;
+				p{color:#767885 !important}
+			}
+			.point-color{color:#d4f676 !important}
+		}
+		&-curriculum{
+			background-color: #1d2644;
+		}
+		&-teacher{
+			.action{
+				@include vw(top,229px);
+				@include vw(right,259px);
+			}
+			.slick-dots{
+				@include vw(bottom,50px);
+			}
+		}
+		&-book {
+			.content-title {
+				@include vw(padding,80px 50px 20px);
+			}
+			.action{
+				@include vw(top,151px);
+				@include vw(right,80px);
+			}
+			.review-slide{margin-top:15px}
+		
+		}
+		&-short-pass{
+			position: relative;
+			@include vw(padding, 80px 0 0);
+			@include bg($color: #13183b, $url: '#{$img-path}/mobile/bg_pass.jpg', $size: cover);
+			.point-color{color:#ffdf4b !important}
+		}
+	
+		&-prize{
+		background-color:#fffae0;
+		.content-title{display: none !important;}
+	
+		}	
+	
+	}
+}
+
+.slick-dots{
+	position: absolute;
+	@include vw(bottom,110px);
+
+	li{
+		button{
+			background-color:#fff  ;
+		}
+		&.slick-active {
+			button{
+				background-color: #2452EA !important
+			}
+		}
+	}
+}
+
+
+@media screen and (min-width: 2000px) {
+	.popup .popup-close:after {
+			margin-top: 57% !important;
+			margin-left: 11% !important;
+	}
+	.popup .popup-close:before {
+	
+	}
+
+}

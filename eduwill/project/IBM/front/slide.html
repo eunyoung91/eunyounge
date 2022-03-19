@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>에듀윌</title>
+<meta charset="utf-8" />
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<meta name="copyright" content="" />
+<meta name="paragraphription" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" href="../css/ibm.css?210825">
+<!-- <link rel="stylesheet" href="https://img.eduwill.net/resources/ibm/front/dev/css/ibm.css?210209"> -->
+<script src="https://img.eduwill.net/eduwill/dev/libs/jquery/jquery-2.1.4.min.js"></script>
+</head>
+<body style="margin: 0; padding: 0; font-size: 0; overflow-x: hidden;">
+
+<div style="position: relative;">
+    <div class="ibm"><!-- 기본 -->
+        <div class="ibm-dim"></div><!-- layer 배너 형태일 때 block -->
+
+        <div class="ibm-wrap"><!-- 배너 외부 -->
+            <div class="ibm-inner" data-ibm-slide="true"><!-- 배너 내부 // 슬라이드 유무 판단 -->
+                <div class="ibm-item ibm-item-video"><!-- 배너 항목 -->
+                    <div class="ibm-wings"><!-- 배너 배경 -->
+                        <video width="100%" height="100%" muted autoplay loop>
+                            <source src="https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20201230/pc_global_main2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="ibm-banner"><!-- 실질적인 배너 -->
+                        <img src="https://pds.eduwill.net/ibm/banner/20210825154226.png" data-pc-src="https://pds.eduwill.net/ibm/banner/20210825154226.png" data-mobile-src="https://img.eduwill.net/Img2/mobile2/brand/banner/2020/M_20200221105721.gif" alt="">
+                        <div class="ibm-links"><!-- 배너 링크 -->
+                            <a href="//www.naver.com" data-pc-link="//www.naver.com" data-mobile-link="//www.eduwill.net" target="_blank"><span class="sr-only">링크 1</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibm-item">
+                    <div class="ibm-wings">
+                        <div style="background-color: #d9e8ff;"></div>
+                        <div style="background-color: #d9e8ff;"></div>
+                    </div>
+                    <div class="ibm-banner">
+                        <img src="https://img.eduwill.net/Img2/Kyb/Product/event_new/200508/banner/banner_slide.jpg" data-pc-src="https://img.eduwill.net/Img2/Kyb/Product/event_new/200508/banner/banner_slide.jpg" data-mobile-src="https://img.eduwill.net/Img2/mobile2/brand/banner/2020/M_20200507174827.jpg" alt="">
+                        <div class="ibm-links">
+                            <a href="//www.naver.com" data-pc-link="//www.naver.com" data-mobile-link="//www.eduwill.net" target="_blank"><span class="sr-only">링크 1</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibm-item">
+                    <div class="ibm-wings">
+                        <!-- 2020-07-22 -->
+                        <div style="background-color: #f7f7f7; background-image: url('//img.eduwill.net/Img2/8lang/Product/event_new/190911/banner/bg_slide_190911.jpg');"></div>
+                        <!-- // 2020-07-22 -->
+                    </div>
+                    <div class="ibm-banner">
+                        <img src="https://img.eduwill.net/Img2/8lang/Product/event_new/190911/banner/slide_190911.png" data-pc-src="https://img.eduwill.net/Img2/8lang/Product/event_new/190911/banner/slide_190911.png" data-mobile-src="https://img.eduwill.net/Img2/mobile2/brand/banner/2020/M_20200507174827.jpg" alt="">
+                        <div class="ibm-links">
+                            <a href="//www.naver.com" data-pc-link="//www.naver.com" data-mobile-link="//www.eduwill.net" target="_blank"><span class="sr-only">링크 1</span></a>
+                            <a href="//www.daum.net" data-pc-link="//www.daum.net" data-mobile-link="//brand.eduwill.net" target="_blank"><span class="sr-only">링크 2</span></a>
+                            <a href="//puri.eduwill.net" data-pc-link="//puri.eduwill.net" data-mobile-link="//life.eduwill.net" target="_blank"><span class="sr-only">링크 3</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ibm-action"></div><!-- 배너 닫기, 유동적 배너일 때 block -->
+        </div>
+    </div>
+</div>
+
+<script src="https://img.eduwill.net/eduwill/live/libs/slick/slick.min.js"></script>
+<script>
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+    var url = window.location.href;
+    var str = 'www.eduwill.net';
+    var checkUrl = url.indexOf(str);
+
+    $(function(){
+        init();
+    });
+
+    function init(){
+        ibmSlider('[data-ibm-slide="true"]');
+        checkResolution('.ibm');
+    }
+
+    function ibmSlider($slider){
+        var _slider = $($slider);
+        var _sliderWidth =  $($slider).width();
+        //console.log( 1, _sliderWidth );
+        _slider.on('init', function(event, slick){
+            $(window).on('load', function(){
+                _slider.parent().css('width', _sliderWidth);
+            });
+            //console.log( 2, _sliderWidth );
+        });
+
+        _slider.slick({
+            autoplay: ( _slider.children.length > 2) ? false : true, // 자동재생
+            speed: 1000, // 속도
+            autoplaySpeed: 3000, // 속도
+            //arrows: (isMobile || _sliderWidth < 768) ? false : true, // 좌우 화살표
+            arrows: true,
+            dots: true, // indicator
+            adaptiveHeight: true, // 높이 자동
+        });
+
+        $(window).on('resize', function(){
+            _slider.slick('refresh');
+        });
+    }
+
+    function checkResolution(e){
+        if( isMobile || !checkUrl ){
+            replaceImagePaths(e, 'pc', 'mobile');
+            replaceImageLinks(e, 'pc', 'mobile');
+            //console.log('mobile');
+        } else {
+            replaceImagePaths(e, 'mobile', 'pc');
+            replaceImageLinks(e, 'mobile', 'pc');
+            //console.log('pc');
+        }
+    }
+
+    function replaceImagePaths(target, basic, change) {
+        $(target + ' img').each(function(){
+            var pcSrc = $(this).data('pcSrc');
+            var mobileSrc = $(this).data('mobileSrc');
+            $(this).attr('src', change == 'pc' ? pcSrc : mobileSrc);
+        });
+    }
+
+    function replaceImageLinks(target, basic, change) {
+        $(target + ' img').each(function(){
+            var pcLink = $(this).parent().data('pcLink');
+            var mobileLink = $(this).parent().data('mobileLink');
+            $(this).parent().attr('href', change == 'pc' ? pcLink : mobileLink);
+        });
+    }
+</script>
+</body>
+</html>

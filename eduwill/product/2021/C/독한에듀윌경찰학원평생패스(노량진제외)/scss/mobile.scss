@@ -1,0 +1,317 @@
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+
+.product-eco {
+    overflow-x: hidden;
+    * {
+        font-family: $font-noto;
+        line-height: normal;
+    }
+    p {
+        margin: 0;
+    }
+    .wrap {
+        max-width: 720px;
+    }
+    .eco-year {
+        position: absolute;
+        @include vw(top, 1115px);
+        @include vw(left, 85px);
+        text-align: left;
+        @include vw(font-size, 24px);
+        color: #000;
+        @include vw(letter-spacing, -2px);
+    }
+    .eco-compare {
+        position: absolute;
+        text-align: left;
+        @include vw(font-size, 16px);
+    }
+    .eco-pass-percent {
+        position: absolute;
+        font-family: $font-roboto;
+        font-weight: 700;
+    }
+
+    .sector-title {
+        @include bg($color: #17274b, $url: "#{$img-path}/mobile/bg_title.jpg");
+        .eco-pass-percent {
+            @include vw(top, 737px);
+            @include vw(left, 288px);
+            @include vw(font-size, 33px);
+            color: #cda657;
+            @include vw(letter-spacing, -2px);
+        }
+    }
+
+    .sector-apply {
+        // @include vw(padding-bottom, 90px);
+        @include linear-gradient(0deg, #fff 0%, #fff 19.5%, #17274b 19.5%, #17274b 100%);
+        .apply-list {
+            @include vw(margin, 0 40px);
+        }
+        .list {
+            position: relative;
+            @include vw(border-radius, 40px);
+            background-color: #fff;
+            @include boxSizing(border-box);
+            .title {
+                @include vw(padding, 40px);
+                text-align: left;
+                line-height: 1.2;
+                @include vw(font-size, 60px);
+                font-weight: 900;
+                color: #222;
+                em {
+                    font-family: $font-roboto;
+                    @include vw(font-size, 66px);
+                }
+                span {
+                    display: block;
+                    @include vw(font-size, 30px);
+                    color: #dd0000;
+                }
+            }
+            .price-flag {
+                @include vw(padding, 0 40px);
+                text-align: right;
+                span {
+                    padding: 2px 10px;
+                    @include vw(font-size, 24px);
+                    font-weight: 600;
+                    color: #fff;
+                    @include vw(border-radius, 8px);
+                    background-color: #222;
+                }
+                em {
+                    padding: 0 5px;
+                    color: #ffd800;
+                }
+            }
+            .price-after {
+                @include vw(padding, 0 40px);
+                text-align: right;
+                line-height: 1.2;
+                @include vw(font-size, 54px);
+                font-weight: 900;
+                color: #dd0000;
+                em {
+                    font-family: $font-roboto;
+                    @include vw(font-size, 84px);
+                }
+            }
+            .action {
+                @include vw(margin-top, 10px);
+                a {
+                    @include pointer(50%, 0, 66px, 73px, 1, bounce);
+                    display: block;
+                    @include vw(padding, 20px 0);
+                    @include vw(font-size, 30px);
+                    font-weight: 700;
+                    color: #fff;
+                    @include vw(border-radius, 0 0 40px 40px);
+                    @include linear-gradient(to right, #ee4503 0, #ee2403 100%);
+                }
+            }
+        }
+    }
+
+    .sector-winner {
+        .item {
+            position: relative;
+        }
+        .noti {
+            position: absolute;
+            top: 85%;
+            @include vw(left, 50px);
+            text-align: left;
+            @include vw(font-size, 18px);
+        }
+        .interview-wrap {
+            .swiper-container {
+                @include vw(padding-bottom, 60px);
+            }
+            .interview a {
+                display: inline-block;
+                img {
+                    width: 100%;
+                }
+            }
+            .swiper-slide {
+                width: 80%;
+            }
+            .swiper-container-horizontal > .swiper-scrollbar {
+                @include vw(right, 30px);
+                @include vw(left, 30px);
+                width: auto;
+            }
+            .swiper-scrollbar {
+                background: #000;
+            }
+            .swiper-scrollbar-drag {
+                background: #f0cc0f;
+            }
+        }
+
+        .winner-contents {
+            @include vw(padding, 100px 0 60px);
+            @include bg($url: "#{$img-path}/mobile/bg_winner.jpg", $size: auto 100%);
+            // .winner-contents { height: 220px; margin: 0 30% 0 30px; text-align: left; overflow: hidden; }
+            .winner-list {
+                @include vw(margin, 0 280px 0 20px);
+                line-height: 2;
+                @include vw(font-size, 20px);
+                &:before,
+                &:after {
+                    content: "";
+                    position: absolute;
+                    right: 0;
+                    left: 0;
+                    z-index: 1;
+                    display: block;
+                    width: 100%;
+                    @include vw(height, 100px);
+                }
+                &:before {
+                    top: 0;
+                    background: transparent;
+                    background: linear-gradient(0deg, transparent 0%, #fff 100%);
+                }
+                &:after {
+                    bottom: 0;
+                    background: transparent;
+                    background: linear-gradient(180deg, transparent 0%, #fff 100%);
+                }
+            }
+        }
+    }
+
+    .sector-review {
+        background: #f1f0ec;
+        @include linear-gradient(0deg, #f1f0ec 0%, #f1f0ec 85%, #fff 85%, #fff 100%);
+        .review-contents {
+            @include vw(margin, 0 50px);
+            background-color: #fff;
+            overflow: hidden;
+            .slick-slide {
+                @include vw(height, 80px);
+                @include vw(line-height, 80px);
+                border-top: 1px solid #f1f0ec;
+                &:first-child {
+                    border-top: 0;
+                }
+            }
+            .item {
+                @extend %textEllipsis;
+                @include vw(height, 80px);
+                text-align: left;
+                @include vw(line-height, 80px);
+                @include vw(font-size, 18px);
+                @include boxSizing(border-box);
+                strong {
+                    display: inline-block;
+                    @include vw(margin-right, 10px);
+                    @include vw(padding, 0 10px);
+                    font-weight: 700;
+                    color: #000;
+                    border-right: 1px solid #000;
+                }
+                span { color: #999; }
+            }
+        }
+        .action {
+            @include vw(margin, 20px 50px 0);
+        }
+    }
+
+    .sector-text {
+        background-color: #252e53;
+    }
+
+    .sector-program {
+        background-color: #f1f0ec;
+        .item {
+            position: relative;
+            @include vw(margin, 20px 50px 0);
+            &:first-child {
+                margin: 0;
+            }
+            .action {
+                position: absolute;
+                @include vw(right, 50px);
+                @include vw(left, 50px);
+            }
+            &:nth-child(1) .action {
+                position: static;
+                @include vw(margin, 0 50px);
+            }
+            &:nth-child(2) .action {
+                @include vw(top, 900px);
+            }
+            &:nth-child(3) .action {
+                @include vw(top, 1050px);
+            }
+            &:nth-child(4) .action {
+                @include vw(top, 1200px);
+            }
+        }
+    }
+
+    .sector-consult {
+        background-color: #f1f0ec;
+    }
+
+    .sector-academy {
+        background: linear-gradient(0deg, #fff 0%, #fff 50%, #f1f0ec 50%, #f1f0ec 100%);
+        .academy-list {
+            position: relative;
+            z-index: 1;
+            @include boxShadow(0 0 20px #000);
+            div {
+                vertical-align: top;
+                padding: 0;
+                line-height: 1;
+                font-size: 0;
+            }
+        }
+        .slick-arrow {
+            position: absolute;
+            top: 50%;
+            z-index: 1;
+            @include vw(width, 60px);
+            @include vw(height, 60px);
+            @include vw(margin-top, -30px);
+            padding: 0;
+            font-size: 0;
+            color: transparent;
+            text-indent: -9999px;
+            border: none;
+            background: none;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: cover;
+            cursor: pointer;
+            outline: none;
+            &.slick-prev {
+                left: 0;
+                background-image: url("#{$img-path}/mobile/btn_prev.png");
+            }
+            &.slick-next {
+                right: 0;
+                background-image: url("#{$img-path}/mobile/btn_next.png");
+            }
+        }
+    }
+
+    .sector-teacher {
+        @include vw(padding-bottom, 90px);
+        background-color: #f1f0ec;
+        .action {
+            @include vw(margin, 0 50px);
+        }
+    }
+}

@@ -1,0 +1,231 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+// .bottom_fix_btn { display: none !important;}
+.product-eco {
+	
+	.wrap {
+		width: 100%;
+		max-width: 720px;
+	}
+	.btn-pointer {
+		display:inline-block;
+		position:relative;
+		&:before {
+			content:'';
+			position:absolute;
+			bottom:-33%;
+			right:7%;
+			@include vw(width, 57px);
+			@include vw(height, 65px);
+			background:url(https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png) no-repeat 50% 50%;
+			background-size:100% auto;
+			animation: 0.3s slideupY ease-in-out infinite alternate;
+		}
+		@keyframes slideupY {
+			0% {
+				transform: translateY(0);
+			}
+			100% {
+				transform: translateY(10px);
+			}
+		}
+	}
+	.slick-dots {
+		position: absolute;
+		left: 0;
+		right: 0;
+		width: 100%;
+		@include rem(bottom, -70px);
+		text-align: center;
+		li {
+			display: inline-block;
+			@include rem(margin, 0 6px);
+			button {
+				cursor: pointer;
+				text-indent: -10000em;
+				border: 0;
+				border-radius: 50%;
+				@include rem(width, 29px);
+				@include rem(height, 29px);
+				background-color: #c3c3c3;
+			}
+			&.slick-active {
+				button {
+					@include rem(width, 100px);
+					border-radius: 50px;
+					background-color: #0027d4;
+				}
+			}
+		}
+	}
+}
+
+.product-eco {
+	overflow: hidden;
+
+	.cont-visual {
+		@include vw(padding-bottom,32px);
+		background-color:#0023cb;
+		&:before {
+			content:'';
+			position:absolute;
+			top:0;
+			left:-1px;
+			right:-1px;
+			@include vw(height,850px);
+			background:url(#{$img-path}/mobile/visual_bg.jpg) no-repeat 0 50%;
+			background-size:100% 100%;
+		}
+		.price-area {
+			position:relative;
+			.price {
+				position: absolute;
+				@include vw(top,92px);
+				left:0;
+				width:100%;
+				color: #ee2a00;
+				@include vw(font-size,80px);
+				font-weight: 900;
+				@include vw(letter-spacing,-3.4px);
+			}
+			.btn {
+				position:absolute;
+				@include vw(bottom,130px);
+				left:50%;
+				transform: translateX(-50%);
+				@include vw(width,520px);
+			}
+		}
+	}
+
+	.cont-review{
+		padding-bottom: 3%;
+		background:url(#{$img-path}/mobile/bg_review.jpg) no-repeat 0 50%;
+		background-size: cover;
+		.slider-wrap {
+			@include rem(margin-bottom, 150px);
+		}
+		.slick-slide{
+			@include rem(margin, 0 10px);
+			@include rem(padding, 0 0 40px 0);
+			opacity: .3;
+			filter: blur(0);
+			&.slick-active{
+				opacity: .3;
+				filter: blur(0);
+			}
+			&.slick-center{
+				opacity: 1;
+				filter: blur(1);
+			}
+		}
+		.review-slider {
+			img{
+				width: 100%;
+				margin: 0 auto;
+			}
+		}
+	}
+
+	.cont-media {
+		.item {
+			position: relative;
+		}
+		.video-list {
+			@include rem(margin-bottom, 100px);
+			.list {
+				margin: 0 5.56%;
+				@include rem(margin-top, 55px);
+				&:first-child { margin-top: 0;}
+				.video {
+					position: relative;
+					padding-bottom: 55.65%;
+					a, iframe {
+						position: absolute;
+						top: 0;
+						right: 0;
+						bottom: 0;
+						left: 0;
+						z-index: 2;
+					}
+					a{ display: none;}
+					iframe { z-index: 1;}
+				}
+			}
+		}
+	}
+
+	.cont-winner{
+		background:url(#{$img-path}/pc/bg_winner.jpg) no-repeat 50% 0;
+		background-color:#ffbe00;
+		background-size:cover;
+		.wrap{
+			width:100%;
+			margin:0 auto;
+			text-align: center;
+		}
+		.winner-contents{
+			padding: 0 5%;
+			margin-top: -4.125rem !important;
+		}
+	}
+
+	.cont-award {
+		background-color:#fcf3da;
+	}
+
+	.cont-teacher {
+		background:#fff;
+		.holder{
+			width:100%;
+			margin:0 auto;
+		}
+		.tab-list {
+			a.item {
+				float:left;
+				width:25%;
+				height:73px;
+				background-color:#ffbe00;
+				display:block;
+				position:relative;
+				color:#081f48;
+				@include vw(font-size,30px);
+				font-weight:700;
+				span{
+					line-height:73px;
+				}
+				&.on {
+					background-color:#fff;
+					color:#000;
+					transition:all .3s linear;
+				}
+			}
+		}
+		.tab-cont {
+			display:none;
+			&.on {
+				display:block;
+			}
+		}
+	}
+
+	.cont-provide {
+		background:#fff;
+	}
+
+	.cont-benefit {
+		background:url(#{$img-path}/mobile/bg_benefit.jpg) no-repeat 50% 50%;
+		background-size:cover;
+	}
+	.cont-applytitle{
+		background:#fff;
+	}
+
+}
+
+@import "module/popup";

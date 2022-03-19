@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ko" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+<title></title>
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/product.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/product.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.min.js"></script>
+
+<link href="https://img.eduwill.net/eduwill/live/libs/slick/slick.css" rel="stylesheet" />
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/slick/slick.js"></script>
+<!-- // 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+    컨텐츠 감싸는 부모 : product-eco
+    하단 수강신청 영역 : product-apply
+    하단 수강신청 영역 내 탭 : product-tab
+    하단 수강신청 영역 내 정보 : product-table
+    따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+
+
+
+<style>
+/* common */
+.product-eco * { font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; letter-spacing: -1px; }
+.product-eco p { margin: 0; }
+.product-eco img { vertical-align: top; } 
+.product-eco .bx-wrapper { margin: 0 auto; } 
+.product-eco .bx-wrapper .bx-viewport { left: 0; border: 0; background: none; -webkit-box-shadow: none; box-shadow: none; }
+.product-eco .bx-wrapper img { display: inline; } 
+.product-eco .hidden,
+.product-eco .sr_only,
+.product-eco .sr-only { display: inline-block; position: absolute; z-index: -1; clip: rect(0 0 0 0); width: 1px; height: 1px; *height: 0; margin: -1px; padding: 0; overflow: hidden; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }
+.product-eco .grid { position: relative; *zoom: 1; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.product-eco .grid:before,
+.product-eco .grid:after { content: ''; display: table; }
+.product-eco .grid:after { clear: both; }
+.product-eco .grid .col { position: relative; float: left; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* contents */
+.product-eco .container { position: relative; background-repeat: no-repeat; background-position: center top; *zoom: 1; }
+.product-eco .container:before,
+.product-eco .container:after { content: ''; display: table; }
+.product-eco .container:after { clear: both; }
+.product-eco .wrap { position: relative; width: 1100px; margin: 0 auto; text-align: center; }
+.product-eco .holder { position: relative; }
+.product-eco .eco-base { position: absolute; }
+.product-eco .eco-base p { display: none; font-size: 16px; letter-spacing: 0; color: #888; }
+.product-eco .eco-base p.brand { display: block; }
+.product-eco .product-title .eco-base { top: 200px; right: 0; left: 0; }
+.product-eco .product-winner .eco-base { position: static; margin-top: 10px; }
+.product-eco .product-king .eco-base { top: 500px; left: 120px; }
+.product-eco .product-king .eco-base p { color: #fff; opacity: .4; }
+
+.product-eco .floating { position: fixed; top: 20%; left: 50%; z-index: 1; margin-left: 600px; }
+
+.product-eco .product-title { padding-bottom: 50px; background-image: url('https://img.eduwill.net/resources/img/fire/product/201215/pc/bg_title.jpg'); background-size: cover; }
+
+.product-eco .price-box .price-list { position: relative; }
+.product-eco .price-box .flag { position: absolute; }
+.product-eco .price-box p { display: inline-block; font-family: 'lato'; }
+.product-eco .price-box .price-before { position: relative; padding: 0 15px; }
+.product-eco .price-box .price-before:before,
+.product-eco .price-box .price-before:after { content: ''; position: absolute; top: 50%; right: 0; z-index: 1; height: 2px; background-color: #fe342e; }
+.product-eco .price-box .price-before:before { width: 10px; margin-top: -5px; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+.product-eco .price-box .price-before:after { left: 0; width: 100%; margin-top: -1px; }
+
+.product-eco .price-box .price-after { font-weight: 700; }
+.product-eco .price-box .action a { position: relative; display: inline-block; }
+.product-eco .price-box .action a:after { content: ''; position: absolute; top: 50%; right: 0; display: block; width: 66px; height: 73px; background: url('https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png') no-repeat 0 0; -webkit-animation: moving 1s infinite; animation: moving 1s infinite; }
+
+.product-eco .product-title .price-box { margin-top: 170px; }
+.product-eco .product-title .price-box .flag { top: -120px; left: 0; }
+.product-eco .product-title .price-box .price-list { display: inline-block; padding: 20px 150px; border-radius: 123px; background-color: #fff; }
+.product-eco .product-title .price-box .price-before { margin-right: 30px; font-size: 40px; color: #afafaf; }
+.product-eco .product-title .price-box .price-after { font-size: 60px; color: #fe342e; }
+.product-eco .product-title .price-box .action { display: inline-block; margin: 15px 0 0 -120px; vertical-align: top; }
+.product-eco .product-apply-list .price-box { position: absolute; top: 530px; right: 50px; left: 50px; }
+.product-eco .product-apply-list .price-box .col { width: 44%; margin-top: 22px; padding: 0 50px; text-align: left; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.product-eco .product-apply-list .price-box .col:first-child,
+.product-eco .product-apply-list .price-box .col:last-child { width:  28%; margin-top: 0; padding: 0; }
+.product-eco .product-apply-list .price-box .col:first-child { padding: 0 30px; }
+.product-eco .product-apply-list .price-box .flag { top: -40px; left: 0; }
+.product-eco .product-apply-list .price-box .price-before { margin-top: 30px; margin-right: 10px; font-size: 25px; color: #4c9396; }
+.product-eco .product-apply-list .price-box .price-before strong { position: absolute; bottom: 100%; right: 0; left: 0; text-align: center; font-size: 25px; color: #fe342e; }
+.product-eco .product-apply-list .price-box .price-after { font-size: 35px; color: #222; }
+.product-eco .product-apply-list .price-box .price-after span { font-size: 30px; }
+.product-eco .product-apply-list .price-box .action { margin-top: 20px; text-align: center; }
+
+.product-eco .product-apply-list { padding-bottom: 130px; background-color: #0041c1; }
+.product-eco .product-winner { padding-bottom: 80px; }
+.product-eco .product-winner .winner-list { position: relative; height: 260px; padding: 0 130px; overflow: hidden; background: url('https://img.eduwill.net/resources/img/fire/product/201215/pc/bg_winner.jpg') no-repeat center top; }
+.product-eco .product-winner .winner-list p { text-align: left; line-height: 2.4; font-size: 17px; font-weight: 300; color: #3b3b3b; }
+.product-eco .product-winner .interview-list { margin: 70px 90px 0; }
+.product-eco .product-winner .interview-list li { margin-left: 32px; }
+.product-eco .product-winner .interview-list li:first-child { margin-left: 0; }
+.product-eco .product-winner .interview-list .holder { position: relative; width: 284px; height: 167px; }
+.product-eco .product-winner .interview-list .holder a,
+.product-eco .product-winner .interview-list .holder iframe { position: absolute; top: 0; right: 0; bottom: 0; left: 0; }
+.product-eco .product-winner .interview-list .holder a { z-index: 1; }
+.product-eco .product-winner .interview-list .user { margin-top: 10px; font-size: 20px; color: #3b3b3b; }
+.product-eco .product-winner .interview-list .action { margin-top: 70px; }
+
+.product-eco .product-text,
+.product-eco .product-reform,
+.product-eco .product-free { background-color: #0041c1; }
+.product-eco .product-teacher,
+.product-eco .product-book,
+.product-eco .product-system,
+.product-eco .product-care { background-color: #edeae2; }
+.product-eco .product-free img { margin-top: -110px; }
+.product-eco .product-teacher { padding-bottom: 123px; }
+.product-eco .product-system { padding-bottom: 90px; }
+.product-eco .product-benefit { background-size: auto 100%; }
+.product-eco .product-benefit.benefit-1 { background-image: url('https://img.eduwill.net/resources/img/fire/product/201215/pc/bg_benefit_1.jpg'); }
+.product-eco .product-benefit.benefit-2 { background-image: url('https://img.eduwill.net/resources/img/fire/product/201215/pc/bg_benefit_2.jpg'); }
+.product-eco .product-king { background-image: url('https://img.eduwill.net/resources/img/fire/product/201215/pc/bg_king.jpg'); }
+
+.product-eco .product-benefit.benefit-2 .action,
+.product-eco .product-king .action { position: absolute; }
+.product-eco .product-benefit.benefit-2 .action a,
+.product-eco .product-king .action a { display: inline-block; }
+.product-eco .product-benefit.benefit-2 .action { top: 590px; left: 100px; }
+.product-eco .product-king .action { top: 516px; right: 62px; }
+
+@-webkit-keyframes moving {
+    0%, 100% { -webkit-transform: translate(0,10px); -ms-transform: translate(0, 10px); transform: translate(0, 10px); }
+    50% { -webkit-transform: translate(-10px, 0); -ms-transform: translate(-10px, 0); transform: translate(-10px, 0); }
+}
+@keyframes moving {
+    0%, 100% { -webkit-transform: translate(0,10px); -ms-transform: translate(0, 10px); transform: translate(0, 10px); }
+    50% { -webkit-transform: translate(-10px, 0); -ms-transform: translate(-10px, 0); transform: translate(-10px, 0); }
+}
+</style>
+<div class="product-eco"><!-- product-eco -->
+
+    <div class="floating">
+        <a href="#productApply" class="page_move">
+            <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/floating.png" alt="지금 할인받고 수강하기" />
+        </a>
+    </div>
+
+    <div class="container product-title">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/title.png" alt="소방 2022 돈-워리 패스" />
+            <div class="eco-base"></div>
+
+            <div class="price-box">
+                <div class="price-list">
+                    <p class="flag"><img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/flag_1.png" alt="22년 개편이니까 22만원 할인!" /></p>
+                    <p class="price-before">670,000</p>
+                    <p class="price-after">450,000</p>
+                </div>
+                <div class="action">
+                    <a href="#productApply" class="page_move">
+                        <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/btn_go.png" alt="수강신청">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container product-benefit benefit-1">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/benefit_1.png" alt="선착순 특별 혜택" />
+        </div>
+    </div>
+
+    <div class="container product-reform">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/reform.jpg" alt="2022 소방 과/목/개/편">
+        </div>
+    </div>
+
+    <div class="container product-apply-list">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/apply_title_1.jpg" alt="선택 과목 폐지, 고교 과목 폐지, 필수 5과목 지정…확 바뀌는 2022 과목 개편, 돈워리 패스로 고민 끝! 어떤 변화에도 흔들림 없도록 전 과목X전 강좌 지원합니다 " />
+            <div class="holder">
+                <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/apply.jpg" alt="3개 과정 비교" />
+                <div class="grid price-box">
+                    <div class="col">
+                        <div class="price-list">
+                            <p class="flag"><img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/flag_2.png" alt="할인가 적용!" /></p>
+                            <p class="price-after">870,000<span>원</span></p>
+                        </div>
+                        <div class="action">
+                            <a href="//fire.eduwill.net/ProductAuto/Index?progress_cd=_104&masterSeq=NzQzMg==" target="_blank">
+                                <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/btn_apply_1.png" alt="수강 신청">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="price-list">
+                            <p class="flag"><img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/flag_3.png" alt="월 1만원대 수강료!" /></p>
+                            <p class="price-before">
+                                <strong>22만원 할인</strong>
+                                670,000<span>원</span>
+                            </p>
+                            <p class="price-after">450,000<span>원</span></p>
+                        </div>
+                        <div class="action">
+                            <a href="#productApply" class="page_move">
+                                <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/btn_apply_2.png" alt="수강 신청">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="price-list">
+                            <p class="price-after">670,000<span>원</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container product-winner">
+        <div class="wrap">
+            <div class="title"><img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/winner_title.jpg" alt="소방공무원 1위*의 노하우 합격생이 증명합니다" /></div>
+
+            <div class="winner-slide">
+                <div id="winnerList" class="winner-list"></div>
+            </div>
+
+            <div class="interview-list">
+                <ul class="grid">
+                    <li class="col interview-1">
+                        <div class="holder">
+                            <a class="eduwill-iframe-play" href="javascript:;">
+                                <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/thumb_1.jpg" alt="송호근 합격생" />
+                            </a>
+                            <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="eduwill-iframe-player" frameborder="0" height="100%" src="" width="100%"></iframe>
+                        </div>
+                        <div class="user">소방공채 송호근 합격생</div>
+                    </li>
+                    <li class="col interview-2">
+                        <div class="holder">
+                            <a class="eduwill-iframe-play" href="javascript:;">
+                                <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/thumb_2.jpg" alt="김윤환 합격생" />
+                            </a>
+                            <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="eduwill-iframe-player" frameborder="0" height="100%" src="" width="100%"></iframe>
+                        </div>
+                        <div class="user">소방공채 김윤환 합격생</div>
+                    </li>
+                    <li class="col interview-3">
+                        <div class="holder">
+                            <a class="eduwill-iframe-play" href="javascript:;">
+                                <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/thumb_3.jpg" alt="설화현 합격생" />
+                            </a>
+                            <iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" class="eduwill-iframe-player" frameborder="0" height="100%" src="" width="100%"></iframe>
+                        </div>
+                        <div class="user">일반공채 설화현 합격생</div>
+                    </li>
+                </ul>
+
+                <div class="action">
+                    <a href="//event.eduwill.net/Event/2019/_104/Fire_VictoryStory" target="_blank" class="btn btn-review">
+                        <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/btn_winner.png" alt="합격수기 더보기">
+                    </a>
+                </div>
+            </div>
+            <div class="eco-base"></div>
+        </div>
+    </div>
+
+    <div class="container product-text">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/text.jpg" alt="과목 개편 이후에도 돈-워리! 에듀윌 소방은 개편에도 끄떡없이 오히려 더 강해집니다.">
+        </div>
+    </div>
+
+    <div class="container product-teacher">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/teacher_title.jpg" alt="소방 전문 프리미엄 교수진의 전 과목 X 전 강좌 무제한 수강">
+            <div class="holder">
+                <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/teacher.png" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="container product-book">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/book.jpg" alt="2022 과목개편까지 완벽 대비 합격에 집중한 소방 전문 수험서">
+        </div>
+    </div>
+
+    <div class="container product-system">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/system.jpg" alt="업계 유일 밀착 케어 서비스 100여명 전문 학습 매니저의 1:1 코칭 시스템">
+            <div class="action">
+                <a href="//event.eduwill.net/Simple/_104/Smart_200131" target="_blank">
+                    <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/btn_detail.png" alt="자세히보기">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container product-king">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/king.png" alt="합격자가 직접 답해주는 Q&A 서비스 에듀윌 지식인">
+            <div class="eco-base"></div>
+            <div class="action">
+                <a href="//king.eduwill.net" target="_blank">
+                    <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/btn_king.png" alt="자세히보기">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container product-care">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/care.jpg" alt="필기부터 면접까지 비용걱정없이 All Care! 소방 전용 학습 콘텐츠 제공">
+        </div>
+    </div>
+
+    <div class="container product-free">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/free.png" alt="필기부터 면접까지 비용걱정없이 All Care! 소방 전용 학습 콘텐츠 제공">
+        </div>
+    </div>
+
+    <div class="container product-benefit benefit-2">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/benefit_2.png" alt="노베이스부터실전 고득점까지 돈-워리! 입문 특강 & 기출 문제풀이 특강 선착순 무료">
+            <div class="action">
+                <a href="//www.eduwill.net/Common/promotion/foreverPass/book/legacy/masterIdx_21.asp" target="_blank">
+                    <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/btn_book.png" alt="교재 구매 바로 가기">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container product-apply-list">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/apply_title_2.jpg" alt="가격은 낮추고 수강 기간은 2배, 100% 환급까지-2022 돈워리패스, 더 이상 망설일 이유가 없습니다" />
+            <div class="holder">
+                <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/apply.jpg" alt="3개 과정 비교" />
+                <div class="grid price-box">
+                    <div class="col">
+                        <div class="price-list">
+                            <p class="flag"><img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/flag_2.png" alt="할인가 적용!" /></p>
+                            <p class="price-after">870,000<span>원</span></p>
+                        </div>
+                        <div class="action">
+                            <a href="//fire.eduwill.net/ProductAuto/Index?progress_cd=_104&masterSeq=NzQzMg==" target="_blank">
+                                <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/btn_apply_1.png" alt="수강 신청">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="price-list">
+                            <p class="flag"><img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/flag_3.png" alt="월 1만원대 수강료!" /></p>
+                            <p class="price-before">
+                                <strong>22만원 할인</strong>
+                                670,000<span>원</span>
+                            </p>
+                            <p class="price-after">450,000<span>원</span></p>
+                        </div>
+                        <div class="action">
+                            <a href="#productApply" class="page_move">
+                                <img src="https://img.eduwill.net/resources/img/fire/product/201215/pc/btn_apply_2.png" alt="수강 신청">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="price-list">
+                            <p class="price-after">670,000<span>원</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div><!-- // product-eco -->
+
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/eduf.js"></script>
+<script type="text/javascript">
+    getEcoDynamicForClass(2473, 'eco-base');
+    $(function(){
+        $(window).on('load', function(){
+            init();
+        });
+    });
+
+    function init(){
+        winnerList();
+        playVideo();
+    }
+
+    function winnerList(){
+        var options = {
+            jsonFileNm: '_104202012_WINNER.min',
+        };
+
+        var slickOptions = {
+            speed: 1000,
+            slidesPerRow: 4,
+            slidesToShow: 6,
+        };
+
+        eduf.UI.Winner('.winner-list', options, slickOptions);
+    }
+
+    function playVideo(){
+        var obj = {
+            a: 'https://tv.naver.com/embed/9919321?autoPlay=true',
+            b: 'https://tv.naver.com/embed/10308398?autoPlay=true',
+            c: 'https://tv.naver.com/embed/4953438?autoPlay=true'
+        };
+
+        var playerSrc = [];
+        for(var o in obj){
+            playerSrc.push(obj[o]);
+        };
+
+        var iframeOption = {
+            playerSrc: playerSrc,
+            preview: true,
+            playerClass: 'eduwill-iframe-player',
+            playerPlayClass: 'eduwill-iframe-play'
+        };
+
+        eduf.UI.Player(iframeOption);
+    }
+</script>
+
+
+<div id="productApply"></div>
+</body>
+</html>

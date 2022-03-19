@@ -1,0 +1,823 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+
+.bottom_fix_btn {
+	display: none !important;
+}
+
+.product {
+	&-eco {
+		overflow: hidden;
+		line-height: normal;
+		letter-spacing: -1px;
+		* { font-family: $font-noto; }
+		p {
+			line-height: inherit;
+			font-size: inherit;
+			color: inherit;
+		}
+		.container {
+			position: relative;
+			background-repeat: no-repeat;
+			background-position: center top;
+		}
+		.wrap {
+			position: relative;
+			max-width: 720px;
+			margin: 0 auto;
+			text-align: left;
+			&-full {
+				width: 100%;
+			}
+			.content {
+				position: relative;
+			}
+		}
+		.blind {
+			overflow: hidden;
+			clip: rect(1px,1px,1px,1px);
+			position: absolute !important;
+			width: 1px;
+			height: 1px;
+		}
+		.btn-hlink {
+			display: inline-block;
+			position: relative;
+			&::after {
+				content: '';
+				position: absolute;
+				@include vw(right, 30px);
+				@include vw(bottom, 0px);
+				@include vw(width, 66px);
+				@include vw(height, 73px);
+				background: url('#{$img-common-path}/icon/pointer/icon_pointer_1.png') no-repeat 0 0;
+				background-size: 100% auto;
+				@include animation(moving, 1s, infinite){
+					0%, 100% { @include translateXY(0, 0); }
+					50% { @include translateXY(10px, 10px); }
+				}
+			}
+		}
+		.ico-plus {
+			&::before {
+				content:'';
+				position: absolute;
+				top: 0;
+				left: 20px;
+				@include vw(width, 120px);
+				@include vw(height, 120px);
+				@include vw(margin-top, -56px);
+				background-image: url('#{$img-path}/pc/plus.png');
+				background-repeat: no-repeat;
+				background-position: 0 0;
+				background-size: cover;
+			}
+		}
+		.slick-arrow {
+			position: absolute;
+			top: 50%;
+			z-index: 10;
+			@include pxTOvw(width, 46px);
+			@include pxTOvw(height, 88px);
+			@include pxTOvw(margin-top, -44px);
+			font-size: 0;
+			text-indent: -9999px;
+			color: transparent;
+			border: none;
+			background: none;
+			cursor: pointer;
+			outline: none;
+			&.slick-prev {
+				left:-10%;
+				background: url('//img.eduwill.net/eduwill/img/2021/Z/event/211104/mobile/btn-prev.png') no-repeat 50% 0;
+				background-size:cover;
+			}
+			&.slick-next {
+				right:-10%;
+				background: url('//img.eduwill.net/eduwill/img/2021/Z/event/211104/mobile/btn-next.png') no-repeat 50% 0;
+				background-size:cover;
+			}
+		}
+		.slick-dots {
+			position: absolute;
+			@include vw(top, -40px);
+			@include vw(right, 4px);
+			text-align: right;
+			z-index: 1;
+			font-size: 0;
+			li {
+				display: inline-block;
+				@include vw(margin-left, 6px);
+				&:first-child { margin-left: 0; }
+				&.slick-active button {
+					background: #5059f4;
+				}
+			}
+			button {
+				@extend %slick-reset;
+				@include vw(width, 23px);
+				@include vw(height, 23px);
+				border-radius: 50%;
+				background: #c8c8c8;
+			}
+		}	
+		.timer-banner {
+			background-color: rgba(0, 0, 0, 0.9);
+			.pass-timer {
+				@extend %flexCenter;
+				@include vw(padding, 30px 0);
+				text-align: center;
+				line-height: 1;
+				> div {
+					position: relative;
+					@include vw(margin-right, 8px);
+					vertical-align: middle;
+					line-height: 1.2;
+					@include vw(font-size, 40px);
+					@include vw(letter-spacing, 1px);
+					font-weight: 600;
+					color:#ffdf00;
+					&:last-of-type {
+						margin-right: 0;
+					}
+				}
+				.clock-img {
+					@extend %flexCenter;
+					img {
+						@include vw(width, 33px);
+					}
+				}
+				.subject{
+					margin-right: 5%;
+					text-align: left;
+					@include vw(font-size, 22px);
+					color:#fff;
+				}
+			}
+		}
+		.floating-banner {
+			position: fixed;
+			top: 35%;
+			right: 2.5%;
+			z-index: 100;
+			@include vw(width, 150px);
+			.banner-inner {
+				position: relative;
+				a {
+					display: block;
+				}
+				.btn-close {
+					position: absolute;
+					top: 0;
+					right: 0;
+					@include vw(width, 50px);
+					@include vw(height, 40px);
+				}
+			}
+		}
+		.video-box{
+			left: 50%;
+			@include translateX(-50%);
+			.video{
+				padding-top: 56.25%;
+				position: relative;
+			}
+			video, iframe, .btn-play {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+			.btn-play{
+				z-index: 10;
+				img{
+					width: 100%; 
+					height: 100%;
+				}
+			}
+			&.playing{
+				.btn-play{
+					display: none;
+				}
+			}
+		}
+
+		&.modify-220225{
+			.product-title .btn-hlink{
+				@include vw(bottom, 40px);
+			}
+			.product-info1 .flag,
+			.product-explain-2 .flag{
+				position:absolute;top:0;left:0;
+				-webkit-animation: blink_bg 1.5s step-start infinite;
+				animation: blink_bg 1.5s step-start infinite;
+				@keyframes blink_bg{
+					0%,100%{background: linear-gradient(to bottom, #51f079 0%, #2ce442 100%);}
+					50%{background: linear-gradient(to bottom, #6874f7 0%, #383ff1 100%);}
+				}
+				&1{
+					@include vw(width, 202px);
+					@include vw(height, 48px);
+					@include vw(line-height, 48px);
+					@include vw(top, 864px);
+					@include vw(left, 66px);
+					background: linear-gradient(to bottom, #51f079 0%, #2ce442 100%);
+					@include vw(font-size, 20px);
+					font-weight: bold;
+					text-align: center;
+					color: #fff;
+					@include vw(border-radius, 24px);
+					letter-spacing: 0;
+					box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+				}
+			}
+			.product-explain-2 .flag1{
+				@include vw(top, 748px);
+				@include vw(left, 108px);
+			}
+			.product-explain-3 .slider{
+				@include vw(bottom, 620px);
+			}
+		}
+	}
+
+	&-title {
+		background: url('#{$img-path}/mobile/bg_title.jpg') no-repeat 50% 0;
+		background-size: cover;
+		width: 100%;
+		.floating-motion {
+			position: absolute;
+			width: 100%;
+			opacity: 0;
+			z-index: 2;
+			&.motion1 {
+				@include vw(top, 80px);
+				@include vw(left, 159px);
+				@include vw(width, 402px);
+			}
+			&.motion2 {
+				@include vw(top, 197px);
+				@include vw(left, 187px);
+				@include vw(width, 306px);
+			}
+			&.motion3 {
+				@include vw(top, 182px);
+				@include vw(left, 40px);
+				@include vw(width, 127px);
+			}
+			&.motion4 {
+				@include vw(top, 247px);
+				@include vw(left, 179px);
+				@include vw(width, 119px);
+			}
+			&.motion5 {
+				@include vw(top, 243px);
+				@include vw(left, 316px);
+				@include vw(width, 126px);
+			}
+			&.motion6 {
+				@include vw(top, 247px);
+				@include vw(left, 441px);
+				@include vw(width, 119px);
+			}
+			&.motion7 {
+				@include vw(top, 247px);
+				@include vw(left, 561px);
+				@include vw(width, 122px);
+			}
+			&.motion8 {
+				@include vw(top, 212px);
+				@include vw(right, 45px);
+				@include vw(width, 170px);
+				z-index: 1;
+			}
+			&.motion9 {
+				@include vw(top, 65px);
+				@include vw(right, -100px);
+				@include vw(width, 300px);
+			}
+			&.motion10 {
+				@include vw(top, 417px);
+				@include vw(left, 150px);
+				@include vw(width, 423px);
+				z-index: 10;
+			}
+		}
+		.flag{
+			&1{
+				top:auto;
+				@include vw(bottom, 329px);
+				@include vw(left, 216.5px);
+				@include vw(width, 126px);
+			}
+			&2{
+				top:auto;
+				@include vw(bottom, 422px);
+				@include vw(left, 377px);
+				@include vw(width, 300px);
+			}
+		}
+		.btn-hlink {
+			@include vw(width, 717px);
+			position: absolute;
+			@include vw(bottom, 70px);
+			left: 50%;
+			@include translateX(-50%);
+		} 
+	}
+
+	&-info1 {
+		background: #63ed86;
+		background: linear-gradient(to bottom, #92f2ab 0%, #63ed86 100%);
+		.flag{
+			&1{
+				@include vw(top, 865px);
+				@include vw(left, 66px);
+				@include vw(width, 201px);
+			}
+		}
+	}
+
+	&-info2 {
+		background: #60e5c2;
+		background: linear-gradient(to bottom, #a0efda 0%, #60e5c2 100%);
+		.info-list {
+			position: absolute;
+			@include vw(top, 346px);
+			@include vw(left, 13px);
+			font-size: 0;
+			li {
+				display: block;
+				@include vw(margin-bottom, -35px);
+				img{
+					visibility: hidden;
+				}
+				&:hover{
+					img{
+						visibility: visible;
+					}
+				}
+			}
+		}
+	}
+
+	&-info3 {
+		background: #efefef;
+	}
+
+	&-enrolment {
+		.wrap {
+			@include vw(padding-bottom, 100px);
+		}
+		.btn-box {
+			@extend %clearfix;
+			@include vw(margin-top, 30px);
+			@include vw(padding, 0 30px);
+			.btn-arrow {
+				display: inline-block;
+				width: 48%;
+				@include vw(padding, 10px 0);
+				text-align: center;
+				@include vw(font-size, 24px);
+				font-weight: 500;
+				color: #000;
+				border: 1px solid #000;
+				background-color: #fff;
+				&::after{
+					content: '';
+					display: inline-block;
+					@include vw(width, 8px);
+					@include vw(height, 8px);
+					@include vw(margin-left, 4px);
+					@include vw(vertical-align, 4px);
+					border-top: 1px solid #000;
+					border-right: 1px solid #000;
+					@include rotate(45deg);
+				}
+				&:last-child {
+					float: right;
+				}
+			}
+		}
+		.t-flash {
+			position: absolute;
+			@include vw(width, 228px);
+			@include vw(bottom, 611px);
+			@include vw(left, 92px);
+			@include vw(padding, 2px 0px 5px);
+			color: #000;
+			@include vw(font-size, 19px);
+			font-weight: 500;
+			text-align: center;
+			@include vw(border-radius, 30px);
+			background-color: #ffd900;
+			@include animation(colorChange, 1s, $iteration: infinite, $timing: step-start){
+				0%, 100% { color: #000; background-color: #ffd900; }
+				50% { color: #fff; background-color: #e10000; }
+			}
+			&.t-flash2{
+				@include vw(bottom, 462px);
+			}
+		}
+		.price-box {
+			position: absolute;
+			@include vw(bottom, 215px);
+			@include vw(right, 80px);
+			font-size: 0;
+			li {
+				position: relative;
+				@include vw(width, 306px);
+				@include vw(height, 122px);
+				font-family: $font-roboto;
+				&:not(:last-of-type) {
+					@include vw(margin-bottom, 20px);
+				}
+				.price-area {
+					position: absolute;
+					top: 50%;
+					right: 0;
+					@include translateY(-50%);
+				}
+				.price-before {
+					display: inline-block;
+					position: relative;
+					@include vw(padding, 0 12px);
+					line-height: 0;
+					vertical-align: middle;
+					@include vw(font-size, 24px);
+					color: #afafaf;
+					@include vw(letter-spacing, -2px);
+					em {
+						@include vw(font-size, 36px);
+						font-weight: 800;
+					}
+					&::after {
+						content: '';
+						position: absolute;
+						top: 50%;
+						right: 0;
+						left: 0;
+						width: 100%;
+						@include vw(height, 12px);
+						@include vw(margin-top, -6px);
+						background: url('#{$img-path}/mobile/bg_price_before.png') no-repeat 0 0;
+						background-size: contain;
+					}
+					&.floating {
+						padding: 0;
+						@include vw(font-size, 45px);
+						font-weight: 800;
+						color: #222;
+						&::after {
+							display: none;
+						}
+					}
+				}
+				.price-after {
+					display: inline-block;
+					@include vw(margin-left, 10px);
+					line-height: 0;
+					vertical-align: middle;
+					@include vw(font-size, 47px);
+					font-weight: 900;
+					color: #5059f4;
+					@include vw(letter-spacing, -5px);
+					em {
+						@include vw(font-size, 107px);
+					}
+				}
+				&.floating {
+					.price-before {
+						padding: 0;
+						@include vw(font-size, 24px);
+						font-weight: 800;
+						color: #222;
+						&::after {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+		.btn-hlink {
+			position: absolute;
+			@include vw(bottom, 40px);
+			left: 50%;
+			@include translateX(-50%);
+			@include vw(width, 614px);
+		}
+	}
+
+	&-successful{
+		.successful-motion{
+			position: absolute;
+			@include vw(right, 189px);
+			@include vw(bottom, 750px);
+			@include vw(width, 167px);
+			@include vw(height, 5px);
+			overflow: hidden;
+			img{
+				position: absolute;
+				right:0px;
+				bottom:0px;
+				@include vw(width, 167px);
+				@include vw(height, 443px);
+			}
+		}
+		&.active{
+			.successful-motion{
+				@include vw(height, 443px);
+				transition-duration: .8s;
+				transition-delay: .2s;
+			}
+		}
+	}
+
+	&-bar {
+		background: #2329b5;
+		background: linear-gradient(to bottom, #4651dd 0%, #2329b5 100%);
+		.wrap {
+			&::after {
+				content: '';
+				position: absolute;
+				@include vw(bottom, -55px);
+				left: 50%;
+				@include translateX(-50%);
+				z-index: 2;
+				@include vw(width, 350px);
+				@include vw(height, 57px);
+				background: url('#{$img-path}/mobile/ico_bar.png') no-repeat 0 0;
+				background-size: cover;
+			}
+		}
+	}
+
+	&-explain {
+		background-color: #ecedff;
+		&-1{
+			.slider{
+				position: absolute;
+				@include vw(bottom, 95px);
+				@include vw(right, 70px);
+				text-align: center;
+				> div{
+					@include vw(width, 580px);
+					@include vw(padding-bottom, 10px);
+					img{
+						@include vw(height, 428px);
+						margin: 0 auto;
+					}
+				}
+				.slick-dots{
+					@include vw(top, -80px);
+				}
+			}
+		}
+		&-2{
+			.flag{
+				&1{
+					@include vw(top, 749px);
+					@include vw(left, 109px);
+					@include vw(width, 201px);
+				}
+			}
+		}
+		&-3{
+			.slider{
+				position: absolute;
+				@include vw(width, 660px);
+				@include vw(bottom, 600px);
+				@include vw(right, 30px);
+				text-align: center;
+				> div{
+					img{
+						margin: 0 auto;
+					}
+				}
+				.slick-dots{
+					@include vw(top, -20px);
+					@include vw(right, 40px);
+					@include vw(width, 580px);
+				}
+			}
+		}
+		&-4{
+			.slider{
+				position: absolute;
+				@include vw(width, 660px);
+				@include vw(bottom, 140px);
+				@include vw(right, 30px);
+				text-align: center;
+				> div{
+					img{
+						margin: 0 auto;
+					}
+				}
+				.slick-dots{
+					@include vw(top, -20px);
+					@include vw(right, 40px);
+					@include vw(width, 580px);
+				}
+			}
+		}
+	}
+
+	&-benefit {
+		background: #5059f4;
+		.flag{
+			&1{
+				top:auto;
+				@include vw(bottom, 321px);
+				@include vw(left, 216.5px);
+				@include vw(width, 126px);
+			}
+			&2{
+				top:auto;
+				@include vw(bottom, 415px);
+				@include vw(left, 377px);
+				@include vw(width, 300px);
+			}
+		}
+		.btn-hlink {
+			@include vw(width, 717px);
+			position: absolute;
+			@include vw(bottom, 70px);
+			left: 50%;
+			@include translateX(-50%);
+		} 
+	}
+
+	&-video {
+		.video-content{
+			width:80.27%;
+			margin:0 auto;
+			position: relative;
+		}
+		.thumb-list{
+			.thumb{
+				position: relative;
+				padding-bottom: 53.25%;
+				height: 0;
+				width: 100%;
+				margin: 0 auto;
+				.btn-play{
+					display:block;
+					position: absolute;
+					//z-index:7;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					iframe, video{
+						width:100%;
+						height:100%;
+					}
+				}
+				.view-wrap{
+					display: none;
+					position: absolute;
+					z-index:7;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					-o-object-fit: inherit;
+					object-fit: inherit;
+					iframe, video{
+						width:100%; 
+						height:100%;
+					}
+				}
+			}
+		}
+	}
+
+	&-review{
+		.slider{
+			@include pxTOvw(padding, 60px 140px 80px);
+			.slick-list{
+				overflow: visible;
+			}
+			.slick-slide > div{
+				overflow: hidden;
+				//@include pxTOvw(border-radius, 30px);
+				@include pxTOvw(margin, 0 15px);
+				//box-shadow: 0px 18px 27px 0px rgba(0, 0, 0, 0.13);
+				img{
+					width: 100%;
+					vertical-align: top;
+				}
+				div{
+					vertical-align: top;
+				}
+			}
+		}
+	}
+
+	&-video-one{
+		.video-box{
+			@include vw(width, 640px);
+			left:0%;
+			@include transform(translateX(0));
+			margin: 0 auto;
+		}
+		.eduf-video-wrap {
+			position: relative;
+			cursor: pointer;
+			@include vw(width, 640px);
+			@include vw(height, 360px);
+			box-shadow: 0px 9px 19px 0px rgba(122, 119, 119, 0.5);
+			margin: 0 auto;
+
+			.video-content {
+				width: 100%;
+				height: 100%;
+
+				> img {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+				}
+
+				video,
+				iframe {
+					width: 100%;
+					height: 100%;
+				}
+
+			}
+		}
+		.notice{
+			@include vw(width, 640px);
+			@include vw(padding, 20px 0 0px);
+			box-sizing: border-box;
+			margin: 0 auto;
+			line-height: 1.7;
+			letter-spacing: -1px;
+			color: #666;
+			@include vw(font-size, 18px);
+			span{
+				display: block;
+			}
+		}
+		.btn-play-full{
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			z-index: 2;
+		}
+		iframe{
+			width:100%;
+			max-width: 100%;
+			height:100%;
+			max-height: 100%;
+		}
+	}
+
+	&-winner{
+		.winner-contents {
+			@include pxTOvw(margin, 60px auto 130px);
+			overflow: hidden;
+			&::before,
+			&::after {
+				content: '';
+				position: absolute;
+				right: 0;
+				left: 0;
+				z-index: 1;
+				display: block;
+				width: 100%;
+				@include pxTOvw(height, 50px);
+				background: transparent;
+				margin: 0 auto;
+			}
+			&::before { top: 0px; background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); }
+			&::after { bottom: 5px; background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); }
+			.winner-list {
+				@include pxTOvw(margin-top, -50px);
+				transform:perspective(300px) rotateX(45deg);
+				.slick-track {
+					transform:translate(0) !important;
+				}
+			}
+			p {
+				color:#222;
+				@include pxTOvw(font-size,17px);
+				font-weight:700;
+				line-height:2;
+				text-align: center;
+			}
+		}
+	}
+
+}

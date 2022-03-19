@@ -1,0 +1,222 @@
+.notice {
+	@extend %clearfix;
+	&-info { @extend %title-info; }
+	&-frame {
+		background-color: $color-white;
+		@include rem(margin-top, 19px);
+		@include rem(padding, 16px 10px 110px 20px);
+		@include boxShadow(0 6px 20px 0 rgba(63, 65, 71, .2));
+		@include boxSizing(border-box);
+		@include rwdWidth(769) {
+			padding: 30px 0 24px;
+			height: 670px;
+		}
+	}
+	&-tabs {
+		@extend %clearfix;
+		@include rwdWidth(769) {
+			height: 100%;
+		}
+		.date {
+			color: $color-base-1;
+			@include rem(font-size, 11px);
+		}
+		.subject {
+			@extend %textEllipsis;
+			@include rem(font-size, 16px);
+		}
+		// in mobile
+		.resp-accordion {
+			position: relative;
+			font-weight: 400;
+			color: $color-base-1;
+			border-top: 1px solid $bg-color-1;
+			&:first-child {
+				border-top-width: 0;
+			}
+			a {
+				display: block;
+				@include rem(padding, 10px 30px 11px 0);
+			}
+			.resp-arrow {
+				float: none;
+				@include arrow(bottom, 8px, 8px, 1px, $color-base-1);
+				@include rem(right, 5px);
+			}
+			&.resp-tab-active {
+				color: $color-base-2;
+				.subject {
+					text-overflow: initial;
+					white-space: normal;
+					@include rem(font-size, 18px);
+				}
+				.important {
+					.subject { color: $color-base-2; }
+				}
+				.resp-arrow {
+					@include arrow(top, 8px, 8px, 1px, $color-base-1);
+					@include rem(right, 5px);
+				}
+			}
+		}
+
+		// in desktop
+		.list-wrap {
+			float: left;
+			width: 30%;
+			height: 100%;
+			overflow-y: auto;
+			@include boxSizing(border-box);
+			@include rwdWidth(769) {
+				position: relative;
+				padding-bottom: 30px;
+			}
+			.resp-tabs-list {
+				float: none;
+				width: 100%;
+				li {
+					@include rem(padding, 0 16px 0 20px);
+					&.resp-tab-active {
+						color: $color-base-1;
+						background-color: rgba(250, 83, 99, .06);
+						.important {
+							&:before { display: none; }
+							.subject { color: $color-base-1; }
+						}
+					}
+					@include breakpoint(desktop){
+						&:hover {
+							color: $color-base-1;
+							background-color: rgba(250, 83, 99, .06);
+							.important {
+								&:before { display: none; }
+								.subject { color: $color-base-1; }
+							}
+						}
+					}
+				}
+				a {
+					position: relative;
+					display: block;
+					font-weight: 400;
+					border-bottom: 1px solid $bg-color-1;
+					@include rem(padding, 12px 30px 12px 0);
+					@include rwdWidth(769) {
+						color: $color-base-1;
+					}
+					&:after {
+						@include arrow(right, 8px, 8px, 1px, $color-base-1);
+						@include rem(right, 5px);
+					}
+				}
+			}
+		}
+
+		// notice contents
+		.resp-tabs-container {
+			border-bottom: 1px solid $bg-color-1;
+			@include rwdWidth(769) {
+				height: 100%;
+				border-bottom-width: 0;
+				border-left: 1px solid $bg-color-1;
+				background: url('#{$img-path}/contents/bg_notice_detail.png') no-repeat center center;
+				@include rem(padding, 0 30px 40px);
+				@include boxSizing(border-box);
+				.date { @include rem(font-size, 14px); }
+				.subject { @include rem(font-size, 22px); }
+			}
+			.mCSB_container.mCS_no_scrollbar_y.mCS_y_hidden { height: 100%; }
+		}
+		.resp-tab-content {
+			@include rem(padding, 10px 0 30px);
+			@include rwdWidth(769) {
+				position: relative;
+				.detail-title .important:before { display: none; }
+				.detail-contents { margin-top: 20px; }
+				.important p { color: $color-base-2; }
+			}
+			&-active {
+				height: 100%;
+				background: $color-white;
+				overflow-y: auto;
+				@include boxSizing(border-box);
+				.detail-contents {
+					min-height: 195px;
+				}
+			}
+		}
+
+		.important {
+			&:before {
+				content: '';
+				position: absolute;
+				top: 55%;
+				border-radius: 50%;
+				background-color: $color-primary;
+				@include rem(left, -10px);
+				@include rem(width, 5px);
+				@include rem(height, 5px);
+			}
+			.subject {
+				color: $color-primary;
+			}
+		}
+	}
+	&-action {
+		position: absolute;
+		right: 0;
+		left: 0;
+		text-align: center;
+		@include rem(bottom, 40px);
+		.button {
+			font-weight: 700;
+			color: $color-base-1;
+			border-color: $color-base-4;
+			@include rem(min-width, 200px);
+			@include rem(padding, 8px 0 9px);
+			@include rem(font-size, 14px);
+			@include breakpoint(desktop){
+				&:hover { border-color: $color-primary; }
+				&:active { border-color: $color-primary-dark; }
+			}
+		}
+		@include rwdWidth(769) {
+			position: static;
+			bottom: auto;
+			margin-top: 30px;
+		}
+	}
+}
+
+.attachment {
+	@include rem(margin-bottom, 15px);
+	@include rwdWidth(769) {
+		margin-top: 0;
+	}
+	.button {
+		display: block;
+		text-align: left;
+		color: $color-base-1;
+		border-color: $border-color-2;
+		@include rem(margin-top, 10px);
+		@include rem(padding, 7px 30px 8px 15px);
+		@include rem(font-size, 13px);
+		&:first-child { margin-top: 0; }
+		@include breakpoint(desktop){
+			&:hover,
+			&:active {
+				color: $color-base-1;
+				border-color: $color-primary;
+				background-color: $color-white;
+			}
+		}
+		span {
+			@extend %textEllipsis;
+			display: block;
+			background: url('#{$img-path}/contents/icon_download.png') no-repeat left center;
+			background-size: 11px auto;
+			@include rem(padding-left, 21px);
+			@include boxSizing(border-box);
+		}
+	}
+}

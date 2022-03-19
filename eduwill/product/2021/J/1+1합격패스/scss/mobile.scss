@@ -1,0 +1,115 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "base/animation";  
+@import "base/common";  
+@import "base/popup";  
+
+.house{
+	&-content{
+
+	}
+
+	&-visual{
+		background: #2581d0;
+		&:after{
+			display:none;
+		}
+		.visual{
+			position: relative; 
+			z-index:3;
+			max-width:720px;
+			margin:0 auto;
+		}
+	}
+
+	&-provide{
+		position:relative;	
+		@include rem(padding-bottom,250px);
+		background: #2843ac; /* Old browsers */
+		background: -moz-linear-gradient(top,  #2843ac 0%, #1832a0 0%, #1932a6 0%, #1832a1 0%, #1732a5 1%, #1832a1 3%, #19319f 16%, #182f8c 49%, #1a2f8c 53%, #192f85 61%, #1a2d7c 86%, #1a2d7a 100%, #1f327f 100%); /* FF3.6-15 */
+		background: -webkit-linear-gradient(top,  #2843ac 0%,#1832a0 0%,#1932a6 0%,#1832a1 0%,#1732a5 1%,#1832a1 3%,#19319f 16%,#182f8c 49%,#1a2f8c 53%,#192f85 61%,#1a2d7c 86%,#1a2d7a 100%,#1f327f 100%); /* Chrome10-25,Safari5.1-6 */
+		background: linear-gradient(to bottom,  #2843ac 0%,#1832a0 0%,#1932a6 0%,#1832a1 0%,#1732a5 1%,#1832a1 3%,#19319f 16%,#182f8c 49%,#1a2f8c 53%,#192f85 61%,#1a2d7c 86%,#1a2d7a 100%,#1f327f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2843ac', endColorstr='#1f327f',GradientType=0 ); /* IE6-9 */
+		//@include bg($url: '#{$img-path}/mobile/bg_provide.jpg', $size: cover);
+		&:after{
+			content:'';position:absolute;left:50%;top:0;
+			background:url('https://img.eduwill.net/eduwill/img/2021/J/product/210421/pc/icon_provide.png') no-repeat 0 0;background-size:cover;
+			width:66px;height:66px;margin-left:-33px;margin-top:-33px;
+			@include breakpoint(maxMobile){
+				width:132px;height:132px;margin-left:-66px;margin-top:-55px;
+			}
+		}
+		.title{
+			text-align:center;
+			>div{color:#fff;}
+		}
+
+		.list{
+			&-group{
+				ul{
+					li{ background-color:#2f47ad;border:1px solid #4b63c8;}
+				}
+			}
+		
+			&-title{color:#fff;}
+			&-text{color:#6a84f0;}
+		}
+
+	}
+
+	&-event01{
+		.title{
+			padding-top: 0;
+			.main-text{
+				@include vw(37px);
+				font-weight:900;
+				line-height:1.3;
+			}
+		}
+		@include rem(padding-bottom, 100px);
+		.contents{
+			position:relative;
+			margin:0 auto;
+			max-width:720px;
+			@include rem(margin-top, 40px);
+			.list{
+				.slick-slide{
+					@include boxSizing(border-box);
+					img{
+						width:100%;
+					}
+				}
+			}
+			.slick-dots{
+				position:absolute;
+				bottom: -11%;
+				left:0;
+				right:0;
+				margin:0 auto;
+				text-align: center;
+				z-index:2;
+				margin-top:0;
+				li{
+					@include rem(margin,0 10px);
+					button{
+						background:#bbb;
+					}
+					&.slick-active button{
+						@include rem(width, 92px);
+						background:#ffbe00;
+					}
+				}
+			}
+		}
+	}
+
+	&-book-event{
+		display: block;
+		background:#fff;
+	}
+
+}
+
+

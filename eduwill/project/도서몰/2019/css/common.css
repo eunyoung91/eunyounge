@@ -1,0 +1,571 @@
+/* BASIC------------------------------------------ */
+body, input, select, textarea, button { font-family: '나눔고딕', 'Nanum Gothic', Dotum, '돋움', sans-serif; }
+body { font-size: 14px; color: #606060; line-height: 1; -webkit-text-size-adjust: none }
+input, select, textarea, button { font-size: 13px; color: #777 }
+select {}
+a { color: #666; text-decoration: none; }
+a:hover { color: #666; text-decoration: none; }
+a:active { color: #666; text-decoration: none; }
+.blind { position: absolute; top: 0; left: -9999em; width: 0; height: 0; font-size: 0; line-height: 0 }
+.clearfix { clear: both }
+.clearfix:after { content: ""; display: block; clear: both; }
+.hidden { position: absolute; z-index: -1; top: -10000em; height: 0; }
+.none_pad { padding: 0 !important; }
+
+/* Linemap Style Guide */
+.g_location { margin-bottom: 12px; height: 16px; line-height: 16px; color: #8a8989; text-align: right; }
+.g_location li { background: url('https://img.eduwill.net/pds/books/web/common/bu_location.png') no-repeat 5px 50%; padding-left: 14px; font-size: 12px; line-height: 16px; letter-spacing: -1px; display: inline; }
+.g_location li:first-child { background: none; padding-left: 0; }
+.g_location .g_home { display: inline-block; width: 13px; height: 16px; vertical-align: middle; background: url('https://img.eduwill.net/pds/books/web/common/home_location.png') no-repeat 0 1px; }
+.g_location .g_home span { position: absolute; z-index: -1; visibility: hidden; }
+
+/* Book Category Style Guide */
+.g_category { color: #010101; line-height: 23px; font-size: 13px; padding: 18px 24px 18px 28px; margin-top: 23px; border: 7px solid #f0f0f0; }
+.g_category dl { *zoom: 1; }
+.g_category dl:after { content: " "; display: block; clear: both; height: 0; visibility: hidden; }
+.g_category dt { float: left; font-family: 'nanum_b'; font-size: 15px; }
+.g_category dd { float: left; }
+.g_category .ct_search dt { padding-right: 24px; }
+.g_category .ct_search dd { padding-left: 10px; background: url('https://img.eduwill.net/pds/books/web/book/bu_category.png') no-repeat left 50%; }
+.g_category .ct_search dd span { font-family: 'Nanum Gothic Extra Bold'; }
+.g_category .ct_single dt { padding-right: 24px; }
+.g_category .ct_single dd { padding-left: 10px; background: url('https://img.eduwill.net/pds/books/web/book/gap_category.gif') no-repeat left 50%; }
+.g_category .ct_single dd span { font-family: 'Nanum Gothic Extra Bold'; }
+.g_category .ct_multi dt { float: none; margin-bottom: 5px; }
+.g_category .ct_multi dt a { color: #000; }
+.g_category .ct_multi dd { float: none; }
+.g_category .ct_multi ul { *zoom: 1; }
+.g_category .ct_multi ul:after { content: " "; display: block; clear: both; height: 0; visibility: hidden; }
+.g_category .ct_multi li { float: left; width: 33%; height: 23px; }
+.g_category .ct_multi dd a { display: inline-block; padding-left: 9px; background: url('https://img.eduwill.net/pds/books/web/book/bu_category_off.png') no-repeat left 8px; }
+.g_category .ct_multi dd a.active { color: #3358d6; font-family: 'nanum_b'; padding-left: 9px; background: url('https://img.eduwill.net/pds/books/web/book/bu_category_on.png') no-repeat left 50%; }
+.g_category p { line-height: 18px; text-align: right; padding-top: 17px; margin-top: 17px; border-top: 1px dotted #d1d1d1; }
+.g_category p span { padding-right: 12px; margin-right: 6px; background: url('https://img.eduwill.net/pds/books/web/book/gap_category.gif') no-repeat right 50%; }
+.g_category p span span { padding: 0 0 0 9px; margin: 0 0 0 4px; background: url('https://img.eduwill.net/pds/books/web/book/bu_category.png') no-repeat left 50%; }
+
+/* Page Style Guide */
+.g_page { padding: 25px 0 15px 0; line-height: normal; text-align: center; }
+.g_page a,.g_page strong { display: inline-block; position: relative; z-index: 2; margin: 0 -3px; padding: 1px 10px 1px 6px; font: normal 11px/16px Tahoma, Sans-serif; color: #6b6b6b; vertical-align: top; }
+.g_page a:hover,.g_page a:active,.g_page a:focus { }
+.g_page strong { color: #000; font-weight: bold; }
+.g_page .direction { width: 13px; height: 18px; padding: 0; z-index: 1; }
+.g_page .direction:hover,.g_page .direction:active,.g_page .direction:focus { }
+.g_page .nav_first { background: url('https://img.eduwill.net/pds/books/web/common/page_first_off.png') no-repeat 50% 50%; }
+.g_page .nav_prev { background: url('https://img.eduwill.net/pds/books/web/common/page_prev_off.png') no-repeat 50% 50%; }
+.g_page .nav_next { background: url('https://img.eduwill.net/pds/books/web/common/page_next_off.png') no-repeat 50% 50%; }
+.g_page .nav_last { background: url('https://img.eduwill.net/pds/books/web/common/page_last_off.png') no-repeat 50% 50%; }
+.g_page_2 { padding: 25px 0 15px 0; line-height: normal; text-align: center; }
+.g_page_2 a,.g_page_2 strong { display: inline-block; position: relative; z-index: 2; margin: 0 -3px; padding: 1px 10px 1px 6px; font: normal 12px/16px Tahoma, Sans-serif; color: #6b6b6b; vertical-align: top; }
+.g_page_2 a:hover,.g_page_2 a:active,.g_page_2 a:focus { }
+.g_page_2 strong { color: #000; font-weight: bold; }
+.g_page_2 .direction { width: 18px; height: 18px; padding: 0; z-index: 1; border: 1px solid #b0b0b0; }
+.g_page_2 .direction:hover,.g_page_2 .direction:active,.g_page_2 .direction:focus { }
+.g_page_2 .nav_first { background: url('https://img.eduwill.net/pds/books/web/common/btn_page_prev01.gif') no-repeat 50% 50%; }
+.g_page_2 .nav_prev { margin-right: 10px; background: url('https://img.eduwill.net/pds/books/web/common/btn_page_prev02.gif') no-repeat 50% 50%; }
+.g_page_2 .nav_next { margin-left: 5px; background: url('https://img.eduwill.net/pds/books/web/common/btn_page_next02.gif') no-repeat 50% 50%; }
+.g_page_2 .nav_last { background: url('https://img.eduwill.net/pds/books/web/common/btn_page_next01.gif') no-repeat 50% 50%; }
+
+/* Tab Style Guide */
+.g_tab_a { height: 35px; box-sizing: border-box; border-bottom: 2px solid #7286cb; *zoom: 1; }
+.g_tab_a:after { content: " "; display: block; clear: both; height: 0; visibility: hidden; }
+.g_tab_a li { float: left; border: solid #b0b0b0; border-bottom-color: #7286cb; border-width: 1px 1px 2px 0; }
+.g_tab_a li a { display: block; width: 132px; font-family: nanum_b, 'nanum_b'; text-align: center; height: 32px; line-height: 32px; color: #606060; font-size: 13px; background-color: #fff; }
+.g_tab_a li:first-child { margin: 0 !important; border-left: 1px solid #b0b0b0; }
+.g_tab_a li:first-child a { width: 130px; }
+.g_tab_a li.active { margin-left: -1px; height: 31px; border-color: #7286cb #7286cb #fff #7286cb; border-width: 2px 2px 0 2px; padding-bottom: 2px; background: #fff; }
+.g_tab_a li.active a { font-weight: bold; padding: 0; color: #3649b8; line-height: 31px; }
+.g_tab_b { overflow: hidden; }
+.g_tab_b li { float: left; padding: 0 30px; background: url('https://img.eduwill.net/pds/books/web/common/bu_bar01.gif') 0 center no-repeat; }
+.g_tab_b li:first-child { padding-left: 21px; background-image: none; }
+.g_tab_b li a { display: block; font-size: 15px; color: #000; }
+.g_tab_b li.current a { color: #3649b8; font-family: 'nanum_b'; }
+.g_tab_c { position: relative; width: 100%; overflow: hidden; height: 48px; margin: 20px 0 30px; border-bottom: 3px solid #3649b8; }
+.g_tab_c .depth01 a { }
+.g_tab_c .depth01 { overflow: hidden; }
+.g_tab_c .depth01 > li { float: left; width: 140px; }
+.g_tab_c .depth01 > li > a { display: block; padding: 15px 0; width: 139px; font-size: 16px; text-align: center; border-top: 1px solid #d1d1d1; border-right: 1px solid #d1d1d1; }
+.g_tab_c .depth01 > li:first-child > a { width: 138px; border-left: 1px solid #d1d1d1; }
+.g_tab_c .depth01 > li.current > ul { display: block; }
+.g_tab_c .depth01 > li.current > a { color: #fff; font-family: 'nanum_b'; background: #3649b8; border-top: 1px solid #3649b8; border-right: 1px solid #3649b8; }
+.g_tab_c .depth01 > li:first-child.current > a { border-left: 1px solid #3649b8; }
+
+/* Button Style Guide */
+.btn_group { position: relative; overflow: hidden; text-align: center; margin: 30px 0; }
+a.g_btn_large { display: inline-block; width: 134px; height: 45px; line-height: 45px; color: #727272; text-align: center; font-family: 'nanum_b'; font-size: 14px; background: #e4e4e4; }
+a.g_btn_large span { display: inline-block; padding-right: 11px; background: url('https://img.eduwill.net/pds/books/web/common/bu_btn_normal.png') no-repeat right 50%; }
+a.g_btn_large_a { display: inline-block; width: 185px; height: 50px; line-height: 50px; color: #727272; text-align: center; font-family: 'nanum_b'; font-size: 18px; background: #e4e4e4; }
+a.g_btn_large_b { display: inline-block; width: 185px; height: 50px; line-height: 50px; color: #fff; text-align: center; font-family: 'nanum_b'; font-size: 18px; background: #ec0d5c; }
+a.g_btn_large_b span { display: inline-block; padding-right: 16px; background: url('https://img.eduwill.net/pds/books/web/common/bu_btn_bar01.png') no-repeat right 50%; }
+a.g_btn_middle { display: inline-block; width: 108px; height: 30px; line-height: 30px; color: #616161; text-align: center; font-family: 'nanum_b'; font-size: 12px; background: #e9e9e9; }
+a.g_btn_small { display: inline-block; padding: 0 12px; min-width: 69px; height: 24px; line-height: 24px; color: #616161; text-align: center; font-size: 12px; background: #e9e9e9; }
+a.g_btn_small02 { display: inline-block; padding: 0 12px; height: 24px; line-height: 24px; color: #fff !important; font-family: 'nanum_b'; text-align: center; font-size: 12px; background: #939393; }
+a.g_btn_xs { margin-top: -1px; display: inline-block; padding: 7px 15px; font-size: 12px; color: #444; font-family: 'nanum_b'; background: #e9e9e9; }
+a.w_btn_xs { display: inline-block; padding: 5px 15px; border: 1px solid #d1d1d1; font-size: 12px; color: #6c6c6c; font-family: 'nanum_b'; }
+.b_btn_xs { position: relative; display: inline-block; padding: 6px 16px 7px; font-size: 12px; color: #fff; font-family: 'nanum_b'; background: #4e63df; }
+.b_btn_xs span { display: inline-block; padding-right: 8px; background: url('https://img.eduwill.net/pds/books/web/common/bu_xs_btn.png') right 50% no-repeat; }
+a.b_btn_xs:hover { color: #fff; }
+a.r_btn_xs { position: relative; display: inline-block; padding: 2px 15px 3px; font-size: 12px; color: #fff !important; font-family: 'nanum_b'; background: #ec0d5c; }
+a.b_btn_xxs { position: relative; display: inline-block; padding: 0 13px 1px; font-size: 12px; color: #fff !important; font-family: 'nanum_b'; background: #4e63df; }
+a.b_btn_xxs span { display: inline-block; padding-right: 8px; background: url('https://img.eduwill.net/pds/books/web/common/bu_xs_btn.png') right 50% no-repeat; }
+a.s_btn_xxs { position: relative; display: inline-block; padding: 0 13px 1px; font-size: 12px; color: #fff !important; font-family: 'nanum_b'; background: #b3bae4; }
+.g_btn_a { display: inline-block; height: 23px; padding: 0 15px; color: #fff; font-size: 12px; line-height: 23px; background: #252b5d; }
+.g_btn_b { display: inline-block; height: 23px; padding: 0 15px; color: #fff; font-size: 12px; line-height: 23px; background: #777; }
+.g_btn_c { display: inline-block; height: 23px; padding: 0 15px; color: #fff; font-size: 12px; line-height: 23px; background: #e66916; }
+.g_btn_d { display: inline-block; padding-left: 10px; letter-spacing: -1px; font-size: 12px; background: url('https://img.eduwill.net/pds/books/web/common/bu_arrow02.png') left center no-repeat; }
+
+/* Book Count Style Guide */
+.g_count { display: inline-block; position: relative; width: 72px; height: 22px; }
+.g_count input { width: 70px; height: 20px; line-height: 20px; color: #000; text-align: center; vertical-align: top; border: 1px solid #d9d9d9; }
+.g_count a { display: block; position: absolute; left: 0; top: 1px; width: 20px; height: 20px; background: url('https://img.eduwill.net/pds/books/web/book/btn_minus.png') no-repeat left 50%; }
+.g_count a.num_plus { left: 51px; background: url('https://img.eduwill.net/pds/books/web/book/btn_plus.png') no-repeat left 50%; }
+
+/* Title Style Guide */
+h3.g_title { position: relative; font-size: 30px; color: #3c3c3c; letter-spacing: -2px; }
+h4.g_title { position: relative; font-family: nanum_b, 'nanum_b'; font-size: 18px; color: #020202; }
+.sub_title { padding-left: 8px; font-size: 12px; letter-spacing: -1px; color: #777; font-family: 'Nanum Gothic'; }
+
+/* Table Style Guide */
+.g_tbl_col { margin-top: 10px; width: 100%; border-top: 2px solid #000; }
+.g_tbl_col th { text-align: center; font-family: nanum_b, 'nanum_b'; font-size: 13px; color: #000; padding: 2px 0 2px 0; line-height: 30px; border-bottom: 1px solid #d1d1d1; background: #f7f7f7; }
+.g_tbl_col td { line-height: 21px; color: #000; font-size: 15px; padding: 10px 0; border-bottom: 1px solid #d1d1d1; }
+.g_tbl_col.type2 { border-top: 1px solid #d1d1d1; border-bottom: 1px solid #d1d1d1; }
+.g_tbl_col.type2 th { border-bottom: none; }
+.g_tbl_col.type2 td { color: #777; text-align: center; font-size: 13px; border-top: 1px solid #d1d1d1; border-bottom: none; }
+.g_tbl_col.type2 td.left_td { text-align: left; }
+.g_tbl_col.type2 td.left_td2 { text-align: left; padding-left: 20px; }
+.g_tbl_col.type2 td.goods_check { vertical-align: top; }
+.g_tbl_col.type2 td a { color: #000; }
+.g_tbl_col.type3 td { text-align: center; font-size: 13px; }
+.g_tbl_col.type3 td.gray_t { color: #777; }
+.g_tbl_row { margin-top: 10px; width: 100%; border-top: 2px solid #000; }
+.g_tbl_row th { font-family: nanum_b, 'nanum_b'; font-size: 13px; color: #000; text-align: left; padding: 2px 0 2px 17px; line-height: 30px; border-bottom: 1px solid #d1d1d1; background: #f7f7f7; }
+.g_tbl_row td { line-height: 21px; color: #000; font-size: 13px; text-align: left; padding: 10px 0 10px 20px; border-bottom: 1px solid #d1d1d1; }
+.g_tbl_price td span.ico { position: absolute; top: 23px; line-height: 0; right: -13px }
+.g_tbl_price { margin-top: 10px; width: 100%; border-top: 2px solid #000 }
+.g_tbl_price th { font-family: nanum_b, 'nanum_b'; font-size: 13px; color: #3c3c3c; background-color: #f9f9f9 }
+.g_tbl_price td { vertical-align: middle }
+.g_tbl_price tr.last th, .g_tbl_price tr.last td { border-bottom-color: #b0b0b0 }
+.g_tbl_price th, .g_tbl_price td { padding: 12px 0 12px; border-left: 1px solid #e7e6e6; text-align: center; border-bottom: 1px solid #e7e6e6 }
+.g_tbl_price td.left { text-align: left; padding-left: 20px }
+.g_tbl_price th:first-child, .g_tbl_price td:first-child,.g_tbl_price th.first, .g_tbl_price td.first { border-left: 0 }
+.g_tbl_price a.post_title { margin-left: 3px }
+.g_tbl_price .post_file { margin: 0 3px }
+.g_tbl_price td.left .g_point_g,.g_tbl_price td.left .g_point_g { letter-spacing: -1px }
+.g_tbl_price td { font-family: nanum_b, 'nanum_b'; height: 74px; line-height: 74px; position: relative; padding: 0 }
+.g_tbl_price td.right_td { text-align: right; padding-right: 20px; }
+.g_tbl_view { width: 100%; border-bottom: 2px solid #d1d1d1; }
+.g_tbl_view th { padding: 15px 0; border-bottom: 2px solid #d1d1d1; background: #f7f7f7; text-align: left; font-weight: normal; }
+.g_tbl_view th dl { overflow: hidden; position: relative; width: 100%; line-height: 24px; }
+.g_tbl_view th dl dt { float: left; padding: 0 25px; margin-right: 25px; color: #000; font-size: 15px; background: url('https://img.eduwill.net/pds/books/web/common/bu_bar01.gif') right center no-repeat; }
+.g_tbl_view th dl dd { float: left; color: #000; font-size: 15px; font-family: nanum_b, 'nanum_b'; }
+.g_tbl_view th dl dd strong { display: inline-block; width: 400px; padding-right: 105px; }
+.g_tbl_view th dl dd .date { top: 0; }
+.g_tbl_view td { line-height: 24px; font-size: 13px; }
+.g_tbl_view td .view_cont { padding: 22px 25px; }
+.g_tbl_view td .view_cont.image { padding: 20px 0; }
+.g_tbl_view td .upload_file { position: relative; overflow: hidden; margin: 25px 0; padding: 15px 0; border: 1px solid #d1d1d1; }
+.g_tbl_view td .upload_file .title { float: left; padding: 0 25px; min-width: 50px; margin-right: 25px; color: #555; font-size: 13px; background: url('https://img.eduwill.net/pds/books/web/common/bu_bar01.gif') right center no-repeat; }
+.g_tbl_view td .upload_file .list { float: left; width: 500px; font-size: 13px; color: #777; }
+.g_tbl_view td .upload_file .list li { padding-left: 20px; background: url('https://img.eduwill.net/pds/books/web/common/ico_file.png') 0 5px no-repeat; }
+.g_tbl_view.type2 th { padding: 7px 11px; }
+.g_tbl_view.type2 th.title { padding: 15px 26px; color: #000; font-family: 'nanum_b'; font-size: 15px; border-bottom: 1px solid #d1d1d1; }
+.g_tbl_view.type2 th dl dt { padding: 0 15px; margin-right: 15px; font-size: 12px; color: #000; font-family: 'nanum_b'; }
+.g_tbl_view.type2 th dl dd { font-size: 12px; font-family: '나눔고딕', NanumGothic; color: #777; }
+.g_tbl_view.type2 th dl dd.date01 { padding-right: 90px; }
+.g_tbl_view.type2 th dl dd.date02 { padding-right: 90px; }
+.g_tbl_cal { width: 100%; }
+.g_tbl_cal .sat { color: #3649b8; }
+.g_tbl_cal .sun,.g_tbl_cal .holly { color: #ec0043; }
+.g_tbl_cal th { padding: 10px 0; font-family: 'tahoma'; font-size: 13px; font-weight: normal; text-align: center; border-bottom: 1px solid #e5e5e5; }
+.g_tbl_cal th:first-child { background: url('https://img.eduwill.net/pds/books/web/common/bu_bar01.gif') left center no-repeat; }
+.g_tbl_cal th span { display: block; background: url('https://img.eduwill.net/pds/books/web/common/bu_bar01.gif') right center no-repeat; }
+.g_tbl_cal tr td { height: 93px; border-bottom: 1px solid #e5e5e5; background: url('https://img.eduwill.net/pds/books/web/common/bu_bar03.gif') right center no-repeat; }
+.g_tbl_cal tr td:first-child div { background: url('https://img.eduwill.net/pds/books/web/common/bu_bar04.gif') left center no-repeat; }
+.g_tbl_cal td div { position: relative; width: 100%; height: 93px; }
+.g_tbl_cal tr td .day_num { position: absolute; top: 10px; left: 10px; font-size: 12px; font-family: 'tahoma'; }
+.g_tbl_cal tr td.cell_a { background: url('https://img.eduwill.net/pds/books/web/common/bu_bar04.gif') right center no-repeat; }
+.g_tbl_cal tr td.cell_b { text-align: center; background: url('https://img.eduwill.net/pds/books/web/common/bu_bar04.gif') right center no-repeat; }
+.g_tbl_cal tr td.cell_b img { padding-top: 15px; }
+.g_tbl_cal tr td.cell_c { background: #6e84d7; text-align: center; }
+.g_tbl_cal tr td.cell_c .day_num { color: #fff; font-weight: 700; }
+.g_tbl_cal tr td.cell_c a { display: inline-block; padding: 6px 18px; margin-top: 35px; border: 2px solid #e6e6e6; color: #fff; text-align: center; font-size: 14px; font-weight: 700; }
+.page_loc { margin-bottom: 10px; border-bottom: 2px solid #d1d1d1; }
+.page_loc dl { position: relative; overflow: hidden; width: 100%; }
+.page_loc dl dt { float: left; width: 87px; text-align: center; padding: 15px 0 13px; font-size: 13px; font-family: nanum_b, 'nanum_b'; color: #000; border-top: 1px dashed #c6c6c6; }
+.page_loc dl dt.prev { background: url('https://img.eduwill.net/pds/books/web/common/bu_up.gif') 68px center no-repeat; }
+.page_loc dl dt.next { background: url('https://img.eduwill.net/pds/books/web/common/bu_down.gif') 68px center no-repeat; }
+.page_loc dl dd { float: left; width: 605px; padding: 15px 0 13px 7px; border-top: 1px dashed #c6c6c6; }
+.page_loc dl dd a { display: inline-block; overflow: hidden; text-overflow: ellipsis; width: 580px; white-space: nowrap; font-size: 13px; color: #555; }
+.page_loc dl .br_none { border-top: none; }
+
+/* Board style */
+.g_list_a { }
+.list_a { margin-bottom: 15px; }
+.list_a > li { overflow: hidden; margin-top: 33px; padding-top: 33px; border-top: 1px solid #d1d1d1; }
+.list_a > li:first-child { border-top: none; padding-top: 0; }
+.list_a > li .thum { float: left; margin-right: 24px; width: 195px; min-height: 130px; height: auto; box-sizing: border-box; }
+.list_a > li .thum img { width: 193px; height: 128px; border: 1px solid #c1c1c1; }
+.list_a > li .cont { float: left; position: relative; width: 480px; min-height: 130px; }
+dl.post dt { margin-bottom: 12px; font-size: 18px; color: #000; font-family: nanum_b, 'nanum_b'; }
+dl.post dt a { font-size: 18px; color: #000; font-family: nanum_b, 'nanum_b'; }
+dl.post dd { padding-bottom: 38px; font-size: 12px; color: #999; line-height: 18px; }
+.like_hand { position: absolute; bottom: 0; left: 0; padding-left: 20px; height: 18px; line-height: 18px; font-size: 14px; color: #5764bc; font-family: nanum_b, 'nanum_b'; background: url('https://img.eduwill.net/pds/books/web/common/bu_hand.png') 0 0 no-repeat; }
+
+/* Form Style Guide */
+input.g_input { height: 23px; color: #000; line-height: 23px; font-size: 13px; vertical-align: middle; padding: 0 5px; border-top: 1px solid #c9c9c9; border-left: 1px solid #c9c9c9; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; }
+input.char_phone { width: 55px; }
+.g_radio { margin-right: 45px; }
+.g_tip { color: #7f7f7f; font-size: 12px; margin-left: 8px; }
+.selectric-g_select { display: inline-block; vertical-align: middle; margin: 0 !important; }
+.txtarea { padding: 10px; width: 98%; resize: none; border-top: 1px solid #c9c9c9; border-left: 1px solid #c9c9c9; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; }
+.selectType { padding: 3px 3px 4px 3px; border-top: 1px solid #c9c9c9; border-left: 1px solid #c9c9c9; border-bottom: 1px solid #ebebeb; border-right: 1px solid #ebebeb; }
+
+/* Align */
+.left_align { text-align: left !important; }
+.center_align { text-align: center !important; }
+.right_align { text-align: right !important; }
+
+/* Label Style Guide */
+span.label_w_small { padding: 4px 14px 5px; font-size: 12px; color: #666; text-align: center; font-family: 'nanum_b'; border: 1px solid #d1d1d1; }
+.label_lank { display: block; padding: 3px 0; width: 19px; text-align: center; font-family: Tahoma; font-weight: 700; color: #fff; font-size: 13px; background: #a7a7af; }
+.label_lank.no_1 { background: #2c2bff; }
+
+/* Text Style Guide */
+.normal_price { font-family: 'Nanum Gothic Extra Bold' !important; font-size: 16px; color: #555; }
+.normal_price strong { font-weight: 700; font-size: 22px; font-family: Tahoma; }
+.total_price { color: #0473f0 !important; font-family: 'Nanum Gothic Extra Bold' !important; font-size: 19px !important; }
+.total_price strong { font-family: tahoma; font-weight: 700; font-size: 26px; }
+.black_t { color: #000 !important; }
+.point_t01 { color: #3649b8 !important; }
+.point_t02 { color: #ff0000 !important; font-size: 12px; }
+.point_t03 { color: #333 !important; }
+.point_t04 { color: #0473f0 !important; }
+.font_s01 { font-family: tahoma; font-weight: 700; font-size: 14px; }
+
+/* Text Box Style Guide */
+.g_box_a { padding: 45px 38px; color: #3c3c3c; text-align: center; box-sizing: border-box; border: 7px solid #f0f0f0; letter-spacing: -1px; }
+.g_box_a .big_t { display: block; margin-bottom: 25px; font-size: 30px; line-height: 38px; }
+.g_box_a .mid_t { line-height: 24px; }
+.g_box_a.type2 { padding: 20px 0; font-size: 15px; }
+.g_box_b { position: relative; overflow: hidden; padding: 20px 30px; margin: 15px 0 30px; box-sizing: border-box; border: 7px solid #f0f0f0; }
+.g_box_b dl { overflow: hidden; }
+.g_box_b dl dt { float: left; min-width: 70px; padding-right: 34px; font-size: 15px; color: #010101; font-family: 'nanum_b'; background: url('https://img.eduwill.net/pds/books/web/common/bu_bar02.gif') right 2px no-repeat; }
+.g_box_b dl dd { float: left; width: 345px; padding-left: 25px; font-size: 15px; color: #3649b8; font-family: 'nanum_b'; }
+.g_box_b dl dd strong { font-family: tahoma; font-size: 16px; font-weight: 700; }
+.g_box_c { padding: 25px 37px 25px 37px; border: 6px solid #d0d4eb; }
+.g_box_c p { color: #3649b8; line-height: 29px; font-family: 'nanum_b'; font-size: 21px; }
+.g_box_c ul { margin-top: 10px; }
+.g_box_c ul li { line-height: 18px; font-size: 13px; padding-left: 9px; margin-bottom: 4px; letter-spacing: -1px; background: url('https://img.eduwill.net/pds/books/web/common/bu_box01.png') no-repeat left 8px; }
+.g_box_c ul li span { font-size: 11px; }
+.g_box_c ul.not_dot li { padding-left: 0; background: none; line-height: 22px; }
+.reply_box { padding: 25px; border-bottom: 2px solid #d1d1d1; }
+.reply_box .re_title { font-family: nanum_b, 'nanum_b'; color: #3649b8; font-size: 15px; margin-bottom: 15px; }
+.reply_box .re_cont { line-height: 18px; color: #555; }
+span.date { position: absolute; right: 15px; font-size: 12px; color: #777; font-weight: normal; }
+
+/* List Style Guide */
+.list_type_a li { padding-left: 9px; line-height: 22px; font-size: 13px; color: #555; letter-spacing: -1px; background: url('https://img.eduwill.net/pds/books/web/common/bu_dot01.gif') 0 10px no-repeat; }
+.list_type_a li.point_dot { background: url('https://img.eduwill.net/pds/books/web/common/bu_dot02.gif') 0 10px no-repeat; }
+
+/* layout.css */
+.search_box { padding: 13px 0 10px; text-align: right; }
+
+/* Header */
+#header { border-bottom: 1px solid #dbdbdb; }
+.h_wrap { width:1010px; height:113px; margin:0 auto 0 auto; *zoom:1; }
+.h_wrap:after { content:" "; display:block; clear:both; height:0; visibility:hidden; }
+.h_wrap .h_top { float:left; width:310px; margin:0 0 0 12px; padding-top:43px;}
+.h_wrap .h_util { float:left; height:22px; padding:12px 0 10px 110px; }
+.h_wrap .h_search { float:left; margin:40px 0 0 0; height:37px; border:3px solid #d7d7d7; background:#d7d7d7; }
+.h_wrap .h_banner { float:left; margin:25px 0 0 40px;}
+
+.h_wrap	.h_top a	{ display:inline-block; vertical-align:middle; }
+.h_wrap	.h_top .h_logo { height:36px; padding:0 0 8px 0; }
+.h_wrap	.h_top .h_home { height:28px; line-height:28px; color:#333; font-family:'nanum_b'; font-size:28px; padding:8px 0 8px 0; margin:0 0 0 5px; }
+.h_wrap	.h_util	li	{ float:left; height:22px; line-height:22px; padding:0 8px 0 8px; background:url(https://img.eduwill.net/pds/books/web/common/gap_top_util.gif) no-repeat right 8px; }
+.h_wrap	.h_util	li.endline	{ background:none; }
+.h_wrap	.h_util	li a{ font-family:'nanum_b'; font-size:11px; }
+.h_wrap	.h_util	li.endline a{ color:#242424; padding-left:10px; background:url(https://img.eduwill.net/pds/books/web/common/bu_mini_util.png) no-repeat left 50%; }
+
+.h_wrap	.h_search span		{ display:block; float:left; width:345px; height:37px; background:#fff; }
+.h_wrap	.h_search span input		{ border:none; width:325px; height:37px; line-height:37px; color:#555; font-family:'nanum_b'; font-size:14px; padding:0 10px 0 10px; }
+.h_wrap	.h_search a	{ display:block; float:right; width:39px; height:37px; background:url(https://img.eduwill.net/pds/books/web/common/btn_search.png) no-repeat right top; }
+
+.h_login { position:relative; height:40px; background:#eee; border-top:1px solid #dbdbdb; border-bottom:1px solid #dbdbdb;}
+.h_login .login_box .chk, .h_login .login_box .form_group, .h_login .login_box .join_btn { float:left;}
+.h_login .login_box .chk { padding:12px 5px 0 40px;}
+.h_login .login_box .chk label { display:inline-block; padding:0 5px 0 2px; font-size:11px; color:#606060;}
+.h_login .login_box .form_group { padding-top:8px;}
+.h_login .login_box .form_group .g_input { width:90px; height:21px; color:#999;}
+.h_login .login_box .form_group input:first-child { margin-right:5px;}
+.h_login .login_box .member_btn { padding:12px 0 0 10px;}
+.h_login .login_box .member_btn a { margin-left:10px;}
+
+.h_login .login_box .user_info { padding:9px 0 0 40px; font-size:13px;}
+.h_login .login_box .user_info span { padding-right:10px;}
+.h_login .login_box .user_info .g_btn_d { margin-left:10px;}
+
+/* sitemap */
+.sitemap { display: none; position: absolute; top: 60px; left: 0; padding: 30px 0 46px; width: 100%; background: #fff url('https://img.eduwill.net/pds/books/web/common/pattern_submenu.png') 0 bottom repeat-x; z-index: 1000; }
+.s_inner { position: relative; width: 1010px; margin: 0 auto; }
+.s_inner h2 { margin: 0 0 30px 25px; color: #222; font-family: 'nanum_b'; font-size: 26px; }
+.s_item { overflow: hidden; border-left: 1px solid #ededed; }
+.s_item dl { float: left; padding-left: 25px; width: 218px; height: 164px; border-right: 1px solid #ededed; }
+.s_item dl dt { margin-bottom: 10px; font-size: 18px; font-family: 'nanum_b'; color: #000; }
+.s_item dl dd { position: relative; overflow: hidden; }
+.s_item dl dd a { font-size: 13px; color: #000; line-height: 25px; }
+.s_item dl dd span { display: block; float: left; }
+.s_item dl dd ul { float: left; padding: 3px 0 0 8px; }
+.s_item dl dd ul li a { font-size: 12px; color: #777; line-height: 20px; }
+.s_close { position: absolute; top: 0; right: 0; }
+#container { position: relative; background: #fff; }
+.gnb { position: relative; height: 46px; background: #3f4788; z-index: 99; }
+.gnb ul.gnb_label { width: 1010px; height: 46px; text-align: right; padding: 0; margin: 0 auto; background: url('https://img.eduwill.net/pds/books/web/common/m_tit_category.png') no-repeat left top; }
+.gnb ul.gnb_label li { display: inline-block; *display: inline; *zoom: 1; height: 46px; line-height: 46px; margin-left: 54px; }
+.gnb ul.gnb_label a { display: inline-block; height: 46px; line-height: 46px; color: #fff; font-size: 16px; font-family: 'nanum_b'; font-weight: 800; }
+.gnb ul.gnb_label a.active { font-family: 'nanum_b'; font-weight: 800; color: #fef200; }
+.new_icon { margin-left: 3px; margin-top: -2px; }
+.gnb .sub_wrap { display: none; position: absolute; left: 50%; top: 46px; width: 773px; height: auto; margin: 0 0 0 -269px; border-bottom: 4px solid #cfcfcf; /*background: url('https://img.eduwill.net/pds/books/web/common/pattern_submenu.png') repeat-x left bottom; */
+ z-index: 10; }
+.gnb .sub_menu { display: none; padding: 33px 0 27px 0; background: #fff; *zoom: 1; border-bottom: 4px solid #3f4788; }
+.gnb .sub_menu:after { content: " "; display: block; clear: both; height: 0; visibility: hidden; }
+.gnb .sub_menu .sub_label { float: left; height: 26px; line-height: 26px; color: #1d1d1d; font-size: 23px; font-family: 'nanum_b'; padding: 0 22px 0 42px; }
+.gnb .sub_menu ul { float: left; padding: 0 40px; }
+.gnb .sub_menu li { float: left; padding-right: 30px; padding-left: 30px; background: url('https://img.eduwill.net/pds/books/web/common/gap_gnb.gif') no-repeat right 7px; }
+.gnb .sub_menu li:first-child { padding-left: 0; }
+.gnb .sub_menu li.endline { background: none; }
+.gnb .sub_menu dt { height: 24px; line-height: 24px; font-size: 15px; font-family: 'nanum_b'; margin: 0 0 7px 0; }
+.gnb .sub_menu dt a { color: #3b3b3b; }
+.gnb .sub_menu dd { line-height: 22px; font-size: 15px; }
+.gnb .sub_menu dd a { color: #777; font-weight: normal; }
+.gnb .sub_wrap .close_layer { position: absolute; right: 12px; top: 12px; width: 17px; height: 17px; background: url('https://img.eduwill.net/pds/books/web/common/btn_close_layer01.png') no-repeat left top; }
+#content { position: relative; width: 1010px; margin: 0 auto 0 auto; background: #fff url('https://img.eduwill.net/pds/books/web/common/bg_content02.gif') repeat-y left top; *zoom: 1; }
+#content:after { content: " "; display: block; clear: both; height: 0; visibility: hidden; }
+#content .lnb { float: left; width: 236px; color: #fff; padding: 25px 0; background: #f3f3f3; }
+#content .con_wrap { float: left; width: 774px; }
+#content .g_content { position: relative; width: 700px; padding: 16px 0 100px 0; margin: 0 0 0 37px; }
+.main #content .g_content { width: 774px; margin: 0; padding: 0; border-left: 1px solid #d4d4d2; border-right: 1px solid #d4d4d2; -webkit-box-sizing: border-box; box-sizing: border-box; }
+#content .lnb a { color: #666; font-size: 14px; }
+#content .lnb a.active { color: #0473f0; font-family: 'nanum_b'; }
+#content .lnb img { vertical-align: middle; margin: 0 0 0 6px; }
+#content .lnb ul { width: 180px; margin: 0 0 0 30px; }
+#content .lnb li { margin: 0 0 20px 0; }
+#content .lnb dt { line-height: 25px; color: #000; font-size: 17px; font-family: 'nanum_b'; }
+#content .lnb dt a { color: #000; font-size: 17px; font-family: 'nanum_b'; }
+#content .lnb dd { line-height: 25px; }
+.side_menu { position: absolute; right: -105px; top: 21px; width: 75px; height: 425px; }
+.side_menu li { width: 75px; height: 75px; margin: 0 0 10px 0; }
+.side_menu a { display: block; width: 75px; height: 75px; }
+.side_menu .s_menu01 a { background-position: 0 0; }
+.side_menu .s_menu02 a { background-position: 0 -85px; }
+.side_menu .s_menu03 a { background-position: 0 -170px; }
+.side_menu .s_menu04 a { background-position: 0 -255px; }
+.side_menu .s_menu05 a { background-position: 0 -340px; }
+
+/* FOOTER ------------------------------------------ */
+#footer { position: relative; z-index: 999; clear: both; width: 100%; background: #fff; border-top: 3px solid #122448; }
+#footer ul.title_list:after { content: ''; display: block; clear: both }
+#footer ul.title_list { text-align: center; background: #f3f3f3; }
+#footer ul.title_list li { display: inline-block; zoom: 1; *display: inline; margin-left: 35px; padding: 6px 0 7px; }
+#footer ul.title_list li:first-child { margin-left: 0 }
+.bottom:after { content: ''; display: block; height: 0; clear: both }
+.bottom { position: relative; width: 1010px; padding: 20px 0 30px 0; margin: 0 auto; }
+.bottom div.logo { float: left; margin: 0 38px 0 17px; }
+.bottom div.info { float: left; margin-top: 12px; }
+.bottom div.info ul.bottom_menu { overflow: hidden; margin-bottom: 15px; }
+.bottom div.info ul.bottom_menu li { font-family: nanum_b, 'nanum_b'; font-size: 12px; color: #555; float: left; line-height: 32px; margin-left: 18px }
+.bottom div.info ul.bottom_menu li:first-child { margin-left: 0 }
+.bottom div.info ul.bottom_menu li a { color: #555 }
+.bottom div.info ul.bottom_menu li.privacy a { color: #202e8b; }
+.bottom div.info ul li { float: left; margin: 0 0 12px 0; padding: 0 10px; background: url('https://www.eduwill.net/Img2/common/ew/footer_line.gif') no-repeat right bottom; }
+.bottom div.info ul li:first-child { padding-left: 0; }
+.bottom div.info ul li.end { background: none; }
+.bottom div.info address { color: #888; font-size: 12px; line-height: 18px; clear: both; }
+.bottom div.info address a { color: #888; }
+.bottom div.info address span { display: block; margin-top: 21px }
+.bottom div.site_link { text-align: right }
+.site_link { width: 140px; position: absolute; right: 0; top: 35px; }
+.site_link ul li:first-child { }
+.site_link div.foot_banner { position: relative; }
+.site_link div.foot_banner ul { position: absolute; top: 0; right: 20px; width: 180px; }
+.site_link div.foot_banner ul li { float: left; min-width: 40px; text-align: left; height: 30px; margin-left: 5px; margin-bottom: 5px; }
+.site_link div.foot_banner ul li.isms { }
+
+/* family site */
+#footer [class^='sel_botton_'] { display: none; position: relative; }
+.sel_botton_cooperation { margin-bottom: 4px }
+#footer [class^='sel_botton_'] .btn_toggle { background: url('https://img.eduwill.net/pds/books/web/common/input_bottom_select.png') no-repeat right top #374054; border: solid 1px #262e42; width: 138px; height: 22px; line-height: 20px; letter-spacing: -1px; vertical-align: middle; color: #cbced5; font-size: 11px; text-align: left; padding-left: 10px }
+#footer [class^='sel_botton_'] .btn_toggle.expanded { background-position: right -32px }
+#footer [class^='sel_botton_'] div.toggle_cont { display: none; position: absolute; bottom: 22px; right: 0; width: 122px; max-height: 141px; overflow: auto; padding: 5px 7px 0 7px; border: solid #262e42; border-width: 1px 1px 0; line-height: 15px; background: #374054; }
+#footer [class^='sel_botton_'] div.toggle_cont a { color: #dcdcdc; line-height: 18px; font-size: 11px; display: block; text-align: left }
+
+/* book.css */
+/* 상품리스트 */
+.blist_wrap { margin-top: 33px; }
+.blist_wrap .g_box_a { margin: 15px 0; }
+.blist_wrap .counsel_menu { position: relative; width: 100%; min-height: 25px; overflow: hidden; }
+.blist_wrap .counsel_menu .btn_right { position: absolute; right: 0; top: 0 }
+.blist_head { position: relative; height: 25px; line-height: 25px; padding: 5px 0 5px 0; border-top: 1px solid #d1d1d1; border-bottom: 1px solid #d1d1d1; background: #f7f7f7; }
+.blist_head ul.blist_align { float: left; *zoom: 1; }
+.blist_head ul.blist_align:after { content: " "; display: block; clear: both; height: 0; visibility: hidden; }
+.blist_head ul.blist_align li { float: left; background: url('https://img.eduwill.net/pds/books/web/book/gap_category.gif') no-repeat right 50%; }
+.blist_head ul.blist_align li.endline { background: none; }
+.blist_head ul.blist_align li a { display: inline-block; height: 25px; line-height: 25px; font-size: 13px; color: #010101; padding: 0 16px 0 16px; }
+.blist_head ul.blist_align li a.active { font-family: 'nanum_b'; }
+.blist_head .blist_number { position: absolute; right: 10px; top: 4px; }
+.blist_body { position: relative; }
+.blist_all { position: relative; height: 24px; line-height: 24px; padding: 10px 0 11px 0; border-bottom: 1px solid #d1d1d1; }
+.blist_select { position: absolute; left: 15px; top: 10px; width: 450px; height: 24px; line-height: 24px; color: #010101; font-size: 12px; }
+.blist_select input { margin-right: 6px; }
+.blist_select a { margin-right: 2px; }
+.blist_select a.btn_buy { color: #fff; font-family: 'nanum_b'; margin-left: 10px; background: #939393; }
+.blist_select a.active { background: #ec0d5c !important; }
+.blist_all .g_page { text-align: right; padding: 3px 10px 3px 0; }
+.blist_select.one_line { position: relative; margin-bottom: 10px; }
+
+/* 상품 */
+.tbl_blist { width: 100%; }
+.tbl_blist td { vertical-align: top; padding: 65px 0 55px; border-bottom: 1px solid #d1d1d1; }
+.tbl_blist td.goods_check { padding-left: 15px; }
+.tbl_blist td.goods_info {}
+.tbl_blist td.goods_info .gi_wrap { padding-right: 29px; border-right: 1px solid #d1d1d1; }
+.tbl_blist td.goods_info dl { position: relative; width: 100%; min-height: 174px; *zoom: 1; }
+.tbl_blist td.goods_info dl:before,
+.tbl_blist td.goods_info dl:after { content: ''; display: table; }
+.tbl_blist td.goods_info dl:after { clear: both; }
+.tbl_blist td.goods_info dt { float: left; width: 130px; margin-right: 24px; border: 1px solid #c1c1c1; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.tbl_blist td.goods_info dt img.gi_thumb { width: 100%; height: 100%; }
+.tbl_blist td.goods_info dd { float: left; width: 328px; -webkit-box-sizing: border-box; box-sizing: border-box; }
+.tbl_blist td.goods_info dd.gi_title { padding-right: 100px; line-height: 22px; color: #000; font-family: 'nanum_b'; font-size: 16px; }
+.tbl_blist td.goods_info dd.gi_title a { color: #000; }
+.tbl_blist td.goods_info dd.gi_title img { vertical-align: middle; }
+.tbl_blist td.goods_info dd.gi_basic { line-height: 17px; color: #999; font-size: 12px; margin-top: 5px; }
+.tbl_blist td.goods_info dd.gi_basic span { display: inline-block; padding: 0 6px 0 0; margin: 0 4px 0 0; background: url('https://img.eduwill.net/pds/books/web/book/gap_title.gif') no-repeat right 50%; }
+.tbl_blist td.goods_info dd.gi_basic span.endline { background: none; }
+.tbl_blist td.goods_info dd.gi_price { line-height: 22px; color: #0473f0; font-size: 15px; margin-top: 12px; }
+.tbl_blist td.goods_info dd.gi_price > img { vertical-align: top; }
+.tbl_blist td.goods_info dd.gi_price span { display: inline-block; padding: 7px 0 0; letter-spacing: -0.5px; }
+.tbl_blist td.goods_info dd.gi_price strong { font-family: tahoma; font-weight: 700; font-size: 19px; }
+.tbl_blist td.goods_info dd.gi_price em { font-family: 'Nanum Gothic Extra Bold'; font-size: 17px; }
+.tbl_blist td.goods_info .gi_origin { color: #010101; text-decoration: line-through; margin-right: 8px; }
+.tbl_blist td.goods_info dd.gi_preview a { display: inline-block; width: 91px; height: 22px; line-height: 22px; color: #6c6c6c; font-family: 'nanum_b'; font-size: 11px; text-align: center; margin-top: 7px; border: 1px solid #d1d1d1; }
+
+.tbl_blist td.goods_info .gi_brief { line-height: 20px; margin-top: 40px; padding: 20px 0 43px; font-size: 12px; border-top: 1px dashed #d1d1d1; }
+.tbl_blist td.goods_info .gi_brief strong { display: inline-block; margin-bottom: 8px; color: #222; font-size: 13px; }
+.tbl_blist td.goods_num {}
+.tbl_blist td.goods_num .gn_wrap { padding-left: 30px; }
+.tbl_blist td.goods_num .gn_wrap .text_label { display: inline-block; line-height: 22px; color: #010101; font-family: 'nanum_b'; font-size: 13px; margin-right: 7px; }
+.tbl_blist td.goods_num .gn_wrap .g_count { top: -2px; width: 72px; height: 22px; }
+.tbl_blist td.goods_num .gn_wrap .gn_btn { padding-top: 7px; }
+.tbl_blist td.goods_num .gn_wrap .gn_btn a { margin-top: 6px; }
+.tbl_blist td.goods_num .gn_wrap .gn_btn a.btn_buy { color: #fff; background: #ec0d5c; }
+.tbl_blist td.goods_num .gn_wrap .gn_btn a.btn_empty { width: 106px; height: 28px; line-height: 28px; border: 1px solid #d1d1d1; background: #fff; }
+
+/* badge_list */
+.badge_list { position: absolute; z-index: 1; font-size: 0; }
+.badge_list .badge { display: inline-block; width: 89px; height: 89px; margin-left: -6px; background-repeat: no-repeat; background-position: center center; }
+.badge_list .badge:first-child { margin-left: 0; }
+.badge_list .badge em { position: absolute; display: inline-block; overflow: hidden; clip: rect(0 0 0 0); width: 0px; height: 0px; margin: -1px; padding: 0; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }
+.badge_list .badge.yes24 { background-image: url('https://img.eduwill.net/pds/books/web/book/180525/icon_list_yes24.png'); }
+.badge_list .badge.new { background-image: url('https://img.eduwill.net/pds/books/web/book/icon_list_new.png'); }
+
+.title_wrap { position: relative; }
+.title_wrap .badge_list { top: 50%; right: 0; left: auto; }
+
+.goods_info .badge_list { top: 0; right: 0; }
+
+.book_view .title_wrap { display: table; width: 100%; height: 204px; margin: 23px 0 0 0; text-align: left; border-top: 3px solid #d1d1d1; }
+.book_view .title_wrap .badge_list { top: 50%; right: 0; margin-top: -84px; }
+.book_view .title_wrap .badge_list .badge { width: 129px; height: 129px; margin-left: 4px; }
+.book_view .title_wrap .badge_list .badge.yes24 { background-image: url('https://img.eduwill.net/pds/books/web/book/180525/icon_view_yes24.png'); }
+.book_view .title_wrap .badge_list .badge.new { background-image: url('https://img.eduwill.net/pds/books/web/book/icon_view_new.png'); }
+.book_view .title_wrap .badge_list .list { display: inline-block; max-width: 129px; }
+.book_view .title_wrap .badge_list .list .info { text-align: center; word-break: break-word; }
+.book_view .title_wrap .badge_list .list p { display: inline-block; margin-top: 9px; line-height: 1.1; font-size: 10px; color: #b7b7b7; letter-spacing: -1.5px; }
+
+/* 상품상세 */
+.book_title { display: table-cell; padding-right: 220px; vertical-align: middle; }
+.book_title dt { line-height: 1.13; letter-spacing: -1px; word-break: break-word; word-break: keep-all; font-family: 'nanum_b'; font-size: 30px; color: #3c3c3c; }
+.book_title dd { line-height: 22px; margin-top: 22px; font-size: 13px; color: #888; }
+.book_title dd span { display: inline-block; padding: 0 6px 0 0; margin: 0 4px 0 0; background: url('https://img.eduwill.net/pds/books/web/book/gap_title.gif') no-repeat right 50%; }
+.book_title dd span.endline { background: none; }
+.book_detail { margin: 0; padding: 0; *zoom: 1; }
+.book_detail:before,
+.book_detail:after { content: ''; display: table; }
+.book_detail:after { clear: both; }
+.book_detail .book_img { float: left; width: 247px; }
+.book_detail .book_img .thum_book { padding: 1px; width: 245px; height: 324px; background: url('https://img.eduwill.net/pds/books/web/common/bg_book.gif') 0 0 no-repeat; }
+.book_detail .book_text { float: right; width: 413px; }
+
+.book_img p { margin: 10px 0 0 0; }
+.book_img p a { display: inline-block; width: 116px; height: 22px; line-height: 22px; color: #6c6c6c; font-family: 'nanum_b'; font-size: 11px; text-align: center; border: 1px solid #d1d1d1; margin-right: 2px; }
+
+.book_text ul { border-top: 1px solid #d1d1d1; }
+.book_text li { position: relative; line-height: 30px; color: #010101; font-size: 12px; padding: 14px 0 14px 115px; }
+.book_text li.text_price { font-size: 14px; padding: 14px 0 0 115px; }
+.book_text li.text_sale { color: #0473f0; padding: 0 0 14px 115px; border-bottom: 1px dotted #d1d1d1; }
+.book_text li.text_sale strong { font-family: tahoma; font-weight: 700; font-size: 26px; }
+.book_text li.text_sale em { font-family: 'Nanum Gothic Extra Bold'; font-size: 20px; margin-right: 6px; }
+.book_text li.text_card { padding: 19px 0 19px 115px; border-bottom: 1px dotted #d1d1d1; }
+.book_text li.text_carda { display: inline-block; width: 55px; height: 16px; line-height: 16px; color: #6c6c6c; font-size: 10px; text-align: center; border: 1px solid #d1d1d1; margin-left: 4px; }
+.book_text li.text_ship { border-bottom: 1px dotted #d1d1d1; }
+.book_text li.text_num { padding: 19px 0 19px 115px; }
+.book_text .text_label { display: block; position: absolute; left: 34px; top: 14px; width: 81px; height: 30px; color: #010101; line-height: 30px; font-family: 'nanum_b'; font-size: 13px; }
+.book_text li.text_sale .text_label { top: 0; }
+.book_text li p { position: relative; line-height: 21px; }
+.book_text li p span { display: block; }
+
+.book_btn { margin: 12px 0 0 0; }
+.book_btn a { margin-right: 1px; }
+.book_btn a.btn_buy { color: #fff; background: #ec0d5c; }
+.book_btn a.btn_cart { color: #fff; background: #3649b8; }
+
+.book_item { margin: 50px 0 0 0; }
+.book_item ul.g_tab_a { margin: 0 0 0 0; }
+.book_item ul.g_tab_a li a { width: 115px; }
+.book_item ul.g_tab_a li:first-child a { width: 116px; }
+.book_item .item_body { line-height: 19px; color: #7a7a7a; font-size: 12px; padding: 30px 0 0 0; }
+.book_item .item_body .ib_title { line-height: 20px; color: #000; font-family: 'nanum_b'; font-size: 18px; }
+.book_item .item_body .tbl_col { width: 100%; margin-top: 9px; border-top: 1px solid #d1d1d1; }
+.book_item .item_body .tbl_col th { height: 27px; line-height: 27px; color: #7a7a7a; font-family: 'nanum_b'; text-align: center; border-bottom: 1px solid #d1d1d1; background: #f7f7f7; }
+.book_item .item_body .tbl_col td { line-height: 17px; text-align: center; padding: 6px 0 6px 0; border-bottom: 1px solid #d1d1d1; }
+.book_item .item_body .tbl_col td.ib_name { text-align: left; }
+.book_item .item_body .tbl_col td.ib_download a { display: inline-block; width: 13px; height: 13px; vertical-align: middle; background: url('https://img.eduwill.net/pds/books/web/book/icon_download.png') no-repeat left 50%; }
+.book_item .item_body .ib_button { text-align: right; margin-top: 13px; }
+.book_item .item_body .ib_button a { display: inline-block; width: 121px; height: 34px; line-height: 34px; color: #606060; font-family: 'nanum_b'; font-size: 13px; text-align: center; border: 1px solid #b2b2b2; margin-left: 2px; }
+.book_item .item_body .ib_delivery { }
+.book_item .item_body .ib_delivery span { display: block; }
+.book_item .item_body .ib_delivery p { color: #ff0000; font-family: 'nanum_b'; margin-top: 8px; }
+.book_item .item_body .ib_notice { }
+.book_item .item_body .ib_notice dt { line-height: 19px; color: #333; font-family: 'nanum_b'; }
+.book_item .item_body .ib_notice dd { line-height: 19px; padding-bottom: 8px; }
+.book_item .item_body .ib_notice dd span { display: block; }
+
+/* best no.5 */
+.blist_best { position: relative; width: 100%; overflow: hidden; }
+.blist_best ul { margin: 20px 0 40px; overflow: hidden; }
+.blist_best ul li { position: relative; float: left; width: 128px; margin-right: 12px; }
+.blist_best ul li .label_lank { position: absolute; left: 0; top: 0; }
+.blist_best ul li dl { margin-top: 15px; text-align: center; }
+.blist_best ul li dt { margin-bottom: 5px; }
+.blist_best ul li dt span { display: inline-block; padding-left: 5px; font-family: 'Nanum Gothic Extra Bold'; font-size: 13px; color: #000; }
+.blist_best ul li dt span strong { font-size: 15px; font-family: Tahoma; font-weight: 700; }
+.blist_best ul li dd { color: #000; }
+.thum { margin-right: 15px; }
+.blist_bottom { position: absolute; bottom: 0 }
+
+/* 베스트셀러, 추천도서 리스트 */
+.book_item .books_list { margin-top: 60px; padding: 30px 0 0; overflow: hidden; border-top: 1px solid #aaa; }
+.books_list { }
+.books_list h3 { margin-bottom: 25px; font-size: 20px; color: #000; font-family: 'Nanum Gothic'; }
+.books_list .list { height: 154px; background: url('https://img.eduwill.net/pds/books/web/common/bg_bookbar.png') 0 bottom no-repeat; }
+.books_list .list li:first-child { padding-left: 12px; }
+.books_list .list dl { float: left; width: 220px; }
+.books_list .list dl dt { position: relative; float: left; width: 94px; margin-right: 14px; }
+.books_list .list dl dt img { border: 1px solid #c3c3c3; }
+.books_list .list dl dd { float: left; width: 112px; }
+.books_list .list dl dd .title { margin-bottom: 10px; padding-bottom: 10px; line-height: 18px; color: #000; font-family: nanum_b, 'nanum_b'; letter-spacing: -1px; font-size: 14px; background: url('https://img.eduwill.net/pds/books/web/common/bu_bar05.gif') 0 bottom no-repeat; }
+.books_list .list dl dd .price { color: #0473f0; font-size: 12px; }
+.books_list .list dl dd .price strong { font-family: 'tahoma'; font-size: 16px; font-weight: 700; }
+.books_list .list dl dd .discount { margin-top: 4px; font-family: 'tahoma'; font-size: 10px; font-weight: 700; color: #999; }
+.books_list .list dl dt img.new { position: absolute; top: -8px; right: -10px; border: 0 none; }

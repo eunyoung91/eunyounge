@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<title>에듀윌</title>
+<meta charset="utf-8" />
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<meta name="copyright" content="(c)2015 에듀윌" />
+<meta name="description" content="대한민국 평생교육 No.1 에듀윌" />
+<meta name="keywords" content="공인중개사, 주택관리사, 검정고시, 직업상담사, 사회복지사, 행정사, 유통관리사, 물류관리사, 전산세무회계, 재경관리사, 전기기능사, 전기기사, 소방설비기사, 한국사능력검정, 한자능력검정, ERP 정보관리사, 경비지도사, 도로교통사고감정사, IT 자격증, 한경 TESAT/매경 TEST, 청소년상담사, 건축기사/토목기사, ToKL/KBS한국어/글쓰기, 조경기사/산업기사/기능사, 농산물품질관리사, 9급공무원, 7급공무원, 계리직공무원, 경찰공무원, 9급 기술직공무원" />
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/brand/dev/css/import.css" />
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/brand/dev/css/contents.css" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/brand/dev/js/jquery/jquery-2.1.4.min.js"></script><!-- jquery -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/brand/dev/js/iscroll.js"></script><!-- iscroll plugins -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/brand/dev/js/scrollfix/scrollfix.js"></script><!-- scrollfix plugins -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/brand/dev/js/jquery.rwdImageMaps.min.js"></script><!-- imageMap plugins -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/brand/dev/js/front_ui.js"></script><!-- front js -->
+
+<!-- eco -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+<!--// eco -->
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+    컨텐츠 감싸는 부모 : product-eco
+    하단 수강신청 영역 : product-apply
+    하단 수강신청 영역 내 탭 : product-tab
+    하단 수강신청 영역 내 가격 : product-price
+    하단 수강신청 영역 내 정보 : product-table
+    따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+
+<!-- eco -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/libs/slick/slick.css" />
+<style type="text/css">
+	*{margin:0;padding:0;font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;}
+	.product-eco{ text-align: center; overflow-x:hidden; width:100%;overflow:hidden;line-height: 1;letter-spacing: -1px;}
+	.product-eco  img{ vertical-align: top;font-size:0;line-height:0;} 
+	.product-eco .wrap{ position: relative; width: 100%; max-width: 720px; margin: 0 auto; }
+	.product-eco .wrap .content{ position:relative;}
+	.product-eco .sr-only{ position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0;}
+	.product-eco .action{position: absolute;}
+	.product-eco .pointer{ position: absolute;top:auto;right:0;left:auto;bottom:0;;z-index:10; animation: 0.4s slideUpY ease-in-out infinite alternate;width:10%;}
+	@keyframes slideUpY { 0% { -webkit-transform: translate(0,10px); transform: translate(0, 10px); } 100% { -webkit-transform: translate(-10px, 0); transform: translate(-10px, 0); } }
+	.product-eco .notice{ letter-spacing: 0;color:#000; line-height: 1.4; font-size: 2.500vw; font-weight: 300;text-align: left;}
+	@media only screen and (min-width: 720px) {
+		.product-eco .notice{ font-size: 18px;}
+	}
+	/* popup */
+	.dimmed { display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; z-index: 10000; background-color: rgba(0, 0, 0, 0.7);}
+	.popup { display: none; position: absolute; top: 0; left: 50%; z-index: 11000; width: 100%; max-width: 680px; font-family: 'Noto Sans KR'; color: #000; background-color: #fff; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+	.popup-close { position: absolute; top: 0; right: 0; position: absolute; top: -60px; right: 0; display: block; width: 60px; height: 60px; cursor: pointer;}
+	.popup-close:before, .popup-close:after { content: ''; position: absolute; top: 50%; left: 50%; display: block; width: 30px; height: 1px; margin-left: -15px; background-color: #fff;}
+	.popup-close:before { -webkit-transform: rotate(45deg); transform: rotate(45deg); }
+	.popup-close:after { -webkit-transform: rotate(315deg); transform: rotate(315deg); }
+	.popup-close span { position: absolute; display: inline-block; overflow: hidden; clip: rect(0 0 0 0); width: 0px; height: 0px; margin: -1px; padding: 0; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }
+	.popup-body{ font-family: 'Noto Sans KR'; padding:4% 2%; background:#fff; font-size: 2.778vw;line-height: 1.4; text-align: left;}
+	@media only screen and (min-width: 720px) {
+		.popup-body{ font-size: 20px;}
+	}
+	/* // popup */
+	.product-eco .section-title{ background: url('https://img.eduwill.net/resources/img/history/product/201218/mobile/bg_title.jpg') repeat-x;}
+	.product-eco .section-title .btn-pop{ position: absolute; top:47.90%;right:0;left:0;margin:0 auto;z-index:7; width:15%;}
+	.product-eco .section-price{ padding-bottom: 10%;}
+	.product-eco .section-price .action{ position: relative;top:0;left:0;right:0;margin:0 auto;width:88.75%;}	
+	.product-eco .section-price .junsaday{ line-height:1;position: absolute;top:20%;left:0;right:0; font-size: 4.583vw; font-weight: bold; color:#fff;}
+	@media only screen and (min-width: 720px) {
+			.product-eco .section-price .junsaday{ font-size: 33px;}
+	}
+	.product-eco .section-price .junsaday em{color:#ffe738;font-style: normal;}
+	.product-eco .section-price .pointer{ left:auto;top:auto;right:0;bottom:0;}
+	.product-eco .section-search{ background:#0d2ea2; }
+	.product-eco .section-graph{ background: url('https://img.eduwill.net/resources/img/history/product/201218/mobile/bg_graph.jpg') repeat-x; }
+	.product-eco .section-list{ background:#0d2ea2; }
+	.product-eco .section-slide{ background:#0d2ea2;padding-bottom: 3.555rem;}
+	.product-eco .reviewSlider{ width:88.888%; margin:0 auto; }	
+	.product-eco .reviewSlider .slick-arrow{ 
+		position: absolute;top:50%;width:19.5px;height:38.5px;margin-top:-19.25px;;border:none;text-indent:-99999px;
+	}
+	.product-eco .reviewSlider .slick-arrow.slick-prev{ left:-19.5px; background: url('https://img.eduwill.net/resources/img/history/product/201218/mobile/btn_prev.png') no-repeat 50% 0; background-size:contain;}	
+	.product-eco .reviewSlider .slick-arrow.slick-next{ right:-19.5px; background: url('https://img.eduwill.net/resources/img/history/product/201218/mobile/btn_next.png') no-repeat 50% 0; background-size:contain;}
+	.product-eco .section-item1{ padding-bottom: 10%;}
+	.product-eco .section-item1 .gif{ position: absolute;left:0; right:0; margin:0 auto; width:71.111%;}
+	.product-eco .section-item1 .gif1{ top:5%;}
+	.product-eco .section-item1 .gif2{ top:24%;}
+	.product-eco .section-item1 .gif3{ top:43%;}
+	.product-eco .mediacont{ position: absolute; top:69%; left:0;right:0;margin:0 auto;}
+	.product-eco .media-box { position: relative; top:0;right:0; margin:0 auto;width:71.111%;}
+	.product-eco .media-box video{ position: relative;}
+	.product-eco .media-box a{ position: absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%; z-index:1;}
+	.product-eco .section-item3 .action{ position: absolute;top:60%; left:0;right:0; margin:0 auto;width:24.444%;}
+	.product-eco .section-item3 .action .pointer{ bottom:auto;top:40%;;right:-10%; width:30%;}
+	.product-eco .section-item4{ padding-bottom:10%; background:#fff;}
+	.product-eco .section-item4 .emblem{ 
+		position: absolute; top:-5%; right:4%; z-index:10; width:75px;height:75px;border-radius:50%;
+		background:rgba(255,100,47,.9);display:table;box-shadow: -5px 10px 5px 1px rgba(0, 0, 0, 0.5);
+	}
+	.product-eco .section-item4 .emblem span{ line-height:1.2; display:table-cell;vertical-align: middle;font-size:11px;color:#fff;}
+	.product-eco .section-item4 .emblem span em{ font-weight: bold;font-size: 18px;}
+	@media only screen and (min-width: 720px) {
+		.product-eco .section-item4 .emblem{  width:150px;height:150px;border-radius:50%;}
+		.product-eco .section-item4 .emblem span{ line-height:1.2; display:table-cell;vertical-align: middle;font-size:22px;color:#fff;}
+		.product-eco .section-item4 .emblem span em{ font-weight: bold;font-size: 36px;}
+	}
+	.product-eco .section-item4 .mediaSlider { width:88.88%; margin:0 auto;}
+	.product-eco .section-item4 .mediaSlider .slick-dots { margin:10px auto 20px; text-align: center;}
+	.product-eco .section-item4 .mediaSlider .slick-dots li {display:inline-block;margin:0 5px;}
+	.product-eco .section-item4 .mediaSlider .slick-dots li button { text-indent:-9999px; border:none;width:10px; height:10px; border-radius:5px; display:inline-block;background:#bcbfc2; margin:0 auto;}
+	.product-eco .section-item4 .mediaSlider .slick-dots li.slick-active button{ background:#0d2ea2;}
+	@media only screen and (min-width: 720px) {
+		.product-eco .section-item4 .mediaSlider .slick-dots { margin:20px auto 40px;  }
+		.product-eco .section-item4 .mediaSlider .slick-dots li button{ width:20px;height:20px;border-radius:10px;}	
+	}
+	.product-eco .section-item4 .video-box { position: relative; top:0;right:0; margin:0 auto; width:88.88%;padding-bottom: 56.25%;}
+	.product-eco .section-item4 .video-box iframe{ position: absolute; top: 0;left: 0;;width:100%;height:100%;}
+	.product-eco .section-item4 .notice1{ position: absolute;top:70%;left:5%;right:5%;}
+	.product-eco .section-item4 .notice2{ padding-top: 10px;position: relative;width:90%;top:0;left:5%;right:5%;}
+	.product-eco .section-plus{ background:#0d2ea2;}
+	.product-eco .winner-wrap{ position:relative;padding:4%;width:88.888%;margin:0 auto;overflow:hidden;box-sizing:border-box;background:#fff; }
+	.product-eco .winner-wrap:after{content:'';display:block;position:absolute;bottom:2px;left:0;width:99.8%;height:40px;left:50%;transform:translate(-50%,0);background:-moz-linear-gradient(bottom,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);background:-webkit-linear-gradient(bottom,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);background:linear-gradient(to top,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%)}
+	.product-eco .winner-wrap div p{ font-family: 'Noto Sans KR'; font-weight:400;line-height:2;color:#0d2ea2;font-size:2.778vw;}
+	@media only screen and (min-width: 720px) {
+			.product-eco .winner-wrap div p{ font-size:20px;}
+	}
+</style>
+
+<div class="product-eco">
+	<div class="section-title">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/title.jpg" />
+			<a class="btn-pop" href="javascript:;" onclick="popupOpen('.dimmed', 'popupBase');">
+				<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/pc/btn_pop1.png" />
+			</a>
+		</div>
+	</div>
+	<div class="section-price">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/price.jpg" />
+			<div class="action">
+				<a class="page-move" href="#productApply">
+					<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/btn_price.png" />
+					<div class="junsaday">
+						조건 없는 이 혜택 <em > @JunsaDay@ 마감</em>
+					</div>
+					<span class="pointer"><img src="https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png" alt=""></span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="section-search">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/search.jpg" />
+		</div>
+	</div>
+	<div class="section-info">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/info.jpg" />
+		</div>
+	</div>
+	<div class="section-graph">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/graph.jpg" />
+		</div>
+	</div>
+	<div class="section-list">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/list.jpg" />
+            <div class="winner-wrap">
+                <div class="winner-list"></div>
+            </div>
+			<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/list_text.jpg" />
+		</div>
+	</div>
+	<div class="section-slide">
+		<div class="wrap">
+			<div class="reviewSlider">
+				<div><img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/slide1.png" /></div>
+				<div><img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/slide2.png" /></div>
+				<div><img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/slide3.png" /></div>
+				<div><img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/slide4.png" /></div>
+			</div>
+		</div>
+	</div>
+	<div class="section-item1">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/item1_1.jpg" />
+			<div class="content">
+				<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/item1_2.jpg" />
+				<img class="gif gif1" alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/gif1.gif" />
+				<img class="gif gif2" alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/gif2.gif" />
+				<img class="gif gif3" alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/gif3.gif" />
+				<div class="mediacont">
+					<div class="media-box">
+						<video class="video-eduwill-player" controls="" height="100%" poster="" width="100%">
+							<source src="" type="video/mp4">
+						</video>
+						<a href="javascript:;" class="video-play-action">
+							<img src="https://img.eduwill.net/resources/img/history/product/201218/mobile/thumb_1.jpg" alt="">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section-item2">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/item2.jpg" />
+		</div>
+	</div>
+	<div class="section-item3">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/item3.jpg" />
+			<div class="action">
+				<a href="https://brand.eduwill.net/book/index.will?progress=H" target="_blank">
+					<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/pc/btn_book.jpg" />
+					<span class="pointer small"><img src="https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png" alt=""></span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="section-item4">
+		<div class="wrap">
+			<div class="content">
+				<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/item4_1.jpg" />
+				<div class="notice notice1">
+					* (유튜브, 네이버TV) 에듀윌 한국사 생방송 35~40회, 42~29회(총 14회) 고급/심화 가답안 기준
+				</div>
+			</div>
+			<div class="content">
+				<div class="emblem">
+					<span>
+						누적시청자수<br>
+						<em>73만명*</em>
+					</span>
+				</div>
+				<div class="mediaSlider">
+					<div><img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/mslide1.jpg" /></div>
+					<div><img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/mslide2.jpg" /></div>
+				</div>
+			</div>
+			<div class="content">
+				<div class="video-box">
+					<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="" src="https://www.youtube.com/embed/he6xehmh3BY" width=""></iframe>
+				</div>
+				<div class="notice notice2">
+					*(유튜브,네이버TV) 에듀윌 한국사 생방송 35~49회(총15회) 합산 누적조회수 734,080회(20.09.22 기준)
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="section-item5">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/item5.jpg" />
+		</div>
+	</div>
+	<div class="section-plus">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/itemplus.jpg" />
+		</div>
+	</div>
+	<div class="section-item6">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/item6.jpg" />
+		</div>
+	</div>
+	<div class="section-item7">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/item7.jpg" />
+		</div>
+	</div>
+	<div class="section-apply">
+		<div class="wrap">
+			<img alt="" src="https://img.eduwill.net/resources/img/history/product/201218/mobile/imgapply.jpg" />
+		</div>
+	</div>
+	</div>
+</div>
+
+<div class="dimmed"></div>
+<div id="popupBase" class="popup popup-schedule">
+	<a class="popup-close" onclick="popupClose('.dimmed', 'popupBase');" href="javascript:;">
+        <span>팝업 닫기</span>
+	</a>
+	<div class="popup-body">
+		<div>
+				* [2020 에듀윌 한국사능력검정시험 기출문제집 고급] 알라딘 수험서/자격증 한국사능력검정시험 고급(1,2급) 베스트셀러 1위(2020년 2월 1주 주간 베스트)<br>
+				* [2019 에듀윌 한국사능력검정시험 기출문제집 고급] YES24 수험서 자격증 한국사능력검정시험 1/2급(고급) 베스트셀러 1위(2019년 10월 3주 주별 베스트)<br>
+				* YES24 수험서 자격증 한국사능력검정시험 3급/4급(중급) 베스트셀러 1위(2020년 7~8월 월별베스트)<br>
+				* YES24 수험서 자격증 한국사능력검정시험 3급/4급(중급) 베스트셀러 1위(2020년 6월 4주 주별베스트)<br>
+				* YES24 수험서 자격증 법/인문/사회 베스트셀러 1위(16년 8월~12월/17년 4월,6월~11월/18년 2월~4월, 6월, 8월~11월/ 19년 2월 월별베스트)<br>
+				* 에듀윌 한국사능력검정 유료수강생 기본급수 강의만족도 설문조사 결과(2020.06)<br>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/slick/slick.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/eduf.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/script.js"></script>
+<script>
+	$(function(){
+		init();
+	});
+	function init(){
+		addEvent();
+		mediaPlayer();
+		winnerList();
+		pageMove('.page-move');
+	}
+
+	function addEvent(){
+		$('.reviewSlider').slick({
+			slidesToShow: 1,
+			autoplay: true,
+			infinite: true,
+			arrows: true,
+		});
+		$('.mediaSlider').slick({
+			slidesToShow: 1,
+			autoplay: true,
+			infinite: true,
+			arrows: false,
+			dots: true,
+		});		
+	}
+
+	function mediaPlayer(){
+		var obj = {
+			a: 'https://pmp.eduwill.net/eduwillpmp/eduwill/flv/20201221/history_edj.mp4',
+		};
+
+		var playerSrc = [];
+		for (var o in obj) {
+			playerSrc.push(obj[o]);
+		}
+
+		var videoOption = {
+			playerSrc: playerSrc,
+			preview: true,
+			playerClass: "video-eduwill-player",
+			playerPlayClass: "video-play-action"
+		};
+		eduf.UI.Player(videoOption);
+	}
+
+	function winnerList(){
+		var options = {
+			jsonFileNm: 'H201016_WINNER.min',
+		};
+		var slickOptions = {
+			speed: 1000,
+			slidesPerRow: 3,
+			slidesToShow: 8,
+		};
+		eduf.UI.Winner('.winner-list', options, slickOptions);
+	}
+</script>
+<!-- // eco -->
+
+</body>
+</html>
+
+

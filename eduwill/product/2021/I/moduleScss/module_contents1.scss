@@ -1,0 +1,215 @@
+@charset "utf-8";
+@import "mixins";
+
+/* 컨텐츠 */
+@mixin shadowBg(){
+	background: #f3f3f3 linear-gradient(0deg, rgba(243,243,243,1) 0%, rgba(255,255,255,1) 13%);
+}
+.product-eco {
+	.ecoCont1 {
+		// @include shadowBg();
+		.motion-1 { opacity: 0; width: 0; @include transition(all, .5s); }
+		.motion-2 { opacity: 0; width: 0; @include transition(all, .5s); }
+		.motion-3 { opacity: 0; width: 0; @include transition(all, .5s); }
+		.motion-4 { opacity: 0; width: 0; @include transition(all, .5s); }
+		
+		&.active {
+			.motion-1 { opacity: 1; width:98%; @include transitionDelay(.3s); }
+			.motion-2 { opacity: 1; width:94%; @include transitionDelay(.6s); }
+			.motion-3 { opacity: 1; width:100%; @include transitionDelay(.9s); }
+			.motion-4 { opacity: 1; width:100%; @include transitionDelay(1.2s); }
+		}
+	}
+	//PC
+	&[data-device="pc"]{
+		// content moudule
+		#edoContent1 {
+			.eco4207Slide {
+				.slick {
+				
+					&-arrow {
+						position: absolute;
+						top: 48%;
+						z-index:10;
+						text-indent: -9999px;
+						width: 25px;
+						height: 25px;
+						box-sizing: border-box;
+						border-top: 5px solid #dddddd;
+						border-right: 5px solid #dddddd;
+						
+					}
+					&-next {
+						right: 7px;
+						transform: rotate(45deg);
+					}
+					&-prev {
+						left: 7px;
+						transform: rotate(-135deg);
+					}
+				}
+
+				img {
+					margin: auto;
+				}
+			}
+			
+			.ecoCont1 {
+				// @include shadowBg();
+				.wrap {
+					
+					.btn-reason {
+						top: 158px;
+						right: 50px;
+						color: #8a8a8a;
+						border-color: #8a8a8a;
+
+						&::after {
+							border-color: #8a8a8a;
+						}
+					}
+
+					.img {
+						position: relative;
+						z-index: 1;
+					}
+
+					.graph {
+						position: absolute;
+						top: 342px;
+						left: 50px;
+						right: 50px;
+
+						p {
+							display: flex;
+							align-items: center;
+							justify-content: space-between;
+							@include vw(height, 71px);
+							@include vw(margin-bottom, 10px);
+							@include vw(padding, 0 25px 0 40px);
+							@include vw(border-top-right-radius, 71px);
+							@include vw(border-bottom-right-radius, 71px);
+							background: rgb(61,15,147);
+							background: linear-gradient(90deg, rgba(61,15,147,1) 38%, rgba(17,205,183,1) 100%);
+							
+							box-sizing: border-box;
+
+							span {
+								font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+								color: #fff;
+								&:first-child {
+									@include vw(font-size, 21px);
+									font-weight: 600;
+								}
+								&:last-child {
+									@include vw(font-size, 40px);
+									font-weight: 900; 
+									font-family: 'Roboto', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+
+									em {
+										@include vw(font-size, 25px);
+										font-weight: 600; 
+										
+									}
+								}
+							}
+						}
+						
+					}
+				}
+			}
+
+			.ecoCont2 {
+				background: #f8f8f8;
+			}
+
+			
+
+		}
+		
+	}
+
+	//MOBILE
+	&[data-device="mo"]{
+		// content moudule
+		#edoContent1 {
+			.eco4209Slide {
+				//@include vw(padding, 70px 40px 80px 40px);
+				img {
+					margin: auto;
+				}
+	
+			}
+
+			.ecoCont1 {
+
+				#eduf-paragraph {
+					//margin-bottom: 0 !important;
+				}
+
+				.btn-reason {
+					top: -15vw;
+				}
+
+				.img {
+					position: relative;
+					z-index: 1;
+				}
+
+				.graph {
+					width: 86%;
+    				margin: 0 auto 20px auto;
+
+					p {
+						display: flex;
+						align-items: center;
+						justify-content: space-between;
+						@include vw(height, 71px);
+						@include vw(margin-bottom, 10px);
+						@include vw(padding, 0 30px);
+						@include vw(border-top-right-radius, 71px);
+						@include vw(border-bottom-right-radius, 71px);
+						background: rgb(61,15,147);
+						background: linear-gradient(90deg, rgba(61,15,147,1) 12%, rgba(85,15,191,1) 38%, rgba(17,205,183,1) 100%);
+						
+						box-sizing: border-box;
+
+						span {
+							font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+							color: #fff;
+							&:first-child {
+								@include vw(font-size, 24px);
+								font-weight: 600;
+							}
+							&:last-child {
+								@include vw(font-size, 40px);
+								font-weight: 600; 
+								font-family: 'Roboto', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+
+								em {
+									@include vw(font-size, 25px);
+									font-weight: 600; 
+									
+								}
+							}
+						}
+					}
+					
+				}
+				
+			}
+
+			.ecoCont2,
+			.ecoCont4 {
+				@include vw(padding-bottom, 120px);
+			}
+
+			.ecoCont3 {
+				background: #f8f8f8;
+			}
+
+
+
+		}
+	}
+}

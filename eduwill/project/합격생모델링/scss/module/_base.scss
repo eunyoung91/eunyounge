@@ -1,0 +1,187 @@
+.plan-section {
+    position: relative;
+
+    .plan-title-section {
+        @extend .grid;
+        margin-top: 20px;
+        & + div { margin-top: 15px; }
+        .plan-sub-title {
+            @extend .col;
+        }
+        .plan-action {
+            @extend .col-right;
+            margin-top: 3px;
+            font-size: 10px;
+            color: $color-base-9;
+            i { font-style: normal; }
+        }
+    }
+    .plan-sub-title {
+        position: relative;
+        padding-left: 10px;
+        line-height: 1;
+        font-size: 16px;
+        font-weight: 700;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 3px;
+            height: 100%;
+            background-color: $color-plan-1;
+        }
+    }
+
+    .table-list {
+        .table-col {
+            border-top: 2px solid #333;
+            border-bottom: 1px solid $border-color-1;
+            tr + tr {
+                th:first-child { border-left-width: 1px; }
+                th { border-top: 1px solid $border-color-1; }
+            }
+            th {
+                padding: 9px 0;
+                text-align: center;
+                font-size: 15px;
+                border-left: 1px solid $border-color-1;
+                background-color: $bg-color-1;
+                &:first-child { border-left-width: 0; }
+            }
+            td {
+                padding: 16px;
+                text-align: center;
+                border-left: 1px solid $border-color-1;
+                border-top: 1px solid $border-color-1;
+                &:first-child { border-left-width: 0; }
+                &.test { padding: 0; }
+            }
+            .list {
+                display: inline-block;
+                margin-top: -16px;
+                font-size: 0;
+                li {
+                    position: relative;
+                    margin-top: 16px;
+                    text-align: left;
+                    font-size: 14px;
+                    font-weight: 500;
+                    @include boxSizing(border-box);
+                    .highlight { color: $color-plan-1; }
+                    p,
+                    strong,
+                    span { display: inline-block; text-align: center; }
+                    p + p { margin-left: 15px; }
+                    strong {
+                        position: relative;
+                        min-width: 110px;
+                        padding: 0 15px;
+                        vertical-align: top;
+                        font-weight: 400;
+                        @extend %clearfix;
+                        &:first-child:before { display: none; }
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            top: 50%;
+                            left: 0;
+                            width: 2px;
+                            height: 10px;
+                            margin-top: -5px;
+                            background-color: $border-color-2;
+                        }
+                        span:first-child {
+                            float: left;
+                            text-align: left;
+                            color: #666;
+                        }
+                        span:last-child {
+                            float: right;
+                            text-align: right;
+                        }
+                    }
+                }
+                &.info-list li {
+                    display: inline-block;
+                    width: 50%;
+                    p {
+                        font-weight: 400;
+                        &:first-child { font-weight: 700; }
+                    }
+                }
+            }
+        }
+    }
+
+    .btn {
+        display: inline-block;
+        line-height: 1;
+        &.btn-tooltip {
+            width: 15px;
+            height: 15px;
+            text-align: center;
+            line-height: 15px;
+            font-family: $font-montserrat;
+            font-size: 10px;
+            font-weight: normal;
+            color: $color-base-6;
+            border: .5px solid $color-base-6;
+            border-radius: 50%;
+            @include boxSizing(border-box);
+        }
+        &.btn-test {
+            display:  block;
+            width: 100%;
+            padding: 50px 0;
+            background-color: $bg-color-1;
+            span {
+                display: inline-block;
+                padding: 11px 24px 9px;
+                font-size: 16px;
+                font-weight: 700;
+                color: $color-base-0;
+                border-radius: 8px;
+                background-color: #fff;
+            }
+        }
+        &.btn-start {
+            padding: 12px 30px;
+            font-size: 16px;
+            color: #fff;
+            border-radius: 8px;
+            background-color: $color-plan-2;
+            @include pointer(60%, -10%, 40px, 49px, 20, bounce);
+        }
+        &.btn-prev {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            color: $color-base-0;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        &.btn-next {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            color: $color-base-0;
+            border-radius: 8px;
+            background-color: $color-plan-3;
+        }
+        &.btn-myroom {
+            position: relative;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            color: $color-base-0;
+            border-radius: 8px;
+            background-color: $color-plan-3;
+            &:after {
+                @include arrow(right, 10px, 10px, 1px, $color-base-0);
+                right: 10px;
+            }
+        }
+    }
+}

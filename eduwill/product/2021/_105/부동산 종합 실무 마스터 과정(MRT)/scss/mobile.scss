@@ -1,0 +1,430 @@
+@charset "utf-8";
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+@import "module/motion";
+
+
+.product {
+	&-eco {
+		overflow-x: hidden;
+		* {
+			line-height: normal;
+			font-family: $font-roboto;
+			letter-spacing: -1px;
+		}
+		.container {
+			position: relative;
+			.item {
+				position: relative;
+			}
+		}
+
+		.wrap {
+			position: relative;
+			width: 100%;
+			max-width: 720px;
+			margin: 0 auto;
+			text-align: center;
+			&-full {
+				width: 100%;
+			}
+		}
+		
+		.only-pc { display: none;}
+		.only-mobile { display: block;}
+
+		.slick-arrow {
+			position: absolute;
+			top: 50%;
+			z-index: 10;
+			content: '';
+			padding: 0;
+			margin:0;
+			border: none;
+			outline: none;
+			text-indent: -9999px;
+			display: block; 
+			cursor:pointer;
+			@include rem(width, 45px);
+			@include rem(height, 71px);
+			@include rem(margin-top, -25px);
+			&.slick-prev {
+				@include rem(left, -80px);
+				background: url('https://img.eduwill.net/eduwill/img/2021/_105/product/210823/mobile/btn_prev.png') 0 0 no-repeat; background-size: cover;
+			}
+			&.slick-next {
+				@include rem(right, -80px);
+				background: url('https://img.eduwill.net/eduwill/img/2021/_105/product/210823/mobile/btn_next.png') 0 0 no-repeat; background-size: cover;
+			}
+		}
+
+		.onair-flag {
+			position: fixed;
+			bottom: 50px;
+			z-index: 101;
+			background-color:rgba(0, 0, 0, 0.75);
+			text-align: center;
+			width: 100%;
+			a{
+				@include pointer(50%, 0, 33px, 43px, 12, bounce);
+				@media screen and (min-width: 530px) {
+					@include pointer(60%, 2%, 50px, 60px, 12, bounce);
+				}
+			}
+		}
+
+		.product {
+			&-title {
+				@include bg($color: #ffffff, $url: '#{$img-path}/mobile/bg_title.jpg', $size: cover);
+			}
+
+			&-price {
+				@include linear-gradient(to bottom, white 80%, #f6f6f6 100%);
+				.price-list {
+					position: absolute;
+					top: 26.87919%;
+					left: percent(380);
+					width: percent(300);
+					height: percent(660,1788);
+					div {
+						@include vw(40px);
+						color: #222222;
+						font-weight: 500;
+						margin-bottom: 65%;
+					}
+				}
+				.discount {
+					position: absolute;
+				    top: 67.63087%;
+					left: percent(235);
+					@include vw(40px);
+					font-weight: 800;
+					color: #ffffff;
+				}
+				.price-box {
+					width: 100%;
+					position: absolute;
+				    top: 77.97763%;
+					div {
+						@include vw(70px);
+						font-weight: 800;
+						display: inline-block;
+						span {
+							@include vw(60px);
+						}
+						&.before-price {
+							color: #999999;
+							margin-right: 3%;
+						}
+						&.after-price {
+							color: #f00000;
+							margin-left: 5%;
+						}
+					}
+				}
+			}
+
+			&-plus {
+				@include bg($color: #5527a8, $url: '#{$img-path}/mobile/bg_plus.jpg', $size: cover);
+				.img-icon {
+					position: absolute;
+					width: percent(132);
+					top: -3%;
+					left: percent(295);
+				}
+			}
+
+			&-banner {
+				@include bg($color: #251b34, $url: '#{$img-path}/mobile/bg_banner.jpg', $size: cover);
+			}
+
+			&-teacher {
+				@include rem(padding-bottom, 120px);
+				background-color: #f6f6f6;
+				.teacher-slider {
+					width: percent(550);
+					margin: 0 auto;
+				}
+			}
+
+			&-tab {
+				z-index: 500;
+				background: #222222;
+				.tab-list {
+					width: percent(720);
+					display: table;
+					li {
+						position: relative;
+						display: inline-block;
+						width: 33%;
+						@include rem(padding, 40px 0);
+						vertical-align: middle;
+						letter-spacing: -1.5px;
+						@include vw(30px);
+						font-weight: 600;
+						&.on {
+							color: #000000;
+							span {
+								padding: 3% 10%;
+								background: #ffffff;
+								@include rem(border-radius, 150px);
+							}
+						}
+					}
+				}
+			}
+
+			//탭1
+			&-tab1-video {
+				.vidoe-box{
+					width: percent(620);
+					margin: 0 auto;
+					position: relative;
+					.eduwill-video-play{
+						position: absolute;
+						top: 0;
+						left: 0;
+						z-index: 10;
+					}
+					a{
+						display: inline-block;
+					}
+				}
+			}
+			&-tab1-review {
+				@include rem(padding-bottom, 200px);
+				@include bg($color: #ffffff, $url: '#{$img-path}/mobile/bg_tab1_review.jpg', $size: cover);
+				.review-slider {
+					.slick-dots {
+						position: relative;
+						font-size: 0;
+						text-align: center;
+						li {
+							display: inline-block;
+							@include rem(margin, 0 6px);
+							&.slick-active button {
+								@include rem(width, 92px);
+								@include rem(border-radius, 50px);
+								background-color: #ffbe00;
+							}
+						}
+						button {
+							display: block;
+							@include rem(width, 32px);
+							@include rem(height, 30px);
+							color: transparent;
+							border: none;
+							border-radius: 50%;
+							background-color: #bbb;
+							outline: none;
+							cursor: pointer;
+						}
+					}
+				}
+			}
+			&-tab1-curriculum {
+				@include linear-gradient(to bottom, white 80%, #f6f6f6 100%);
+			}
+
+			//탭2
+			&-tab2-review {
+				background: #9c835a;
+			}
+			&-tab2-curriculum {
+				background: #f6f6f6;
+			}
+
+			//탭3
+			&-tab3-review {
+				background: #9c835a;
+			}
+			&-tab3-curriculum {
+				@include bg($color: #ffffff, $url: '#{$img-path}/mobile/bg_tab3_curriculum.jpg', $size: cover);
+			}
+
+			&-benefit-3 {
+				.benefit-slider {
+					width: percent(620);
+					margin: 0 auto;
+					@include rem(margin-bottom, 120px);
+					.slick-dots {
+						position: relative;
+						font-size: 0;
+						text-align: center;
+						margin-top: 5%;
+						li {
+							display: inline-block;
+							@include rem(margin, 0 6px);
+							&.slick-active button {
+								@include rem(width, 92px);
+								@include rem(border-radius, 50px);
+								background-color: #ffbe00;
+							}
+						}
+						button {
+							display: block;
+							@include rem(width, 32px);
+							@include rem(height, 30px);
+							color: transparent;
+							border: none;
+							border-radius: 50%;
+							background-color: #bbb;
+							outline: none;
+							cursor: pointer;
+						}
+					}
+				}
+				.benefit1 {
+					position: relative;
+					.action {
+						width: percent(520);
+						position: absolute;
+						top: percent(225,880);
+						left: percent(99);
+					}
+				}
+				.benefit2 {
+					position: relative;
+					.action {
+						width: percent(390);
+						position: absolute;
+						top: percent(345,1024);
+						left: percent(77);
+					}
+				}
+			}
+
+			&-certificate, &-gift {
+				background: #f6f6f6;
+			}
+
+			&-banner-2 { background: #1a2553 }
+
+			&-teacher-2 {
+				background: #fffacf;
+				.link-btn{
+					position: absolute;
+					top: 82.2%;
+					left: 29.16%;
+					width: 42.08%
+				}
+			}
+
+			&-success{
+				.slider-wrap {
+					@include rem(margin-bottom, 170px);
+				}
+				.slick-slide{
+					@include rem(margin, 0 20px);
+					@include rem(padding, 0 0 40px 0);
+					opacity: .3;
+					filter: blur(0);
+					&.slick-active{
+						opacity: .3;
+						filter: blur(0);
+					}
+					&.slick-center{
+						opacity: 1;
+						filter: blur(1);
+					}
+				}
+				// 슬라이드 인디게이트
+				.slick-dots {
+					position: absolute;
+					left: 0;
+					right: 0;
+					width: 100%;
+					@include rem(bottom, -8px);
+					text-align: center;
+					li {
+						display: inline-block;
+						@include rem(margin, 0 6px);
+						button {
+							cursor: pointer;
+							text-indent: -10000em;
+							border: 0;
+							border-radius: 50%;
+							@include rem(width, 20px);
+							@include rem(height, 20px);
+							background-color: #b2b2b2;
+						}
+						&.slick-active {
+							button {
+								@include rem(width, 55px);
+								border-radius: 50px;
+								background-color: #1a2553;
+							}
+						}
+					}
+				}
+			}
+
+			&-network{
+				background: #fffacf;
+				padding-bottom: 20%;
+				.slider{
+					width: 86.11%;
+					margin: 0 auto;
+				}
+				// 슬라이드 인디게이트
+				.slick-dots {
+					position: absolute;
+					left: 0;
+					right: 0;
+					width: 100%;
+					@include rem(bottom, -90px);
+					text-align: center;
+					li {
+						display: inline-block;
+						@include rem(margin, 0 6px);
+						button {
+							cursor: pointer;
+							text-indent: -10000em;
+							border: 0;
+							border-radius: 50%;
+							@include rem(width, 20px);
+							@include rem(height, 20px);
+							background-color: #b2b2b2;
+						}
+						&.slick-active {
+							button {
+								border-radius: 50px;
+								background-color: #1a2553;
+							}
+						}
+					}
+				}
+			}
+
+			&-winner  { 
+				background: #fffacf; 
+				.action{
+					a{
+						position: absolute;
+						top: 78.22%;
+						left: 6.94%;
+						width: 86.11%;
+					}
+				}
+			}
+
+			&-price-contents {
+				.price-list {
+					position: absolute;
+					top: percent(480,1293);
+					left: percent(380);
+					width: percent(300);
+					height: percent(660,1293);
+					div {
+						@include vw(40px);
+						color: #222222;
+						font-weight: 500;
+						margin-bottom: 78%;
+					}
+				}
+			}
+		}
+	}
+}

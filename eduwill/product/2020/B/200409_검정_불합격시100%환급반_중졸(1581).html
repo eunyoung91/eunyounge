@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ko" lang="ko" xmlns="https://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+<title></title>
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/product.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<!-- <script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/product.js"></script> -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.min.js"></script>
+<!-- // 자동화 페이지 포함 -->
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+	컨텐츠 감싸는 부모 : product-eco
+	하단 수강신청 영역 : product-apply
+	하단 수강신청 영역 내 탭 : product-tab
+	하단 수강신청 영역 내 정보 : product-table
+	따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+
+
+<script type="text/javascript">
+	$(function(){
+		setTimeout(showSec, delay);
+	});
+
+	var delay = 10;
+	var end = new Date("Apr 30,2020,21:59:59").getTime(); //날짜 변경
+	var _second = 1000;
+	var _minute = _second * 60;
+	var _hour = _minute * 60;
+	var _day = _hour * 24;
+
+
+	function showSec() {
+		var now = new Date();
+		var distance = end - now;
+		if (distance < 0 ) {
+			$(".product-timer .day").text("0");
+			$(".product-timer .hour").text("00");
+			$(".product-timer .min").text("00");
+			$(".product-timer .sec").text("00");
+			$(".product-timer .msec").text("00");
+		} else {
+			var days = Math.floor(distance / _day);
+			var hours = Math.floor( (distance % _day ) / _hour );
+			var minutes = Math.floor( (distance % _hour) / _minute );
+			var seconds = Math.floor( (distance % _minute) / _second );
+			var mseconds =  "00";
+			try { mseconds = Math.floor( (distance % _minute) % 1000).toString().substring(0,2); } catch(e) {}
+
+
+			$(".product-timer .day").text((days.toString().length == 1) ? "0"+days : days);
+			$(".product-timer .hour").text((hours.toString().length == 1) ? "0"+hours : hours);
+			$(".product-timer .min").text((minutes.toString().length == 1) ? "0"+minutes : minutes);
+			$(".product-timer .sec").text((seconds.toString().length == 1) ? "0"+seconds : seconds);
+			$(".product-timer .msec").text(mseconds);
+
+			setTimeout(showSec, delay);
+		}
+	}
+</script>
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/js/flowplayer-commercial-7.2.7/skin/skin.css" /><!-- for PC -->
+<style type="text/css">
+	.product-eco { position: relative; line-height: normal; background-color: #fff; }
+	.product-eco * { font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; letter-spacing: -.5px; }
+	.product-eco .container { position: relative; background-repeat: no-repeat; background-position: center top; }
+	.product-eco .wrap { position: relative; width: 1100px; margin: 0 auto; text-align: center; }
+
+	.product-eco .bx-wrapper { margin: 0; }
+	.product-eco .bx-wrapper .bx-viewport { left: 0; border: none; background: none; -webkit-box-shadow: none; box-shadow: none; }
+	.product-eco .bx-wrapper .bx-controls-direction a { z-index: 100; width: 50px; height: 60px; margin-top: -30px; background: none; }
+	.product-eco .bx-wrapper .bx-controls-direction a:before { content: ''; position: absolute; top: 50%; display: block; width: 20px; height: 20px; margin-top: -10px; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+	.product-eco .bx-wrapper .bx-prev { left: -50px; }
+	.product-eco .bx-wrapper .bx-prev:before { left: 10px; border-bottom: 4px solid #999; border-left: 4px solid #999; }
+	.product-eco .bx-wrapper .bx-next { right: -50px; }
+	.product-eco .bx-wrapper .bx-next:before { right: 10px; border-top: 4px solid #999; border-right: 4px solid #999; }
+
+	.product-eco .product-timer { padding: 30px 0; background-color: #2044e2; }
+	.product-eco .product-timer .wrap { text-align: left; }
+	.product-eco .product-timer p { display: inline-block; margin: 0 5px; font-size: 36px; font-weight: 500; color: #fff; }
+	.product-eco .product-timer p span { font-family: 'Montserrat', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; }
+	.product-eco .product-timer .timer-label { width: 344px; height: 53px; margin: 0 30px 0 100px; text-align: center; line-height: 53px; font-weight: 700; color: #000; background-color: #ffe000; }
+	.product-eco .product-timer .timer-day { font-weight: 700; color: #ffe000; }
+
+	.product-eco .product-title { background-color: #e3f5ff; background-image: url('https://img.eduwill.net/Img2/black/product/200409/pc/middle/bg_title.jpg'); }
+
+	.product-eco .product-benefit { background-color: #fcfcfc; }
+	.product-eco .product-start { background-color: #f2f5f6; }
+
+	.product-eco .product-review { padding-bottom: 100px; background-color: #f3f5f6; }
+	.product-eco .product-review .bx-wrapper { margin: 0 33px !important; }
+	.product-eco .product-review .holder { padding: 36px 60px 36px 175px; text-align: left; background: #fff url('https://img.eduwill.net/Img2/black/product/200409/pc/icon_person.png') no-repeat 60px 36px; -webkit-box-sizing: border-box; box-sizing: border-box; }
+	.product-eco .product-review .item p { line-height: 1.4; color: #000; }
+	.product-eco .product-review .item .title { font-size: 22px; font-weight: 700; }
+	.product-eco .product-review .item .desc { font-size: 17px; }
+	.product-eco .product-review .item .user { font-size: 18px; color: #666; }
+	.product-eco .product-review .item .highlight { font-weight: 500; color: #2044e2; }
+
+	.product-eco .product-why-1 { padding-bottom: 100px; }
+	.product-eco .product-why-1 .wrap { margin-top: 30px; }
+	.product-eco .product-why-1 .wrap:first-child { margin-top: 0; }
+	.product-eco .product-why-1 .question-slider { position: absolute; top: 194px; right: 92px; left: 92px; }
+
+	.product-eco .product-why-2 { background-color: #f3f5f6; }
+	.product-eco .product-why-2 .item { margin-top: 30px; }
+	.product-eco .product-why-2 .item-slider { width: 1036px; margin: 30px auto 0; padding-bottom: 30px; background-color: #fff; -webkit-box-sizing: border-box;box-sizing: border-box; }
+	.product-eco .product-why-2 .bx-wrapper { width: 920px; margin: 0 auto; }
+	.product-eco .product-why-2 .btn-home { position: absolute; top: 550px; right: 0; }
+	.product-eco .product-why-2 .pager-wrap { width: 100%; margin-top: 60px; padding: 30px 0 60px; background-color: #e9eced; }
+	.product-eco .product-why-2 .pager-holder { position: relative; width: 1036px; margin: 0 auto; }
+	.product-eco .product-why-2 .pager-title { position: absolute; top: 31px; left: -2px; width: 235px; height: 84px; line-height: 84px; border-radius: 5px; background-color: #cad0cf; }
+	.product-eco .product-why-2 .pager-title span { display: inline-block; padding-left: 58px; font-size: 25px; font-weight: 700; color: #000; background: url('https://img.eduwill.net/Img2/black/product/191223/pc/icon_video.png') no-repeat left center; }
+	.product-eco .product-why-2 .teacher-slider-pager { margin-left: -30px; *zoom: 1; }
+	.product-eco .product-why-2 .teacher-slider-pager:before,
+	.product-eco .product-why-2 .teacher-slider-pager:after { content: ''; display: table; }
+	.product-eco .product-why-2 .teacher-slider-pager:after { clear: both; }
+	.product-eco .product-why-2 .teacher-slider-pager a { float: left; display: table; width: 320px; height: 84px; margin: 10px 0 0 35px; border: 1px solid #000; border-radius: 5px; background-color: #fff; -webkit-box-sizing: border-box; box-sizing: border-box; -webkit-box-shadow: 4px 4px 0 0 rgba(0, 0, 0, .36); -moz-box-shadow: 4px 4px 0 0 rgba(0, 0, 0, .36); box-shadow: 4px 4px 0 0 rgba(0, 0, 0, .36); }
+	.product-eco .product-why-2 .teacher-slider-pager span { display: table-cell; height: 100%; padding: 0 70px; vertical-align: middle; text-align: left; line-height: 1.2; font-size: 22px; color: #000; }
+	.product-eco .product-why-2 .teacher-slider-pager .subject { float: left; width: 62px; height: 62px; margin-right: 20px; text-align: center; line-height: 62px; font-size: 24px; font-weight: 500; color: #fff; letter-spacing: -3.5px; white-space: nowrap; border-radius: 50%; background-color: #2044e2; }
+	.product-eco .product-why-2 .teacher-slider-pager .name { font-size: 27px; font-weight: 700; }
+	.product-eco .product-why-2 .teacher-slider-pager a.active { background-color: #2044e2; transition: all .3s; }
+	.product-eco .product-why-2 .teacher-slider-pager a.active span { color: #fff; }
+	.product-eco .product-why-2 .teacher-slider-pager a.active .subject { color: #000; background-color: #fff; }
+
+	.product-eco .product-why-4 { background-color: #f3f5f6; }
+	.product-eco .product-text-title { background-color: #2044e2; }
+
+	.layer-video { display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 1000; width: 100%; height: 100%; background-color: rgba(0, 0, 0, .7); }
+	.layer-video.in { display: block; }
+	.layer-video .layer-wrap { position: absolute; top: 50%; left: 50%; width: 880px; height: 530px; margin: -265px 0 0 -440px; background-color: #fff; }
+	.layer-video .movies { position: relative; padding: 40px; }
+	.layer-video .layer-close { position: absolute; top: 0; right: 0; width: 40px; height: 40px; }
+	.layer-video .layer-close:before,
+	.layer-video .layer-close:after { content: ''; display: block; position: absolute; top: 50%; left: 50%; margin-left: -10px; background-color: #000; }
+	.layer-video .layer-close:before { width: 20px; height: 2px; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+	.layer-video .layer-close:after { height: 2px; width: 20px; -webkit-transform: rotate(-45deg); -ms-transform: rotate(-45deg); transform: rotate(-45deg); }
+	.layer-video .layer-close .sr-only { position: absolute; display: inline-block; overflow: hidden; clip: rect(0 0 0 0); width: 0px; height: 0px; margin: -1px; padding: 0; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }
+</style>
+
+<div class="product-eco middle-graduate"><!-- high-graduate : 고졸 / middle-graduate : 중졸 -->
+	<div class="container product-timer">
+		<div class="wrap">
+			<p class="timer-label">역대 최고 혜택 </p>
+			<p class="timer-day">마감 D-<span class="day">00</span></p>
+			<p class="timer-hour"><span class="hour">00</span>시</p>
+			<p class="timer-min"><span class="min">00</span>분</p>
+			<p class="timer-sec"><span class="sec">00</span>초</p>
+			<p class="timer-msec"><span class="msec">00</span></p>
+		</div>
+	</div>
+
+	<div class="container product-title">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/product/200409/pc/middle/img_01.png" alt="불합격시 100% 환급반" />
+		</div>
+	</div>
+
+	<div class="container product-benefit">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/product/200409/pc/middle/img_02.jpg" alt="혜택 4" />
+		</div>
+	</div>
+
+	<div class="container product-start">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/product/200409/pc/middle/img_03.jpg" alt="검정고시 합격! 1위* 에듀윌에서 시작하세요" />
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/product/200409/pc/middle/img_04.jpg" alt="불합격 시, 100% 환급! 오직, 검정고시 1위*만 가능합니다!" />
+		</div>
+	</div>
+
+	<div class="container product-review">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/product/200409/pc/middle/img_05.jpg" alt="합격생들의 FLEX! 결과로 증명하는 에듀윌" />
+
+			<div class="review-slider">
+				<div id="reviewSlider">
+					<div class="item">
+						<div class="holder">
+							<p class="title">앞으로도 인강은 에듀윌!</p>
+							<p class="desc">
+								근처에 있는 학원을 등록했는데 학생별, 과목별로 수준차이가 심해서 적당하지 않다고 생각하고, 여러 곳을 검색 끝에 에듀윌을 선택했습니다. 
+								<strong class="highlight">3개월간 에듀윌로 공부하고 평균 90대로 무난히 합격할 수 있었습니다. 검정고시는 에듀윌 강의만으로 충분히 준비가 가능합니다.</strong>
+							</p>
+							<p class="user">합격생 이*정</p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="holder">
+							<p class="title">검정고시 고득점은 에듀윌!</p>
+							<p class="desc">
+								한국에서 공부를 해본 경험이 적은 저는 시작하기도 전에 막막하고 걱정이 컸는데, 주변 사람들의 추천과 후기가 좋은 에듀윌을 선택해서 공부하다 보니 시험에 대한 자신감이 붙었습니다.<br>
+								<strong class="highlight">듣다 보니 시험에 나올 핵심 포인트들이 정리되어 평균 99점으로 가볍게 합격했습니다.</strong>
+							</p>
+							<p class="user">합격생 이*림</p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="holder">
+							<p class="title">주변에 꼭 추천해주시고 싶어요!</p>
+							<p class="desc">
+								그 동안 검정고시를 5번 도전했는데 그때 마다 공부를 중간에 포기했는데, 이번에는 마음잡고 인강으로 공부하면 되겠다 싶어서 에듀윌을 선택했습니다. 
+								<strong class="highlight">시간이 날 때마다 틈틈히 강의를 들었더니 드디어 합격을 했습니다! 에듀윌 하길 정말 잘한 것 같아요. 주변에도 꼭 추천해주고 싶어요!!</strong>
+							</p>
+							<p class="user">합격생 양*정</p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="holder">
+							<p class="title">더 빨리 도전하지 않은 게 후회되요!</p>
+							<p class="desc">
+								중졸인 것을 부끄러워하면서, 학력과 연령제한이 없는 부분만 도전해서 공일중개사일을 하며 살았습니다. 대학을 가고 싶다는 열망으로 도전했습니다.<br>
+								<strong class="highlight">에듀윌 강의만 보고, 문제풀이만 몇 번 했는데 합격이네요. 늦었다고 생각할 때가 가장 빠를 때라는 말이 실감나네요.</strong>
+							</p>
+							<p class="user">합격생 박*영</p>
+						</div>
+					</div>
+					<div class="item">
+						<div class="holder">
+							<p class="title">에듀윌로 엄마도 저도 고득점!</p>
+							<p class="desc">
+								첫번째 시험은 독학으로 했는데 생각보다 힘들었습니다. 엄마가 에듀윌로 공인중개사를 높은 점수를 합격하셔서 저도 에듀윌을 도움을 받고 싶었습니다. 에듀윌 인강을 들어보기 모두 귀에 속쏙 박히면서 좋았습니다.<br>
+								<strong class="highlight">합격은 했지만 고득점 받으려고 내년에 한번 더 시험 볼 생각입니다.</strong>
+							</p>
+							<p class="user">합격생 박*아</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container product-why-1">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/product/200409/pc/middle/img_06_1.jpg" alt="확실한 합격은 에듀윌! 선택의 이유는 분명합니다" />
+		</div>
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/product/200409/pc/middle/img_06_2.jpg" alt="체계적인 4단계 커리큘럼" />
+		</div>
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/product/200409/pc/middle/img_06_3.jpg" alt="만족도 97%, 수험생이 선택한 1위 교재" />
+		</div>
+		<!--
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/product/200409/pc/high/img_06_4.jpg" alt="출제경향 반영, 실전 모의고사 무료제공" />
+			<div class="question-slider">
+				<div id="questionSlider">
+					<div class="item"><img src="https://img.eduwill.net/Img2/black/product/200409/pc/high/slide2_1.jpg" alt=""></div>
+					<div class="item"><img src="https://img.eduwill.net/Img2/black/product/200409/pc/high/slide2_2.jpg" alt=""></div>
+				</div>
+			</div>
+		</div>
+		-->
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/product/200409/pc/middle/img_06_5.jpg" alt="기본 완성, 영/수 기초특강 무료제공" />
+		</div>
+	</div>
+
+	<div class="container product-why-2">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/product/200409/pc/middle/img_07.jpg" alt="02. 합격을 책임지는 과목별 전문강사진" />
+		</div>
+		<div class="wrap item-slider">
+			<img src="https://img.eduwill.net/Img2/black/product/200409/pc/middle/teacher_slider_title.jpg" alt="수강생이 증명하는 퀄리티, 강의 만족도 95%" />
+			<ul id="teacherSlider" class="teacher-slider">
+				<li>
+					<img src="https://img.eduwill.net/Img2/black/product/200409/pc/teacher_ko.jpg" alt="국어 김지상 선생님" usemap="#mapKO" />
+					<map name="mapKO" id="mapKO">
+						<area shape="rect" coords="42,42,960,556" href="#layerVideo" alt="" class="layer-open" />
+					</map>
+					<a href="https://black.eduwill.net/BlackGosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=KO15&Subj=KO&classCode=139102100100" target="_blank" class="btn-home">
+						<img src="https://img.eduwill.net/Img2/black/product/200409/pc/btn_home.jpg" alt="Home" />
+					</a>
+				</li>
+				<li>
+					<img src="https://img.eduwill.net/Img2/black/product/200409/pc/middle/teacher_en.jpg" alt="영어 유란 선생님" usemap="#mapEN" />
+					<map name="mapEN" id="mapEN">
+						<area shape="rect" coords="42,42,960,556" href="#layerVideo" alt="" class="layer-open" />
+					</map>
+					<a href="https://black.eduwill.net/Blackgosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=EN29&Subj=EN&classCode=139102101101" target="_blank" class="btn-home">
+						<img src="https://img.eduwill.net/Img2/black/product/200409/pc/btn_home.jpg" alt="Home" />
+					</a>
+				</li>
+				<li>
+					<img src="https://img.eduwill.net/Img2/black/product/200409/pc/teacher_math.jpg" alt="수학 최주연 선생님" usemap="#mapMath" />
+					<map name="mapMath" id="mapMath">
+						<area shape="rect" coords="42,42,960,556" href="#layerVideo" alt="" class="layer-open" />
+					</map>
+					<a href="https://black.eduwill.net/blackgosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=MA10&Subj=MA&classCode=139102100102" target="_blank" class="btn-home">
+						<img src="https://img.eduwill.net/Img2/black/product/200409/pc/btn_home.jpg" alt="Home" />
+					</a>
+				</li>
+				<li>
+					<img src="https://img.eduwill.net/Img2/black/product/200409/pc/teacher_science.jpg" alt="과학 김샛별 선생님" usemap="#mapScience" />
+					<map name="mapScience" id="mapScience">
+						<area shape="rect" coords="42,42,960,556" href="#layerVideo" alt="" class="layer-open" />
+					</map>
+					<a href="https://black.eduwill.net/Blackgosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=SC11&Subj=SC&classCode=139102100104" target="_blank" class="btn-home">
+						<img src="https://img.eduwill.net/Img2/black/product/200409/pc/btn_home.jpg" alt="Home" />
+					</a>
+				</li>
+				<li>
+					<img src="https://img.eduwill.net/Img2/black/product/200409/pc/teacher_history.jpg" alt="한국사 임연정 선생님" usemap="#mapHistory" />
+					<map name="mapHistory" id="mapHistory">
+						<area shape="rect" coords="42,42,960,556" href="#layerVideo" alt="" class="layer-open" />
+					</map>
+					<a href="https://black.eduwill.net/Blackgosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=SO12&Subj=HI&classCode=139102100107" target="_blank" class="btn-home">
+						<img src="https://img.eduwill.net/Img2/black/product/200409/pc/btn_home.jpg" alt="Home" />
+					</a>
+				</li>
+				<li>
+					<img src="https://img.eduwill.net/Img2/black/product/200409/pc/teacher_ethics.jpg" alt="도덕 나하율 선생님" usemap="#mapEthics" />
+					<map name="mapEthics" id="mapEthics">
+						<area shape="rect" coords="42,42,960,556" href="#layerVideo" alt="" class="layer-open" />
+					</map>
+					<a href="https://black.eduwill.net/Blackgosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=ET06&Subj=ET&classCode=139102100106" target="_blank" class="btn-home">
+						<img src="https://img.eduwill.net/Img2/black/product/200409/pc/btn_home.jpg" alt="Home" />
+					</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="wrap pager-wrap">
+			<div class="pager-holder">
+				<div id="teacherSliderPager" class="teacher-slider-pager">
+					<a href="javascript:;" data-slide-index="0"><span><em class="subject">국어</em> <strong class="name">김지상</strong><br />선생님</span></a>
+					<a href="javascript:;" data-slide-index="1"><span><em class="subject">영어</em> <strong class="name">유란</strong><br />선생님</span></a>
+					<a href="javascript:;" data-slide-index="2"><span><em class="subject">수학</em> <strong class="name">최주연</strong><br />선생님</span></a>
+					<a href="javascript:;" data-slide-index="3"><span><em class="subject">과학</em> <strong class="name">김샛별</strong><br />선생님</span></a>
+					<a href="javascript:;" data-slide-index="4"><span><em class="subject">한국사</em> <strong class="name">임연정</strong><br />선생님</span></a>
+					<a href="javascript:;" data-slide-index="5"><span><em class="subject">도덕</em> <strong class="name">나하율</strong><br />선생님</span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container product-why-3">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/product/200409/pc/middle/img_08.jpg" alt="03. 합격을 앞당겨 줄 혁신적인 학습 관리 시스템" />
+		</div>
+	</div>
+
+	<div class="container product-why-4">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/product/200409/pc/middle/img_09.jpg" alt="04. 오직 합격을 위해 준비된 최적화된 학습환경" />
+		</div>
+	</div>
+
+	<div class="container product-text-title">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/product/200409/pc/middle/img_10.jpg" alt="2020년 2회대비 고졸 핵이득 합격패스 수강신청" />
+		</div>
+	</div>
+
+	<div id="layerVideo" class="layer-video">
+		<div class="layer-wrap">
+			<div class="movies">
+				<div id="player" class="flowplayer"></div>
+			</div>
+			<a href="#layerVideo" class="layer-close"><span class="sr-only">닫기</span></a>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="https://img.eduwill.net/resources/common/web/js/flowplayer-commercial-7.2.7/flowplayer.min.js"></script><!-- for PC -->
+<script type="text/javascript">
+	$(function(){
+		$(window).on('load', function(){
+			$('#reviewSlider').bxSlider({
+				auto: true,
+				pause: 3000,
+				pager: false,
+				controls: true
+			});
+			
+			$('#questionSlider').bxSlider({
+				auto: true,
+				pause: 3000,
+				pager: false,
+				controls: true
+			});
+
+			var _val;
+			var _teacherPlayer;
+			var _teacherSlider = $('#teacherSlider').bxSlider({
+				auto: true,
+				pause: 3000,
+				pager: true,
+				controls: true,
+				pagerCustom: '#teacherSliderPager',
+				infiniteLoop: true,
+				onSliderLoad: function() {
+					$('#teacherSlider li:not([class="bx-clone"])').eq(0).addClass('current');
+				},
+				onSlideBefore: function() {
+					$('#teacherSlider li').removeClass('current');
+					current = _teacherSlider.getCurrentSlide() + 1;
+					$('#teacherSlider li:not([class="bx-clone:"])').eq(current).addClass('current');
+				}
+			});
+
+			_teacherPlayer = flowplayer(".flowplayer");
+
+			$(".layer-open").on("click", function(e){
+				e.preventDefault();
+				_teacherSlider.stopAuto();
+
+				var idx = $(this).parents("li").index();
+				if ( idx == 0) {
+					_val = 'https://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BET-CONTE-NHY.mp4';
+				}else if ( idx == 1 ) {
+					_val = 'https://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BCKO-CONTE-KJS.mp4';
+				} else if ( idx == 2) {
+					_val = 'https://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/2018/BH/L/BHEN-L-SAMPLE-YR.mp4';
+				} else if ( idx == 3) {
+					_val = 'https://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BMA-CONTE-CJY.mp4';
+				} else if ( idx == 4) {
+					_val = 'https://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BSC-CONTE-KSB.mp4';
+				} else if ( idx == 5) {
+					_val = 'https://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BSO-CONTE-LYJ.mp4';
+				}
+
+				$('#layerVideo').addClass('in');
+				_teacherPlayer = flowplayer(".flowplayer", {
+					autoplay: true,
+					autoBuffering: true,
+					key: "$597838436033004",
+					clip: {sources: [{ type: "video/mp4", src: _val }] }
+				});
+				_teacherPlayer.play();
+
+			});
+
+			$(document).on('click', '.layer-close', function(e){
+				e.preventDefault();
+				$('#layerVideo').removeClass('in');
+				_teacherSlider.startAuto();
+
+				$('.movies').empty(); 
+				$('.movies').append('<div id="player" class="flowplayer"></div>');
+			});
+
+		});
+	}); 
+</script>
+
+</body>
+</html>

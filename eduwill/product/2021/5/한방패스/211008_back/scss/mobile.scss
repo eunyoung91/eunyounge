@@ -1,0 +1,567 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/popup";
+$main-color : #ffbf00;
+$sub-color : #fff3cf;
+
+.product {
+    &-eco {
+        * {
+            line-height: normal;
+            font-family: $font-noto;
+            letter-spacing: -1px;
+        }
+        .container {
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+        .wrap {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+            &-full {
+                width: 100%;
+            }
+        }
+        .holder { position: relative; }
+        p {
+            margin: 0;
+            @include vw(20px);
+            color: #666;
+        }
+        .box {
+            @extend .box-shadow;
+            .box-inner {
+                @include rem(padding, 100px 50px);
+                background-color: #f3f6ff;
+                img + img { @include rem(margin-top, 40px); }
+            }
+        }
+        .box-shadow {
+            position: relative;
+            //z-index: 1;
+            &:after {
+                z-index: 1;
+                content: '';
+                position: absolute;
+                top: 100%;
+                right: 5%;
+                left: 5%;
+                width: 90%;
+                @include rem(height, 26px);
+                background: url('#{$img-path}/mobile/bg_shadow.jpg') no-repeat center 0;
+                background-size: 100% 100%;
+            }
+        }
+        .eco-base{
+            & > * {
+            display: none;
+            }
+        }
+        .tab-view {
+            position: relative;
+            display: none;
+            &.active { display: block; }
+        }
+        .product-slide {
+            .slick-slide { height: auto; }
+            .slick-arrow {
+                @extend %slick-arrow;
+                @include rem(width, 50px);
+                @include rem(height, 50px);
+                @include rem(margin-top, -25px);
+                &.slick-prev {
+                    left: 10px;
+                    &:before { @include arrow(left, 20px, 20px, 1px, #132054); }
+                }
+                &.slick-next {
+                    right: 10px;
+                    &:before { @include arrow(right, 20px, 20px, 1px, #132054); }
+                }
+            }
+            .slick-dots {
+                font-size: 0;
+                li {
+                    display: inline-block;
+                    @include rem(margin, 0 7px);
+                    button {
+                        @include rem(width, 30px);
+                        @include rem(height, 30px);
+                        font-size: 0;
+                        text-indent: -9999px;
+                        border: none;
+                        @include rem(border-radius, 30px);
+                        background-color: #bbb;
+                    }
+                    &.slick-active {
+                        button {
+                            @include rem(width, 90px);
+                            background-color: #ffbe00;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &-top { background-color: #132053; }
+	&-top-banner { background-color: #1a37c9; }
+
+    &-title {
+        @include bg($color: #ffeb34, $url: '#{$img-path}/mobile/bg_title.jpg', $size: cover);
+        .base-popup-btn{
+			position: absolute;
+			@include rem(top, 20px);
+			@include rem(right, 50px);
+			@include rem(width, 134px);
+		}
+       
+        .item {
+            &.benefit {
+                position: relative;
+                
+                .text {
+                    position: absolute;
+                    top: percent(535, 2845);
+                    left: percent(397);
+                    @include vw(30px);
+                    font-weight: 900;
+                    letter-spacing: -2px;
+                    line-height: 1.5;
+                    text-align: left;
+                    color: #222;
+                }
+                .action {
+                    position: absolute;
+                    top: percent(2080, 2845);
+                    right: percent(50);
+                    width: 15.6%;
+                    a { display: inline-block; }
+                }
+            }
+            &.apply {
+                position: relative;
+                z-index: 1;
+                @include rem(margin-bottom, -231px);
+                .title {
+                    position: absolute;
+                    top: percent(58, 595);
+                    right: 0;
+                    left: 0;
+                    text-align: center;
+                    font-weight: 700;
+                    color: #fff;
+                }
+                .flag {
+                    display: inline-block;
+                    @include rem(padding, 10px 30px);
+                    @include vw(28px);
+                    border-radius: 50px;
+                    @include animation(flagChange, .8s, $iteration: infinite, $timing: step-start){
+                        0%, 100% { background-color: #ea1d00; }
+                        50% { background-color: #1e285d; }
+                    }
+                }
+                .price-box {
+                    position: absolute;
+                    top: percent(225, 595);
+                    right: percent(100);
+                    left: percent(100);
+                    text-align: right;
+                }
+                .price-discount {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    width: 62px;
+                    height: 59px;
+                    text-align: center;
+                    background: url('#{$img-path}/mobile/icon_arrow.png') no-repeat 0 0;
+                    background-size: 100% auto;
+                    @include rwdWidth(400){
+                        width: 72px;
+                        height: 69px;
+                    }
+                    @include rwdWidth(500){
+                        width: 82px;
+                        height: 79px;
+                    }
+                    @include rwdWidth(600){
+                        width: 92px;
+                        height: 89px;
+                    }
+                    @include rwdWidth(700){
+                        width: 124px;
+                        height: 118px;
+                    }
+                    strong {
+                        display: block;
+                        @include rem(margin-top, 10px);
+                        line-height: 1.2;
+                        @include vw(30px);
+                        font-weight: 700;
+                        color: #fff;
+                    }
+                    & + .price-list .price-after{
+                        text-align: right !important;
+                    }
+                }
+                .price-before {
+                    @include vw(30px);
+                    font-weight: 500;
+                    color: #bbb;
+                    text-decoration: line-through;
+                    strong { font-family: $font-roboto; }
+                }
+                .price-after {
+                    //@include rem(padding-top, 10px);
+                    line-height: 1;
+                    @include vw(78px);
+                    font-weight: 700;
+                    color: #f4280c;
+                    text-align: center;
+                    strong {
+                        font-family: $font-roboto;
+                        font-weight: 900;
+                    }
+                }
+                .action {
+                    @include rem(margin-top, 20px);
+                    a { @include pointer(80%, 0, 60px, 66px, 12, bounce); }
+                }
+                .notice {
+                    @include rem(margin-top, 20px);
+                    text-align: left;
+                    @include vw(20px);
+                    color: #999;
+                }
+            }
+        }
+    }
+    &-line {
+        background-color: #fff;
+        .eco-base {
+            position: absolute;
+            top: percent(450, 525);
+            right: 0;
+            left: 0;
+            text-align: center;
+            p.brand {
+                display: block;
+                font-weight: 300;
+            }
+        }
+        &.line2{
+            background-color: #f4f4f4;
+            .eco-base{
+                top: percent(250, 331);
+            }
+        }
+        &.line3{
+            .eco-base{
+                position: static;
+                top: percent(430, 350);
+            }
+        }
+    }
+    &-brand{
+        background: rgb(246,246,246);
+        background: linear-gradient(0deg, rgba(246,246,246,1) 0%, rgba(255,255,255,1) 33%, rgba(255,255,255,1) 100%);
+    }
+    &-increase{
+        .eco-base {
+            position: absolute;
+            top: percent(865, 1005);
+            right: 0;
+            left: 0;
+            text-align: center;
+            p.rate {
+                display: block;
+                font-weight: 300;
+            }
+        }
+    }
+    &-book{
+        background-color: #f4f4f4;
+        .text {
+            position: absolute;
+            top: percent(860, 1207);
+            left:0;
+            width:100%;
+            font-weight: 900;
+            color: #202020;
+            display: inline-block;
+            @include vw(36px);
+            .eco-best {
+                position: static;
+                font-family: $font-roboto;
+            }
+        }
+        .eco-base {
+            position: absolute;
+            top: percent(1010, 1207);
+            right: percent(50);
+            left: percent(50);
+            p.book { display: block; }
+            text-align: left;
+        }
+    }
+    
+    &-prize {
+        .action {
+            position: absolute;
+            top: percent(1004, 1166);
+            right: percent(275.5);
+            left: percent(275.5);
+        }
+    }
+
+	&-only {
+        @include rem(padding-bottom, 120px);
+        background-color: #f8f7f0;
+        .title {
+            position: relative;
+            .action {
+				@include rem(width, 113px);
+                position: absolute;
+                top: percent(240, 797);
+                left: percent(70);
+                @include breakpoint(desktop){
+                    top: 230px;
+                    left: 30px;
+                }
+            }
+        }
+        .only-list {
+            overflow: hidden;
+            @include transform(perspective(570px) rotateX(45deg));
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                left: 0;
+                z-index: 1;
+                width: 100%;
+                @include rem(height, 50px);
+                @include linear-gradient(180deg, rgba(248, 247, 240, 1) 0%, rgba(248, 247, 240, 0) 100%);
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                width: 100%;
+                @include rem(height, 50px);
+                @include linear-gradient(0deg, rgba(248, 247, 240, 1) 0%, rgba(248, 247, 240, 0) 100%);
+            }
+            // slick-track issue
+            .slick-track {
+                -webkit-transform: translate(0) !important;
+                -ms-transform: translate(0) !important;
+                transform: translate(0) !important;
+            }
+            .slick-slide {
+                @include rem(margin-top, 30px);
+                img { display: inline-block; }
+            }
+        }
+    }
+
+    &-winner {
+        background-color: #f4f4f4;
+        @include rem(padding-bottom, 100px);
+        .product-slide {
+            margin: 0 percent(50);
+            text-align: center;
+            border: 1px solid #212e70;
+            background-color: #fff;
+            border-radius: 15px;
+            @include boxShadow(0 5px 0 rgba(242, 242, 242, 1));
+            .slick-prev { left: percent(-50) !important; }
+            .slick-next { right: percent(-50) !important; }
+        }
+        .video-list {
+            margin: 0 percent(50);
+            .video {
+                position: relative;
+                @include rem(margin-top, 30px);
+                button,
+                video {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                }
+                button { z-index: 1; }
+            }
+        }
+    }
+
+    &-spec{
+        @include rem(padding-bottom, 116px);
+        background-color: #1e285d;
+        .item{
+            position: relative;
+            .eco-base{
+                position: absolute;
+                top: percent(240, 845);
+                right: percent(50);
+                left: percent(50);
+                p.source2 { 
+                    display: block; 
+                    color: #a8abba;
+                    text-align: center;
+                }
+            }   
+        }     
+    }
+
+    &-master{
+        background-color: #f4f4f4;
+    }
+    &-master2{
+        background: rgb(246,246,246);
+        background: linear-gradient(0deg, rgba(246,246,246,1) 0%, rgba(255,255,255,1) 33%, rgba(255,255,255,1) 100%);
+    }
+    &-reason1{
+        .eco-base {
+            position: absolute;
+            top: 250px;
+            left: 150px;
+            p.survey1 { display: block; }
+        }
+        .product-slide {
+            @extend .box-shadow;
+            &:after { top: 98%; }
+        }
+        .slick-slide { 
+            position: relative;
+            background-color: #f3f6ff;
+        }
+        .action {
+            position: absolute;
+            top: percent(527, 637);
+            right: percent(50);
+            bottom: percent(40, 637);
+            left: percent(480);
+            a { display: block; width: 100%; height: 100%; }
+            span { @extend .sr-only; }
+        }
+    }
+    &-reason2{
+        .wrap{
+            @extend .box-shadow;
+        }
+    }
+    &-reason4{
+        .wrap{
+            @extend .box-shadow;
+        }
+        .lecture-tab-list {
+            @include rem(padding, 50px);
+            background-color: #f3f6ff;
+        }
+        .tab-list {
+            @extend .grid;
+            z-index: 1;
+            @include rem(margin-bottom, -20px);
+            overflow: hidden;
+            a {
+                @extend .col;
+                width: 25%;
+                &.active:before { display: none; }
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 2%;
+                    bottom: percent(37, 126);
+                    left: 2%;
+                    width: auto;
+                    border-radius: 5px;
+                    background-color: rgba(0, 0, 0, .4);
+                }
+            }
+        }
+        .video {
+            position: absolute;
+            top: percent(120, 586);
+            right: percent(50);
+            left: percent(50);
+            button {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: 1;
+                display: block;
+            }
+            video { 
+                height: 100%;
+            }
+        }
+    } 
+    &-reason5{
+        @include rem(padding-bottom, 50px);
+        .wrap{
+            @extend .box-shadow;
+        }
+    }
+
+    &-benefit{
+        position: relative;
+        background-color: #ffdf00;
+        @include rem(padding-bottom, 50px);
+       
+        .item.benefit{
+            position: relative;
+            .text {
+                position: absolute;
+                top: percent(535, 2845);
+                left: percent(397);
+                @include vw(30px);
+                font-weight: 900;
+                letter-spacing: -2px;
+                line-height: 1.5;
+                text-align: left;
+                color: #222;
+            }
+        }
+    }
+}
+
+.popup-base{
+    .source5, .source6{
+        display: none !important;
+    }
+}
+
+.popup-base{
+	.popup-body{
+		p{
+			strong{
+				display: inline-block;
+				@include rem(padding-top, 20px);
+			}
+		}
+	}
+}
+
+.popup-close{
+	&::after, &::before{
+		opacity: 0;
+	}
+}

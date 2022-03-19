@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="content-language" content="kr" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+<title>독한에듀윌 2.0</title>
+<link rel="stylesheet" type="text/css" href="http://img.eduwill.net/resources/dokhan/dev/common/js/bxslider/jquery.bxslider.css" /><!-- bxSlider CSS file -->
+<link rel="stylesheet" type="text/css" href="http://img.eduwill.net/resources/dokhan/dev/web/css/common.css" />
+<link rel="stylesheet" type="text/css" href="http://img.eduwill.net/resources/dokhan/dev/web/css/ui_style.css" />
+<link rel="stylesheet" type="text/css" href="http://img.eduwill.net/resources/dokhan/dev/web/css/jquery-ui.css" />
+
+<script type="text/javascript" src="http://img.eduwill.net/resources/dokhan/dev/common/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="http://img.eduwill.net/resources/dokhan/dev/common/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://img.eduwill.net/resources/dokhan/dev/common/js/bxslider/jquery.bxslider.min.js"></script><!-- bxSlider Javascript file -->
+<script type="text/javascript" src="http://img.eduwill.net/resources/dokhan/dev/web/js/frontui.js"></script>
+<script type="text/javascript" src="http://img.eduwill.net/resources/dokhan/dev/web/js/ie-checker.js"></script>
+<script type="text/javascript">
+$(function(){
+	$( ".btn_cal" ).datepicker({
+		dateFormat: "yy-mm-dd" 
+	});
+
+	$('.btn_planmd').click(function(){
+		$('.dimm2, .plan_add').show();
+		position= $(".plan_add").offset(); $('html,body').animate( { scrollTop:position.top },'slow' );
+		return false;
+	});
+
+	$('.plan_add .close_layer').click(function(){
+		$('.dimm, .plan_add').hide();
+		return false;
+	});
+});
+</script>
+</head>
+
+<body class="sub"><!-- 메인페이지 body에 main클래스 추가 -->
+<div id="wrap">
+	<div id="header" class=""><!-- 마우스오버 시 헤더에 on클래스 추가, 마우스아웃 시 on 클래스 제거 -->
+		<div class="inner">
+			<h1><a href="#">독한에듀윌 2.0 </a><a href="#" class="fb"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_fb_off.png" alt="페이스북공유하기" /></a></h1>
+			<ul class="toplink">
+				<li><a href="#">나의강의실</a></li>
+				<li><a href="#">수험정보</a></li>
+				<li><a href="#">학습자료실</a></li>
+				<li><a href="#">고객상담실</a></li>
+				<li><a href="#" class="btn_member">로그인</a></li>
+			</ul>
+			<div id="gnb">
+				<ul class="gnb_menu">
+					<li class="depth01">
+						<a href="#"><span>독한소개</span> <span class="gnb_bar"></span></a>
+						<ul class="snb">
+							<li><a href="#">독한소개</a></li>
+						</ul>
+					</li>
+					<li class="depth02">
+						<a href="../depth02/plan01.html"><span>독한계획</span> <span class="gnb_bar"></span></a>
+						<ul class="snb">
+							<li><a href="../depth02/plan01.html">나의 학습 선택</a></li>
+							<li><a href="../depth02/plan02.html">나의 학습 계획</a></li>
+						</ul>
+					</li>
+					<li class="depth03">
+						<a href="#"><span>독한관리</span> <span class="gnb_bar"></span></a>
+						<ul class="snb">
+							<li><a href="../depth03/1to1.html">1:1 상담</a></li>
+							<li><a href="../depth03/setting.html">관리설정</a></li>
+						</ul>
+					</li>
+					<li class="depth04">
+						<a href="#"><span>독한수강</span> <span class="gnb_bar"></span></a>
+						<ul class="snb">
+							<li><a href="../depth04/mode.html">독한모드</a></li>
+							<li><a href="../depth04/free_lecture.html">무료특강</a></li>
+						</ul>
+					</li>
+					<li class="depth05">
+						<a href="#"><span>독한경쟁</span> <span class="gnb_bar"></span></a>
+						<ul class="snb">
+							<li><a href="../depth05/rangking.html">나의경쟁</a></li>
+							<li><a href="../depth05/quiz01.html">기상퀴즈</a></li>
+							<li><a href="../depth05/quiz02.html">기출퀴즈</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="bgBlack"></div>
+	</div>
+	
+	<div id="visualSub">
+		<div class="visual_con depth02"></div><!-- GNB 메뉴 li 클래스와 동일 -->
+	</div>
+
+	<div id="content">
+		<div class="dimm2"></div>
+		<div class="inner">
+			<div class="title_group line_one">
+				<h2><span>독한계획</span>나의학습계획<div class="bu_bar_a"></div></h2>
+				<div class="page_location">
+					<ul>
+						<li class="home"><a href="../main.html"><span class="tts">홈</span></a></li>
+						<li class="depth1"><span>독한에듀윌</span></li>
+						<li class="depth2"><span>독한계획</span></li>
+						<li class="depth3"><span>나의학습계획</span></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- 내용 -->
+			<div class="contents">
+				<!-- 나의학습계획 선택완료 레이어팝업 -->
+				<div class="plan_select_layer" style="display:block;">
+					<div class="layer_body">
+						<div class="left_layer">
+							<div class="ps_title"><u>나의 학습 계획 선택 완료!</u></div>
+							<div class="ps_txt">
+								<div><span class="ps_date">2016-06-01</span>부터 <span class="ps_name">이진욱</span>님의 학습계획이 시작됩니다.</div>
+								반드시 합격하실 수 있도록 독한에듀윌이 항상 함께 하겠습니다.
+							</div>
+							<div class="ps_notice">
+								<dl>
+									<dt>[안내사항]</dt>
+									<dd>1. 학습계획은 익일부터 시작됩니다.</dd>
+									<dd>2. 더 많은 학습 혜택이 “합격앱”을 통해 제공됩니다.<br />　(기상알림, 독려알림, 학습 계획 체크 알림)</dd>
+									<dd>3. “합격앱” 어플이 설치되어 있지 않을 경우, 알림이 수신되지 않습니다.</dd>
+								</dl>
+							</div>
+							<div class="ps_tip">※ 나의 학습 계획을 변경하고 싶다면? <a href="#"><span>나의 계획 변경</span></a></div>
+						</div>
+
+						<div class="right_layer">
+							<div class="app_title">
+								독한에듀윌 알림 수신을 위해<br /><strong>합격앱 설치는 필수!</strong>
+							</div>
+							<a href="http://www.eduwill.net/common/promotion/mobileapp5/index.asp" target="_blank" class="btn_a">합격앱 설치하기</a>
+						</div>
+						<a href="#" class="close_layer"></a>
+					</div>
+				</div>
+				<!-- // 나의학습계획 선택완료 레이어팝업 -->
+
+				<div class="plan_con">
+					<p class="txt">나의 학습 계획에 따라 매일 꾸준하게 학습하신 후 완료여부를 체크해주세요.<br />나의 학습 달성률, 과목별 학습 현황에서 학습 현황을 확인할 수 있습니다.</p>
+
+					<div class="my_plan">
+						<div class="plan_section">
+							<div class="plan_title">
+								<u>영어 기초 완성</u> <img src="http://img.eduwill.net/resources/dokhan/dev/web/image/ico_ing.gif" alt="학습중" class="ing_icon" />
+							</div>
+
+							<ul class="plan_info">
+								<li><strong>추천 학습 기간</strong> : 4개월~6개월 (총280일)</li>
+								<li><strong>추천 학습 시기</strong> : 학습 시작 1월~ 시험일 4월, 6월</li>
+								<li><strong>특징</strong> : 기초이론-기본이론-기출분석으로 영어 기초 완성</li>
+								<li><strong>추천 대상</strong> : 기초 영어가 부족한 분들 / 영어 기초 실력을 다지고 싶은 분들</li>
+							</ul>
+
+							<div class="btn_set">
+								<a href="#"><span>나의 계획 변경</span></a>
+								<a href="#"><span>자세히 보기</span></a>
+							</div>
+						</div>
+
+						<div class="notice_con">
+							<div class="n_title">공지사항</div>
+							<ul>
+								<li><a href="#">나의 계획이 변경되었습니다.</a></li>
+								<li><a href="#">독한수강의 보상이 2일 남았습니다.</a></li>
+								<li><a href="#">기출퀴즈를 아직 풀지못하셨습니다.</a></li>
+								<li><a href="#">수강내역 수정을 확인하세요.</a></li>
+							</ul>
+							<div class="n_paging">
+								<strong><span>5</span> / 19</strong>
+								<div class="pg_btn">
+									<a href="#" class="pgl"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_left.gif" alt="이전" /></a>
+									<a href="#" class="pgr"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_right.gif" alt="다음" /></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- // my_plan -->
+
+					<div class="today_plan">
+						<h3>오늘의 학습 계획 <a href="#" onclick="javascript:document.getElementById('layerMini').style.display='block'; return false;"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/ico_info.gif" alt="info" /></a></h3>
+						<!-- 오늘의 학습 계획 자세히보기 레이어 -->
+						<div id="layerMini" class="layer_style today_pop">
+							<!--div class="layer_head">독한모드 수강 방법 자세히보기</div-->
+							<div class="layer_body">
+								<div class="">
+									<strong>학습 일자</strong> : 오늘 날짜<br />
+									<ul>
+										<li>- 시작일 : 선택한 학습 계획이 시작되는 날</li>
+										<li>- 종료일 : 선택한 학습 계획이 종료되는 날</li>
+									</ul>
+									<strong>총 학습 계획일 수</strong> : 선택한 학습 계획 총 일 수<br />
+									<ul>
+										<li>- <strong class="t_blue">경과일 수</strong> : 학습 시작일로 부터 현재까지 경과일 수</li>
+										<li>- 남은일 수 : 학습 종료일로 부터 현재까지 남은일 수</li>
+									</ul>
+									<strong class="t_red">나의 학습일 수</strong> : 계획 시작일로 부터 실제 실제 학습을 진행한 일 수
+								</div>
+							</div>
+							<a href="#" class="close_layer" onclick="javascript:document.getElementById('layerMini').style.display='none'; return false;"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_close_mini.gif" alt="닫기" /></a>
+						</div>
+						<!-- // 오늘의 학습 계획 자세히보기 레이어 -->
+
+						<div class="study_days">
+							<div class="days box01">
+								<div class="d_title"><em class="bar"></em>학습 일자</div>
+								<div class="d_info">
+									<div class="d_ym">2016-09-26</div>
+									<div class="start">시작일 <span>2016-06-01</span></div>
+									<div class="end">종료일 <span>2017-06-01</span></div>
+								</div>
+							</div>
+							<!-- // 학습일자 -->
+
+							<div class="days box02">
+								<div class="d_title"><em class="bar"></em>총 학습 계획일 수</div>
+								<div class="d_info">
+									<div class="total_day">320일</div>
+									<div class="d_history">경과일 수<span class="t_blue">120일</span></div>
+									<div class="d_future">남은일 수<span>200일</span></div>
+								</div>
+							</div>
+							<!-- // 총 학습계획일 수 -->
+
+							<div class="days box03">
+								<div class="d_title"><em class="bar"></em>나의 학습일 수</div>
+								<div class="d_info">
+									<div class="ing_day">100일</div>
+									<a href="#" class="btn_a">나의 강의실 이동</a>
+								</div>
+							</div>
+							<!-- // 나의 학습일 수 -->
+						</div>
+						
+						<div class="curriculum">
+							<h4>커리큘럼</h4>
+							<div class="cc_step">
+								<ol>
+									<li class="steps on crnt">
+											<!-- 단계그룹 : 시작단계일 경우 steps 클래스 / 현재단계 및 지나간 단계에 on 클래스 추가 / 현재 진행 위치일 경우 crnt 클래스 추가 -->
+											
+											<!-- S : 시작단계일 경우에 깃발 추가 -->
+											<div class="step_group">STEP 1</div>
+											<!-- E : 시작단계일 경우에 깃발 추가 -->
+											
+											<!-- S : 현재위치 - 현재 진행위치일 경우 추가 -->
+											<div class="current" style="left:50%;">
+													<img src="http://img.eduwill.net/resources/dokhan/dev/web/image/ico_current.png" alt="학습진행위치" />
+											</div>
+											<!--E : 현재위치 - 현재 진행위치일 경우 추가 -->
+											
+											<!-- S : 단계 진행바 -->
+											<div class="progress_box">
+												<div class="progress_bar">
+													<span></span>
+												</div>
+											</div>
+											<!-- E : 단계 진행바 -->
+											
+											<!-- S : 단계 타이틀 -->
+											<dl>
+												<dt>1단계</dt>
+												<dd>기초이론</dd>
+											</dl>
+											<!-- E : 단계 타이틀 -->
+									</li>
+									<li class="">
+											<!-- 단계그룹 : 시작단계일 경우 steps 클래스 / 현재단계 및 지나간 단계에 on 클래스 추가 / 현재 진행 위치일 경우 crnt 클래스 추가 -->
+											
+											<!-- S : 시작단계일 경우에 깃발 추가 -->
+											<div class="step_group">STEP 1</div>
+											<!-- E : 시작단계일 경우에 깃발 추가 -->
+											
+											<!-- S : 현재위치 - 현재 진행위치일 경우 추가 -->
+											<div class="current" style="left:50%;">
+													<img src="http://img.eduwill.net/resources/dokhan/dev/web/image/ico_current.png" alt="학습진행위치" />
+											</div>
+											<!--E : 현재위치 - 현재 진행위치일 경우 추가 -->
+											
+											<!-- S : 단계 진행바 -->
+											<div class="progress_box">
+												<div class="progress_bar">
+													<span></span>
+												</div>
+											</div>
+											<!-- E : 단계 진행바 -->
+											
+											<!-- S : 단계 타이틀 -->
+											<dl>
+												<dt>1단계</dt>
+												<dd>기초이론</dd>
+											</dl>
+											<!-- E : 단계 타이틀 -->
+									</li>
+									<li class="">
+											<!-- 단계그룹 : 시작단계일 경우 steps 클래스 / 현재단계 및 지나간 단계에 on 클래스 추가 / 현재 진행 위치일 경우 crnt 클래스 추가 -->
+											
+											<!-- S : 시작단계일 경우에 깃발 추가 -->
+											<div class="step_group">STEP 1</div>
+											<!-- E : 시작단계일 경우에 깃발 추가 -->
+											
+											<!-- S : 현재위치 - 현재 진행위치일 경우 추가 -->
+											<div class="current" style="left:50%;">
+													<img src="http://img.eduwill.net/resources/dokhan/dev/web/image/ico_current.png" alt="학습진행위치" />
+											</div>
+											<!--E : 현재위치 - 현재 진행위치일 경우 추가 -->
+											
+											<!-- S : 단계 진행바 -->
+											<div class="progress_box">
+												<div class="progress_bar">
+													<span></span>
+												</div>
+											</div>
+											<!-- E : 단계 진행바 -->
+											
+											<!-- S : 단계 타이틀 -->
+											<dl>
+												<dt>1단계</dt>
+												<dd>기초이론</dd>
+											</dl>
+											<!-- E : 단계 타이틀 -->
+									</li>
+								</ol>
+							</div>
+						</div>
+						<!-- // 커리큘럼 -->
+
+						<div class="daybyday">
+							<div class="left_control">
+								<h4>일일<br />학습 계획</h4>
+								<div class="today_info">
+									<strong>2016-09-28</strong><input type="image" class="btn_cal" id="datepicker" src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_cal.gif" alt="캘린더" />
+									<input type="text" name="" id="" class="tts datefix" />
+
+									<div class="today_btn">
+										<a href="#" class="pgl"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_left.gif" alt="이전" /></a>
+										<a href="#" class="pgr"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_right.gif" alt="다음" /></a>
+										<a href="#" class="pgt"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_today.gif" alt="오늘" /></a>
+									</div>
+								</div>
+
+								<a href="#" class="btn_a btn_planmd">학습 계획 추가/수정</a>
+							</div>
+
+							<div class="right_con">
+								<div class="plan_table noScroll">
+									<table cellspacing="0" cellpadding="0" width="100%">
+										<caption>일일 학습 계획</caption>
+										<colgroup>
+											<col width="66px" />
+											<col width="66px" />
+											<col width="66px" />
+											<col width="62px" />
+											<col width="100px" />
+											<col width="340px" />
+											<col width="153px" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">학습단계</th>
+												<th scope="col">학습일정</th>
+												<th scope="col" colspan="3">커리큘럼</th>
+												<th scope="col">학습계획</th>
+												<th scope="col">완료여부</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td colspan="7">
+													<div class="subScroll">
+														<table cellspacing="0" cellpadding="0" width="100%">
+															<caption>일일 학습 계획</caption>
+															<colgroup>
+																<col width="66px" />
+																<col width="66px" />
+																<col width="66px" />
+																<col width="62px" />
+																<col width="100px" />
+																<col width="340px" />
+																<col width="135px" />
+															</colgroup>
+															<tbody>
+																<tr class="tr_bg1">
+																	<td rowspan="4">2단계</td>
+																	<td rowspan="4">32일</td>
+																	<td>강의</td>
+																	<td>-</td>
+																	<td>기본이론</td>
+																	<td class="td_left">기본이론 매일 2강 수강</td>
+																	<td><strong class="t_red">80%</strong></td>
+																</tr>
+																<tr class="tr_bg1">
+																	<td>-</td>
+																	<td>-</td>
+																	<td>-</td>
+																	<td class="td_left">오늘 학습한 강의내용 복습</td>
+																	<td><a href="#" class="btn_h">완료</a></td>
+																</tr>
+																<tr class="tr_bg1">
+																	<td>자습</td>
+																	<td>문제풀이</td>
+																	<td>-</td>
+																	<td class="td_left">오늘 학습한 기본서 내용에서 모르는 단어 암기 및 테스트</td>
+																	<td><a href="#" class="btn_g">미완료</a></td>
+																</tr>
+																<tr class="tr_bg1">
+																	<td>강의 순환</td>
+																	<td>-</td>
+																	<td>기본이론 2순환(1)</td>
+																	<td class="td_left">어휘편 단어 매일 50개 암기 및 테스트</td>
+																	<td><a href="#" class="btn_g">미완료</a></td>
+																</tr>
+																<tr>
+																	<td colspan="5">나의 계획 추가</td>
+																	<td class="td_left">독한모드 수강 1회</td>
+																	<td>&nbsp;</td>
+																</tr>
+																<tr>
+																	<td colspan="5">나의 계획 추가</td>
+																	<td class="td_left">어제 풀었던 기출문제 복습</td>
+																	<td>&nbsp;</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- // 일일 학습 계획 -->
+
+						<!-- 학습계획 추가/수정 레이어팝업 -->
+						<div id="" class="layer_style plan_add">
+							<div class="layer_body">
+								<div class="pd_title"><u>학습 계획 추가/수정</u></div>
+								<div class="pd_con">
+									<div class="today_info">
+										<strong>2016-09-28</strong>
+										<div class="today_btn">
+											<input type="image" class="btn_cal" id="datepicker" src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_cal.gif" alt="캘린더" />
+											<a href="#" class="pgl"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_left.gif" alt="이전" /></a>
+											<a href="#" class="pgr"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_right.gif" alt="다음" /></a>
+											<a href="#" class="pgt"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_today.gif" alt="오늘" /></a>
+										</div>
+									</div>
+									<a href="#" class="btn_add">학습 계획 추가</a>
+									<div class="plan_table">
+										<table cellspacing="0" cellpadding="0" width="100%">
+											<caption>일일 학습 계획</caption>
+											<colgroup>
+												<col width="66px" />
+												<col width="66px" />
+												<col width="66px" />
+												<col width="62px" />
+												<col width="109px" />
+												<col width="*" />
+												<col width="60px" />
+											</colgroup>
+											<thead>
+												<tr>
+													<th scope="col">학습단계</th>
+													<th scope="col">학습일정</th>
+													<th scope="col" colspan="3">커리큘럼</th>
+													<th scope="col">학습계획</th>
+													<th scope="col">&nbsp;</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr class="tr_bg1">
+													<td rowspan="4">2단계</td>
+													<td rowspan="4">32일</td>
+													<td>강의</td>
+													<td>-</td>
+													<td>기본이론</td>
+													<td class="td_left">기본이론 매일 2강 수강</td>
+													<td>&nbsp;</td>
+												</tr>
+												<tr class="tr_bg1">
+													<td>-</td>
+													<td>-</td>
+													<td>-</td>
+													<td class="td_left">오늘 학습한 강의내용 복습</td>
+													<td>&nbsp;</td>
+												</tr>
+												<tr class="tr_bg1">
+													<td>자습</td>
+													<td>문제풀이</td>
+													<td>-</td>
+													<td class="td_left">오늘 학습한 기본서 내용에서 모르는 단어 암기 및 테스트</td>
+													<td>&nbsp;</td>
+												</tr>
+												<tr class="tr_bg1">
+													<td>강의 순환</td>
+													<td>-</td>
+													<td>기본이론 2순환(1)</td>
+													<td class="td_left">어휘편 단어 매일 50개 암기 및 테스트</td>
+													<td>&nbsp;</td>
+												</tr>
+												<tr>
+													<td colspan="5">나의 계획 추가</td>
+													<td class="td_left">독한모드 수강 1회</td>
+													<td><a href="#" class="btn_delete">삭제</a></td>
+												</tr>
+												<tr>
+													<td colspan="5">나의 계획 추가</td>
+													<td class="td_left">어제 풀었던 기출문제 복습</td>
+													<td><a href="#" class="btn_delete">삭제</a></td>
+												</tr>
+												<tr>
+													<td colspan="5">나의 계획 추가</td>
+													<td class="td_left"><input type="text" id="" name="" class="" /></td>
+													<td><a href="#" class="btn_delete">삭제</a></td>
+												</tr>
+												<tr>
+													<td colspan="5">나의 계획 추가</td>
+													<td class="td_left"><input type="text" id="" name="" class="" /></td>
+													<td><a href="#" class="btn_delete">삭제</a></td>
+												</tr>
+												<tr>
+													<td colspan="5">나의 계획 추가</td>
+													<td class="td_left"><input type="text" id="" name="" class="" /></td>
+													<td><a href="#" class="btn_delete">삭제</a></td>
+												</tr>
+												<tr>
+													<td colspan="5">나의 계획 추가</td>
+													<td class="td_left"><input type="text" id="" name="" class="" /></td>
+													<td><a href="#" class="btn_delete">삭제</a></td>
+												</tr>
+												<tr>
+													<td colspan="5">나의 계획 추가</td>
+													<td class="td_left"><input type="text" id="" name="" class="" /></td>
+													<td><a href="#" class="btn_delete">삭제</a></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+									<div class="btn_alc">
+										<a href="#" class="btn_a">저장</a>
+									</div>
+								</div>
+							</div>
+							<a href="#" class="close_layer"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_close_mini.gif" alt="닫기" /></a>
+						</div>
+						<!-- // 학습계획 추가/수정 레이어팝업 -->
+					</div>
+					<!-- // today_plan : 오늘의 학습계획 -->
+
+					<div class="my_study_state">
+						<h3>나의 학습 현황</h3>
+						<div class="achievement">
+							<!--<div class="left_control">
+								<h4>나의<br />학습 달성률</h4>
+								<div class="today_info">
+									<strong>2016-09-28</strong><input type="image" class="btn_cal" id="datepicker" src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_cal.gif" alt="캘린더" />
+									<div class="today_btn">
+										<a href="#" class="pgl"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_left.gif" alt="이전" /></a>
+										<a href="#" class="pgr"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_right.gif" alt="다음" /></a>
+										<a href="#" class="pgt"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_today.gif" alt="오늘" /></a>
+									</div>
+								</div>
+
+								<div class="update_time">
+									<dl>
+										<dt>업데이트 시간</dt>
+										<dd>- 매일 오전 00시 <a href="#" onclick="javascript:document.getElementById('layerMini2').style.display='block'; return false;"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/ico_info.gif" alt="info" /></a></dd>
+									</dl>
+								</div>
+							</div>-->
+
+							<div class="right_con full_box">
+								<div class="ach_chart">
+									<ul>
+										<li>
+											<div class="chart_title"><span class="bar"></span>전일<br />학습 달성률 (%)</div>
+											<div id="chartHolder" style="width:100%; height:170px;">
+												
+											</div>
+										</li>
+										<li>
+											<div class="chart_title"><span class="bar"></span>일 평균<br />학습 달성률 (%)</div>
+											<div>
+												차트 들어가는 곳
+											</div>
+										</li>
+										<li>
+											<div class="chart_title"><span class="bar"></span>이번 달<br />최저 학습 달성률 (%)</div>
+											<div>
+												차트 들어가는 곳
+											</div>
+										</li>
+										<li>
+											<div class="chart_title"><span class="bar"></span>이번 달<br />최고 학습 달성률 (%)</div>
+											<div>
+												차트 들어가는 곳
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!-- // 나의 학습 달성률 -->
+
+						<!-- 업데이트 시간 레이어 -->
+						<div id="layerMini2" class="layer_style update_pop">
+							<!--div class="layer_head">독한모드 수강 방법 자세히보기</div-->
+							<div class="layer_body">
+								<div class="">
+									매일 00시 전날 데이터 기준 업데이트 됩니다.<br />
+									<ul>
+										<li>- 전일 학습 달성률 : 전날 기준 학습 달성률</li>
+										<li>- 일 평균 학습 달성률 : 일일 학습 달성률의 평균</li>
+										<li>- 이번 달 최저 학습 달성률 : 이번 달 최저 일일 학습 달성률</li>
+										<li>- 이번 달 최고 학습 달성률 : 이번 달 최고 일일 학습 달성률<br />　* 이번 달 최저/최고 달성률 : 매월 1일 초기화</li>
+									</ul>
+								</div>
+							</div>
+							<a href="#" class="close_layer" onclick="javascript:document.getElementById('layerMini2').style.display='none'; return false;"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_close_mini.gif" alt="닫기" /></a>
+						</div>
+						<!-- // 업데이트 시간 레이어 -->
+
+						<div class="study_race">
+							<div class="left_control">
+								<h4>나의<br />학습 레이스 <a href="#" onclick="javascript:document.getElementById('layerMini3').style.display='block'; return false;"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/ico_info.gif" alt="info" /></a></h4>
+								<div class="race_info">
+									<dl>
+										<dt>일 평균 학습 달성률 기준<br />상태 이미지</dt>
+										<dd>- <img src="http://img.eduwill.net/resources/dokhan/dev/web/image/ico_smallrunner01.gif" alt="" /> 0%이상 ~ 60%미만</dd>
+										<dd>- <img src="http://img.eduwill.net/resources/dokhan/dev/web/image/ico_smallrunner02.gif" alt="" /> 60%이상 ~ 80미만</dd>
+										<dd>- <img src="http://img.eduwill.net/resources/dokhan/dev/web/image/ico_smallrunner03.gif" alt="" /> 80%이상 ~ 100%이하</dd>
+									</dl>
+								</div>
+
+								<!-- 학습 레이스 레이어 -->
+								<div id="layerMini3" class="layer_style race_pop">
+									<!--div class="layer_head">독한모드 수강 방법 자세히보기</div-->
+									<div class="layer_body">
+										<div class="">
+											선택한 학습계획 총 일수 기준<br />
+											<ul>
+												<li>- 사용자 레이스 : 나의 학습일 수 만큼 전진</li>
+											</ul>
+										</div>
+									</div>
+									<a href="#" class="close_layer" onclick="javascript:document.getElementById('layerMini3').style.display='none'; return false;"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_close_mini.gif" alt="닫기" /></a>
+								</div>
+								<!-- // 학습 레이스 레이어 -->
+							</div>
+
+							<div class="right_con">
+								<div class="race_rail">
+									<div class="race me">
+										<div class="progress_bar"><!-- runner 아이콘 left값과, ing_bar width값이 동일하게 -->
+											<img src="http://img.eduwill.net/resources/dokhan/dev/web/image/ico_runner01_1.gif" alt="" class="runner1" style="left:30%" /><!-- 기어가는 모션 -->
+											<img src="http://img.eduwill.net/resources/dokhan/dev/web/image/ico_runner01_2.gif" alt="" class="runner2" style="left:30%" /><!-- 걷는 모션 -->
+											<img src="http://img.eduwill.net/resources/dokhan/dev/web/image/ico_runner01_3.gif" alt="" class="runner3" style="left:30%" /><!-- 달리는 모션 -->
+											<span class="ing_bar" style="width:30%;"></span>
+										</div>
+									</div>
+								
+									<div class="race winner">
+										<div class="progress_bar"><!-- runner 아이콘 left값과, ing_bar width값이 동일하게 -->
+											<img src="http://img.eduwill.net/resources/dokhan/dev/web/image/ico_runner02.gif" alt="" class="runner" style="left:48%;" />
+											<span class="ing_bar" style="width:48%;"></span>
+										</div>
+									</div>
+								
+									<div class="race_category">
+										<ol>
+											<li class="start">START<br /><span class="date">2016/04/01</span></li>
+											<li>40일</li>
+											<li>80일</li>
+											<li>120일</li>
+											<li>160일</li>
+											<li>200일</li>
+											<li>240일</li>
+											<li style="width:94px;">280일</li>
+											<li class="last">320일<br /><span class="date">2017/04/16</span></li>
+										</ol>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- // 나의 학습 레이스 -->
+
+						<div class="achievement_graph">
+							<h4>나의 학습 달성률 그래프</h4>
+							<div class="graph_chart">
+								
+							</div>
+						</div>
+						<!-- // 나의 학습 달성률 그래프 -->
+
+						<div class="subject_state">
+							<div class="left_control">
+								<h4>과목별<br />학습 현황</h4>
+								<div class="today_info">
+									<strong>2016-09-28</strong><input type="image" class="btn_cal" id="datepicker" src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_cal.gif" alt="캘린더" />
+									<div class="today_btn">
+										<a href="#" class="pgl"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_left.gif" alt="이전" /></a>
+										<a href="#" class="pgr"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_right.gif" alt="다음" /></a>
+										<a href="#" class="pgt"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/btn_today.gif" alt="오늘" /></a>
+									</div>
+								</div>
+
+								<div class="update_time">
+									<dl>
+										<dt>업데이트 시간</dt>
+										<dd>- 매일 오전 00시</dd>
+									</dl>
+								</div>
+							</div>
+
+							<div class="right_con">
+								<div class="plan_table">
+									<table cellspacing="0" cellpadding="0" width="100%">
+										<caption>과목별 학습 현황</caption>
+										<colgroup>
+											<col width="150px" />
+											<col width="90px" />
+											<col width="90px" />
+											<col width="90px" />
+											<col width="90px" />
+											<col width="90px" />
+											<col width="90px" />
+											<col width="*" />
+										</colgroup>
+										<thead>
+											<tr>
+												<th scope="col">구분</th>
+												<th scope="col">1주</th>
+												<th scope="col">2주</th>
+												<th scope="col">3주</th>
+												<th scope="col">4주</th>
+												<th scope="col">5주</th>
+												<th scope="col">6주</th>
+												<th scope="col"><strong>과목별 총 강의 수강</strong></th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>행정법총론</td>
+												<td>5강</td>
+												<td>5강</td>
+												<td>5강</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td class="td_total">15강</td>
+											</tr>
+											<tr>
+												<td>영어</td>
+												<td>1강</td>
+												<td>1강</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td class="td_total">2강</td>
+											</tr>
+											<tr>
+												<td>국어</td>
+												<td>1강</td>
+												<td>-</td>
+												<td>1강</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td class="td_total">2강</td>
+											</tr>
+											<tr>
+												<td>한국사</td>
+												<td>-</td>
+												<td>30강</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td class="td_total">30강</td>
+											</tr>
+											<tr>
+												<td>행정학개론</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td class="td_total">-</td>
+											</tr>
+											<tr class="tr_bg1">
+												<td style="background:#fff;">주별 총 강의 수강</td>
+												<td>7강</td>
+												<td>36강</td>
+												<td>6강</td>
+												<td>-</td>
+												<td>-</td>
+												<td>-</td>
+												<td class="td_total">49강</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- // 과목별 학습 현황 -->
+					</div>
+					<!-- // my_study_state : 나의 학습 현황 -->
+
+				</div>
+				<!-- // plan_con -->
+			</div>
+			<!-- //내용 끝 -->
+		</div>
+	</div>
+
+	<!-- foot :: 에듀윌은 합격이다 -->
+	<div class="foot_slogan">
+		<div>
+			<p class="slogan"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/foot_slogan.png" alt="에듀윌은 합격이다" /></p>
+			<p class="telnum"><img src="http://img.eduwill.net/resources/dokhan/dev/web/image/foot_tel.png" alt="에듀윌과 함께하면 합격이 빠르고 쉬워집니다. 문의사항/1600-6700" /></p>
+		</div>
+	</div>
+	<!-- // foot :: 에듀윌은 합격이다 -->
+
+	<div id="globalFooter">
+		<div class="certification">
+			<div class="inner">
+				<ul class="clearfix">
+					<li><a href="http://www.eduwill.net/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=55703&amp;Page=1&amp;listRecord=15&amp;Key=&amp;KeyWD=&amp;Div=&amp;BestFlag=&amp;Menu=&amp;Progress=" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert01.png" alt="대통령상"></a></li>
+					<li><a href="http://www.eduwill.net/common/board/News_Board_View.asp?ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=103632&amp;Page=1&amp;listRecord=15" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert02.png" alt="법무부"></a></li>
+					<li><a href="http://www.eduwill.net/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=96030&amp;Page=1&amp;listRecord=15&amp;Key=&amp;KeyWD=&amp;Div=&amp;BestFlag=&amp;Menu=&amp;Progress=" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert03.png" alt="미래창조과학부"></a></li>
+					<li><a href="http://www.eduwill.net/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=80604&amp;Page=1&amp;listRecord=15&amp;Key=&amp;KeyWD=&amp;Div=&amp;BestFlag=&amp;Menu=&amp;Progress=" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert04.png" alt="고용노동부"></a></li>
+					<!--<li><a href="http://www.eduwill.net/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&ProgressPageURL=common&M_Idx=15&B_Idx=74169&Page=1&listRecord=15&Key=&KeyWD=&Div=&BestFlag=&Menu=&Progress=" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert05.png" alt="교육과학기술부" /></a></li>-->
+					<li><a href="http://www.eduwill.net/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=34597&amp;Page=17&amp;listRecord=15&amp;Key=Title&amp;KeyWD=&amp;Div=&amp;BestFlag=&amp;Menu=&amp;Progress=" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert06.png" alt="산업지원부"></a></li>
+					<li><a href="http://www.eduwill.net/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=33094&amp;Page=17&amp;listRecord=15&amp;Key=Title&amp;KeyWD=&amp;Div=&amp;BestFlag=&amp;Menu=&amp;Progress=" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert07.png" alt="정보통신부"></a></li>
+					<li><a href="http://www.eduwill.net/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=16100&amp;Page=20&amp;listRecord=15&amp;Key=Title&amp;KeyWD=&amp;Div=&amp;BestFlag=&amp;Menu=&amp;Progress=" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert08.png" alt="과학기술부"></a></li>
+					<li><a href="http://www.eduwill.net/Common/Board/News_Board_View.asp?Go_List_URL=/Common/Board/News_Board_View.asp&amp;ProgressPageURL=Common&amp;M_Idx=15&amp;B_Idx=16070" target="_blank"><img src="http://img.eduwill.net/Img2/globalMain/btn_cert09.png" alt="서울시"></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="inner clearfix">
+			<script language="javascript" src="/common/include/js/escrow.js"></script>
+			<div class="foot_logo"><img src="http://www.eduwill.net/Img2/common/ew/footer_logo.gif" alt="Eduwill"></div>
+			<div class="foot_info">
+				<ul class="foot_link clearfix">
+					<li><a href="http://www.eduwill.net/common/company/ceo.asp" target="_blank">회사소개</a></li>
+					<li><a href="http://www.eduwill.net/common/company/recruit_notice.asp" target="_blank">인재채용</a></li>
+					<li><a href="http://www.eduwill.net/common/company/Professor.asp" target="_blank">강사/저자모집</a></li>
+					<li><a href="http://www.eduwill.net/Common/company/Education.asp" target="_blank">고객센터</a></li>
+					<li><a href="http://www.eduwill.net/common/company/partner_info.asp" target="_blank">제휴문의</a></li>
+					<li><a href="http://www.eduwill.net/Common/MyInfo/eduwill_law.asp" target="_blank">이용약관</a></li>
+					<li class="blue"><a href="http://www.eduwill.net/Common/MyInfo/MyInfo_Privacy.asp" target="_blank">개인정보취급방침</a></li>
+					<li><a href="javascript:;" onclick="window.open('http://www.eduwill.net/common/etc/spampop.asp','spampop',width=406,height=393);">이메일추출방지정책</a></li>
+				</ul>
+				
+				<address>
+					본사 : 서울시 구로구 디지털로 34길 55 코오롱싸이언스밸리 2차 310호 ㈜ 에듀윌<span>|</span>대표이사 정학동<span>|</span>e-mail : cs@eduwill.net<span>|</span>원격평생교육시설신고 제 207호<br>
+					사업자등록번호 119-81-54852<span>|</span>대표전화 : 1600-6700<span>|</span>고객센터 : 코오롱싸이언스밸리 2차 208호<span>|</span>개인정보 보호책임자 : 남영택<br>
+					법인등록번호 110111-2450031<span>|</span>출판사등록번호 제 18-102호<span>|</span>통신판매신고 구로 제 2008-00077호
+					<p>(주)에듀윌은 LG U+의 SSL방식을 적용하여 고객정보 보안에 만전을 기하고 있습니다. <em class="copy">Copyright (c) 2002~2016 (주)에듀윌 All rights reserved.</em></p>
+				</address>
+
+				<div class="partnership family01">
+					<h4><a href="#"><img src="http://img.eduwill.net/Img2/globalMain/btn_family01.gif" alt="제휴 및 인증기관"></a></h4>
+					<div class="alliance clearfix">
+						<dl>
+							<dt>제휴기관</dt>
+							<dd>
+								<ul>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_ebs_footer2.gif" alt=""><a href="/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=55703&amp;Page=1&amp;listRecord=10&amp;Key=&amp;KeyWD=&amp;Div=&amp;BestFlag=&amp;Menu=&amp;Progress=" target="_blank">EBS</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_puplenews2.gif" alt=""><a href="/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=40314&amp;Page=3&amp;listRecord=10&amp;Key=Title&amp;KeyWD=&amp;Div=&amp;BestFlag=&amp;Menu=&amp;Progress=" target="_blank">국민일보</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_koreauniver2.gif" alt=""><a href="/common/board/News_Board_View.asp?GoListURL=/common/board/News_Board_View.asp&amp;ProgressPageURL=Common&amp;M_Idx=15&amp;B_Idx=32124" target="_blank">고려대학교</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_sk.gif" alt=""><a href="/common/board/News_Board_View.asp?ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=58062&amp;Page=1&amp;listRecord=15" target="_blank">SK텔레콤</a></li>
+								</ul>
+								<p class="more"><a href="/common/company/partner.asp" target="_blank"><img src="http://www.eduwill.net/Img2/common/ew/btn_more.gif" alt="더보기"></a></p>
+							</dd>
+						</dl>
+
+						<dl>
+							<dt>정부기관</dt>
+							<dd>
+								<ul>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_gov1.gif" alt=""><a href="/Common/Board/News_Board_View.asp?GoListURL=/Common/Board/News_Board_View.asp&amp;ProgressPageURL=common&amp;M_Idx=15&amp;B_Idx=55703&amp;Page=1&amp;listRecord=15" target="_blank">대통령상 수상</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_gov2.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=33094" target="_blank">정보통신부장관상 수상</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_gov3.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=16100" target="_blank">과학기술부장관상 수상</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_gov4.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=34597" target="_blank">산업자원부장관상 수상</a></li>
+								</ul>
+							</dd>
+						</dl>
+
+						<dl>
+							<dt>교육기관</dt>
+							<dd>
+								<ul>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_ebs_footer.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=42090" target="_blank">EBS</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_koreauniver.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=32124" target="_blank">고려대학교</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_moj.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=42046" target="_blank">법무부</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_korea.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=41721" target="_blank">한국생산성본부</a></li>
+								</ul>
+							</dd>
+						</dl>
+
+						<dl>
+							<dt>주요인증</dt>
+							<dd>
+								<ul>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_enobiz.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=16119" target="_blank">이노비즈 기업인증</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_enobiz.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=16119" target="_blank">경영혁신형 기업인증</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_erining.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=37852" target="_blank">이러닝 기업인증</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_good.gif" alt=""><a href="http://edua.eduwill.net/Common/etc/venture_info.asp?code=2005#" onclick="PopOpen(this.href,'venture_info','515','600');return false" target="_blank">우수벤처 기업인증</a></li>
+								</ul>
+							</dd>
+						</dl>
+
+						<dl>
+							<dt>언론기관</dt>
+							<dd>
+								<ul>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_sbs.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=38463" target="_blank">SBS</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_koreanews.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=16113" target="_blank">한국일보</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_wowtv.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=40818" target="_blank">한국경제TV</a></li>
+									<li><img src="http://www.eduwill.net/Img2/common/ew/img_puplenews.gif" alt=""><a href="/common/board/News_Board_View.asp?M_Idx=15&amp;B_Idx=40314" target="_blank">국민일보</a></li>
+								</ul>
+							</dd>
+						</dl>
+						<a href="#" class="close_layer">닫기 X</a>
+					</div>
+				</div>
+				<!-- 제휴기관 -->
+
+				<div class="partnership family02">
+					<h4><a href="#"><img src="http://img.eduwill.net/Img2/globalMain/btn_family02.gif" alt="패밀리사이트"></a></h4>
+					<div class="alliance clearfix">
+						<dl class="family">
+							<dt>패밀리 사이트</dt>
+							<dd>
+								<ul>
+									<li><a href="http://www.eduwill.net/" target="_blank">자격증/공무원 온라인</a></li>
+									<li><a href="http://www.studywill.net/" target="_blank">원격평생교육원</a></li>
+									<li><a href="http://www.bizwill.net/" target="_blank">기업교육센터</a></li>
+									<li><a href="http://free.eduwill.net/" target="_blank">지식발전소</a></li>
+									<li><a href="http://dream.eduwill.net/" target="_blank">드림교육센터</a></li>
+									<li><a href="http://studio.eduwill.net/" target="_blank">Full HD 이러닝 스튜디오</a></li>
+								</ul>
+								<ul class="last">
+									<li><a href="/common/company/won.asp" target="_blank">자격증/공무원 직영학원</a></li>
+									<li>
+										<div>
+											<strong>[공인중개사 학원]</strong>
+											<p>
+												<a href="http://ch.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울천호</a> |
+												<a href="http://db.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울대방</a> |
+												<a href="http://nw.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울노원</a> |
+												<a href="http://sm.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">부산서면</a> |
+												<a href="http://bc.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">인천부평</a> |
+												<a href="http://sw.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">경기수원</a> |
+												<a href="http://bc.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">경기부천</a>
+											</p>
+											<strong>[주택관리사 학원]</strong>
+											<p>
+												<a href="http://dbj.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울대방</a> |
+												<a href="http://nwj.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울노원</a> |
+												<a href="http://smj.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">부산서면</a> |
+												<a href="http://bpj.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">인천부평</a>
+											</p>
+											<strong>[9급공무원 학원]</strong>
+											<p>
+												<a href="http://dbg.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울대방</a> |
+												<a href="http://nwg.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울노원</a> |
+												<a href="http://smg.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">부산서면</a> |
+												<a href="http://bpg.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">인천부평</a>
+											</p>
+											<strong>[경찰공무원 학원]</strong>
+											<p>
+												<a href="http://nwc.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울노원</a> |
+												<a href="http://smc.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">부산서면</a>
+											</p>
+											<strong>[소방공무원 학원]</strong>
+											<p>
+												<a href="http://nwgso.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울노원</a>
+											</p>
+											<strong>[전기기사 학원]</strong>
+											<p>
+												<a href="http://dbq.eduwill.net/premain.asp?eurl=/won2/main.asp" target="_blank">서울대방</a>
+											</p>
+										</div>
+									</li>
+								</ul>
+							</dd>
+						</dl>
+						<a href="#" class="close_layer">닫기 X</a>
+					</div>
+				</div>
+				<!-- 패밀리사이트 -->
+
+			</div>
+		</div>
+	</div>
+	<!--// 내용 끝 -->
+
+	<div class="dimm"></div>
+</div>
+<!-- // #wrap -->
+</body>
+</html>

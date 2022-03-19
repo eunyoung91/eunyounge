@@ -1,0 +1,582 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+/* 공통 */
+
+.product-eco {
+	.fix-banner {
+		position: fixed;
+		top: 200px;
+		right: 20px;
+		z-index: 100;
+	}
+	.slick-dots {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 15px;
+		
+		li {
+			button {
+				width: 14px;
+				height: 14px;
+				margin-right: 10px;
+				border-radius: 14px;
+				text-indent: -9999px;
+				background: #adadad;
+				border: none;
+				transition: all .3s ease;
+			}
+	
+			&.slick-active {
+	
+				button {
+					width: 38px;
+					background: #02744d;
+					border-radius: 20px;
+				}
+			}
+	
+		}
+	}
+
+	.btn-reason {
+		position: absolute;
+		cursor: pointer;
+		padding: 4px 20px 4px 10px ;
+		font-size: 14px;
+		background: #e2e2e2 ;
+		color: #222;
+		border-radius: 3px;
+		z-index: 3;
+
+		&::after {
+			content: '';
+			position: absolute;
+			top:10.5px;
+			right: 10px;
+			width: 7px;
+			height: 7px;
+			border: 1px solid #222;
+			border-left: none;
+			border-bottom: none;
+			box-sizing: border-box;
+			transform: rotate(45deg);
+
+		}	
+	}
+	.wrap {
+		width: 1200px;
+		position: relative;
+		margin: 0 auto;
+		text-align: center;
+		line-height: normal;
+		font-family: "Roboto", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+	}
+	.btn-pointer {
+		display: inline-block;
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			right:-13px;
+			bottom: -20px;
+			width: 57px;
+			height: 65px;
+			background: url(https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png) no-repeat 50% 50%;
+			background-size:100% auto;
+			animation: 0.3s slideupY ease-in-out infinite alternate;
+		}
+		@keyframes slideupY {
+			0% {
+				transform: translateY(0);
+			}
+			100% {
+				transform: translateY(10px);
+			}
+		}
+	}
+
+	@keyframes bounce {
+		0%,100% {
+			transform: translateY(10px);
+		}
+		50% {
+			transform: translateY(-10px);
+		}
+	}
+}
+
+
+/* 컨텐츠 */
+.product-eco {
+	overflow: hidden;
+	
+	&[data-type="1846"],
+	&[data-type="3241"]{
+		
+		.top {
+			
+		}
+		.visual {
+			background:url('https://img.eduwill.net/eduwill/img/2022/I/product/module/pc/1846/visual_bg.jpg') no-repeat 50% 50%;
+			background-size:cover;
+	
+			.btn-reason {
+				top: 178px;
+				right: 50px;
+				border: none;
+				background: transparent;
+				color: #b6ecbe;
+				&::after {
+					border-color: #b6ecbe;
+				}
+
+				&.last {
+					top: 943px;
+					right: 27px;
+					background: #51ad5f;
+				}
+			}
+
+			.price-area {
+				position: absolute;
+				left: 50%;
+				bottom: -190px;
+				background: #fff;  
+				border-radius: 30px;
+				width: 1150px;
+				height: 310px;
+				padding: 0 40px 0 50px;
+				box-sizing: border-box;
+				margin-left: -575px;
+				z-index: 10;
+				@include boxShadow(6px 9px 17px 0px rgba(0, 0, 0, .3));
+				.num {
+					font-family:$font-roboto;
+				}
+
+				.title {
+					position:absolute;
+					top: 33px;
+					left: 60px;
+					text-align: left;
+
+					h3 {
+						font-size: 40px;
+						color: #222;
+						font-weight: 900;
+						letter-spacing: -3px;
+						font-family: $font-noto;
+						
+						> em {
+							position: absolute;
+							top: 20px;
+							left: 0;
+							font-size: 30px;
+							font-weight: 600;
+							
+						}
+						
+						span {
+							display: inline-flex;
+							align-items: center;
+							height: 80px;
+							margin-top: 27px;
+							font-size: 20px;
+							font-weight: 400;
+							letter-spacing: -2px;
+							border-right: 1px solid #e5e5e5;
+							padding: 0 35px 0 10px;
+							color: #222;
+
+							em {
+								display: block;
+								color: #959595;
+								font-size: 14px;
+								position: absolute;
+    							bottom: -7px;
+							}
+							&.pdNone {
+								padding-left: 0;
+							}
+							&:last-child {
+								border: none;
+							}
+						}
+					}
+					
+				}
+				.discount {
+					position: absolute;
+					top: -3px;
+					left: 146px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					width: 127px;
+					height: 37px;
+					background: #ffde26;
+					border-radius: 37px;
+					color: #fff;
+					font-size: 24px;
+					font-weight: 900;
+					background: #222222;
+
+					span {
+						font-family: 'Roboto';
+					}
+				}
+				.price {
+					position:absolute;
+					top: 48px;
+					right: 51px;
+					line-height:1.1;
+					letter-spacing:-1px;
+					display: flex;
+					flex-direction: column;
+					align-items: flex-end;
+					width: 430px; 
+
+					.before {
+						height: 100%;
+						color:#bbb;
+						font-size:30px;
+						text-decoration:line-through;
+						padding-right: 10px;
+						font-weight: 500;
+						margin-bottom: 3px;
+					}
+					.after {
+						text-align: right;
+						color:#eb2200;
+						font-size: 56px;
+						
+						font-weight: 900;
+						.num {
+							font-size:56px;
+							font-weight: 900;
+						}
+					}
+				}
+				.btn-area {
+					position:absolute;
+					top:167px;
+					right: 55px;
+					font-size:0;
+					line-height:0;
+
+					.flag {
+						position: absolute;
+						bottom: -8px;
+						left: 113px;
+						z-index: 1;
+					}
+					.btn {
+						//width:280px;
+						height:105px;
+					}
+				}
+			}
+	
+		}
+		
+		.cont1 {
+			padding-top: 190px;
+		}
+
+		.cont2 {
+			.img {
+				position: relative;
+				z-index: 1;
+			}
+			.btn-reason {
+				top: 110px;
+				right: 50px;
+			}
+			.graph {
+				position: absolute;
+				top: 218px;
+				left: 50px;
+				right: 50px;
+
+				p {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					@include vw(height, 71px);
+					@include vw(margin-bottom, 10px);
+					@include vw(padding, 0 25px 0 40px);
+					@include vw(border-top-right-radius, 71px);
+					@include vw(border-bottom-right-radius, 71px);
+					background: rgb(61,15,147);
+					background: linear-gradient(90deg, rgba(1,115,76,1) 38%, rgba(138,212,142,1) 100%);
+					
+					box-sizing: border-box;
+
+					span {
+						font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+						color: #fff;
+						&:first-child {
+							@include vw(font-size, 21px);
+							font-weight: 600;
+						}
+						&:last-child {
+							@include vw(font-size, 40px);
+							font-weight: 900; 
+							font-family: 'Roboto', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+
+							em {
+								//@include vw(font-size, 25px);
+								font-weight: 600; 
+								
+							}
+						}
+					}
+				}
+				
+			}
+		}
+
+		.cont3,
+		.cont5,
+		.cont7 {
+			background: #f5f5f5;
+		}
+
+		.cont4 {
+			.btn-reason {
+				top: 227px;
+				right: 50px;
+			}
+		}
+
+		.cont8 {
+			padding-bottom: 70px;
+			.btn-refunds {
+				position: absolute;
+				top: 523px;
+				right: 162px;
+			}
+		}
+
+		.cont9 {
+			background:url('https://img.eduwill.net/eduwill/img/2022/I/product/module/pc/1846/cont9_bg.png') no-repeat 50% 50%;
+			background-size:cover;
+		}
+
+		.cont10 {
+			background:url('http://img.eduwill.net/eduwill/img/2022/_108/event/220210/pc/cont4_bg.jpg') no-repeat center 95px;
+			background-size:cover;
+
+			.btn-reason {
+				bottom: 154px;
+				right: 50px;
+				background: transparent;
+				border: 1px solid #beada1;
+				border-radius: 0;
+				color: #beada1;
+				&::after {
+					border-color: #beada1;
+				}
+	
+			}
+		}
+
+		.cont11 {
+			@include shadowBg();
+
+			.typing{
+				position: absolute;
+				left: 97px;
+				top: 395px;
+				line-height: 1;
+				color: #022222;
+				font-weight: 900;
+				font-size: 40px;
+				&:after{
+					content: '';
+					position: relative;
+					top: -5px;
+					display: inline-block;
+					-webkit-animation-name: cursor;
+					animation-name: cursor;
+					-webkit-animation-duration: 0.3s;
+					animation-duration: 0.3s;
+					-webkit-animation-iteration-count: infinite;
+					animation-iteration-count: infinite;
+					width: 2px;
+					height: 40px;
+					background-color: #022222;
+					vertical-align: middle;
+				}
+			}
+			
+		}
+
+		.cont12 {
+			position: relative;
+			background:#f4f4f4;
+			height:821px;
+			overflow: hidden;
+			background: linear-gradient(0deg, rgba(244,244,244,1) 0%, rgba(255,255,255,1) 20%);
+			.review-wrap {
+				overflow:hidden;
+				position:relative;
+				opacity:.2;
+				text-align:left;
+				.review-list {
+					transform:perspective(640px) rotateX(40deg);
+					width:1100px;
+					height:802px;
+					margin:0 auto;
+					.item {
+						padding: 15px 0;
+						font-size: 16px;
+						& + .item {
+							margin-left:4%;
+						}
+						span {
+							font-size: inherit;
+							display: inline-block;
+							&:nth-child(1){
+								width:20%;
+								text-align: center;
+							}
+							&:nth-child(2){
+								width: 70%;
+								display: inline-block;
+								white-space: nowrap;
+								overflow: hidden;
+								text-overflow: ellipsis;
+							}
+							&:nth-child(3){
+								width:auto;
+							}
+							&:nth-child(4){
+								float: right;
+							}
+						}
+					}
+				}
+			}
+
+			.wrap {
+				position: absolute;
+				top:0;
+				left:50%;
+				transform: translateX(-50%);
+			}
+
+			.btn {
+				position: absolute;
+				top: 322px;
+				left: 30px;
+			}
+		}
+
+		.product-sentence {
+			background-color: #01734c;
+			font-size: 54px;
+			color: #fff;
+			font-weight: 900;
+			padding: 35px 0;
+			
+			span {
+				color: #f6ff00
+			}
+		}
+	}
+
+
+	&[data-type="3241"] {
+		.slick-dots {
+			
+			li {
+				&.slick-active {
+		
+					button {
+						background: #1175e4;
+					}
+				}
+		
+			}
+		}
+		.cont9 {
+			background:url('https://img.eduwill.net/eduwill/img/2022/I/product/module/pc/3241/cont9_bg.png') no-repeat 50% 50%;
+			background-size:cover;
+		}
+		.visual {
+			background:url('https://img.eduwill.net/eduwill/img/2022/I/product/module/pc/3241/visual_bg.jpg') no-repeat 50% 50%;
+			background-size:cover;
+			.btn-reason {
+				top: 176px;
+    			right: 137px;
+				color: #fff;
+				&::after {
+					border-color: #fff;
+				}
+
+				&.last {
+					top: 943px;
+					right: 27px;
+					color: #222;
+					background: #9addff;
+
+					&::after {
+						border-color: #222;
+					}
+				}
+			}
+
+			.price-area {
+				position: absolute;
+				left: 50%;
+				bottom: -190px;
+				background: #fff;  
+				border-radius: 30px;
+				width: 1150px;
+				height: 310px;
+				padding: 0 40px 0 50px;
+				box-sizing: border-box;
+				margin-left: -575px;
+				z-index: 10;
+				@include boxShadow(6px 9px 17px 0px rgba(0, 0, 0, .3));
+				.num {
+					font-family:$font-roboto;
+				}
+
+				.title {
+					top: 60px;
+					
+					h3 {	
+						span {
+							margin-top: 50px;
+						}
+					}
+					
+				}
+			}
+		}
+		.cont2 {
+			.graph {
+				p {
+					background: linear-gradient(90deg, rgba(2,151,255,1) 38%, rgba(144,217,255,1) 100%);
+				}
+				
+			}
+		}
+
+		.product-sentence {
+			background-color: #1175e4;
+			
+		}
+	}
+
+}
+
+@import "module/popup";

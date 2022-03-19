@@ -1,0 +1,673 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="content-style-type" content="text/css" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="no-cache" />
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="copyright" content="(c)2011 INTERNATIONAL VACCINE INSTITUTE" />
+<meta name="description" content="INTERNATIONAL VACCINE INSTITUTE" />
+<meta name="keywords" content="INTERNATIONAL VACCINE INSTITUTE" />
+<meta name="Author" content="Fuz:" />
+<link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/earlyaccess/nanumgothic.css" />
+<title>[b2b 모바일] 코딩가이드</title>
+<style type="text/css">
+	/** 공통 **/
+	body{background-color:#ccc}
+	*{margin:0; padding:0; font-family:'Nanum Gothic', Dotum, '돋움', sans-serif}
+	#wrap{position:relative;padding:20px 15px 20px 15px;line-height:17px;font-size:12px;font-family:"돋움", "san-serif";}
+	h1{margin: 0 0 40px 0;}
+	h2{margin: 0 0 10px 0;}
+	strong.allfile{color:#0000FF;}
+	/* 테이블 */
+	table	{border-collapse:collapse; width:85%; margin:0 0 40px 0; }
+	table	th	{border:1px solid #ccc; padding:5px 0 2px;}
+	table thead th {padding:6px 5px 3px 5px; color:#fff; background-color:#111}
+	table tbody td {padding:6px 5px 3px 5px; border:1px solid #ccc; text-align:center; background-color:#FFFFFF;}
+	table td.depth1{font-weight:bold; background-color:#1056ad;}
+	table tr:nth-child(even) td{background-color:#efefef}
+	table a{margin: 0 0 0 10px; text-decoration:none; font-weight:bold; color:#F9BED7;}
+			a:hover{color:#000; text-decoration:underline; font-weight:bold;}
+	/** 파일 정보박스 **/
+	#info{
+		left:85%;
+		width:200px;
+		padding:10px;
+		border:1px solid #ccc;
+		text-align:left;
+		background-color:#FFFFFF;
+	}
+	#info ul.info_class{padding:0 0 0 15px;}
+	#info ul.info_class li{margin: 0 0 5px 0; vertical-align:middle}
+	#info ul.info_class span{display:inline-block; width:70px}
+	#info a{text-decoration:none; font-weight:bold; color:#9F9C9C;}
+	#info a:hover{color:#000; text-decoration:underline; font-weight:bold;}
+	#info ul.number{padding:10px 0 0}
+	#info ul.number li{margin:4px 0; overflow:hidden; *zoom:1}
+	#info ul.number li span{display:block; float:left; width:80px}
+	#info legend{color:#222; font-size:22px; letter-spacing:-.09em}
+	hr{margin:20px 0; color:#eee}
+	#info ul.quick_links{padding:0 0 10px 15px;}
+	#info ul.quick_links li{margin:4px 0}
+	.list_txt{display:none; margin: 0 0 30px 0;}
+	.list_txt strong{font-size:14px;}
+	#ok_tot{color:#FF0000;}
+	#tot_icom{color:red;}
+	.incompletion{font-size:12px; color:red;font-weight:bold;}
+	.coding_complete{font-size:12px; color:green;font-weight:bold;}
+	.coding_modi{font-size:12px; color:blue;font-weight:bold;}
+	.no_cont{font-size:12px;color:#333; font-weight:bold;}
+	.guide{font-size:12px;color:#9c8874; font-weight:bold;}
+	.deb2{font-size:12px; color:#5c076b; font-weight:bold;}
+	.commu{font-size:12px; color:#FF6600; font-weight:bold;}
+	.none{font-size:12px; color:#000;font-weight:bold;}
+	#tot_com{color:#008000}
+	filedset#info legend{}
+	a.modify_link{color:#fff; background-color:#777; border-radius:3px; padding:5px 10px; font-size:12px; text-decoration:none}
+	a.modify_link:hover{text-decoration:none; background-color:#444}
+</style>
+</head>
+
+<body onload="start()">
+<div id="wrap">
+	
+<fieldset id="info" >		
+<legend>[ 파일정보 ]</legend>
+<ul class="number">
+<li><span>- 총 파일</span><strong id="tot_file" class="allfile"></strong></li>
+<li><span>- 작업중</span><strong id="tot_icom" ></strong></li>
+<li><span>- 완료 파일</span><strong id="tot_com" ></strong></li>
+</ul>
+
+<hr />
+
+<ul class="info_class">
+<li class="incompletion"><span>대기/작업중</span>incompletion</li>
+<li class="coding_modi"><span>수정완료</span>coding_modi</li>
+<li class="coding_complete"><span>코딩완료</span>coding_complete</li>	
+<!-- <li class="no_cont">기획 협의중 no_cont</li>
+<li class="commu">디자인 수정완료 commu</li>  -->
+<li class="guide"><span>가이드</span>guide</li> 
+<li class="none"><span>미산정페이지</span>none</li> 
+</ul>
+
+<hr />
+
+<ul class="quick_links">
+	<li><a href="#s1">메인</a></li>
+	<li><a href="#s2">로그인</a></li>
+	<li><a href="#s3">회원가입</a></li>
+	<li><a href="#s4">나의강의실</a></li>
+	<li><a href="#s5">고객지원</a></li>
+</ul>
+</fieldset>		
+<h1>b2b 모바일 (utf-8/html)</h1>
+	<div id="list">
+
+
+
+		<h2 id="s1">메인</h2>
+		<table>	
+			<thead>
+				<tr class="title">
+					<th>1Depth</th>
+					<th>2Depth</th>
+					<th>3Depth</th>
+					<th>4Depth</th>
+					<th colspan="2">Directory</th>	
+					<th>파일명</th>
+					<th>업데이트</th>
+					<th>수정</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="deb2">메인</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>/html</td>
+					<td>/main</td>
+					<td><a href="html/main/main.html" class="coding_complete">main.html</a></td>
+					<td>16.06.28</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="deb2">메인</td>
+					<td>팝업</td>
+					<td></td>
+					<td></td>
+					<td>/html</td>
+					<td>/main</td>
+					<td><a href="html/main/pop.html" class="coding_complete">pop.html</a></td>
+					<td>16.06.13</td>
+					<td></td>
+				</tr>				
+			</tbody>
+		</table>
+
+		<h2 id="s2">로그인</h2>
+		<table>	
+			<thead>
+				<tr class="title">
+					<th>1Depth</th>
+					<th>2Depth</th>
+					<th>3Depth</th>
+					<th>4Depth</th>
+					<th colspan="2">Directory</th>	
+					<th>파일명</th>
+					<th>업데이트</th>
+					<th>수정</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="deb2">로그인</td>
+					<td>로그인</td>
+					<td></td>
+					<td></td>
+					<td>/html</td>
+					<td>/login</td>
+					<td><a href="html/login/login.html" class="coding_complete">login.html</a></td>
+					<td>16.06.22</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="deb2">로그인</td>
+					<td>훈련생 유의사항</td>
+					<td></td>
+					<td></td>
+					<td>/html</td>
+					<td>/login</td>
+					<td><a href="html/login/guide.html" class="coding_complete">guide.html</a></td>
+					<td>16.06.15</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="deb2">로그인</td>
+					<td>최초로그인</td>
+					<td>약관동의</td>
+					<td></td>
+					<td>/html</td>
+					<td>/login</td>
+					<td><a href="html/login/join.html" class="coding_complete">join.html</a></td>
+					<td>16.06.28</td>
+					<td>16.07.04</td>
+				</tr>
+				<tr>
+					<td class="deb2">로그인</td>
+					<td>최초로그인</td>
+					<td>본인인증</td>
+					<td></td>
+					<td>/html</td>
+					<td>/login</td>
+					<td><a href="html/login/confirm.html" class="coding_complete">confirm.html</a></td>
+					<td>16.06.21</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="deb2">로그인</td>
+					<td>최초로그인</td>
+					<td>인증번호입력</td>
+					<td></td>
+					<td>/html</td>
+					<td>/login</td>
+					<td><a href="html/login/confirm_ok.html" class="coding_complete">confirm_ok.html</a></td>
+					<td>16.06.15</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h2 id="s3">회원가입</h2>
+		<table>	
+			<thead>
+				<tr class="title">
+					<th>1Depth</th>
+					<th>2Depth</th>
+					<th>3Depth</th>
+					<th>4Depth</th>
+					<th colspan="2">Directory</th>	
+					<th>파일명</th>
+					<th>업데이트</th>
+					<th>수정</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="deb2">회원가입</td>
+					<td>약관동의</td>
+					<td></td>
+					<td></td>
+					<td>/html</td>
+					<td>/member</td>
+					<td><a href="html/member/member.html" class="coding_complete">member.html</a></td>
+					<td>16.06.28</td>
+					<td>16.07.04</td>
+				</tr>
+				<tr>
+					<td class="deb2">회원가입</td>
+					<td>정보입력</td>
+					<td></td>
+					<td></td>
+					<td>/html</td>
+					<td>/member</td>
+					<td><a href="html/member/member_form.html" class="coding_complete">member_form.html</a></td>
+					<td>16.06.22</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="deb2">회원가입</td>
+					<td>회원정보수정</td>
+					<td></td>
+					<td></td>
+					<td>/html</td>
+					<td>/member</td>
+					<td><a href="html/member/member_modify.html" class="coding_complete">member_modify.html</a></td>
+					<td>16.06.22</td>
+					<td>16.07.04</td>
+				</tr>
+				<tr>
+					<td class="deb2">회원가입</td>
+					<td>아이디찾기</td>
+					<td></td>
+					<td></td>
+					<td>/html</td>
+					<td>/member</td>
+					<td><a href="html/member/member_id.html" class="coding_complete">member_id.html</a></td>
+					<td>16.06.15</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="deb2">회원가입</td>
+					<td>아이디찾기</td>
+					<td>인증번호</td>
+					<td></td>
+					<td>/html</td>
+					<td>/member</td>
+					<td><a href="html/member/member_id1.html" class="coding_complete">member_id1.html</a></td>
+					<td>16.06.21</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="deb2">회원가입</td>
+					<td>아이디찾기</td>
+					<td>아이디확인</td>
+					<td></td>
+					<td>/html</td>
+					<td>/member</td>
+					<td><a href="html/member/member_id2.html" class="coding_complete">member_id2.html</a></td>
+					<td>16.06.15</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="deb2">회원가입</td>
+					<td>비밀번호찾기</td>
+					<td></td>
+					<td></td>
+					<td>/html</td>
+					<td>/member</td>
+					<td><a href="html/member/member_pw.html" class="coding_complete">member_pw.html</a></td>
+					<td>16.06.15</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="deb2">회원가입</td>
+					<td>비밀번호찾기</td>
+					<td>인증번호</td>
+					<td></td>
+					<td>/html</td>
+					<td>/member</td>
+					<td><a href="html/member/member_pw1.html" class="coding_complete">member_pw1.html</a></td>
+					<td>16.06.21</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="deb2">회원가입</td>
+					<td>비밀번호찾기</td>
+					<td>비밀번호확인</td>
+					<td></td>
+					<td>/html</td>
+					<td>/member</td>
+					<td><a href="html/member/member_pw2.html" class="coding_complete">member_pw2.html</a></td>
+					<td>16.06.15</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+
+
+
+
+		<h2 id="s4">나의강의실</h2>
+		<table>	
+			<thead>
+				<tr class="title">
+					<th>1Depth</th>
+					<th>2Depth</th>
+					<th>3Depth</th>
+					<th>4Depth</th>
+					<th colspan="2">Directory</th>	
+					<th>파일명</th>
+					<th>업데이트</th>
+					<th>수정</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="deb2">나의강의실</td>
+					<td>나의강의실</td>
+					<td></td>
+					<td></td>
+					<td>/html</td>
+					<td>/myclass</td>
+					<td><a href="html/myclass/mymain.html" class="coding_complete">mymain.html</a></td>
+					<td>16.06.20</td>
+					<td></td>
+				</tr>	
+				<tr>
+				<td class="deb2">나의강의실</td>
+					<td>나의강의실</td>
+					<td>강의없음</td>
+					<td></td>
+					<td>/html</td>
+					<td>/myclass</td>
+					<td><a href="html/myclass/mymain2.html" class="coding_complete">mymain2.html</a></td>
+					<td>16.06.20</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="deb2">나의강의실</td>
+					<td>수강중인과정</td>
+					<td>주차퀴즈</td>
+					<td>목록</td>
+					<td>/html</td>
+					<td>/myclass</td>
+					<td><a href="html/myclass/quiz.html" class="coding_complete">quiz.html</a></td>
+					<td>16.06.20</td>
+					<td>16.07.04</td>
+				</tr>
+				<tr>
+					<td class="deb2">나의강의실</td>
+					<td>수강중인과정</td>
+					<td>주차퀴즈</td>
+					<td>보안</td>
+					<td>/html</td>
+					<td>/myclass</td>
+					<td><a href="html/myclass/quiz_bo.html" class="coding_complete">quiz_bo.html</a></td>
+					<td>16.06.20</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="deb2">나의강의실</td>
+					<td>수강중인과정</td>
+					<td>주차퀴즈</td>
+					<td>문제</td>
+					<td>/html</td>
+					<td>/myclass</td>
+					<td><a href="html/myclass/quiz_list.html" class="coding_complete">quiz_list.html</a></td>
+					<td>16.06.20</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="deb2">나의강의실</td>
+					<td>수강중인과정</td>
+					<td>주차퀴즈</td>
+					<td>결과</td>
+					<td>/html</td>
+					<td>/myclass</td>
+					<td><a href="html/myclass/quiz_end.html" class="coding_complete">quiz_end.html</a></td>
+					<td>16.06.20</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="deb2">나의강의실</td>
+					<td>수강중인과정</td>
+					<td>동영상강의</td>
+					<td>목록</td>
+					<td>/html</td>
+					<td>/myclass</td>
+					<td><a href="html/myclass/video.html" class="coding_complete">video.html</a></td>
+					<td>16.06.22</td>
+					<td>16.07.04</td>
+				</tr>				
+				<tr>
+					<td class="deb2">나의강의실</td>
+					<td>수강중인과정</td>
+					<td>북마크</td>
+					<td>목록</td>
+					<td>/html</td>
+					<td>/myclass</td>
+					<td><a href="html/myclass/bookmark.html" class="coding_complete">bookmark.html</a></td>
+					<td>16.06.20</td>
+					<td></td>
+				</tr>			
+				<tr>
+					<td class="deb2">나의강의실</td>
+					<td>수강중인과정</td>
+					<td>Q&A</td>
+					<td>목록</td>
+					<td>/html</td>
+					<td>/myclass</td>
+					<td><a href="html/myclass/qna.html" class="coding_complete">qna.html</a></td>
+					<td>16.06.21</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="deb2">나의강의실</td>
+					<td>수강중인과정</td>
+					<td>Q&A</td>
+					<td>글쓰기</td>
+					<td>/html</td>
+					<td>/myclass</td>
+					<td><a href="html/myclass/qna_write.html" class="coding_complete">qna_write.html</a></td>
+					<td>16.06.21</td>
+					<td></td>
+				</tr>				
+			</tbody>
+		</table>
+
+
+
+		<h2 id="s5">고객지원</h2>
+		<table>	
+			<thead>
+				<tr class="title">
+					<th>1Depth</th>
+					<th>2Depth</th>
+					<th>3Depth</th>
+					<th>4Depth</th>
+					<th colspan="2">Directory</th>	
+					<th>파일명</th>
+					<th>업데이트</th>
+					<th>수정</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="deb2">고객지원</td>
+					<td>공지사항</td>
+					<td></td>
+					<td></td>
+					<td>/html</td>
+					<td>/customer</td>
+					<td><a href="html/customer/notice.html" class="coding_complete">notice.html</a></td>
+					<td>16.06.21</td>
+					<td>16.07.04</td>
+				</tr>
+				<tr>
+					<td class="deb2">고객지원</td>
+					<td>FAQ</td>
+					<td></td>
+					<td></td>
+					<td>/html</td>
+					<td>/customer</td>
+					<td><a href="html/customer/faq.html" class="coding_complete">faq.html</a></td>
+					<td>16.06.21</td>
+					<td>16.07.04</td>
+				</tr>
+				<tr>
+					<td class="deb2">고객지원</td>
+					<td>고객의소리</td>
+					<td></td>
+					<td></td>
+					<td>/html</td>
+					<td>/customer</td>
+					<td><a href="html/customer/customer.html" class="coding_complete">customer.html</a></td>
+					<td>16.06.21</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td class="deb2">고객지원</td>
+					<td>전화상담예약</td>
+					<td></td>
+					<td></td>
+					<td>/html</td>
+					<td>/customer</td>
+					<td><a href="html/customer/call.html" class="coding_complete">call.html</a></td>
+					<td>16.06.21</td>
+					<td>16.07.04</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+
+	</div>
+</div>
+
+<script type="text/javascript">
+<!--
+var tot_file=0;
+var ok_file=0;
+var tot_com=0;
+var tot_icom=0;
+function start(){
+	 totEle();
+	 tableSize();
+}
+function totEle(){
+	var obj = document.getElementById("list");
+	var ele = obj.getElementsByTagName("a");
+	var eleTr = obj.getElementsByTagName("tr");
+
+	for(var i=0; i<ele.length;i++){
+
+		if(ele[i].className !="no_blank"){
+			ele[i].setAttribute("target","_blank");
+		}
+
+	}
+
+	for(var i=0; i<eleTr.length;i++){
+	 if(eleTr[i].className !="title"){ // tr태그에 class 네임이 title 인것은 배제하고 총파일을 알아낸다.
+		tot_file+=1;
+	 }
+	}
+	
+	for(var i=0; i<ele.length;i++){
+		if(ele[i].className == "coding_complete"){
+			tot_com+=1;
+		}
+	}
+	
+	for(var i=0; i<ele.length;i++){
+		if(ele[i].className == "incompletion"){
+			tot_icom+=1;
+		}
+	}	
+		
+	
+		document.getElementById("tot_file").innerHTML =  tot_file;
+		document.getElementById("tot_com").innerHTML =  tot_com;
+		document.getElementById("tot_icom").innerHTML =  tot_icom;
+	//완료된 파일은 링크를 건다. id="list"영역안에..있는건만
+	//document.getElementById("ok_tot").innerHTML =  obj.getElementsByTagName("a").className("coding_complete").length ;
+ }
+	function tableSize(){
+
+		var eleTable = document.getElementsByTagName("table");
+
+		for(var i=0;i<eleTable.length;i++)
+		{
+			eleTable[i].getElementsByTagName("td")[0].style.width="14%";
+			eleTable[i].getElementsByTagName("td")[1].style.width="14%";
+			eleTable[i].getElementsByTagName("td")[2].style.width="14%";
+			eleTable[i].getElementsByTagName("td")[3].style.width="5%";
+			eleTable[i].getElementsByTagName("td")[4].style.width="9%";
+			eleTable[i].getElementsByTagName("td")[5].style.width="30%";
+			eleTable[i].getElementsByTagName("td")[6].style.width="7%";
+			eleTable[i].getElementsByTagName("td")[7].style.width="7%";
+		}
+	}
+	
+// Quick menu
+function initMoving(target, position, topLimit, btmLimit) {
+	if (!target) return false;
+		
+	try { document.execCommand("BackgroundImageCache", false, true);}
+	catch(err){}
+
+	var obj = target;
+	obj.initTop = position;
+	obj.topLimit = topLimit;
+	obj.bottomLimit = document.documentElement.scrollHeight - btmLimit;
+
+	obj.style.position = "absolute";
+	obj.top = obj.initTop;
+	obj.left = obj.initLeft;
+
+	if (typeof(window.pageYOffset) == "number") {
+		obj.getTop = function() {
+			return window.pageYOffset;
+		}
+	} else if (typeof(document.documentElement.scrollTop) == "number") {
+		obj.getTop = function() {
+			return document.documentElement.scrollTop;
+		}
+	} else {
+		obj.getTop = function() {
+			return 0;
+		}
+	}
+
+	if (self.innerHeight) {
+		obj.getHeight = function() {
+			return self.innerHeight;
+		}
+	} else if(document.documentElement.clientHeight) {
+		obj.getHeight = function() {
+			return document.documentElement.clientHeight;
+		}
+	} else {
+		obj.getHeight = function() {
+			return 500;
+		}
+	}
+
+	obj.move = setInterval(function() {
+		if (obj.initTop > 0) {
+			pos = obj.getTop() + obj.initTop;
+		} else {
+			pos = obj.getTop() + obj.getHeight() + obj.initTop;
+			//pos = obj.getTop() + obj.getHeight() / 2 - 15;
+		}
+
+		if (pos > obj.bottomLimit)
+			pos = obj.bottomLimit;
+		if (pos < obj.topLimit)
+			pos = obj.topLimit;
+
+		interval = obj.top - pos;
+		obj.top = obj.top - interval / 3;
+		obj.style.top = obj.top - 10 + "px";
+	}, 30)
+}
+	
+//-->	
+</script>
+<script type="text/javascript">initMoving(document.getElementById("info"), 50,-15, 800);</script>
+</body>
+</html>

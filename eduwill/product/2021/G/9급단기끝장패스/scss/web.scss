@@ -1,0 +1,159 @@
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+// @import "module/popup";
+// @import "module/popupPC";
+
+.product-eco {
+    * { font-family: $font-noto; }
+    .wrap { width: 1200px; }
+
+    .bottom-banner {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        background: rgba(0,0,0,.8);
+        a {
+            display: block;
+            padding: 20px 0;
+        }
+        strong {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 45px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -2px;
+            em {
+                font-size: 45px;
+                font-style: normal;
+                font-weight: 900;
+                color: #ffbf00;
+                letter-spacing:-2px;
+            }
+        }
+        span {
+            @include pointer(60%, 0, 57px, 65px, 12, bounce);
+            margin-left: 20px;
+            width: 230px;
+            height: 50px;
+            vertical-align: middle;
+            text-align: center;
+            line-height: 50px;
+            font-size: 30px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -2px;
+            border-radius: 50px;
+            @include linear-gradient(to right, #fa5800 0%, #ea1d00 100%);
+            @include boxShadow(inset 1px 2px 0 0 #f78d71);
+            &:before {
+                @include arrow(right, 10px, 10px, 2px, #fff);
+                right: 10%;
+            }
+        }
+    }
+
+    .wing-banner {
+        position: fixed;
+        top: 20%;
+        right: 0;
+        z-index: 10;
+    }
+
+    .slick-arrow {
+        border-radius: 50%;
+        &.slick-prev {
+            left: 0;
+            @include slideArrow(left, 60px, 60px, 2px, #fff, rgba(0,0,0,.7));
+        }
+        &.slick-next {
+            right: 0;
+            @include slideArrow(right, 60px, 60px, 2px, #fff, rgba(0,0,0,.7));
+        }
+    }
+
+    .sector-title {
+        z-index: 1;
+        @include bg($color: #212542, $url: '#{$img-path}/pc/bg_title.jpg', $size: cover);
+        img { margin-bottom: -61px; }
+    }
+    .sector-intro { background-color: #f6f6f6; }
+    .sector-curriculum {
+        padding-bottom: 100px;
+        .item { position: relative; }
+        .step-list {
+            position: absolute;
+            top: 0;
+            left: 225px;
+            @extend %clearfix;
+        }
+        .step {
+            float: left;
+            display: table;
+            width: 226px;
+            height: 226px;
+            margin: 0 10px;
+            text-align: center;
+            border-radius: 50%;
+            background: #fff;
+            border: 10px solid #d4d4d4;
+            overflow: hidden;
+            @include transition(all, .3s, ease-in);
+            @include boxSizing(border-box);
+            .step-box {
+                position: relative;
+                display: table-cell;
+                vertical-align: middle;
+                .label-title {
+                    position: absolute;
+                    top: -2px;
+                    right: 0;
+                    left: 0;
+                    display: inline-block;
+                    width: 100%;
+                    height: 58px;
+                    margin: 0 auto;
+                    line-height: 58px;
+                    text-align: center;
+                    font-weight: 700;
+                    font-size: 20px;
+                    color: #000;
+                    letter-spacing: -1px;
+                    background: #d4d4d4;
+                    @include transition(all, .3s, ease-in);
+                }
+                dl {
+                    margin-top: 30px;
+                    dt {
+                        margin-bottom: 10px;
+                        font-weight: 900;
+                        font-size: 24px;
+                        line-height: 1.3;
+                        color: #000;
+                        letter-spacing: -2px;
+                    }
+                    dd {
+                        font-size: 17px;
+                        font-weight: 400;
+                        line-height: 1.3;
+                        color: #000;
+                        letter-spacing: -2px;
+                    }
+                }
+            }
+            &.on {
+                border-color: #ffbf08;
+                @include boxShadow(0 0 20px 0 rgba(255, 191, 8, .6));
+                .step-box .label-title { background: #ffbf08; }
+            }
+        }
+    }
+    .sector-awards { border-top: 20px solid #ececef; }
+    .sector-band { background-color: #2e64ed; }
+}

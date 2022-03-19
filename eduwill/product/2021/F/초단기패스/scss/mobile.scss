@@ -1,0 +1,304 @@
+@charset "utf-8";
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+
+.product-eco {
+	.wrap {
+		width: 100%;
+		max-width: 720px;
+	}
+
+	.btn-pointer {
+		display: inline-block;
+		position: relative;
+		&:before {
+			content:'';
+			position: absolute;
+			bottom: -33%;
+			right: -3%;
+			@include vw(width, 57px);
+			@include vw(height, 65px);
+			background: url(https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png) no-repeat 50% 50%;
+			background-size: 100% auto;
+			animation: 0.3s slideupY ease-in-out infinite alternate;
+		}
+		@keyframes slideupY {
+			0% { transform: translateY(0); }
+			100% { transform: translateY(10px);	 }
+		}
+	}
+}
+
+.product-eco {
+	overflow: hidden;
+	background-color:#f4f4f4;
+
+	img {
+		&.wide {
+			display: block;
+			@include vw(width, 1220px);
+			@include vw(max-width, 1220px);
+			transform: translateX(-34.7222vw);
+			@include breakpoint(maxMobile) {
+				transform: translateX(-250px);
+			}
+		}
+	}
+
+	.slider {
+		@include vw(padding, 38px 40px 0);
+		.slick-list {
+			overflow: inherit;
+		}
+		.slick-slide {
+			@include vw(padding, 10px);
+		}
+		.slide-item {
+			@include vw(border-radius, 15px);
+			box-shadow: 8px 9px  22px 0 rgba(0,0,0,.1);
+			font-size: 0;
+		}
+		.slick-dots {
+			overflow: hidden;
+			position: absolute;
+			top: 0;
+			@include vw(right, 50px);
+			li {
+				display: none;
+				float: left;
+				@include vw(line-height, 38px);
+				@include vw(letter-spacing, -2px);
+				@include vw(font-size, 24px);
+				button {
+					color:#222;
+					@include vw(font-size, 24px);
+					font-weight:500;
+				}
+				&.slick-active,
+				&.all {
+					display:block;
+					color:#999;
+				}
+				&.all {
+					@include vw(margin-left, 6px);
+				}
+			}
+		}
+	}
+
+	.cont-visual {
+		background: url(#{$img-path}/mobile/visual_bg.jpg) no-repeat 50% 50%;
+		background-size: cover;
+	}
+
+	.cont1 {
+		.wrap {
+			@include vw(margin-top, -204px);
+		}
+	}
+
+	.cont2 {
+		padding: 11.1111% 0;
+		background-color:#ffbf00;
+		@include breakpoint(maxMobile) {
+			padding: 80px 0;
+		}
+		.price-area {
+			position: relative;
+			height: 0;
+			@include rem(border-radius, 30px);
+			margin: 0 6.9444% auto;
+			padding: 5.5555%;
+			padding-bottom: 62.5%;
+			background-color: #fff;
+			@include boxShadow(10px 12px 12px 0 rgba(0, 0, 0, .2));
+			.price-title {
+				@include vw(font-size, 24px);
+				font-weight: 900;
+				color: #222;
+				text-align: left;
+				strong {
+					@include vw(font-size,48px);
+					font-weight: 900;
+				}
+			}
+			.price-info {
+				position: absolute;
+				bottom: 28.9444%;
+				left: 6.9444%;
+				right: 6.9444%;
+				font-family: 'Roboto';
+				@include vw(font-size, 82px);
+				font-weight: 900;
+				color: #ea1d00;
+				letter-spacing: -2px;
+				text-align: right;
+			}
+			.price-apply {
+				position: absolute;
+				bottom: 6.9444%;
+				left: 6.9444%;
+				right: 6.9444%;
+			}
+		}
+
+	}
+
+	.desc {
+		background-color: #fff;
+	}
+	.desc{
+		background: linear-gradient(0deg,rgba(255,255,255,1) 0%, rgba(245,245,245,1) 20% );
+	}
+	.cont3 {
+		@include linear-gradient(to bottom, #fff 0%, #f8f8f8 100%);
+		.typing {
+			position: absolute;
+			@include vw(top, 380px);
+			@include vw(left, 90px);
+			@include vw(font-size, 40px);
+			font-weight: 900;
+			color: #022222;
+			line-height: 1;
+			letter-spacing: -1px;
+			&:after {
+				content:'';
+				display: inline-block; 
+				position: relative;
+				@include vw(top, -5px);
+				@include vw(width, 2px);
+				@include vw(height, 40px);
+				background-color: #fff;
+				animation-name: cursor; 
+				animation-duration: 0.3s; 
+				animation-iteration-count: infinite; 
+				vertical-align: middle;
+				@keyframes cursor { 
+					0% { background-color:#fff; } 
+					50% { background-color:#022222; } 
+					100% { background-color:#fff; }  	
+				}
+			}
+		}
+	}
+
+	.cont4 {
+		background-color: #fff;
+	}
+
+	.cont5 {
+		background:#fff;
+		padding-bottom: 18.0555%;
+		@include breakpoint(maxMobile) {
+			padding-bottom: 130px;		
+		}
+	}
+	
+	.cont6 {
+		background-color: #fff;
+	}
+
+	.cont7 {
+		background: url(#{$img-path}/mobile/bg_cont7.jpg) no-repeat 50% 50%;
+		background-size: cover;
+	}
+
+	.cont8 {
+		background-color: #fff;
+	}
+	.cont9{
+		background:#fff;
+	}
+	.promotion-year5 {
+		@include rem(padding, 60px 0 100px);
+		background: #f8f7f0;
+		.year5-box {
+			position: relative;
+			margin: 0 percent(40);
+			@include rem(padding-bottom, 50px);
+			overflow: hidden;
+		}
+		.year5-title {
+			position: relative;
+			.action {
+				position: absolute;
+				top: percent(55, 657);
+				left: percent(400, 640);
+				.btn-base {
+					position: relative;
+					display: inline-block;
+					@include rem(padding-right, 20px);
+					text-align: center;
+					@include vw(font-size,20px);
+					font-weight: 400;
+					color: #999;
+					@include boxSizing(border-box);
+					&:after {
+						@include arrow(right, 4px, 4px, 1px, #999);
+						right: 0;
+					}
+				}
+				 
+			}
+		}
+		
+		.year5-list {
+			overflow: hidden;
+			@include transform(perspective(570px) rotateX(45deg));
+			&:before {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				left: 0;
+				z-index: 1;
+				width: 100%;
+				@include rem(height, 50px);
+				@include linear-gradient(180deg, rgba(248, 247, 240, 1) 0%, rgba(248, 247, 240, 0) 100%);
+			}
+			&:after {
+				content: '';
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: 1;
+				width: 100%;
+				@include rem(height, 50px);
+				@include linear-gradient(0deg, rgba(248, 247, 240, 1) 0%, rgba(248, 247, 240, 0) 100%);
+			}
+			.slick-slide {
+				@include rem(margin-top, 30px);
+				img { display: inline-block; }
+			}
+		}
+	}
+
+}
+
+
+.popup.popup-base .popup-body{
+	padding:25px;
+	text-align:left;
+	font-size:13px;
+
+	p{
+		margin-bottom: 5px;
+	}
+
+}
+.popup .popup-close{
+	position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 11;
+	a{
+		display: block;	
+		width: 56px;
+		height: 56px;
+		position: relative;
+
+	}
+}

@@ -1,0 +1,111 @@
+.layer {
+    &-dim,
+	&-dimmed {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 300;
+        background: #000;
+        opacity: .8;
+        overflow: hidden;
+    }
+}
+
+.popup-benefit {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 301;
+    display: none;
+    @include vw(width, 595px);
+    max-width: 595px;
+    letter-spacing: -1px;
+    @include linear-gradient(to right, #ffd327 0%, #ffbb27 100%);
+    @include translateX(-50%);
+    @include boxSizing(border-box);
+    * { font-family: $font-noto; }
+    .popup-wrap {
+        position: relative;
+        @include vw(margin, 4px);
+        text-align: center;
+        background-color: #fff;
+        .period {
+            position: absolute;
+            @include vw(top, 64px);
+            right: 0;
+            left: 0;
+            text-align: center;
+            @include vw(font-size, 25px);
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .title {
+            @include vw(padding, 30px 0);
+            @include vw(font-size, 28px);
+            font-weight: 900;
+            color: #002ea3;
+        }
+        .title-flag {
+            display: inline-block;
+            @include vw(padding, 3px 10px);
+            vertical-align: middle;
+            @include vw(font-size, 25px);
+            font-weight: 700;
+            color: #fff;
+            border-radius: 5px;
+            @include linear-gradient(to right, #09a3eb 0%, #4760ff 100%);
+        }
+        .list {
+            @include vw(padding, 20px 40px);
+            font-size: 0;
+            .list-item {
+                display: inline-block;
+                width: 100%;
+                @include vw(margin-top, 20px);
+                text-align: center;
+                vertical-align: middle;
+                &:nth-child(1),
+                &:nth-child(2) {
+                    width: 50%;
+                    margin-top: 0;
+                }
+                span {
+                    display: block;
+                    @include vw(font-size, 20px);
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+    .popup-close {
+        @include close(40px, 40px, 2px, #fff);
+        position: absolute;
+        top: -40px;
+        right: 0;
+        cursor: pointer;
+        span { @extend .sr-only; }
+    }
+
+    // 단기합격 콘텐츠 비활성화
+    .popup-wrap .title-flag[data-visible="short"],
+    .popup-wrap .list .list-item[data-visible="short"] {
+        display: none;
+    }
+
+    // 단기합격 콘텐츠 활성화
+    &.short-pass {
+        .popup-wrap .title-flag[data-visible="short"],
+        .popup-wrap .list .list-item[data-visible="short"] {
+            display: inline-block;
+        }
+        .popup-wrap .list .list-item[data-visible="puri"] {
+            display: none;
+        }
+    }
+}

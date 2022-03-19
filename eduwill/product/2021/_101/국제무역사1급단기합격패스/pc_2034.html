@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ko" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+<title></title>
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/product.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/product.js"></script>
+<!-- // 자동화 페이지 포함 -->
+<!-- eco -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+<!--// eco -->
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/libs/slick/slick.css">
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/slick/slick.js"></script>
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+    컨텐츠 감싸는 부모 : product-eco
+    하단 수강신청 영역 : product-apply
+    하단 수강신청 영역 내 탭 : product-tab
+    하단 수강신청 영역 내 가격 : product-price
+    하단 수강신청 영역 내 정보 : product-table
+    따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+
+<style type="text/css">.product-eco{text-align:center;font-family: 'Noto Sans KR', Sans-Serif;min-width:1100px;overflow:hidden;}
+	.product-eco img{border:0;vertical-align:top;line-height:0;font-size:0;}
+	.product-eco *, .product-eco *:before, .product-eco *:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+	.product-eco .wrap{position:relative; width:1100px; margin:0 auto;} 
+	.product-eco p, .product-eco span{line-height:100%;margin:0;padding:0;}
+
+	.product-eco .section_title { background: #fff url('https://img.eduwill.net/Img2/trade/product/event_new/200804/pc/bg_title.jpg') no-repeat 50% top; background-size: cover; }
+	.product-eco .section_sub_title{background: #fff url('https://img.eduwill.net/Img2/trade/product/event_new/200804/pc/bg_subApply.jpg') no-repeat 50% top; }
+
+	.product-eco .section_info, .product-eco .section_teacher, .product-eco .section_book{background:#f6f6f6}
+	.product-eco .section_recommend,.product-eco .section_teacher{padding-bottom: 120px;}
+	.product-eco .section_recommend .bxslide_box {width:1000px; margin: auto;}
+	.product-eco .bx-wrapper .bx-viewport{-moz-box-shadow:none;-webkit-box-shadow:none;box-shadow:none;border:none;left:0;background:none;}
+	.product-eco .section_recommend .bx-wrapper .bx-viewport{border: 3px solid #cdcdcd; border-radius: 15px;}
+	.product-eco .section_recommend .bx-wrapper .bx-controls-direction a{outline:0;width:80px;height:80px;text-indent:-9999px;z-index:9999}
+	.product-eco .section_recommend .bx-wrapper .bx-prev{left:-40px;background:url(https://img.eduwill.net/Img2/trade/product/event_new/200804/pc/prev.png) no-repeat 0 0}
+	.product-eco .section_recommend .bx-wrapper .bx-next{right:-40px;background:url(https://img.eduwill.net/Img2/trade/product/event_new/200804/pc/next.png) no-repeat 0 0}
+	.product-eco .section_system{border-bottom:10px solid #f6f6f6 }
+
+	.product-eco .section_teacher .bxslide_box {width:1000px; margin: auto;}
+	.product-eco .section_teacher .bx-wrapper .bx-controls-direction a{outline:0;width:80px;height:80px;text-indent:-9999px;z-index:9999}
+	.product-eco .section_teacher .bx-wrapper .bx-prev{left:20px;background:url(https://img.eduwill.net/Img2/trade/product/event_new/201231/pc/prev.png) no-repeat 0 0}
+	.product-eco .section_teacher .bx-wrapper .bx-next{right:-40px;background:url(https://img.eduwill.net/Img2/trade/product/event_new/201231/pc/next.png) no-repeat 0 0}
+
+	.product-eco .video_box{position:absolute;top:46%;right: 50px; width: 672px; height: 378px;}
+	.product-eco .video_box a{display:block;width:100%;height:100%}
+	.product-eco .video_box .video_img > div{width:100%;height:100%;background:rgba(35,35,35,0.57)}
+	.product-eco .video_box .video_img{cursor:pointer;z-index:1;left:0}
+	.product-eco .video_box .video_img img{width: 100%;}
+
+	.btn-pop { position: absolute; top: 174px; left: 1016px; }
+	/* .btn-open::after { content: ''; width:7px; height: 7px; border-top: 1px solid #fff; border-right: 1px solid #fff; display: inline-block; transform: rotate(45deg); margin-left: 2px; } */
+
+	/* popup */
+	.dimmed { display: none; position: fixed; top: 0; right: 0; bottom: 0; left: 0; width: 100%; height: 100%; z-index: 10000; background-color: rgba(0, 0, 0, 0.7);}
+	.popup { display: none; position: absolute; top: 0; left: 50%; z-index: 11000; width: 100%; max-width: 1000px; font-family: 'Noto Sans KR'; color: #000; background-color: #fff; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+	.popup-close { position: absolute; top: 0; right: 0; position: absolute; top: -45px; right: 0; display: block; width: 50px; height: 50px; cursor: pointer;}
+	.popup-close:before, .popup-close:after { content: ''; position: absolute; top: 50%; left: 50%; display: block; width: 30px; height: 1px; margin-left: -15px; background-color: #fff;}
+	.popup-close:before { -webkit-transform: rotate(45deg); transform: rotate(45deg); }
+	.popup-close:after { -webkit-transform: rotate(315deg); transform: rotate(315deg); }
+	.popup-close span { position: absolute; display: inline-block; overflow: hidden; clip: rect(0 0 0 0); width: 0px; height: 0px; margin: -1px; padding: 0; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }
+	.popup-body{ font-family: 'Noto Sans KR'; padding:4% 2%; background:#fff; font-size: 17px;line-height: 1.4; text-align: left;}
+	/* // popup */
+</style>
+<div class="product-eco">
+	<div class="eco-3230">
+	</div>
+	<div class="section_title">
+		<div class="wrap">
+			<img alt="국제무역사1급 단기합격패스" src="https://img.eduwill.net/Img2/trade/product/event_new/210129/pc/title_210525.png"/>
+			<a class="btn-pop" href="javascript:;" onclick="popupOpen('.dimmed', 'popupBase');">
+			<img alt="" src="https://img.eduwill.net/Img2/trade/product/event_new/210129/pc/btn_pop.png"/>
+			</a>
+		</div>
+	</div>
+	<div class="section_recommend">
+		<div class="wrap">
+			<img alt="취업이 고민이라면? 무역분야 진출을 추천합니다." src="https://img.eduwill.net/Img2/trade/product/event_new/200804/pc/img01.jpg"/>
+			<div class="bxslide_box">
+				<ul class="bxSlider" id="bxSlider1">
+					<li><img alt="무역 관련 인력 수요증가" src="https://img.eduwill.net/Img2/trade/product/event_new/200804/pc/slide01_1.jpg"/></li>
+					<li><img alt="무역 관련 직업 전망좋음" src="https://img.eduwill.net/Img2/trade/product/event_new/200804/pc/slide01_2.jpg"/></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="section_info">
+		<div class="wrap">
+			<img alt="무역분야 취업 경쟁력? 국제무역사 하나면 천하무적 입니다." src="https://img.eduwill.net/Img2/trade/product/event_new/200804/pc/img02.jpg"/>
+		</div>
+	</div>
+	<div class="section_graph">
+		<div class="wrap">
+			<img alt="코로나19로 더 어려워진 취업! 어려운 취업시장에서 주목받는 자격증입니다." src="https://img.eduwill.net/Img2/trade/product/event_new/200804/pc/graph.jpg"/>
+		</div>
+	</div>
+	<div class="section_sub_title">
+		<div class="wrap">
+			<img alt="에듀윌과 함께라면 80일이면 충분합니다." src="https://img.eduwill.net/Img2/trade/product/event_new/200804/pc/apply01.png"/>
+		</div>
+	</div>
+	<div class="section_solution">
+		<div class="wrap">
+			<img alt="빠른 합격 가능! 에듀윌이 제시하는 합격 솔루션" src="https://img.eduwill.net/Img2/trade/product/event_new/200804/pc/img03.jpg"/>
+		</div>
+	</div>
+	<div class="section_teacher">
+		<div class="wrap">
+			<img alt="만족도 95% 빠른 합격을 책임지는 전문 교수" src="https://img.eduwill.net/Img2/trade/product/event_new/200804/pc/teacher_200917.jpg"/>
+			<div class="video_box">
+				<a class="video_img move_click1" href="javascript:;"><img alt="김기만 관세사의 초시생 단기합격 솔루션 영상을 보시려면 클릭해주세요" src="https://img.eduwill.net/Img2/trade/product/event_new/200804/pc/thumb.png"/></a>
+				<iframe allow="autoplay" allowfullscreen="" class="video" frameborder="no" height="100%" id="mvi1" marginheight="0" marginwidth="0" scrolling="no" src="" width="100%">
+				</iframe>
+			</div>
+			<div class="bxslide_box">
+				<ul class="bxSlider" id="bxSlider2">
+					<li><img alt="후기롤링" src="https://img.eduwill.net/Img2/trade/product/event_new/201231/pc/slide02_1.jpg"/></li>
+					<li><img alt="후기롤링" src="https://img.eduwill.net/Img2/trade/product/event_new/201231/pc/slide02_2.jpg"/></li>
+					<li><img alt="후기롤링" src="https://img.eduwill.net/Img2/trade/product/event_new/201231/pc/slide02_3.jpg"/></li>
+					<li><img alt="후기롤링" src="https://img.eduwill.net/Img2/trade/product/event_new/201231/pc/slide02_4.jpg"/></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="section_price">
+		<div class="wrap">
+			<img alt="합리적인 가격! 부담 없는 수강료로 시작" src="https://img.eduwill.net/Img2/trade/product/event_new/210129/pc/price.jpg"/>
+		</div>
+	</div>
+	<div class="section_book">
+		<div class="wrap">
+			<img alt="수험생이 선택한 베스트셀러 1위 교재" src="https://img.eduwill.net/Img2/trade/product/event_new/201231/pc/book.jpg"/>
+		</div>
+	</div>
+	<div class="section_system">
+		<div class="wrap">
+			<img alt="합격에 필요한 학습 서비스와 환경을 제공합니다." src="https://img.eduwill.net/Img2/trade/product/event_new/200804/pc/system.jpg"/>
+		</div>
+	</div>
+	<div class="section_i" id="item_apply">
+		<img alt="국제무역사 1급 단기합격 패스 수강신청" src="https://img.eduwill.net/Img2/trade/product/event_new/200804/pc/title_apply.jpg"/>
+	</div>
+</div>
+<div class="dimmed">
+</div>
+<div class="popup popup-schedule" id="popupBase">
+	<a class="popup-close" href="javascript:;" onclick="popupClose('.dimmed', 'popupBase');">
+	<span>팝업 닫기</span>
+	</a>
+	<div class="popup-body">
+		<div>
+			[압도적 1위]<br>
+			* 네이버 DataLab 검색어 트렌드 조회결과(2020), 주제어 : 브랜드명+국제무역사 5개 업체 비교<br>
+			* 네이버 DataLab 검색어 트렌드 조회결과(2020), 주제어 : 브랜드명+무역영어 5개 업체 비교<br>
+			[국제무역사 1위]<br>
+			* 2021 대한민국 브랜드만족도 국제무역사 교육 1위<br>
+			[선택 1위]<br>
+			* 2020 에듀윌 국제무역사 상품 구매 건수 기준<br>
+			[베스트셀러 1위]<br>
+			* YES24 수험서 자격증 경제/금융/회계/물류 국제무역사 베스트셀러 1위(2017년 11월,2018년 1,4월, 2019년 10~11월, 2020년 2,6,10~12월 월별베스트)<br>
+			[강의만족도]<br>
+			* 에듀윌 국제무역사 합격수기 작성자 설문조사 결과(2021.05)<br>
+			[수강생증가]<br>
+			* 에듀윌 국제무역사/무역영어 수강생 증가율(2018.01~2020.12)<br>
+			[검증된 교육기관]<br>
+			* 업계최초 대통령상 3관왕 및 정부기관상 13관왕 달성
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/script.js"></script>
+<script>
+	getEcoDynamicForClass(3230, 'eco-3230');
+	$(window).on('load', function () {
+		var slider02 = $('#bxSlider1').bxSlider({
+			mode: 'horizontal',
+			auto: true,
+			pause: 3000,
+			pager: false,
+			onSliderLoad: function () { }
+		});
+		var slider02 = $('#bxSlider2').bxSlider({
+			mode: 'horizontal',
+			auto: true,
+			pause: 3000,
+			pager: false,
+			onSliderLoad: function () { }
+		});
+		$('.video_img').on('click', function () {
+			$(this).hide();
+			$('#mvi1').attr('src', "https://www.youtube.com/embed/mErmxb3eXEo?autoplay=1");
+			return false;
+		});
+		init();
+	});
+	function init(){
+		addEvent();
+	}
+	function addEvent(){	
+		$(".btn-open").click(function(){
+			$(".popupBase").show();
+		});
+		$(".popup-close").click(function(){
+			$(".popupBase").hide();
+		});
+	}
+</script>
+<!-- // body 내만 작업 -->
+
+<div id="productApply"></div>
+</body>
+</html>

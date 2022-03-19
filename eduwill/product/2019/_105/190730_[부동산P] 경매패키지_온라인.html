@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="euc-kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><!-- IE7 호환성보기 강제해제 -->
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" type="text/css">
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/template.css" type="text/css"><!-- Content Template -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/js/bxslider/jquery.bxslider.css" /> 
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/common/web/js/bxslider/jquery.bxslider.min.js"></script> 
+<!-- // 자동화 페이지 포함 -->
+</head>
+<body>
+
+<style type="text/css">
+.pushcoms_contentIn img{ vertical-align: top;}
+.inner{position: relative;width: 1010px;margin: 0 auto;}
+.section-title{ background: #59cfc0 url('https://img.eduwill.net/Img2/uland/product/190731/title_bg.jpg') no-repeat 50% 0;}
+.item-02{  background:#fff55b;}
+.item-03{ background:#f5f5f5; padding-bottom: 155px;}
+.item-bnr{ background: #1e1e1e;}
+.boxshadow{
+background:#fff;
+-webkit-box-shadow: 13px 13px 12px 0px rgba(0,0,0,0.12);
+-moz-box-shadow: 13px 13px 12px 0px rgba(0,0,0,0.12);
+box-shadow: 13px 13px 12px 0px rgba(0,0,0,0.12);
+}
+/* grid */
+.grid { box-sizing: border-box; -webkit-box-sizing: border-box; *zoom: 1; }
+.grid:before,
+.grid:after { content: ''; display: table; }
+.grid:after { clear: both; }
+.grid .col { font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun gothic', 'Dotum', '돋움', Sans-Serif;  float: left; box-sizing: border-box; -webkit-box-sizing: border-box; }
+.grid .col_1_1 { width: 100%; float: none; }
+.grid .col_1_2 { width: 50%; }
+.grid .col_1_3 { width: calc(100%/3); width: 33.33333333%; }
+</style>
+
+<div class="container"> 
+	<div class="content">
+		<!-- 수강신청 버튼 개선 -->
+		<div class="g_fix_apply" id="g_fix_apply" style="display: block;">
+			<div class="gf_apply" style="width:900px;">
+				<a href="#apply_anchor"><img src="https://www.eduwill.net/Img2/Common/Product/event_new/common_apply.png" border="0" alt="수강신청"></a>
+			</div>
+		</div>
+		<!-- // 수강신청 버튼 개선 -->
+
+		<div id="pushcoms_contentIn" class="pushcoms_contentIn">
+			<div class="section-title">
+				<img src="https://img.eduwill.net/Img2/uland/product/190731/title.jpg" alt="" />
+			</div>
+			<div class="item-01">
+				<div class="inner">
+					<img src="https://img.eduwill.net/Img2/uland/product/190731/item-01.jpg" alt="" />
+				</div>
+			</div>
+			<div class="item-02">
+				<div class="inner">
+					<img src="https://img.eduwill.net/Img2/uland/product/190731/item-02.jpg" alt="" />
+				</div>
+			</div>
+			<div class="item-03">
+				<div class="inner">
+					<img src="https://img.eduwill.net/Img2/uland/product/190731/item-03.jpg" alt="" />
+					<a href="https://uland.eduwill.net/teacher/detail?TCode=BU04&progress_cd=_105&Subj=BU" target="_blank" style="position: absolute;top:271px;right:389px;">
+						<img src="https://img.eduwill.net/Img2/uland/product/190731/techer_intro.jpg" alt="안성선 교수소개">
+					</a>
+					<div class="boxshadow">
+						<img src="https://img.eduwill.net/Img2/uland/product/190731/item-03-curri.jpg" alt="" />
+					</div>
+				</div>
+			</div>
+			<div id="apply_anchor" class="item-bnr">
+				<img src="https://img.eduwill.net/Img2/uland/product/190731/item-bnr.jpg" alt="수강신청" />
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+
+	var ClassApplyScroller = function(target_anchor_id, div_id) {
+		var target_height = $("#" + target_anchor_id).offset().top;
+		var window_height = $(window.top).height();
+
+		var scroller = function() {
+
+			if ( ( $(document).scrollTop() + window_height ) >= target_height) {
+				$("#" + div_id).hide();
+			} else {
+				$("#" + div_id).show();
+			}
+		};
+
+		return { scroller : scroller };
+	};
+
+	$(document).ready( function() {
+		var applyScroller = new ClassApplyScroller("apply_anchor", "g_fix_apply");
+
+		$( window ).scroll(function() {
+		  applyScroller.scroller();
+		});
+	});
+
+</script>
+<!-- // body 내만 작업 --> 
+</body>
+</html>

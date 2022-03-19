@@ -1,0 +1,123 @@
+.popup-dim {
+    display: none;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba( 0, 0, 0, .7);
+}
+
+.popup {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 1001;
+    width: 100%;
+    font-family: $font-noto;
+    border-radius: 0 !important;
+    @include translateX(-50%);
+
+	@include breakpoint(desktop){
+		max-width: 970px !important;
+	}
+	&-title {
+        @include rem(padding, 12px 20px);
+        text-align: left;
+        border-radius: 0;
+        background-color: #000 !important;
+		border-radius: 0 !important;
+        p {
+            @include vw(font-size,24px);
+            font-weight: 700;
+            color: #fff;
+        }
+    }
+    &-body {
+		@include rem(padding, 25px);
+		@include vw(max-height,600px);
+		overflow-y: scroll;
+        text-align: left;
+        line-height: 1.4;
+        @include vw(font-size,18px);
+        font-weight: 400;
+        color: #222;
+        border: 2px solid #000;
+        border-radius: 0;
+        background-color: #fff;
+        & > div {
+            margin-top: 20px;
+            &:first-child { margin-top: 0; }
+        }
+        div:first-child strong { margin-top: 0; }
+        p {
+            @include vw(font-size,16px);
+            &.popup-notice {
+                @include rem(margin-top, 10px);
+                text-align: left;
+                @include vw(font-size,14px);
+            }
+        }
+        strong {
+            display: block;
+            @include vw(font-size,18px);
+        }
+    }
+    &-close {
+        position: absolute;
+        top: 0px !important;
+        width: 25px !important;
+        height: 25px !important;
+        right: 0 !important;
+        a, 
+		button { 
+            @include close(60px, 60px, 1px, #fff);
+			background-color: #000;
+			border: none; 
+			cursor: pointer;
+            &:before, &:after{
+                background-color: #fff !important;
+            }
+        }
+        &:before, &:after{
+            display: none !important;
+        }
+		@include breakpoint(desktop){
+			top: 0px !important;
+			width: auto !important;
+			height: auto !important;
+			button { 
+				@include close(40px, 40px, 1px, #fff);
+			}
+		}
+    }
+    &-video {
+        max-width: 640px;
+        @include breakpoint(maxMobile){
+            max-width: 1000px;
+        }
+        .video-box {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+			video{
+				width: 100%;
+				height: 100%;
+			}
+        }
+    }
+    &-base {
+        max-width: 640px;
+        @include breakpoint(maxMobile){
+            max-width: 720px;
+        }
+    }
+}

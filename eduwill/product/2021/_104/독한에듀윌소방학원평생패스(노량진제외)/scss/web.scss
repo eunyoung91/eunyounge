@@ -1,0 +1,320 @@
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+
+.product-eco {
+    overflow-x: hidden;
+    * {
+        font-family: $font-noto;
+        line-height: normal;
+    }
+    p {
+        margin: 0;
+    }
+    .wrap {
+        width: 1200px;
+    }
+    .eco-year {
+        position: absolute;
+        top: 710px;
+        left: 50px;
+        text-align: left;
+        font-size: 24px;
+        color: #fff;
+    }
+    .eco-compare {
+        position: absolute;
+        text-align: left;
+        font-size: 16px;
+    }
+    .eco-pass-percent {
+        position: absolute;
+        font-family: $font-roboto;
+        font-weight: 700;
+    }
+
+    .fix-apply {
+        .inner {
+            width: 1100px;
+            margin: 0 auto;
+            text-align: right;
+
+            span {
+                line-height: 60px;
+            }
+        }
+    }
+
+    .sector-title {
+        @include bg($color: #431414, $url: "#{$img-path}/pc/bg_title.jpg");
+        .eco-pass-percent {
+            top: 128px;
+            left: 255px;
+            font-size: 30px;
+            color: #cda657;
+            letter-spacing: -1.5px;
+        }
+        .eco-compare {
+            top: 215px;
+            left: 50px;
+            color: #999;
+        }
+    }
+
+    .sector-benefit {
+        background: #f1f0ec;
+        img {
+            margin-top: -138px;
+        }
+        .flag {
+            span {
+                display: inline-block;
+                padding: 9px 37px;
+                line-height: normal;
+                font-size: 40px;
+                font-weight: 700;
+                border-radius: 50px;
+                @include animation(colorChange, 0.5s, $iteration: infinite, $timing: step-start) {
+                    0%,
+                    100% {
+                        color: #fff;
+                        background-color: #531919;
+                    }
+                    50% {
+                        color: #531919;
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    .sector-apply {
+        padding-bottom: 90px;
+        background: #f1f0ec;
+        .apply-list {
+            margin: 0 20px;
+            font-size: 0;
+        }
+        .list {
+            position: relative;
+            display: inline-block;
+            border: 6px solid #000;
+            width: 550px;
+            margin: 0 5px;
+            background-color: #fff;
+            @include boxSizing(border-box);
+            .item {
+                &.title {
+                    margin: 40px 0 30px;
+                    font-size: 40px;
+                    font-weight: 900;
+                    color: #000;
+                }
+
+                &.price-after {
+                    line-height: 1;
+                    margin-bottom: 35px;
+                    font-size: 70px;
+                    font-weight: 900;
+                    color: #dd0000;
+                    em {
+                        margin-left: 8px;
+                        line-height: 1;
+                        font-size: 35px;
+                    }
+                }
+
+                &.action a {
+                    @include pointer(50%, 0, 66px, 73px, 1, bounce);
+                    width: 100%;
+                    padding: 20px 0;
+                    font-size: 30px;
+                    font-weight: 700;
+                    color: #fff;
+                    background: #000;
+                }
+            }
+        }
+    }
+
+    .sector-winner {
+        padding-bottom: 100px;
+        .interview-wrap {
+            margin: 0 50px;
+            .interview-list {
+                margin-left: -20px;
+                li {
+                    width: 25%;
+                    padding-left: 20px;
+                    margin-top: 100px;
+                    font-size: 0;
+                    a {
+                        position: relative;
+                        z-index: 0;
+                        display: inline-block;
+                    }
+                    img {
+                        width: 100%;
+                    }
+                    &:first-child {
+                        float: none;
+                        width: 100%;
+                        margin-top: 0;
+                        a:before {
+                            content: "";
+                            position: absolute;
+                            bottom: -50px;
+                            left: -160px;
+                            z-index: -1;
+                            display: block;
+                            width: 981px;
+                            height: 127px;
+                            @include bg($url: "//img.eduwill.net/resources/img/cop/product/200813/pc/shadow_interview.png");
+                        }
+                    }
+                    .text {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+        .action {
+            margin-top: 40px;
+        }
+
+        .eco-pass-percent {
+            top: 159px;
+            left: 420px;
+            font-size: 64px;
+            color: #adadad;
+        }
+        .eco-compare {
+            top: 500px;
+            left: 50px;
+        }
+
+        .winner-contents {
+            margin-top: 40px;
+        }
+        .winner-list {
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                right: 0;
+                left: 0;
+                z-index: 1;
+                display: block;
+                width: 100%;
+                height: 200px;
+            }
+            &:before {
+                top: 0;
+                background: transparent;
+                background: linear-gradient(0deg, transparent 0%, #fff 100%);
+            }
+            p {
+                text-align: center;
+                line-height: 2;
+                font-size: 17px;
+                font-weight: 400;
+                color: #747474;
+            }
+        }
+    }
+
+    .sector-text {
+        background-color: #491616;
+    }
+
+    .sector-program {
+        background-color: #f1f0ec;
+        .item {
+            position: relative;
+            margin-top: 20px;
+            &:first-child { margin-top: 0; }
+            .action { position: absolute; }
+            &:nth-child(1) .action { top: 312px; right: 50px; }
+            &:nth-child(2) .action { top: 850px; right: 0; left: 0; }
+            &:nth-child(3) .action { top: 1100px; right: 0; left: 0; }
+            &:nth-child(4) .action { top: 995px; right: 130px; }
+        }
+    }
+
+    .sector-consult {
+        background-color: #f1f0ec;
+    }
+
+    .sector-academy {
+        background: #fff;
+        background: linear-gradient(0deg, #fff 0%, #fff 50%, #f1f0ec 50%, #f1f0ec 100%);
+        .slick-list {
+            padding: 30px 0 !important;
+        }
+        .slick-slide {
+            height: 489px;
+            -webkit-transform: scaleY(0.9);
+            -ms-transform: scaleY(0.9);
+            transform: scaleY(0.9);
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            &.slick-current {
+                z-index: 1;
+                width: 1100px;
+                @include scaleY(1);
+                @include boxShadow(0 0 20px #000);
+                &:before {
+                    display: none;
+                }
+            }
+            img {
+                width: 100%;
+            }
+        }
+        .slick-arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: 1;
+            width: 60px;
+            height: 60px;
+            margin-top: -30px;
+            padding: 0;
+            font-size: 0;
+            color: transparent;
+            text-indent: -9999px;
+            border: none;
+            background: none;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            cursor: pointer;
+            outline: none;
+            &.slick-prev {
+                margin-left: -540px;
+                background-image: url("#{$img-path}/pc/btn_prev.png");
+            }
+            &.slick-next {
+                margin-left: 480px;
+                background-image: url("#{$img-path}/pc/btn_next.png");
+            }
+        }
+    }
+
+    .sector-teacher {
+        padding-bottom: 90px;
+        background-color: #f1f0ec;
+    }
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<title>에듀윌</title>
+<link rel="stylesheet" href="https://www.eduwill.net/eduwill/live/libs/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/reset.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/common.css" />
+<script src="https://img.eduwill.net/eduwill/live/libs/jquery/jquery-2.1.4.min.js"></script>
+<script src="https://img.eduwill.net/eduwill/live/libs/bxslider/jquery.bxslider.min.js"></script>
+<script src="https://img.eduwill.net/eduwill/live/libs/greensock/TweenMax.min.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+    컨텐츠 감싸는 부모 : product-eco
+    하단 수강신청 영역 : product-apply
+    하단 수강신청 영역 내 탭 : product-tab
+    하단 수강신청 영역 내 정보 : product-table
+    따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+
+<!-- eco -->
+
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<style type="text/css">
+    .product-eco { position: relative; }
+    .product-eco * { margin: 0; padding: 0; line-height: normal; font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; letter-spacing: -1px; }
+    .product-eco  img{ vertical-align: top; }
+    .product-eco .wrap{ position:relative; width:1100px; margin: 0 auto;text-align:center; }
+    .product-eco .dimmed{ display:none;position: fixed; left: 0px; top: 0px; width: 100%; height: 100%;z-index:100;background-color: rgba( 0, 0, 0, .6);}
+    .product-eco .popup{ display: none;position:absolute;left:50%;top:0;z-index:2001;transform: translateX(-50%); min-width:800px;}
+    .product-eco .popup{ background-color: rgba( 0, 0, 0, 0.8);}
+    .product-eco .popup .popup_cont { font-size: 17px; color:#fff; font-weight: 300; padding:40px 30px; text-align: left; line-height: 1.5; box-sizing:border-box;}
+    .product-eco .popup .popup_close{position: absolute; right:10px; top:10px;display: inline-block;}
+
+    .product-eco .section-title { background:url('https://img.eduwill.net/resources/img/public/product/200922/pc/bg_title.jpg') no-repeat 50% top;background-size:cover;}
+    .product-eco .section-plus { background: #016ecd; }
+    .product-eco .section-title .action{ position: absolute; top:273px; right:133px;}
+    .product-eco .section-2{ background:url('https://img.eduwill.net/resources/img/public/product/200922/pc/bg_s2.jpg') no-repeat 50% top;background-size:cover;}
+    .product-eco .section-3{ background:url('https://img.eduwill.net/resources/img/public/product/200922/pc/bg_s3.jpg') no-repeat 50% top;background-size:cover;}
+    .product-eco .section-4{ position: relative; z-index: 1; background: #005cab;}
+    .product-eco .section-4 .wrap:after { content: ''; position: absolute; top: 100%; left: 50px; display: block; width: 175px; height: 83px; background: url('https://img.eduwill.net/resources/img/public/product/200922/pc/bg_s4.png') no-repeat  0 0; }
+
+    .product-eco .section-price{ background:#006ecd; padding:50px 0 140px;}
+    .product-eco .content { position: relative; margin-top: 60px; }
+    .product-eco .content:first-child { margin-top: 0; }
+    .product-eco .section-price .action { position: absolute; right: 50px; bottom: 50px; left: 50px; }
+    .product-eco .section-price .action a { position: relative; display: block; padding: 20px 0; text-align: center; border-bottom: 5px solid #d9b900; border-radius: 20px; background-color: #ffd900; }
+    .product-eco .section-price .action a:after { content: ''; position: absolute; top: 50%; right: 5%; display: block; width: 66px; height: 72px; background: url('https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_17.png') no-repeat 0 0; animation: .5s slideupY ease-in-out infinite alternate;-webkit-animation: .5s slideupY ease-in-out infinite alternate; }
+    .product-eco .section-price .action a span { font-size: 40px; font-weight: 700; color: #000; letter-spacing: -2px; }
+    .product-eco .section-price .action a em { color: #024297; letter-spacing: -2px; }
+
+    .product-eco .section-price .wrap { width: 991px; text-align: left; }
+    .product-eco .section-price .text { display: inline-block; padding: 15px 42px 11px; line-height: 1; font-size: 30px; font-weight: 700; color:#fff; border-radius: 30px 30px 0 0; background-color: #000; }
+    .product-eco .section-price .text em{ color: #fcd320; }
+
+    @keyframes -webkit-slideupY {
+        0% { -webkit-transform: translate(0, 0); -ms-transform: translate(0, 0); transform: translate(0, 0); }
+        100% { -webkit-transform: translate(10px, 10px); -ms-transform: translate(10px, 10px); transform: translate(10px, 10px); }
+    }
+    @keyframes slideupY {
+        0% { -webkit-transform: translate(0, 0); -ms-transform: translate(0, 0); transform: translate(0, 0); }
+        100% { -webkit-transform: translate(10px, 10px); -ms-transform: translate(10px, 10px); transform: translate(10px, 10px); }
+    }
+</style>
+
+<div class="product-eco">
+    <div class="section-title">
+        <div class="wrap">
+            <img src="https://img.eduwill.net/resources/img/public/product/200922/pc/title.png" alt="CJ단기패스" />
+            <div class="action">
+                <a href="javascript:;" data-popup-open="true">
+                    <img src="https://img.eduwill.net/resources/img/public/product/200922/pc/btn1.png" alt="근거확인" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="dimmed"></div>
+    <div class="popup" id="popupBase">
+        <div class="popup_close">
+            <a href="javascript:;" data-popup-open="false"><img alt="닫기" src="https://img.eduwill.net/Img2/public/product/191216/popup_close.png" /></a>
+        </div>
+        <div class="popup_cont">
+            <div>
+                ㆍ[3,200% 증가] 네이버 트렌드 검색 조회기간: 2019.08.01 ~ 2019.08.24 vs 2020.08.01 ~ 2020.08.24 <br/>
+                ㆍ[2년 연속 1위] 2019&2020 한국브랜드만족지수 취업교육 1위  <br/>
+                ㆍ[338% 증가] 2019 8월vs2020 8월 에듀윌 대기업 취업 컨텐츠 이용자수 비교 <br/>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-plus">
+        <div class="wrap">
+            <img alt="다양한 직군 면접을 경험 VR면접 솔루션 무료이용제공" src="https://img.eduwill.net/resources/img/public/product/200922/pc/plus_benefit.png" />
+        </div>
+    </div>
+
+    <div class="section-price">
+        <div class="wrap">
+            <div class="content content-1">
+                <p class="text">CJ <em>단기패스반</em></p>
+                <div class="holder">
+                <img src="https://img.eduwill.net/resources/img/public/product/200922/pc/price_1.jpg" alt="자소서 1:1 첨삭+인적성+면접+모의고사" />
+                    <div class="action">
+                        <a href="#apply_anchor" class="page_move"><span><em>마감임박 30% 할인</em> 받고 수강 신청 &gt;</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="content content-2">
+                <p class="text">CJ 인적성<em>완성반</em></p>
+                <div class="holder">
+                <img src="https://img.eduwill.net/resources/img/public/product/200922/pc/price_2.jpg" alt="CJ 인적성 언어+수리+추리" />
+                    <div class="action">
+                        <a href="#apply_anchor" class="page_move"><span><em>마감임박 30% 할인</em> 받고 수강 신청 &gt;</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="content content-3">
+                <p class="text">자소서 1:1 첨삭,<em>면접 코치반</em></p>
+                <div class="holder">
+                <img src="https://img.eduwill.net/resources/img/public/product/200922/pc/price_3.jpg" alt="자소서1:1 첨삭+면접1:1 코칭" />
+                    <div class="action">
+                        <a href="#apply_anchor" class="page_move"><span><em>마감임박 20% 할인</em> 받고 수강 신청 &gt;</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-1">
+        <div class="wrap">
+            <img alt="거품을 뺀 합리적인 수강료" src="https://img.eduwill.net/resources/img/public/product/200922/pc/section1.jpg" />
+        </div>
+    </div>
+
+    <div class="section-2">
+        <div class="wrap">
+            <img alt="취업교육 1위 에듀윌" src="https://img.eduwill.net/resources/img/public/product/200922/pc/section2.jpg" />
+        </div>
+    </div>
+
+    <div class="section-3">
+        <div class="wrap">
+            <img alt="CJ그룹 2020 하반기 신입사원 공채 본격 시작!" src="https://img.eduwill.net/resources/img/public/product/200922/pc/section3.jpg" />
+        </div>
+    </div>
+
+    <div class="section-4">
+        <div class="wrap">
+            <img alt="CJ 최종합격 에듀윌과 함께면 가능합니다." src="https://img.eduwill.net/resources/img/public/product/200922/pc/section4.jpg" />
+        </div>
+    </div>
+
+    <div class="section-5">
+        <div class="wrap">
+            <img alt="01.CJ 합격 커리큘럼" src="https://img.eduwill.net/resources/img/public/product/200922/pc/section5.jpg" />
+        </div>
+    </div>
+    
+    <div class="section-6">
+        <div class="wrap">
+            <img alt="02.CJ 그룹 취업 영역별 전문 교수진" src="https://img.eduwill.net/resources/img/public/product/200922/pc/section6.jpg" />
+        </div>
+    </div>
+
+    <div class="section-7">
+        <div class="wrap">
+            <img alt="03.최상의 서비스, VR면접 솔루션 무료이용" src="https://img.eduwill.net/resources/img/public/product/200922/pc/section7.jpg" />
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/script.js"></script>
+<script>
+    $(function(){
+        init();
+    });
+    function init(){
+        pageMove('.page_move');
+
+        $(document).on('click', '[data-popup-open]', function(e){
+            var _data = $(this).data('popupOpen');
+
+            e.preventDefault();
+
+            if ( _data == false ){
+                popupClose('.dimmed', 'popupBase');
+            } else {
+                popupOpen('.dimmed', 'popupBase');
+            }
+        });
+    }
+</script>
+
+<!-- // eco -->
+</body>
+</html>

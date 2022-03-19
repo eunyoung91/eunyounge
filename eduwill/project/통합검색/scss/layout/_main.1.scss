@@ -1,0 +1,136 @@
+#search {
+    // #search-section
+    &-section {
+        background-color: #f4f4f4;
+
+        // #search-section-inner
+        &-inner {
+            @include innerlayout();
+            min-height: 400px;
+            background-color: $color-white;
+            padding: 50px 0;
+            -webkit-box-shadow: 0px -8px 10px 2px rgba(0,0,0,0.15);
+            -moz-box-shadow: 0px -8px 10px 2px rgba(0,0,0,0.15);
+            box-shadow: 0px -8px 10px 2px rgba(0,0,0,0.15);
+        }
+        // #search-section-list
+        &-list {
+            .ellip {
+                display: block;
+                height: 100%;
+            }
+              
+            .ellip-line {
+                display: inline-block;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                word-wrap: normal;
+                max-width: 100%;
+            }
+              
+            .ellip,
+            .ellip-line {
+                position: relative;
+                overflow: hidden;
+            }
+
+            dl {
+                padding: 0 50px;
+                line-height: 1.4;
+                letter-spacing: -0.5px;
+                margin-top: 32px;
+                &:first-child {
+                    margin-top: 0;
+                }
+    
+                dt {
+                    @include font-family-size-weight-color($font-gl, 15px, bold, $color-black);
+                    padding-bottom: 5px;
+                }
+                dd {
+                    padding-top: 15px;
+                    a {
+                        &.text {
+                            @include font-family-size-weight-color($font-gl, 15px, normal, $color-black);
+                            text-decoration: none;                        
+                            &:visited {
+                                color: $color-purple;
+                            }
+                            em {
+                                font-weight: bold;
+                            }
+                        }
+                        &.link {
+                            @include font-family-size-weight-color(Gulim, 15px, normal, $color-blue);
+                        }
+                    }
+
+                    .cont {
+                        @include font-family-size-weight-color($font-gl, 12px, normal, $color-black);
+                        display: block;
+                        line-height: 18px;
+                        margin-top: 5px;
+                        height:36px;
+                        overflow: hidden;
+
+                        em {
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+
+        // #search-section-paging
+        &-paging {
+            text-align: center;
+            padding: 45px 0 0 0;
+            font-size: 0;
+            
+            a {
+                @include font-family-size-weight-color($font-mg, 14px, normal, $color-gray);
+                text-decoration: none;
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                line-height: 18px;
+                text-align: center;
+                vertical-align: middle;                
+
+                &:hover,
+                &.current {
+                    @include font-family-size-weight-color($font-mg, 14px, bold, $color-orange);
+                }
+
+                &.prev {
+                    font-size: 0;
+                    margin-right: 8px;
+                    @include background-name-ext-repeat-poistion(btn_paging_prev, png, no-repeat, 0 0);
+                }
+                &.next {
+                    font-size: 0;
+                    margin-left: 8px;
+                    @include background-name-ext-repeat-poistion(btn_paging_next, png, no-repeat, 0 0);
+                }
+            }
+        }
+
+        // #search-section-nodata
+        &-nodata {
+            padding:0 50px;
+            line-height: 1.4;
+            strong {
+                @include font-family-size-weight-color($font-gl, 15px, bold, $color-black);
+                i {
+                    color: $color-red;
+                }
+            }
+            ul {
+                margin: 12px 0 0 5px;
+                li {
+                    @include font-family-size-weight-color($font-gl, 15px, normal, $color-black);
+                }
+            }
+        }
+    }
+}

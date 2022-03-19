@@ -1,0 +1,86 @@
+.layer {
+    &-dim,
+	&-dimmed {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 300;
+        background: #000;
+        opacity: .8;
+        overflow: hidden;
+    }
+
+    &-review {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        z-index: 301;
+        max-width: 768px;
+        margin: 0 auto;
+        @include boxSizing(border-box);
+
+        
+        .layer-close {
+            @include close(60px, 60px, 2px, #fff);
+            top: -60px;
+            z-index: 10002;
+        }
+        
+        .layer-box {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            iframe, video{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: inherit;
+            }
+        }
+
+    }
+}
+
+.popup-benefit {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 301;
+    display: none;
+    @include vw(width, 595px);
+    max-width: 595px;
+    letter-spacing: -1px;
+    @include translateX(-50%);
+    @include boxSizing(border-box);
+    .popup-wrap {
+        position: relative;
+        .period {
+            position: absolute;
+            @include vw(top, 64px);
+            right: 0;
+            left: 0;
+            text-align: center;
+            @include vw(font-size, 25px);
+            font-weight: 700;
+            color: #fff;
+        }
+    }
+    .popup-close {
+        @include close(40px, 40px, 2px, #fff);
+        position: absolute;
+        top: -40px;
+        right: 0;
+        cursor: pointer;
+        span { @extend .sr-only; }
+    }
+}

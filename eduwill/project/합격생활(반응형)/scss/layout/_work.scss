@@ -1,0 +1,472 @@
+.work {
+	&-info {
+		@extend %title-info;
+		h2.heading span {
+			&:first-child {
+				color: $color-base-2;
+				@include rem(font-size, 24px);
+			}
+			&:last-child {
+				color: $color-base-1;
+				@include rem(font-size, 16px);
+				@include breakpoint(tablet){
+					@include rem(margin-left, 12px);
+				}
+			}
+		}
+	}
+	&-notice {
+		color: $color-base-1;
+		background-color: $color-white;
+		@include rem(margin, 23px 20px 0);
+		@include rem(border-radius, 36px);
+		@include boxShadow(0 6px 20px 0 rgba(2, 9, 37, .1));
+		@include breakpoint(tablet){
+			@include rem(margin, 13px 0 0);
+		}
+		a {
+			@extend %textEllipsis;
+			display: block;
+			color: $color-base-2;
+			@include rem(padding, 6px 14px);
+			@include rem(font-size, 16px);
+			.label {
+				border: none;
+				background: none;
+				em {
+					font-weight: 700;
+					color: $color-base-1;
+					@include rem(margin-right, 8px);
+					@include rem(font-size, 16px);
+				}
+			}
+		}
+	}
+	&-dashboard {
+		@extend %frame;
+		@extend %clearfix;
+		@include rem(margin-top, 17px);
+		@include rem(padding, 0 20px 30px);
+		@include breakpoint(desktop){
+			height: 100%;
+			padding: 0 30px 40px;
+		}
+		.item {
+			@include rem(padding-top, 40px);
+			@include breakpoint(desktop){
+				float: left;
+				width: 320px;
+				margin-left: 40px;
+			}
+			&-feedback {
+				@extend %feedback;
+				@include rem(padding, 20px 0);
+				p { text-align: left; }
+				@include breakpoint(desktop){
+					float: right;
+					display: table;
+					height: 141px;
+					padding-top: 64px;
+					.holder {
+						display: table-cell;
+						height: 100%;
+						vertical-align: middle;
+						padding-top: 0;
+						padding-bottom: 0;
+						@include boxSizing(border-box);
+						p.desc { margin-top: 8px; }
+					}
+				}
+			}
+			&-lecture {
+				.ui-widget-header { background-color: #6693e2; }
+				@include breakpoint(desktop){
+					margin-left: 0;
+				}
+			}
+			&-puri {
+				.ui-widget-header { background-color: #289e96; }
+			}
+			&-myplan {
+				@include rem(padding-top, 60px);
+				h3.heading { margin-top: 0; }
+				.ui-widget-header { background-color: #a26fd8; }
+				@include breakpoint(desktop){
+					float: right;
+					clear: right;
+					padding-top: 40px;
+				}
+				&.is-edit {
+					.myplan-action .edit {
+						border-color: $border-color-1;
+						background-color: $border-color-1;
+						@include breakpoint(desktop){
+							&:hover,
+							&:active {
+								color: $color-white;
+								border-color: $border-color-1;
+								background-color: $border-color-1;
+							}
+						}
+						span {
+							padding-left: 0;
+							&:after { display: none; }
+						}
+					}
+					.list { @include rem(margin-top, 14px); }
+					.info {
+						position: relative;
+						border: 1px solid $color-primary;
+						border-radius: 40px;
+						@include rem(padding, 7px);
+						.subject {
+							float: none;
+							display: block;
+							max-width: 100%;
+							text-align: left;
+							padding-left: 20px;
+						}
+						.action {
+							position: absolute;
+							top: 50%;
+							left: 0;
+							@include rem(margin-top, -15px);
+							.delete {
+								@include close(30px, 30px, 2px, $color-primary);
+								position: static;
+								display: block;
+								background: none;
+							}
+						}
+					}
+					.tooltip,
+					.info .count,
+					.info .action .check,
+					.info .action .label,
+					.progressbar,
+					.myplan-action .add { display: none; }
+				}
+			}
+		}
+		.graph-area {
+			@extend %graph-area;
+			@include rem(width, 200px);
+			@include rem(height, 200px);
+		}
+		.condition {
+			@extend %condition;
+			@include rem(top, -14px);
+			@include rem(right, -14px);
+		}
+		.guide {
+			float: right;
+			@include rem(margin-top, -22px);
+			@include breakpoint(desktop){
+				position: absolute;
+				top: 30px;
+				right: 20px;
+				float: none;
+				margin: 0;
+			}
+			.button { @extend %guide; }
+		}
+		h3.heading {
+			font-weight: 500;
+			color: $color-base-4;
+			@include rem(margin-top, 20px);
+			@include rem(font-size, 16px);
+			a {
+				position: relative;
+				display: inline-block;
+				@include rem(padding-right, 15px);
+				&:after {
+					right: 0;
+					@include arrow('right', 8px, 8px, 2px, $color-base-4);
+				}
+			}
+		}
+		.progress-list {
+			.list {
+				@include rem(margin-top, 20px);
+				&.is-excess {
+					.count-ing {
+						position: relative;
+						display: inline-block;
+						color: $color-primary;
+						&:after {
+							content: '';
+							position: absolute;
+							left: 50%;
+							display: block;
+							background: url('#{$img-path}/common/icon_good_mini.png') no-repeat center center;
+							background-size: 100% auto;
+							@include rem(top, -16px);
+							@include rem(width, 16px);
+							@include rem(height, 16px);
+							@include rem(margin-left, -8px);
+						}
+					}
+				}
+			}
+			.info {
+				@extend %clearfix;
+				position: relative;
+				text-align: right;
+				font-size: 0;
+				p {
+					display: inline-block;
+					&.subject {
+						@extend %textEllipsis;
+						float: left;
+						max-width: 75%;
+						text-align: left;
+						@include rem(padding-left, 4px);
+						@include rem(font-size, 16px);
+						@include boxSizing(border-box);
+					}
+					&.count {
+						color: $color-base-1;
+						@include rem(padding-right, 10px);
+						@include rem(font-size, 14px);
+					}
+					&.action {
+						line-height: 1;
+						vertical-align: bottom;
+						.delete { display: none; }
+						.label {
+							@extend %flexCenter;
+							padding: 0;
+							border: none;
+							border-radius: 50%;
+							background-color: $color-base-6;
+							@include rem(width, 28px);
+							@include rem(height, 28px);
+							@include rem(font-size, 10px);
+							em { color: $color-base-1; }
+						}
+					}
+				}
+			}
+			.progressbar {
+				@extend %progressbar;
+				@include rem(margin-top, 5px);
+			}
+		}
+		.tooltip {
+			position: absolute;
+			right: 0;
+			display: none; 
+			background-color: $color-base-2;
+			@include rem(top, -46px);
+			@include rem(padding, 5px 10px 7px);
+			@include rem(border-radius, 3px);
+			&:after {
+				content: '';
+				position: absolute;
+				border-top: 8px solid $color-base-2;
+				border-left: 6px solid transparent;
+				border-right: 6px solid transparent;
+				@include rem(bottom, -8px);
+				@include rem(right, 8px);
+			}
+			&.in { display: block; }
+			&-inner {
+				color: $color-white;
+				@include rem(padding-right, 15px);
+				@include rem(font-size, 12px);
+			}
+			&-close { @include close(26px, 26px, 1px, $color-white); }
+		}
+		.myplan-action {
+			text-align: center;
+			font-size: 0;
+			@include rem(padding-top, 20px);
+			.button {
+				@extend .is-round;
+				@extend .is-linear;
+				font-weight: 700;
+				@include rem(min-width, 150px);
+				@include rem(margin-right, 20px);
+				@include rem(padding, 8px 0 9px);
+				@include rem(font-size, 14px);
+				@include breakpoint(minMobile){
+					@include rem(min-width, 130px);
+				}
+				&:last-child,
+				&:only-child { margin-right: 0; }
+				&.add {
+					span {
+						&:before {
+							@include rem(left, 6px);
+							@include rem(width, 2px);
+							@include rem(height, 13px);
+							@include rem(margin-top, -7px);
+						}
+					}
+					@include breakpoint(desktop){
+						&:hover,
+						&:active {
+							background-color: $color-white;
+							span {
+								color: $color-primary;
+							}
+						}
+					}
+				}
+				&.edit {
+					margin-right: 0;
+					color: $color-base-1;
+					border-color: $color-base-1;
+					@include breakpoint(desktop){
+						&:hover,
+						&:active {
+							color: $color-base-1;
+							border-color: $color-base-1;
+							background-color: $color-white;
+							span {
+								color: $color-base-1;
+							}
+						}
+					}
+					span {
+						&:before { display: none; }
+						&:after {
+							background-color: $color-base-1;
+						}
+					}
+				}
+				span {
+					position: relative;
+					display: inline-block;
+					@include rem(padding-left, 26px);
+					&:before,
+					&:after {
+						content: '';
+						position: absolute;
+						top: 50%;
+						display: block;
+						background-color: $color-primary;
+					}
+					&:after {
+						left: 0;
+						@include rem(width, 13px);
+						@include rem(height, 2px);
+						@include rem(margin-top, -2px);
+					}
+				}
+			}
+		}
+	}
+	&-action {
+		@extend %controler;
+		@include rem(padding-top, 40px);
+		@include breakpoint(desktop){
+			clear: both;
+		}
+	}
+	&-assistant {
+		@extend %clearfix;
+		@extend %frame;
+		@include rem(margin-top, 16px);
+		@include rem(padding, 0 20px 40px);
+		background: $color-white url('#{$img-path}/contents/bg_learning.png') no-repeat center 3px;
+		background-size: 180px auto;
+		@include breakpoint(tablet){
+			background-image: none;
+		}
+		.item {
+			@include breakpoint(tablet){
+				float: left;
+				width: 50%;
+				@include boxSizing(border-box);
+			}
+			&-learning {
+				text-align: center;
+				@include breakpoint(tablet){
+					text-align: left;
+					background: $color-white url('#{$img-path}/contents/bg_learning.png') no-repeat right 10px;
+					background-size: 180px auto;
+				}
+			}
+			&-rule {
+				text-align: center;
+				.heading {
+					@include rem(margin-top, 40px);
+					@include rem(font-size, 16px);
+					@include breakpoint(tablet){
+						@include rem(margin-top, 30px);
+					}
+				}
+			}
+		}
+		h3.heading {
+			font-weight: 700;
+			@include rem(margin-top, 30px);
+			.small {
+				display: block;
+				font-weight: 400;
+				color: $color-base-1;
+				@include rem(font-size, 12px);
+			}
+		}
+		h4.heading {
+			font-weight: 700;
+			color: $color-primary;
+		}
+		.frame {
+			background-color: $bg-color-1;
+			@include rem(margin-top, 20px);
+			@include rem(padding, 20px);
+			@include breakpoint(tablet){
+				@include rem(margin-top, 23px);
+				@include rem(padding, 26px);
+			}
+			.desc {
+				color: $color-base-1;
+				@include rem(margin-top, 12px);
+			}
+		}
+		.rule-list {
+			display: inline-block;
+			vertical-align: top;
+			@include rem(margin-top, 18px);
+			@include breakpoint(desktop){
+				@include rem(margin-top, 13px);
+			}
+			.col {
+				@extend %flexCenter;
+				border: 1px solid $border-color-1;
+				border-radius: 50%;
+				@include rem(width, 100px);
+				@include rem(height, 100px);
+				@include rem(margin-left, 10px);
+				@include breakpoint(minMobile){
+					@include rem(width, 90px);
+					@include rem(height, 90px);
+					@include rem(margin-left, 5px);
+				}
+				@include breakpoint(desktop){
+					@include rem(margin-left, 30px);
+				}
+				&:first-child { margin-left: 0; }
+				span {
+					display: block;
+					color: $color-base-1;
+					&.desc {
+						font-weight: 700;
+						color: $color-primary;
+						@include rem(margin-top, 2px);
+						@include rem(font-size, 18px);
+					}
+				}
+			}
+		}
+		.tags {
+			@include rem(margin-top, 16px);
+			@include breakpoint(desktop){
+				@include rem(margin-top, 6px);
+				@include rem(font-size, 13px);
+			}
+		}
+	}
+}

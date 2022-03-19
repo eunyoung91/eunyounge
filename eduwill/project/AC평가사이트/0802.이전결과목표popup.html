@@ -1,0 +1,1058 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<title>에듀윌 AC(Assessment Center)</title>
+<link rel="Bookmark Icon" href="https://img.eduwill.net/resources/kpi/dev/images/favicon.ico" />
+<link rel="icon" href="https://img.eduwill.net/resources/kpi/dev/images/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="https://img.eduwill.net/resources/kpi/dev/images/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/essentials.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/layout.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/css/custom.css" />
+<!-- javascript files -->
+<script type="text/javascript">var plugin_path = '//img.eduwill.net/resources/kpi/dev/plugins/';</script>
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/jquery/jquery-2.2.3.min.js" type="text/javascript"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/jquery/jquery-ui-1.12.1.min.js" type="text/javascript"></script>  
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/js/ajaxUtil.js" type="text/javascript"></script>
+<!-- validation -->
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/form.validate/jquery.form.min.js" type="text/javascript"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/form.validate/jquery.validation.min.js" type="text/javascript"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/js/custom.js?v=5601933057d80" type="text/javascript"></script>
+<script src="https://img.eduwill.net/resources/kpi/dev/js/common.js?v=573d7300eea40" type="text/javascript"></script>
+<!-- 토스트메시지 -->
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/kpi/dev/plugins/toastr/toastr.min.css" />
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/toastr/toastr.min.js" type="text/javascript"></script>
+<!-- 컨펌모달 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/kpi/dev/plugins/jquery-confirm/jquery-confirm.min.css">
+<script src="https://img.eduwill.net/resources/kpi/dev/plugins/jquery-confirm/jquery-confirm.min.js"></script>
+<!-- print -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/kpi/dev/plugins/printThis/printThis.js"></script>
+<!-- editable -->
+<script type="text/javascript" src="https://img.eduwill.net/resources/kpi/dev/plugins/bootstrap-editable.min.js"></script>
+</head>
+<body class="page-goal-manage"><!-- body class : page-goal-manage -->
+
+<div id="wrapper" class="clearfix wrap-popup"><!-- wrapper.wrap-popup -->
+
+	<section id="middle"><!-- middle -->
+
+		<div id="content" class="padding-20"><!-- content -->
+
+			<div class="container section-search-form alert alert-info"><!-- section-search-form -->
+				<div class="wrap row">
+					<form action="">
+						<label for="selectYear" class="width-100 text-center weight-800">년도</label>
+						<select name="" id="selectYear" class="form-control width-100" title="년도 선택">
+							<option value="2018">2018</option>
+							<option value="2017">2017</option>
+							<option value="2016">2016</option>
+							<option value="2015">2015</option>
+							<option value="2014">2014</option>
+						</select>
+						<select name="" id="selectTeam" class="form-control" title="부서 선택">
+							<option value="1">부서</option>
+							<option value="2">인프라개발팀</option>
+							<option value="3">개발팀</option>
+						</select>
+						<!-- <input type="text" id="" value="" placeholder="이름을 입력하세요" class="text form-control" /> -->
+						<button type="button" class="btn btn-teal">조회</button>
+					</form>
+				</div>
+			</div><!-- // section-search-form -->
+
+			<div class="container section-assess-manage nopadding-left nopadding-right row"><!-- section-assess-manage -->
+				<div class="manage-2">
+
+					<div class="section-tab"><!-- section-tab -->
+						<div class="wrap">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#tabA" data-toggle="tab" aria-expanded="true">업적평가(상반기)</a></li>
+								<li><a href="#tabB" data-toggle="tab" aria-expanded="true">업적평가(연간)</a></li>
+								<li><a href="#tabC" data-toggle="tab" aria-expanded="false">역량평가(상반기)</a></li>
+								<li><a href="#tabD" data-toggle="tab" aria-expanded="false">역량평가(연간)</a></li>
+							</ul>							
+						</div>
+					</div><!-- // section-tab -->
+
+					<div class="section-assess panel panel-light"><!--  -->
+						<div class="panel-body">
+							<div class="tab-content padding-bottom-50"><!-- tabs content -->
+								<div id="tabA" class="tab-pane active"><!-- TAB 1 CONTENT -->
+									<form action="">
+
+										<div class="section-title clearfix">
+											<h3>업적평가<span>상반기 (1월~6월)</span></h3>
+										</div>
+										<div class="table-responsive table-basic"><!-- table-basic -->
+											<table class="table table-bordered table-row" summary="소속, 직급, 성명, 담당업무, 1차 평가자, 2차 평가자로 구분되는 표">
+												<caption>기본정보</caption>
+												<colgroup>
+													<col style="width: 15%;" />
+													<col style="width: 35%;" />
+													<col style="width: 15%;" />
+													<col style="width: 35%;" />
+												</colgroup>
+												<tbody>
+													<tr>
+														<th>소속</th>
+														<td>인사팀1</td>
+														<th>입사일</th>
+														<td>2015-03-02</td>
+													</tr>
+													<tr>
+														<th>이름</th>
+														<td>황소영 부장</td>
+														<th>담당업무</th>
+														<td>인사</td>
+													</tr>
+													<tr>
+														<th>목표제출일</th>
+														<td>2018-07-19</td>
+														<th>평가제출일</th>
+														<td>2018-07-26</td>
+													</tr>
+													<tr>
+														<th>1차 평가자</th>
+														<td>박지혜 과장</td>
+														<th>2차 평가자</th>
+														<td>김성경 과장</td>
+													</tr>
+												</tbody>
+											</table>
+										</div><!-- // table-basic -->
+
+										<div class="table-responsive table-assess"><!-- table-assess -->
+											<table cellpadding="0" cellspacing="0" class="table table-bordered table-col" summary="구분(정량평가, 정성평가), 가중치(%), 목표, 성과(실적, 달성률), 상반기(본인평가, 1차, 2차)로 구분되는 표">
+												<caption>상반기(1월~6월) 업적평가</caption>
+												<colgroup>
+													<col style="width: 10%;" />
+													<col style="width: 15%;" />
+													<col style="width: 8%;" />
+													<col style="width: auto;" />
+													<col style="width: 10%;" span="2" />
+													<col style="width: 7%;" span="3" />
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col" colspan="2" rowspan="2">구분</th>
+														<th scope="col" rowspan="2">가중치(%)</th>
+														<th scope="col" rowspan="2">목표</th>
+														<th scope="colgroup" colspan="2">성과</th>
+														<th scope="col" colspan="3">상반기(1월~6월) 평가</th>
+													</tr>
+													<tr>
+														<th scope="col">실적</th>
+														<th scope="col">달성률</th>
+														<th scope="col">본인</th>
+														<th scope="col">1차</th>
+														<th scope="col">2차</th>
+													</tr>
+												</thead>
+												<tfoot>
+													<tr>
+														<th scope="col" colspan="2">합계</th>
+														<td class="weight">
+															<strong>100</strong>%
+														</td>
+														<td class="empty">
+															&nbsp;
+														</td>
+														<th scope="col" colspan="2">총점</th>
+														<td>
+															<strong>0</strong> 점
+														</td>
+														<td>
+															<strong>0</strong> 점
+														</td>
+														<td>
+															<strong>0</strong> 점
+														</td>
+													</tr>
+												</tfoot>
+												<tbody>
+													<tr><!-- row -->
+														<th scope="row" rowspan="2">정량평가</th>
+														<td class="subject">
+															자격증 매출
+														</td>
+														<td class="weight">
+															30%
+														</td>
+														<td class="objective edit"><!-- 편집가능 Class : edit -->
+															<a href="#" id="objectiveA" data-type="text" data-pk="1" data-placeholder="" data-title="내용 편집">
+																연간 목표 : 38,990백만원
+															</a>
+														</td>
+														<td class="result">
+															1,212
+														</td>
+														<td class="achievement">
+															83%
+														</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="assess-1st">
+															5 점
+														</td>
+														<td class="assess-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr>
+														<td class="subject">
+															공무원 매출
+														</td>
+														<td class="weight">
+															20%
+														</td>
+														<td class="objective edit"><!-- 편집가능 Class : edit -->
+															<a href="#" id="objectiveB" data-type="text" data-pk="1" data-placeholder="" data-title="내용 편집">
+																연간 목표 : 11,010백만원
+															</a>
+														</td>
+														<td class="result">
+															1,000
+														</td>
+														<td class="achievement">
+															81%
+														</td>
+														<td class="score-self">
+															9 점
+														</td>
+														<td class="assess-1st">
+															5 점
+														</td>
+														<td class="assess-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr><!-- row -->
+														<th scope="row" rowspan="2">정성평가</th>
+														<td class="subject">
+															운영관리
+														</td>
+														<td class="weight">
+															30 %
+														</td>
+														<td class="objective edit">
+															<a href="#" id="objectiveC" data-type="textarea" data-pk="1" data-placeholder="" data-title="내용 편집">
+																1. 연간 환불율 목표 : 매출대비 3% 이내
+																2. 환불감소를 위한 프로모션 및 교육 진행
+																3. 아이템별 환급진행 및 상품별 분석보고
+																(2주이내 서류작성 및 4주이내 환급완료)
+																4. 상담팀 업무지원 만족도 : 평균 8점 이상
+															</a>
+														</td>
+														<td colspan="2" class="state text-left">
+															* 환불감소를 위한 교육,프로모션 진행
+															(7/9월 교육진행 및 9월 프로모션진행중)
+															* 환급진행 4주이내 완료 진행
+														</td>
+														<td class="score-self">
+															8 점
+														</td>
+														<td class="assess-1st">
+															5 점
+														</td>
+														<td class="assess-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr>
+														<td class="subject">
+															매출 지원관리
+														</td>
+														<td class="weight">
+															20 %
+														</td>
+														<td class="objective edit">
+															<a href="#" id="objectiveD" data-type="textarea" data-pk="1" data-placeholder="" data-title="내용 편집">
+																1. 무료회원 DB 진행사항 체크 및 유료전환율 관리
+																(월진행: 유료 전환율 및 효과,개선점 확인)
+																2. 주1회 체류,묻지마,이벤트 DB 배분
+																(월진행: 유료 전환율 및 효과,개선점 확인)
+																3. 설명회,홈쇼핑 DB 등록율관리
+																(월진행: 유료 전환율 및 효과,개선점 확인)
+															</a>
+														</td>
+														<td colspan="2" class="state text-left">
+															* 무료DB, 체류, 묻지마DB 정기적 지원
+															(효과 및 개선점은 아직 확인전)
+															* 설명회, 홈쇼핑DB 등록율 관리 
+														</td>
+														<td class="score-self">
+															8 점
+														</td>
+														<td class="assess-1st">
+															5 점
+														</td>
+														<td class="assess-2nd">
+															5 점
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div><!-- // table-assess -->
+
+										<div class="table-responsive table-opinion"><!-- table-opinion -->
+											<table cellpadding="0" cellspacing="0" class="table table-bordered table-col" summary="구분{1차 평가(이름, 직급), 2차 평가(이름, 직급)}, 의견으로 구분되는 표">
+												<caption>종합의견</caption>
+												<colgroup>
+													<col style="width: 12%;" />
+													<col style="width: 13%;" />
+													<col style="width: auto;" />
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col" colspan="2">구분</th>
+														<th scope="col">의견</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr><!-- row -->
+														<th scope="row" class="assessor-1st">1차 평가</th>
+														<td class="name">이름 직급</td>
+														<td class="opinion text-left">
+															
+														</td>
+													</tr>
+													<tr><!-- row -->
+														<th scope="row" class="assessor-2nd">2차 평가</th>
+														<td class="name">황영준 본부장</td>
+														<td class="opinion text-left">
+															책임감이 뛰어나며, 맡은 업무에 전문성을 가지고 진행합니다.<br />
+															리더십이 우수하며 조직관리를 능력이 뛰어납니다.
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div><!-- // table-opinion -->
+									</form>
+								</div><!-- // TAB 1 CONTENT -->
+
+								<div id="tabB" class="tab-pane"><!-- TAB 2 CONTENT -->
+									<form action="">
+
+										<div class="section-title clearfix">
+											<h3>업적평가<span>연간 (1월~12월)</span></h3>
+										</div>
+										<div class="table-responsive table-basic"><!-- table-basic -->
+											<table class="table table-bordered table-row" summary="소속, 직급, 성명, 담당업무, 1차 평가자, 2차 평가자로 구분되는 표">
+												<caption>기본정보</caption>
+												<colgroup>
+													<col style="width: 15%;" />
+													<col style="width: 35%;" />
+													<col style="width: 15%;" />
+													<col style="width: 35%;" />
+												</colgroup>
+												<tbody>
+													<tr>
+														<th>소속</th>
+														<td>인사팀2</td>
+														<th>입사일</th>
+														<td>2015-03-02</td>
+													</tr>
+													<tr>
+														<th>이름</th>
+														<td>황소영 부장</td>
+														<th>담당업무</th>
+														<td>인사</td>
+													</tr>
+													<tr>
+														<th>목표제출일</th>
+														<td>2018-07-19</td>
+														<th>평가제출일</th>
+														<td>2018-07-26</td>
+													</tr>
+													<tr>
+														<th>1차 평가자</th>
+														<td>박지혜 과장</td>
+														<th>2차 평가자</th>
+														<td>김성경 과장</td>
+													</tr>
+												</tbody>
+											</table>
+										</div><!-- // table-basic -->
+
+										<div class="table-responsive table-assess"><!-- table-assess -->
+											<table cellpadding="0" cellspacing="0" class="table table-bordered table-col" summary="구분(정량평가, 정성평가), 가중치(%), 목표, 성과(실적, 달성률), 상반기(본인평가, 1차, 2차)로 구분되는 표">
+												<caption>상반기(1월~6월) 업적평가</caption>
+												<colgroup>
+													<col style="width: 10%;" />
+													<col style="width: 15%;" />
+													<col style="width: 8%;" />
+													<col style="width: auto;" />
+													<col style="width: 10%;" span="2" />
+													<col style="width: 7%;" span="3" />
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col" colspan="2" rowspan="2">구분</th>
+														<th scope="col" rowspan="2">가중치(%)</th>
+														<th scope="col" rowspan="2">목표</th>
+														<th scope="colgroup" colspan="2">성과</th>
+														<th scope="col" colspan="3">연간(1월~12월) 평가</th>
+													</tr>
+													<tr>
+														<th scope="col">실적</th>
+														<th scope="col">달성률</th>
+														<th scope="col">본인</th>
+														<th scope="col">1차</th>
+														<th scope="col">2차</th>
+													</tr>
+												</thead>
+												<tfoot>
+													<tr>
+														<th scope="col" colspan="2">합계</th>
+														<td class="weight">
+															<strong>100</strong>%
+														</td>
+														<td class="empty">
+															&nbsp;
+														</td>
+														<th scope="col" colspan="2">총점</th>
+														<td>
+															<strong>0</strong> 점
+														</td>
+														<td>
+															<strong>0</strong> 점
+														</td>
+														<td>
+															<strong>0</strong> 점
+														</td>
+													</tr>
+												</tfoot>
+												<tbody>
+													<tr><!-- row -->
+														<th scope="row" rowspan="2">정량평가</th>
+														<td class="subject">
+															자격증 매출
+														</td>
+														<td class="weight">
+															30%
+														</td>
+														<td class="objective edit"><!-- 편집가능 Class : edit -->
+															<a href="#" id="objectiveA" data-type="text" data-pk="1" data-placeholder="" data-title="내용 편집">
+																연간 목표 : 38,990백만원
+															</a>
+														</td>
+														<td class="result">
+															1,212
+														</td>
+														<td class="achievement">
+															83%
+														</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="assess-1st">
+															5 점
+														</td>
+														<td class="assess-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr>
+														<td class="subject">
+															공무원 매출
+														</td>
+														<td class="weight">
+															20%
+														</td>
+														<td class="objective edit"><!-- 편집가능 Class : edit -->
+															<a href="#" id="objectiveB" data-type="text" data-pk="1" data-placeholder="" data-title="내용 편집">
+																연간 목표 : 11,010백만원
+															</a>
+														</td>
+														<td class="result">
+															1,000
+														</td>
+														<td class="achievement">
+															81%
+														</td>
+														<td class="score-self">
+															9 점
+														</td>
+														<td class="assess-1st">
+															5 점
+														</td>
+														<td class="assess-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr><!-- row -->
+														<th scope="row" rowspan="2">정성평가</th>
+														<td class="subject">
+															운영관리
+														</td>
+														<td class="weight">
+															30 %
+														</td>
+														<td class="objective edit">
+															<a href="#" id="objectiveC" data-type="textarea" data-pk="1" data-placeholder="" data-title="내용 편집">
+																1. 연간 환불율 목표 : 매출대비 3% 이내
+																2. 환불감소를 위한 프로모션 및 교육 진행
+																3. 아이템별 환급진행 및 상품별 분석보고
+																(2주이내 서류작성 및 4주이내 환급완료)
+																4. 상담팀 업무지원 만족도 : 평균 8점 이상
+															</a>
+														</td>
+														<td colspan="2" class="state text-left">
+															* 환불감소를 위한 교육,프로모션 진행
+															(7/9월 교육진행 및 9월 프로모션진행중)
+															* 환급진행 4주이내 완료 진행
+														</td>
+														<td class="score-self">
+															8 점
+														</td>
+														<td class="assess-1st">
+															5 점
+														</td>
+														<td class="assess-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr>
+														<td class="subject">
+															매출 지원관리
+														</td>
+														<td class="weight">
+															20 %
+														</td>
+														<td class="objective edit">
+															<a href="#" id="objectiveD" data-type="textarea" data-pk="1" data-placeholder="" data-title="내용 편집">
+																1. 무료회원 DB 진행사항 체크 및 유료전환율 관리
+																(월진행: 유료 전환율 및 효과,개선점 확인)
+																2. 주1회 체류,묻지마,이벤트 DB 배분
+																(월진행: 유료 전환율 및 효과,개선점 확인)
+																3. 설명회,홈쇼핑 DB 등록율관리
+																(월진행: 유료 전환율 및 효과,개선점 확인)
+															</a>
+														</td>
+														<td colspan="2" class="state text-left">
+															* 무료DB, 체류, 묻지마DB 정기적 지원
+															(효과 및 개선점은 아직 확인전)
+															* 설명회, 홈쇼핑DB 등록율 관리 
+														</td>
+														<td class="score-self">
+															8 점
+														</td>
+														<td class="assess-1st">
+															5 점
+														</td>
+														<td class="assess-2nd">
+															5 점
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div><!-- // table-assess -->
+
+										<div class="table-responsive table-opinion"><!-- table-opinion -->
+											<table cellpadding="0" cellspacing="0" class="table table-bordered table-col" summary="구분{1차 평가(이름, 직급), 2차 평가(이름, 직급)}, 의견으로 구분되는 표">
+												<caption>종합의견</caption>
+												<colgroup>
+													<col style="width: 12%;" />
+													<col style="width: 13%;" />
+													<col style="width: auto;" />
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col" colspan="2">구분</th>
+														<th scope="col">의견</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr><!-- row -->
+														<th scope="row" class="assessor-1st">1차 평가</th>
+														<td class="name">이름 직급</td>
+														<td class="opinion text-left">
+															
+														</td>
+													</tr>
+													<tr><!-- row -->
+														<th scope="row" class="assessor-2nd">2차 평가</th>
+														<td class="name">황영준 본부장</td>
+														<td class="opinion text-left">
+															책임감이 뛰어나며, 맡은 업무에 전문성을 가지고 진행합니다.<br />
+															리더십이 우수하며 조직관리를 능력이 뛰어납니다.
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div><!-- // table-opinion -->
+									</form>
+								</div><!-- // TAB 2 CONTENT -->
+
+								<div id="tabC" class="tab-pane"><!-- TAB 3 CONTENT -->
+									<form action="">
+										<div class="section-title clearfix">
+											<h3>역량평가<span>상반기 (1월~6월)</span></h3>
+										</div>
+										<div class="table-responsive table-basic"><!-- table-basic -->
+											<table class="table table-bordered table-row" summary="소속, 직급, 성명, 담당업무, 1차 평가자, 2차 평가자로 구분되는 표">
+												<caption>기본정보</caption>
+												<colgroup>
+													<col style="width: 15%;" />
+													<col style="width: 35%;" />
+													<col style="width: 15%;" />
+													<col style="width: 35%;" />
+												</colgroup>
+												<tbody>
+													<tr>
+														<th>소속</th>
+														<td>인사팀1</td>
+														<th>입사일</th>
+														<td>2015-03-02</td>
+													</tr>
+													<tr>
+														<th>이름</th>
+														<td>황소영 부장</td>
+														<th>담당업무</th>
+														<td>인사</td>
+													</tr>
+													<tr>
+														<th>목표제출일</th>
+														<td>2018-07-19</td>
+														<th>평가제출일</th>
+														<td>2018-07-26</td>
+													</tr>
+													<tr>
+														<th>1차 평가자</th>
+														<td>박지혜 과장</td>
+														<th>2차 평가자</th>
+														<td>김성경 과장</td>
+													</tr>
+												</tbody>
+											</table>
+										</div><!-- // table-basic -->
+
+										<div class="table-responsive table-objective"><!-- table-objective -->
+											<table class="table table-bordered table-col" summary="구분, 역량, 정의, 상반기(1월6월) 본인평가, 연간(1월~12월) 본인평가로 구분되는 표">
+												<caption>역량평가 목록</caption>
+												<colgroup>
+													<col style="width: 15%;" />
+													<col style="width: 15%;" />
+													<col style="width: auto;" />
+													<col style="width: 8%;" span="3" />
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col" rowspan="2">구분</th>
+														<th scope="col" rowspan="2">역량</th>
+														<th scope="col" rowspan="2">정의</th>
+														<th scope="col" colspan="3">상반기(1월~6월) 평가</th>
+													</tr>
+													<tr>
+														<th scope="col">본인</th>
+														<th scope="col">1차</th>
+														<th scope="col">2차</th>
+													</tr>
+												</thead>
+												<tfoot>
+													<tr>
+														<th colspan="3">총점</th>
+														<td class="score-self">
+															<strong>100</strong> 점
+														</td>
+														<td class="score-1st">
+															<strong>0</strong> 점
+														</td>
+														<td class="score-2nd">
+															<strong>0</strong> 점
+														</td>
+													</tr>
+												</tfoot>
+												<tbody>
+													<tr class="item-fixed"><!-- 전사공통 핵심역량 -->
+														<th scope="row" rowspan="4">전사공통 핵심역량</th>
+														<td>도전적 실행</td>
+														<td class="text-left">현재에 안주하지 않고, 끊임없이 새롭게 시도한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr class="item-fixed"><!-- row -->
+														<td>탁월성 추구</td>
+														<td class="text-left">높은 목표를 정하고, 최고의 완성도를 추구한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr class="item-fixed"><!-- row -->
+														<td>신뢰와 책임</td>
+														<td class="text-left">약속을 지키고, 책임 있게 행동한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr class="item-fixed"><!-- row -->
+														<td>소통과 배려</td>
+														<td class="text-left">타인을 배려하고 경청하며, 갈등을 원만하게 해소하고, 개방적/적극적으로 소통한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr class="item-fixed"><!-- 직급표준 역량 -->
+														<th scope="row" rowspan="3">직급표준 역량</th>
+														<td>탁월성</td>
+														<td class="text-left">현재에 안주하지 않고, 끊임없이 새롭게 시도한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr class="item-fixed"><!-- row -->
+														<td>문제해결능력</td>
+														<td class="text-left">높은 목표를 정하고, 최고의 완성도를 추구한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr class="item-fixed"><!-- row -->
+														<td>혁신마인드</td>
+														<td class="text-left">약속을 지키고, 책임 있게 행동한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr><!-- 직무 역량 -->
+														<th scope="row" rowspan="3">직무 역량</th>
+														<td>
+															창의성
+														</td>
+														<td class="text-left">여러 유형의 상황과 변화하는 환경에 대응함에 있어 새로운 접근방식을 추구하고 이를 업무에 적용한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr><!-- row -->
+														<td>
+															변화지향성
+														</td>
+														<td class="text-left">변화의 필요성에 대한 인식을 바탕으로 부서(팀) 내의 변화를 자극하고 분위기를 쇄신한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr><!-- row -->
+														<td>
+															전략적 사고
+														</td>
+														<td class="text-left">전체 조직을 염두에 두고 시스템적인 관점에서 문제에 접근하고, 이를 추진하며 해결함에 있어 조직의 입장에서 최적의 대안을 마련한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div><!-- // table-objective -->
+									</form>
+								</div><!-- // TAB 3 CONTENT -->
+
+								<div id="tabD" class="tab-pane"><!-- TAB 4 CONTENT -->
+									<form action="">
+										<div class="section-title clearfix">
+											<h3>역량평가<span>연간 (1월~12월)</span></h3>
+										</div>
+										<div class="table-responsive table-basic"><!-- table-basic -->
+											<table class="table table-bordered table-row" summary="소속, 직급, 성명, 담당업무, 1차 평가자, 2차 평가자로 구분되는 표">
+												<caption>기본정보</caption>
+												<colgroup>
+													<col style="width: 15%;" />
+													<col style="width: 35%;" />
+													<col style="width: 15%;" />
+													<col style="width: 35%;" />
+												</colgroup>
+												<tbody>
+													<tr>
+														<th>소속</th>
+														<td>인사팀2</td>
+														<th>입사일</th>
+														<td>2015-03-02</td>
+													</tr>
+													<tr>
+														<th>이름</th>
+														<td>황소영 부장</td>
+														<th>담당업무</th>
+														<td>인사</td>
+													</tr>
+													<tr>
+														<th>목표제출일</th>
+														<td>2018-07-19</td>
+														<th>평가제출일</th>
+														<td>2018-07-26</td>
+													</tr>
+													<tr>
+														<th>1차 평가자</th>
+														<td>박지혜 과장</td>
+														<th>2차 평가자</th>
+														<td>김성경 과장</td>
+													</tr>
+												</tbody>
+											</table>
+										</div><!-- // table-basic -->
+
+										<div class="table-responsive table-objective"><!-- table-objective -->
+											<table class="table table-bordered table-col" summary="구분, 역량, 정의, 상반기(1월6월) 본인평가, 연간(1월~12월) 본인평가로 구분되는 표">
+												<caption>역량평가 목록</caption>
+												<colgroup>
+													<col style="width: 15%;" />
+													<col style="width: 15%;" />
+													<col style="width: auto;" />
+													<col style="width: 8%;" span="3" />
+												</colgroup>
+												<thead>
+													<tr>
+														<th scope="col" rowspan="2">구분</th>
+														<th scope="col" rowspan="2">역량</th>
+														<th scope="col" rowspan="2">정의</th>
+														<th scope="col" colspan="3">연간(1월~12월) 평가</th>
+													</tr>
+													<tr>
+														<th scope="col">본인</th>
+														<th scope="col">1차</th>
+														<th scope="col">2차</th>
+													</tr>
+												</thead>
+												<tfoot>
+													<tr>
+														<th colspan="3">총점</th>
+														<td class="score-self">
+															<strong>100</strong> 점
+														</td>
+														<td class="score-1st">
+															<strong>0</strong> 점
+														</td>
+														<td class="score-2nd">
+															<strong>0</strong> 점
+														</td>
+													</tr>
+												</tfoot>
+												<tbody>
+													<tr class="item-fixed"><!-- 전사공통 핵심역량 -->
+														<th scope="row" rowspan="4">전사공통 핵심역량</th>
+														<td>도전적 실행</td>
+														<td class="text-left">현재에 안주하지 않고, 끊임없이 새롭게 시도한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr class="item-fixed"><!-- row -->
+														<td>탁월성 추구</td>
+														<td class="text-left">높은 목표를 정하고, 최고의 완성도를 추구한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr class="item-fixed"><!-- row -->
+														<td>신뢰와 책임</td>
+														<td class="text-left">약속을 지키고, 책임 있게 행동한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr class="item-fixed"><!-- row -->
+														<td>소통과 배려</td>
+														<td class="text-left">타인을 배려하고 경청하며, 갈등을 원만하게 해소하고, 개방적/적극적으로 소통한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr class="item-fixed"><!-- 직급표준 역량 -->
+														<th scope="row" rowspan="3">직급표준 역량</th>
+														<td>탁월성</td>
+														<td class="text-left">현재에 안주하지 않고, 끊임없이 새롭게 시도한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr class="item-fixed"><!-- row -->
+														<td>문제해결능력</td>
+														<td class="text-left">높은 목표를 정하고, 최고의 완성도를 추구한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr class="item-fixed"><!-- row -->
+														<td>혁신마인드</td>
+														<td class="text-left">약속을 지키고, 책임 있게 행동한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr><!-- 직무 역량 -->
+														<th scope="row" rowspan="3">직무 역량</th>
+														<td>
+															창의성
+														</td>
+														<td class="text-left">여러 유형의 상황과 변화하는 환경에 대응함에 있어 새로운 접근방식을 추구하고 이를 업무에 적용한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr><!-- row -->
+														<td>
+															변화지향성
+														</td>
+														<td class="text-left">변화의 필요성에 대한 인식을 바탕으로 부서(팀) 내의 변화를 자극하고 분위기를 쇄신한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+													<tr><!-- row -->
+														<td>
+															전략적 사고
+														</td>
+														<td class="text-left">전체 조직을 염두에 두고 시스템적인 관점에서 문제에 접근하고, 이를 추진하며 해결함에 있어 조직의 입장에서 최적의 대안을 마련한다.</td>
+														<td class="score-self">
+															10 점
+														</td>
+														<td class="score-1st">
+															5 점
+														</td>
+														<td class="score-2nd">
+															5 점
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div><!-- // table-objective -->
+									</form>
+								</div><!-- // TAB 4 CONTENT -->
+								
+								<div class="clearfix margin-top-50 text-center">
+									<button type="button" class="btn btn-lg width-120 btn-teal" data-toggle="modal" data-target="#myAssessPreview">확인</button>
+								</div>
+							</div><!-- // tabs content -->
+						</div>
+					</div><!-- //  -->
+				</div>
+			</div><!-- // section-assess-manage -->
+
+		</div><!-- // content -->
+	</section><!-- // middle -->
+</div><!-- wrapper.wrap-popup -->
+
+
+</body>
+</html>

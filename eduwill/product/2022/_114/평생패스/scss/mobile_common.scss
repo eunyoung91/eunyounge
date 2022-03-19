@@ -1,0 +1,103 @@
+@charset "utf-8";
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+@import "module/motion";
+
+
+.product-eco, .promotion {
+		overflow-x: hidden;
+
+		.wrap {
+			position: relative;
+			width: 100%;
+			max-width: 720px;
+			margin: 0 auto;
+			text-align: center;
+			&-full {
+				width: 100%;
+			}
+		}
+		.item {
+			position: relative;
+		}
+
+		.eco-puri {
+			display: inline-block;
+		}
+		
+		.only-pc { display: none !important;}
+		.only-mobile { display: block;}
+
+		.slider-contents {
+			position: relative;
+			width: percent(616);
+			margin: 0 auto;
+		}
+
+		.slick-dots {
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			font-size: 0;
+			text-align: right;
+			padding-right: percent(50);
+			li {
+				display: inline-block;
+				@include vw(margin, 0 6px);
+				&.slick-active button {
+					@include vw(width, 92px);
+					@include vw(border-radius, 50px);
+					background-color: #ffbe00;
+				}
+			}
+			button {
+				display: block;
+				@include vw(width, 32px);
+				@include vw(height, 30px);
+				color: transparent;
+				border: none;
+				border-radius: 50%;
+				background-color: #bbb;
+				outline: none;
+				cursor: pointer;
+			}
+		}
+
+		.slick-arrow {
+			position: absolute;
+			top: 50%;
+			z-index: 10;
+			content: '';
+			padding: 0;
+			margin:0;
+			border: none;
+			outline: none;
+			text-indent: -9999px;
+			display: block; 
+			cursor:pointer;
+			@include vw(width, 50px);
+			@include vw(height, 50px);
+			@include vw(margin-top, -25px);
+			&.slick-prev {
+				@include vw(left, -30px);
+				background: url('https://img.eduwill.net/eduwill/img/2021/7/product/210430/pc/btn_prev.png') 0 0 no-repeat; background-size: cover;
+			}
+			&.slick-next {
+				@include vw(right, -30px);
+				background: url('https://img.eduwill.net/eduwill/img/2021/7/product/210430/pc/btn_next.png') 0 0 no-repeat; background-size: cover;
+			}
+		}
+
+		.sector {
+			&-system {
+				@include vw(padding-bottom, 135px);
+			}
+			&-puri {
+				@include vw(padding-bottom, 135px);
+			}
+		}
+	
+}

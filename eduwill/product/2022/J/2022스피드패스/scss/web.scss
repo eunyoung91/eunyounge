@@ -1,0 +1,345 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "base/animation";  
+@import "base/common";  
+@import "base/popup";  
+
+.grab{ position: relative;}
+.fly{ position: absolute;}
+.house{	
+	&-title{
+		background:url('https://img.eduwill.net/eduwill/img/2022/J/product/220203/pc/bg_title.jpg') no-repeat 50% 0;
+		background-size:cover;
+		height:1166px;
+		&:after{
+			display: none;
+		}
+	}
+
+	&-benefit{
+		padding-bottom:91px;
+		.title{
+			opacity:0;
+			padding-top:60px;
+		}
+		.list{
+			&-group{
+				width: 920px;
+				margin: 0 auto;
+				margin-top: 66px;
+				ul{
+					li{
+						&:nth-child(4n+1){margin-left: 14px;}
+						&:nth-child(5){
+							.tip-btn{
+								position: absolute;
+								top:70px;
+								left:177px;
+							}
+							.tip-layer{
+								position: absolute;
+								top:100px;
+								left:0;
+								right:0;
+								display: none;
+								&.act{
+									display: block;
+								}
+							}
+						}
+						&:nth-child(6){
+							.tip-btn{
+								position: absolute;
+								top:70px;
+								left:157px;
+							}
+							.tip-layer{
+								position: absolute;
+								top:100px;
+								left:0;
+								right:0;
+								display: none;
+								&.act{
+									display: block;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+	}
+	
+	&-provide{
+		position:relative;
+		padding-bottom: 0;
+		background: #4f4deb;
+		&:after{
+			content:'';
+			position:absolute;
+			left:50%;
+			top:0;
+			width:132px;
+			height:132px;
+			margin-left:-66px;
+			margin-top:-55px;
+			background:url('https://img.eduwill.net/eduwill/img/2022/J/product/220203/pc/icon_plus.png') no-repeat 0 0;
+			z-index:2;
+		}
+	}
+
+	&-price-template{
+		background:#f2f2fa;
+		padding:100px 0;
+		.template-title{
+			color:#222;
+			font-size: 60px;
+			font-weight: 900;
+			letter-spacing: -2;
+			line-height:1;
+			padding-bottom: 60px;
+		}
+		.template-box{
+			margin:0 auto;
+			text-align: center;
+			@extend %clearfix;
+			ul{
+
+				li{
+					position: relative;
+					display: inline-block;
+					width:366px;
+					padding:31px 20px;
+					margin:0 10px;
+					border:4px solid #d6d6da;
+					background:#fff;
+					line-height:1.2;
+					> strong{
+						display: inline-block;
+						color:#000;
+						font-size: 24px;
+						border-bottom:2px solid #868686;
+						margin-bottom: 32px;
+					}
+					> span{
+	
+						display: block;
+						color:#999;
+						font-size: 30px;
+						text-decoration: line-through;
+					}
+					> em{
+						display: block;
+						color:#4f4deb;
+						font-size: 50px;
+						font-weight: bold;
+					}
+					.flag{
+						position: absolute;
+						top:20px;
+						right:20px;
+						display: table;
+						background:#ff0000;
+						width:82px;
+						height:82px;
+						border-radius:41px;
+						span{
+							display: table-cell;
+							vertical-align: middle;
+							font-weight:700;
+							color:#fff;
+							font-size: 18px;
+						}
+					}
+				}
+			}
+		}
+		.action{
+			position: relative;
+			margin-top: 60px;
+			.template-btn{
+				display: block;
+				@include pointer(50%, 5%, 57px, 65px, 12, bounce);
+				span{
+					line-height:1;
+					display: inline-block;
+					color:#fff;
+					font-weight: 500;
+					font-size: 30px;
+					padding:25px 120px;
+					border-radius:60px;
+					background-color: #4f4deb;
+				}
+			}
+		}
+	}
+
+	&-start{}
+	&-exam-review{
+		height:100%;
+		background:#4f4deb;
+		.action{
+			position: absolute;
+			top:874px;
+			right:30px;
+			a{
+				display: inline-block;
+				width:190px;
+				height:23px;
+			}
+		}
+	}
+	&-how{
+		background:#f2f2fa;
+		.action{
+			position: absolute;
+			top: 875px;
+			left: 492px;
+			a{
+				width: 162px;
+				height:23px;
+				display: block;
+			}
+		}
+	}
+	&-key{
+		@include vw(padding, 0 0 62px);
+		.grab{
+			.notice{
+				top:111px;
+				left:56px;
+			}
+		}
+		.key-contents{
+			margin-top: 0;
+		}
+	}
+	&-paper{
+		padding:0;
+		background:#f2f2fa;
+	}
+
+	&-teacher-json{
+		padding-bottom: 100px;
+		.grab{
+			.notice{
+				top:302px;
+				left:0;
+			}
+		}
+		.teacher-list{
+			@extend %clearfix;
+			li{
+				position: relative;
+				float:left;
+				margin-top: 33px;
+				margin-left:12px;
+				&:first-child{margin-left:0;}
+				&:nth-child(7){margin-left:4px;}
+				&:nth-child(-n+6) { 
+					//상단
+					a{
+						display:block;
+						width:190px;
+						height:372px;
+						.teacher-info{
+							position: absolute;
+							left:7px;
+							top:auto;
+							bottom:0;
+							color:#222;
+							font-size: 20px;
+							text-align: left;
+							line-height:1;
+							.subject{ 
+								font-weight: normal;
+								display: block;
+							}
+							.name{
+								display: inline-block;
+								font-weight: bold;
+								padding-top: 5px;
+							}
+							.home{
+								display: inline-block;
+								padding-left: 5px;
+								padding-top: 2px;
+							}
+						}
+					}
+				}
+				//하단
+				a{
+					display:block;
+					width:160px;
+					height:233px;
+					.teacher-info{
+						position: absolute;
+						left:16px;
+						top:22px;
+						bottom:auto;
+						color:#fff;
+						font-size: 16px;
+						text-align: left;
+						line-height:1;
+						.subject{ 
+							font-weight: normal;
+							display: block;
+						}
+						.name{
+							display: inline-block;
+							font-weight: bold;
+							padding-top: 5px;
+						}
+						.home{
+							display: block;
+							padding-top: 9px;
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	
+	&-bestseller{
+		background:#f2f2fa;
+		padding-top:0;
+		&.renewal{
+			.btn-text{
+				background:none;
+				top:257px;
+				left:930px;
+			}
+		}
+	}
+	&-center{
+	}
+	&-differ{
+		background:#f2f2fa;
+		padding-top:0;
+		&.renewal{
+			background-image:none;
+			.img-group{
+				position:relative;
+				.step{
+					position:absolute;left:0;top:0;opacity:0;
+					&-1{left:63px;top:124px;}
+					&-2{left:375px;top:94px;}
+					&-3{left:700px;top:94px;}
+					&-4{left:992px;top:0px;}
+				}
+			}
+		}
+	}
+}
+
+.effect-blink {
+    @include animation(effectBlink, 1s, $iteration: infinite){
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+}

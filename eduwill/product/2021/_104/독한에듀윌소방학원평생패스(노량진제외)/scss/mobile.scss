@@ -1,0 +1,282 @@
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+
+.product-eco {
+    overflow-x: hidden;
+    * {
+        font-family: $font-noto;
+        line-height: normal;
+    }
+    p {
+        margin: 0;
+    }
+    .wrap {
+        max-width: 720px;
+    }
+    .eco-year {
+        position: absolute;
+        @include vw(top, 1115px);
+        @include vw(left, 85px);
+        text-align: left;
+        @include vw(font-size, 24px);
+        color: #000;
+        @include vw(letter-spacing, -2px);
+    }
+    .eco-compare {
+        position: absolute;
+        text-align: left;
+        @include vw(font-size, 16px);
+    }
+    .eco-pass-percent {
+        position: absolute;
+        font-family: $font-roboto;
+        font-weight: 700;
+    }
+
+    .sector-title {
+        @include bg($color: #431414, $url: "#{$img-path}/mobile/bg_title.jpg");
+        .eco-pass-percent {
+            @include vw(top, 737px);
+            @include vw(left, 288px);
+            @include vw(font-size, 33px);
+            color: #cda657;
+            @include vw(letter-spacing, -2px);
+        }
+    }
+
+    .sector-apply {
+        @include vw(padding-bottom, 90px);
+        background: #f1f0ec;
+        @include linear-gradient(0deg, #fff 0%, #fff 70%, #431414 70%, #431414 100%);
+        .apply-list {
+            @include vw(margin, 0 40px);
+        }
+        .list {
+            position: relative;
+            border: 2px solid #000;
+            @include vw(margin-top, 20px);
+            background-color: #fff;
+            @include boxSizing(border-box);
+            &:first-child {
+                margin-top: 0;
+            }
+            .item {
+                &.title {
+                    @include vw(margin, 40px 30px 30px);
+                    text-align: left;
+                    @include vw(font-size, 40px);
+                    font-weight: 900;
+                    color: #000;
+                }
+
+                &.price-after {
+                    line-height: 1;
+                    @include vw(margin, 0 30px 35px);
+                    text-align: right;
+                    @include vw(font-size, 70px);
+                    font-weight: 900;
+                    color: #dd0000;
+                    em {
+                        margin-left: 8px;
+                        line-height: 1;
+                        @include vw(font-size, 35px);
+                    }
+                }
+
+                &.action a {
+                    @include pointer(50%, 0, 66px, 73px, 1, bounce);
+                    width: 100%;
+                    @include vw(padding, 20px 0);
+                    @include vw(font-size, 30px);
+                    font-weight: 700;
+                    color: #fff;
+                    background: #000;
+                }
+            }
+        }
+    }
+
+    .sector-winner {
+        .item {
+            position: relative;
+        }
+        .noti {
+            position: absolute;
+            top: 85%;
+            @include vw(left, 50px);
+            text-align: left;
+            @include vw(font-size, 18px);
+        }
+        .interview-wrap {
+            .swiper-container {
+                @include vw(padding-bottom, 60px);
+            }
+            .interview a {
+                display: inline-block;
+                img {
+                    width: 100%;
+                }
+            }
+            .swiper-slide {
+                width: 80%;
+            }
+            .swiper-container-horizontal > .swiper-scrollbar {
+                @include vw(right, 30px);
+                @include vw(left, 30px);
+                width: auto;
+            }
+            .swiper-scrollbar {
+                background: #000;
+            }
+            .swiper-scrollbar-drag {
+                background: #f0cc0f;
+            }
+        }
+
+        .winner-contents {
+            position: relative;
+            @include vw(padding-bottom, 50px);
+            &:after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+            }
+            .winner-list {
+                -webkit-transform: perspective(300px) rotateX(45deg);
+                transform: perspective(300px) rotateX(45deg);
+                &:before,
+                &:after {
+                    content: "";
+                    position: absolute;
+                    right: 0;
+                    left: 0;
+                    z-index: 1;
+                    display: block;
+                    width: 100%;
+                    height: 40%;
+                }
+                &:before {
+                    top: 0;
+                    background: transparent;
+                    background: linear-gradient(0deg, transparent 0%, #fff 100%);
+                }
+                &:after {
+                    bottom: 0;
+                    background: #f1f0ec;
+                    background: linear-gradient(0deg, #fff 0%, transparent 100%);
+                }
+
+                p {
+                    text-align: center;
+                    @include vw(font-size, 20px);
+                    font-weight: 500;
+                    @include vw(letter-spacing, -1.5px);
+                    &:nth-child(1) {
+                        text-align: right;
+                    }
+                    &:nth-child(3) {
+                        text-align: left;
+                    }
+                }
+                .slick-track {
+                    -webkit-transform: translate(0) !important;
+                    transform: translate(0) !important;
+                }
+            }
+        }
+    }
+
+    .sector-text {
+        background-color: #491616;
+    }
+
+    .sector-program {
+        background-color: #f1f0ec;
+        .item {
+            position: relative;
+            @include vw(margin, 20px 50px 0);
+            &:first-child {
+                margin: 0;
+            }
+            .action {
+                position: absolute;
+                @include vw(right, 50px);
+                @include vw(left, 50px);
+            }
+            &:nth-child(1) .action {
+                position: static;
+                @include vw(margin, 0 50px);
+            }
+            &:nth-child(2) .action {
+                @include vw(top, 900px);
+            }
+            &:nth-child(3) .action {
+                @include vw(top, 1050px);
+            }
+            &:nth-child(4) .action {
+                @include vw(top, 1200px);
+            }
+        }
+    }
+
+    .sector-consult {
+        background-color: #f1f0ec;
+    }
+
+    .sector-academy {
+        background: linear-gradient(0deg, #fff 0%, #fff 50%, #f1f0ec 50%, #f1f0ec 100%);
+        .academy-list {
+            position: relative;
+            z-index: 1;
+            @include boxShadow(0 0 20px #000);
+            div {
+                vertical-align: top;
+                padding: 0;
+                line-height: 1;
+                font-size: 0;
+            }
+        }
+        .slick-arrow {
+            position: absolute;
+            top: 50%;
+            z-index: 1;
+            @include vw(width, 60px);
+            @include vw(height, 60px);
+            @include vw(margin-top, -30px);
+            padding: 0;
+            font-size: 0;
+            color: transparent;
+            text-indent: -9999px;
+            border: none;
+            background: none;
+            background-repeat: no-repeat;
+            background-position: 0 0;
+            background-size: cover;
+            cursor: pointer;
+            outline: none;
+            &.slick-prev {
+                left: 0;
+                background-image: url("#{$img-path}/mobile/btn_prev.png");
+            }
+            &.slick-next {
+                right: 0;
+                background-image: url("#{$img-path}/mobile/btn_next.png");
+            }
+        }
+    }
+
+    .sector-teacher {
+        @include vw(padding-bottom, 90px);
+        background-color: #f1f0ec;
+        .action {
+            @include vw(margin, 0 50px);
+        }
+    }
+}

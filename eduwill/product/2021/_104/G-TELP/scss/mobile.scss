@@ -1,0 +1,187 @@
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+// @import "module/popup";
+// @import "module/popupPC";
+
+.product-eco {
+    overflow-x: hidden;
+	.only-pc { display: none;}
+	.only-mobile { display: block;}
+
+	* {
+		line-height: normal;
+		font-family: $font-roboto;
+		letter-spacing: -1px;
+	}
+	.container {
+		position: relative;
+		.item {
+			position: relative;
+		}
+	}
+	.wrap {
+		position: relative;
+		width: 100%;
+		max-width: 720px;
+		margin: 0 auto;
+		text-align: center;
+		&-full {
+			width: 100%;
+		}
+	}
+	.grounds-text {
+		color: rgba(0,0,0, .4);
+		@include rem(letter-spacing, -1px);
+		@include vw(font-size, 22px);
+		@include breakpoint(maxMobileFold) {
+			font-size: 14px;
+		}
+	}
+	.slider-contents {
+		position: relative;
+		width: percent(720);
+		margin: 0 auto;
+	}
+	p {
+		margin: 0;
+		text-align: left;
+		color: #666;
+		@include vw(font-size, 28px);
+		&.notice { @include rem(margin-top, 10px); }
+		&.fly { position: absolute; }
+		@include breakpoint(maxMobileFold) {
+			font-size: 16px;
+		}
+	}
+	.eco-puri {
+		display: inline-block;
+	}
+
+
+	.sector {
+		&-title {
+			.bg-wrap {
+				position: relative;
+				height: 100%;
+				@include bg($color: #e04d25, $url: '#{$img-path}/mobile/bg_title.jpg', $size: cover);
+			}
+			.flag {
+				position: absolute;
+				@include vw(top, 768px);
+				@include vw(right, 77px);
+				@include vw(width, 190px);
+			}
+		}
+		&-banner {
+			&.banner-1 {
+				@include bg($url: '#{$img-path}/mobile/bg_banner_1.jpg', $size: cover);
+			}
+			&.banner-2 {
+				@include bg($url: '#{$img-path}/mobile/bg_banner_2.jpg', $size: cover);
+			}
+			&.banner-3 {
+				@include bg($url: '#{$img-path}/mobile/bg_banner_3.jpg', $size: cover);
+			}
+		}
+		&-check-1 { background: #fff;}
+		&-check-2 {
+			background: #ffefcd;
+			.scroll-box {
+				position: absolute;
+				@include vw(top, 451px);
+				@include vw(left, 89px);
+				@include vw(width, 577px);
+				@include vw(height, 271px);
+				overflow-x: scroll;
+				img {
+					max-width: fit-content;
+					height: 100%;
+				}
+			}
+			.wrap {
+				&:after{
+					content: '';
+					display: block;
+					position: absolute;
+					@include vw(top, 451px);
+					@include vw(right, 53px);
+					@include vw(width, 200px);
+					@include vw(height, 271px);
+					@include linear-gradient(to right, rgba(255,255,255, 0) 0%, #fff 100%);
+					z-index: 1;
+				}
+			}
+		}
+		&-info {
+			position: relative;
+			background: #ececec;
+			.action {
+				display: block;
+				position: absolute;
+				@include vw(bottom, 61px);
+				@include vw(left, 223px);
+				@include vw(width, 269px);
+				z-index: 1;
+			}
+		}
+		&-review {
+			@include vw(padding-bottom, 46px);
+			background: #d9552b;
+		}
+		&-book {
+			@include vw(padding-bottom, 125px);
+			@include bg($url: '#{$img-path}/mobile/bg_event.jpg', $size: cover);
+			.action {
+				display: block;
+				@include vw(width, 496px);
+				margin: 0 auto;
+				z-index: 1;
+			}
+		}
+		&-event {
+            @extend %clearfix;
+			background: #ffdfad;
+			img {
+				@include vw(margin-top, -52px);
+			}
+			.action {
+				display: block;
+				position: absolute;
+				@include vw(width, 616px);
+				@include vw(height, 195px);
+				@include vw(left, 50px);
+				&.action-1 { 
+					@include vw(top, 471px);
+				}
+				&.action-2 { 
+					@include vw(658, 471px);
+				}
+			}
+            .product-list {
+				@include vw(margin-bottom, 91px);
+                img { margin: 0; }
+                & > div {
+                    @include vw(margin-top, -36px);
+                    &:first-child { margin-top: 0; }
+                    button {
+                        display: inline-block;
+                        margin: 0;
+                        padding: 0;
+                        vertical-align: middle;
+                        white-space: nowrap;
+                        font-family: inherit;
+                        text-decoration: none;
+                        border: none;
+                        background: transparent;
+                        outline: 0;
+                        cursor: pointer;
+                    }
+                }
+            }
+		}
+	}
+}

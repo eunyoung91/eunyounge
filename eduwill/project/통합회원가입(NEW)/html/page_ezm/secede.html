@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="content-language" content="kr" />
+<title>회원탈퇴</title>
+<link rel="stylesheet" type="text/css" href="../../css/common_ezm.css" />
+<script type="text/javascript" src="../../js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../../js/main.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('input[name="join_pwd"]').focus(function() {
+		$(this).prop('type', 'password').val('');
+	});
+});
+</script>
+</head>
+
+<body>
+<div id="wrap">
+	<div id="g_header">
+		<div class="login_area">
+			<div class="g_inner clearfix">
+
+
+			
+				<h1><a href="/"><img src="https://img.eduwill.net/Img2/Common/CI/ci_com.png" alt="에듀윌" /></a><span class="ezmCI"><img src="https://img.eduwill.net/Img2/ezm/Common/ci_ezm.png" alt="에듀윌" /></span></h1>
+			
+				<script>
+					function goMyClassRoom(progressURL) {
+						//alert(progressURL);
+						if (progressURL != "") {
+							
+							if(progressURL=="NoCharge"){
+								window.open("http://free.eduwill.net/")
+							} else if(progressURL=="_101"){
+								window.open("http://www2.eduwill.net/myroom/index?progress_cd=_101")
+							}else if(progressURL=="_103"){
+				                window.open("http://cook.eduwill.net/myroom/course?progress_cd=_103&productCode=17_103Z0224A&Ver=A&t_code=TN")
+
+			
+							}else{
+								//location.href = "/" + progressURL +"/preMain.asp?eURL=/" + progressURL +"/Myroom/Classroom/";
+								document.location.href = "/Basic/Progress_Go_Trans.asp?progressURL=" + progressURL ;
+							}
+						}
+					}
+				</script>
+
+
+			<div class="form_group">
+				<span class="log_info"><strong>김길찬</strong>님 안녕하세요!</span>
+				<a href="javascript:goMyClassRoom('zPublic');"><img src="https://img.eduwill.net/Img2/globalMain/btn_myclass_look_new.gif" alt="나의 강의실 보기" /></a>
+				
+				<a href="https://ea.eduwill.net/user/modifypwd.action?systemCd=eduwill&redirectUrl=http%3A%2F%2Fdev-ezm.eduwill.net%2F/basic/global_main.asp" onFocus="this.blur();"><img src="https://img.eduwill.net/Img2/globalMain/btn_membermodify_new.gif" alt="회원정보수정" /></a>
+				<a href="/Common/Join/Login/Logout.asp?xURL=/basic/"><img src="https://img.eduwill.net/Img2/globalMain/btn_logout1_new.gif" alt="로그아웃" /></a>
+				
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- // g_header -->
+
+	<div id="g_header" style="display:none">
+		<div class="login_area">
+			<div class="g_inner clearfix">
+
+
+			
+				<h1><a href="/"><img src="https://img.eduwill.net/Img2/Common/CI/ci_com.png" alt="에듀윌" /></a><span class="ezmCI"><img src="https://img.eduwill.net/Img2/ezm/Common/ci_ezm.png" alt="에듀윌" /></span></h1>
+			
+				<script>
+					$("#input_id").bind("keypress", {}, keypressInBox);
+
+					function keypressInBox(e) {
+						var code = (e.keyCode ? e.keyCode : e.which);
+						if (code == 13) { //Enter keycode
+							e.preventDefault();
+
+							$("input_pwd").focus();
+						}
+					};
+
+					$("#input_pwd").bind("keypress", {}, keypressInBox);
+
+					function keypressInBox(e) {
+						var code = (e.keyCode ? e.keyCode : e.which);
+						if (code == 13) { //Enter keycode
+							e.preventDefault();
+
+							check_login_form();
+						}
+					};
+
+					function setCookie(cname, cvalue, exdays) {
+						var d = new Date();
+						d.setTime(d.getTime() + (exdays*24*60*60*1000));
+						var expires = "expires="+d.toUTCString();
+						document.cookie = cname + "=" + cvalue + "; " + expires;
+					}
+
+
+					var gesList = "";
+					(function() {
+						function load(url) {
+							var xhr;
+
+							if(typeof XMLHttpRequest !== 'undefined') xhr = new XMLHttpRequest();
+							else {
+								var versions = ["MSXML2.XmlHttp.5.0",
+												"MSXML2.XmlHttp.4.0",
+												"MSXML2.XmlHttp.3.0",
+												"MSXML2.XmlHttp.2.0",
+												"Microsoft.XmlHttp"]
+
+								 for(var i = 0, len = versions.length; i < len; i++) {
+									try {
+										xhr = new ActiveXObject(versions[i]);
+										break;
+									}
+									catch(e){}
+								 } // end for
+							}
+
+							xhr.onreadystatechange = ensureReadiness;
+
+							function ensureReadiness() {
+								if(xhr.readyState < 4) {
+									return;
+								}
+
+								if(xhr.status !== 200) {
+									return;
+								}
+
+								// all is well
+								if(xhr.readyState === 4) {
+									gesList = xhr.responseText;
+									//alert(gesList);
+								}
+							}
+
+							xhr.open('GET', url, true);
+							xhr.send('');
+						}
+
+						load("/Common/Include/New/SSL_Check.asp");
+
+					})();
+
+
+						function trim(str){
+							var count=str.length,len=count,st=0;
+							while(st<len&&str.charAt(st)<=' ')st++;
+							while(st<len&&str.charAt(len-1)<=' ')len--;
+							return (st>0||len<count) ? str.substring(st,len) : str ;
+						}
+
+
+
+						function fnSafeMe(Div, sslHost){  //''' SSL 로그인을 위하여 생성: ssl사용 시 checkInputSSL(Div, 'ssl호스트도메인까지'), 그외의 경우  checkInput(Div) 사용
+							var tmpReturn=false;
+
+							var frm = document.getElementById("loginForm");
+							if( gesList.indexOf( document.getElementById("UserID").value ) != - 1)  {
+
+								tmpReturn= checkInputSSL(Div,sslHost);
+							}else{
+
+								//tmpReturn= checkInputSSL(Div,sslHost);
+							tmpReturn= checkInputSSL(Div,sslHost);
+							}
+							//if (document.frmLogin.safeMe.checked==true)	{
+
+								//tmpReturn= checkInput(Div);
+							//}else{
+							//	tmpReturn= checkInput(Div);
+							//}
+							return tmpReturn;
+						}
+
+					function check_login_form() {
+						if( document.getElementById("input_id").value == "") {
+							alert("아이디를 입력해주세요.")
+							return false;
+						} else if( document.getElementById("input_pwd").value == "") {
+							alert("비밀번호를 입력해주세요.")
+							return false;
+						} else {
+							if( document.getElementById("save_id").checked) {
+								setCookie("login_save_id", document.getElementById("input_id").value, 365);
+							} else {
+								setCookie("login_save_id", "", -1);
+							}
+							document.getElementById("loginForm").action="https://ea.eduwill.net/login/loginsubmit.action";
+							document.getElementById("loginForm").submit();
+							return true;
+						}
+						return false;
+					}
+
+
+					function clearText(tmp) {
+						var tmp ;
+						var uid		=document.getElementById('UserID') ;
+						var upwd	= document.getElementById('UserPWD') ;
+						var sidchk	= document.getElementById('SaveID') ;
+						if (tmp==1) {//아이디
+							if (uid.value=='아이디' || uid.value=='') {
+								uid.value='' ;
+								uid.focus() ;
+							} else
+								if (sidchk.checked)
+									upwd.focus() ;
+						} else if (tmp==2) {//패스워드
+							if (uid.value=='아이디') {
+								uid.value='' ;
+								uid.focus() ;
+							} else
+								if (sidchk.checked)
+									upwd.focus() ;
+						}
+						return ;
+					}
+
+
+					function checkInputSSL(Div, sslHost) {  //''' SSL 로그인
+						clearText() ;
+						var frm = document.getElementById('frmLogin') ;
+						var Div ;
+
+						if (trim(document.getElementById("UserID").value)=='아이디' || trim(document.getElementById("UserID").value)=='') {
+							clearText(1);
+							alert('아이디를 입력하세요.') ;
+							document.getElementById("UserID").focus() ;
+							return false ;
+						} else if (trim(document.getElementById("UserPWD").value)=='') {
+							alert('비밀번호를 입력하세요.') ;
+							document.getElementById("UserPWD").focus() ;
+							return false ;
+						}
+
+						var expdate = new Date();
+
+						if (document.getElementById("SaveID").checked){
+							expdate.setTime(expdate.getTime() + 1000 * 3600 * 24 * 30);
+							tmp_val=document.getElementById("UserID").value;
+
+						} else {
+							expdate.setTime(expdate.getTime() - 1);
+							tmp_val="" ;
+						}
+						fnIDCookieSave("EducookieID",tmp_val, expdate, "eduwill.net");
+
+						try {
+
+							document.getElementById('Process').location = "/Common/Login/SaveID_Cookie.asp?EducookieID="+tmp_val
+
+						} catch(e) {
+
+							var process_frame = document.getElementById('Process');
+							process_frame.location = "/Common/Login/SaveID_Cookie.asp?EducookieID="+tmp_val
+
+						}
+
+						if (Div == "M") {
+							frm.target = "mProcess" ;
+							frm.action = sslHost+"/Common/Join/Login/Login_Trans.asp" ;
+						} else {
+							frm.target = "Process" ;
+							frm.action = sslHost+"/Common/Join/Login/Login_Trans.asp" ;
+						}
+					}
+					function fnIDCookieSave(name, value, expires, domain){
+						document.cookie = name + "=" + value +"; path=/; domain="+ domain +"; expires=" + expires.toGMTString();
+					}
+
+					function checkInput(Div) {					//''' 일반 로그인
+						clearText() ;
+
+						var frm=window.document.forms['frmLogin'] ;
+						var Div ;
+						if (trim(document.getElementById("UserID").value)=='아이디' || trim(document.getElementById("UserID").value)=='') {
+							clearText(1);
+							alert('아이디를 입력하세요.') ;
+							document.getElementById("UserID").focus() ;
+							return false ;
+						} else if (trim(document.getElementById("UserPWD").value)=='') {
+							alert('비밀번호를 입력하세요.') ;
+							document.getElementById("UserPWD").focus() ;
+							return false ;
+						}
+
+						var expdate = new Date();
+
+						if (document.getElementById("SaveID").checked){
+							expdate.setTime(expdate.getTime() + 1000 * 3600 * 24 * 30);
+							tmp_val=document.getElementById("UserID").value;
+
+						} else {
+							expdate.setTime(expdate.getTime() - 1);
+							tmp_val="" ;
+						}
+						if (document.domain =="www.everywill.net")
+						{
+							fnIDCookieSave("EducookieID",tmp_val, expdate, "everywill.net");
+						}else{
+							fnIDCookieSave("EducookieID",tmp_val, expdate, "eduwill.net");
+						}
+
+						document.getElementById('Process').location = "/Common/Login/SaveID_Cookie.asp?EducookieID="+tmp_val
+
+
+						var TranFileName = "Login_Trans.asp"
+						if (document.domain =="www.everywill.net")
+						{
+							TranFileName = "Login_Everywill_Tran.asp"
+
+						}
+
+						if (Div == "M") {
+							frm.target = "mProcess" ;
+							frm.action = "/Common/Join/Login/"+ TranFileName ;
+						} else {
+							frm.target = "Process" ;
+							frm.action = "/Common/Join/Login/"+ TranFileName ;
+						}
+					}
+				</script>
+				<iframe name="Process" id="Process" width="0" height="0" border="0" src="" frameborder="0" title="프로그램영역"></iframe>
+				<form name="frmLogin" id="loginForm" method="post" onSubmit="javascript: return check_login_form()";><!--https-->
+				<input type="hidden" name="LoginProgress" value="Basic"/>
+				<input type="hidden" name="iURL" value="/basic/global_main.asp^"/>
+				<input type="hidden" name="plusPoint" value=""/>
+				<input name="systemCd" value="eduwill" type="hidden">
+				<input name="redirectUrl" value="http://www.eduwill.net/basic/global_main.asp" type="hidden">
+				<input name="AppName" value="" type="hidden">
+					<div class="form_group">
+
+						<div class="save">
+							<input type="checkbox" id="save_id" name=""  />
+							<label for="SaveID">아이디저장</label>
+						</div>
+
+						<ul>
+							<li>
+								<label for="input_id" class="hidden">아이디를 입력하세요</label>
+								<input type="text" id="input_id" name="usrId" placeholder="아이디" value="" />
+							</li>
+							<li>
+								<label for="input_pwd" class="hidden">비밀번호를 입력하세요</label>
+								<input type="password" id="input_pwd" name="pwd" placeholder="비밀번호" />
+							</li>
+						</ul>
+						<div class="btn_group">
+							<div style="position: relative;">
+								<input type="image" src="https://img.eduwill.net/Img2/globalMain/btn_login.gif" alt="로그인" />
+								<a href="/Common/MyInfo/MyInfo_MemReg.asp""><img src="https://img.eduwill.net/Img2/globalMain/btn_join.gif" alt="회원가입" /></a>
+								<a href="https://ea.eduwill.net/search/searchid.action?redirectUrl=&systemCd=eduwill" class="btn_info">아이디/비밀번호찾기</a>
+								<div style="position: absolute; top: 0px; left:150px;" id="g_flag_img"><img src="https://img.eduwill.net/Img2/globalMain/g_flag.gif" usemap="#close_g_flag_img" />
+								<map name="close_g_flag_img" id="close_g_flag_img">
+								<area coords="116,1,136,18" href="#" onclick="javascript:document.getElementById('g_flag_img').style.display='none'; return false;">
+								</map>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+	<!-- // g_header -->
+
+	<!-- CONTAINER -->
+	<div id="container">
+		<!-- CONTENT -->
+		<div id="content">
+				
+			<div class="g_content join">
+				
+				<div class="join_item">
+					<h2 class="hidden">회원탈퇴</h2>
+					<div class="join_section">
+
+						<div class="secede_con">
+							<h3>회원탈퇴</h3>
+							<div class="g_msg_f">
+								그동안 에듀윌에 깊은 애정과 관심을 주셔서 진심으로 감사드립니다.<br />
+								<strong>회원 탈퇴 후 다음과 같이 <span>박지혜</span>님의 개인정보가 삭제되오니  탈퇴 전 신중하게 검토하시기 바랍니다.</strong>
+							</div>
+
+							<h4>※ 탈퇴 시 삭제되는 항목</h4>
+							<ul class="list_type_a">
+								<li>- 탈퇴 요청하신 <strong>abcder1034</strong>아이디로는 재가입이 불가능 합니다.</li>
+								<li>- 회원가입 시 입력한 개인정보는 모두 삭제 됩니다.</li>
+								<li>- 현재 보유하고 계신 포인트 <strong><span>1,260</span>점</strong> / 에듀머니 <strong><span>10,000</span>점</strong>이  삭제 됩니다.</li>
+							</ul>
+
+							<h4>※ 탈퇴 시 보관되는 항목</h4>
+							<ul class="list_type_a">
+								<li>- 해당 아이디의 게시글 및 댓글 (데이터 삭제로 인한 시스템 오류 예방)</li>
+								<li>- 결제 및 구매내역 (상거래법에 따라 결제 후 6개월 간 의무 보관)</li>
+							</ul>
+
+							<div class="g_msg_f">
+								삭제를 원하는 게시글이 있다면 반드시 탈퇴 전 비공개 및 삭제처리 하시기 바랍니다.<br />
+								탈퇴 후에는 회원정보 삭제로 인해 본인 확인이 불가하여 게시글을 임의로 삭제해드릴 수 없습니다.
+							</div>
+
+							<div class="pwd_login">
+								<dl>
+									<dt>비밀번호 재 입력</dt>
+									<dd>보안을 위해 비밀번호를 한번 더 입력해 주세요.</dd>
+								</dl>
+								<input type="password" id="member_pwd" title="비밀번호를 입력하세요." class="g_input" placeholder="비밀번호" />
+							</div>
+						</div>
+					</div>
+					<!-- // join_section -->
+					<div class="btn_group">
+						<a href="#" class="g_btn_a">회원탈퇴</a>
+					</div>
+				</div>
+				<!-- // find_item -->
+
+			</div>
+			<!-- // g_content -->
+		</div>
+		<!-- //CONTENT -->
+	</div>
+	<!-- //CONTAINER -->
+
+	<!-- 하단 공통 슬로건 -->
+	<div style="background:url(https://img.eduwill.net/Img2/ezm/Common/product/event_new/bg_bottom.gif) 50% 0 no-repeat;">
+		<div style="position:relative; width:850px; margin:0 auto;">
+			<img src="https://img.eduwill.net/Img2/ezm/Common/product/event_new/bottom_txt.png" alt="에듀윌은 합격이다! 에듀윌과 함께하면 합격이 빠르고 쉬워집니다. 문의사항 1600-6700">
+			<div class="design_kwon" style="position:absolute; right: 0; bottom: 0; width:850px; margin:0;"></div>
+		</div>
+	</div>
+	<!-- //하단 공통 슬로건 -->
+
+	<!-- 공통 FOOTER -->
+	<script type="text/javascript" src="http://img.eduwill.net/resources/common/web/footer_v1_ezm.js" charset="utf-8"></script>
+
+
+</div>
+<!-- // WRAP -->
+
+</body>
+</html>

@@ -1,0 +1,728 @@
+.is-survey #wrap {
+	height: 100vh;
+	overflow: hidden;
+	@include breakpoint(tablet){
+		height: auto;
+		overflow: visible;
+	}
+}
+
+// wrap
+#wrap {
+	position: relative;
+	left: 0;
+	@include transition(all, .3s, ease);
+	.is-mymenu & {
+		position: fixed;
+		left: 100%;
+		height: 100vh;
+		overflow: hidden;
+		transition-delay: .1s;
+	}
+	&:before {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: map-get($z-index, dim);
+		visibility: hidden;
+		width: 100%;
+		height: 100%;
+		background-color: $color-base-2;
+		opacity: 0;
+		@include transition(all, .2s, ease);
+		transition-delay: .3s;
+		.is-mymenu & {
+			visibility: visible;
+			opacity: .5;
+			transition-delay: .1s;
+		}
+	}
+}
+
+// header
+#header {
+	@extend .grid;
+	border-bottom: 1px solid $border-color-1;
+	.inner { padding: 0; }
+	&.sns {
+		@include rem(padding-bottom, 10px);
+		border-bottom-width: 0;
+		.heading {
+			display: block;
+			text-align: center;
+			.subject {
+				display: block;
+				@include rem(font-size, 20px);
+			}
+		}
+	} 
+	.heading {
+		display: inline-block;
+		vertical-align: top;
+		font-size: 0;
+		a {
+			display: inline-block;
+			vertical-align: top;
+			line-height: 1;
+			@include rem(font-size, 15px);
+			@include breakpoint(desktop){
+				@include rem(font-size, 26px);
+			}
+			&.item-home {
+				font-weight: 400;
+				color: $color-base-1;
+				@include rem(font-size, 14px);
+				@include breakpoint(desktop){
+					@include rem(font-size, 16px);
+				}
+			}
+		}
+		.eduwill {
+			font-size: 0;
+			@include rem(padding, 15px 0 7px);
+			@include breakpoint(desktop){
+				@include rem(padding, 36px 0);
+			}
+		}
+		.home {
+			position: relative;
+			@include rem(padding, 16px 0 7px);
+			@include rem(margin-left, 6px);
+			@include rem(font-size, 17px);
+			@include breakpoint(desktop){
+				@include rem(margin-left, 4px);
+				@include rem(padding, 38px 0);
+				@include rem(font-size, 24px);
+			}
+			.logo {
+				position: absolute;
+				top: 20%;
+				left: 100%;
+				display: none;
+				@include breakpoint(desktop){
+					top: 33%;
+				}
+			}
+		}
+	}
+	.upper {
+		//@extend .col;
+		//border-bottom: 1px solid $border-color-1;
+		@include rem(padding-left, 51px);
+		@include breakpoint(desktop){
+			display: inline-block;
+			border-bottom-width: 0;
+			@include rem(padding-left, 10px);
+		}
+		@include breakpoint(desktop){
+			padding-left: 0;
+		}
+	}
+	.lower {
+		@include rem(padding, 0 10px);
+		@include breakpoint(desktop){
+			float: right;
+			padding-left: 0;
+		}
+		.gnb {
+			display: table;
+			width: 100%;
+			text-align: center;
+			@include breakpoint(desktop){
+				@include rem(margin-top, 40px);
+			}
+			li {
+				display: table-cell;
+				float: none;
+				@include rem(font-size, 15px);
+				@include breakpoint(tablet){
+					display: block;
+					float: left;
+					@include rem(padding, 0 11px);
+					&:before {
+						top: 50%;
+						left: 0;
+						background-color: $border-color-1;
+						@include rem(width, 1px);
+						@include rem(height, 11px);
+						@include rem(margin-top, -5.5px);
+					}
+				}
+				@include breakpoint(desktop){
+					width: auto;
+					@include rem(font-size, 17px);
+					&:last-child { padding-right: 0; }
+				}
+				&:before,
+				&:after {
+					content: '';
+					position: absolute;
+					display: block;
+				}
+				&:first-child:before { display: none; }
+				&:only-child {
+					float: left;
+					font-weight: 700;
+					@include rem(font-size, 17px);
+					a {
+						@include rem(padding, 12px 0);
+						@include breakpoint(desktop){
+							@include rem(padding, 17px 11px 18px);
+						}
+					}
+				}
+				&.in {
+					color: $color-primary;
+					a:after { border-bottom: 2px solid $border-color-active; }
+				}
+				a {
+					position: relative;
+					display: block;
+					font-weight: 500;
+					@include rem(padding, 13px 4px 14px);
+					@include breakpoint(desktop){
+						@include rem(padding, 17px 11px 18px);
+					}
+					&:after {
+						content: '';
+						position: absolute;
+						right: 0;
+						left: 0;
+						display: block;
+						width: 100%;
+						@include rem(bottom, -1px);
+					}
+					span {
+						position: relative;
+						display: inline-block;
+					}
+				}
+				.new {
+					position: absolute;
+					display: block;
+					border-radius: 50%;
+					background-color: $color-primary;
+					@include rem(top, -6px);
+					@include rem(right, -6px);
+					@include rem(width, 6px);
+					@include rem(height, 6px);
+					i { @extend .sr-only; }
+				}
+			}
+		}
+	}
+
+	.util {
+		//position: relative;
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		@include breakpoint(desktop){
+			right: 1rem;
+			left: auto;
+		}
+		a {
+			position: absolute;
+			top: 0;
+			display: inline-block;
+			@include breakpoint(desktop){
+				position: relative;
+				vertical-align: top;
+				color: $color-base-1;
+				@include rem(margin-left, 20px);
+				@include rem(padding, 11px 0 9px);
+				&:first-child { margin-left: 0; }
+			}
+			&.menu {
+				@include rem(left, 5px);
+				@include breakpoint(desktop){
+					display: none;
+				}
+			}
+			&.alarm {
+				@include rem(right, 5px);
+				.count {
+					position: absolute;
+					display: inline-block;
+					line-height: 1.5;
+					color: $color-white;
+					background-color: $color-primary;
+					@include rem(top, 8px);
+					@include rem(right, 8px);
+					@include rem(min-height, 16px);
+					@include rem(padding, 0 4px);
+					@include rem(font-size, 11px);
+					@include rem(border-radius, 10px);
+					@include breakpoint(desktop){
+						position: static;
+						top: 0;
+						right: 0;
+						vertical-align: 1px;
+						@include rem(padding, 0 5px);
+					}
+				}
+				@include breakpoint(desktop){
+					.icon.alarm {
+						width: auto;
+						height: auto;
+						line-height: 1;
+						vertical-align: middle;
+						background: none;
+					}
+					i {
+						position: static;
+						display: inline;
+						width: auto;
+						height: auto;
+						clip: inherit;
+						margin: 0;
+						overflow: visible;
+						vertical-align: middle;
+						text-indent: inherit;
+						font-style: normal;
+						color: $color-base-1;
+						@include rem(font-size, 14px);
+					}
+				}
+			}
+			&.user {
+				display: none;
+				@include breakpoint(desktop){
+					display: inline-block;
+					color: $color-base-4;
+					&.logout {
+						background-repeat: no-repeat;
+						background-position: right center;
+						background-image: url('#{$img-path}/common/icon_logout.png');
+						@include rem(padding-right, 20px);
+					}
+				}
+			}
+			&.puri {
+				display: none;
+				@include breakpoint(desktop){
+					display: inline-block;
+				}
+			}
+			&.myroom {
+				display: none;
+				@include breakpoint(desktop){
+					display: inline-block;
+				}
+			}
+			&.login {
+				color: #fff;
+				background-color: #747c90;
+				@include rem(margin, 8px 0);
+				@include rem(padding, 4px 11px 3px);
+				@include rem(font-size, 12px);
+				@include rem(border-radius, 2px);
+				&.sns {
+					background: none;
+					@include rem(margin, 0 0 0 2px);
+					@include rem(padding, 8px 0);
+				}
+			}
+		}
+	}
+}
+
+// myMenu
+.my-menu {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: -100%;
+	z-index: map-get($z-index, modal);
+	width: 100%;
+	max-width: 100%;
+	height: 100%;
+	background-color: $color-white;
+	@include transition(all, .3s, ease);
+	.is-mymenu & {
+		left: 0;
+		transition-delay: .1s;
+	}
+	@include breakpoint(desktop){
+		display: none;
+	}
+	.menu-wrap {
+		position: relative;
+		height: 100%;
+	}
+	.menu-head {
+		position: relative;
+		text-align: center;
+	}
+	.heading {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		@include rem(font-size, 32px);
+		@include translateY(200%);
+		@include rwdHeight(380) {
+			@include translateY(100%);
+		}
+		a {
+			display: inline-block;
+			vertical-align: top;
+			line-height: 1;
+			&.home {
+				position: relative;
+				.logo {
+					position: absolute;
+					right: 0;
+					display: none;
+					@include rem(top, -22px);
+				}
+			}
+		}
+	}
+	.menu-close { @include close(50px, 50px, 1px, $color-base-2); }
+	.menu-body {
+		position: absolute;
+		top: 50%;
+		right: 0;
+		left: 0;
+		text-align: center;
+		@include translateY(-50%);
+		@include rwdHeight(380) {
+			@include translateY(-30%);
+		}
+		.action {
+			display: block;
+			padding: 0 24.583% 0;
+			&-menu {
+				display: none;
+				padding: 7.8125% 4.72% 0;
+				@include rwdHeight(380) {
+					padding-top: 0;
+				}
+				.col {
+					width: 33.33%;
+					width: calc(100%/3);
+					color: $color-base-1;
+					@include rem(font-size, 15px);
+					.icon {
+						display: block;
+						margin: 0 auto 10px;
+					}
+				}
+			}
+			a {
+				display: block;
+				width: auto;
+				@include rem(margin-top, 23px);
+				&:first-child { margin-top: 0; }
+			}
+		}
+	}
+	.welcome {
+		display: none;
+		@include rem(font-size, 26px);
+	}
+	.menu-footer {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		.col {
+			width: 100%;
+			text-align: center;
+			&.notice {
+				display: none;
+			}
+			&.logout {
+				display: none;
+				float: none;
+				clear: both;
+				width: 100%;
+				border-top: 1px solid $border-color-1;
+				span {
+					display: inline-block;
+					color: $color-base-1;
+					background-repeat: no-repeat;
+					background-position: right center;
+					background-image: url('#{$img-path}/common/icon_mymenu_logout.png');
+					background-size: auto 12px;
+					@include rem(padding-right, 20px);
+					@include rem(font-size, 13px);
+				}
+			}
+			a {
+				display: block;
+				font-weight: 700;
+				@include rem(padding, 13px 0);
+			}
+		}
+	}
+	&-login {
+		.menu-head {
+			text-align: left;
+			@extend .grid;
+		}
+		.heading {
+			@extend .col;
+			@include rem(padding, 20px 0 0 20px);
+			@include rem(font-size, 19px);
+			@include translateY(0);
+			a {
+				display: inline-block;
+				vertical-align: top;
+				line-height: 1;
+				&.home {
+					position: relative;
+					@include rem(font-size, 19px);
+					.logo {
+						position: absolute;
+						left: 104%;
+						@include rem(top, -7px);
+					}
+				}
+			}
+		}
+		.menu-body {
+			@include translateY(-80%);
+			@include rwdHeight(380) {
+				@include translateY(-60%);
+				.block-sm { display: inline-block; }
+			}
+			.welcome { display: block; }
+			.action {
+				display: none;
+				&-menu { display: block; }
+			}
+		}
+		.menu-footer .col.logout { display: block; }
+	}
+}
+
+// container
+#container {
+	height: 100%;
+	background-color: $bg-color-1;
+	@extend %clearfix;
+}
+
+// inner
+.inner {
+	position: relative;
+	margin: 0 auto;
+	@extend %clearfix;
+	@include breakpoint(tablet){
+		@include rem(padding, 0 16px 40px);
+	}
+	@include breakpoint(desktop){
+		width: $layout-desktop;
+		padding: 0 0 40px;
+	}
+}
+
+.layerWrap {
+	&#alarmLayer {
+		top: 5%;
+		right: 5%;
+		left: 5%;
+		bottom: 5%;
+		width: auto;
+		height: auto;
+		margin: 0;
+		@include breakpoint(desktop){
+			top: 50%;
+			right: auto;
+			left: 50%;
+			width: 800px;
+			height: 638px;
+			margin: -320px 0 0 -400px;
+		}
+		.inner {
+			width: auto;
+			height: 100%;
+			@include breakpoint(tablet){
+				padding: 0;
+			}
+		}
+		.cont {
+			height: calc(100% - 49px);
+			@include boxSizing(border-box);
+			@include breakpoint(tablet){
+				height: calc(100% - 69px);
+			}
+		}
+		.nodata {
+			position: relative;
+			top: 0;
+			padding-top: 0;
+		}
+		.top {
+			@include rem(padding, 10px 15px);
+			@include breakpoint(tablet){
+				@include rem(padding, 20px 30px);
+			}
+			.btn_alarm {
+				@include rem(top, 10px);
+				@include breakpoint(tablet){
+					@include rem(top, 20px);
+				}
+				a {
+					@include rem(padding, 0 5px);
+					@include rem(font-size, 13px);
+					&.btn_refresh {
+						padding: 0;
+					}
+				}
+			}
+			.closeLayer {
+				@include rem(top, 16px);
+				@include breakpoint(tablet){
+					@include rem(top, 26px);
+				}
+			}
+		}
+		.alarmList {
+			height: 100%;
+			max-height: 100%;
+			@include breakpoint(desktop){
+				max-height: 529px;
+			}
+			ul li {
+				padding: 0;
+				&.checks {
+					dl {
+						background-color: #ebedf1;
+						@include rem(border-radius, 5px);
+					}
+					dt { background-image: url('#{$img-path}/common/icon_alarm_check.png'); }
+				}
+				&.unchecks dt { background-image: url('#{$img-path}/common/icon_alarm_uncheck.png'); }
+				&.open {
+					dl { background-color: $color-white; }
+					dd { display: block; }
+				}
+				dl {
+					position: relative;
+					cursor: pointer;
+					@include rem(padding, 0 45px 0 14px);
+					@include breakpoint(tablet){
+						@include rem(padding-right, 40px);
+					}
+					dt {
+						margin-right: 0;
+						padding-right: 0;
+						border-radius: 0;
+						word-break: break-all;
+						background-size: 15px;
+						@include breakpoint(tablet){
+							@include rem(padding-right, 150px);
+						}
+					}
+					.subj { @include rem(font-size, 15px); }
+					.date {
+						position: static;
+						top: auto;
+						right: auto;
+						text-align: left;
+						@include rem(margin-top, 10px);
+						@include rem(font-size, 13px);
+						@include breakpoint(tablet){
+							position: absolute;
+							margin-top: 0;
+							@include rem(top, 18px);
+							@include rem(right, 39px);
+						}
+					}
+				}
+				.delete {
+					background-image: url('#{$img-path}/common/icon_delete_uncheck.png');
+					background-position: center center;
+					background-size: 50%;
+					@include rem(top, 10px);
+					@include rem(right, 10px);
+					@include rem(width, 30px);
+					@include rem(height, 30px);
+					@include breakpoint(tablet){
+						top: 10px;
+						right: 7px;
+					}
+				}
+			}
+		}
+		.listMore {
+			width: 100%;
+			text-align: center;
+			span { margin-left: 0; }
+			@include breakpoint(tablet){
+				width: 200px;
+			}
+		}
+	}
+}
+
+// loading
+#loading {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: map-get($z-index, loading);
+	display: block;
+	width: 100vw;
+	height: 100vh;
+	@include breakpoint(tabletLandscape){
+		width: 100%;
+		background-color: rgba(51, 51, 51, .6);
+	}
+	@include breakpoint(desktop){
+		width: 100%;
+		background-color: rgba(51, 51, 51, .6);
+	}
+	.loading-wrap {
+		width: 100%;
+		height: 100%;
+		background-color: $color-white;
+		background-image: url('#{$img-path}/common/loading.gif');
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: 100% auto;
+		@include rwdHeight(480) {
+			background-size: 30% auto;
+		}
+		@include breakpoint(tabletLandscape){
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 440px;
+			height: 600px;
+			margin: -300px 0 0 -220px;
+		}
+		@include breakpoint(desktop){
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 440px;
+			height: 600px;
+			margin: -300px 0 0 -220px;
+		}
+		span { @extend .sr-only; }
+	}
+	.loading-notice {
+		position: absolute;
+		right: 0;
+		top: 75%;
+		left: 0;
+		text-align: center;
+		@include breakpoint(tabletLandscape){
+			top: 85%;
+		}
+		@include breakpoint(desktop){
+			top: 85%;
+		}
+	}
+}

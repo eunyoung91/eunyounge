@@ -1,0 +1,214 @@
+.popup-dim {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 300;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: rgba(0, 0, 0, .8);
+}
+
+.popup {
+	position: absolute;
+	left: 50%;
+	top: 0;
+	z-index: 310;
+	display: none;
+	width: 90%;
+	max-width: 640px;
+	font-family: $font-noto;
+	background-color: #fff;
+	p{font-family: $font-noto;}
+	@include translateX(-50%);
+	@include boxSizing(border-box);
+	@include breakpoint(desktop){
+		width: 100%;
+		max-width: 720px;
+	}
+	.popup-head {
+		@include rem(padding, 28px);
+		text-align: center;
+		line-height: 1.2;
+		@include vw(26px);
+		font-weight: 700;
+		color: #fff;
+		letter-spacing: -1px;
+		background-color: #2e2b48;
+		strong {
+			display: block;
+			@include vw(36px);
+			color: #ffd500;
+		}
+	}
+
+	.popup-body {
+		@include rem(padding, 40px 30px 50px);
+		@include boxSizing(border-box);
+		text-align: left;
+		.list {
+			@extend %clearfix;
+			@include rem(margin-top, 10px);
+			&:first-child { margin-top: 0; }
+			line-height: 1.5;
+			.list-item {
+				@extend .table;
+				width: 100%;
+				table-layout: fixed;
+				@include boxSizing(border-box);
+				& > div { @extend .table-cell; }
+				.subject {
+					width: 22%;
+					text-align: left;
+					@include vw(24px);
+					font-weight: 500;
+					color: #000;
+				}
+				.forms { width: 78%; }
+				&.agree-item { 
+					padding-left: 22%; 
+					line-height: 1.5;
+				}
+			}
+		}
+		.agree-box {
+			@include rem(margin-top, 20px);
+			&:first-child { margin-top: 0; }
+		}
+		.agree-title {
+			display: block;
+			@include vw(18px);
+			font-weight: 500;
+			color: #000;
+			// span { color: #ff0000; }
+		}
+		.agree-item {
+			@include vw(18px);
+			line-height: 1.5;
+			.agree-title { @include vw(18px); }
+			.btn {
+				display: block;
+				@include rem(margin-top, 10px);
+			}
+		}
+		.text {
+			display: block;
+			width: 100%;
+			@include rem(padding, 8px 16px);
+			height: 40px;
+			@include vw(24px);
+			border: 1px solid #ccc;
+			background: #fff;
+			@include boxSizing(border-box);
+		}
+		.btn {
+			position: relative;
+			display: inline-block;
+			@include boxSizing(border-box);
+			text-align: center;
+			&.btn-apply {
+				@include rem(padding, 20px);
+				@include vw(28px);
+				font-weight: 700;
+				color: #000;
+				border: 1px solid #000;
+				background-color: #ffd900;
+				&:after {
+					@include arrow(right, 8px, 8px, 2px, #000);
+					right: 5%;
+				}
+			}
+			&.btn-cancel {
+				@include rem(padding, 20px);
+				@include vw(28px);
+				font-weight: 700;
+				color: #555;
+				border: 1px solid #999;
+				background-color: #999;
+				&:after {
+					@include arrow(right, 8px, 8px, 2px, #999);
+					right: 5%;
+				}
+			}
+			&.btn-modify {
+				@include rem(padding, 10px);
+				@include vw(18px);
+				color: #222;
+				border: 1px solid #ccc;
+				background-color: #eee;
+				&:after {
+					@include arrow(right, 8px, 8px, 2px, #000);
+					right: 5%;
+				}
+			}
+		}
+		.privacy-box {
+			@include rem(height, 200px);
+			@include rem(margin, 10px 0);
+			@include rem(padding, 15px);
+			text-align: left;
+			line-height: 1.4;
+			@include vw(20px);
+			font-weight: 400;
+			color: #666;
+			background: #e7e7e7;
+			overflow-y: scroll;
+			@include boxSizing(border-box);
+			.core {
+				@include rem(margin-top, 20px);
+				&:first-child { margin-top: 0; }
+				strong {
+					display: block;
+					margin-bottom: 5px;
+					font-weight: 700;
+					color: #000;
+				}
+				.table-wrap {
+					@include rem(margin, 10px 0 20px);
+					table {
+						width: 100%;
+						border-right: 1px solid #666;
+						border-bottom: 1px solid #666;
+						th,
+						td {
+							@include rem(padding, 5px);
+							text-align: center;
+							@include vw(16px);
+							border-left: 1px solid #666;
+							border-top: 1px solid #666;
+							&.highlight {
+								@include vw(24px);
+								font-weight: 700;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.popup-action {
+		display: block;
+		@include rem(margin-top, 20px);
+		font-size: 0;
+		.btn {
+			&:only-child { width: 100%; }
+			&:nth-child(1):nth-last-child(2),
+			&:nth-child(2):nth-last-child(1) { width: 49%; }
+			&:nth-child(1):nth-last-child(2) { margin-right: .5%; }
+			&:nth-child(2):nth-last-child(1) { margin-left: .5%; }
+		}
+	}
+
+	.popup-close {
+		@include close(50px, 50px, 2px, #fff);
+		top: 5px;
+		right: 5px;
+		z-index: 1;
+	}
+}
+
+.apply-pop {position:fixed; width:306px; height:290px; top:50%; left:50%; margin:-80px 0 0 -153px; z-index:1000}

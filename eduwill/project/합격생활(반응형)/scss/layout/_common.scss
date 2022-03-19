@@ -1,0 +1,310 @@
+// background
+.bg-gray { background-color: $bg-color-1; }
+.bg-white { background-color: $color-white; }
+
+// disabled
+.disabled,
+[disabled] {
+	cursor: not-allowed;
+	pointer-events: none;
+}
+
+// Grid System
+.grid {
+	position: relative;
+	@extend %clearfix;
+	.col {
+		position: relative;
+		float: left;
+		@include boxSizing(border-box);
+		&-right {
+			float: right;
+		}
+	}
+}
+
+// block for sm
+.block-sm {
+	display: block;
+	@include breakpoint(tablet){
+		display: inline;
+	}
+}
+
+// block for lg
+.block-lg {
+	display: inline;
+	@include breakpoint(tablet){
+		display: block;
+	}
+}
+
+// hidden for sm
+.hidden-sm {
+	display: none;
+	@include breakpoint(tablet){
+		display: block;
+	}
+}
+
+// hidden for lg
+.hidden-lg {
+	display: block;
+	@include breakpoint(tablet){
+		display: none;
+	}
+}
+
+// list
+ul.list,
+ol.list {
+	&.list-number {
+		color: $color-base-1;
+		@include rem(margin-top, 8px);
+		@include rem(margin-left, 20px);
+		@include breakpoint(tablet){
+			@include rem(margin-top, 16px);
+		}
+		li { list-style: decimal; }
+	}
+}
+
+.text {
+	// text color
+	&-white {
+		color: $color-white;
+	}
+	&-base {
+		color: $color-base-1;
+	}
+	&-base-dark {
+		color: $color-base-2;
+	}
+	&-base-medium {
+		color: $color-base-4;
+	}
+	&-base-light {
+		color: $color-base-6;
+	}
+	&-pirmary {
+		color: $color-primary;
+	}
+	&-primary-dark {
+		color: $color-primary-dark;
+	}
+}
+
+.shortcut {
+	position: fixed;
+	right: 0;
+	left: 0;
+	z-index: map-get($z-index, shortcut);
+	text-align: center;
+	font-size: 0;
+	@extend %clearfix;
+	@include rem(bottom, 12px);
+	a {
+		position: relative;
+		display: inline-block;
+		span {
+			position: relative;
+			display: block;
+			color: $color-white;
+			@include rem(font-size, 12px);
+		}
+		strong { display: none; }
+	}
+	&-close {
+		position: relative;
+		vertical-align: top;
+		border-radius: 50%;
+		@include close(40px, 40px, 2px, $color-base-2);
+	}
+	[data-shortcut] {
+		text-align: left;
+		background-color: $color-base-2;
+		@include rem(width, 220px);
+		@include rem(padding, 11px 20px 11px 26px);
+		@include rem(border-radius, 25px);
+		@include boxSizing(border-box);
+		@include boxShadow(0 6px 0 0 rgba(2, 9, 37, .08));
+		span {
+			&:after {
+				right: 0;
+				@include arrow(right, 6px, 6px, 2px, $color-white);
+			}
+		}
+	}
+	[data-modal] {
+		float: right;
+		text-align: center;
+		border: 2px solid $color-base-2;
+		border-radius: 50%;
+		background-color: $color-white;
+		@include rem(padding, 11px 0);
+		@include breakpoint(tablet){
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			float: none;
+		}
+		@include breakpoint(desktop){
+			position: fixed;
+			top: 177px;
+			left: 50%;
+			margin-left: 570px;
+		}
+		@include rem(width, 50px);
+		@include rem(height, 50px);
+		@include boxSizing(border-box);
+		@include boxShadow(0 6px 0 0 rgba(2, 9, 37, .08));
+		span {
+			line-height: 1;
+			font-weight: 700;
+			color: $color-base-2;
+		}
+	}
+
+	&#guideShortcut {
+		@include rem(right, 20px);
+		@include rem(left, 20px);
+		[data-shortcut] {
+			float: left;
+			@include rem(margin, 5px 0);
+			@include breakpoint(tablet){
+				float: none;
+			}
+			span {
+				&:before,
+				&:after {
+					right: 0;
+					@include arrow(bottom, 6px, 6px, 2px, $color-white);
+				}
+				&:before { margin-top: -8px; }
+				&:after { margin-top: -2px; }
+			}
+		}
+	}
+}
+
+.life-banner {
+	background-color: $color-white;
+	@include rem(margin-top, 16px);
+	.intro & { margin-top: 0; }
+	@include breakpoint(desktop){
+		width: 1100px;
+		margin: 40px auto 0;
+	}
+	.banner {
+		width: 100%;
+		text-align: center;
+		a {
+			display: block;
+			width: 100%;
+		}
+		.core {
+			position: relative;
+			display: inline-block;
+		}
+		.desc {
+			position: absolute;
+			top: 16.5%;
+			left: 4.72%;
+			color: #6912db;
+			letter-spacing: -1.2px;
+			font-size: 3.75vw; // 27/720*100
+			//@include rem(font-size, 13px);
+			@include breakpoint(tablet) {
+				@include rem(font-size, 28px);
+			}
+			@include rwdWidth(1117) {
+				left: 3%;
+				font-size: 24px;
+			}
+		}
+		img { display: inline-block; }
+	}
+	.bx-wrapper {
+		@include breakpoint(desktop) {
+			&:hover .bx-controls-direction {
+				display: block;
+				opacity: 1; 
+			}
+		}
+		.bx-controls-direction {
+			display: none;
+			@include breakpoint(desktop) {
+				opacity: 0;
+				@include transition(all, .3s, ease);
+				a {
+					width: 30px;
+					height: 50px;
+					z-index: map-get($z-index, pager);
+					background-color: rgba(0, 0, 0, .25);
+					&:after {
+						content: '';
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						width: 10px;
+						height: 10px;
+						margin-top: -5px;
+						border-top: 2px solid $color-white;
+						border-right: 2px solid $color-white;
+					}
+					&.bx-next {
+						right: 0;
+						&:after {
+							margin-left: -8px;
+							@include rotate(45deg);
+						}
+					}
+					&.bx-prev {
+						left: 0;
+						&:after {
+							margin-left: -4px;
+							@include rotate(-135deg);
+						}
+					}
+				}
+			}
+		}
+		.bx-pager {
+			width: auto;
+			padding-top: 0;
+			text-align: right;
+			font-size: 0;
+			@include rem(top, 9px);
+			@include rem(right, 9px);
+			@include breakpoint(tablet){
+				top: 14px;
+			}
+			a {
+				background: $color-white;
+				opacity: .4;
+				@include rem(width, 6px);
+				@include rem(height, 6px);
+				@include rem(margin-left, 4px);
+				@include rem(border-radius, 6px);
+				@include transition(all, .3s, ease);
+				&:first-child { margin-left: 0; }
+				&.active {
+					background: $color-white;
+					opacity: 1;
+					@include rem(width, 15px);
+				}
+				@include breakpoint(tablet){
+					width: 12px;
+					height: 12px;
+					border-radius: 12px;
+					margin-left: 4px;
+					&:hover {
+						background: $color-white;
+						opacity: 1;
+					}
+					&.active { width: 30px; }
+				}
+			}
+		}
+	}
+}

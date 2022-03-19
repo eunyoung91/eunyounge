@@ -1,0 +1,62 @@
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+.promotion {
+    position: relative;
+    font-family: $font-noto;
+    letter-spacing: -1px;
+    .container {
+        position: relative;
+        background-repeat: no-repeat;
+        background-position: center top;
+    }
+    .wrap {
+        position: relative;
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .section {
+		&-topbanner{
+			background: #ffdb00; 
+		}
+        &-title { 
+			@include bg($color: #130c76, $url: '#{$img-path}/mobile/title_bg.jpg', $size: cover);
+			.benefit{
+				position: absolute;
+				left: 0;
+				bottom: -48.38%;
+				z-index: 20;
+			}
+		}
+		&-content01 {
+			background: #fffae6;
+		}
+		&-content02 {
+			@include bg($color: #130c76, $url: '#{$img-path}/mobile/content02_bg.jpg', $size: cover);
+		}
+		&-content05 {
+			@include bg($color: #130c76, $url: '#{$img-path}/mobile/content05_bg.jpg', $size: cover);
+		}
+		&-content06 {
+			@include bg($color: #130c76, $url: '#{$img-path}/mobile/content06_bg.jpg', $size: cover);
+			.action{
+				width: 69.02%;
+				position: absolute;
+				top: 62.79%;
+				left: 15.55%;
+				a{ 
+					@include rem(margin-bottom, 18px);
+					@include pointer(60%, 0, 57px, 65px, 12, bounce);
+				}
+			}
+		}
+		&-bottom-banner{
+			background: #ffd000; 
+		}
+    }
+}
+
+@import "module/popup";

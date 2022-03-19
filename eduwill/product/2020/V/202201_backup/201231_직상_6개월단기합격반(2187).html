@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ko" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+<title></title>
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/product.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/product.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.min.js"></script>
+
+<link href="https://img.eduwill.net/eduwill/live/libs/slick/slick.css" rel="stylesheet" />
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/slick/slick.js"></script>
+<!-- // 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+    컨텐츠 감싸는 부모 : product-eco
+    하단 수강신청 영역 : product-apply
+    하단 수강신청 영역 내 탭 : product-tab
+    하단 수강신청 영역 내 정보 : product-table
+    따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+
+
+<style type="text/css">.fix-apply{display:none !important}
+.product-eco { position: relative; padding-bottom: 50px;background-color:#fff; overflow-x: hidden;}
+    .product-eco .section { position: relative;}
+    .product-eco .wrap { position: relative; width: 1100px; margin: 0 auto; text-align: center; font-family: 'Noto Sans KR', Sans-Serif; letter-spacing: -1px;}
+    .product-eco p{line-height:100%;margin:0;}
+
+    .grid { box-sizing: border-box; -webkit-box-sizing: border-box; *zoom: 1; }
+    .grid:before,
+    .grid:after { content: ''; display: table; }
+    .grid:after { clear: both; }
+    .grid .col { float: left; box-sizing: border-box; -webkit-box-sizing: border-box; }
+
+    .sr-only { position: absolute; z-index: -1; clip: rect(0 0 0 0); display: inline-block; width: 1px; height: 1px; *height: 0; margin: -1px; padding: 0; overflow: hidden; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }
+
+    .pointer{ position: absolute;top:0;right:0;}
+    .pointer>img{ animation: 0.6s slideUpY ease-in-out infinite alternate;}
+    @keyframes slideUpY {
+        0% { -webkit-transform: translate(0,10px); transform: translate(0, 10px); }
+        100% { -webkit-transform: translate(-10px, 0); transform: translate(-10px, 0); } 
+    }
+    .bounce{animation:bounce 1s infinite both;-webkit-animation:bounce 1s infinite both;}
+    @-webkit-keyframes bounce {
+        0%,100% { -webkit-transform: translateY(10px); transform: translateY(10px); } 
+        50% { -webkit-transform: translateY(-10px); transform: translateY(-10px); }
+    }
+    @keyframes bounce {
+        0%,100% { -webkit-transform: translateY(10px); transform: translateY(10px); }
+        50% { -webkit-transform: translateY(-10px); transform: translateY(-10px); }
+    }
+
+    .product-eco .fixbanner{ position: fixed;bottom:0;left:0;right:0;margin:0 auto;background:#1a1a76;z-index:777;}
+    .product-eco .fixbanner .pointer{top:50px;right:245px;}
+    .product-eco .fixbanner .pointer>img{width:70%;}
+
+    .section-top-banner { background: #22223a;}
+
+    .section-title { background:url('https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/bg_title.jpg') 50% 0 no-repeat}
+
+    .section-info .winner-contents{position:relative;padding:55px 0;width:100%;height:395px;overflow:hidden;box-sizing:border-box;background:url(https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/bg_winner.jpg) 50% 0 no-repeat}
+    .section-info .winner-contents:after{content:'';display:block;position:absolute;bottom:2px;left:0;width:99.8%;height:100px;left:50%;transform:translate(-50%,0);background:-moz-linear-gradient(bottom,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);background:-webkit-linear-gradient(bottom,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);background:linear-gradient(to top,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%)}
+    .section-info .winner-contents div p{font-weight:600;line-height:32px;color:#585858;font-size:16px;text-align:center;width:190px!important}
+    .section-info .winner-contents div p:nth-child(2){margin-right:240px}
+    .section-info .review-slider{margin-top:50px}
+
+    .product-eco .slick-arrow{position:absolute;top:50%;z-index:10;content:'';padding:0;margin:0;border:none;background:none;outline:none;text-indent:-9999px;display:block;border-width:0;border-style:solid;-webkit-transform:rotate(45deg) translateY(-50%);transform:rotate(45deg) translateY(-50%);width:27px;height:27px;border-color:#c5c5c5;margin-top:-5px;left:50%;cursor:pointer}
+    .product-eco .slick-prev{margin-left:-540px;border-bottom-width:4px;border-left-width:4px}
+    .product-eco .slick-next{margin-left:485px;border-top-width:4px;border-right-width:4px}
+
+    .section-reason{background:#f8f8f8}
+
+    .product-eco .section-video{padding-bottom:275px;background-color:#22223a}
+    .product-eco .section-video .video-box{width:100%;height:618px}
+    .product-eco .section-video #thumb-list{margin-top:25px}
+    .product-eco .section-video #thumb-list .col{margin-left:16px}
+    .product-eco .section-video #thumb-list .col a{display:block;margin-bottom:10px}
+    .product-eco .section-video #thumb-list .col:first-child{margin-left:0}
+    .product-eco .section-video .action{position:absolute;left:50%;transform:translate(-50%,0);bottom:-150px}
+    .slider{margin-top:12px}
+
+    .product-eco .section-item{background:#f8f8f8}
+    .product-eco .section-item .video_box{height:620px}
+    .product-eco .section-item .video_box a{display:block;width:100%;height:100%}
+    .product-eco .section-item .video_box .video_img>div{position:absolute;width:100%;height:100%}
+
+    .product-eco .section-video .video-thumb{position:relative}
+    .product-eco .section-video .video-thumb .btn-play{position: absolute;}
+    .product-eco .section-video .video-thumb .review{position:relative}
+    .product-eco .section-video .thumb>img{margin-top:10px}
+    .product-eco .section-video .video-thumb iframe{width:356px;height:210px;display:block}
+    .product-eco .section-video .video-thumb a{display:block;width:100%;height:100%}
+    .product-eco .section-video .video-thumb .col{margin-left:16px}
+    .product-eco .section-video .video-thumb .col:first-child{margin-left:0}
+
+    .product-eco .action { position: relative; margin-bottom: 30px;}
+    .product-eco .action a { position: relative; display: inline-block;}
+    .product-eco .action .icon-hand { position: absolute; top: 50%; right: 2%; z-index: 1;}
+    .product-eco .q-slider { margin-bottom: 80px; text-align: center; background: #fff; border: 1px solid #ddd;}
+    .product-eco .q-slider .slick-slide { padding: 50px 44px;}
+    .product-eco .slick-dots {position: absolute;left: 0;right: 0;width: 100%; bottom: -35px; text-align: center;}
+    .product-eco .slick-dots li {display: inline-block; margin: 0 3px;}
+    .product-eco .slick-dots li button {cursor: pointer;text-indent: -10000em;border: 0;border-radius: 50%;width: 15px;height: 15px;background-color: #bebebe;}
+    .product-eco .slick-dots li.slick-active button { width: 44px; border-radius: 100px;background-color: #ffb600;}
+</style>
+<div class="product-eco"><!-- product-eco -->
+<div class="section section-top-banner" style="background:#22223a">
+<div class="wrap"><img alt="직업상담사1위 에듀윌" src="https://img.eduwill.net/Img2/Vocation/promotion/freebook/200702/pc/top_banner.png" /></div>
+</div>
+
+<div class="topBanner" style="background:#005ad5;">
+<div class="wrap"><img alt="신강의 업데이트" src="https://img.eduwill.net/Img2/Quark/Product/event_new/200925/pc/eventBn.gif" /></div>
+</div>
+
+<div class="section section-title">
+<div class="wrap"><img alt="6개월 단기합격반" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/title.png" /></div>
+<!--<div class="eco-floating"></div>--></div>
+
+<div class="eco-2469_floating"></div>
+
+<div class="section section-benefit" id="sectionBenefit">
+<div class="wrap"><img alt="직업상담사선택1위, 베스트셀러 교재1위, 한국에서 최고 드림팀 교수진, 만족도 100% 실전 모의고사 특별제공" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/benefit.jpg" /></div>
+</div>
+<!-- eco 전액환급 2186 -->
+
+<div class="eco-refund"></div>
+
+<div class="section section-reason">
+<div class="wrap"><img alt="직업상담사 선택 1위의 이유" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/reason.jpg" /></div>
+</div>
+
+<div class="container section-video">
+<div class="wrap"><img alt="합격자의 생생한 후기로 에듀윌만의 노하우를 확인하세요" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/interview.jpg" />
+<div class="video-thumb grid">
+<div class="col review"><a class="btn-play" href="javascript:;"><img alt="합격생 김영재" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/thumb1_on.png" /></a>
+
+<div class="thumb"><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src=""></iframe><img alt="압축된 실기노트로 최종합격" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/video_review01.png" /></div>
+</div>
+
+<div class="col review">
+<div class="thumb"><a class="btn-play" href="javascript:;"><img alt="합격생 천동미" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/thumb2_on.png" /></a><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src=""></iframe> <img alt="에듀윌 요약집으로 동차합격!" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/video_review02.png" /></div>
+</div>
+
+<div class="col review">
+<div class="thumb"><a class="btn-play" href="javascript:;"><img alt="합격생 오은희" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/thumb3_on.png" /></a><iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" src=""></iframe> <img alt="에듀윌 이해 위주 학습으로 합격" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/video_review03.png" /></div>
+</div>
+</div>
+
+<div class="action"><a href="http://job.eduwill.net/Vocation/community/study/pass_list_190531.asp?M_idx=14" target="_blnak"><img alt="더 많은 합격수기 보러가기" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/bt.png" /> </a></div>
+</div>
+</div>
+
+<div class="section section-info">
+<div class="wrap"><img alt="직업상담사 교육1위의 저력 에듀윌이 최종합격으로 증명합니다" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/img_info1.jpg" />
+<div class="winner-contents">
+<div class="winner-list"></div>
+</div>
+
+<div class="review-slider">
+<div class="slider" id="slider1">
+<div class="slide slide-1"><img alt="합격후기" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/slide1_1.jpg" /></div>
+
+<div class="slide slide-2"><img alt="합격후기" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/slide1_2.jpg" /></div>
+
+<div class="slide slide-3"><img alt="합격후기" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/slide1_3.jpg" /></div>
+</div>
+</div>
+<img alt="에듀윌 직업상담사 합격후기 중 발췌/ 학습결과는 개인별로 달라질 수 있음" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/notice.png" /></div>
+</div>
+
+<div class="section section-item">
+<div class="wrap">
+<div class="content"><img alt="첫걸음부터 최종합격까지 1위의 모든 전략을 담았습니다." src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/img_item1_201210.jpg" />
+<div class="action"><a href="//event.eduwill.net/Event/2020/V/Secret_201210" target="_blank"><span class="icon-hand bounce"><img alt="" src="https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png" /></span> <img alt="" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/btn_pass.png" /> </a></div>
+<!-- <div class="video_box"><iframe allow="" allowfullscreen="" frameborder="no" height="100%" id="player" marginheight="0" marginwidth="0" scrolling="no" src="https://www.youtube.com/embed/6eR5EelR2gk" width="100%"></iframe></div>
+-->
+
+<div class="review-slider">
+<div class="slider" id="slider2">
+<div class="slide slide-1"><img alt="후기 " src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/slide2_1.jpg" /></div>
+
+<div class="slide slide-2"><img alt="후기 " src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/slide2_2.jpg" /></div>
+
+<div class="slide slide-3"><img alt="후기 " src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/slide2_3.jpg" /></div>
+</div>
+</div>
+<img alt="에듀윌 직업상담사 합격후기 중 발췌/ 학습결과는 개인별로 달라질 수 있음" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/notice.png" /></div>
+
+<div class="content"><img alt="완전히 확 바뀐 새로운 커리큘럼" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/img_item2.jpg" />
+<div class="review-slider">
+<div class="slider" id="slider3">
+<div class="slide slide-1"><img alt="후기" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/slide3_1.jpg" /></div>
+
+<div class="slide slide-2"><img alt="후기" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/slide3_2.jpg" /></div>
+
+<div class="slide slide-3"><img alt="후기" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/slide3_3.jpg" /></div>
+</div>
+</div>
+<img alt="에듀윌 직업상담사 합격후기 중 발췌/ 학습결과는 개인별로 달라질 수 있음" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/notice.png" /></div>
+
+<div class="content"><img alt="진짜 합격전략이 담긴 베스트셀러1위교재" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/img_item3_201210.jpg" />
+<div class="q-slider">
+<div><img alt="" src="https://img.eduwill.net/resources/img/job/event/201209/pc/q/01.jpg" /></div>
+
+<div><img alt="" src="https://img.eduwill.net/resources/img/job/event/201209/pc/q/29.jpg" /></div>
+
+<div><img alt="" src="https://img.eduwill.net/resources/img/job/event/201209/pc/q/46.jpg" /></div>
+
+<div><img alt="" src="https://img.eduwill.net/resources/img/job/event/201209/pc/q/65.jpg" /></div>
+
+<div><img alt="" src="https://img.eduwill.net/resources/img/job/event/201209/pc/q/82.jpg" /></div>
+</div>
+
+<div class="action"><a href="//event.eduwill.net/Event/2020/V/Secret_201210" target="_blank"><span class="icon-hand bounce"><img alt="" src="https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png" /></span> <img alt="" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/btn_pass.png" /> </a></div>
+
+<div class="review-slider">
+<div class="slider" id="slider4">
+<div class="slide slide-1"><img alt="후기" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/slide4_1.jpg" /></div>
+
+<div class="slide slide-2"><img alt="후기" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/slide4_2.jpg" /></div>
+
+<div class="slide slide-3"><img alt="후기" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/slide4_3.jpg" /></div>
+</div>
+</div>
+<img alt="에듀윌 직업상담사 합격후기 중 발췌/ 학습결과는 개인별로 달라질 수 있음" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/notice.png" /></div>
+
+<div class="content"><img alt="실전에 강해지는 모의고사와 해설특강" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/img_item4.jpg" />
+<div class="review-slider">
+<div class="slider" id="slider5">
+<div class="slide slide-1"><img alt="후기" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/slide5_1.jpg" /></div>
+
+<div class="slide slide-2"><img alt="후기" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/slide5_2.jpg" /></div>
+
+<div class="slide slide-3"><img alt="후기" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/slide5_3.jpg" /></div>
+</div>
+</div>
+<img alt="에듀윌 직업상담사 합격후기 중 발췌/ 학습결과는 개인별로 달라질 수 있음" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/notice.png" /></div>
+
+<div class="content"><img alt="합격 최적 학습환경 지원" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/img_item5.jpg" /></div>
+</div>
+</div>
+
+<div class="section section-apply-title">
+<div class="wrap"><img alt="직업상담사 6개월 단기합격반 수강신청" src="https://img.eduwill.net/Img2/Vocation/Product/event_new/200924/pc/apply_title.jpg" /></div>
+</div>
+</div>
+<!-- // product-eco -->
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/eduf.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/script.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+
+getTimer('.banner-timer','december 30, 2020,20:59');
+
+        $('.slider').slick({
+            autoplay: true,
+            autoplaySpeed: 2000,
+            speed: 800,
+            infinite: true,
+            arrows: true,
+            dots: false
+        });
+
+        $('.q-slider').slick({
+            autoplay: true,
+            autoplaySpeed: 2000,
+            speed: 800,
+            infinite: true,
+            arrows: false,
+            dots: true
+        });
+
+        function winnerList(){
+            var options = {
+                jsonFileNm: 'V202012_WINNER.min',
+            };
+
+            var slickOptions = {
+                speed: 1000,
+                slidesPerRow: 4,
+                slidesToShow: 8,
+            };
+
+            eduf.UI.Winner('.winner-list', options, slickOptions);
+        }
+
+        winnerList();
+
+        $('.video-thumb .btn-play').on('click', function(){
+
+            var idx = $(this).parents('.review').index();
+            
+            if(idx == 2){
+                alert('9월 말 공개됩니다!');
+                return;
+            }
+
+            $('.btn-play').show();
+            $('.video-thumb iframe').attr("src", "");
+
+            var videoUrl;
+            switch(idx){
+                case 0:
+                videoUrl="https://www.youtube.com/embed/C2IJsd011zE?autoplay=1";
+                    break;
+                case 1:
+                videoUrl="https://www.youtube.com/embed/qU_AGBeaS0Y?autoplay=1";
+                    break;
+                case 2:
+                videoUrl="https://www.youtube.com/embed/om2yA8Tjrnk?autoplay=1";
+                    break;
+            };
+                
+                $(this).hide();
+                $('.video-thumb iframe').eq(idx).attr('src', videoUrl);
+            });
+
+    });
+
+    getEcoDynamicForClass(2186, 'eco-refund');
+    getEcoDynamicForClass(2197, 'eco-floating');
+    getEcoDynamicForClass(2469, 'eco-2469_floating');
+
+</script>
+
+</body>
+</html>

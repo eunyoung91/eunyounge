@@ -1,0 +1,1346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ko">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+<title>자동화 페이지</title>
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Gov2/Common/Css/Main_20140204.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/resources/eduwill/dev/css/template.css" /><!-- Content Template -->
+
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Product/goods/auto/apply_common.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="https://www.eduwill.net/Common/event/freebook/naver/jquery.bxslider.js"></script>
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/gnb_alarm.css" />
+
+<body>
+<!-- body 내만 작업 -->
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jQuery/plugin/scrollfix.js"></script> 
+<link rel="stylesheet" href="https://www.eduwill.net/Common/js/jQuery/bxslider/jquery.bxslider.css"><!-- bxSlider CSS file --> 
+<link rel="stylesheet" type="text/css" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<style>
+	.product-eco * { font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun gothic';}
+	.product-eco img { vertical-align: top;} 
+
+	.bx-wrapper { margin: 0 auto !important; } 
+	.bx-wrapper .bx-viewport { background: none; box-shadow: none; border: 0;left: 0;} 
+	.bx-wrapper img { display: inline; } 
+
+	/* hidden */
+	.sr_only { display: inline-block; position: absolute; z-index: -1; clip: rect(0 0 0 0); width: 1px; height: 1px; *height: 0; margin: -1px; padding: 0; overflow: hidden; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }
+
+	/* Grid System */
+	.grid { position: relative; *zoom: 1; -webkit-box-sizing: border-box; box-sizing: border-box; }
+	.grid:before,
+	.grid:after { content: ''; display: table; }
+	.grid:after { clear: both; }
+	.grid .col { position: relative; float: left; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+	/* contents */
+	.container { position: relative;} 
+	.container .wrap { position: relative; width: 1100px; margin: 0 auto; }
+
+	.c_fix_apply { position: fixed;bottom: 0;width: 100%;background: url('https://img.eduwill.net/Img2/Gov2/product/event_new/forever_2016/bg_apply_bt.png') 0 bottom repeat-x;z-index: 1000;}
+	.c_fix_apply .gf_apply {position: relative;z-index: 1000;margin: 0 auto;width: 1100px;height: 72px;text-align: right;}
+	.gf_apply a {float: right;display: table;width: 209px;height: 66px;text-align: center;border-radius: 10px 10px 0 0;background: #f72d37;}
+	.gf_apply a span {display: table-cell;vertical-align: middle;padding-top: 5px;font-weight: 700;font-size: 28px;color: #fff;letter-spacing: -2px;font-family: 'Noto Sans KR';}
+	.gf_apply a span:after {content: '';display: inline-block;position: relative;top: -5px;margin-left: 15px;display: inline-block;width: 7px;height: 7px;border-top: 4px solid #fcaaae;border-right: 4px solid #fcaaae;-webkit-transform: rotate(45deg);-ms-transform: rotate(45deg);transform: rotate(45deg);}
+
+	.product-eco .fact_banner { position:absolute; top:222px; left:50%; margin-left:500px; padding:0 2px 2px; width:150px; height:190px; z-index:1000; background:#ff1111; border-radius:10px; box-sizing:border-box; }
+	.product-eco .fact_banner .fact-title { height:38px; padding-left:40px; font-family:'Noto Sans KR','맑은 고딕', 'Malgun gothic'; text-align:left; font-size:16px; font-weight:700; color:#fff; letter-spacing:-1px; line-height:40px; background:url('https://img.eduwill.net/Img2/Gov2/main/icon_fact.gif') 12px bottom no-repeat;}
+	.product-eco .fact_banner .fact-title span { font-weight:700; color:#ffea00;}
+	.product-eco .fact_banner a { display:block; height:150px;}
+	.product-eco .fact_banner a span { display:block; padding-top:18px; border-radius:10px; height:100%; line-height:1; font-family:'Noto Sans KR','맑은 고딕', 'Malgun gothic'; font-size:16px; color:#121212; letter-spacing:-1px; text-align:center; background:#fff; box-sizing:border-box;}
+	.product-eco .fact_banner a span em { display:block; padding:13px 0 5px; font-weight:900; font-size:24px; line-height:1.1; color:#000; letter-spacing:-2px;}
+	.product-eco .fact_banner a span strong { display:inline-block; padding-bottom:4px; font-weight:900; font-size:22px; line-height:1.1; color:#ff1111; letter-spacing:-2px; border-bottom:1px solid #ff1111;}
+	.product-eco .fact_banner a span u { display:block; padding-top:20px; font-family:'gulim', '굴림'; font-size:12px; color:#333; text-decoration:none; letter-spacing:0;}
+	.dimm { display:none; position:absolute; top:0; left:0; width:100%; height:100%; background:#000; z-index:100000; opacity:0.7; filter: alpha(opacity=70);}
+
+	.section_topbanner { background:#ffdb34;}
+	.section_title { background:#151d34 url('https://img.eduwill.net/Img2/Gov2/product/event_new/military/190417/bg_01.jpg') no-repeat 50% top;}
+	.section_title .main_text { position:absolute; top:108px; left:0; right:0; width:100%; text-align:center;}
+	.section_title .main_text strong { display:inline-block; position:relative; padding:0 10px 5px; color:#fff; font-weight:700; font-size:25px; letter-spacing:-2px; line-height:1.3; z-index:10;}
+	.section_title .main_text strong em { color:#7becff; font-weight:700;}
+	.section_title .main_text strong:after { content:''; position:absolute; bottom:0; left:0; width:100%; height:25px; background:#0f1a31; border-radius:30px; z-index:-1;}
+	.section_title .date { position:absolute; top:520px; right:12px; width:155px; height:40px; text-align:center; line-height:38px; font-size:20px; color:#000; font-weight:700; z-index:10; font-family:'Noto Sans KR','맑은 고딕', 'Malgun gothic'; border-radius:10px 10px 0 0; background:#36e1f5;}
+	.section_title .alert_text { position:absolute; top:775px; right:30px; text-align:right; font-size:12px; color:#989898; letter-spacing:-1px;}
+	.section_title .date span { font-family:'Montserrat'; font-weight:700;}
+	.section_01 { background:#095d87;}
+	.section_02 { background:#fff;}
+	.section_03 { background:#fff6d0;}
+	.section_04 { background:#fff;}
+	.section_05 { background:#095d87;}
+	.section_06 { height: 686px; background:#efefef;}
+	.section_07 { padding-top:110px; background:#fff;}
+	.section_08 {background: #fff;}
+	.section_09 { background:#f4f4f4;}
+	.section_10 { background:#095d87;}
+
+	.section_winner { padding-bottom:75px; background: #fff4d3; background: -moz-linear-gradient(top, #fff4d3 0%, #fff4d3 66%, #ffffff 100%); background: -webkit-linear-gradient(top, #fff4d3 0%,#fff4d3 66%,#ffffff 100%); background: linear-gradient(to bottom, #fff4d3 0%,#fff4d3 66%,#ffffff 100%); filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff4d3', endColorstr='#ffffff',GradientType=0 );}
+	.winner_title { padding:97px 0 45px;}
+	.winner_title strong { display:inline-block; position:relative; font-size:43px; color:#000; letter-spacing:-3px; z-index:10; line-height:1.2; font-weight:700;}
+	.winner_title strong:after { content:''; display:inline-block; position:absolute; left:0; bottom:0; width:100%; height:15px; background:#92dbff; z-index:-1;}
+
+	.winners { margin-bottom:54px; height:175px; overflow:hidden; background-color: transparent;}
+	.winner_inner{ padding:0 10px; overflow: hidden;}
+	.winner_inner p {float: left; width: 25%; font-size: 18px;line-height: 37px;color: #242424; text-align: center; padding:0; margin:0;}
+	.winner_inner p span { margin-right:5px;}
+
+	.interview { margin-bottom:33px;}
+	.interview ul li { margin-left: 10px;}
+	.interview ul li:first-child { margin-left:0;}
+	.interview ul li .mov_box { position:relative; width:360px; height:202px;}
+	.interview ul li .mov_box a { position:relative; display:block; width:100%; height:100%; z-index:10;}
+	.interview ul li .mov_box a img { width: 360px;}
+	.interview ul li .mov_box iframe { position:absolute; top:0; left:0; z-index:1;}
+	.interview ul li p { padding:0 ; margin:10px 0 0; font-size:16px;	color:#1f1f1f; font-weight:500;}
+	.interview ul li p strong { font-weight:700;}
+
+	.btn_review { text-align:center;}
+	.btn_review a { }
+
+	.section_sub_title { position:relative; background:#095d87; z-index:10;}
+	.section_sub_title:after { content:''; display:block; position:absolute; left:50%; bottom:-46px; width:126px; height:46px; margin-left:-63px; background:url('https://img.eduwill.net/Img2/Gov2/product/event_new/military/190417/arrow.png') 50% 0 no-repeat;}
+	.section_sub_title.none:after { display:none;}
+
+	.section_02 { padding:88px 0 92px; background:#efefef;}
+	.section_02 .article_01 { margin-bottom:50px;}
+
+	.section_03 { padding:88px 0; background:#efefef;}
+	.section_03 .article { position:relative; width:1000px; margin:0 auto 50px; background:#fff;}
+	.section_03 .coming_soon { position:relative;}
+	.section_03 .plus { position:absolute; top:-30px; left:50%; margin-left:-30px; z-index:10; display:block; width:60px; height:60px; background:url('https://img.eduwill.net/Img2/Gov2/product/event_new/military/190417/plus.png') 0 0 no-repeat;}
+	.section_03 .article_05 { margin-bottom:0;}
+	.section_slide{ position:relative; width:880px; margin: 0 auto;}
+	.section_slide .bx-wrapper .bx-viewport { left: 0;border: none; background: none; -webkit-box-shadow: none; box-shadow: none; }
+
+	/* bxSlider Controler */ 
+	.section_slide .bx-wrapper .bx-controls-direction a { z-index: 300;top: 50%; margin-top: -25px; width: 50px; height: 50px;}
+	.section_slide .bx-wrapper .bx-prev {left: 0; background: url('https://img.eduwill.net/Img2/Gov2/product/event_new/military/180806/slide_left.png') no-repeat 50% top;}
+	.section_slide .bx-wrapper .bx-next {right: 0; background: url('https://img.eduwill.net/Img2/Gov2/product/event_new/military/180806/slide_right.png') no-repeat 50% top;}
+
+	.product-apply { padding-bottom: 80px;}
+	.product-apply .gi_detail table.tbl_info th { background: #dfdfdf;}
+	.product-apply .gi_detail table.tbl_info th .btn_style01 { display: inline-block; margin-top: 5px; height: 24px; line-height: 24px; padding-left: 6px; vertical-align: top; background: #868686; border-radius: 3px; }
+	.product-apply .gi_detail table.tbl_info th .btn_style01 span { display: inline-block; height: 24px; line-height: 24px; padding:  0 17px 0 0; text-align: center; vertical-align: top; font-weight: 400; font-size: 13px; color: #fff; letter-spacing: -1px; background: url('//img.eduwill.net/Img2/Common/Product/applyCommon/bg_btnRight.gif') right center no-repeat; }
+	.product-apply .gi_detail table.tbl_info th,
+	.product-apply .gi_detail table.tbl_info td { letter-spacing: -1px;}
+	.product-apply .gi_price { background: none;}
+	.product-apply .price_box { border-bottom: 2px solid #1c1f26;}
+
+	.tip {display: inline-block;margin-top: 20px;}
+	.tpl_gtype {position: relative;width: 1000px !important;}
+	.tpl_gtype table {width: 100%;}
+
+	.gi_extra {color: #707070;margin: 37px 0 0;}
+	.gi_extra strong {display: inline-block;color: #333;font-size: 24px;vertical-align: baseline;margin-right: 8px;}
+	.gtype_book {margin: 60px auto 0 auto;}
+	.gtype_book .red {color: #ef0000;}
+	.gtype_book .left_td {text-align: left;padding-left: 30px;}
+	.gtype_book table td del {color: #666;font-size: 12px;font-weight: bold;text-decoration: line-through;}
+	.gtype_book table td span.discount_price {color: #d52b00;font-weight: bold;}
+	.dday_area {position: absolute;top: 155px;left: 777px;text-align: left;}
+	.dday_area p {margin: 0;}
+	.dday_area .dday_num {padding: 10px 0 0 58px;}
+	.pop_plus {display: none;position: absolute;top: 300px;left: 50%;margin-left: -448px;}
+	.pop_0won {display: none;position: absolute;top: 655px;right: 50px;z-index: 10;}
+	.tip_subject {display: none;position: absolute;top: 0;right: 30px;z-index: 10;}
+	.price_box {position: relative;padding: 0 0 20px 183px;text-align: left;overflow: hidden;}
+	.price_box .discount01 {position: relative;float: left;margin-top: 60px;padding-right: 8px;width: 210px;text-align: center;color: #7a7a7a;font-size: 30px;font-weight: bold;}
+	.price_box .discount01 span.icon {position: absolute;left: 0;top: 0;width: 211px;height: 19px;background: url('/Img2/Won2/promotion/151023/cop/price_arrow02.png') 0 0 no-repeat;}
+	.price_box .discount01 .price { font-size: 32px;letter-spacing: -2px;font-family: verdana;color: #7a7a7a;}
+	.price_box .discount02 {position: relative;float: left;margin-top: 32px;margin-left: 20px;width: 261px;text-align: center;color: #7a7a7a;font-size: 37px;font-weight: bold;}
+	.price_box .discount02 span.icon {position: absolute;left: 0;top: 10px;width: 281px;height: 30px;background: url('/Img2/Won2/promotion/151023/cop/bu_price02.png') 0 0 no-repeat;}
+	.price_box .discount02 .price {font-size: 40px;letter-spacing: -1px;font-family: verdana;color: #7a7a7a;}
+	.product-apply .price_box .total_price {float: left;margin-top: 45px;padding-top: 15px;letter-spacing: -5px;font-size: 50px;color: #000;font-weight: bold;}
+	.product-apply .price_box .total_price span {font-family: verdana !important;color: #000;font-size: 60px;}
+	.price_box .btn_event {float: right;margin-top: 20px;}
+	.product-eco .topBanner { background-color: #22223a; }
+</style>
+
+<div class="product-eco">
+	<div class="topBanner">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/Common/Banner/topBanner/pc/top_banner_army.png" alt="2019 한국 브랜드만족지수 교육1위">
+		</div>
+	</div>
+	<div class="container section_title">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/img_01_200205.png" alt="군무원 확대채용패스" />
+			<div id="bannerFact" class="fact_banner">
+				<div class="fact-title">채용 <span>속보!</span></div>
+				<a href="https://govlab.eduwill.net/issue/brief/08/36859" target="_blank">
+					<span>
+						2020년 군무원
+						<em>역대 최대규모!</em>
+						<strong>5,200여명 선발</strong>
+						<u>자세히 알아보기 &gt;</u>
+					</span>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container section_winner">
+		<div class="wrap">
+			<div class="winner_title">
+				<strong>에듀윌 공무원 합격생</strong>
+			</div>
+			<div class="box">
+				<div class="winners">
+					<ul>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반환경 강*모</p>
+								<p>2019 일반행정 강*선</p>
+								<p>2019 보호직 강*원</p>
+								<p>2019 일반행정 강*재</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 운전직 강*진</p>
+								<p>2019 일반행정 강*혁</p>
+								<p>2019 일반행정 강*현</p>
+								<p>2019 전산직 고*석</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 고*영</p>
+								<p>2019 도시계획 고*완</p>
+								<p>2019 일반기계 고*웅</p>
+								<p>2019 세무직 고*은</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반전기 고*준</p>
+								<p>2019 지적직 고*현</p>
+								<p>2019 일반기계 공*용</p>
+								<p>2019 일반행정 곽*경</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 곽*연</p>
+								<p>2019 건축직 곽*채</p>
+								<p>2019 일반행정 곽*호</p>
+								<p>2019 일반행정 권*리</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 권*모</p>
+								<p>2019 일반행정 권*미</p>
+								<p>2019 사회복지 권*옥</p>
+								<p>2019 일반토목 권*은</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반농업 권*준</p>
+								<p>2019 일반행정 권*지</p>
+								<p>2019 일반기계 권*태</p>
+								<p>2019 일반행정 권*혁</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 교정직 권*현</p>
+								<p>2019 일반전기 길*종</p>
+								<p>2019 사회복지 김*</p>
+								<p>2019 일반행정 김*건</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 김*경</p>
+								<p>2019 사회복지 김*경</p>
+								<p>2019 일반행정 김*경</p>
+								<p>2019 일반행정 김*경</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 시설관리 김*경</p>
+								<p>2019 일반농업 김*경</p>
+								<p>2019 일반행정 김*교</p>
+								<p>2019 일반토목 김*근</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반토목 김*근</p>
+								<p>2019 일반행정 김*남</p>
+								<p>2019 일반행정 김*라</p>
+								<p>2019 사회복지 김*랑</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 건축직 김*률</p>
+								<p>2019 사회복지 김*리</p>
+								<p>2019 일반행정 김*미</p>
+								<p>2019 일반행정 김*미</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반전기 김*미</p>
+								<p>2019 전송기술 김*민</p>
+								<p>2019 전산직 김*민</p>
+								<p>2019 보호직 김*범</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 건축직 김*삼</p>
+								<p>2019 사회복지 김*석</p>
+								<p>2019 일반기계 김*석</p>
+								<p>2019 사회복지 김*선</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 김*선</p>
+								<p>2019 일반행정 김*성</p>
+								<p>2019 일반환경 김*성</p>
+								<p>2019 일반행정 김*솔</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 김*수</p>
+								<p>2019 일반행정 김*수</p>
+								<p>2019 일반행정 김*수</p>
+								<p>2019 일반행정 김*수</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 김*수</p>
+								<p>2019 일반행정 김*수</p>
+								<p>2019 일반행정 김*숙</p>
+								<p>2019 일반전기 김*식</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 김*아</p>
+								<p>2019 건축직 김*아</p>
+								<p>2019 건축직 김*아</p>
+								<p>2019 세무직 김*언</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반기계 김*연</p>
+								<p>2019 일반토목 김*연</p>
+								<p>2019 사회복지 김*영</p>
+								<p>2019 운전직 김*영</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 보건직 김*영</p>
+								<p>2019 보호직 김*온</p>
+								<p>2019 사회복지 김*완</p>
+								<p>2019 일반행정 김*용</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 김*우</p>
+								<p>2019 일반토목 김*욱</p>
+								<p>2019 세무직 김*웅</p>
+								<p>2019 일반행정 김*윤</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 건축직 김*은</p>
+								<p>2019 일반행정 김*정</p>
+								<p>2019 사회복지 김*정</p>
+								<p>2019 일반행정 김*정</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 교정직 김*조</p>
+								<p>2019 일반행정 김*주</p>
+								<p>2019 일반행정 김*주</p>
+								<p>2019 세무직 김*주</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 사회복지 김*주</p>
+								<p>2019 일반행정 김*준</p>
+								<p>2019 일반행정 김*준</p>
+								<p>2019 사회복지 김*준</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 경찰청 김*지</p>
+								<p>2019 사회복지 김*지</p>
+								<p>2019 세무직 김*지</p>
+								<p>2019 일반행정 김*지</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 김*지</p>
+								<p>2019 일반행정 김*지</p>
+								<p>2019 일반행정 김*지</p>
+								<p>2019 일반전기 김*지</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 김*진</p>
+								<p>2019 보호직 김*진</p>
+								<p>2019 일반행정 김*진</p>
+								<p>2019 사회복지 김*진</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 김*진</p>
+								<p>2019 사회복지 김*진</p>
+								<p>2019 일반토목 김*진</p>
+								<p>2019 일반토목 김*진</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반농업 김*치</p>
+								<p>2019 일반전기 김*태</p>
+								<p>2019 사서직 김*하</p>
+								<p>2019 세무직 김*한</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 김*한</p>
+								<p>2019 일반행정 김*헌</p>
+								<p>2019 일반행정 김*헌</p>
+								<p>2019 운전직 김*혁</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 김*현</p>
+								<p>2019 일반행정 김*현</p>
+								<p>2019 일반행정 김*현</p>
+								<p>2019 세무직 김*현</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 운전직 김*현</p>
+								<p>2019 운전직 김*현</p>
+								<p>2019 일반토목 김*현</p>
+								<p>2019 건축직 김*현</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반전기 김*현</p>
+								<p>2019 일반토목 김*현</p>
+								<p>2019 방송통신 김*형</p>
+								<p>2019 건축직 김*혜</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 보건직 김*혜</p>
+								<p>2019 건축직 김*호</p>
+								<p>2019 일반토목 김*호</p>
+								<p>2019 세무직 김*홍</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 사회복지 김*화</p>
+								<p>2019 보건직 김*환</p>
+								<p>2019 일반환경 김*환</p>
+								<p>2019 일반전기 김*환</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 건축직 김*훈</p>
+								<p>2019 사회복지 김*희</p>
+								<p>2019 사회복지 김*희</p>
+								<p>2019 일반행정 김*희</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 김*희</p>
+								<p>2019 일반기계 나*대</p>
+								<p>2019 일반행정 나*림</p>
+								<p>2019 일반행정 나*준</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 남*우</p>
+								<p>2019 보호직 노*성</p>
+								<p>2019 사회복지 노*연</p>
+								<p>2019 일반행정 노*옥</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 노*재</p>
+								<p>2019 운전직 노*하</p>
+								<p>2019 세무직 노*흥</p>
+								<p>2019 사회복지 도*진</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 운전직 류*순</p>
+								<p>2019 사회복지 류*영</p>
+								<p>2019 일반행정 류*영</p>
+								<p>2019 일반행정 맹*주</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 지적직 명*연</p>
+								<p>2019 일반행정 문*원</p>
+								<p>2019 일반행정 문*원</p>
+								<p>2019 교정직 민*준</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 전산직 민*태</p>
+								<p>2019 일반행정 박*</p>
+								<p>2019 사회복지 박*관</p>
+								<p>2019 일반전기 박*국</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 사회복지 박*규</p>
+								<p>2019 전산직 박*균</p>
+								<p>2019 일반토목 박*근</p>
+								<p>2019 일반토목 박*근</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반전기 박*근</p>
+								<p>2019 교정직 박*기</p>
+								<p>2019 사회복지 박*나</p>
+								<p>2019 일반행정 박*단</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 사회복지 박*령</p>
+								<p>2019 일반전기 박*모</p>
+								<p>2019 세무직 박*미</p>
+								<p>2019 일반행정 박*미</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 박*민</p>
+								<p>2019 일반행정 박*선</p>
+								<p>2019 사회복지 박*선</p>
+								<p>2019 사회복지 박*선</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 운전직 박*성</p>
+								<p>2019 사회복지 박*식</p>
+								<p>2019 일반농업 박*연</p>
+								<p>2019 일반행정 박*영</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반전기 박*오</p>
+								<p>2019 일반토목 박*웅</p>
+								<p>2019 건축직 박*웅</p>
+								<p>2019 일반행정 박*원</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 세무직 박*윤</p>
+								<p>2019 일반행정 박*은</p>
+								<p>2019 일반농업 박*은</p>
+								<p>2019 전산직 박*은</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 방호직 박*일</p>
+								<p>2019 사회복지 박*주</p>
+								<p>2019 건축직 박*주</p>
+								<p>2019 보호직 박*준</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 박*준</p>
+								<p>2019 일반행정 박*진</p>
+								<p>2019 보호직 박*찬</p>
+								<p>2019 운전직 박*춘</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 박*혁</p>
+								<p>2019 일반토목 박*현</p>
+								<p>2019 일반행정 박*호</p>
+								<p>2019 일반행정 박*화</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 사회복지 박*희</p>
+								<p>2019 사회복지 박*희</p>
+								<p>2019 일반전기 배*열</p>
+								<p>2019 일반기계 배*주</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 세무직 배*희</p>
+								<p>2019 일반행정 백*승</p>
+								<p>2019 사회복지 백*우</p>
+								<p>2019 일반행정 백*탁</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 사서직 변*석</p>
+								<p>2019 일반행정 복*영</p>
+								<p>2019 운전직 서*</p>
+								<p>2019 일반행정 서*동</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 서*연</p>
+								<p>2019 일반행정 서*일</p>
+								<p>2019 건축직 서*택</p>
+								<p>2019 건축직 석*수</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 설*수</p>
+								<p>2019 일반행정 성*선</p>
+								<p>2019 일반전기 성*아</p>
+								<p>2019 일반행정 성*환</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반농업 성*환</p>
+								<p>2019 일반행정 소*성</p>
+								<p>2019 일반기계 손*식</p>
+								<p>2019 건축직 손*익</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 손*제</p>
+								<p>2019 일반행정 송*민</p>
+								<p>2019 직업상담 송*숙</p>
+								<p>2019 일반농업 송*연</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 송*원</p>
+								<p>2019 사회복지 신*관</p>
+								<p>2019 일반토목 신*림</p>
+								<p>2019 일반전기 신*민</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 신*영</p>
+								<p>2019 세무직 신*웅</p>
+								<p>2019 세무직 신*진</p>
+								<p>2019 운전직 신*형</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반전기 신*호</p>
+								<p>2019 일반토목 신*환</p>
+								<p>2019 일반행정 신*희</p>
+								<p>2019 일반행정 신*희</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 심*래</p>
+								<p>2019 일반행정 심*롬</p>
+								<p>2019 일반농업 안*석</p>
+								<p>2019 사회복지 안*용</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 안*주</p>
+								<p>2019 건축직 안*형</p>
+								<p>2019 일반행정 양*라</p>
+								<p>2019 일반화공 양*리</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 건축직 양*현</p>
+								<p>2019 일반행정 양*혜</p>
+								<p>2019 일반행정 엄*수</p>
+								<p>2019 일반행정 엄*현</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 여*은</p>
+								<p>2019 일반농업 오*규</p>
+								<p>2019 건축직 오*민</p>
+								<p>2019 일반행정 오*범</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 오*성</p>
+								<p>2019 운전직 오*재</p>
+								<p>2019 세무직 오*지</p>
+								<p>2019 사회복지 오*지</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반토목 오*하</p>
+								<p>2019 사회복지 우*숙</p>
+								<p>2019 건축직 우*훈</p>
+								<p>2019 일반행정 원*수</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반전기 원*용</p>
+								<p>2019 일반행정 원*현</p>
+								<p>2019 건축직 유*득</p>
+								<p>2019 일반행정 유*상</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 운전직 유*상</p>
+								<p>2019 일반행정 유*선</p>
+								<p>2019 일반행정 유*영</p>
+								<p>2019 사회복지 유*욱</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 전산직 유*재</p>
+								<p>2019 사회복지 유*희</p>
+								<p>2019 사회복지 유*희</p>
+								<p>2019 일반행정 유*희</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 윤*경</p>
+								<p>2019 일반행정 윤*상</p>
+								<p>2019 일반농업 윤*선</p>
+								<p>2019 사회복지 윤*아</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반토목 윤*영</p>
+								<p>2019 일반행정 윤*준</p>
+								<p>2019 건축직 윤*진</p>
+								<p>2019 일반토목 윤*철</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 운전직 윤*호</p>
+								<p>2019 세무직 이*경</p>
+								<p>2019 일반행정 이*경</p>
+								<p>2019 사회복지 이*경</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 이*경</p>
+								<p>2019 세무직 이*경</p>
+								<p>2019 일반토목 이*교</p>
+								<p>2019 사회복지 이*규</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 운전직 이*규</p>
+								<p>2019 측지직 이*규</p>
+								<p>2019 일반행정 이*기</p>
+								<p>2019 사회복지 이*기</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 이*기</p>
+								<p>2019 일반행정 이*기</p>
+								<p>2019 세무직 이*돈</p>
+								<p>2019 운전직 이*동</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반토목 이*동</p>
+								<p>2019 일반행정 이*미</p>
+								<p>2019 사회복지 이*민</p>
+								<p>2019 건축직 이*민</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 건축직 이*민</p>
+								<p>2019 일반행정 이*산</p>
+								<p>2019 일반행정 이*석</p>
+								<p>2019 사회복지 이*선</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반전기 이*송</p>
+								<p>2019 건축직 이*승</p>
+								<p>2019 일반행정 이*식</p>
+								<p>2019 사회복지 이*신</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반토목 이*아</p>
+								<p>2019 세무직 이*연</p>
+								<p>2019 일반기계 이*열</p>
+								<p>2019 사회복지 이*영</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반토목 이*영</p>
+								<p>2019 사회복지 이*옥</p>
+								<p>2019 일반행정 이*용</p>
+								<p>2019 세무직 이*용</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반기계 이*우</p>
+								<p>2019 일반토목 이*우</p>
+								<p>2019 일반전기 이*웅</p>
+								<p>2019 전산직 이*원</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 이*은</p>
+								<p>2019 일반행정 이*은</p>
+								<p>2019 일반행정 이*이</p>
+								<p>2019 일반행정 이*정</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 이*정</p>
+								<p>2019 일반행정 이*주</p>
+								<p>2019 일반행정 이*준</p>
+								<p>2019 일반기계 이*준</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 건축직 이*준</p>
+								<p>2019 일반행정 이*지</p>
+								<p>2019 보건직 이*지</p>
+								<p>2019 산림자원 이*지</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 이*진</p>
+								<p>2019 보호직 이*진</p>
+								<p>2019 사회복지 이*진</p>
+								<p>2019 일반행정 이*천</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 보호직 이*철</p>
+								<p>2019 일반기계 이*태</p>
+								<p>2019 일반농업 이*헌</p>
+								<p>2019 일반행정 이*현</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 사회복지 이*현</p>
+								<p>2019 일반행정 이*현</p>
+								<p>2019 일반행정 이*현</p>
+								<p>2019 건축직 이*현</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반토목 이*현</p>
+								<p>2019 전산직 이*현</p>
+								<p>2019 속기직 이*형</p>
+								<p>2019 일반행정 이*호</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 이*화</p>
+								<p>2019 운전직 이*효</p>
+								<p>2019 세무직 이*훈</p>
+								<p>2019 일반토목 이*희</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 건축직 이*희</p>
+								<p>2019 세무직 이*힘</p>
+								<p>2019 사회복지 인*현</p>
+								<p>2019 일반행정 임*규</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 임*균</p>
+								<p>2019 일반전기 임*란</p>
+								<p>2019 일반행정 임*민</p>
+								<p>2019 일반행정 임*본</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 운전직 임*수</p>
+								<p>2019 일반행정 임*숙</p>
+								<p>2019 일반행정 임*오</p>
+								<p>2019 건축직 임*욱</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 보건직 임*은</p>
+								<p>2019 일반토목 임*훈</p>
+								<p>2019 일반전기 장*민</p>
+								<p>2019 일반토목 장*수</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 사회복지 장*영</p>
+								<p>2019 건축직 장*현</p>
+								<p>2019 전산직 장*호</p>
+								<p>2019 사회복지 장*훈</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 장*희</p>
+								<p>2019 세무직 전*령</p>
+								<p>2019 사회복지 전*원</p>
+								<p>2019 일반행정 전*일</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 전*현</p>
+								<p>2019 일반행정 정**숲</p>
+								<p>2019 세무직 정*규</p>
+								<p>2019 건축직 정*기</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 보건직 정*례</p>
+								<p>2019 건축직 정*린</p>
+								<p>2019 일반행정 정*모</p>
+								<p>2019 일반행정 정*석</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 건축직 정*성</p>
+								<p>2019 일반토목 정*용</p>
+								<p>2019 건축직 정*운</p>
+								<p>2019 사회복지 정*원</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 정*원</p>
+								<p>2019 일반행정 정*준</p>
+								<p>2019 일반기계 정*진</p>
+								<p>2019 일반행정 정*찬</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 건축직 정*철</p>
+								<p>2019 의료기술 정*혜</p>
+								<p>2019 교정직 정*후</p>
+								<p>2019 사회복지 정*희</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 조*경</p>
+								<p>2019 사회복지 조*경</p>
+								<p>2019 일반행정 조*별</p>
+								<p>2019 사회복지 조*숙</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반전기 조*아</p>
+								<p>2019 일반행정 조*연</p>
+								<p>2019 건축직 조*욱</p>
+								<p>2019 일반행정 조*정</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 세무직 조*주</p>
+								<p>2019 일반토목 조*진</p>
+								<p>2019 일반행정 조*철</p>
+								<p>2019 세무직 조*철</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 사회복지 조*현</p>
+								<p>2019 사회복지 조*현</p>
+								<p>2019 일반환경 조*혜</p>
+								<p>2019 일반행정 조*희</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 주*민</p>
+								<p>2019 사회복지 주*화</p>
+								<p>2019 일반행정 주*희</p>
+								<p>2019 일반행정 지*솔</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 건축직 지*인</p>
+								<p>2019 일반행정 진*경</p>
+								<p>2019 일반환경 진*근</p>
+								<p>2019 일반행정 차*미</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 사회복지 차*연</p>
+								<p>2019 일반행정 차*준</p>
+								<p>2019 일반행정 차*현</p>
+								<p>2019 사회복지 차*희</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 천*우</p>
+								<p>2019 일반행정 최*국</p>
+								<p>2019 운전직 최*규</p>
+								<p>2019 건축직 최*리</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 세무직 최*문</p>
+								<p>2019 사회복지 최*민</p>
+								<p>2019 일반행정 최*빈</p>
+								<p>2019 사회복지 최*선</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 사회복지 최*성</p>
+								<p>2019 일반행정 최*순</p>
+								<p>2019 일반행정 최*영</p>
+								<p>2019 일반전기 최*욱</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반기계 최*인</p>
+								<p>2019 일반행정 최*일</p>
+								<p>2019 사회복지 최*정</p>
+								<p>2019 사회복지 최*정</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반환경 최*정</p>
+								<p>2019 일반행정 최*주</p>
+								<p>2019 일반행정 최*준</p>
+								<p>2019 일반행정 최*지</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 최*진</p>
+								<p>2019 세무직 최*진</p>
+								<p>2019 일반행정 최*한</p>
+								<p>2019 일반토목 최*혁</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 최*현</p>
+								<p>2019 일반행정 최*현</p>
+								<p>2019 보호직 최*호</p>
+								<p>2019 일반행정 최*호</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 최*훈</p>
+								<p>2019 세무직 추*연</p>
+								<p>2019 일반행정 추*현</p>
+								<p>2019 일반행정 하*경</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 하*민</p>
+								<p>2019 일반행정 하*민</p>
+								<p>2019 일반행정 한*결</p>
+								<p>2019 일반토목 한*길</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 한*수</p>
+								<p>2019 세무직 한*영</p>
+								<p>2019 일반행정 한*원</p>
+								<p>2019 사회복지 한*원</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 전산직 한*음</p>
+								<p>2019 일반기계 한*이</p>
+								<p>2019 시설관리 한*준</p>
+								<p>2019 일반행정 한*지</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 건축직 함*만</p>
+								<p>2019 일반기계 함*영</p>
+								<p>2019 사회복지 허*민</p>
+								<p>2019 일반행정 허*영</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반농업 허*정</p>
+								<p>2019 전산직 현*경</p>
+								<p>2019 세무직 현*진</p>
+								<p>2019 건축직 현*진</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반기계 홍*기</p>
+								<p>2019 일반행정 홍*별</p>
+								<p>2019 시설관리 홍*실</p>
+								<p>2019 일반토목 홍*화</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 홍*훈</p>
+								<p>2019 사회복지 홍*희</p>
+								<p>2019 운전직 홍*희</p>
+								<p>2019 일반행정 황*란</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 황*람</p>
+								<p>2019 일반농업 황*린</p>
+								<p>2019 일반화공 황*식</p>
+								<p>2019 사회복지 황*원</p>
+							</div>
+						</li>
+						<li>
+							<div class="winner_inner">
+								<p>2019 일반행정 황*재</p>
+								<p>2019 일반행정 하*민</p>
+								<p>2019 일반행정 하*민</p>
+								<p>2019 일반행정 한*결</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="interview">
+				<ul class="grid">
+					<li class="col">
+						<div class="mov_box">
+							<a href="#" class="move_click1"><img src="https://img.eduwill.net/Img2/Gov2/product/event_new/190416/thumb1.jpg" alt="" /></a>
+							<iframe id="mvi1" src='' frameborder='no' scrolling='no' marginwidth='0' marginheight='0' WIDTH='100%' HEIGHT='100%' allow='autoplay' allowfullscreen></iframe>
+						</div>
+						<p>지방직 9급 <strong>최동인</strong></p>
+					</li>
+					<li class="col">
+						<div class="mov_box">
+							<a href="#" class="move_click2"><img src="https://img.eduwill.net/Img2/Gov2/product/event_new/190416/thumb2.jpg" alt="" /></a>
+							<iframe id="mvi2" src='' frameborder='no' scrolling='no' marginwidth='0' marginheight='0' WIDTH='100%' HEIGHT='100%' allow='autoplay' allowfullscreen></iframe>
+						</div>
+						<p>서울시 9급 <strong>이소영</strong></p>
+					</li>
+					<li class="col">
+						<div class="mov_box">
+							<a href="#" class="move_click3"><img src="https://img.eduwill.net/Img2/Gov2/product/event_new/190416/thumb3.jpg" alt="" /></a>
+							<iframe id="mvi3" src='' frameborder='no' scrolling='no' marginwidth='0' marginheight='0' WIDTH='100%' HEIGHT='100%' allow='autoplay' allowfullscreen></iframe>
+						</div>
+						<p>국가직 9급 <strong>김용욱</strong></p>
+					</li>
+				</ul>
+			</div>
+
+			<div class="btn_review">
+				<a href="https://gov.eduwill.net/Gov2/promotion/victoryStory/index.asp" target="_blank"><img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/btn_review.png" alt="리얼 합격 수기 더보기" /></a>
+			</div>
+		</div>
+	</div>
+
+	<div class="section_sub_title">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/sub_title_01.jpg" alt="point1. 지금 당장 군무원을 준비해야 하는 이유" />
+		</div>
+	</div>
+
+	<div class="container section_02">
+		<div class="wrap">
+			<div class="article article_01">
+				<img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/contents01_1_200205.jpg" alt="작년대비 채용 3배 증가, 2022까지 1.7만 증원 매년 군무원 채용인원이 증가하고 있습니다." />
+			</div>
+			<div class="article article_02">
+				<img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/contents01_2.jpg" alt="필기시험 단 3과목 (9급 기준) 학습시간이 오래 걸리는 영어, 한국사가 없습니다." />
+			</div>
+		</div>
+	</div>
+
+	<div class="section_sub_title">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/sub_title_02.jpg" alt="point2. 에듀윌에서 군무원을 준비해야 하는 이유" />
+		</div>
+	</div>
+
+	<div class="container section_03">
+		<div class="wrap">
+			<div class="article article_01">
+				<img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/contents02_1.jpg" alt="과목별 전문 교수진 군무원 전 직렬, 전 교수진 강의 무제한 수강 가능합니다." />
+				<div class="section_slide">
+					<ul id="slider">
+						<li><img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/slide_01_200205.jpg" alt="" /></li>
+						<li><img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/slide_02.jpg" alt="" /></li>
+						<li><img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/slide_03_200205.jpg" alt="" /></li>
+						<li><img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/slide_04.jpg" alt="" /></li>
+						<li><img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/slide_05.jpg" alt="" /></li>
+					</ul>
+				</div>
+				<div class="coming_soon">
+					<span class="plus"></span>
+					<img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/coming-soon.jpg" alt="이후 신규입성하는 교수님들의 강의도 모두 수강 가능합니다." />
+				</div>
+			</div>
+			<div class="article article_02">
+				<img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/contents02_2_200205.jpg" alt="군무원 전용 커리큘럼 기출문제풀이와 동형모의고사 추가로 더 완벽해 졌습니다." />
+			</div>
+			<div class="article article_03">
+				<img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/contents02_3.jpg" alt="완성된 군무원 라인업 총 7개 직렬 준비 가능하며, 모든 직렬의 강의가 제공됩니다." />
+			</div>
+			<div class="article article_04">
+				<img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/contents02_4.jpg" alt="한국사능력검정시험 & 토익 강의 제공 한능검 90일, 토익 30일 만에 기준점수 완성 가능합니다. / RC+LC 기본개념부터 실전문제까지 한 달 안에 끝내는 신토익 강의 무료 제공" />
+			</div>
+			<div class="article article_05">
+				<img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/contents02_5.jpg" alt="온라인 학습관리 독한 에듀윌 2.0 학습부터 마인드까지 독하게 관리하여 단기 합격을 만들어 냅니다." usemap="#mapA" />
+				<map name="mapA">
+					<area shape="rect" coords="335,591,668,651" href="https://dokhan.eduwill.net/web/intro/index.will?MASTER_NO=1" target="_blank" alt="독한에듀윌 자세히보기" />
+				</map>
+			</div>
+		</div>
+	</div>
+
+	<div class="section_sub_title none">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/resources/academy/live/images/common/Promotion/SimplePage/G/E191011/sub_title_03_200205.jpg" alt="확대된, 기회, 더 낮아진 문턱 지금! 에듀윌에서 군무원 합격에 도전하세요." />
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+$(function() {
+	$('#slider').bxSlider({
+		auto: true,
+		pause: 3000,
+		controls: true,
+		pager: false
+	});
+
+	// winner 
+	$('.winners ul').bxSlider({ 
+		mode: 'vertical', 
+		auto: true, 
+		pause: 2000, 
+		minSlides: 5, 
+		moveSlides: 1, 
+		maxSlides: 5, 
+		pager: false, 
+		controls: false,
+		infiniteLoop: false
+	});
+
+	// 영상
+	$(".move_click1").click(function(){
+		$(this).hide();
+		$('#mvi1').attr('src', "https://tv.naver.com/embed/11155891?autoPlay=true");
+		return false;
+	});
+	
+	$(".move_click2").click(function(){
+		$(this).hide();
+		$('#mvi2').attr('src', "https://serviceapi.rmcnmv.naver.com/flash/outKeyPlayer.nhn?vid=8B3B1EFCDAE8A3F107AC74A96F8187C30AE4&outKey=V12540a12a7f0bf4e642683c1c47878a08281bf5f2e146caed2d583c1c47878a08281&controlBarMovable=true&jsCallable=true&isAutoPlay=true&skinName=tvcast_white");
+		return false;
+	});
+
+	$(".move_click3").click(function(){
+		$(this).hide();
+		$('#mvi3').attr('src', "https://tv.naver.com/embed/10476514?autoPlay=true");
+		return false;
+	});
+}); 
+</script>
+<!-- // body 내만 작업 -->
+</body>
+</html>

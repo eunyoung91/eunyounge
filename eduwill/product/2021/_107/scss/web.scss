@@ -1,0 +1,702 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+/* 공통 */
+body {
+	overflow-x: hidden;
+}
+#edoContent2 {
+	.ecoCont4 {
+		display: none;
+	}
+}
+.product-eco {
+	
+	.btn-reason {
+		position: absolute;
+		border: 1px solid #ddd;
+		cursor: pointer;
+		padding: 4px 20px 4px 10px ;
+		font-size: 14px;
+		color: #7a7a7a;
+		background: transparent;
+		z-index:1;
+		&::after {
+			content: '';
+			position: absolute;
+			top:10.5px;
+			right: 10px;
+			width: 7px;
+			height: 7px;
+			border: 1px solid #cfcdd8;
+			border-left: none;
+			border-bottom: none;
+			box-sizing: border-box;
+			transform: rotate(45deg);
+
+		}	
+	}
+	.wrap {
+		width: 1200px;
+		position: relative;
+		margin: 0 auto;
+		text-align: center;
+		line-height: normal;
+		font-family: "Roboto", "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+	}
+	.btn-pointer {
+		display: inline-block;
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			right:-13px;
+			bottom: -20px;
+			width: 57px;
+			height: 65px;
+			background: url(https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png) no-repeat 50% 50%;
+			background-size:100% auto;
+			animation: 0.3s slideupY ease-in-out infinite alternate;
+		}
+		@keyframes slideupY {
+			0% {
+				transform: translateY(0);
+			}
+			100% {
+				transform: translateY(10px);
+			}
+		}
+	}
+
+	@keyframes bounce {
+		0%,100% {
+			transform: translateY(10px);
+		}
+		50% {
+			transform: translateY(-10px);
+		}
+	}
+}
+
+
+/* 컨텐츠 */
+.product-eco {
+	overflow: hidden;
+	&[data-price="false"]{
+		#priceWrap {
+			display: none;
+		}
+	}
+	&[data-type="2475"]{
+
+		.visual {
+			background:url(#{$img-path}/pc/2475/visual_bg.jpg) no-repeat 50% 50%;
+			background-size:cover;
+	
+			.btn-reason {
+				top: 178px;
+				right: 100px;
+				border: none;
+				color: #585664;
+
+				&::after{
+					border-color: #5c5867;
+				}
+
+			}
+	
+		}
+	
+		.cont1 {
+			.wrap {
+				.btn-reason {
+					top: 233px;
+					right: 50px;
+					border: none;
+					color: #585664;
+	
+					&::after{
+						border-color: #5c5867;
+					}
+	
+				}
+			}
+		}
+
+		.cont2 {
+			background: linear-gradient(0deg, rgba(26,45,125,1) 17%, rgba(24,49,162,1) 100%);
+			padding-bottom: 120px;
+			.wrap {
+				> img {
+					margin-top: -50px;
+				}
+			}
+			.price-area {
+				position: relative;
+				background: #fff;
+				border-radius: 30px;
+				width: 1100px;
+				height: 244px;
+				padding: 0 40px 0 50px;
+				box-sizing: border-box;
+				margin: 0 auto;
+				@include boxShadow(6px 9px 17px 0px rgba(0, 0, 0, .5));
+				.num {
+					font-family:$font-roboto;
+				}
+				.title {
+					position:absolute;
+					top: 68px;
+					left: 70px;
+					text-align: left;
+
+					h3 {
+						font-size: 46px;
+						color: #222;
+						font-weight: 900;
+						letter-spacing: -3px;
+						margin-bottom: 32px;
+
+						span {
+							font-size: 22px;
+							font-weight: 600;
+							letter-spacing: -2px;
+						}
+					}
+				}
+				.discount {
+					position: absolute;
+					top: 60px;
+					left: 278px;
+					width: 140px;
+					height: 140px;
+					background: #ffde26;
+					border-radius: 50%;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+
+					p {
+						color: #e80000;
+						&:nth-child(1) {
+							font-family: $font-roboto;
+							font-size: 30px;
+							font-weight: 900;
+						}
+						&:nth-child(2) {
+							font-family: $font-noto;
+							font-size: 25px;
+							font-weight: 700;
+							letter-spacing: -1px;
+							margin-top: -3px;
+						}
+					}
+					img {
+						position: absolute;
+						top: 0px;
+						left: 0px;
+						opacity: .5;
+					}
+				}
+				.price {
+					position:absolute;
+					top: 72px;
+					right: 333px;
+					text-align:left;
+					line-height:1.1;
+					letter-spacing:-1px;
+					display: flex;
+					flex-direction: column;
+					.before {
+						height: 100%;
+						color:#bbb;
+						font-size:35px;
+						text-decoration:line-through;
+						text-align: left;
+						font-weight:600;
+					}
+					.after {
+						width: 298px;
+						text-align: right;
+						color:#eb2200;
+						font-size: 60px;
+						text-align: left;
+						font-weight: 900;
+						.num {
+							font-size:60px;
+							font-weight: 900;
+						}
+					}
+				}
+				.btn-area {
+					position:absolute;
+					top:70px;
+					right: 55px;
+					font-size:0;
+					line-height:0;
+					.btn {
+						width:280px;
+						height:105px;
+					}
+				}
+			}
+		}
+
+		
+		.product-sentence {
+			background-color: #1a35ff;
+			font-size: 54px;
+			color: #fff;
+			font-weight: 900;
+			padding: 35px 0;
+			
+		}
+	}
+
+
+	&[data-type="2761"]{
+
+		.visual {
+			z-index: 1;
+			padding:0;
+			background: #7a0cdf url('https://img.eduwill.net/eduwill/img/2021/Q/product/211224/pc/2732/visual_bg.jpg') no-repeat 50% 50%;
+			background-size: cover;
+			// .btn-reason {
+			// 	top: 220px;
+			// 	right: 100px;
+			// }
+
+			.bounce {
+				position: absolute;
+				top: 488px;
+				right: -70px;
+			}
+		}
+	
+		.cont1 {
+			position: relative;
+			background: #ffc20e;
+			padding-bottom: 60px;
+			&::before{
+				content: '';
+				position: absolute;
+				right: 0;
+				top: -94px;
+				width: 550px;
+				height: 95px;
+				background: url('https://img.eduwill.net/eduwill/img/2021/Q/product/210531/pc/line_yellow.png') 0 0 no-repeat;
+			}
+			.text{
+				font-family: $font-roboto;
+				position: absolute;
+				top: 200px;
+				left: 70px;
+				font-size: 24px;
+				font-weight: 900;
+				color: #202020;
+				line-height: 1;
+				letter-spacing: -2px;
+			}
+			.content-benefit{
+				margin-top: -200px;
+			}
+		}
+		
+		.cont2 {
+			background: #2c036b;
+
+			img {
+				margin-top: -55px;
+			}
+		}
+		.cont3 {
+			padding: 100px 0;
+			
+			.pointer {
+				&:after {
+					content: '';
+					position: absolute;
+					top:65px; 
+					right:10px; 
+					display: block;
+					width: 80px;
+					height: 80px;
+					background: url('https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_20.png') no-repeat 0 0;
+					background-size: contain;
+					@include animation(pointerBounce, .8s, $iteration: infinite){
+						0%, 100% { @include translateXY(0, 0); }
+						50% { @include translateXY(10px, 10px); }
+					}
+				}
+			}
+
+			.dc-area{
+				position: relative;
+				z-index: 10;
+				@extend %clearfix;
+				padding: 0 20px;
+			}
+			.discount-flag {
+				margin: 30px 0;
+				span{
+					background:#e80000;
+					border-radius:50px; 
+					padding:5px 35px; color:#fff; text-align:left; font-size:26px;font-weight: 700;
+					em{
+						font-family: $font-roboto;
+						font-size: 1em;
+					}
+				}
+			}
+			.dc-view {
+				float:left;
+				width:33.3%;
+				padding: 0 10px; 
+				box-sizing: border-box;
+				.dc-cont-wrap {
+					position: relative;
+					border-radius: 30px; 
+					height: 445px;
+					padding: 40px 30px; 
+					box-shadow: 10px 17.321px 35px 0px rgba(0, 0, 0, 0.3);
+					background-color: #fff;
+					box-sizing: border-box;
+
+					.dc-cont {
+						>div {}
+						.class-name {
+							padding-left:10px;
+							text-align: left;
+							font-size: 48px;
+							font-weight: 800;
+							color: #202020;
+							position: relative;
+						}
+						.price-info {
+							padding-left:10px;
+							margin-top:40px;
+							text-align: left;
+							.item.dc {
+								position: absolute;
+								top:30px;right:30px;
+								font-family: $font-roboto;
+								display: inline-block;
+								width: 102px;
+								height: 102px;
+								padding-top: 20px;
+								text-align: center;
+								font-size: 28px;
+								line-height: 1.1;
+								color: #fff;
+								font-weight: 600;
+								border-radius: 100%;
+								background: #e80000;
+								box-sizing: border-box;
+								@include animation(flagChange, 1s, $iteration: infinite, $timing: step-start){
+									0%, 100% { opacity:1; color:#fff; }
+									50% { opacity: 0 }
+								}
+							}
+							.price-before01 {
+								display: block;
+								color: #999;
+								font-size: 26px;
+								text-decoration: line-through;
+								strong{
+									font-family: $font-roboto;
+									font-weight: 500;
+								}
+							}
+							>p {
+								font-size: 60px;
+								font-weight: 700;
+								color: #e80000;
+								display: block;
+								font-family: $font-roboto;
+								margin: 0;
+							}
+							p {
+								>strong {
+									font-family: $font-roboto;
+									letter-spacing: -3px;
+								}
+							}
+						}
+	
+						.action {
+							margin-top:30px;
+							width:100%;
+							display: table;
+							height:120px;
+							a{
+								position: relative;
+								display: table-cell;
+								vertical-align: middle;
+								text-align: center;
+								background-color: #ffc20f;
+								height:120px;
+								width:100%;
+								font-size: 30px;
+								color:#000;
+								text-align: center;
+								border-radius: 60px;
+								font-weight: 600;
+								line-height: 1.2;
+								&::before{
+									content: '';
+									position: absolute;
+									right:20%;top:45px;
+									display: block;
+									overflow:hidden;
+									width: 24px;height:24px;
+									border-left:1px solid #000;
+									border-bottom:1px solid #000;
+									transform:rotate(-135deg);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.product-sentence {
+			background-color: #53267d;
+			font-size: 54px;
+			color: #fff;
+			font-weight: 900;
+			padding: 35px 0;
+			
+		}
+	}
+
+
+	&[data-type="3461"]{
+
+		#edoContent2 {
+			.ecoCont4 {
+				display: block !important;
+			}
+		}
+		.visual {
+			background:url('https://img.eduwill.net/eduwill/img/2022/_108/product/220117/pc/3458/visual_bg.jpg') no-repeat 50% 50%;
+			background-size:cover;
+	
+			.btn-reason {
+				top: 193px;
+    			right: 23px;
+				border: 1px solid #aca8c4;
+				color: #7d71b6;
+
+				&::after {
+					border-color: #7d71b6;
+				}
+			}
+	
+			.move-img {
+				position:absolute;
+				top: 276px;
+    			left: 566px;
+				animation:bounce 2s infinite both;
+			}
+			.typing-img {
+				overflow:hidden;
+				position:absolute;
+				bottom: 113px;
+				left: 948px;
+				height:75px;
+				font-size:0;
+				text-align:left;
+				animation:typing 3s step-start infinite;
+			}
+			@keyframes typing {
+				0% {
+					width:0;
+				}
+				5% {
+					width:67px;
+				}
+				10% {
+					width:113px;
+				}
+				15% {
+					width:146px;
+				}
+				20% {
+					width:191px;
+				}
+				90% {
+					width:191px;
+				}
+				100% {
+					width:0;
+				}
+			}
+		}
+	
+		.cont1 {
+			z-index:5;
+			background-color:#ffc20e;
+			
+			.wrap {
+				padding-bottom: 95px;
+	
+				.price-area {
+					position: relative;
+					background: #fff;
+					border-radius: 30px;
+					width: 1150px;
+					height: 310px;
+					padding: 0 40px 0 50px;
+					box-sizing: border-box;
+					margin: 0 auto;
+					@include boxShadow(6px 9px 17px 0px rgba(0, 0, 0, .5));
+					.num {
+						font-family:$font-roboto;
+					}
+
+					.title {
+						position:absolute;
+						top: 78px;
+    					left: 60px;
+						text-align: left;
+	
+						h3 {
+							font-size: 46px;
+							color: #222;
+							font-weight: 900;
+							letter-spacing: -3px;
+							
+	
+							span {
+								display: inline-block;
+								margin-top: 27px;
+								font-size: 20px;
+								font-weight: 400;
+								letter-spacing: -2px;
+								border-right: 1px solid #e5e5e5;
+								padding: 0 55px 0 0;
+
+								&:nth-child(3) {
+									padding-left: 15px;
+								}
+								&:last-child {
+									border: none;
+									padding-left: 15px;
+								}
+							}
+						}
+						
+					}
+					.discount {
+						position: absolute;
+						top: 49px;
+						left: 429px;
+						width: 140px;
+						height: 140px;
+						background: #ffde26;
+						border-radius: 50%;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+	
+						p {
+							color: #e80000;
+							&:nth-child(1) {
+								font-family: $font-roboto;
+								font-size: 30px;
+								font-weight: 900;
+							}
+							&:nth-child(2) {
+								font-family: $font-noto;
+								font-size: 25px;
+								font-weight: 700;
+								letter-spacing: -1px;
+								margin-top: -3px;
+							}
+						}
+					}
+					.price {
+						position:absolute;
+						top: 52px;
+						right: 51px;
+						text-align:left;
+						line-height:1.1;
+						letter-spacing:-1px;
+						display: flex;
+						flex-direction: column;
+						
+						width: 430px; 
+
+						.before {
+							height: 100%;
+							color:#bbb;
+							font-size:30px;
+							text-decoration:line-through;
+							text-align: left;
+							font-weight: 500;
+						}
+						.after {
+							text-align: right;
+							color:#eb2200;
+							font-size: 56px;
+							text-align: left;
+							font-weight: 900;
+							.num {
+								font-size:56px;
+								font-weight: 900;
+							}
+						}
+					}
+					.btn-area {
+						position:absolute;
+						top:167px;
+						right: 55px;
+						font-size:0;
+						line-height:0;
+
+						.flag {
+							position: absolute;
+							bottom: -8px;
+    						left: 113px;
+							z-index: 1;
+						}
+						.btn {
+							//width:280px;
+							height:105px;
+						}
+					}
+				}
+			}
+			
+		}
+
+		.cont2 {
+			background: linear-gradient(0deg, #192f87 17%, #1832a3 100%);
+			.wrap {
+				>img {
+					margin-top: -55px;
+				}
+				
+			}
+			
+		}
+
+		
+		.product-sentence {
+			background-color: #18319b;
+			font-size: 54px;
+			color: #fff;
+			font-weight: 900;
+			padding: 35px 0;
+			
+		}
+	}
+
+}
+
+@import "module/popup";

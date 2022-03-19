@@ -1,0 +1,598 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/popup";
+
+.product-eco {
+    line-height: normal;
+    letter-spacing: -1px;
+    * { font-family: $font-noto; }
+    .container { position: relative; }
+    .wrap {
+        position: relative;
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .item { position: relative; }
+    .slick-arrow {
+        @extend %slick-arrow;
+        margin-top: -39px;
+        border-radius: 50%;
+        &.slick-prev {
+            @include slideArrow(left, 78px, 78px, 5px, #fff);
+            left: 0;
+            background: rgba(0, 0, 0, .5);
+        }
+        &.slick-next {
+            @include slideArrow(right, 78px, 78px, 5px, #fff);
+            right: 0;
+            background: rgba(0, 0, 0, .5);
+        }
+    }
+    .slick-dots {
+        width: 100%;
+        @include rem(margin-top, 20px);
+        text-align: center;
+        li {
+            display: inline-block;
+            @include rem(margin, 0 6px);
+            button {
+                @include rem(width, 20px);
+                @include rem(height, 20px);
+                text-indent: -9999em;
+                border: none;
+                border-radius: 50%;
+                background-color: #cfcfcf;
+                outline: none;
+                cursor: pointer;
+            }
+            &.slick-active {
+                button {
+                    @include rem(width, 60px);
+                    @include rem(border-radius, 15px);
+                    background-color: #ffc20e;
+                }
+            }
+        }
+    }
+    .product-title {
+        @include bg($color: #082976, $url: '#{$img-path}/mobile/visual_bg.jpg', $size: cover);
+		.date{
+			position: absolute;
+			top: percent(405,969);
+			left:0;
+			right:0;
+			margin:0 auto;
+			font-family: "EduwillPassBold";
+			@include vw(font-size,41px);
+			color:#fff;
+		}
+        .action {
+            position: absolute;
+            top: percent(22,1533);
+            right: percent(10);
+            width: percent(134);
+        }
+        .eco-1718 {
+            position: absolute;
+            top: percent(966,1533);
+            right: 0;
+            left: 0;
+        }
+    }
+    .product-benefit {
+        background-color: #fff;
+        .action {
+            position: absolute;
+            bottom: 50px;
+            right: 50px;
+        }
+    }
+    .product-benefit-plus {
+        z-index: 1;
+        background-color: #1832a2;
+        @include linear-gradient(180deg, #1832a2 0%, #192d82 100%);
+        img { @include rem(margin-top, -55px); }
+    }
+    .product-apply-table {
+        @include rem(padding-bottom, 160px);
+        .eco-1718{
+            position: absolute;
+            top: percent(150, 917);
+            left: percent(80);
+            .brand{
+                display: block;
+            }
+        }
+        .flag {
+            width: percent(340);
+            margin-left: percent(50);
+            & + .apply-box { @include rem(margin-top, 20px); }
+        }
+        .apply-box { position: relative; }
+        .apply-date {
+            position: absolute;
+            top: percent(64, 111);
+            right: percent(515);
+            left: percent(76);
+            text-align: right;
+            line-height: 1;
+            font-size: 0;
+            p {
+                display: inline-block;
+                width: 40.32%;
+                vertical-align: top;
+                line-height: 1;
+                font-size: 0;
+                &.line { width: 19.36%; }
+                span {
+                    display: inline-block;
+                    width: 50%;
+                    padding: 0 1%;
+                    @include boxSizing(border-box);
+                }
+                img { width: 100%; }
+            }
+        }
+        .apply-list {
+            .list {
+                position: absolute;
+                &.list-1 { top: percent(120, 1401); right: percent(375); bottom: percent(738, 1401); left: percent(50); }
+                &.list-2 { top: percent(120, 1401); right: percent(50); bottom: percent(738, 1401); left: percent(375); }
+                &.list-3 { top: percent(846, 1401); right: percent(375); bottom: 0; left: percent(50); }
+                &.list-4 { top: percent(846, 1401); right: percent(50); bottom: 0; left: percent(375); }
+            }
+            .form-control {
+                margin-top: 15px;
+                @include rem(padding-top, 15px);
+                @include vw(font-size,20px);
+                font-weight: 500;
+                color: #000;
+                @include rwdWidth(480){
+                    margin-top: 25px;
+                }
+                @include rwdWidth(580){
+                    margin-top: 35px;
+                }
+                @include rwdWidth(720){
+                    margin-top: 40px;
+                }
+                input {
+                    @include rem(width, 20px);
+                    @include rem(height, 20px);
+                    vertical-align: middle;
+                }
+            }
+            .price-box {
+                @include rem(margin, 0 20px);
+                text-align: left;
+                .upper {
+                    position: relative;
+                    padding-left: 50px;
+                    line-height: 1;
+                }
+                .lower {
+                    padding-left: 50px;
+                    line-height: 1;
+                    &:only-child {
+                        @include rem(padding, 25px 0 0);
+                        text-align: center;
+                        .price-after {
+                            padding-top: 0;
+                            @include vw(font-size,50px);
+                        }
+                    }
+                }
+                .discount {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 40px;
+                    height: 40px;
+                    text-align: center;
+                    line-height: 1.1;
+                    @include vw(font-size,20px);
+                    font-weight: 700;
+                    border: 2px solid #e10010;
+                    border-radius: 50%;
+                    @extend .table;
+                    em { @extend .table-cell; }
+                    @include animation(colorChangeApply, 1s, $iteration: infinite, $timing: step-start) {
+                        0%, 100% { color: #fff; background-color: #e10010; }
+                        50% { color: #e10010; background-color: #fff; }
+                    }
+                }
+                @include rwdWidth(480){
+                    .upper,
+                    .lower { padding-left: 80px; }
+                    .discount { width: 60px; height: 60px; }
+                }
+                @include rwdWidth(580){
+                    .upper,
+                    .lower { padding-left: 90px; }
+                    .discount { width: 70px; height: 70px; }
+                }
+                @include rwdWidth(720){
+                    .upper,
+                    .lower { padding-left: 100px; }
+                    .discount { width: 80px; height: 80px; }
+                }
+                .price-before {
+                    display: block;
+                    padding-top: 5%;
+                    line-height: 1;
+                    @include vw(font-size,24px);
+                    font-weight: 500;
+                    color: #888;
+                    text-decoration: line-through;
+                    em { font-family: $font-roboto; }
+                }
+                .price-after {
+                    display: block;
+                    padding-top: 5%;
+                    line-height: 1;
+                    @include vw(font-size,30px);
+                    font-weight: 700;
+                    color: #f4280c;
+                    em { font-family: $font-roboto; font-weight: 900; }
+                }
+            }
+            .action {
+                position: absolute;
+                top: 68.5%;
+                right: 0;
+                bottom: 12.5%;
+                left: 0;
+                .btn-apply {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    @include pointer(70%, -10px, 60px, 66px, 20, bounce);
+                    span { @extend .sr-only; }
+                }
+            }
+            .action2 {
+                position: absolute;
+                top: 93%;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                .btn-lecture {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    span { @extend .sr-only; }
+                }
+            }
+        }
+    }
+    .product-winner {
+        overflow: hidden;
+        background-color: #ffc100;
+        @include linear-gradient(90deg, #ffc100 0%, #ffea00 100%);
+        .winner-wrap {
+            @include rem(margin-top, -50px);
+            overflow: hidden;
+            .winner-list {
+                overflow: hidden;
+                -webkit-transform: perspective(400px) rotateX(35deg);
+                -ms-transform: perspective(400px) rotateX(35deg);
+                transform: perspective(400px) rotateX(35deg); // perspective 수치가 낮을수록 좌우로 확장
+            }
+            // slick-track issue
+            .winner-list .slick-track {
+              -webkit-transform: translate(0) !important;
+              -ms-transform: translate(0) !important;
+              transform: translate(0) !important;
+            }
+            p {
+                line-height: 2.2;
+                @include vw(font-size,20px);
+                font-weight: 500;
+                color: #222;
+            }
+        }
+    }
+	.product-hits{
+		background-color:#1832A3;
+	}
+    .product-video {
+        @include rem(padding-bottom, 160px);
+        background-color: #f2f2f2;
+        .video-list {
+            margin: 0 percent(52);
+            .video {
+                position: relative;
+                @include rem(margin-top, 20px);
+                @include breakpoint(maxMobile){
+                    height: 346px;
+                }
+                video,
+                a {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 1;
+                    display: block;
+                }
+                a { z-index: 2; }
+            }
+        }
+
+        .video-review { @include rem(margin-top, 20px); }
+
+        .action {
+            width: percent(383);
+            margin: 0 percent(30) 0 auto;
+            @include rem(margin-top, 60px);
+            text-align: right;
+        }
+    }
+    .product-recommend {
+        @include rem(padding-bottom, 160px);
+    }
+    .product-brand {
+        @include bg($color: #ffc000, $url: '#{$img-path}/mobile/bg_brand.jpg', $size: cover);
+        .action {
+            position: absolute;
+            bottom: percent(114, 1304);
+            right: 0;
+            left: 0;
+            width: percent(134);
+            margin: 0 auto;
+        }
+    }
+    .product-short {
+        .eco-1718 {
+            position: absolute;
+            top: percent(550, 709);
+            right: 0;
+            left: 0;
+        }
+    }
+    .product-review {
+        @include rem(padding-bottom, 160px);
+        background-color: #f8f8f8;
+        .slick-slide {
+            opacity: .5;
+            &.slick-active { opacity: 1; }
+        }
+        .action {
+            @include rem(margin-top, 30px);
+            a {
+                display: inline-block;
+                width: percent(383);
+            }
+        }
+    }
+	.product-increse {
+        .eco-1718 {
+            position: absolute;
+            top: percent(234,1087);
+            left: percent(70);
+            text-align: left;
+            p.brand,
+            p.compare-2 {
+                display: block;
+            }
+        }
+        .percent {
+            position: absolute;
+            margin: 0;
+            line-height: 1;
+            font-family: $font-roboto;
+            font-weight: 900;
+            &-1 {
+                top: percent(167,1087);
+                right: percent(360);
+                left: percent(220);
+                @include vw(font-size,44px);
+                color: #222;
+                letter-spacing: -2px;
+                span {
+                    display: inline-block;
+                    vertical-align: top;
+                    @include vw(font-size,26px);
+                }
+            }
+            &-2 {
+                top: percent(490,1087);
+                right: percent(450);
+                left: percent(90);
+                @include vw(font-size,60px);
+                color: #0200d4;
+            }
+        }
+    }
+    .product-exam { background-color: #f8f8f8; }
+    .product-answer {
+        @include rem(padding-bottom, 160px);
+        @include linear-gradient(to bottom, #1832a3 0%, #1a2d7c 100%);
+        .answer-title {
+            @include rem(margin-top, 40px);
+            text-align: center;
+            @include vw(font-size,30px);
+            font-weight: 900;
+            color: #fff;
+            strong {
+                color: #ffd219;
+                @include animation(colorChange, 1s, $iteration: infinite, $timing: step-start){
+                    0%, 100% { color: #fff; }
+                    50% { color: #ffd219; }
+                }
+            }
+        }
+        .answer-list {
+            & > div { position: relative; }
+        }
+        .flag {
+            position: absolute;
+            top: percent(200, 358);
+            right: 0;
+            left: 0;
+            width: percent(545);
+            margin: 0 auto;
+        }
+    }
+    .product-teacher {
+        @include rem(padding-bottom, 160px);
+        .teacher-list {
+            @include rem(margin-top, 40px);
+        }
+        .item .action {
+            position: absolute;
+            top: percent(160,519);
+            right: percent(30);
+            width: percent(134);
+        }
+        .teacher-notice {
+            @include rem(margin-top, 50px);
+            margin-right: percent(50);
+            text-align: right;
+            .action {
+                display: inline-block;
+                width: percent(220);
+            }
+        }
+        .teacher-review + .action a { @include pointer(70%, -10px, 60px, 66px, 20, bounce); }
+    }
+    .product-curriculum {
+        background-color: #f2f2f2;
+        .eco-1718{
+            position: absolute;
+            top: percent(310, 1841);
+            left: percent(80);
+            .brand{
+                display: block;
+            }
+        }
+        .action {
+            position: absolute;
+            top: percent(1654, 1847);
+            left:50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            width: percent(600);
+            a { @include pointer(70%, -10px, 60px, 66px, 20, bounce); }
+        }
+    }
+    .product-book {
+        .eco-1718 {
+            position: absolute;
+            top: percent(230, 1449);
+            left: percent(80);
+        }
+        .action {
+            position: absolute;
+            top: percent(640, 1449);
+            right: percent(50);
+            width: percent(134);
+        }
+    }
+    .product-reason {
+        .reason-list {
+            position: absolute;
+            top: percent(166,1151);
+            right: percent(50);
+            left: percent(50);
+        }
+        .slick-dots { margin-top: 10%; }
+    }
+    .product-free {
+        background-color: #f8f8f8;
+        .eco-1718 {
+            position: absolute;
+            top: percent(270,1593);
+            left: percent(80);
+        }
+        .action{
+            position:absolute;
+            top:percent(1465,1593);
+            right: percent(50);
+            width:percent(220);
+        }
+    }
+	.product-apply-table{
+		.month {
+			position: absolute;
+			color: #333;
+			font-weight: 900;
+			@include vw(top,47px);
+			@include vw(left,175px);
+			@include vw(font-size,45px);
+			@include vw(width, 56px);
+			text-align: right;
+		}
+	}
+
+
+    #productEvent {
+        position: relative;
+        overflow: hidden;
+        iframe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+    }
+}
+
+.eco-1718 p {
+    display: none;
+    margin: 0;
+    line-height: 1.4;
+    @include vw(font-size,14px);
+    font-weight: 300;
+    color: rgba(0, 0, 0, .5);
+    .product-title &.brand,
+    .product-short &.compare-4,
+    .product-increse &.brand,
+    .product-increse &.compare-2,
+    .product-answer &.brand,
+    .product-teacher &.survey-3,
+    .product-book &.survey-4,
+    .product-free &.brand {
+        display: block;
+    }
+    .product-favorable &.brand {
+        display: block;
+        @include vw(font-size,18px);
+        color: rgba(255, 255, 255, .5);
+    }
+    .product-title &.brand-bundle,
+    .product-title &.brand,
+    .product-answer &.brand {
+        color: rgba(255, 255, 255, .5);
+    }
+}
+
+.popup{
+    &.popup-lecture {
+        .popup-body { padding: 0; }
+        .lecture-title {
+            @include rem(padding, 20px);
+            @include vw(font-size,24px);
+            font-weight: 700;
+            color: #fff;
+            text-align: left;
+            border-radius: 0;
+            background-color: #000;
+        }
+        .lecture-text { @include rem(padding, 25px); }
+    }
+}
+.sector-unbreakable {background: #f8f7f0 !important}

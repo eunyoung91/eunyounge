@@ -1,0 +1,428 @@
+// Notosans reference 100:Thin 300:Light 400:Regular 500:Medium 700:Bold 900:Black
+@import url('//img.eduwill.net/resources/common/web/css/webfont.css'); 
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins"; 
+
+// text hidden
+.sr-only {
+	position: absolute;
+	display: inline-block;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	width: 0px;
+	height: 0px;
+	margin: -1px;
+	padding: 0;
+	word-break: keep-all;
+	white-space: nowrap;
+	color: transparent;
+	border: 0;
+	text-indent: -9999px;
+}
+
+#footer {
+	padding-bottom: 60px;
+	letter-spacing: 0;
+	border-top-width: 0;
+	background-color: $bg-color-1;
+	* {
+		margin: 0;
+		padding: 0;
+		line-height: 1.5;
+		font-family: $noto;
+		word-wrap: break-word;
+		list-style: none;
+		font-style: normal;
+		color: $color-base;
+		text-decoration: none;
+		font-size: 14px;
+	}
+
+	.grid { 
+		*zoom: 1;
+		@include boxSizing(border-box);
+		&:before,
+		&:after { 
+			content: ''; 
+			display: table; 
+		}
+		&:after { 
+			clear: both; 
+		}
+		.col { 
+			float: left; 
+			@include boxSizing(border-box);
+		}
+	}
+	.wrap { @extend .grid; }
+	.inner {
+		width: auto;
+		padding: 0;
+		text-align: center;
+		@include breakpoint(desktop){
+			position: relative;
+			width: $layout-desktop;
+			height: auto !important;
+			margin: 0 auto;
+		}
+	}
+	.upper {
+		overflow: hidden;
+		border-top: 1px solid $border-color-1;
+		border-bottom: 1px solid $border-color-1;
+		background-color: $color-white;
+		//box-shadow: inset 0 1px 0 0 $border-color-1, inset 0 -1px 0 0 $border-color-1;
+		.grid {
+			float: left;
+			li {
+				position: relative;
+				padding: 14px 0;
+				&:before {
+					content: ''; 
+					position: absolute; 
+					top: 50%; 
+					left: 0; 
+					display: block; 
+					width: 1px; 
+					height: 10px; 
+					margin-top: -5px; 
+					background-color: $border-color-3;
+				}
+				&:first-child {
+					&:before { display: none; }
+					@include breakpoint(desktop){
+						margin-left: -15px;
+					}
+				}
+				&:last-child span { padding-right: 0; }
+			}
+			span {
+				display: block;
+				padding: 0 16px;
+				font-weight: 400;
+				color: $color-base-dark;
+				@include breakpoint(minMobile){
+					padding: 0 8px;
+				}
+				@include breakpoint(tablet){
+					padding: 0 15px;
+				}
+			}
+		}
+		.top {
+			float: right;
+			border-right: 1px solid #c7c7c7;
+			border-left: 1px solid #c7c7c7;
+			@include breakpoint(tablet){
+				margin-right: 15px;
+			}
+			@include breakpoint(desktop){
+				margin-right: 0;
+			}
+			a {
+				display: block;
+				width: 65px;
+				padding: 14px 0;
+			}
+			span {
+				position: relative;
+				display: inline-block;
+				font-weight: 400;
+				color: $color-base-dark;
+				padding-right: 15px;
+				&:after {
+					right: 0;
+					@include arrow(top, 6px, 6px, 1px, $color-base-dark);
+				}
+			}
+		}
+	}
+	.downer {
+		@include breakpoint(tablet){
+			padding: 0 15px;
+		}
+		.action {
+			float: none;
+			margin: 20px 16px 0;
+			text-align: center;
+			@include breakpoint(minMobile){
+				margin: 20px 8px 0;
+			}
+			@include breakpoint(tablet){
+				margin-right: 0;
+				margin-left: 0;
+			}
+			@include breakpoint(desktop){
+				float: right;
+				text-align: right;
+				font-size: 0;
+			}
+			.col {
+				float: left;
+				@include breakpoint(desktop){
+					float: none;
+					display: inline-block;
+					width: 40px;
+					margin-left: 14px;
+					vertical-align: top;
+					&:first-child { margin-left: 0; }
+				}
+				a {
+					display: block;
+					width: 40px;
+					height: 40px;
+					background-repeat: no-repeat;
+					background-position: center center;
+					background-size: 40px auto;
+					-webkit-box-sizing: border-box;
+					box-sizing: border-box;
+				}
+				&.facebook {
+					a { background-image: url('#{$img-path}/icon_facebook.png'); }
+					span { @extend .sr-only; }
+				}
+				&.blog {
+					margin-left: 12px;
+					a { background-image: url('#{$img-path}/icon_blog.png'); }
+					span { @extend .sr-only; }
+				}
+				&.site {
+					position: relative;
+					float: right;
+					width: 190px;
+					margin-left: 16px;
+					text-align: left;
+					@include breakpoint(desktop){
+						border-width: 1px;
+					}
+					&.in {
+						.list {
+							height: auto; 
+							opacity: 1;
+						}
+						ul { @include translateY(0); }
+						a span:after { @include rotate(-45deg); }
+					}
+					> a {
+						display: block;
+						width: 100%;
+						border: 1px solid $border-color-1;
+						span {
+							display: block;
+							position: relative;
+							margin: 0 20px;
+							padding: 10px 0 9px;
+							font-weight: 400;
+							&:after {
+								right: 0;
+								@include arrow(right, 7px, 7px, 1px, $border-color-2);
+								@include transition(all, .3s);
+							}
+						}
+					}
+				}
+				.list {
+					position: absolute;
+					right: 0;
+					bottom: 39px;
+					z-index: 1;
+					width: 190px;
+					height: 0;
+					overflow: hidden;
+					opacity: 0;
+					@include boxSizing(border-box);
+					@include transition(all, .3s);
+					ul {
+						width: 100%;
+						padding: 10px;
+						border: 1px solid $border-color-1;
+						background-color: $bg-color-1;
+						@include boxSizing(border-box);
+						@include translateY(100px);
+						@include transition(all, .3s);
+						a {
+							display: block;
+							width: 100%;
+							padding: 10px;
+						}
+					}
+				}
+			}
+		}
+		.core {
+			float: none;
+			margin-top: 24px;
+			@include breakpoint(desktop){
+				float: left;
+				text-align: left;
+			}
+			li {
+				margin-top: 20px;
+				font-weight: 400;
+				background: none;
+				@include breakpoint(tablet){
+					margin-top: 9px;
+				}
+				@include breakpoint(desktop){
+					padding-left: 26px;
+					background-repeat: no-repeat;
+					background-position: left top;
+					background-size: 22px auto;
+					&.location { background-image: url('#{$img-path}/icon_location.png'); }
+					&.tel { background-image: url('#{$img-path}/icon_tel.png'); }
+					&.mail { background-image: url('#{$img-path}/icon_mail.png'); }
+				}
+				&:first-child { margin-top: 0; }
+				strong { font-weight: 400; }
+				span {
+					display: block;
+					@include breakpoint(tablet){
+						display: inline-block;
+					}
+				}
+			}
+			address {
+				font-weight: 400;
+				letter-spacing: 0;
+				@include breakpoint(desktop){
+					text-align: left;
+				}
+			}
+			.copyright {
+				display: block;
+				margin-top: 24px;
+				@include breakpoint(desktop){
+					margin-top: 10px;
+					text-align: left;
+				}
+			}
+		}
+	}
+
+	&.site-recruit {
+		.awrad {	
+			display: none;
+		}
+		@include breakpoint(desktop){
+			.awrad {	
+				display: block;
+				margin-bottom: -60px;
+				box-shadow: inset 0 2px 0 0 #e8e8e8;
+				margin-top: 60px;
+				padding: 16px 0;
+			}
+			.inner {	
+				width: auto;
+				max-width: 1100px;
+			}
+		}
+		
+		
+	}
+
+	&.site-recruit {
+		.awrad-rolling {			
+			box-shadow: inset 0 2px 0 0 #e8e8e8;
+			margin-bottom: -60px;
+			margin-top: 60px;	
+			.award-slick {
+				&-pc {
+					display: none;
+				}
+				&-m {
+					display: block;
+					width: 360px;
+					margin: 0 auto;
+				}	
+				padding: 0 41px;
+				.slick-arrow {
+					position: absolute; top: 53px;
+					border: none;
+					width: 13px; height: 23px;
+					font-size: 0;
+					outline: none;
+					cursor: pointer;
+					&.slick-prev {
+						left: 0;
+						background: url(https://img.eduwill.net/resources/recruit/dev/front_renew/images/main/arrow-slide-arrow-left.svg) no-repeat 0 0;
+					}
+					&.slick-next {
+						right: 0;
+						background: url(https://img.eduwill.net/resources/recruit/dev/front_renew/images/main/arrow-slide-arrow-right.svg) no-repeat 0 0;
+					}
+				}
+				.visual-list {
+					font-size: 0; text-align: left;
+					img {
+						display: inline-block;
+						width: 50%;
+					}
+				}
+			}
+
+			@include breakpoint(desktop){
+				.inner {	
+					width: auto;
+					max-width: 1100px;
+					padding: 16px 0;
+				}
+				.award-slick {
+					&-pc {
+						display: block;
+					}
+					&-m {
+						display: none;
+					}
+					padding: 0 25px;
+					.slick-arrow {
+						top: 23px;
+					}
+					.visual-list {
+						img {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}		
+	}
+    // 2021-10-19 exit add
+    #exitFooter & {
+        .inner {
+            @include transition(all, .3s);
+            @include breakpoint(desktop){
+                width: 850px;
+            }
+            @include rwdWidth(1200){
+                width: 1000px;
+            }
+        }
+        .logo-global {
+            display: block;
+            width: 25.556vw;
+            height: 8.333vw;
+            @include rem(margin, 24px auto 0);
+            background: url('//img.eduwill.net/Img2/Common/BI/type5/live/logo.svg') no-repeat 0 0;
+            background-size: cover;
+            @include breakpoint(maxMobile){
+                width: 92px;
+                height: 30px;
+            }
+            @include breakpoint(desktop){
+                position: absolute;
+                top: 35px;
+                left: -100px;
+                width: 92px;
+                height: 30px;
+                margin-top: 0;
+            }
+            a {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

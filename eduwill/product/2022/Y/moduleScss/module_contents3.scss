@@ -1,0 +1,85 @@
+@charset "utf-8";
+@import "mixins";
+
+
+/* 컨텐츠 */
+.product-eco {
+	//PC
+	@mixin shadowBg(){
+		background: #f3f3f3 linear-gradient(0deg, rgba(243,243,243,1) 0%, rgba(255,255,255,1) 13%);
+	}
+
+	
+	&[data-device="pc"]{
+		// content moudule
+		#edoContent3 {
+			
+			.ecoCont1 {
+				.btn-reason {
+					top: -110px;
+					right: 50px;
+				}
+			}
+		
+			.ecoCont2 {
+				background:url('https://img.eduwill.net/eduwill/img/2021/Y/product/210823/pc/cont9_bg.jpg') no-repeat 50% 50%;
+				background-size:cover;
+				padding-bottom:130px;
+				.slider1 {
+					width:100%;margin-top:60px;
+
+					.slick-slide{
+						padding:20px;
+						width:620px;
+						height:360px;
+						overflow:hidden;
+						opacity:0.5;
+						img{
+							width:100%;
+							border-radius: 30px;
+							box-shadow: 0 0 25px 0 rgba(0,0,0,0.2);
+						}
+
+						&.slick-center{opacity:1;}
+
+					}
+
+					.slick-dots {
+						padding-top:5px;
+					}
+				}
+				
+			}
+		
+			.ecoCont3 {
+				
+			}
+
+		}
+
+	}
+
+
+	//MOBILE
+	&[data-device="mo"]{
+		// content moudule
+		#edoContent3 {
+			#eduf-paragraph {
+				margin-bottom: 0;
+			}
+			.ecoCont1 {
+				.btn-reason {
+					top: 5vw;
+				}
+			}
+
+			.ecoCont2 {
+				background:url('https://img.eduwill.net/eduwill/img/2021/Y/product/210823/mobile/cont9_bg.jpg') no-repeat 50% 50%;
+				background-size:cover;
+				@include vw(padding-bottom,120px);
+				
+			}
+		}
+		
+	}
+}

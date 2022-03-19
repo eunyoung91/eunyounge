@@ -1,0 +1,1319 @@
+@charset "utf-8";
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+@import "module/motion";
+
+// 근거 문구 에코
+.eco-2473 {
+    p { display: none; }
+    .sector-title & {
+        position: absolute;
+        @include vw(top, 96px);
+        right: 0;
+        left: 0;
+        p.brand2 {
+            display: block;
+            text-align: center;
+            @include vw(font-size, 14px);
+            color: #93837e;
+            letter-spacing: -1.5px;
+            span { 
+				display: block; 
+			}
+        }
+    }
+    .sector-teacher & {
+        p.level {
+            display: block;
+            @extend .grounds-text;
+            span { display: block; }
+        }
+    }
+    .sector-book & {
+        p { @extend .grounds-text; }
+        p.compare {
+            display: block;
+            @include vw(margin-top, 20px);
+        }
+        p.book {
+            display: block;
+            &:before { content: '*'; }
+        }
+    }
+	.sector-eco-title & {
+        p { @extend .grounds-text; }
+        p.brand {
+			@include vw(margin-left, 50px);
+            display: block;
+			text-align: left;
+        }
+    }
+}
+
+.product {
+	&-eco {
+		overflow: hidden;
+		* {
+			line-height: normal;
+			font-family: $font-roboto;
+			letter-spacing: -1px;
+		}
+		.wrap {
+			position: relative;
+			width: 100%;
+			max-width: 720px;
+			margin: 0 auto;
+			text-align: center;
+			&-full {
+				width: 100%;
+			}
+		}
+		.item {
+			position: relative;
+		}
+		.only-pc { display: none !important;}
+		.only-mobile { display: block;}
+
+		// banner
+		.fix {
+			&-bottom {
+				position: fixed;
+				bottom: 50px;
+				left: 0;
+				right: 0;
+				z-index: 11;
+				background: rgba(0,0,0, .8);
+				@include vw(padding, 15px 50px 15px 50px);
+				@include boxSizing(border-box);
+				.wrap {
+					strong {
+						display: inline-block;
+						@include vw(font-size, 40px);
+						@include vw(letter-spacing, -4px);
+						font-weight: 900;
+						color: #fff;
+						text-align: left;
+						em {
+							color: #ffce06;
+							@include vw(font-size, 40px);
+							@include vw(letter-spacing, -2px);
+							font-style: normal;
+							font-weight: 900;
+						}
+					}
+	
+					a {
+						position: relative;
+						display: inline-block;
+						text-align: center;
+						vertical-align: top;
+						@include vw(margin-left, 60px);
+						@include vw(margin-top, 5px);
+						@include vw(width, 200px);
+						@include vw(height, 50px);
+						background: none !important;
+						@include pointer(50%, 0, 57px, 65px, 12, bounce);
+					}
+				}
+			}
+		}
+
+		// base
+		.grounds-text {
+			color: rgba(0,0,0, .4);
+			@include vw(letter-spacing, -1px);
+			@include vw(font-size, 22px);
+			@include breakpoint(maxMobileFold) {
+				font-size: 14px;
+			}
+		}
+		.asterisk {
+			display: inline-block;
+			font-weight: 300;
+			color: rgba(255,255,255, .6);
+			@include vw(font-size, 24px);
+			@include breakpoint(maxMobileFold) {
+				font-size: 16px;
+			}
+		}
+
+		// 강조
+		.point-1 { color: #ff3c3c;}
+		.highlight {
+			position:relative;
+			position: relative;
+			font-weight: 900;
+			line-height: 1;
+			z-index: 1;
+			@include vw(padding, 0 5px);
+			&:after{
+				content:'';
+				position:absolute;
+				left:0;
+				bottom: 0;
+				display:inline-block;
+				background-color:#f9c400;
+				@include vw(height, 18px);
+				width:100%;
+				z-index:-1;
+			}
+		}
+
+		// slider
+		.slider-contents {
+			position: relative;
+			width: percent(620);
+			margin: 0 auto;
+		}
+		.slick-dots {
+			position: absolute;
+			@include vw(bottom, 90px);
+			right: 0;
+			left: 0;
+			font-size: 0;
+			text-align: center;
+			li {
+				display: inline-block;
+				@include vw(margin, 0 6px);
+				&.slick-active button {
+					@include vw(width, 92px);
+					@include vw(border-radius, 50px);
+					background-color: #ffffff;
+				}
+			}
+			button {
+				display: block;
+				@include vw(width, 28px);
+				@include vw(height, 26px);
+				color: transparent;
+				border: none;
+				border-radius: 50%;
+				background-color: #ffffff;
+				outline: none;
+				cursor: pointer;
+			}
+		}
+		.slick-arrow {
+            position: absolute;
+            top: 50%;
+            z-index: 10;
+            content: '';
+            padding: 0;
+            margin:0;
+            border: none;
+            outline: none;
+            text-indent: -9999px;
+            display: block; 
+            cursor:pointer;
+            @include vw(width, 50px);
+            @include vw(height, 50px);
+            @include vw(margin-top, -25px);
+            &.slick-prev {
+                @include vw(left, -30px);
+                background: url('https://img.eduwill.net/eduwill/img/2021/7/product/210430/pc/btn_prev.png') 0 0 no-repeat; background-size: cover;
+            }
+            &.slick-next {
+                @include vw(right, -30px);
+                background: url('https://img.eduwill.net/eduwill/img/2021/7/product/210430/pc/btn_next.png') 0 0 no-repeat; background-size: cover;
+            }
+        }
+
+		// common
+		.action {
+			a {
+				display: inline-block;
+				border: 1px solid #858585;
+				@include vw(padding, 0 35px 0 60px);
+				@include vw(height, 80px);
+				@include vw(border-radius, 100px);
+				@include transition(all, .3s, ease-in);
+				@include boxSizing(border-box);
+				@include pointer(50%, 0, 57px, 65px, 12, bounce);
+				span {
+					display: inline-block;
+					font-weight: 700;
+					color: #222;
+					@include vw(padding-right, 38px);
+					@include vw(font-size, 30px);
+					@include vw(line-height, 78px);
+					@include vw(letter-spacing, -2px);
+					@include bg($url: '#{$img-path}/mobile/icon_arrow.png', $position: right center, $size: 9px auto);
+				}
+				&:hover,
+				&:active {
+					background: #ffd844;
+					border-color: #ffd844;
+					/*@include linear-gradient(to bottom, #ffdd48 0%, #ffb320 100%);*/
+				}
+				@include breakpoint(maxMobileFold){
+					padding: 0 35px 0 60px;
+					height: 75px;
+					span {
+						padding-right: 38px;
+						line-height: 73px;
+						font-size: 28px;
+						background-size: 18px auto;
+					}
+				}
+			}
+	
+			&.type-2 {
+				a {
+					width: percent(450);
+					background: #fff;
+					border: 1px solid #e2e2e2;
+					@include vw(border-radius, 100px);
+					@include boxShadow(0 4px 0 0 rgba(0, 0, 0, .1));
+					@include boxSizing(border-box);
+					&:after {
+						display: none;
+					}
+					span {
+						@include vw(padding-right, 30px);
+						@include vw(font-size, 28px);
+						@include vw(letter-spacing, -1.5px);
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						text-align: center;
+						font-weight: 700;
+						color: #222;
+						background: none;
+						&:after {
+							position: absolute;
+							top: 50%;
+							right: percent(30, 450);
+							@include vw(margin-top, -6px);
+							@include arrow(right, 8px, 8px, 2px, #000);
+						}
+						@include breakpoint(maxMobileFold){
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							&:after {
+								position: absolute;
+								top: 50%;
+								right: percent(30, 450);
+								@include vw(margin-top, -9px);
+								@include arrow(right, 18px, 18px, 2px, #000);
+							}
+						}
+					}
+				}
+			}
+	
+			&.type-3 {
+				a {
+					position: relative;
+					width: 100%;
+					padding: 0;
+					border: 0;
+					@include vw(border-radius, 10px);
+					@include vw(height, 84px);
+					@include linear-gradient(to right, #fa5a00 0, #ea1d00 100%);
+					span {
+						display: block;
+						width: 100%;
+						text-align: center;
+						padding-right: 0;
+						font-weight: 900;
+						color: #fff;
+						background: none;
+						@include vw(font-size, 40px);
+						@include vw(letter-spacing, -2px);
+						@include vw(padding-left, 30px);
+						@include vw(line-height, 84px);
+						@include boxSizing(border-box);
+						@include arrow(right, 10px, 10px, 2px, #fff);
+						@include vw(right, 30px);
+					}
+					&:hover {
+						@include linear-gradient(to right, #fa5a00 0, #ea1d00 100%);
+						border: 0;
+					}
+					@include breakpoint(maxMobileFold){
+						height: 70px;
+						span {
+							line-height: 70px;
+						}
+					}
+				}
+			}
+	
+			&.cop,
+			&.gov,
+			&.post,
+			&.seven {
+				display: none;
+			}
+	
+			&.fire {
+				display: block; 
+			}
+		}
+		.comm-title {
+			@include vw(margin-bottom, 45px);
+			@include vw(letter-spacing, -2px);
+			@include vw(font-size, 50px);
+			margin-left: percent(50);
+			text-align: left;
+			font-weight: 900;
+			line-height: 1.4;
+			color: #000;
+		}
+		.comm-sub-title {
+			@include vw(padding-left, 28px);
+			@include vw(letter-spacing, -2px);
+			@include vw(font-size, 40px);
+			margin-left: percent(50);
+			position: relative;
+			text-align: left;
+			font-weight: 900;
+			color: #000;
+			line-height: 1;
+			border-left: 1px solid #c1c1c1;
+			.highlight {
+				@include vw(padding, 0 5px);
+				@include vw(font-size, 40px);
+				display: inline-block;
+				position: relative;
+				z-index: 1;
+				font-weight: 900;
+				line-height: 1;
+				&:before {
+					content: '';
+					display: inline-block;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					width: 100%;
+					@include vw(height, 15px);
+					background: #f9c400;
+					z-index: -1;
+				}
+			}
+			em {
+				position: relative;
+				color: #222;
+				vertical-align: bottom;
+				@include vw(top, 5px);
+				@include vw(font-size, 22px);
+			}
+			.sub-title {
+				@include vw(margin-top,16px);
+				@include vw(letter-spacing, -2px);
+				@include vw(font-size, 30px);
+				font-weight: 300;
+				line-height: 1.4;
+				color: #000;
+			}
+			.grounds-text {
+				@include vw(margin-top,20px);
+				font-weight: 400;
+				color: #afafaf;
+			}
+		}
+		.section-title {
+			position: relative;
+			text-align: left;
+			font-weight: 900;
+			color: #000;
+			line-height: 1.4;
+			margin-left: percent(50);
+			@include vw(font-size, 50px);
+			@include vw(letter-spacing, -1px);
+			em {
+				position: relative;
+				color: #222;
+				vertical-align: top;
+				@include vw(top, 5px);
+				@include vw(font-size, 30px);
+			}
+			.sub-title {
+				@include vw(margin-top, 16px);
+				@include vw(font-size, 30px);
+				@include vw(letter-spacing, -2px);
+				font-weight: 300;
+				line-height: 1.4;
+				color: #000;
+			}
+			.grounds-text {
+				@include vw(margin-top, 20px);
+				word-break: keep-all;
+				font-weight: 400;
+				color: #afafaf;
+			}
+			&.type-1 {
+				@include vw(padding-top, 42px);
+				.highlight {
+					@include vw(font-size, 52px);
+				}
+				&:before {
+					content: '';
+					display: inline-block;
+					@include vw(width, 65px);
+					@include vw(height, 10px);
+					background: #222;
+					position: absolute;
+					top: 0;
+					left: 0;
+				}
+			}
+			&.type-2 {
+				em {
+					@include vw(font-size, 20px);
+					color: #707070;
+					vertical-align: middle;
+					@include breakpoint(maxMobileFold) {
+						font-size: 16px;
+					}
+				}
+			}
+			&.type-3 {
+				.num {
+					display: block;
+					color: #afafaf;
+				}
+			}
+			&.type-4 {
+				@include vw(margin, 90px 0 0 50px);
+				@include vw(font-size, 50px);
+				font-weight: 700;
+				color: #272727;
+				@include vw(letter-spacing, -3px);
+				.num {
+					display: block;
+					@include vw(margin-bottom, 15px);
+					@include vw(font-size, 48px);
+					font-weight: 700;
+					color: #d3d3d3;
+				}
+			}
+		}
+
+		.sector {
+			&-title {
+				@include vw(padding-bottom, 257px);
+				@include bg($color: #ffffff, $url: '#{$img-path}/mobile/bg_title.jpg', $size: cover);
+				.sub-title {
+					position: absolute;
+					@include vw(top, 180px);
+					left: 0;
+					right: 0;
+					text-align: center;
+					@include vw(font-size, 26px);
+					font-weight: 700;
+					letter-spacing: -2px;
+					color: #000000;
+				}
+				.benefit-box {
+					margin: 0 percent(50);
+					.list {
+						@include vw(margin, 0 -10px);
+						.col {
+							position: relative;
+							overflow: hidden;
+							@include vw(width, 300px);
+							@include vw(margin, 0 10px 20px);
+							border-top: 1px solid #e6e6e6;
+							@include vw(border-radius, 0 30px 0 30px);
+							background-color: #fff;
+							@include boxShadow(0 5px 20px 0 rgba(0, 0, 0, .2));
+							.subject {
+								position: absolute;
+								@include vw(top, 35px);
+								@include vw(left, 30px);
+								text-align: left;
+								// @include vw(padding-top, 10px);
+								@include vw(font-size, 28px);
+								@include vw(letter-spacing, -1.5px);
+								font-weight: 900;
+								color: #222;
+								line-height: 1.3;
+								span { font-weight: 900; }
+								em {
+									position: relative;
+									display: inline-block;
+									vertical-align: top;
+									font-weight: 500;
+									color: #707070;
+									@include vw(font-size, 20px);
+									@include vw(margin-left, 4px);
+									@include breakpoint(maxMobileFold){
+										font-size: 16px;
+									}
+								}
+								.badge {
+									display: inline-block;
+									@include vw(padding, 10px 20px);
+									@include vw(margin-bottom, 6px);
+									@include vw(border-radius, 50px);
+									@include vw(font-size, 24px);
+									width: auto;
+									height: auto;
+									color: #fff;
+									font-weight: 900;
+									letter-spacing: -1px;
+									line-height: 1;
+									vertical-align: top;
+									background: #ea1d00;
+									@include breakpoint(maxMobileFold){
+										font-size: 15px;
+									}
+								}
+							}
+						}
+					}
+				}
+				.grounds-text {
+					@include vw(width, 620px);
+					margin: 0 auto;
+					text-align: left; 
+				}
+			}
+			&-benefit {
+				.benefit-box {
+					margin: 0 percent(50);
+					.list {
+						@include vw(margin, 0 -10px);
+						.col {
+							position: relative;
+							overflow: hidden;
+							@include vw(width, 300px);
+							@include vw(margin, 0 10px 20px);
+							border-top: 1px solid #e6e6e6;
+							@include vw(border-radius, 0 30px 0 30px);
+							background-color: #fff;
+							@include boxShadow(0 5px 20px 0 rgba(0, 0, 0, .2));
+							.subject {
+								position: absolute;
+								@include vw(top, 40px);
+								@include vw(left, 30px);
+								text-align: left;
+								@include vw(padding-top, 10px);
+								@include vw(font-size, 28px);
+								@include vw(letter-spacing, -1.5px);
+								font-weight: 900;
+								color: #222;
+								line-height: 1.3;
+								span { font-weight: 900; }
+								em {
+									position: relative;
+									display: inline-block;
+									vertical-align: top;
+									font-weight: 500;
+									color: #707070;
+									@include vw(font-size, 20px);
+									@include vw(margin-left, 4px);
+									@include breakpoint(maxMobileFold){
+										font-size: 16px;
+									}
+								}
+								.badge {
+									display: inline-block;
+									@include vw(padding, 10px 20px);
+									@include vw(margin-bottom, 6px);
+									@include vw(border-radius, 50px);
+									@include vw(font-size, 24px);
+									width: auto;
+									height: auto;
+									color: #fff;
+									font-weight: 900;
+									letter-spacing: -1px;
+									line-height: 1;
+									vertical-align: top;
+									background: #ea1d00;
+									@include breakpoint(maxMobileFold){
+										font-size: 15px;
+									}
+								}
+							}
+						}
+					}
+				}
+				.grounds-text {
+					@include vw(width, 620px);
+					margin: 0 auto;
+					text-align: left; 
+				}
+			}
+			&-item {
+				@include vw(padding-bottom, 120px);
+				.wrap {
+					@include vw(margin-top, -170px);
+				}
+				.item-title {
+					@include vw(padding, 0 0 60px 30px);
+					text-align: left;
+					color: #000;
+					@include vw(font-size, 50px);
+					line-height: 1.5;
+					font-weight: 900;
+					@include vw(letter-spacing, -3px);
+					strong {
+						font-weight: 900;
+						line-height: 1.5;
+						@include vw(letter-spacing, -3px);
+					}
+					em {
+						display: inline-block;
+						@include vw(margin-right, 10px);
+						color: #000;
+					}
+				}
+				.item-list {
+					@include vw(margin, 0 30px);
+					.col {
+						position: relative;
+						width: 100%;
+						@include vw(margin-top, 30px);
+						@include vw(border-radius, 50px);
+						overflow: hidden;
+						@include boxSizing(border-box);
+						@include boxShadow(0 5px 20px 0 rgba(0, 0, 0, .2));
+						&:first-child { margin-top: 0; }
+						.subject {
+							text-align: left;
+							line-height: 1.4;
+							@include vw(font-size, 46px);
+							font-weight: 900;
+							color: #222;
+							letter-spacing: -2px;
+							background: #fff;
+							@include boxSizing(border-box);
+							.sub-subject { @include vw(font-size, 28px); }
+							.highlight {
+								font-weight: 900;
+								color: #fc3a1b;
+								&:after { display: none; }
+							}
+							& > strong {
+								display: block;
+								font-weight: 900;
+								@include vw(padding, 60px 45px 45px);
+							}
+							& + .price-box { background-color: #efefef; }
+						}
+						.desc {
+							position: relative;
+							border-top: 0;
+							@include vw(padding, 5px 35px);
+							background: #fff;
+							@include boxSizing(border-box);
+							li {
+								@include vw(padding, 18px 0);
+								@include vw(min-height, 66px);
+								text-align: left;
+								@include vw(font-size, 28px);
+								color: #000;
+								font-weight: 700;
+								border-top: 1px solid #ebebeb;
+								@include boxSizing(border-box);
+								&:first-child { border-top: 0;}
+								&.highlight2 { color: #f60b0b; }
+								span {
+									font-weight: 300;
+									&.eco-puri { font-weight: 700; }
+								}
+								strong { display: inline-block;}
+							}
+						}
+						.price-box {
+							position: relative;
+							@include vw(padding, 40px);
+							text-align: center;
+							@include boxSizing(border-box);
+							background: #fff;
+							& + .subject { @include vw(margin-top, 5px); }
+							.discount-label {
+								position: absolute;
+								top: 10px;
+								left: 10px;
+								display: inline-block;
+								@include vw(padding, 8px 30px);
+								color: #fff;
+								font-weight: 700;
+								@include vw(font-size, 19px);
+								line-height: 1;
+								vertical-align: top;
+								background: #000;
+							}
+							.price-col {
+								text-align: center;
+								.before-price {
+									display: inline-block;
+									@include vw(margin-right, 20px);
+									text-align: center;
+									vertical-align: middle;
+									@include vw(font-size, 30px);
+									font-weight: 700;
+									color: #bbb;
+									text-decoration: line-through;
+								}
+								.after-price {
+									display: inline-block;
+									text-align: center;
+									vertical-align: middle;
+									@include vw(font-size ,55px);
+									color: #ea1d00;
+									letter-spacing: -1px;
+									em {
+										@include vw(font-size, 30px);
+										font-weight: 700;
+										letter-spacing: -2px;
+									}
+									span {
+										font-family: $font-roboto;
+										@include vw(font-size, 60px);
+										font-weight: 900;
+										color: #ea1d00;
+										letter-spacing: -2px;
+									}
+								}
+							}
+							.flag {
+								@include vw(top, -40px);
+								@include vw(left, 22px);
+								@include vw(padding, 10px 20px);
+								@include vw(font-size, 30px);
+								color: #fff;
+								border: none;
+								@include vw(border-radius, 20px 20px 0 20px);
+								@include linear-gradient(to bottom, #393939 0%, #1d1c1c 100%);
+								@include animation(flagEffect, 1s, $iteration: infinite, $timing: step-start){
+									0%, 100% { opacity: 1; }
+									50% { opacity: 0; }
+								}
+							}
+							&.button {
+								@include vw(padding, 40px 50px 69px 50px);
+							}
+						}
+						&.item-current {
+							.subject .sub-subject {
+								@include vw(padding, 20px 35px);
+								font-weight: 700;
+								color: #000;
+								background-color: #fdd400;
+								strong {
+									font-weight: 700;
+									color: #ea1d00;
+								}
+							}
+							.action a {
+								width: 100%;
+								@include vw(height, 90px);
+								border: none;
+								@include vw(border-radius, 10px);
+								@include linear-gradient(to right, #fa5a00 0%, #ea1d00 100%);
+								span {
+									@include vw(font-size, 40px);
+									@include vw(line-height, 90px);
+									font-weight: 900;
+									color: #fff;
+									background: none;
+									&::after {
+										position: absolute;
+										top: 0;
+										right: 10%;
+										@include arrow(right, 10px, 10px, 2px, #fff);
+									}
+								}
+							}
+						}
+					}
+				}
+				.action {
+					@include vw(margin-top, 30px);
+					.flag {
+						position: absolute;
+						top: -21px;
+						left: 14px;
+						background: #fff;
+						border: 2px solid #ffba27;
+						display: inline-block;
+						@include vw(padding, 7px 16px);
+						line-height: 1;
+						vertical-align: middle;
+						@include vw(font-size, 20px);
+						font-weight: 700;
+						letter-spacing: -1px;
+						color: #000;
+						@include vw(border-radius, 50px);
+					}
+					a { 
+						width: 80%;
+						@include pointer(50%, 0, 57px, 65px, 12, bounce);
+					}
+				}
+			}
+			&-point {
+				@include bg($color: #ffffff, $url: '#{$img-path}/mobile/bg_point.jpg', $size: cover);
+			}
+			&-enough {
+				@include bg($color: #ffffff, $url: '#{$img-path}/mobile/bg_enough.jpg', $size: cover);
+			}
+			&-banner {
+				&.banner-1 {
+					background: #1e28a8;
+				}
+				&.banner-3{
+					background: #1e28a8;
+				}
+			}
+			&-winner {
+				overflow: hidden;
+				@include vw(padding, 120px 0 160px 0);
+				@include bg($color: #ffbf00, $url: '#{$img-path}/mobile/bg_winner.jpg', $size: cover);
+				.winner-title {
+					@include vw(width, 720px);
+					@include vw(height, 135px);
+					@include vw(font-size, 50px);
+					font-weight: 900;
+					color: #2c3047;
+					line-height: 1.3;
+					@include bg($url: '#{$img-path}/mobile/bg_winner_title.png', $size: contain);
+					em {
+						@include vw(font-size ,30px);
+						font-weight: 400;
+						color: #2c3047;
+						vertical-align: top;
+					}
+					.grounds-text {
+						@include vw(margin-top, 20px);
+						text-align: center;
+						font-weight: 400;
+						color: rgba(44,48,71, .7);
+					}
+				}
+				
+				.winner-contents {
+					@include vw(margin-top,-80px);
+					.winner-list {
+						-webkit-transform: perspective(150px) rotateX(45deg);
+						-ms-transform: perspective(150px) rotateX(45deg);
+						transform: perspective(150px) rotateX(45deg);
+						.slick-track {
+							-webkit-transform: translate(0) !important;
+							-ms-transform: translate(0) !important;
+							transform: translate(0) !important;
+						}
+					}
+					p {
+						font-family: $font-noto;
+						text-align: center;
+						line-height: 1.5;
+						font-weight: 500;
+						color: #222;
+						@include vw(font-size,24px);
+						margin: 0;
+					}
+				}
+			}
+			&-review {
+				@include vw(padding-bottom, 110px);
+				a {
+					display: block;
+					@include vw(width, 620px);
+					margin: 0 auto;
+					img {
+						width: 100%;
+					}
+				}
+				.text {
+					@include vw(margin, 20px 0 40px 0);
+					@include vw(font-size, 24px);
+					text-align: center;
+					font-weight: 400;
+					strong { 
+						display: inline-block;
+						font-weight: 700; 
+					}
+				}
+				.action { 
+					@include vw(margin-top, 19px);
+					a {
+						@include vw(width, 460px);
+					}
+				}
+			}
+			&-teacher {
+				@include bg($color: #ffffff, $url: '#{$img-path}/mobile/bg_teacher.jpg', $size: cover);
+				.slider-contents {
+					@include vw(width, 720px);
+					.slick-arrow {
+						top: 30%;
+						@include vw(width, 60px);
+						@include vw(height, 60px);
+						&.slick-prev {
+							@include vw(left, 35px);
+							@include bg( $url: '#{$img-path}/pc/review_left.png', $size: cover);
+						}
+						&.slick-next {
+							@include vw(right, 35px);
+							@include bg( $url: '#{$img-path}/pc/review_right.png', $size: cover);
+						}
+					}
+				}
+			}
+			&-teacher-list {
+				@include vw(padding, 80px 0 45px 0);
+				text-align: center;
+				.t-info {
+					position: absolute;
+					text-align: left;
+					line-height: 1;
+					@include vw(left, 4px);
+					.subject {
+						@include vw(font-size, 24px);
+						@include vw(letter-spacing, -2px);
+						font-weight: 400;
+						color: #222;
+						line-height: 1;
+						@include breakpoint(maxMobileFold) {
+							font-size: 18px;
+							line-height: 1.2;
+						}
+					}
+					.name {
+						display: inline-block;
+						@include vw(padding-right, 38px);
+						@include vw(font-size, 24px);
+						@include vw(letter-spacing, -2px);
+						font-weight: 700;
+						color: #222;
+						line-height: 1;
+						background: url('https://img.eduwill.net/eduwill/img/2021/7/common/teacher/icon_home.png') right center no-repeat;
+						background-size: 13px auto;
+						@include breakpoint(maxMobileFold) {
+							padding-right: 28px;
+							font-size: 18px;
+							line-height: 1.2;
+							background-size: 15px auto;
+						}
+						@include breakpoint(maxMobile) {
+							background-size: 18px auto;
+						}
+					}
+				}
+				.teacher-group {
+					@extend %clearfix;
+					height: auto;
+					@include vw(margin, 50px 48px 0);
+					overflow: hidden;
+					@include transition(all, .3s, ease-in);
+					&.gov-sub { display: none;}
+					&.fold {
+						@include vw(height, 666px);
+						@include transition(all, .3s, ease-in);
+						& + .teacher-action .btn-teacher-more:after {
+							@include arrow(bottom, 10px, 10px, 1px, #222);
+						}
+					}
+					.col {
+						position: relative;
+						float: left;
+						// width: 25%;
+						// padding: 0 3px;
+						@include vw(width, 156px);
+						@include vw(padding, 0 5px);
+						@include vw(margin-bottom, 10px);
+						@include boxSizing(border-box);
+						img { display: inline-block;}
+						a {
+							display: inline-block;
+							position: relative;
+						}
+						.t-info {
+							top: 10%;
+							left: 9%;
+							.subject {
+								@include vw(font-size, 22px);
+								color: #e7e7e7;
+								@include breakpoint(maxMobileFold) {
+									font-size: 16px;
+								}
+							}
+							.name {
+								color: #e7e7e7;
+								padding-right: 0;
+								@include vw(font-size, 22px);
+								@include vw(padding-bottom, 40px);
+								background: url('https://img.eduwill.net/eduwill/img/2021/7/common/teacher/icon_home_2.png') left bottom no-repeat;
+								background-size: 12px auto;
+								@include breakpoint(maxMobileFold) {
+									font-size: 16px;
+									padding-bottom: 28px;
+									background-size: 18px auto;
+								}
+							}
+						}
+						.nolink {
+							cursor: default;
+							.t-info {
+								.name { background: none;}
+							}
+						}
+						.soon { cursor: default;}
+					}
+				}
+				.teacher-action {
+					display: block !important;
+					.btn-teacher-more {
+						position: relative;
+						display: inline-block;
+						@include vw(margin-top, 40px);
+						@include vw(padding, 15px 60px 15px 30px);
+						@include vw(font-size, 26px);
+						border: 1px solid #222;
+						@include boxSizing(border-box);
+						@include transition(all, .3s, ease-in);
+						&:after {
+							@include arrow(top, 10px, 10px, 1px, #222);
+							@include vw(right, 20px);
+						}
+					}
+				}
+			}
+			&-graph {
+				background: #070685;
+			}
+			&-book {
+				.item { @include vw(margin-top, 50px); }
+				.flag {
+					position: absolute;
+					@include vw(top, -50px);
+					right: 0;
+					@include vw(width, 103px);
+					@include animation(flagMoving, 1s, $iteration: infinite){
+						0%, 100% { @include translateY(0); }
+						50% { @include translateY(10px); }
+					}
+				}
+			}
+			&-curriculum {
+				@include vw(padding-bottom, 135px);
+				.item {
+					@include vw(margin, 60px 52px 0);
+					.step {
+						position: absolute;
+						top: 0;
+						right: 0;
+						left: 0;
+						@include vw(width, 192px);
+						@include vw(height, 245px);
+						text-align: center;
+						color: #878787;
+						font-weight: 900;
+						cursor: pointer;
+						@include boxSizing(border-box);
+						&:after {
+							content: '';
+							position: absolute;
+							top: 50%;
+							left: 98%;
+							@include vw(width, 25px);
+							@include vw(height, 54px);
+							@include bg($url: '#{$img-path}/mobile/icon_arrow_3.png', $size: cover);
+							@include translateY(-50%);
+						}
+						.step-box {
+							height: 100%;
+							@include linear-gradient(190deg, #ffee8b 0%, #ffdc54 100%);
+							@include boxShadow(0 2px 5px 0 rgba(0, 0, 0, .1));
+							@include boxSizing(border-box);
+							.label-title {
+								@include vw(margin-top, 28px);
+								display: inline-block;
+								@include vw(margin-bottom, 15px);
+								@include vw(padding, 10px 20px);
+								@include vw(border-radius, 50px);
+								@include vw(letter-spacing, -1px);
+								@include vw(font-size, 24px);
+								line-height: 1;
+								text-align: center;
+								font-weight: 700;
+								color: #000;
+								@include linear-gradient(to bottom, #ffda00 0%, #ffbe00 100%);
+							}
+							dl {
+								dt {
+									//@include vw(height, 80px);
+									@include vw(margin-bottom, 10px);
+									@include vw(font-size, 30px);
+									@include vw(letter-spacing, -2px);
+									display: flex;
+									align-items: center;
+									justify-content: center;
+									text-align: center;
+									font-weight: 900;
+									line-height: 1.3;
+									color: #000;
+									@include breakpoint(maxMobileFold) {
+										height: 70px;
+									}
+								}
+								dd {
+									@include vw(font-size, 24px);
+									@include vw(letter-spacing, -2px);
+									word-break: keep-all;
+									font-weight: 400;
+									line-height: 1.3;
+									color: #000;
+								}
+							}
+						}
+		
+						&.step-1 .step-box { @include vw(border-radius, 20px 0 0 0); }
+						&.step-3 .step-box { @include vw(border-radius, 0 20px 0 0); }
+						&.step-7 .step-box { @include vw(border-radius, 0 0 0 20px); }
+						&.step-8 .step-box { @include vw(border-radius, 0 0 20px 0); }
+		
+						&.step-2,
+						&.step-5,
+						&.step-8 { @include vw(left, 213px); }
+						&.step-3,
+						&.step-6,
+						&.step-9 { @include vw(left, 424px); }
+						&.step-4,
+						&.step-5,
+						&.step-6 { @include vw(top, 267px); }
+						&.step-7,
+						&.step-8,
+						&.step-9 { @include vw(top, 533px); }
+						&.step-8:after { display: none; }
+					}
+				}
+			} 
+			&-eco-title {
+				border-style: solid;
+				border-color:#ececef;
+				border-width: 0;
+				@include vw(padding-top, 120px);
+				@include vw(border-top-width, 20px);
+				.comm-title {
+					@include vw(margin-top, 15px);
+					margin-bottom: 0;
+					em {
+						display: inline-block;
+						@include vw(font-size, 20px);
+						vertical-align: top;
+						@include vw(padding-top, 3px);
+					}
+				}
+			}
+		}
+		// eco-3130 ( 1:1 코칭 시스템 )
+		.product-system {
+			@include vw(padding, 100px 0 115px);
+			.comm-title {
+				display: none !important;
+			}
+			.grounds-text {
+				@include vw(margin-top, 15px);
+				@include vw(margin-left, 50px);
+				text-align: left;
+				color: #afafaf;
+				line-height: 1.4;
+				font-weight: 400;
+			}
+			.action {
+				@include rem(margin-top, 48px);
+			}
+		}
+		// eco-3131 ( 에듀윌 합격생활 )
+		.product-life {
+			@include vw(padding-bottom, 115px);
+			.slider-contents {
+				.life-col {
+					position: relative;
+					.caption {
+						position: absolute;
+						top: percent(672,806);
+						left: 0;
+						right: 0;
+						font-weight: 700;
+						text-align: center;
+						line-height: 1.5;
+						color: #222;
+						@include vw(letter-spacing, -2px);
+						@include vw(font-size, 30px);
+					}
+				}
+			}
+		}
+		// eco-3132 ( 문풀훈련소 )
+		.product-puri {
+			@include vw(padding-bottom, 115px);
+			.action {
+				@include vw(margin-top, 48px);
+			}
+		}
+		// eco-3124 ( 에듀윌 지식인 )
+		.product-king {
+			@include rem(padding-bottom, 100px);
+			.slider-contents {
+				position: absolute;
+				top: percent(110, 567);
+				left: percent(59);
+				width: percent(600);
+				height: percent(227, 567);
+				overflow: hidden;
+				z-index: 1;
+				.slick-slide {
+					.col {
+						padding: 0;
+						margin: 0;
+						vertical-align: top;
+						border-bottom: 1px solid #b2b2b2;
+						@extend .grid;
+						strong {
+							@extend .col;
+							text-align: center;
+							font-weight: 700;
+							color: #000;
+							border: 0;
+							vertical-align: top;
+							@include vw(padding, 10px 0);
+							@include vw(font-size, 2px);
+							@include vw(letter-spacing, -1.5px);
+							&.num {
+								width: 16%;
+							}
+							&.desc {
+								width: 84%;
+								text-align: left;
+								font-weight: 500;
+								vertical-align: middle;
+								@include vw(padding-left, 10px);
+								@include boxSizing(border-box);
+								.ea {
+									display: inline-block;
+									vertical-align: middle;
+									@include vw(font-size, 20px);
+									@include vw(margin-left, 5px);
+									color: #ffa300;
+								}
+							}
+							@include breakpoint(maxMobileFold) {
+								padding: 10px 0;
+							}
+						}
+					}
+				}
+	
+				
+			}
+		}
+	}
+}
+
+// 근거 문구 팝업 노출 제어
+#popupTeacher {
+	.winner, .increase {
+		display: none;
+	}
+}

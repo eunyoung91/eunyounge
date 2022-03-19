@@ -1,0 +1,250 @@
+@charset "utf-8";
+@import "mixins";
+
+
+/* 컨텐츠 */
+.product-eco {
+	//PC
+	@mixin shadowBg(){
+		background: #f3f3f3 linear-gradient(0deg, rgba(243,243,243,1) 0%, rgba(255,255,255,1) 13%);
+	}
+
+	
+	&[data-device="pc"]{
+		// content moudule
+		#edoContent2 {
+			
+			.ecoCont1 {
+				background:url('http://img.eduwill.net/eduwill/img/2022/Y/product/module/pc/eco4365/ecoCont1_bg.jpg') no-repeat center 95px;
+				background-size:cover;
+		
+				.btn-reason {
+					bottom: 154px;
+					right: 50px;
+					background: transparent;
+					border: 1px solid #beada1;
+					border-radius: 0;
+					color: #beada1;
+					&::after {
+						border-color: #beada1;
+					}
+		
+				}
+			}
+		
+			.ecoCont2 {
+				@include shadowBg();
+		
+				.typing{
+					position: absolute;
+					left: 97px;
+					top: 477px;
+					line-height: 1;
+					color: #022222;
+					font-weight: 900;
+					font-size: 40px;
+					&:after{
+						content: '';
+						position: relative;
+						top: -5px;
+						display: inline-block;
+						-webkit-animation-name: cursor;
+						animation-name: cursor;
+						-webkit-animation-duration: 0.3s;
+						animation-duration: 0.3s;
+						-webkit-animation-iteration-count: infinite;
+						animation-iteration-count: infinite;
+						width: 2px;
+						height: 40px;
+						background-color: #022222;
+						vertical-align: middle;
+					}
+				}
+				
+			}
+		
+			.ecoCont3 {
+				position: relative;
+				background:#f4f4f4;
+				height:821px;
+				overflow: hidden;
+				background: linear-gradient(0deg, rgba(244,244,244,1) 0%, rgba(255,255,255,1) 20%);
+				.review-wrap {
+					overflow:hidden;
+					position:relative;
+					opacity:.2;
+					text-align:left;
+					.review-list {
+						transform:perspective(640px) rotateX(40deg);
+						width:1100px;
+						height:802px;
+						margin:0 auto;
+						.item {
+							padding: 15px 0;
+							font-size: 16px;
+							& + .item {
+								margin-left:4%;
+							}
+							span {
+								font-size: inherit;
+								display: inline-block;
+								&:nth-child(1){
+									width:20%;
+									text-align: center;
+								}
+								&:nth-child(2){
+									width: 70%;
+									display: inline-block;
+									white-space: nowrap;
+									overflow: hidden;
+									text-overflow: ellipsis;
+								}
+								&:nth-child(3){
+									width:auto;
+								}
+								&:nth-child(4){
+									float: right;
+								}
+							}
+						}
+					}
+				}
+		
+				.wrap {
+					position: absolute;
+					top:0;
+					left:50%;
+					transform: translateX(-50%);
+				}
+		
+				.btn {
+					position: absolute;
+					top: 322px;
+					left: 30px;
+				}
+			}
+
+		}
+
+	}
+
+
+	//MOBILE
+	&[data-device="mo"]{
+		// content moudule
+		#edoContent2 {
+			
+			
+			.ecoCont1 {
+				background:url('http://img.eduwill.net/eduwill/img/2022/Y/product/module/pc/eco4365/ecoCont1_bg.jpg') no-repeat center 95px;
+				background-size:cover;
+				#eduf-paragraph {
+					margin-bottom: 0;
+				}
+				.btn-reason {
+					top: 5vw;
+					background: transparent;
+					border: 1px solid #f0e8db;
+					border-radius: 0;
+					color: #f0e8db;
+					opacity: .6;
+					&::after {
+						border-color: #f0e8db;
+					}
+		
+				}
+				
+			}
+
+			.ecoCont2 {
+				background: #f3f3f3 linear-gradient(0deg, rgba(243,243,243,1) 0%, rgba(255,255,255,1) 13%);
+				.typing{
+					position: absolute;
+					@include vw(left, 86px);
+					@include vw(top, 345px);
+					line-height: 1;
+					color: #022222;
+					font-weight: 900;
+					font-size:5vw;
+					&:after{
+						content: '';
+						position: relative;
+						top: -3px;
+						display: inline-block;
+						-webkit-animation-name: cursor;
+						animation-name: cursor;
+						-webkit-animation-duration: 0.3s;
+						animation-duration: 0.3s;
+						-webkit-animation-iteration-count: infinite;
+						animation-iteration-count: infinite;
+						width: 2px;
+						height: 25px;
+						background-color: #000;
+						vertical-align: middle;
+					}
+				}
+			}
+
+			.ecoCont3 {
+				background: #f9f9f9;
+				
+				.review-wrap {
+					overflow:hidden;
+					position:relative;
+					opacity:.2;
+					text-align:left;
+					.review-list {
+						transform:perspective(640px) rotateX(40deg);
+						@include vw(width,700px);
+						@include vw(height,1070px);
+						@include vw(margin,100px auto 0);
+						.item {
+							@include vw(padding,15px 0);
+							@include vw(font-size,14px);
+							& + .item {
+								margin-left:4%;
+							}
+							span {
+								font-size: inherit;
+								display: inline-block;
+								&:nth-child(1){
+									width:10%;
+									text-align: left;
+								}
+								&:nth-child(2){
+									width: 70%;
+									display: inline-block;
+									white-space: nowrap;
+									overflow: hidden;
+									text-overflow: ellipsis;
+								}
+								&:nth-child(3){
+									width:auto;
+								}
+								&:nth-child(4){
+									float: right;
+								}
+							}
+						}
+					}
+				}
+
+				.wrap {
+					position: absolute;
+					top:0;
+					left:50%;
+					transform:translateX(-50%);
+				}
+
+				.btn {
+					position: absolute;
+					@include vw(bottom,85px);
+					left:50%;
+					transform:translateX(-50%);
+					@include vw(width,520px);
+				}
+			}
+		}
+		
+	}
+}

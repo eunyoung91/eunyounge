@@ -1,0 +1,593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ko" lang="ko" xmlns="https://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+<title></title>
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/product.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/product.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.min.js"></script>
+<!-- // 자동화 페이지 포함 -->
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+	컨텐츠 감싸는 부모 : product-eco
+	하단 수강신청 영역 : product-apply
+	하단 수강신청 영역 내 탭 : product-tab
+	하단 수강신청 영역 내 정보 : product-table
+	따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/js/flowplayer-commercial-7.2.7/skin/skin.css" /><!-- for PC -->
+<style>
+	.product-eco { position: relative; line-height: normal; background-color: #fff; }
+	.product-eco * { font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif; letter-spacing: -.5px; }
+	.product-eco .container { position: relative; background-repeat: no-repeat; background-position: center top; }
+	.product-eco .wrap { position: relative; width: 1100px; margin: 0 auto; text-align: center; }
+	.product-eco .text { padding-top: 10px; line-height: 18px; font-size: 13px; color: #999; }
+	.product-eco .text span { padding-left: 8px; }
+
+	.product-eco .bx-wrapper { width: 100%; margin: 0 auto; }
+	.product-eco .bx-wrapper li { width: 100%; }
+	.product-eco .bx-wrapper li img { display: inline-block; }
+	.product-eco .bx-wrapper .bx-viewport { left: 0; height: 100% !important; border: none; background: none; -webkit-box-shadow: none; box-shadow: none; }
+	.product-eco .bx-wrapper .bx-controls-direction a { position: absolute; top: 215px; width: 68px; height: 68px; z-index: 9999; text-indent: -9999px; background-repeat: no-repeat; background-position: 0 0; outline: 0; }
+	.product-eco .bx-wrapper .bx-prev { left: 50%; margin-left: -600px; background-image: url('https://img.eduwill.net/Img2/license/Product/event_new/191118/pc/btn_prev.png'); }
+	.product-eco .bx-wrapper .bx-next { right: 50%; margin-right: -600px; background-image: url('https://img.eduwill.net/Img2/license/Product/event_new/191118/pc/btn_next.png'); }
+	.product-eco .bx-wrapper .bx-pager,
+	.product-eco .bx-wrapper .bx-controls-auto { position: absolute; bottom: -50px; z-index: 99; width: 100%; height: 20px; padding: 0; text-align: center; font-size: 0; }
+	.product-eco .bx-wrapper .bx-pager.bx-default-pager a { display: inline-block; width: 20px; height: 20px; margin: 0 0 0 15px; background: url('https://img.eduwill.net/Img2/license/Product/event_new/191118/pc/pager_off.png') no-repeat 0 0; }
+	.product-eco .bx-wrapper .bx-pager .bx-pager-item,
+	.product-eco .bx-wrapper .bx-controls-auto .bx-controls-auto-item { margin: 0 0 54px; }
+	.product-eco .bx-wrapper .bx-pager .bx-pager-item:first-child,
+	.product-eco .bx-wrapper .bx-controls-auto .bx-controls-auto-item:first-child { margin-left: 0; }
+	.product-eco .bx-wrapper .bx-pager.bx-default-pager a.active { background-image: url('https://img.eduwill.net/Img2/license/Product/event_new/191118/pc/pager_on.png'); }
+
+	.product-eco .product-title { position: relative; padding-bottom: 93px; background-color: #f5f5f5; background-image: url('https://img.eduwill.net/Img2/black/Product/200110/bg_title_200511.jpg'); }
+	.product-eco .product-title .title-wrap { width: 100%; }
+	.product-eco .product-info1 { background-image: url('https://img.eduwill.net/Img2/black/Product/200110/bg_info1.jpg'); background-size: cover; }
+	.product-eco .product-winner { height: 520px; background-color: #fff; }
+	.product-eco .product-winner .winner_box .tit_box { padding: 0; text-align: center; }
+	.product-eco .product-winner .winner_box .carousel_box { position: relative; }
+	.product-eco .product-winner .winner_box .carousel_box .carousel_slide { width: 100%; height: 273px; }
+	.product-eco .product-winner .winner_box .carousel_box .carousel_slide li { list-style: none; }
+	.product-eco .product-winner .winner_box .carousel_box .carousel_prev { position: absolute; left: 80px; top: 50%; z-index: 1000; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); }
+	.product-eco .product-winner .winner_box .carousel_box .carousel_next { position: absolute; right: 80px; top: 50%; z-index: 1000; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); }
+	.product-eco .product-text { background-color: #2d3550; }
+	.product-eco .product-reason1 { background-color: #fff; }
+	.product-eco .product-reason_plus {
+		background: rgb(47, 50, 59);
+		background: -moz-linear-gradient(top, rgba(47, 50, 59, 1) 0%, rgba(47, 50, 59, 1) 76%, rgba(255, 255, 255, 1) 76%, rgba(255, 255, 255, 1) 100%);
+		background: -webkit-linear-gradient(top, rgba(47, 50, 59, 1) 0%, rgba(47, 50, 59, 1) 76%, rgba(255, 255, 255, 1) 76%, rgba(255, 255, 255, 1) 100%);
+		background: linear-gradient(to bottom, rgba(47, 50, 59, 1) 0%, rgba(47, 50, 59, 1) 76%, rgba(255, 255, 255, 1) 76%, rgba(255, 255, 255, 1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2f323b', endColorstr='#ffffff', GradientType=0);
+	}
+	.product-eco .product-reason2 { background-color: #fff; }
+	.product-eco .product-reason2 .text { position: absolute; left: 0; bottom: 45px; width: 100%; text-align: center; }
+	.product-eco .product-reason2 .tab_box { text-align: center; }
+	.product-eco .product-reason2 .tab_box .tab_list { width: 1100px; margin: 0 auto; font-size: 0; }
+	.product-eco .product-reason2 .tab_box .tab_list li { display: inline-block; width: 14.28571428571429%; font-size: 12px; color: #000; cursor: pointer; }
+	.product-eco .product-reason2 .tab_box .tab_list li p { margin-top: 15px; font-size: 18px; color: #8f8f8f; }
+	.product-eco .product-reason2 .tab_box .tab_list li p strong { display: block; line-height: 130%; font-size: 24px; color: #8f8f8f; }
+	.product-eco .product-reason2 .tab_box .tab_list li.on p,
+	.product-eco .product-reason2 .tab_box .tab_list li.on p strong { color: #202020; }
+	.product-eco .product-reason2 .tab_box .tab_view { display: none; position: relative; height: 669px; margin-top: 70px; background-repeat: no-repeat; background-position: center top; }
+	.product-eco .product-reason2 .tab_box .tab_view .video_box { position: absolute; left: 50%; top: 0; text-align: left; }
+	.product-eco .product-reason2 .tab_box .tab_view .video_box p { line-height: 130%; font-size: 30px; color: #202020; }
+	.product-eco .product-reason2 .tab_box .tab_view .video_box p span { font-size: 30px; font-weight: 700; color: #d61f29; }
+	.product-eco .product-reason2 .tab_box .tab_view .video_box p strong { display: block; margin-top: 10px; font-size: 40px; font-weight: 700; color: #202020; letter-spacing: -2px; }
+	.product-eco .product-reason2 .tab_box .tab_view .video_box img.btn { margin-left: 10px; }
+	.product-eco .product-reason2 .tab_box .tab_view .video_box p strong img { vertical-align: middle; }
+	.product-eco .product-reason2 .tab_box .tab_view .video_box .video { width: 554px; height: 312px; margin-top: 35px; }
+	.product-eco .product-reason2 .tab_box .tab_view .video_box .flowplayer { width: 100%; height: 100%; background-repeat: no-repeat; background-position: 0 0; }
+	
+	/* 썸네일 */
+	.product-eco .product-reason2 .tab_box .tab_view .video_box #player1 { background-image: url('https://img.eduwill.net/Img2/black/Product/200110/img_video1.png'); }
+	.product-eco .product-reason2 .tab_box .tab_view .video_box #player2 { background-image: url('https://img.eduwill.net/Img2/black/Product/200110/img_video2.png'); }
+	.product-eco .product-reason2 .tab_box .tab_view .video_box #player3 { background-image: url('https://img.eduwill.net/Img2/black/Product/200110/img_video3.png'); }
+	.product-eco .product-reason2 .tab_box .tab_view .video_box #player4 { background-image: url('https://img.eduwill.net/Img2/black/Product/200110/img_video4.png'); }
+	.product-eco .product-reason2 .tab_box .tab_view .video_box #player5 { background-image: url('https://img.eduwill.net/Img2/black/Product/200110/img_video5.png'); }
+	.product-eco .product-reason2 .tab_box .tab_view .video_box #player6 { background-image: url('https://img.eduwill.net/Img2/black/Product/200110/img_video6.png'); }
+	.product-eco .product-reason2 .tab_box .tab_view .video_box #player7 { background-image: url('https://img.eduwill.net/Img2/black/Product/200110/img_video7.png'); }
+
+	/* 교수님 배경 */
+	.product-eco .product-reason2 .tab_box .tab_view.tab_view1 { display: block; background-image: url('https://img.eduwill.net/Img2/black/Product/200110/tab1_view.jpg'); }
+	.product-eco .product-reason2 .tab_box .tab_view.tab_view2 { background-image: url('https://img.eduwill.net/Img2/black/Product/200110/tab2_view.jpg'); }
+	.product-eco .product-reason2 .tab_box .tab_view.tab_view3 { background-image: url('https://img.eduwill.net/Img2/black/Product/200110/tab3_view.jpg'); }
+	.product-eco .product-reason2 .tab_box .tab_view.tab_view4 { background-image: url('https://img.eduwill.net/Img2/black/Product/200110/tab4_view.jpg'); }
+	.product-eco .product-reason2 .tab_box .tab_view.tab_view5 { background-image: url('https://img.eduwill.net/Img2/black/Product/200110/tab5_view.jpg'); }
+	.product-eco .product-reason2 .tab_box .tab_view.tab_view6 { background-image: url('https://img.eduwill.net/Img2/black/Product/200110/tab6_view.jpg'); }
+	.product-eco .product-reason2 .tab_box .tab_view.tab_view7 { background-image: url('https://img.eduwill.net/Img2/black/Product/200110/tab7_view.jpg'); }
+
+	.product-eco .product-reason3,
+	.product-eco .product-reason5 { background-color: #f6f6f8; }
+	.product-eco .apply-wrap .holder { display: table; width: 100%; table-layout: fixed; border: 4px solid #26202b; border-radius: 5px; background-color: #fff; -webkit-box-sizing: border-box; box-sizing: border-box; }
+	.product-eco .apply-wrap .item { display: table-cell; height: 196px; vertical-align: middle; text-align: center; line-height: 1; }
+	.product-eco .apply-wrap .subject { font-size: 40px; font-weight: 700; color: #202020; }
+	.product-eco .apply-wrap .subject .check input { width: 21px; height: 21px; }
+	.product-eco .apply-wrap .subject .check label { vertical-align: middle; font-size: 18px; color: #333; }
+	.product-eco .apply-wrap .price p { margin: 0; font-family: "Montserrat", "Noto Sans KR", Sans-Serif; }
+	.product-eco .apply-wrap .price .desc { position: absolute; top: 49px; left: 0; right: 0; margin: 0 auto; font-size: 18px; color: #202020; }
+	.product-eco .apply-wrap .price .total { line-height: 1; font-size: 36px; font-weight: 700; letter-spacing: -3px; }
+	.product-eco .apply-wrap .price .total em { font-family: verdana; font-weight: 600; }
+	.product-eco .apply-wrap .price .notice { margin-top: 5px; font-size: 12px; font-weight: 300; color: #b8b8b8; }
+	.product-eco .apply-wrap .price.before { position: relative; }
+	.product-eco .apply-wrap .price.before .total { position: relative; font-size: 36px; color: #c3c3c3; }
+	.product-eco .apply-wrap .price.before .total:before,
+	.product-eco .apply-wrap .price.before .total:after { content: ''; position: absolute; height: 1px; background-color: #c3c3c3; }
+	.product-eco .apply-wrap .price.before .total:before { top: 50%; left: 50%; width: 269px; margin-left: -126px; }
+	.product-eco .apply-wrap .price.before .total:after { top: 19px; right: -11px; width: 10px; -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); }
+	.product-eco .apply-wrap .price.before .total em { font-size: 44px; color: #c5c5c5; }
+	.product-eco .apply-wrap .price.after { position: relative; width: 335px; }
+	.product-eco .apply-wrap .price.after .total { color: #ee0605; }
+	.product-eco .apply-wrap .price.after .total em { font-size: 55px; }
+	.product-eco .apply-wrap .action { position: relative; width: 224px; font-size: 30px; font-weight: 700; color: #fff; background-color: #26202b; }
+	.product-eco .apply-wrap .action .date { display: inline-block; margin-bottom: 10px; padding: 4px 10px; font-size: 24px; color: #202020; border-radius: 20px; background: #fff; }
+	.product-eco .apply-wrap .action:after { content: ''; position: absolute; z-index: 1; bottom: -38px; right: 8px; display: block; width: 73px; height: 93px; background: url("https://img.eduwill.net/Img2/license/Product/event_new/191118/pc/icon_cursor.png") no-repeat 50% 0; -webkit-animation: .35s jump ease-in-out infinite alternate; animation: .35s jump ease-in-out infinite alternate; }
+
+	@-webkit-keyframes jump {
+		0% { -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1); }
+		100% { -webkit-transform: scale(0.95); -ms-transform: scale(0.95); transform: scale(0.95); }
+	}
+	@keyframes jump {
+		0% { -webkit-transform: scale(1); -ms-transform: scale(1); transform: scale(1); }
+		100% { -webkit-transform: scale(0.95); -ms-transform: scale(0.95); transform: scale(0.95); }
+	}
+</style>
+
+<div class="product-eco">
+	<div class="container product-title">
+		<div class="wrap title-wrap">
+			<img src="https://img.eduwill.net//Img2/black/Product/200110/title_200511.png" alt="검정고시 고졸 스피드패스반"/>
+		</div>
+
+		<div class="wrap apply-wrap">
+			<div class="holder">
+				<div class="item subject">
+					스피드패스반
+					<div class="check">
+						<input type="checkbox" class="checkbox" id="checkbox1" name="checkbox">
+						<label for="checkbox1">교재 8권 포함</label>
+					</div>
+				</div>
+				<div class="item price before"><p class="total"><em id="price1_2">380,000</em>원</p></div>
+				<div class="item price after"><p class="desc">5만원 할인가 적용가</p><p class="total"><em id="price1_3">330,000</em>원</p></div>
+				<a href="#productApply" class="item action page_move">
+					<!-- <span class="date"><em>12/11 마감</em></span><br/> -->신청하기 GO
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="container product-banner" style="background:#2f323b;">
+		<div class="wrap">
+			<img src="https://img.eduwill.net//Img2/black/Product/200110/banner1.jpg" alt="검정고시 고졸 스피드패스반"/>
+		</div>
+	</div>
+
+	<div class="container product-info1">
+		<div class="wrap">
+			<img src="https://img.eduwill.net//Img2/black/Product/200110/info1_200511.png" alt="검정고시 고졸 스피드패스반"/>
+		</div>
+	</div>
+
+	<div class="container product-winner">
+		<div class="winner_box">
+			<div class="wrap">
+				<div class="tit_box">
+					<img src="https://img.eduwill.net//Img2/black/Product/200110/winner01.jpg" alt="검정고시 고졸 스피드패스반"/>
+				</div>
+				<div class="carousel_box">
+					<ul class="carousel_slide" id="carousel_slide1">
+						<li><img src="https://img.eduwill.net//Img2/black/Product/200110/img_winner01.png" alt="" /></li>
+						<li><img src="https://img.eduwill.net//Img2/black/Product/200110/img_winner02.png" alt="" /></li>
+						<li><img src="https://img.eduwill.net//Img2/black/Product/200110/img_winner03.png" alt="" /></li>
+						<li><img src="https://img.eduwill.net//Img2/black/Product/200110/img_winner04.png" alt="" /></li>
+						<li><img src="https://img.eduwill.net//Img2/black/Product/200110/img_winner05.png" alt="" /></li>
+					</ul>
+					<a href="javascript:;" class="carousel_prev"><img src="https://img.eduwill.net//Img2/black/Product/200110/btn_prev.png" alt="Prev" /></a>
+					<a href="javascript:;" class="carousel_next"><img src="https://img.eduwill.net//Img2/black/Product/200110/btn_next.png" alt="Next" /></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container product-banner" style="background:#2f323b;">
+		<div class="wrap">
+			<img src="https://img.eduwill.net//Img2/black/Product/200110/banner2.jpg" alt="검정고시 고졸 스피드패스반"/>
+		</div>
+	</div>
+
+	<div class="container product-reason1">
+		<div class="wrap">
+			<img src="https://img.eduwill.net//Img2/black/Product/200110/img_reason1.jpg" alt="" />
+		</div>
+	</div>
+
+	<div class="container product-reason_plus">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/Product/200110/img_reason_plus.jpg" alt="" />
+		</div>
+	</div>
+
+	<div class="container product-reason2">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/Product/200110/img_reason2.jpg" alt="" />
+			<!-- 				
+			<p class="text">
+				* 2019 한국브랜드만족지수 주택관리사 교육 1위
+			</p> -->
+		</div>
+
+		<div class="tab_box">
+			<ul class="tab_list">
+				<li class="on">
+					<img src="https://img.eduwill.net/Img2/black/Product/200110/tab1_on.jpg" alt="" />
+					<p>국어<strong>김지상 선생님</strong></p>
+				</li>
+				<li>
+					<img src="https://img.eduwill.net/Img2/black/Product/200110/tab2_off.jpg" alt="" />
+					<p>영어<strong>양준성 선생님</strong></p>
+				</li>
+				<li>
+					<img src="https://img.eduwill.net/Img2/black/Product/200110/tab3_off.jpg" alt="" />
+					<p>수학<strong>최주연 선생님</strong></p>
+				</li>
+				<li>
+					<img src="https://img.eduwill.net/Img2/black/Product/200110/tab4_off.jpg" alt="" />
+					<p>사회<strong>이재은 선생님</strong></p>
+				</li>
+				<li>
+					<img src="https://img.eduwill.net/Img2/black/Product/200110/tab5_off.jpg" alt="" />
+					<p>힌국사<strong>임연정 선생님</strong></p>
+				</li>
+				<li>
+					<img src="https://img.eduwill.net/Img2/black/Product/200110/tab6_off.jpg" alt="" />
+					<p>과학<strong>김샛별 선생님</strong></p>
+				</li>
+				<li>
+					<img src="https://img.eduwill.net/Img2/black/Product/200110/tab7_off.jpg" alt="" />
+					<p>도덕<strong>나하율 선생님</strong></p>
+				</li>
+			</ul>
+
+			<div class="tab_view tab_view1">
+				<div class="video_box">
+					<p>
+						효자과목을 만들어주는
+						<span>리얼리티 국어</span><strong>김지상 선생님<a href="https://black.eduwill.net/BlackGosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=KO15&Subj=KO&classCode=139102100100" target="_blank">
+						<img class="btn" src="https://img.eduwill.net/Img2/black/Product/200110/btn_teacher.png" alt="" /></a></strong>
+					</p>
+
+					<div class="video">
+						<div id="player1" class="flowplayer" ></div>
+					</div>
+				</div>
+			</div>
+			<div class="tab_view tab_view2">
+				<div class="video_box">
+					<p>
+						기본기&고득점을 한번에
+						<span>마스터 영어</span><strong>양준성 선생님<a href="https://black.eduwill.net/BlackGosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=EN42&Subj=EN&classCode=139102100101" target="_blank">
+						<img class="btn" src="https://img.eduwill.net/Img2/black/Product/200110/btn_teacher.png" alt="" /></a></strong>
+					</p>
+
+					<div class="video">
+						<div id="player2" class="flowplayer" ></div>
+					</div>
+				</div>
+			</div>
+			<div class="tab_view tab_view3">
+				<div class="video_box">
+					<p>
+						수포자 구조 강의
+						<span>끝장 수학</span><strong>최주연 선생님<a href="https://black.eduwill.net/blackgosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=MA10&Subj=MA&classCode=139102100102" target="_blank">
+						<img class="btn" src="https://img.eduwill.net/Img2/black/Product/200110/btn_teacher.png" alt="" /></a></strong>
+					</p>
+
+					<div class="video">
+						<div id="player3" class="flowplayer" ></div>
+					</div>
+				</div>
+			</div>
+			<div class="tab_view tab_view4">
+				<div class="video_box">
+					<p>
+						지루한 공부, 정신이 번쩍드는
+						<span>호루라기 사회</span><strong>이재은 선생님<a href="https://black.eduwill.net/blackgosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=SO11&Subj=SO&classCode=139102100103" target="_blank">
+						<img class="btn" src="https://img.eduwill.net/Img2/black/Product/200110/btn_teacher.png" alt="" /></a></strong>
+					</p>
+
+					<div class="video">
+						<div id="player4" class="flowplayer" ></div>
+					</div>
+				</div>
+			</div>
+			<div class="tab_view tab_view5">
+				<div class="video_box">
+					<p>
+						웃으며 공부하다 합격!
+						<span>꿀잼 한국사</span><strong>임연정 선생님<a href="https://black.eduwill.net/Blackgosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=SO12&Subj=HI&classCode=139102100107" target="_blank">
+						<img class="btn" src="https://img.eduwill.net/Img2/black/Product/200110/btn_teacher.png" alt="" /></a></strong>
+					</p>
+
+					<div class="video">
+						<div id="player5" class="flowplayer" ></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="tab_view tab_view6">
+				<div class="video_box">
+					<p>
+						어려운 과학을 쉽게!
+						<span>심플 과학</span><strong>김샛별 선생님<a href="https://black.eduwill.net/Blackgosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=SC11&Subj=SC&classCode=139102100104" target="_blank">
+						<img class="btn" src="https://img.eduwill.net/Img2/black/Product/200110/btn_teacher.png" alt="" /></a></strong>
+					</p>
+					<div class="video">
+						<div id="player6" class="flowplayer" ></div>
+					</div>
+				</div>
+			</div>
+			<div class="tab_view tab_view7">
+				<div class="video_box">
+					<p>
+						기초부터 꼼꼼하게 잡는
+						<span>친절한 도덕</span><strong>나하율 선생님<a href="https://black.eduwill.net/Blackgosi2/Teacher/Teacher/Teacher_Intro_Detail.asp?TCode=ET06&Subj=ET&classCode=139102100106" target="_blank">
+						<img class="btn" src="https://img.eduwill.net/Img2/black/Product/200110/btn_teacher.png" alt="" /></a></strong>
+					</p>
+
+					<div class="video">
+						<div id="player7" class="flowplayer" ></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container product-reason3">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/Product/200110/img_reason3_200511.jpg" alt="" />
+		</div>
+	</div>
+
+	<div class="container product-reason4">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/Product/200110/img_reason4.jpg" alt="" />
+		</div>
+	</div>
+	
+	<div class="container product-reason5">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/Product/200110/img_reason5.jpg" alt=""/>
+		</div>
+	</div>
+	<div class="container product-apply-title" style="background:#2f323b;">
+		<div class="wrap">
+			<img src="https://img.eduwill.net/Img2/black/Product/200110/sectionApply.jpg" alt="고졸 검정고시 스피드패스반 수강신청"/>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="https://img.eduwill.net/resources/common/web/js/waterwheelCarousel/jquery.waterwheelCarousel.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/common/web/js/flowplayer-commercial-7.2.7/flowplayer.min.js"></script><!-- for PC -->
+<script type="text/javascript">
+	$(function(){
+		$(window).on('load', function(){
+			onComplete();
+			init();
+		});
+	});
+
+	function onComplete(){
+	}
+
+	function init(){
+		slideEvent(1);
+		tabControl(".product-reason2");
+
+		//checkbox
+		$("#checkbox1").on("click", function() {
+			if ($("input:checkbox[id='checkbox1']").is(":checked") == false){
+				$("#price1_2").html("380,000");
+				$("#price1_3").html("330,000");
+			}else{
+				$("#price1_2").html("495,200");
+				$("#price1_3").html("445,200");
+			}
+		});
+
+		$('.carousel_prev').on('click', function () {
+			_carousel.prev();
+		});
+
+		$('.carousel_next').on('click', function () {
+			_carousel.next();
+		});
+
+		var slider01 = $('#bxSlider1').bxSlider({
+			mode: 'horizontal',
+			auto: true,
+			pause: 3000,
+			pager: true,
+			onSliderLoad: function(){
+			}
+		});
+
+		var slider02 = $('#bxSlider2').bxSlider({
+			mode: 'horizontal',
+			auto: true,
+			pause: 3000,
+			pager: false,
+			onSliderLoad: function(){
+			}
+		});
+
+		$(".flowplayer").on("click",function(){
+			var idx = $(this).attr("id");
+
+			switch(idx) {
+				case "player1":
+					_player1.play();
+					_player2.stop();
+					_player3.stop();
+					_player4.stop();
+					_player5.stop();
+					_player6.stop();
+					break;
+				case "player2":
+					_player1.stop();
+					_player2.play();
+					_player3.stop();
+					_player4.stop();
+					_player5.stop();
+					_player6.stop();
+					break;     
+				case "player3":
+					_player1.stop();
+					_player2.stop();
+					_player3.play();
+					_player4.stop();
+					_player5.stop();
+					_player6.stop();
+					break;
+				case "player4":
+					_player1.stop();
+					_player2.stop();
+					_player3.stop();
+					_player4.play();
+					_player5.stop();
+					_player6.stop();
+					break;            
+				case "player5":
+					_player1.stop();
+					_player2.stop();
+					_player3.stop();
+					_player4.stop();
+					_player5.play();
+					_player6.stop();
+					break;
+				case "player6":
+					_player1.stop();
+					_player2.stop();
+					_player3.stop();
+					_player4.stop();
+					_player5.stop();
+					_player6.play();
+					break;
+				case "player7":
+					_player1.stop();
+					_player2.stop();
+					_player3.stop();
+					_player4.stop();
+					_player5.stop();
+					_player6.play();
+					break;
+			}
+		});
+	
+		_player2 = flowplayer("#player2", {            
+			autoplay:false,            
+			autoBuffering:true,
+			key : "$597838436033004",            
+			clip: {sources: [{ type:"video/mp4", src:"https://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BEN-CONTE-YJS.mp4" }] }
+		});
+
+		_player3 = flowplayer("#player3", {
+			autoplay:false,
+			autoBuffering:true,
+			key : "$597838436033004",
+			clip: {sources: [{ type:"video/mp4", src:"https://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BMA-CONTE-CJY.mp4" }] }
+		});
+
+		_player4 = flowplayer("#player4", {
+			autoplay:false,
+			autoBuffering:true,
+			key : "$597838436033004",
+			clip: {sources: [{ type:"video/mp4", src:"https://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BSO-CONTE-LJE.mp4" }] }
+		});
+
+		_player5= flowplayer("#player5", {
+			autoplay:false,
+			autoBuffering:true,
+			key : "$597838436033004",
+			clip: {sources: [{ type:"video/mp4", src:"https://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BSO-CONTE-LYJ.mp4" }] }
+		});
+	
+		_player6= flowplayer("#player6", {
+			autoplay:false,
+			autoBuffering:true,
+			key : "$597838436033004",
+			clip: {sources: [{ type:"video/mp4", src:"https://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BSC-CONTE-KSB.mp4" }] }
+		});
+
+		_player7= flowplayer("#player7", {
+			autoplay:false,
+			autoBuffering:true,
+			key : "$597838436033004",
+			clip: {sources: [{ type:"video/mp4", src:"https://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BET-CONTE-NHY.mp4" }] }
+		});
+
+		_player1 = flowplayer("#player1", {
+			autoplay:false,
+			autoBuffering:true,
+			key : "$597838436033004",
+			clip: {sources: [{ type:"video/mp4", src:"https://pmp.eduwill.net/eduwillpmp/eduwill/flv/sample/conte/B/BCKO-CONTE-KJS.mp4" }] }
+		});
+
+	}
+
+	var _carousel;
+	function slideEvent(idx){
+		$(".carousel_slide").hide();
+		$("#carousel_slide"+idx).show();
+
+		var max = $("#carousel_slide"+idx).children("li").length;
+		if(max == 1){
+			$('.carousel_prev').hide();
+			$('.carousel_next').hide();
+		}else{
+			$('.carousel_prev').show();
+			$('.carousel_next').show();
+		}
+
+		_carousel = $("#carousel_slide"+idx).waterwheelCarousel({
+			flankingItems: 3,
+			autoPlay: 2000
+		});
+	}
+
+	function tabControl($seletor){
+		$($seletor).find(".tab_list").children("li").on("click", function(){
+			_player1.stop();
+			_player2.stop();
+			_player3.stop();
+			_player4.stop();
+			_player5.stop();
+			_player6.stop();
+
+			var idx = $(this).index();
+			var tabList = $($seletor).find(".tab_list").children("li");
+
+			tabList.each(function(){
+				$(this).children("img").attr('src', $(this).children('img').attr('src').replace('_on','_off'));
+			});
+			
+			tabList.eq(idx).children('img').attr('src', tabList.eq(idx).children('img').attr('src').replace('_off','_on'));
+
+			tabList.removeClass("on");
+			tabList.eq(idx).addClass("on");
+		
+			$($seletor).find(".tab_view").hide();
+			$($seletor).find(".tab_view"+(idx+1)).show();
+		});
+	}
+</script>
+
+</body>
+</html>

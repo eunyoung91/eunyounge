@@ -1,0 +1,115 @@
+@charset "utf-8";
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/privacy";
+
+body {
+	background: transparent;
+}
+.iframe-cont {
+	* {
+		line-height: normal;
+		font-family: $font-roboto;
+		letter-spacing: -1px;
+	}
+	.only-mobile {
+		display: block;
+		@include breakpoint(minDesktop){
+			display: none;
+		}
+	}
+	.form {
+		width: percent(620);
+		margin: 0 auto;
+		@include breakpoint(minDesktop){
+			width: 1000px;
+		}
+		.form-title,
+		.label-title {
+			position: relative;
+			font-weight: 700;
+			color: #000;
+			text-align: left;
+			@include vw(30px);
+			@include rem(letter-spacing, -2px);
+			@include rem(margin-bottom, 20px);
+			@include breakpoint(maxMobile){
+				font-size: 24px;
+			}
+		}
+		.filebox {
+			position:relative;
+			width:100%;
+			@include boxSizing(border-box);
+			@extend .grid;
+			input[type="file"] {
+				position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0;
+			}
+			input {
+				outline: none;
+			}
+			label {
+				@extend .col;
+				@include rem(padding, 25px 0);
+				@include vw(26px);
+				@include rem(letter-spacing, -2px);
+				line-height: 1;
+				color: #000;
+				font-weight: 700;
+				width: 30%;
+				background: #3ae1ff;
+				border: 1px solid #2aa2b8;
+				border-left: 0;
+				border-radius:  0 5px 5px 0;
+				text-align:center;
+				cursor:pointer;
+				&:after {
+					content: ' ';
+					display: inline-block;
+					position: absolute;
+					top: 50%;
+					@include rem(right, 30px);
+					@include rem(margin-top, -5px);
+					@include rem(width, 10px);
+					@include rem(height, 10px);
+					border-bottom-width: 0;
+					border-left-width: 0;
+					border-top-width: 2px;
+					border-right-width: 2px;
+					border-style: solid;
+					border-color: #000;
+					background-color: transparent;
+					@include rotate(45deg);
+					z-index: 10;
+				}
+			}
+			.upload-name {
+				@extend .col;
+				@include rem(padding, 22px 20px);
+				@include vw(26px);
+				width: 70%;
+				background: #fff;
+				border: 1px solid #bbb;
+				border-right: 0;
+				border-radius: 5px 0 0 5px;
+			}
+			@include breakpoint(maxMobile) {
+				label,
+				.upload-name {
+					height: 50px;
+					font-size: 20px;
+					padding: 0 20px;
+					line-height: 50px;
+				}
+			}
+		}
+	}
+	.action {
+		text-align: center;
+		a {
+			@include pointer(50%, 5%, 57px, 65px, 12, bounce);
+			display: inline-block;
+		}
+	}
+}

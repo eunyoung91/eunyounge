@@ -1,0 +1,47 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "base/animation";  
+@import "base/common";  
+@import "base/popup";  
+
+.fix-apply{opacity:0;}
+p{
+	line-height:1;
+	font-family: $font-noto;
+	margin:0;
+}
+.product-eco{
+
+	.house{
+		&-visual{
+			@include bg($color: #0E156F, $url: '#{$img-path}/pc/bg_visual_220215.jpg', $size: cover);
+			height:900px;
+			&:after{
+				display:none;
+			}
+		}
+		&-price{
+			.price-group{
+				position:relative;
+				.before{
+					font-size:30px;
+					color:#333;
+					text-decoration: none;
+				}
+			}
+			.after-price{ font-size:40px;}
+			.btn-apply{
+				&:before{ top:55% !important; right:0 !important; }
+				@include pointer(50%, 0, 57px, 65px, 12, bounce);
+			}
+		}
+		&-provide{
+			padding-bottom: 120px;
+		}
+		&-winner-list{
+			padding-top: 60px;
+		}
+	}
+}

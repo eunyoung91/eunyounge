@@ -1,0 +1,505 @@
+﻿@import "abstracts/mixins";  
+@import "abstracts/extend";  
+@import "abstracts/variables";  
+
+@import "base/animation";  
+@import "base/common";
+@import "base/popup";
+
+.product_counsel{ bottom:90px !important;}
+// .bottom_fix_btn{display:none;}
+.black{
+	&-content{
+		section{
+			display:block;
+			/*position:relative;top:-1px;overflow:hidden;*/
+		}
+
+		img{width:100%;}
+
+		.wrap{
+			position:relative;
+			width:100%;
+			max-width:720px;
+			margin:0 auto;
+		}
+		
+		.section{
+			padding:0;
+			border:0;
+		}
+
+		.slick-dots {
+			li {
+				button {
+					background:#bbbbbb;
+
+				}
+				&.slick-active {
+					button {
+						background:#ffbe00;
+					}
+				}
+			}
+		}
+
+		.btn{
+			position:relative;
+			display:inline-block;
+			border:1px solid #bbb;
+			padding:5px 20px 5px 10px;
+			color:#999;
+			@include vw(font-size, 18px);
+			text-align:center;
+			&:after{
+				content:'';
+				@include arrow(right, 5px, 5px, 1px, #999);
+				margin-left:0;left:auto;@include rem(right,17px);
+				@include breakpoint(maxMobile){
+					right:10px;
+				}
+			}
+			
+			&-text{
+				border-color:#222;
+				color:#222;
+				background-color:#fff;
+				&:after{border-color:#222;}
+			}
+		}
+	}
+
+	&-flag{
+		position: fixed;
+		left: 0;
+		bottom: 50px;
+		width: 100%;
+		z-index: 101; 
+		background: none;
+		&:before{
+			content: '';
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 80%;
+			display: block;
+			background: rgba(0, 0, 0, 0.8);
+		}
+		.action{
+			a{
+				@include pointer(64%, -1%, 5%, 85%, 12, bounce);
+			}
+		}
+		&.update {
+			background: #ffe000;
+			&::before {
+				display: none;
+			}
+			.action{
+				a{
+					@include pointer(64%, -1%, 0%, 0%, 12, bounce);
+				}
+			}
+		}
+	}
+
+	&-topbanner{
+		background: #2b2b2b;
+		.event-date {
+			color: #fff;
+			@include vw(font-size, 40px);
+			font-weight: 500;
+			@include rem(padding,30px 50px);
+			.txt{
+				text-align: left;
+				span{
+					color: #ffe000;
+
+				}
+			}
+			.action{
+				position: absolute;
+				left: 71.83%;
+				top: 23%;
+				width:20.138%;
+				a{
+					@include pointer(80%, -7%, 35%, 85%, 12, bounce);
+				}
+			}
+		}
+	}
+
+	&-visual{
+		position:relative;
+		width:100%;
+		text-align:center; 
+		overflow:hidden;
+		background-color:#000;
+		.bg-video{
+			position: absolute;
+			top: 0;
+			left: 50%;
+			bottom: 0;
+			z-index: 1;
+			width: auto;
+			height: 100%;
+			-webkit-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			transform: translateX(-50%);
+		}
+		
+		&:after{
+			content:'';	
+			position: absolute; 
+			top: 0; 
+			left: 0; 
+			width:100%;
+			height:100%;
+			background-color:rgba(0,0,0,0.6);
+			z-index:2;
+		}
+
+		.visual{
+			position: relative;
+			z-index:3;
+			max-width:720px;
+			margin:0 auto;
+		}
+
+		.btn{
+			position: absolute;
+			// left:72.222%;
+			right:4%;
+			top:2.7%;
+			z-index: 100;
+		}
+	}
+
+	&-benefit{
+		.blink {
+			position: absolute;
+			left:51.25%;
+			top:31.942%;
+			left:51.25%;
+			top:31.942%;
+			width:41.666%;
+			-webkit-animation: bgOpacity 1s step-start infinite;
+			animation: bgOpacity 1s step-start infinite;
+			@-webkit-keyframes bgOpacity {
+				0% {
+					opacity: 0;
+				}
+				50% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+			@keyframes bgOpacity {
+				0% {
+					opacity: 0;
+				}
+				50% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+		}
+	}
+
+	&-plus{
+		@include bg($url: 'https://img.eduwill.net/eduwill/img/2021/B/product/210504/mobile/plus_bg.png', $size: cover);
+		&:after{
+			content:'';
+			position:absolute;
+			left:50%;
+			top:0;
+			background:url('https://img.eduwill.net/eduwill/img/2021/B/product/210504/mobile/icon_plus01.png') no-repeat 0 0;
+			background-size:cover;
+			width:66px;
+			height:66px;
+			margin-left:-33px;
+			margin-top:-33px;
+			@include breakpoint(maxMobile){
+				width:132px;
+				height:132px;
+				margin-left:-66px;
+				margin-top:-55px;
+			}
+		}
+	}
+
+	&-banner01{
+		@include bg($url: 'https://img.eduwill.net/eduwill/img/2021/B/product/210504/mobile/banner01_bg.png', $size: cover);
+		background-color: #142faa;
+	}
+
+	&-banner02{
+		@include bg($url: 'https://img.eduwill.net/eduwill/img/2021/B/product/210504/mobile/banner02_bg.png', $size: cover);
+	}
+
+	&-choice{
+		.content-wrap{
+			@include bg($url: 'https://img.eduwill.net/eduwill/img/2021/B/product/210504/mobile/choice_content_bg.png', $size: cover);
+			img{
+				width:85.833%;
+			}
+		}
+	}
+
+	&-review01{
+		@include rem(padding-bottom, 120px);
+		.title {
+			margin-bottom: 10%;
+		}
+		@include bg($url: 'https://img.eduwill.net/eduwill/img/2021/B/product/210504/mobile/review01_bg.png', $size: cover);
+
+		.textlo{
+			position:relative;
+			width:85.138%;
+			margin: 0 auto;
+		}
+
+		.textlo > div{
+			overflow:hidden;
+			text-align:center;
+			position:relative;
+		}
+
+		.textlo > div ul{
+			position:absolute;
+			left:0;
+			top:0;
+			width:100%;
+		}
+
+		.textlo > div ul li{
+			@include vw(font-size, 20px);
+			color:#b5b5b5;
+			height: 15.93%;
+			line-height: 1.4;
+			font-weight:700;
+			transition: all 0.2s ease-out 0s;
+		}
+
+		.textlo > div ul li strong{
+			font-weight:900;
+		}
+
+		.textlo > div ul li.on{
+			@include vw(font-size, 29px);
+			color:#000;
+			font-weight:900;
+			height: 21.25%;
+			line-height:1.4;
+			margin-top: 3.5%;
+			background:#fff;
+			border: 5px solid #ffbe00;
+			border-radius: 20px;
+			box-shadow: 0px 6px 5px rgba(68, 68, 68, 0.3);
+			padding: 2.5%;
+			margin-bottom: 4.25%
+		}
+
+		.textlo > div ul li.next{
+			margin-bottom: 3%
+		}
+
+		.textlo:after{
+			content:"";
+			width: 100%;
+			height: 8%;
+			position:absolute;
+			top: 0;
+			left: 0;
+			background: linear-gradient( 0deg, rgba(255, 255, 255, 0.2) 0%, white 100%);
+		}
+		.bottom-box {
+			width: 100%;
+			height: 8%;
+			position:absolute;
+			bottom: 0;
+			left: 0;
+			background: linear-gradient( 180deg, rgba(255, 255, 255, 0.2) 0%, white 100%);
+		}
+	}
+
+	&-review02{
+		@include rem(padding, 30px 0 70px 0 );
+		.slider-box {
+			position: relative;
+			height: 240px;
+			// @include rem(padding, 0 50px 0);
+			perspective: 670px;
+
+			.slider-review02{
+				transform: rotateX(40deg);
+
+				.slick-list {
+					height: 240px!important;
+				}
+
+				p {
+					text-align: center;
+					line-height: 2;
+					@include vw(font-size, 21px);
+					font-weight: 600;
+					color: #222;
+					span{
+						@include vw(font-size, 18px);
+						color: #999999;
+						margin-left: 2%;
+					}
+				}
+			}
+		}
+	}
+
+	&-increase{
+		@include rem(padding-bottom, 100px);
+		overflow: hidden;
+		.img-content{
+			position:absolute;
+			left:0;
+			top:0;
+			z-index: 100;
+		}
+		.winner-contents{
+			// transform:translateX(-40px);
+			position: absolute;
+			top: 0;
+			left: 0;
+			@include rem(padding-top, 150px);
+			.winner-list{
+				transform: perspective(300px) rotateX(45deg);
+				overflow:hidden;
+				p{
+					color:#e8e8e8;
+					margin: 1% 0;
+					@include vw(font-size, 18px);
+					font-weight: 100;
+					text-align:center;
+				}
+			}
+		}
+		.review {
+			margin-top: 10%;
+			width:85.833%;
+			margin: 0 auto;
+			.slick-arrow {
+				top: 50%;
+				width: 20px;
+				height: 20px;
+				border-color: #2b2c41;
+				&.slick-prev{
+					left: 0;
+					border-bottom-width: 2px;
+					border-left-width: 2px;
+				}
+				&.slick-next{
+					right: 4%;
+					border-top-width: 2px;
+					border-right-width: 2px;
+				}
+			}
+		}
+	}
+
+	&-search{
+		background: #f7f7f7;
+	}
+
+	&-winner{
+		background: #fff;
+	}
+
+	&-teacher{
+		@include rem(padding-bottom, 120px);
+		.review {
+			width:85.833%;
+			margin: 0 auto;
+			.slick-arrow {
+				top: 50%;
+				width: 20px;
+				height: 20px;
+				border-color: #2b2c41;
+				&.slick-prev{
+					left: -7%;
+					border-bottom-width: 2px;
+					border-left-width: 2px;
+				}
+				&.slick-next{
+					right:	-2%;
+					border-top-width: 2px;
+					border-right-width: 2px;
+				}
+			}
+		}
+	}
+
+	&-plus-banner {
+		@include bg($url: 'https://img.eduwill.net/eduwill/img/2021/B/product/210504/mobile/bg_plus_banner.jpg	', $size: cover);
+		&:after{
+			content:'';
+			position:absolute;
+			left:50%;
+			top:0;
+			background:url('https://img.eduwill.net/eduwill/img/2021/B/product/210504/mobile/icon_plus.png') no-repeat 0 0;
+			background-size:cover;
+			width:66px;
+			height:66px;
+			margin-left:-33px;
+			margin-top:-33px;
+			@include breakpoint(maxMobile){
+				width:132px;
+				height:132px;
+				margin-left:-66px;
+				margin-top:-55px;
+			}
+		}
+	}
+
+	&-book{
+		@include bg($url: 'https://img.eduwill.net/eduwill/img/2021/B/product/210504/mobile/book_bg.png', $size: cover);
+		.btn-group{
+			a{
+				position: absolute;
+				left:11.527%;
+				top:43.569%;
+				width:34.027%;
+			}
+		}
+	}
+
+	&-contents{
+		@include bg($url: 'https://img.eduwill.net/eduwill/img/2021/B/product/210504/mobile/contents_bg.png', $size: cover);
+	}
+
+	&-service{
+		background: #fcf8eb;
+		&:after{
+			content:'';
+			position:absolute;
+			left:50%;
+			top:0;
+			background:url('https://img.eduwill.net/eduwill/img/2021/B/product/210504/mobile/icon_plus02.png') no-repeat 0 0;
+			background-size:cover;
+			width:66px;
+			height:66px;
+			margin-left:-33px;
+			margin-top:-33px;
+			@include breakpoint(maxMobile){
+				width:132px;
+				height:132px;
+				margin-left:-66px;
+				margin-top:-55px;
+			}
+		}
+	}
+
+}
+
+

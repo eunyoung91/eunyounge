@@ -1,0 +1,497 @@
+.graph-legend {
+	@include rem(margin, 20px 20px 0);
+	li {
+		display: inline-block;
+		width: 50%;
+		color: $color-base-1;
+		@include rem(margin-top, 5px);
+		span {
+			display: inline-block;
+			border-radius: 50%;
+			@include rem(width, 12px);
+			@include rem(height, 12px);
+			@include rem(margin-right, 5px);
+		}
+	}
+}
+
+.pass {
+	.tags {
+		word-wrap: break-word;
+		@include rem(margin-top, 20px);
+		span {
+			display: inline-block;
+			margin-right: 5px;
+			color: $color-base-1;
+			@include rem(margin-right, 5px);
+			&:last-child { margin-right: 0; }
+		}
+	}
+	&-info {
+		@extend %title-info;
+	}
+
+	&-rule {
+		@extend %clearfix;
+		@include rem(margin-top, 19px);
+		@include breakpoint(desktop) {
+			display: table;
+			table-layout: fixed;
+			height: 100%;
+			margin-top: 12px;
+		}
+		.wrap {
+			@include rem(margin-top, 16px);
+			@include breakpoint(desktop) {
+				display: table-cell;
+				vertical-align: top;
+				height: 100%;
+			}
+			.holder {
+				@extend %frame;
+				@include breakpoint(desktop) {
+					height: 100%;
+				}
+			}
+			&.rule-graph {
+				margin-top: 0;
+				.holder {
+					@include rem(padding-bottom, 30px);
+					//@include boxSizing(border-box);
+					@include breakpoint(desktop) {
+						padding-bottom: 0;
+						overflow: hidden;
+					}
+				}
+				@include breakpoint(desktop) {
+					width: 32.4%;
+				}
+				.graph-feedback {
+					@extend %feedback;
+					@include rem(padding-top, 30px);
+					@include breakpoint(desktop) {
+						float: none;
+						clear: none;
+					}
+					.holder { overflow: visible; }
+					// position: relative;
+					// color: $color-white;
+					// background-color: $color-primary;
+					// @include rem(padding, 13px 20px 14px);
+					// @include rem(font-size, 16px);
+					// @include rem(border-radius, 0 0 20px 20px);
+					// &:after {
+					// 	content: '';
+					// 	@extend %tail;
+					// 	margin: 0 auto;
+					// 	background-image: url('#{$img-path}/contents/bg_title_tail.png');
+					// 	@include rem(bottom, -27px);
+					// 	@include size(200px, 56px, resize);
+					// 	@include breakpoint(desktop) {
+					// 		background-image: url('#{$img-path}/contents/bg_title_tail_lg.png');
+					// 	}
+					// }
+					// .heading {
+					// 	color: $color-white;
+					// 	@include rem(font-size, 30px);
+					// }
+				}
+				.graph-area {
+					@extend %graph-area;
+					@include rem(max-width, 320px);
+					@include rem(height, 250px);
+					@include rem(margin-top, 44px);
+					@include rem(padding, 0 35px);
+					.grapth-info {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						display: none;
+						text-align: center;
+						@include translateXY(-50%, -50%);
+						p {
+							color: $color-base-1;
+							&.day {
+								color: $color-base-2;
+								@include rem(font-size, 40px);
+							}
+						}
+					}
+				}
+				.tags {
+					@include rem(margin-left, 20px);
+					@include rem(margin-right, 20px);
+				}
+			}
+			&.rule-list {
+				@include breakpoint(desktop) {
+					width: 67.6%;
+					@include rem(padding-left, 17px);
+					@include boxSizing(border-box);
+					.tags {
+						float: left;
+						width: 70%;
+					}
+				}
+				.article {
+					position: relative;
+					border-top: 1px solid $border-color-1;
+					@extend %clearfix;
+					@include rem(margin, 0 20px);
+					@include rem(padding, 30px 0);
+					@include breakpoint(tablet){
+						margin: 0 34px;
+						padding: 22px 0;
+					}
+					&:first-child { border-top-width: 0; }
+					.guide {
+						right: 0;
+						@include rem(top, 30px);
+						@include breakpoint(tablet){
+							top: 21px;
+						}
+					}
+				}
+				.paragraph {
+					@include breakpoint(tablet){
+						float: left;
+						width: 70%;
+						margin-top: 0;
+					}
+					.heading {
+						letter-spacing: -1px;
+						@include rem(margin-top, 10px);
+						@include rem(font-size, 26px);
+					}
+					.desc {
+						@include rem(margin-top, 8px);
+						@include rem(font-size, 16px);
+						@include breakpoint(desktop){
+							margin-top: 1px;
+						}
+					}
+					.action {
+						@include rem(margin-top, 12px);
+						a {
+							border-color: $color-base-5;
+							@include rem(min-width, 156px);
+							@include rem(padding, 3px 16px 4px);
+							span {
+								color: $color-base-2;
+								@include rem(font-size, 14px);
+							}
+							@include breakpoint(tablet){
+								&:hover {
+									border-color: $color-primary;
+									span { color: $color-white; }
+								}
+							}
+						}
+					}
+				}
+				.diagram {
+					text-align: center;
+					@include rem(margin-top, 30px);
+					@include breakpoint(tablet){
+						float: right;
+						clear: right;
+						width: 30%;
+						margin-top: 15px;
+					}
+					.schedule-table {
+						width: 100%;
+						.frame {
+							font-size: 0;
+							background-color: $bg-color-1;
+							@include rem(border-radius, 6px);
+							&.schedule-head {
+								@include rem(padding, 2px 20px);
+							}
+							&.schedule-body {
+								@include rem(margin-top, 2px);
+								@include rem(padding, 10px 20px 11px);
+								@include breakpoint(tablet){
+									@include rem(padding, 4px 20px);
+								}
+								span { font-size: 0; }
+							}
+						}
+						span {
+							display: inline-block;
+							width: 14.28571428571429%;
+							width: calc(100%/7);
+							color: $color-base-4;
+							@include rem(font-size, 14px);
+							&.select {
+								em { display: inline-block; }
+							}
+							em {
+								display: none;
+								@include rem(margin, 10px 0);
+							}
+						}
+						.item {
+							&-1 {
+								em {
+									@include boxShadow(0 0 16px 0 rgba(85, 169, 255, 0.7));
+									background-color: $schedule-color-1;
+								}
+							}
+							&-2 {
+								em {
+									@include boxShadow(0 0 16px 0 rgba(34, 185, 175, 0.7));
+									background-color: $schedule-color-2;
+								}
+							}
+						}
+						em {
+							display: inline-block; 
+							border-radius: 50%;
+							@include rem(width, 12px);
+							@include rem(height, 12px);
+						}
+					}
+					.schedule-info {
+						text-align: right;
+						color: $color-base-4;
+						@include rem(margin-top, 17px);
+						@include breakpoint(tablet){
+							margin-top: 12px;
+						}
+						.item {
+							display: inline-block;
+							@include rem(margin-left, 10px);
+							@include breakpoint(tablet){
+								@include rem(font-size, 12px);
+							}
+						}
+						em {
+							@include rem(vertical-align, -1px);
+							@include breakpoint(tablet){
+								width: 6px;
+								height: 6px;
+								vertical-align: 1px;
+							}
+						}
+					}
+				}
+			}
+			.guide {
+				position: absolute;
+				@include rem(top, 193px);
+				@include rem(right, 18px);
+				.button { @extend %guide; }
+			}
+		}
+		.edit {
+			text-align: center;
+			@include rem(margin-top, 16px);
+			@include breakpoint(tablet){
+				text-align: right;
+				margin-top: 40px;
+				margin-right: 20px;
+			}
+			a {
+				@include breakpoint(desktop){
+					&:hover span {
+						color: $color-primary;
+					}
+				}
+				span { color: $color-base-2; }
+			}
+		}
+	}
+
+	&-plan {
+		@extend .grid;
+		@extend %frame;
+		@include rem(margin-top, 14px);
+		@include rem(padding, 37px 0);
+		.plan-info {
+			@include rem(margin, 0 20px);
+			@include breakpoint(tablet){
+				float: left;
+				width: 32.4%;
+				margin: 0;
+				padding-left: 26px;
+				@include boxSizing(border-box);
+			}
+			.heading {
+				letter-spacing: -.5px;
+				@include rem(margin-top, 10px);
+				@include rem(font-size, 30px);
+			}
+			.desc {
+				@include rem(font-size, 16px);
+			}
+			.action {
+				@include rem(margin-top, 37px);
+				@include breakpoint(tablet){
+					margin-top: 30px;
+				}
+				.col {
+					width: 50%;
+					@include rem(padding-left, 4px);
+					&:first-child {
+						padding-left: 0;
+						@include rem(padding-right, 4px);
+					}
+					@include breakpoint(tablet){
+						float: none;
+						width: 100%;
+						padding: 0;
+						margin-top: 8px;
+						&:first-child { margin-top: 0; }
+					}
+				}
+				a {
+					width: 100%;
+					border-color: $color-base-5;
+					@include rem(padding, 3px 16px 4px);
+					span {
+						color: $color-base-2;
+						@include rem(font-size, 14px);
+						@include breakpoint(minMobile){
+							@include rem(font-size, 12px);
+						}
+					}
+					@include breakpoint(tablet){
+						width: 200px;
+						&:hover {
+							border-color: $color-primary;
+							span { color: $color-white; }
+						}
+					}
+				}
+			}
+		}
+		.plan-list {
+			@extend .grid;
+			@include rem(margin-top, 53px);
+			@include breakpoint(tablet){
+				float: left;
+				width: 67.6%;
+				margin: 0;
+				@include boxSizing(border-box);
+			}
+			.article {
+				position: relative;
+				padding: 0 13.056%;
+				@include rem(padding-bottom, 30px);
+				&:before {
+					content: '';
+					position: absolute;
+					height: 105%;
+					border: 3px solid $color-white;
+					@include rem(top, -7px);
+					@include rem(left, -3px);
+					@include rem(width, 16px);
+					@include rem(border-radius, 32px);
+				}
+				&:after { clear: both; }
+				&-1:before {
+					top: 0;
+					background-color: $label-color-1;
+				}
+				&-2:before { background-color: $label-color-2; }
+				&-3:before { background-color: $label-color-3; }
+				&-4:before { background-color: $label-color-4; }
+				&-5:before { background-color: $label-color-5; }
+				&-6:before { background-color: $label-color-6; }
+				&-7:before {
+					height: 100%;
+					background-color: $label-color-7;
+				}
+				@include breakpoint(tablet){
+					padding-left: 40px;
+					padding-right: 26px;
+					&:first-child {
+						.core { border-top-width: 0; }
+					}
+				}
+			}
+			.core {
+				@extend .grid;
+				@include breakpoint(tablet){
+					border-top: 1px solid $border-color-1;
+				}
+			}
+			.bundle {
+				@include breakpoint(tablet){
+					float: left;
+					@include boxSizing(border-box);
+				}
+			}
+			.heading {
+				@include rem(padding-top, 19px);
+				@include rem(font-size, 30px);
+				color: $color-base-2;
+				@include breakpoint(desktop){
+					font-size: 26px;
+				}
+			}
+			.period {
+				@include rem(margin-top, 16px);
+				@include rem(font-size, 15px);
+			}
+			.desc {
+				color: $color-base-1;
+				@include rem(margin-top, 16px);
+			}
+			.action {
+				@include rem(margin-top, 30px);
+				@include breakpoint(tablet){
+					float: right;
+				}
+				@include breakpoint(desktop) {
+					right: 40px;
+				}
+				.button {
+					@include rem(margin-top, 10px);
+					@include breakpoint(tablet){
+						display: block;
+					}
+				}
+			}
+		}
+		.plan-action {
+			@extend %clearfix;
+			position: relative;
+			text-align: center;
+			clear: both;
+			@include breakpoint(tablet){
+				min-height: 80px;
+			}
+			> div {
+				@include rem(margin-top, 30px);
+				&.retry {
+					@include breakpoint(tablet){
+						position: absolute;
+						top: 50%;
+						margin-top: 0;
+						@include rem(right, 26px);
+					}
+					a {
+						@include breakpoint(desktop){
+							&:hover span {
+								color: $color-primary;
+							}
+						}
+						span { color: $color-base-2; }
+					}
+					p {
+						color: $color-base-1;
+						@include rem(margin-top, 12px);
+						@include rem(font-size, 12px);
+					}
+				}
+			}
+			.button {
+				@include rem(min-width, 300px);
+				@include breakpoint(tablet){
+					min-width: 356px;
+				}
+			}
+		}
+	}
+}

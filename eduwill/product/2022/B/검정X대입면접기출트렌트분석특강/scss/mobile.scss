@@ -1,0 +1,307 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/base";
+@import "module/motion";
+@import "module/popup";
+
+// @include pointer(50%, 0, 66px, 73px, 20, bounce);
+// @include boxSizing(border-box);
+
+.bottom_fix_btn{
+	display: none !important;
+}
+.only-pc{
+	display: none !important;
+}
+.product-eco {
+	font-family: $font-noto;
+	line-height:1;
+	letter-spacing: -1px;
+	.container {
+		position: relative;
+	}
+	.wrap {
+		position: relative;
+		width: 100%;
+		max-width: 720px;
+		margin: 0 auto;
+		text-align: center;
+		&-full {
+			width: 100%;
+		}
+	}
+	.only-pc,
+	.pc-only{display: none;}
+	.holder { position: relative;}
+	.item { position: relative;}
+	.grounds-text {
+		color:#999;
+		text-align: right;
+		@include rem(font-size, 24px);
+	}
+
+	.slick-arrow {
+		position: absolute;
+		top: 50%;
+		z-index: 1;
+		@include vw(width, 40px);
+		@include vw(width, 40px);
+		@include vw(margin-top, -50px);
+		font-size: 0;
+		border: none;
+		background: none;
+		outline: none;
+		cursor: pointer;
+		&.slick-prev {
+			@include vw(left, 20px);
+			&:before { right: 0; @include arrow(left, 40px, 40px, 2px, #000); 
+			@include vw(margin-top, -0px);
+			}
+		}
+		&.slick-next {
+			@include vw(right, 20px);
+			&:before { left: 0; @include arrow(right, 40px, 40px, 2px, #000); 
+				@include vw(margin-top, -0px);
+			}
+		}
+	}
+	.slick-dots {
+		@include vw(margin-top, 60px);
+		text-align:center;
+		font-size:0;
+		li {
+			display:inline-block;
+			padding:0 5px;
+			button {
+				border:none;
+				outline:none;
+				padding:0;
+				margin:0;
+				width:14px;
+				height:14px;
+				border-radius:7px;
+				background-color:#b2b2b2;
+				font-size:0;
+				text-indent:-99999px;
+				line-height:0;
+			}
+			&.slick-active {
+				button {
+					width:38px;
+					background-color:#2bbe45;
+					transition:all .3s;
+				}
+			}
+		}
+	}
+
+	.bottom-banner{
+		position: fixed;
+		@include vw(height, 128px);
+		z-index:100;
+		bottom:0;
+		left:0;
+		right:0;
+		margin:0 auto;
+		@include bg($color: rgba(0,0,0,0.8));
+		a{
+			@include pointer( 50%, 15% , 57px, 65px, 12, bounce);
+		}
+		img{
+			@include vw(margin-top, -38px);
+		}
+	}
+
+	.sector{
+		&-title{
+			@include bg($color: #006981, $url: '#{$img-path}/pc/bg_title.jpg', $size: cover);
+			p{
+				position: relative;
+				z-index:5;
+				left:0;
+				right:0;
+				margin:0 auto;
+			}
+		}
+		&-title-banner {
+			@include bg($color: #c5f667, $url: '#{$img-path}/mobile/bg_titlebanner.jpg', $size: cover);
+		}
+		&-price{
+			@include bg($color: #c5f667, $url: '#{$img-path}/mobile/bg_illust.jpg', $size: cover);
+			@include vw(padding-bottom, 120px);
+			.price-box{
+				position: relative;
+				@include vw(width, 620px);
+				margin:0 auto;
+				@include vw(padding, 40px 50px);
+				background:#fff;
+				@include vw(border-radius, 40px);
+				@include boxSizing(border-box);
+				@include boxShadow(0 10px 5px 0 rgba(0, 0, 0, .5));
+				line-height:1.2;
+				.price-bubble-flag{
+					display: inline-block;
+					text-align: left;
+					float:left;
+					@include vw(margin-bottom, 20px);
+					.bubble-flag{
+						position: relative;
+						letter-spacing: -1px;
+						font-weight: 600;
+						background:#cef252;
+						@include vw(border-radius, 7px);
+						@include vw(padding, 8px 15px);
+						span{
+							display: inline-block;
+							line-height:1;
+							color:#222;
+							font-weight: 600;
+							@include vw(font-size, 26px);
+							text-align: center;
+						}
+					}
+				}
+				.price-area{
+					width:100%;
+					display: block;
+					font-weight: bold;
+					font-family: $font-roboto;
+					position: relative;
+					clear:both;
+					float:none;
+					@include vw(margin-bottom, 30px);	
+					.before{
+						letter-spacing: -1px;
+						@include vw(font-size, 40px);
+						color:#999;
+						position:relative;
+						@include vw(margin, 0 10px);
+						&:before{
+							content: '';
+							width:100%;
+							position: absolute;
+							height:2px;
+							background:#bbb;
+							top:50%;
+							left:0;
+							right:0;
+							margin:0 auto;
+						}
+					}
+					.after{
+						line-height:1.2;
+						color:#eb2200;
+						display: inline-block;
+						@include vw(font-size, 56px);
+						font-weight: 800;
+						@include vw(margin, 0 10px);
+					}
+				}
+				.btn-area{
+					width:100%;
+					vertical-align: middle;
+					text-align: center;
+					.price-btn{
+						width:100%;
+						background:#5dc8a1;
+						@include linear-gradient(to right, #5dc8a1 0%, #0076a7 100%);
+						@include vw(border-radius, 15px);
+						@include vw(font-size, 30px);
+						@include vw(padding, 20px 0);
+						font-weight: 800;
+						color:#fff;
+						text-align: center;
+						line-height:1.4;
+						@include pointer( 80%, 0 , 57px, 65px, 12, bounce);
+					}
+				}
+			}
+		}
+		&-graph{
+			@include linear-gradient(to bottom, #fff 0%, #f4f4f4 100%);
+		}
+		&-curriculum {
+			background: #fff;
+		}
+
+		&-intro{
+			background-color:#fcdd00;
+			[class^=gif] {
+				position:absolute;
+				left:50%;
+				transform:translateX(-50%);
+				@include vw(width,661px);
+			}
+			.gif1 {
+				top:13%;
+			}
+			.gif2 {
+				top:43%;
+			}
+			.gif3 {
+				top:71%;
+			}
+		}
+
+		&-review{
+			padding-bottom: 100px;
+			.grounds-text{
+				color:#a7a6a6;
+				@include vw(font-size, 18px);
+				position: relative;
+				@include vw(margin-top, -100px);
+				right:8%;
+			}
+			.slick-slider{
+				.slick-slide{
+					img{
+						margin: auto;
+						@include vw(width, 668px);
+					}
+				}
+			}
+		}
+
+		&-bar{
+			background-color: #19a488;
+			.wrap{
+				&:after{
+					content:'';
+					@include bg($url: '#{$img-path}/pc/bar_after.png', $size: cover);
+					position: absolute;
+					z-index:7;
+					@include vw(width, 309px);
+					@include vw(height, 75px);
+					top:100%;
+					left:0;
+					right:0;
+					margin:0 auto;
+				}
+			}
+		}
+		&-trophy {
+			@include bg($color: #fff, $url: '#{$img-path}/mobile/bg_trophy.jpg', $size: cover);
+			.btn-popup{
+				position: absolute;
+				top:5%;
+				left:8%;
+				@include vw(width, 119px);
+			}
+		}
+		&-bar2{
+			background: #005b80;
+		}
+	}
+}
+
+.effect-blink2 {
+	@include animation(effectBlink, 1s, $iteration: infinite){
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0; }
+	}
+}

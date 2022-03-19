@@ -1,0 +1,296 @@
+.popup-dim {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: map-get($z-index, popup-dim);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+}
+.popup {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    // width: 100%;
+    // max-width: 1024px;
+    height: 100vh;
+    margin: 0 auto;
+    z-index: map-get($z-index, popup);
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #fff;
+    // display: none;
+    &.in {
+        display: block;
+    }
+    .popup-wrap { text-align: left; }
+    .popup-head {
+        padding: 44px 32px;
+        font-family: $font-eduwill-B;
+        font-size: 24px;
+        font-weight: bold;
+        border-radius: 0 0 528px/72px 0;
+        letter-spacing: -.5px;
+        strong { color: $color-plan-2; }
+    }
+    .popup-body {
+        padding: 34px 32px 38px;
+        min-height: calc(100vh - 252px);
+        @include boxSizing(border-box);
+        .study-plan {
+            height: calc(100vh - 400px);
+        }
+    }
+    .popup-footer {
+        @extend .table;
+        width: 100%;
+        height: 100px;
+        padding: 0 24px;
+        background-color: #fff;
+        @include boxSizing(border-box);
+        .popup-desc {
+            @extend .table-cell;
+            width: 64%;
+            margin-top: 0;
+            text-align: left;
+            font-size: 11px;
+            color: $color-base-6;
+            letter-spacing: -.5px;
+        }
+        .popup-action {
+            @extend .table-cell;
+            width: 36%;
+            margin-top: 0;
+            text-align: right;
+            .btn {
+                margin-left: 8px;
+                &:first-child { margin-left: 0; }
+            }
+        }
+    }
+    .popup-desc {
+        margin-top: 24px;
+        text-align: center;
+        font-size: 15px;
+        color: $color-base-3;
+    }
+    .popup-action {
+        margin-top: 16px;
+        text-align: center;
+    }
+    .popup-close {
+        @include close(40px, 40px, 2px, $color-base-1);
+        top: 20px;
+        right: 20px;
+    }
+    &.popup-plan {
+        .popup-head {
+            color: $color-base-0;
+            background-color: $bg-color-2;
+        }
+    }
+    &.popup-survey {
+        .popup-head {
+            position: relative;
+            padding: 36px;
+            text-align: left;
+            color: $color-base-0;
+            background-color: $color-plan-3;
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                display: block;
+                width: 100%;
+                height: 100%;
+                background-color: $bg-color-3;
+            }
+            .title {
+                display: table;
+                min-height: 80px;
+                span {
+                    display: table-cell;
+                    vertical-align: middle;
+                }
+            }
+        }
+        .popup-body {
+            padding: 28px 36px;
+            background-color: $bg-color-3;
+            &:only-child {
+                min-height: 100vh;
+                background-color: #fff;
+                .survey-already {
+                    position: absolute;
+                    top: 50%;
+                    right: 36px;
+                    left: 36px;
+                    padding-bottom: 40px;
+                    border-radius: 50px;
+                    background-color: #fff8e4;
+                    @include translateY(-50%);
+                }
+                .desc {
+                    padding-top: 60px;
+                    text-align: center;
+                    font-family: $font-eduwill-B;
+                    font-size: 24px;
+                    font-weight: bold;
+                    color: $color-base-0;
+                }
+            }
+        }
+        .survey-article {
+            max-height: calc(100vh - 308px);
+            overflow-y: auto;
+            .survey-list {
+                font-size: 0;
+                margin-left: -8px;
+                .list {
+                    display: inline-block;
+                    margin-top: 8px;
+                    margin-left: 8px;
+                    &:first-child { margin-top: 0; }
+                    &:nth-child(1):nth-last-child(1),
+                    &:nth-child(1):nth-last-child(2),
+                    &:nth-child(2):nth-last-child(1),
+                    &:nth-child(1):nth-last-child(3),
+                    &:nth-child(2):nth-last-child(2),
+                    &:nth-child(3):nth-last-child(1),
+                    &:nth-child(1):nth-last-child(4),
+                    &:nth-child(2):nth-last-child(3),
+                    &:nth-child(3):nth-last-child(2),
+                    &:nth-child(4):nth-last-child(1),
+                    &:nth-child(1):nth-last-child(5),
+                    &:nth-child(2):nth-last-child(4),
+                    &:nth-child(3):nth-last-child(3),
+                    &:nth-child(4):nth-last-child(2),
+                    &:nth-child(5):nth-last-child(1),
+                    &:nth-child(1):nth-last-child(6),
+                    &:nth-child(2):nth-last-child(5),
+                    &:nth-child(3):nth-last-child(4),
+                    &:nth-child(4):nth-last-child(3),
+                    &:nth-child(5):nth-last-child(2),
+                    &:nth-child(6):nth-last-child(1) {
+                        display: block;
+                        .fake-radio label { background-position: 97% center; }
+                    }
+                }
+            }
+        }
+        .fake-radio {
+            display: block;
+            input {
+                @extend .sr-only;
+                &:checked + label {
+                    border-color: $color-plan-3;
+                    background-image: url('#{$img-path}/icon_radio_on.png');
+                }
+            }
+            label {
+                display: block;
+                padding: 8px 52px 9px 16px;
+                font-size: 14px;
+                font-weight: 500;
+                color: $color-base-3;
+                border: 1px solid $border-color-3;
+                border-radius: 8px;
+                background: #fff url('#{$img-path}/icon_radio_off.png') no-repeat 90% center;
+                background-size: 14px;
+                cursor: pointer;
+                &:hover { border-color: $color-plan-3; }
+                &:active {
+                    border-color: $color-plan-3;
+                    background-color: rgba(255, 191, 0, .1);
+                    background-image: url('#{$img-path}/icon_radio_on.png');
+                }
+            }
+        }
+    }
+}
+
+.plan-loading {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    opacity: 1;
+    & > div {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include translateXY(-50%, -50%);
+    }
+}
+
+// 알럿창
+.modal-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: table;
+    width: 100%;
+    height: 100%;
+    z-index: 400;
+    background-color: rgba(0, 0, 0, .5);
+    @include transition(opacity, .3s, ease);
+    * { font-family: $font-noto; }
+    .modal-wrapper {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .modal-container {
+        width: 300px;
+        margin: 0px auto;
+        padding: 20px 30px;
+        border-radius: 20px;
+        background-color: #fff;
+        @include boxShadow(0 2px 8px rgba(0, 0, 0, .3));
+        @include transition(all, .3s, ease);
+    }
+    .modal-header {
+        h3 {
+            text-align: center;
+            font-family: $font-eduwill-B;
+            font-size: 30px;
+            color: $color-base-0;
+        }
+    }
+    .modal-body {
+        margin-top: 20px;
+        line-height: 1.4;
+        font-size: 18px;
+        text-align: center;
+    }
+    .modal-footer {
+        @extend %clearfix;
+        margin-top: 20px;
+        text-align: center;
+        button {
+            float: none;
+            margin: 0 4px;
+            padding: 12px 24px;
+            line-height: 1;
+            font-size: 16px;
+            font-weight: 600;
+            color: $color-base-0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            &.modal-default-button { background-color: $color-plan-3; }
+            &.modal-cencal-button { background-color: $border-color-1; }
+        }
+    }
+}

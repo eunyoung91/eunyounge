@@ -1,0 +1,620 @@
+.white-dim {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: map-get($z-index, dim);
+	background: rgba(255,255,255, 1);
+	@include breakpoint(tablet){
+		background: rgba(255,255,255, 0);
+	}
+}
+.modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0; 
+	z-index: map-get($z-index, modal);
+	display: none;
+	height: 100%;
+	background-color: $dim;
+	@include breakpoint(tabletLandscape) {
+		height: 100%;
+	}
+	@include breakpoint(desktop) {
+		height: 100%;
+	}
+	&.in {
+		display: block;
+	}
+	&-close {
+		@include close(50px, 50px, 1px, $color-black);
+		@include breakpoint(desktop) {
+			@include close(70px, 70px, 2px, $color-black);
+		}
+	}
+	&-wrap {
+		position: absolute;
+		text-align: left;
+	}
+	.modal-wrap {
+		//position: relative;
+		z-index: map-get($z-index, basic);
+		width: 100%;
+		height: 100%;
+		overflow-y: auto;
+		background-color: $color-white;
+		@include boxSizing(border-box);
+		@include breakpoint(desktop) {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 916px;
+			height: 700px;
+			margin: -350px 0 0 -458px;
+			overflow-y: visible;
+			border-radius: 0;
+			background-color: $color-white;
+			@include border('all', 1px, solid, $color-black);
+		}
+		@include breakpoint(maxHeight) {
+			height: 900px;
+			margin-top: -450px;
+		}
+	}
+
+	.modal-head {
+		position: relative;
+		width: 100%;
+		z-index: 10;
+		text-align: left;
+		background: $color-white;
+		@include rem(padding, 12px 0 12px 18px);
+		@include boxSizing(border-box);
+		@include border('bottom', 1px, solid, $color-black);
+		.title {
+			font-weight: 700;
+			color: $color-base-dark;
+			letter-spacing: -1px;
+			@include rem(font-size, 18px);
+			span { display: none;}
+		}
+		@include breakpoint(tabletLandscape) {
+			
+		}
+		@include breakpoint(desktop) {
+			@include rem(padding, 21px 30px 16px);
+			background: $bg-color-1;
+			border-bottom: 0;
+			.title {
+				font-size: 18px;
+				font-weight: 500;
+				line-height: 1.7;
+				span {
+					display: block;
+					font-weight: 400;
+					font-size: 16px;
+					color: $color-base-dark;
+				}
+			}
+		}
+		.action {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+		}
+	}
+
+	.modal-body {
+		position: relative;
+		color: $color-base;
+		@include rem(padding, 17px);
+		@include boxSizing(border-box);
+		@include breakpoint(tabletLandscape) {
+			@include rem(padding, 15px 30px 30px);
+			@include rem(border-radius, 0 0 4px 4px);
+		}
+		@include breakpoint(desktop) {
+			@include rem(padding, 15px 30px 30px);
+			@include rem(border-radius, 0 0 4px 4px);
+		}
+	}
+	.frame {
+		@include breakpoint(desktop) {
+			overflow-y: scroll;
+			height: 760px;
+			.mCSB_scrollTools {
+				width: 4px;
+			}
+		}
+	}
+	.holder {
+		position: relative;
+		height: 100%;
+		margin: 0 5.56%;
+		padding: 0 5.56%;
+		text-align: center;
+		background-color: $color-white;
+		@include rem(border-radius, 3px);
+		@include rem(margin-top, 15px);
+		@include rem(padding-bottom, 30px);
+		@include boxSizing(border-box);
+		@include boxShadow(0 6px 20px 0 rgba(63, 65, 71, 0.2));
+		@include breakpoint(tabletLandscape) {
+			height: auto;
+			padding: 0;
+			@include boxShadow(none);
+			@include rem(margin, 40px 0 0);
+			@include rem(border-radius, 0 0 4px 4px);
+		}
+		@include breakpoint(desktop) {
+			height: auto;
+			padding: 0;
+			@include boxShadow(none);
+			@include rem(margin, 40px 0 0);
+			@include rem(border-radius, 0 0 4px 4px);
+		}
+		&:first-child { margin-top: 0; }
+		.custom-input {
+			@include rem(margin-top, 10px);
+		}
+		&.is-period {
+			.fake-checkbox label:after {
+				border-radius: 50%;
+				background: $bg-color-1;
+				@include size(24px, 24px, resize);
+				@include boxSizing(border-box);
+			}
+			.fake-checkbox input[type='radio']:checked+label:after {
+				background: none;
+				@include border('all', 4px, solid, $color-primary);
+			}
+		}
+	}
+	.heading {
+		text-align: left;
+		@include rem(padding-top, 30px);
+		@include rem(font-size, 13px);
+		@include breakpoint(minMobile) {
+			@include rem(padding-top, 20px);
+			@include rem(font-size, 20px);
+		}
+		@include breakpoint(tabletLandscape) {
+			padding-top: 0;
+			letter-spacing: -2.5px;
+		}
+		@include breakpoint(desktop) {
+			padding-top: 0;
+			letter-spacing: -2.5px;
+		}
+	}
+	.action {
+		position: relative;
+		//left: 0;
+		//bottom: 0;
+		//right: 0;
+		z-index: map-get($z-index, basic);
+		
+		@include breakpoint(desktop) {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+		.button {
+			width: 100%;
+			@include breakpoint(tabletLandscape) {
+				border-radius: 0 0 3px 3px;
+			}
+			@include breakpoint(desktop) {
+				border-radius: 0 0 3px 3px;
+			}
+		}
+	}
+
+	// 시간표
+	&-timetable {
+		.modal-wrap {
+			@include breakpoint(desktop) {
+				width: 450px;
+				height: 640px;
+				margin: -335px 0 0 -225px;
+			}
+		}
+		.modal-body {
+			.frame {
+				@include breakpoint(desktop) {
+					height: 513px;
+					.mCSB_scrollTools {
+						width: 4px;
+					}
+				}
+			}
+			.red-text {
+				color: $color-warning;
+				text-align: center;
+				letter-spacing: -.58px;
+				@include rem(padding-bottom, 15px);
+				@include rem(font-size, 12px);
+				@include breakpoint(desktop) {
+					padding-bottom: 12px;
+					font-size: 15px;
+				}
+			}
+
+			.time-list {
+				border-radius: 6px;
+				@include border('all', 1px, solid, $border-color);
+				table {
+					table-layout: fixed;
+					border-collapse: collapse;
+					width: 100%;
+					tr {
+						&:first-child {
+							td { border-top: 0;}
+						}
+					}
+
+					td {
+						@include rem(padding, 8px);
+						text-align: center;
+						color: $color-base-dark;
+						font-weight: 700;
+						@include rem(font-size, 12px);
+						@include border('top', 1px, solid, $border-color);
+						&.num {
+							padding-left: 5px;
+							letter-spacing: -1px;
+						}
+						&.time {
+							letter-spacing: -1px;
+						}
+						&.cont {
+							text-align: left;
+							line-height: 1.5;
+							font-weight: 400;
+							@include rem(font-size,12px);
+						}
+						@include breakpoint(desktop) {
+							padding: 10px 5px;
+							font-size: 14px;
+							&.cont {
+								font-size: 14px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// 학습질문
+	&-question {
+		.modal-body {
+			padding: 0;
+			@include breakpoint(desktop){
+				padding: 24px 30px;
+				height: 610px;
+				@include boxSizing(border-box);
+			}
+			@include breakpoint(maxHeight){
+				height: auto;
+			}
+			.frame {
+				overflow: hidden;
+			}
+			.write-form {
+				position: relative;
+				.grid {
+					@include border('bottom', 1px, solid, $border-color);
+					@include breakpoint(desktop){
+						border-bottom: 0;
+						margin-top: 16px;
+					}
+				}
+				.custom-select {
+					border-radius: 0;
+					border: 0;
+					@include rem(height, 45px);
+					.select {
+						@include rem(padding, 0 33.5px 0 17px);
+						color: $color-base-dark;
+						@include rem(font-size, 15px);
+					}
+					@include breakpoint(desktop){
+						border-radius: 6px;
+						height: 36px;
+						@include border('all', 1px, solid, $border-color);
+					}
+				}
+				.type {
+					.col {
+						width: 50%;
+						&:first-child {
+							@include border('right', 1px, solid, $border-color);
+						}
+					}
+					@include breakpoint(desktop){
+						margin-top: 0;
+						.col {
+							width: 419px;
+							@include boxSizing(border-box);
+							&:first-child {
+								margin-right: 16px;
+							}
+						}
+					}
+				}
+				.lecture {
+					.col { width: 100%;}
+				}
+				.title {
+					@include rem(font-size, 15px);
+					@include border('bottom', 1px, solid, $border-color);
+				}
+				.text-group {
+					@include rem(padding-bottom, 16px);
+					.file-list {
+						position: relative;
+						width: 100%;
+						@include rem(padding, 0 16px);
+						@include boxSizing(border-box);
+						@include breakpoint(desktop){
+							position: absolute;
+							padding: 0;
+							bottom: 16px;
+						}
+						ul {
+							li {
+								position: relative;
+								border-radius: 6px;
+								background: $bg-color-1;
+								@include rem(margin-top, 6px);
+								@include rem(padding, 6px 60px 6px 12px);
+								@include boxSizing(border-box);
+								p {
+									color: $color-primary;
+									@extend  %textEllipsis;
+									@include rem(font-size, 12px);
+								}
+								.close {
+									position: absolute;
+									top: 0;
+									right: 0;
+									width: 30px;
+									height: 30px;
+									@include close(30px, 30px, 1px, $color-base-dark);
+								}
+							}
+							@include breakpoint(desktop){
+								&:after { content:''; display: table; clear: both;}
+								 li {
+									float: left;
+									width: 262px;
+									margin-left: 16px;
+									&:first-child,
+									&:nth-child(2) {
+										margin-left: 0;
+									}
+								 }
+							}
+						}
+					}
+					@include breakpoint(desktop){
+						border-radius: 6px;
+						margin-top: 16px;
+						padding: 0 16px 16px;
+						@include boxSizing(border-box);
+						@include border('all', 1px, solid, $border-color);
+						.title {
+							.text {
+								padding-left: 0;
+							}
+						}
+						.textarea {
+							textarea {
+								padding-left: 0;
+								@include boxSizing(border-box);
+							}
+						}
+					}
+				}
+			}
+		}
+		.action {
+			.tip {
+				@include border('top', 1px, solid, $border-color);
+				@include rem(padding, 12px 18px 0);
+				ul {
+					li {
+						@include rem(font-size, 12px);
+						color: $color-base-medium;
+						font-weight: 400;
+						text-indent: -8px;
+						a {
+							color: $color-base;
+							font-weight: 500;
+							&:hover {
+								text-decoration: underline;
+							}
+						}
+						&:before {
+							content: '*';
+							margin-right: 2px;
+						}
+					}
+				}
+				@include breakpoint(desktop){
+					border-top: 0;
+					margin-bottom: 25px;
+					padding: 0 30px 0 40px;
+				}
+			}
+			.check-list {
+				@include rem(padding, 12px 18px 16px);
+				@include breakpoint(desktop){
+					padding: 0 30px;
+				}
+				ul {
+					li {
+						@include rem(margin-top, 7px);
+						&:first-child { margin-top: 0;}
+						span {
+							label {
+								line-height: 21px;
+							}
+						}
+						@include breakpoint(desktop){
+							margin-top: 0;
+							display: inline-block;
+							margin-left: 20px;
+							&:first-child { margin-left: 0;}
+							label { line-height: 23px;
+								a {
+									&:hover {
+										text-decoration: underline;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			.button-group {
+				@include rem(padding, 0 16px 18px 16px);
+				@include boxSizing(border-box);
+				@include breakpoint(desktop){
+					padding: 0 30px 30px;
+				}
+				&:after{
+					content: '';
+					display: table;
+					clear: both;
+				}
+				.file {
+					float: left;
+					width: 30%;
+					text-align: left;
+					color: $color-primary;
+					font-weight: 500;
+					@include rem(padding, 12px 0 11px);
+					@include rem(font-size, 15px);
+					@include breakpoint(desktop){
+						width: 100px;
+					}
+				}
+				.regist {
+					float: right;
+					display: block;
+					width: 40%;
+					border-radius: 6px;
+					text-align: center;
+					color: $color-primary;
+					font-weight: 500;
+					@include rem(font-size, 18px);
+					@include rem(padding, 9px 0);
+					@include border('all', 1px, solid, $color-primary);
+					@include breakpoint(desktop){
+						width: 234px;
+					}
+				}
+			}
+		}
+	}
+
+	// 공지사항
+	&-view {
+		.modal-body {
+			@include rem(padding, 0 16px 23px);
+			@include breakpoint(desktop){
+				padding: 0 30px 32px;
+			}
+			.title {
+				color: $color-base-dark;
+				font-weight: 500;
+				@include rem(font-size, 15px);
+				@include rem(padding, 16px 0);
+				.date { display: none;}
+				@include breakpoint(desktop){
+					position: relative;
+					font-size: 18px;
+					padding: 13px 85px 14px 0;
+					.date {
+						display: block;
+						position: absolute;
+						top: 17px;
+						right: 0;
+						font-size: 15px;
+						color: $color-base;
+					}
+				}
+			}
+			.file-list {
+				border-radius: 6px;
+				background: $bg-color-1;
+				@include rem(padding, 6px 11px);
+				@include rem(margin-bottom, 24px);
+				a {
+					display: block;
+					background: url('#{$img-path}/ic_download.png') 0 center no-repeat;
+					background-size: 17px auto;
+					color: $color-primary;
+					@include rem(padding-left, 23px);
+					@include rem(font-size,12px);
+					@extend  %textEllipsis;
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+			.frame {
+				@include breakpoint(desktop) {
+					height: 500px;
+					.mCSB_scrollTools {
+						width: 4px;
+					}
+				}
+				@include breakpoint(maxHeight) {
+					height: 720px;
+				}
+			}
+			.file-list + .frame {
+				@include breakpoint(desktop) {
+					height: 420px;
+					.mCSB_scrollTools {
+						width: 4px;
+					}
+				}
+				@include breakpoint(maxHeight) {
+					height: 620px;
+				}
+			}
+			.view-post {
+				.post-contents {
+					p {
+						display: block;
+						@include rem(margin-bottom, 20px);
+						@include breakpoint(desktop){
+							font-size: 15px;
+							color: $color-base-dark;
+						}
+					}
+					img {
+						width: 100%;
+						max-width: 100%;
+					}
+				}
+				@include breakpoint(tablet){
+					padding-right: 5px;
+				}
+			}
+		}
+	}
+}
+

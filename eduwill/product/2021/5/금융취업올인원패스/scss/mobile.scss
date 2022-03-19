@@ -1,0 +1,384 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+@import "module/popup";
+$main-color : #ffbf00;
+$sub-color : #fff3cf;
+@import "module/popup";
+[class^=slider] {
+	.slide-item {
+		text-align:center;
+		img {
+			display:inline-block;
+		}
+	}
+	.slick-dots {
+		text-align:center;
+		font-size:0;
+		li {
+			display:inline-block;
+			padding:0 5px;
+			button {
+				width:14px;
+				height:14px;
+				border-radius:7px;
+				background-color:#b2b2b2;
+				font-size:0;
+				text-indent:-99999px;
+				line-height:0;
+			}
+			&.slick-active {
+				button {
+					width:38px;
+					background-color:#ffc20e;
+					transition:all .3s;
+				}
+			}
+		}
+	}
+}
+.product {
+    &-eco {
+		overflow-x: hidden;
+        * {
+            line-height: normal;
+            font-family: $font-noto;
+            letter-spacing: -1px;
+        }
+        .wrap {
+            position: relative;
+            width: 100%;
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+            &-full {
+                width: 100%;
+            }
+        }
+		.pointer {
+            @include pointer(50%, 0, 60px, 66px, 12, bounce);
+        }
+		.sector{
+			&-title {
+				@include bg($color: #006ce2, $url: '#{$img-path}/mobile/bg_title.jpg', $size: 100% 100%);
+				background-size:cover;
+				.base-popup-btn{
+					position: absolute;
+					@include vw(top,45px);
+					@include vw(right,50px);
+					@include vw(width,134px);
+					}
+			}
+			&-benefit{
+				.base-popup-btn{
+					@include vw(width,92px);
+					position: absolute;
+					@include vw(bottom,40px);
+					@include vw(right,50px);
+				}
+			}
+			&-plus{
+				background-color:#1832a3;
+				@include vw(margin-top, 80px);
+				position: relative;
+				p{
+					color: #fff !important;
+					@include vw(font-size, 30px);
+					position: absolute;
+					left: 0;
+					right: 0;
+					@include vw(top,66px);
+					text-align: center;
+					z-index: 9;
+				}
+				img{
+					position: relative;
+					@include vw(top,-50px);
+				}
+			}
+			&-apply{
+				&.top{
+					background-color:#121f5a;
+					@include vw(margin-bottom,621px);
+					.item{
+						position: absolute;
+						@include vw(bottom,-600px);
+						left:0;right:0;
+						z-index: 9;
+					}
+				}
+				&.bottom{
+					background-color:#4240a2;
+				}
+				.item{
+					.apply-box{
+						position: relative;
+						.price-box{
+							position: absolute;
+							right: 0;
+							left:0;
+							bottom: 0px;
+							@include vw(height,450px);
+							width:auto;
+							text-align: right;
+							@include vw(margin,0 55px);
+							@include vw(padding,0 40px);
+    						box-sizing: border-box;
+							box-sizing: border-box;
+							span{
+								color:#e10010;
+								text-align: right;
+								font-weight: 700;
+								display: inline-block;
+								line-height: 1.5;
+								padding-right: 10px;
+								@include vw(font-size,26px);
+								position: absolute;
+								@include vw(left,55px);
+								top:0;
+								text-align: left
+							}
+							.add3{
+								display: inline-block;
+								@include vw(width,170px);
+								@include vw(margin-bottom,30px);
+								position: absolute;
+								@include vw(right,50px);
+								top:0;
+
+							}
+							.s-discount{
+								@include vw(width,143px);
+								position: absolute;
+								@include vw(left,55px);
+								@include vw(bottom,245px);
+
+							}
+							.price-list{
+								@include vw(padding-top,80px);
+								p{
+									strong{	
+										font-family: 'Roboto';font-weight: 900
+									 }
+									&.price-before{
+										@include vw(font-size,30px);
+										color:#bbb !important;
+										position: relative;
+										display: inline-block;
+										&:after{
+											content: '';
+											width:100%;
+											height: 1px;
+											background-color: #BBB;
+											position: absolute;
+											left:0;
+											@include vw(top,24px);
+									
+										}
+									}
+									&.price-after{
+										@include vw(font-size,52px);
+										color:#e10010 !important;
+									}
+								}
+							}
+							.action{
+								position: absolute;
+								right:0;left:0;margin:0 auto;
+								@include vw(bottom,120px)
+								@include vw(width,519px)
+							}
+						}
+					}
+				}
+			}
+			&-review {
+				@include vw(padding-bottom,130px);
+				.ico {
+					position:absolute;
+					@include vw(top,203px);
+					@include vw(right,20px);
+					@include vw(width,232px);
+					animation:bounce 2s infinite both;
+				}
+				.slider-wrap {
+					position:relative;
+					@include vw(height,350px);
+					.slider-video {
+						position:absolute;
+						top:50%;
+						left:50%;
+						transform:translate(-50%,-50%);
+						@include vw(width,1488px);
+						.slick-list {
+							padding:3.4722vw 0 !important;
+							@include breakpoint(maxMobile){
+								padding:25px 0 !important;
+							}
+						}
+						.slick-slide {
+							position:relative;
+							@include vw(width,496px);
+							@include vw(height,350px);
+							.slide-item {
+								position:absolute;
+								top:50%;
+								left:50%;
+								transform:translate(-50%,-50%);
+								width:68.8889vw !important;
+								@include vw(border-radius,30px);
+								overflow:hidden;
+								box-shadow:0 0 3.4722vw 0 rgba(0, 0, 0, 0.2);
+								@include breakpoint(maxMobile){
+									width:496px !important;
+									box-shadow:0 0 25px 0 rgba(0, 0, 0, 0.2);
+								}
+								&:before {
+									content:'';
+									position:absolute;
+									top:50%;
+									left:50%;
+									transform:translate(-50%,-50%);
+									@include vw(width,496px);
+									@include vw(height,280px);
+									@include vw(border-radius,30px);
+									background-color:rgba(0,0,0,.4);
+								}
+								img {
+									width:100%;
+								}
+							}
+							&.slick-center {
+								z-index:5;
+								.slide-item {
+									width:86.1111vw !important;
+									@include breakpoint(maxMobile){
+										width:620px !important;
+									}
+									padding:0;
+									transition:width .3s;
+									&:before {
+										display:none;
+									}
+								}
+							}
+						}
+						.slick-dots {
+							@include vw(margin-top,5px);
+						}
+					}
+				}
+				.slider-multiple{
+					position: relative;
+					@include vw(top,80px);
+
+				}
+			
+			}
+			&-best{
+				background: url('#{$img-path}/pc/bg_best.jpg') no-repeat center 0;
+				background-size: cover;
+				.base-popup-btn{
+					position: absolute;
+					@include vw(bottom,108px);
+					@include vw(right,50px);
+					@include vw(width,92px);
+				}
+			}
+			&-band{
+				background-color:#193195;
+				position: relative;
+				&:after{
+					content:'';
+					width:217px;
+					height: 68px;
+					position: absolute;
+					left:0;
+					right:0;
+					margin:0 auto;
+					bottom:-67px;
+					background: url('#{$img-path}/pc/band_tail.png') no-repeat center 0;
+					background-size: 100%;
+					z-index: 9;
+				}
+			}
+			&-fast{
+				@include vw(padding-top,40px);
+				span{
+					position: absolute;
+					right:0;
+					left:0;
+				
+					@include vw(width,596px);
+					margin:0 auto;
+					&.bk-tip{
+						@include vw(top,861px);
+					}
+					&.cp-tip{
+						@include vw(bottom,343px);
+					}
+				}
+			}
+			
+			&-loadmap{
+				position: relative;
+				background-color:#F9F9F9;
+				.pointer{
+					display: block;
+					@include vw(width,620px);
+					@include vw(height,109px);
+					position: absolute;
+					left:0;
+					right:0;
+					margin:0 auto;
+					z-index: 9;
+					font-size: 0;
+					&.bk{
+						@include vw(top,422px)
+					}
+					&.cp{@include vw(top,555px)}
+				}
+			}
+			&-recommend{
+				.slick-dots{
+					position: absolute;
+					@include vw(bottom,125px);
+					left:0;
+					right:0;
+				}
+			}
+			&-content{
+				.teachers{
+					position: relative;
+					button{
+						position: absolute;
+						@include vw(width,92px);
+						@include vw(right,50px);
+						@include vw(top,287px);
+					}
+				
+				}
+				.books{
+					position: relative;
+					button{
+						position: absolute;
+						@include vw(width,92px);
+						@include vw(right,50px);
+						@include vw(top,797px);
+					}
+				
+				}
+				&.bg{
+					background-color:#F9F9F9;
+				}
+			}
+		
+		}
+			
+		}
+	
+    }

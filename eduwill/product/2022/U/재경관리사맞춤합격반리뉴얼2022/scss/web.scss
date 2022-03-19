@@ -1,0 +1,677 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+@import "module/popup";
+
+.product-eco {
+	* { font-family: $font-noto; }
+    line-height: normal;
+    letter-spacing: -1px;
+
+    /*공통영역*/
+ 	.wrap {
+        position: relative;
+        width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+        &-full {
+            width: 100%;
+        }
+    }
+	.action{
+			position: absolute;
+			&.t-left{top:0;left:50px}
+			&.t-right{top:0;right:50px}
+			&.t-center{top:0;left:0;right:0;margin:0 atuo;}
+			&.b-left{bottom:0;left:50px}
+			&.b-right{bottom:0;right:50px}
+			&.b-center{bottom:0;left:0;right:0;margin:0 atuo;}
+		
+	}
+	.point-color{color:#088ab5 !important;}
+	.bg{background-color: #f3f3f3;}
+	.give{
+		ul{
+			overflow: hidden;
+			position: absolute;
+			top: 307px;
+			width: 1100px;
+			margin: 0 auto;
+			left: 0;
+			right: 0;
+			li{
+				float: left;
+				width: 31.9%;
+				text-align: center;
+				box-sizing: border-box;
+				margin-left: 23px;
+				text-align: center;
+				line-height: 1.3;
+				strong{
+					display: inline-block;
+					font-size: 24px;
+					color:#222
+				
+				}
+				&:first-child{margin-left:0}
+			}
+		}
+	
+	}
+	.sale-area{
+		padding-bottom:80px;
+		overflow: hidden;
+		text-align: left;
+		box-sizing: border-box;
+		width:1100px;
+		margin: 0 auto ;
+		&.bottom{margin:0 auto;}
+		.sale-info{
+			float:left;
+			width:32.3%;
+			margin-left:1%;
+			&:hover{
+				.price-box{border:2px solid #088ab5}
+				.sale-btn{ a{background:#088ab5;}}
+			}
+			
+			&:first-child{
+				.price-box{margin-left:0}
+			}
+			.price-box{
+				border:2px solid #e3e3e3;
+				background:#fff;
+				box-sizing: border-box;
+				.sale-top {
+					margin:20px;
+					border-bottom: 1px solid #e4e4e4;
+					padding-bottom: 20px;
+					.name{
+						font-size: 24px;
+						font-weight: 900;
+						color:#222;
+						display: block;
+					}
+				}
+				.sale-middle {
+					padding:20px;
+					.flag {
+						display: inline-block;
+						font-size: 18px;
+						font-weight: 600;
+						padding:0 10px;
+						border-radius: 5px;
+						@include animation(flagEvent, .8s, $iteration: infinite, $timing: step-start){
+							0%, 100% { color: #fff; background-color:#088ab5; }
+							50% { color: #ddd; background-color:#3b332e}
+						}
+					}
+					&.no-sale{
+						padding-top: 46px;
+					}
+				}
+				.sale-bottom {
+					text-align: center;
+					a{
+						display: block;
+						padding: 10px 20px 10px 10px;
+						color:#8a8a8a;
+						font-size: 16px;
+						border-top:1px solid #e4e4e4;
+					}
+					.check-box{
+						background:#f3f3f3;
+						padding:10px;
+						input{
+							width: 15px;
+							height: 15px;
+							// vertical-align: bottom;
+							// border-radius: 3px;
+						}
+						label{
+							color:#222;
+							font-size: 18px;
+							display: inline-block;
+							margin-left:5px
+						}
+					}
+				}
+				.price{
+					font-family: 'Roboto';
+					&.before-price{
+						color:#8a8a8a;
+						font-size: 21px;
+						position: relative;
+						font-weight: 600;
+						display: inline-block;
+						.data-cost{		
+							font-family: 'Roboto';			
+							&:before{
+								content: '';
+								width:100%;
+								height: 1px;
+								background-color: #8a8a8a;
+								position: absolute;
+								left:0;
+								top:50%;
+							}
+						}
+					}
+					&.after-price{
+						font-size:30px;
+						font-weight: 900;
+						color:#000;
+						padding:20px 0;
+						font-family: 'Roboto';
+						.data-cost{
+							font-size:50px;
+							letter-spacing: -3.3px;
+						}
+
+					}
+				}
+			}
+			.sale-btn{
+				text-align: center;
+				overflow: hidden;
+				margin-top:15px;
+				a{
+					display: block;
+					height:100%;
+					padding: 15px 30px 15px 15px;
+					color:#fff;
+					background: #222;
+					font-weight: 900;
+					font-size: 20px;
+				
+				}
+			}
+		}
+		&.sale{
+			.sale-info{
+				.price-box{
+					.sale-top {
+						height: 65px;
+					}
+				}
+			}
+		}
+		&.no-sale{
+			.price-box{
+				.price{
+					&.after-price{
+						padding:20px 0 40px;
+					}
+
+				}
+			}
+		}
+
+		
+	}
+	/*리뷰슬라이드*/
+	.review-slide{
+			.list{
+				position: relative;
+				.txt{
+					position: absolute;
+					p{
+						color:#606060;
+						font-size: 18px;
+						line-height: 1.7;
+						text-align: left;
+						font-weight: 300;
+						letter-spacing: -2px;
+						.point-color{
+							color:#088ab5;
+							font-weight: 600;
+						}
+					}
+				}
+			}
+			&.review-s{
+				.txt{
+					&.txt1{bottom:249px;right:143px}
+					&.txt2{bottom:280px;right:237px}
+					&.txt3{bottom:249px;right:133px}
+				}
+			}
+			&.teachers-s{
+				.txt{
+					top:21px;
+					left:230px;
+				}
+			}
+			&.curriculum-s{
+				.txt{
+					top:21px;
+					left:230px;
+				}
+			}
+			&.book-s{
+				.txt{
+					top:30px;
+					left:230px;
+				}
+			}
+			.slick-arrow {
+				transform: translateY(-170%) !important;
+			}
+	}
+
+
+	
+	.sector{
+		&-title {
+			@include bg($color: #1E3A45, $url: '#{$img-path}/pc/bg_title.jpg', $size: cover);
+			.action {
+				top: 455px !important;
+				right: 79px !important;
+			}
+			.gif-title{display: none;}
+		}
+		&-benefit {
+			.content-title{
+				text-align: center;
+				strong{
+					font-weight: 600;
+				}
+			}
+			.action {
+				bottom: 80px !important;
+			}
+			.benefit-sale{
+				position: relative;
+				margin-bottom: 30px;
+				.p-sale{
+					font-size: 22px;
+					font-weight: 600;
+					color: #d20000;
+					font-family: 'Roboto';
+					position: absolute;
+					left: 0;
+					right: 14px;
+					top: 12px;
+				}
+			}
+		}
+		&-plus{
+			@include bg($color: #feaeae, $url: '#{$img-path}/pc/bg_plus.jpg', $size: cover);
+			position: relative;
+			&:before{
+				content: "";
+				width:90px;
+				height: 53px;
+				display: inline-block;
+				background: url('#{$img-path}/pc/plus_mark.png') no-repeat 50% 0 / cover;
+				position: absolute;
+				top:-38px;
+				left:0;
+				right:0;
+				margin:0 auto;
+				z-index: 99;
+			}
+		
+
+		}
+		&-first-rank{
+			@include bg( $url: '#{$img-path-common}/pc/bg_first_rank.png', $size: cover);
+			.content-sub-title{
+			    color: #fff;
+				font-size: 26px;
+				font-weight: 300;
+				position: absolute;
+				top: 212px;
+				right: 74px;
+				text-align: left;
+				.point-color{
+					color:#ffd800 !important;
+					font-weight: 600;			
+				}
+			}
+			.slick-arrow {
+				transform: translateY(-205%) !important;
+				&.slick-prev {
+					left: 27px;
+				}
+				&.slick-next {
+					right: 27px;
+				}
+			}
+			.action{
+				bottom:80px !important
+			}
+		}
+		&-start{
+			position: relative;
+			.item{
+				padding-bottom:90px;
+				.center-title{
+					font-size: 32px;
+					text-align: center;
+					span{
+						display: block;
+						margin:5px 0 50px;
+						text-align: center;
+						font-size: 12px;
+						font-weight: 300;
+						color:#bfbfbf;
+					}
+				}
+				.company-wrap {
+					.company-list {
+						position: relative;
+						&:after{
+							@include linear-gradient(0deg, #f8f8f8 0%, rgba(255, 255, 255, 0) 100%);
+						}
+						p {
+							font-size: 18px;
+							color:#8a8a8a;
+							margin: 0;
+							line-height: 2;
+							font-weight: 400;
+							letter-spacing: -1px;
+							white-space: nowrap;
+						}
+					}
+				}
+			}
+			&:after{
+				content: "";
+				width:100%;
+				height:580px;
+				position: absolute;
+				bottom:0;
+				left:0;
+				background-color: #f3f3f3;
+				z-index: -9;
+			}
+		}
+		&-pass{
+			.action{
+				a{
+					background-color:#088ab5;
+					color:#fff;
+					font-weight: 300;
+					bottom: 150px;
+   					right: 30px;
+					&:after{border-color: #fff;}
+					.point-color{
+						font-weight:600;
+						color:#ffd800 !important
+					}
+				}
+			}
+		}
+		&-video-review{
+			@include bg($color: #FFD800, $url: '#{$img-path-common}/pc/bg_video.jpg', $size: cover);
+			padding-bottom:80px;
+			.video-title{
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 63px;
+				letter-spacing: -4px;
+				strong{
+					font-size: 60px;
+					font-family: "EduwillPassBold";
+					position: relative;
+					img{
+						position: absolute;
+					    top: -51px;
+  						right: -29px;
+					}
+				}
+				
+			}
+			.tab-box {
+				width: 924px;
+				margin: 0 auto;
+				position: relative;
+
+			}
+			.tab-contents {
+				.item {
+					position: relative;
+					display: none;
+					width:742px;
+					height: 415px;
+					&.in { display: block; }
+					a {
+						position: absolute;
+						top: 0;
+						right: 0;
+						bottom: 0;
+						left: 0;
+						z-index: 1;
+						background: #fff;
+						box-sizing: border-box;
+					}
+				}
+			}
+			.tab-list {
+				font-size: 0;
+				position: absolute;
+				top: 0;
+				right: 0;
+
+				li {
+					opacity: .5;
+					width:180px;
+					height: 101px;
+					margin-bottom: 4px;
+					&:first-child { margin-left: 0; }
+					&.in { opacity: 1; }
+					img{width:100%}
+					&:last-child{margin-bottom:0}
+				}
+			}
+			.video-review {
+				width: 1110px;
+				margin: 40px auto 0;
+			}
+			.action {
+				margin-right: 100px;
+				text-align: right;
+			}
+			.winner-wrap {
+				.winner-list {
+					overflow: hidden;
+					-webkit-transform: perspective(400px) rotateX(35deg);
+					-ms-transform: perspective(400px) rotateX(35deg);
+					transform: perspective(400px) rotateX(35deg); // perspective 수치가 낮을수록 좌우로 확장
+				}
+				// slick-track issue
+				.winner-list .slick-track {
+				  -webkit-transform: translate(0) !important;
+				  -ms-transform: translate(0) !important;
+				  transform: translate(0) !important;
+				}
+				p {
+					margin: 0;
+					line-height: 2.2;
+					font-size: 20px;
+					font-weight: 700;
+					color: rgba(0,0,0,0.4);
+				}
+			}
+		}
+		&-recommend{
+			.action{
+				top:167px;
+				left:606px;
+			}
+		}
+		&-band{
+			position: relative;
+			padding: 30px 0;
+			@include bg($color: #13183b, $url: '#{$img-path}/pc/bg_band.jpg', $size: cover);
+			.eco-3222 p{color:#767885 !important}
+		}
+		&-teachers{
+			.teachers{
+				position: relative;
+				.teacher-text{
+					position: absolute;
+					left:0;
+					right:0;
+					top:499px;
+					overflow: hidden;
+					width:1100px;
+					margin:0 auto;
+					div{
+						float: left;
+						width:345px;
+						margin-left:32px;
+						text-align: center;
+						font-weight: 600;
+						font-size: 20px;;
+						&:first-child{
+							margin-left:0
+						}
+					}
+				}
+				.action{
+					top: 961px;
+						right: 50px;
+						a{
+							background-color: #088ab5;
+							color:#fff;
+							&:after{border-color: #fff;}
+						}
+				}
+
+			}
+			
+			.team{
+				width:1048px;
+				margin:0 auto;
+				overflow: hidden;
+				position: absolute;
+				top: 446px;
+				left: 0;
+				right: 0;
+				>div{
+					position: relative;
+					width:46%;
+					box-sizing: border-box;
+					&.ace{float: left}
+					&.core{float:right}
+					strong{
+						font-weight: 600;
+						font-size:24px;
+						text-align: left;
+						display: block;
+						padding: 5px 30px;
+					}
+					.action-team{
+						position:absolute;
+						top:10px;
+						right:15px;
+						.btn-text{
+							border:1px solid #8b8b93;
+							background-color: #fff;
+							padding: 5px 20px 5px 10px;
+						}
+					}
+				}
+			}
+		}
+		&-curriculum{
+			.tip{
+				position: relative;
+				.hony{
+					position: absolute;
+					left: 50px;
+					top: 12px;
+					width: 50px;
+					height: 50px;
+					img{width:100%}
+				}
+			}
+			.class-list-btn{
+				overflow: hidden;
+				position: absolute;
+				bottom:309px;
+				width: 1100px;
+				left:0;right:0;margin:0 auto;
+				.class-list{
+					width:48.5%;
+					box-sizing: border-box;
+					&.ace{float:left}
+					&.core{float:right}
+					a{padding:17px;display: block;width:100%;height: 100%;font-size: 0;box-sizing: border-box;}
+				}
+			}
+
+		}
+		&-short-pass{
+			position: relative;
+			padding: 90px 0 0;
+			@include bg($color: #13183b, $url: '#{$img-path-common}/pc/bg_pass.jpg', $size: cover);
+			.point-color{color:#dddacb !important}
+			.eco-3222{
+				p{color:#677e87 !important}
+			}
+		
+		}
+		&-difference{
+			@include bg($color: #DCBE4C, $url: '#{$img-path-common-x}/pc/bg_difference.jpg', $size: cover);
+			.action{
+				top: 150px;
+				right: 230px;
+			}
+		}
+		&-short-best{
+			.action{
+				top: 129px;
+    			left: 571px;
+			}
+		}
+		&-prize{
+			background-color: #fffae0;
+		}
+
+	}
+}
+
+
+.dimmed_banner{
+    display: block;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba( 0, 0, 0, .7);
+	.banner-area{
+		position: absolute;;
+		left:50%;
+		top:50%;
+		margin-left:-300px;
+		margin-top:-400px;
+	}
+	.a-btn{
+		text-align: right;
+		margin-bottom:5px;
+		a{
+			color:#fff;
+			display: inline-block;
+			margin-left:5px;
+			&:after{
+				content: '|';
+				margin:0 2px 0 5px; 
+			}
+			&:last-child:after{display: none;}
+		}
+	}
+}
+
+
+

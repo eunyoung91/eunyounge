@@ -1,0 +1,443 @@
+@charset "utf-8";
+
+// Core variables and mixins
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/extend";
+
+/* 공통 */
+.bottom_fix_btn {
+	display: none;
+}
+
+#edoContent2 {
+	.ecoCont4 {
+		display: none;
+	}
+}
+
+.product-eco {
+	.btn-reason {
+
+		position: absolute;
+		right: 5vw;
+		border: none;
+		border-radius: 3px;
+		cursor: pointer;
+		padding: 1vw 3.5vw 1vw 2vw ;
+		font-size: 3vw;
+		letter-spacing: -0.2vw;
+		font-weight: 900;
+		background: #e2e2e2;
+		color: #222;
+		border: 1px solid #e4e4e4;
+		z-index:3;
+	
+		&::after {
+			content: '';
+			position: absolute;
+			top:2.48vw;
+			right: 1.6vw;
+			width: 6px;
+			height: 6px;
+			border: 1px solid #222;
+			border-left: none;
+			border-bottom: none;
+			box-sizing: border-box;
+			transform: rotate(45deg);
+	
+		}
+	}
+
+	.slick-dots {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: -10px;
+		li {
+			button {
+				width: 14px;
+				height: 14px;
+				margin-right: 10px;
+				border-radius: 14px;
+				text-indent: -9999px;
+				background: #adadad;
+				border: none;
+				transition: all .3s ease;
+			}
+	
+			&.slick-active {
+	
+				button {
+					width: 38px;
+					background: #02744d;
+					border-radius: 20px;
+				}
+			}
+	
+		}
+	}
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.wrap {
+		max-width: 720px;
+		width:100%;
+		position:relative;
+		box-sizing: border-box;
+	}
+	.btn-pointer {
+		display: inline-block;
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			right:-13px;
+			bottom: -20px;
+			width: 57px;
+			height: 65px;
+			background: url(https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_12.png) no-repeat 50% 50%;
+			background-size:100% auto;
+			animation: 0.3s slideupY ease-in-out infinite alternate;
+		}
+		@keyframes slideupY {
+			0% {
+				transform: translateY(0);
+			}
+			100% {
+				transform: translateY(10px);
+			}
+		}
+	}
+
+	@keyframes bounce {
+		0%,100% {
+			transform: translateY(10px);
+		}
+		50% {
+			transform: translateY(-10px);
+		}
+	}
+}
+
+
+/* 컨텐츠 */
+.product-eco {
+	overflow: hidden;
+
+	&[data-type="1847"],
+	&[data-type="3242"]{
+		
+		.fix-banner {
+			position: fixed;
+			top: 120vw;
+			right: 0;
+			z-index: 100;
+			img {
+				@include vw(width, 132px);
+			}
+		}
+		.visual {
+			background:url('https://img.eduwill.net/eduwill/img/2022/I/product/module/pc/1846/visual_bg.jpg') no-repeat 50% 50%;
+			background-size:cover;
+			.btn-reason {
+				top: 47vw;
+				border: none;
+				background: transparent;
+				color: #b6ecbe;
+				&::after {
+					border-color: #b6ecbe;
+				}
+
+				&.last {
+					top: initial;
+					bottom: 8vw;
+
+				}
+			}
+			
+
+			
+		}
+	
+		.cont1 {
+			
+			.slick-slide {
+				opacity: 0.5;
+
+				&.slick-active {
+					opacity: 1;
+
+				}
+			}	
+		}
+
+		.cont2 {
+			@include vw(padding-bottom, 120px);
+			.btn-reason {
+				top: -14vw;
+			}
+			.graph {
+				width: 86%;
+				margin: 0 auto 20px auto;
+
+				p {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					@include vw(height, 71px);
+					@include vw(margin-bottom, 10px);
+					@include vw(padding, 0 30px);
+					@include vw(border-top-right-radius, 71px);
+					@include vw(border-bottom-right-radius, 71px);
+					background: linear-gradient(90deg, rgba(1,115,76,1) 30%, rgba(138,212,142,1) 70%);
+					
+					
+					box-sizing: border-box;
+
+					span {
+						font-family: 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+						color: #fff;
+						&:first-child {
+							@include vw(font-size, 24px);
+							font-weight: 600;
+						}
+						&:last-child {
+							@include vw(font-size, 40px);
+							font-weight: 600; 
+							font-family: 'Roboto', 'Noto Sans KR', '맑은 고딕', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Dotum', '돋움', 'Gulim', '굴림', '굴림체', Sans-Serif;
+						}
+					}
+				}
+				
+			}
+		}
+
+		.cont3 {
+			@include vw(padding-bottom, 120px);
+			background: #f5f5f5;
+		}
+
+		.cont4 {
+			.btn-reason {
+				top: 23.5vw;
+			}
+			@include vw(padding-bottom, 120px);
+		}
+		
+		.cont5 {
+			background: #f5f5f5;
+		}
+
+		.cont6 {
+			@include vw(padding-bottom, 120px);
+			.slick-dots {
+				margin-top: -10px;
+			}
+		}
+
+		.cont7 {
+			.btn-reason {
+				top: 23.5vw;
+			}
+		}
+
+		.cont8 {
+			@include vw(padding-bottom, 70px);
+			.btn-refunds {
+				position: absolute;
+				@include vw(top, 830px);
+				left: 0;
+				right: 0;
+			}
+
+			.slder2 {
+				margin-top: -26px;
+			}
+			
+		}
+		.cont9 {
+			background: #01734c;
+		}
+		.cont10 {
+			background:url('http://img.eduwill.net/eduwill/img/2022/_108/event/220210/pc/cont4_bg.jpg') no-repeat center 95px;
+			background-size:cover;
+			#eduf-paragraph {
+				margin-bottom: 0;
+			}
+			.btn-reason {
+				bottom: 13vw;
+				background: transparent;
+				border: 1px solid #f0e8db;
+				border-radius: 0;
+				color: #f0e8db;
+				&::after {
+					border-color: #f0e8db;
+				}
+	
+			}
+			
+		}
+
+		.cont11 {
+			background: #f3f3f3 linear-gradient(0deg, rgba(243,243,243,1) 0%, rgba(255,255,255,1) 13%);
+			.typing{
+				position: absolute;
+				@include vw(left, 86px);
+				@include vw(top, 345px);
+				line-height: 1;
+				color: #022222;
+				font-weight: 900;
+				font-size:5vw;
+				&:after{
+					content: '';
+					position: relative;
+					top: -3px;
+					display: inline-block;
+					-webkit-animation-name: cursor;
+					animation-name: cursor;
+					-webkit-animation-duration: 0.3s;
+					animation-duration: 0.3s;
+					-webkit-animation-iteration-count: infinite;
+					animation-iteration-count: infinite;
+					width: 2px;
+					height: 25px;
+					background-color: #000;
+					vertical-align: middle;
+				}
+			}
+		}
+
+		.cont12 {
+			background: #f9f9f9;
+			
+			.review-wrap {
+				overflow:hidden;
+				position:relative;
+				opacity:.2;
+				text-align:left;
+				.review-list {
+					transform:perspective(640px) rotateX(40deg);
+					@include vw(width,700px);
+					@include vw(height,1070px);
+					@include vw(margin,100px auto 0);
+					.item {
+						@include vw(padding,15px 0);
+						@include vw(font-size,14px);
+						& + .item {
+							margin-left:4%;
+						}
+						span {
+							font-size: inherit;
+							display: inline-block;
+							&:nth-child(1){
+								width:10%;
+								text-align: left;
+							}
+							&:nth-child(2){
+								width: 70%;
+								display: inline-block;
+								white-space: nowrap;
+								overflow: hidden;
+								text-overflow: ellipsis;
+							}
+							&:nth-child(3){
+								width:auto;
+							}
+							&:nth-child(4){
+								float: right;
+							}
+						}
+					}
+				}
+			}
+
+			.wrap {
+				position: absolute;
+				top:0;
+				left:50%;
+				transform:translateX(-50%);
+			}
+
+			.btn {
+				position: absolute;
+				@include vw(bottom,130px);
+				left:50%;
+				transform:translateX(-50%);
+				@include vw(width,520px);
+			}
+		}
+
+		.product-sentence {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #01734c;
+			color: #fff;
+			font-weight: 900;
+			height: 18.67vw;
+			font-size: 6.7vw;
+			letter-spacing: -2px;
+			text-align: center;
+			
+			span {
+				color: #f6ff00
+			}
+		}
+	}
+	
+	&[data-type="3242"]{
+		
+		.slick-dots {
+			
+			li {
+				&.slick-active {
+		
+					button {
+						background: #23a0e0;
+					}
+				}
+		
+			}
+		}
+		.visual {
+			background:url('https://img.eduwill.net/eduwill/img/2022/I/product/module/pc/3241/visual_bg.jpg') no-repeat 50% 50%;
+			background-size:cover;
+			.btn-reason {
+				
+				color: #fff;
+				&::after {
+					border-color: #fff;
+				}
+
+				&.last {
+					top: initial;
+					bottom: 8vw;
+
+				}
+			}
+		}
+		.cont2 {
+			.graph {
+				p {
+					background: linear-gradient(90deg, rgba(2,151,255,1) 38%, rgba(144,217,255,1) 100%);
+				}
+				
+			}
+		}
+		.product-sentence {
+			background-color: #1175e4;
+			
+		}
+
+		.cont9 {
+			background: #1175e4;
+		}
+	}
+}
+
+
+@import "module/popup";

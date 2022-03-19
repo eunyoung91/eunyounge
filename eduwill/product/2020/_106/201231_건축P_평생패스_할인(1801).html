@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="ko" lang="ko" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-language" content="kr" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><!-- IE7 호환성보기 강제해제 -->
+<title></title>
+<!-- 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/common/web/css/webfont.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.css" />
+<link rel="stylesheet" href="https://www.eduwill.net/Common/Css/Main.css" />
+<link rel="stylesheet" href="https://img.eduwill.net/eduwill/live/css/common/product.css" />
+<script type="text/javascript" src="https://www.eduwill.net/common/js/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/product.js"></script>
+<script type="text/javascript" src="https://img.eduwill.net/resources/eduwill/live/js/bxslider/jquery.bxslider.min.js"></script>
+
+<link href="https://img.eduwill.net/eduwill/live/libs/slick/slick.css" rel="stylesheet" />
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/libs/slick/slick.js"></script>
+<!-- // 자동화 페이지 포함 -->
+<link rel="stylesheet" href="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.0.0.css?v=1.0.1" />
+<script type="text/javascript" src="https://img.eduwill.net/resources/eco/library/eduwill.eco-2.1.0.min.js"></script>
+</head>
+<body>
+<!-- body 내만 작업 -->
+<!--
+    컨텐츠 감싸는 부모 : product-eco
+    하단 수강신청 영역 : product-apply
+    하단 수강신청 영역 내 탭 : product-tab
+    하단 수강신청 영역 내 정보 : product-table
+    따라다니는 수강신청 버튼 영역 : fix-apply
+-->
+
+
+<style type="text/css">
+    .product-eco { position: relative;}
+    .product-eco * { font-family: 'Noto Sans KR', Sans-Serif; letter-spacing: -1px; }
+    .product-eco .container { position: relative;}
+    .product-eco .wrap { position: relative; width: 1100px; margin: 0 auto; text-align: center; }
+    .product-eco .content{ position: relative; background:#fff;}
+    .product-eco p{line-height:100%;margin:0;}
+
+    .product-eco .grid { box-sizing: border-box; -webkit-box-sizing: border-box; *zoom: 1; }
+    .product-eco .grid:before,
+    .product-eco .grid:after { content: ''; display: table; }
+    .product-eco .grid:after { clear: both; }
+    .product-eco .grid .col { float: left; box-sizing: border-box; -webkit-box-sizing: border-box;}
+
+    .product-eco .sr-only { position: absolute; z-index: -1; clip: rect(0 0 0 0); display: inline-block; width: 1px; height: 1px; *height: 0; margin: -1px; padding: 0; overflow: hidden; word-break: keep-all; white-space: nowrap; color: transparent; border: 0; text-indent: -9999px; }
+    .product-eco .pointer{ position: absolute;top:0;right:0;}
+    .product-eco .pointer>img{ animation: 0.6s slideUpY ease-in-out infinite alternate;}
+    @keyframes slideUpY {
+        0% { -webkit-transform: translate(0,10px); transform: translate(0, 10px); }
+        100% { -webkit-transform: translate(-10px, 0); transform: translate(-10px, 0); } 
+    }
+    .product-eco .section-title { background: url('https://img.eduwill.net/Img2/arch/product/200617/pc/bg_section_title.jpg') 50% 0 no-repeat; background-size: cover;}
+    .product-eco .section-price{ background:#f8f8f8; padding:80px 0;}
+    .product-eco .section-price .pointer{ top:316px;right:0;}
+    .product-eco .section-price .action1 a{ position: absolute; top: 177px;left:48px; width: 216px; height: 30px;}
+    .product-eco .section-price .action2 a{ position: absolute; top: 67.43%; bottom: 10.18%; right:4.5%; width: 355px; height:88px;}
+    .product-eco .text{ position: absolute;line-height:1;display: inline-block; font-weight: normal;letter-spacing:-1.12px;}
+    .product-eco .text1{ top:20px;left:0;right:0;margin:0 auto;width:1100px;text-align: center;font-size: 32px;font-weight:700; color:#fff;}
+    .product-eco .text1 em{ color:#f5deda;}
+    .product-eco .text2{ top:282px; left:56px; font-size: 44px; font-weight:700; color:#c5c5c5; font-family: 'verdana';}
+    .product-eco .text3{ top:282px; left:369px; font-size: 44px; font-weight:700; color:#182898; font-family: 'verdana';}
+    .product-eco .text4{ top: 255px; left:432px; font-size: 20px;font-weight:500; color:#202020;}
+    .product-eco .section00 .action{ position: absolute;top:81px;left:0;right:0;margin:0 auto;}
+    .product-eco .section01, .product-eco .section02, .product-eco .section03, .product-eco .section04{ background:#f8f8f8;}
+
+    .product-eco .section-review { padding-bottom:30px;}
+    .product-eco .section-review .base { position: absolute; top: 300px; left: 0; text-align: left; line-height: 1.2; font-size: 18px; font-weight: 400; color: #666; }
+    .product-eco .section-review .winner-contents { position: relative; padding: 40px 0; width: 1100px;margin:0 auto;height: 430px; overflow: hidden; box-sizing: border-box;background:#f8f8f8;}
+    .product-eco .section-review .winner-contents:after { content: ''; display: block; position: absolute; bottom: 0; left: 0; width: 100%; height: 100px;}
+    .product-eco .section-review .winner-contents:after { background: -moz-linear-gradient(bottom, rgba(247,247,247,1) 0%, rgba(247,247,247,0) 100%);
+    background: -webkit-linear-gradient(bottom, rgba(247,247,247,1) 0%,rgba(247,247,247,0) 100%);
+    background: linear-gradient(to top, rgba(247,247,247,1) 0%,rgba(247,247,247,0) 100%);}
+    .product-eco .section-review .winner-list { margin-left: 50px; }
+    .product-eco .section-review .winner-list p { line-height: 53px; color: #585858; font-size:20px; text-align: left; }
+
+    .product-eco .bx-wrapper .bx-viewport{ box-shadow:none; border:none; left:0;}
+    .product-eco .bx-wrapper .bx-controls-direction a{background:none;width:16px;height:29px;margin-top: -15px;font-size:0;}
+    .product-eco .bx-wrapper .bx-controls-direction .bx-prev{ background:url(https://img.eduwill.net/Img2/Quark/Product/event_new/190702/btn_prev.png) no-repeat 0 0;left:30px;}
+    .product-eco .bx-wrapper .bx-controls-direction .bx-next{ background:url(https://img.eduwill.net/Img2/Quark/Product/event_new/190702/btn_next.png) no-repeat 0 0;right:30px;}
+
+    .product-eco .floating {position:fixed;top:30%;left:50%;z-index:7;margin-left:600px;}
+    .product-eco .floating a {cursor: default;}
+</style>
+
+<div class="product-eco">
+    <div class="wingBanner" style="position: fixed;z-index: 10; top: 210px; left: 50%; margin-left:600px">
+        <a class="page_move" href="#event200824" style="margin-top: -45px; z-index:8"><img alt="모의고사 산업기사 CBT 완벽대비" src="https://img.eduwill.net/Img2/arch/product/200617/pc/wingCBT.png" /> </a>
+    </div>
+
+    <div style="background:#22223a;">
+    <div class="wrap"><img alt="평생패스" src="https://img.eduwill.net/Img2/arch/product/200617/pc/topbanner.jpg" /></div>
+    </div>
+
+    <div class="topBanner" style="background:#ffe000;">
+    <div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/3nergy/Product/event_new/190801/pc/eventBn_type02.gif" /></div>
+    </div>
+
+    <div class="section-title">
+    <div class="wrap"><img alt="평생패스" src="https://img.eduwill.net/Img2/arch/product/200617/pc/title.png" /></div>
+    </div>
+
+    <div class="section-price">
+    <div class="wrap"><img alt="가격" src="https://img.eduwill.net/Img2/arch/product/200617/pc/bg_price.jpg" />
+    <div class="text text1">12/30&nbsp;까지 <em>특별할인!</em></div>
+
+    <div class="text text2">649,000원</div>
+
+    <div class="text text4">특별할인</div>
+
+    <div class="text text3">549,000원</div>
+
+    <div class="action1"><a href="http://event.eduwill.net/Event/2020/_106/WinterVacation_201214" target="_blank"><img alt="할인쿠폰" src=" https://img.eduwill.net/Img2/arch/product/200603/pc/coupon.jpg" /> </a></div>
+
+    <div class="action2"><a class="page_move" href="#productApply"><span class="sr-only">수강신청</span></a></div>
+
+    <div class="pointer"><img alt="포인터" src=" https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png" /></div>
+    </div>
+    </div>
+
+    <div class="section-review">
+        <div class="wrap">
+            <img alt="평생패스" src="https://img.eduwill.net/Img2/arch/product/200617/pc/review_201231.jpg" />
+            <p class="base">
+                * 2020 한국소비자만족지수 건축기사 교육 1위<br>
+                ** 2020 건축기사 최종합격자 명단
+            </p>
+            <div class="winner-contents">
+                <div class="winner-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section00">
+    <div class="wrap">
+    <div class="slide_box">
+    <ul class="bxslider" id="slider1">
+        <li><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/slide1_1.jpg" /></li>
+        <li><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/slide1_2.jpg" /></li>
+        <li><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/slide1_3.jpg" /></li>
+        <li><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/slide1_4.jpg" /></li>
+        <li><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/slide1_5.jpg" /></li>
+    </ul>
+    </div>
+
+    <div class="content"><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/img_text.jpg" />
+    <div class="action"><a href="https://arch.eduwill.net/Board/BoardList?page=1&amp;MIDX=89&amp;divCode=" target="_blank"><img alt="합격수기 더 보기" src="https://img.eduwill.net/Img2/arch/product/200617/pc/detail_btn.jpg" /> </a></div>
+    </div>
+    </div>
+    </div>
+
+    <div class="section01">
+    <div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/section01.jpg" /> <img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/section01_1.jpg" />
+    <div class="slide_box2">
+    <ul class="bxslider" id="slider2">
+        <li><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/slide2_1.jpg" /></li>
+        <li><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/slide2_2.jpg" /></li>
+        <li><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/slide2_3.jpg" /></li>
+        <li><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/slide2_4.jpg" /></li>
+        <li><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/slide2_5.jpg" /></li>
+    </ul>
+    </div>
+    <img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/section02_1.jpg" /></div>
+    </div>
+
+    <div class="section02">
+    <div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/section02.jpg" />
+    <div class="slide_box3">
+    <ul class="bxslider" id="slider3">
+        <li><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/slide3_1.jpg" /></li>
+        <li><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/slide3_2.jpg" /></li>
+        <li><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/slide3_3.jpg" /></li>
+    </ul>
+    </div>
+    <img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/section02_1.jpg" /></div>
+    </div>
+
+    <div class="section03" id="event200824">
+    <div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/section03_200924.jpg" /></div>
+    </div>
+
+    <div class="section04">
+    <div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/section04.jpg" /></div>
+    </div>
+
+    <div style="background:#2a2c4f;">
+    <div class="wrap"><img alt="" src="https://img.eduwill.net/Img2/arch/product/200617/pc/img_banner.jpg" /></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://img.eduwill.net/eduwill/live/js/common/eduf.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $(window).on('load', function(){
+            init();
+        });
+    });
+
+    function init(){
+        addEvent();
+        winnerList();
+    }
+
+    function winnerList(){
+        var options = {
+            jsonFileNm: '_106202012_WINNER.min',
+        };
+
+        var slickOptions = {
+            speed: 1000,
+            slidesPerRow: 4,
+            slidesToShow: 6,
+        };
+
+        eduf.UI.Winner('.winner-list', options, slickOptions);
+    }
+
+    function addEvent(){
+        $('.bxslider').bxSlider({
+            mode: 'horizontal',
+            auto: true,
+            controls: true,
+            pause: 5000,
+            pager: false
+        });
+    }
+</script>
+
+
+</body>
+</html>

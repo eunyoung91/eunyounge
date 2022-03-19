@@ -1,0 +1,70 @@
+.popup-dim {
+    display: none;
+    position: fixed;
+    top: 0; 
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, .7);
+}
+.popup {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    z-index: 200;
+    display: none;
+    width: 90%;
+    max-width: 720px;
+    letter-spacing: -1px;
+	background:#fff;
+    @include translateX(-50%);
+    @include boxSizing(border-box);
+    @include breakpoint(desktop){
+        max-width: 1000px;
+    }
+    * { font-family: $font-noto; }
+    .popup-close {
+        position: absolute;
+		@include close(45px, 45px, 1px, #333);
+		cursor:pointer;
+		top: 5px;
+        right:5px;
+    }
+    .popup-body {
+        @include vw(padding, 50px 40px);
+        background-color: #fff;
+		P{
+			text-align: left;
+			line-height: 1.4;
+			@include vw(font-size, 18px);
+			font-weight: 400;
+			color: #222;
+			margin:0;
+		}
+    }
+}
+
+#popupBase{
+	p{
+		display: none;
+		&.brand,
+		&.kiwi,
+		&.survey, 
+		&.winner, 
+		&.prize{
+			display: block;
+		}
+	}
+}
+#popupBenefit{
+	p{
+		display: none;
+		&.brand,
+		&.survey{
+			display: block;
+		}
+	}
+}

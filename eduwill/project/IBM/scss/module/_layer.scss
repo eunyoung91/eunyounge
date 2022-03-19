@@ -1,0 +1,130 @@
+.ibm-layer {
+    position: fixed;
+    z-index: map-get($z-index, layer);
+    .ibm-dim { display: block; }
+    .ibm-wrap {
+        position: fixed;
+        top: 50%;
+        right: percent(10);
+        left: percent(10);
+        width: auto;
+        max-width: 700px;
+        max-height: calc(100% - 50px); // 상하 간격 제외
+        margin: 0 auto;
+        @include transform(translateY(-50%) perspective(1px) translate3d(0, 0, 0));
+        -webkit-font-smoothing: antialiased;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        @include breakpoint(minMobile){
+            right: 0;
+            left: 0;
+        }
+        @include breakpoint(galaxyfold){
+            max-height: none;
+            width: 70%;
+            .ibm-banner {
+                max-height: none;
+                overflow: visible;
+            }
+        }
+        @include breakpoint(desktop){
+            right: auto;
+            left: 50%;
+            width: auto;
+            max-width: none;
+            @include transform(translateX(-50%) translateY(-50%) perspective(1px) translate3d(0, 0, 0));
+        }
+    }
+    .ibm-inner {
+        .slick-dots {
+            top: 5%;
+            right: 3%;
+            bottom: auto;
+            left: auto;
+            margin-left: 0;
+            text-align: right;
+        }
+        .slick-arrow {
+            &.slick-prev {
+                left: 0;
+                &:before { @include arrow(left, 10px, 10px, 2px, #000); }
+            }
+            &.slick-next {
+                right: 0;
+                &:before { @include arrow(right, 10px, 10px, 2px, #000); }
+            }
+        }
+    }
+    .ibm-banner {
+        max-height: calc(100vh - 100px); // 상하 간격과 닫기 영역 높이 제외
+        overflow: auto;
+    }
+    .ibm-item,
+    .ibm-banner,
+    img {
+        width: 100%;
+        @include breakpoint(desktop){
+            width: auto;
+        }
+    }
+    .ibm-item {
+        @include rem(min-width, 100px);
+        @include rem(min-height, 100px);
+        margin-top: 0;
+    }
+    .ibm-video {
+        position: absolute;
+        z-index: map-get($z-index, video);
+        top: percent(125, 600);
+        right: percent(6, 640);
+        bottom: percent(94, 600);
+        left: percent(6, 640);
+        @include breakpoint(desktop){
+            top: 125px;
+            right: 6px;
+            bottom: 94px;
+            left: 6px;
+        }
+        &:last-child {
+            bottom: percent(6, 600);
+            @include breakpoint(desktop){
+                bottom: 6px;
+            }
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .ibm-action {
+        position: absolute;
+        right: 0;
+        bottom: 100%;
+        a {
+            @include rem(padding, 8px 0 9px);
+            font-size: 13px;
+            color: #fff;
+            &:first-child span { border-left-width: 0; }
+            span {
+                @include rem(padding, 0 12px);
+                border-left: 1px solid rgba(255, 255, 255, .5);
+                @include breakpoint(desktop){
+                    padding: 0 8px;
+                }
+            }
+        }
+    }
+    .ibm-wings { display: none; }
+}
+
+// 모바일 검정고시 메인 화살표 위치 수정
+.progress_black {
+    .ibm-layer .ibm-inner .slick-arrow {
+        @include translateY(0);
+    }
+}

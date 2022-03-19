@@ -1,0 +1,147 @@
+@charset "utf-8";
+@import "mixins";
+
+/* 컨텐츠 */
+.product-eco {
+	//PC
+	&[data-device="pc"]{
+		// content moudule
+		#edoContent3 {
+			#eduf-paragraph {
+				margin-bottom: 0;
+			}
+			.ecoCont1 {
+
+				padding-bottom: 80px; 
+
+				.wrap {
+					.btn-reason {
+						right: 0;
+						top: 17px;
+					}
+					padding-top: 90px;
+				}
+			}
+
+			.ecoCont2 {
+				background:url('https://img.eduwill.net/eduwill/img/2021/_106/product/210802/pc/cont9_bg.jpg') no-repeat 50% 50%;
+				background-size:cover;
+				padding-bottom:130px;
+				.slider1 {
+					width:2160px;
+					margin: 0;
+					transform:translateX(-480px);
+					.slick-slide {
+						padding:25px 20px;
+						opacity:.3;
+						&.slick-current + .slick-slide {
+							opacity:1;
+							transition:opacity .3s;
+						}
+					}
+					.slide-item {
+						overflow:hidden;
+						border-radius: 30px;
+						box-shadow: 0 0 25px 0 rgba(0,0,0,0.2);
+					}
+
+					.slick-dots {
+						text-align:center;
+						font-size:0;
+						li {
+							display:inline-block;
+							padding:0 5px;
+							button {
+								width:14px;
+								height:14px;
+								border-radius:7px;
+								background-color:#b2b2b2;
+								font-size:0;
+								text-indent:-99999px;
+								line-height:0;
+							}
+							&.slick-active {
+								button {
+									width:38px;
+									background-color:#ffc20e;
+									transition:all .3s;
+								}
+							}
+						}
+					}
+					
+				}
+			}
+
+		}
+	}
+
+
+	//MOBILE
+	&[data-device="mo"]{
+		// content moudule
+		#edoContent3 {
+			#eduf-paragraph {
+				margin-bottom: 30px;
+			}
+			.ecoCont1 {
+				.wrap {
+					@include vw(padding, 50px 0 250px 0);
+
+					.btn-reason {
+						top: -2vw;
+					}
+					#eduf-video{
+						@include vw(margin-top, 80px);
+					}
+
+				}
+
+
+			}
+
+			.ecoCont2 {
+				background: #f5f5f5;
+				@include vw(padding-bottom, 125px);
+				.slider1 {
+					@include vw(padding, 0 30px);
+				}
+				.slick-dots {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					li {
+						button {
+							width: 14px;
+							height: 14px;
+							margin-right: 10px;
+							border-radius: 14px;
+							text-indent: -9999px;
+							background: #adadad;
+							border: none;
+							transition: all .3s ease;
+						}
+				
+						&.slick-active {
+				
+							button {
+								width: 38px;
+								background: #ffc20e;
+								border-radius: 20px;
+							}
+						}
+				
+					}
+				}
+			}
+
+			.ecoCont3 {
+
+			}
+
+			.ecoCont4 {
+
+			}
+		}
+	}
+}

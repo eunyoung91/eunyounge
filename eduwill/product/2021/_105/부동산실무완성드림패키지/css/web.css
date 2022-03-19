@@ -1,0 +1,605 @@
+@charset "UTF-8";
+.grid {
+  *zoom: 1;
+}
+
+.grid:before, .grid:after {
+  content: '';
+  display: table;
+}
+
+.grid:after {
+  clear: both;
+}
+
+.sr-only {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 0px;
+  height: 0px;
+  margin: -1px;
+  padding: 0;
+  word-break: keep-all;
+  white-space: nowrap;
+  color: transparent;
+  border: 0;
+  text-indent: -9999px;
+}
+
+.grid {
+  position: relative;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.grid .col {
+  position: relative;
+  float: left;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.table {
+  display: table;
+  width: 100%;
+}
+
+.table .table-cell {
+  display: table-cell;
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+button {
+  overflow: visible;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  width: auto;
+  outline: 0;
+  cursor: pointer;
+}
+
+.dimmed {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1001;
+  width: 100%;
+  font-family: "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+  max-width: 1010px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.popup-body {
+  position: relative;
+}
+
+.popup-body p {
+  font-size: 3.33333vw;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 720px) {
+  .popup-body p {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .popup-body p {
+    font-size: 18px;
+  }
+}
+
+.popup-body p + p,
+.popup-body p + ul {
+  margin-top: 0.3125rem;
+}
+
+@media screen and (min-width: 720px) {
+  .popup-body p + p,
+  .popup-body p + ul {
+    margin-top: 10px;
+  }
+}
+
+.popup-body ul {
+  margin-top: 0.3125rem;
+  font-size: 3.05556vw;
+}
+
+@media screen and (min-width: 720px) {
+  .popup-body ul {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .popup-body ul {
+    font-size: 22px;
+  }
+}
+
+@media screen and (min-width: 1100px) {
+  .popup-body ul {
+    font-size: 16px;
+  }
+}
+
+.popup-body ul li {
+  margin-top: 0.15625rem;
+}
+
+@media screen and (min-width: 720px) {
+  .popup-body ul li {
+    margin-top: 5px;
+  }
+}
+
+.popup-body ul li:first-child {
+  margin-top: 0;
+}
+
+.popup-body ul + p {
+  margin-top: 0.3125rem;
+}
+
+@media screen and (min-width: 720px) {
+  .popup-body ul + p {
+    margin-top: 10px;
+  }
+}
+
+.popup-close {
+  position: absolute;
+  top: 0;
+  right: -60px;
+}
+
+.popup-close a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
+.popup-close a:before, .popup-close a:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin-left: -15px;
+  background-color: #fff;
+}
+
+.popup-close a:before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.popup-close a:after {
+  -webkit-transform: rotate(315deg);
+  transform: rotate(315deg);
+}
+
+.popup-close a span {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 0px;
+  height: 0px;
+  margin: -1px;
+  padding: 0;
+  word-break: keep-all;
+  white-space: nowrap;
+  color: transparent;
+  border: 0;
+  text-indent: -9999px;
+}
+
+.layer-dim, .layer-dimmed {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  background: #000;
+  opacity: .8;
+  overflow: hidden;
+}
+
+.layer-review {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10001;
+  max-width: 768px;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.layer-review .layer-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 60px;
+  height: 60px;
+  top: -60px;
+  z-index: 10002;
+}
+
+.layer-review .layer-close:before, .layer-review .layer-close:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin-left: -15px;
+  background-color: #fff;
+}
+
+.layer-review .layer-close:before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.layer-review .layer-close:after {
+  -webkit-transform: rotate(315deg);
+  transform: rotate(315deg);
+}
+
+.layer-review .layer-close span {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 0px;
+  height: 0px;
+  margin: -1px;
+  padding: 0;
+  word-break: keep-all;
+  white-space: nowrap;
+  color: transparent;
+  border: 0;
+  text-indent: -9999px;
+}
+
+.layer-review .layer-box {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.layer-review .layer-box iframe, .layer-review .layer-box video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: inherit;
+     object-fit: inherit;
+}
+
+.product-eco * {
+  line-height: normal;
+  font-family: "Noto Sans KR", "맑은 고딕", "Malgun Gothic", "Apple SD Gothic Neo", "Dotum", "돋움", "Gulim", "굴림", "굴림체", Sans-Serif;
+  letter-spacing: -1px;
+}
+
+.product-eco .wrap {
+  position: relative;
+  width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.product-eco .wrap-full {
+  width: 100%;
+}
+
+.product-eco .holder {
+  position: relative;
+}
+
+.product-eco p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.product-eco .flag {
+  position: fixed;
+  left: 50%;
+  top: 710px;
+  margin-left: -750px;
+  z-index: 10;
+}
+
+.product-eco .section-title {
+  background: url("https://img.eduwill.net/Img2/uland/product/201007/pc/repeat.jpg") repeat-x 50% 0;
+}
+
+.product-eco .section-title .bg-title {
+  height: 870px;
+  background: url("https://img.eduwill.net/Img2/uland/product/201007/pc/bg_title.jpg") no-repeat 50% 0;
+}
+
+.product-eco .section-banner {
+  background: #ffe000;
+}
+
+.product-eco .section-cs {
+  background: #ffe000;
+}
+
+.product-eco .section-ad {
+  background: url("https://img.eduwill.net/Img2/uland/promotion/200717_1/pc/ad_bg.jpg") no-repeat center 0;
+  background-size: cover;
+}
+
+.product-eco .section-teacher {
+  padding-bottom: 100px;
+}
+
+.product-eco .section-teacher .item {
+  width: 446px;
+  height: 251px;
+  margin: 0 20px 60px 20px;
+  display: inline-block;
+  position: relative;
+}
+
+.product-eco .section-teacher .item a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: 0 auto;
+}
+
+.product-eco .section-teacher:nth-child(2n) {
+  margin-right: 40px;
+  margin-bottom: 100px;
+}
+
+.product-eco .section-edu .btn_box {
+  position: absolute;
+  top: 774px;
+  left: 0;
+  right: 0;
+  width: 970px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.product-eco .section-apply {
+  padding: 60px 0 130px 0;
+}
+
+.product-eco .section-story {
+  padding-bottom: 160px;
+}
+
+.product-eco .section-story .story-slide {
+  width: 970px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.product-eco .section-story .story-slide ul {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.product-eco .section-story .story-slide ul li {
+  position: relative;
+  display: inline-block;
+}
+
+.product-eco .section-story .story-slide ul li:before {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  right: -10px;
+  -webkit-animation: .35s jump ease-in-out infinite alternate;
+          animation: .35s jump ease-in-out infinite alternate;
+  z-index: 7;
+  background: url("https://img.eduwill.net/Img2/Common/icon/pointer/icon_pointer_1.png");
+  background-size: 45px 50px;
+  width: 45px;
+  height: 50px;
+}
+
+.product-eco .section-story .story-slide ul li {
+  margin-right: 23px;
+}
+
+.product-eco .section-story .story-slide ul li:last-child {
+  margin-right: 0;
+}
+
+.tab_box {
+  position: relative;
+  max-width: 1010px;
+  margin: 0 auto;
+}
+
+.tab_box .tab_list:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.tab_box .tab_list li {
+  float: left;
+  width: 336px;
+  height: 67px;
+  margin-left: 1px;
+  background: #efefef;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.tab_box .tab_list li:first-child {
+  margin-left: 0;
+  margin-top: 5px;
+}
+
+.tab_box .tab_list li a {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+.tab_box .tab_list li span {
+  color: #212121 !important;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 20px;
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.5);
+  font-family: 'Noto Sans KR';
+  letter-spacing: -1px;
+}
+
+.tab_box .tab_list li span strong {
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.tab_box .tab_list li.on {
+  background: #fff;
+}
+
+.tab_box .tab_list li.on span {
+  color: #212121;
+}
+
+.tab_box .tab_view {
+  display: none;
+  padding: 20px;
+  background: #fff;
+}
+
+.tab_box .tab_list + .tab_view {
+  display: block;
+}
+
+.modal-table .tablecurri {
+  padding-bottom: 120px;
+  margin-top: 30px;
+}
+
+.modal-table .tablecurri .table {
+  margin: 0 auto;
+  background: #fff;
+}
+
+.modal-table .tablecurri .table table {
+  table-layout: fixed;
+}
+
+.modal-table .tablecurri .table tr, .modal-table .tablecurri .table th, .tablecurri .table td {
+  font-family: "Noto Sans KR", sans-serif, "맑은고딕", "Malgun Gothic", "돋움", Dotum, "굴림", Gulim, Tahoma, sans-serif, verdana !important;
+  color: #202020;
+  font-size: 18px !important;
+}
+
+.modal-table .tablecurri .table th:not(:last-child), .modal-table .tablecurri .table td:not(:last-child) {
+  border-right: 1px solid #e0e0e0;
+}
+
+.modal-table .tablecurri .table td {
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.modal-table .tablecurri .table th strong {
+  font-weight: 500;
+  font-size: 20px !important;
+}
+
+.modal-table .tablecurri .table th {
+  padding: 15px 0;
+}
+
+.modal-table .tablecurri .table td {
+  padding: 20px 15px;
+  background: #fff;
+  letter-spacing: -1.5px;
+}
+
+.modal-table .tablecurri .table td strong {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.modal-table .tablecurri .table td span {
+  font-size: 14px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+.modal-table .blnone {
+  border-left: none !important;
+}
+
+.modal-table .brnone {
+  border-right: none !important;
+}
+
+.modal-table .tablecurri .table th {
+  font-weight: normal;
+  color: #202020;
+  background-color: #efefef;
+  font-size: 15px;
+}
+
+.modal-table .tablecurri .table th:first-child {
+  border-left: 0;
+}
+/*# sourceMappingURL=web.css.map */

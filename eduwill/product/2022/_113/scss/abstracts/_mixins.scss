@@ -1,0 +1,323 @@
+//// mixin
+// breakpoint
+// @include breakpoint(maxMobile){ ... }
+@mixin breakpoint($point) {
+    @if $point == desktop {
+        @media screen and (min-width: 1100px) { @content ; }
+    }
+    @if $point == minDesktop {
+        @media screen and (min-width: 1024px) { @content ; }
+    }
+    @if $point == maxMobile {
+        @media screen and (min-width: 720px) { @content ; }
+    }
+    @else if $point == minMobile {
+        @media screen and (max-width: 320px) { @content ; }
+    }
+}
+
+
+// box-sizing
+// @include boxSizing(border-box);
+@mixin boxSizing($box) {
+    @each $prefix in -webkit-, '' {
+        #{$prefix}box-sizing: $box;
+    }
+}
+
+// box-shadow
+// @include boxShadow(0 10px 5px 0 rgba(0, 0, 0, .5));
+@mixin boxShadow($value){
+    @each $prefix in -webkit-, '' {
+        #{$prefix}box-shadow: $value;
+    }
+}
+
+// transition
+// @include transition(all, .3s, ease-out);
+@mixin transition($what, $time, $how: null) {
+    @each $prefix in -webkit-, -o-, '' {
+        #{$prefix}transition: $what $time $how;
+    }
+
+    @if $how {
+        transition-timing-function: $how;
+    } @else {
+        transition-timing-function: ease-out;
+    }
+}
+
+// transition delay
+// @include transitionDelay(.1s);
+@mixin transitionDelay($delay) {
+    @each $prefix in -webkit-, -o-, '' {
+        #{$prefix}transition-delay: $delay;
+    }
+}
+
+// transform
+@mixin transform($transforms) {
+    @each $prefix in -webkit-, -ms-, '' {
+        #{$prefix}transform: $transforms;
+    }
+}
+
+// transform : rotate
+@mixin rotate($deg) {
+    @include transform(rotate($deg));
+}
+
+// transform : scale
+@mixin scale($x, $y) {
+    @include transform(scale($x, $y));
+}
+
+// transform : translate XY
+@mixin translateXY($x, $y) {
+    @include transform(translate($x, $y));
+}
+
+// transform : translate X
+@mixin translateX($x) {
+    @include transform(translateX($x));
+}
+
+// transform : translate Y
+@mixin translateY($y) {
+    @include transform(translateY($y));
+}
+
+// transform : skew XY
+@mixin skewXY($x, $y) {
+    @include transform(skew($x, $y));
+}
+
+// transform : skew X
+@mixin skewX($x) {
+    @include transform(skewX($x));
+}
+
+// transform : skew Y
+@mixin skewy($y) {
+    @include transform(skewY($y));
+}
+
+// transform : transform-origin
+@mixin transformOrigin($origin) {
+    -webkit-transform-origin: $origin;
+    -moz-transform-origin: $origin;
+        -ms-transform-origin: $origin;
+            transform-origin: $origin;
+}
+
+// close
+// @include close(30px, 30px, 1px, $color-base-dark);
+@mixin close($width, $height, $thickness, $color) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: $width;
+    height: $height;
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: block;
+        width: $width / 2;
+        height: $thickness;
+        margin-left: -($width / 2) / 2;
+        background-color: $color;
+    }
+    &:before {
+        @include rotate(45deg);
+    }
+    &:after {
+        @include rotate(315deg);
+    }
+    span {
+        position: absolute;
+        display: inline-block;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        width: 0px;
+        height: 0px;
+        margin: -1px;
+        padding: 0;
+        word-break: keep-all;
+        white-space: nowrap;
+        color: transparent;
+        border: 0;
+        text-indent: -9999px;
+    }
+}
+
+// arrow
+// @include arrow(left, 8px, 8px, 2px, $color-base-dark);
+@mixin arrow($direction, $width, $height, $borderWidth, $color) {
+    content: '';
+    position: absolute;
+    top: 50%;
+    display: block;
+    width: $width;
+    height: $height;
+    margin-top: -($width/2);
+    border-width: 0;
+    border-style: solid;
+    border-color: $color;
+    @include rotate(45deg);
+
+    @if $direction == 'right' {
+        border-top-width: $borderWidth;
+        border-right-width: $borderWidth;
+    } @else if $direction == 'left' {
+        border-bottom-width: $borderWidth;
+        border-left-width: $borderWidth;
+    } @else if $direction == 'bottom' {
+        border-bottom-width: $borderWidth;
+        border-right-width: $borderWidth;
+    } @else if $direction == 'top' {
+        border-top-width: $borderWidth;
+        border-left-width: $borderWidth;
+    }
+}
+
+// rem
+// @include rem(margin, 25px 20px 0);
+// https://hugogiraudel.com/2013/03/18/ultimate-rem-mixin/
+@function parseInt($n) {
+    // The mixin relies on a function to parse the integer from a value with a unit
+    @return $n / ($n * 0 + 1);
+}
+
+@mixin rem($property, $values) {
+    $px: (); // We define a list of values for both units
+    $rem: (); // We define a list of values for both units
+
+    @each $value in $values {
+    // We iterate through each value in the given parameter $values
+
+        @if $value == 0 or $value == auto {
+            // If the value is either auto or 0, we append it to the list as-is
+            $px: append($px, $value);
+            $rem: append($rem, $value);
+        } @else {
+            $unit: unit($value); // If the value has a unit, we split it to get both the unit and the raw value
+            $val: parseInt($value); // If the value has a unit, we split it to get both the unit and the raw value
+
+            @if $unit == 'px' {
+                // We append according values to the lists depending on the unit of the given value
+                $px: append($px, $value);
+                $rem: append($rem, ($val / 16 / 2+ rem));
+            }
+
+            @if $unit == 'rem' {
+                // We append according values to the lists depending on the unit of the given value
+                $px: append($px, ($val * 16 + px));
+                $rem: append($rem, $value);
+            }
+        }
+    }
+
+    @if $px == $rem {
+        // If the two lists are the same, we ouput only one (like margin-top: 0)
+        #{$property}: $px; // output the result
+    } @else {
+        #{$property}: $rem;  // output the result
+        @include breakpoint(maxMobile){
+            #{$property}: $px; // output the result
+        }
+    }
+}
+
+// Read the article: http://sassbreak.com/viewport-relative-headings-with-sass
+// Function
+@function get-vw($target) { 
+	$vw-context: (720*.01) * 1px;
+	@return ($target/$vw-context) * 1vw;
+}
+
+// Mixin
+
+@mixin vw($prop, $vlus) {
+	$px: ();
+	$vw: ();
+
+	@each $vlu in $vlus {
+		@if $vlu == 0 or $vlu == auto {
+			$px: append($px, $vlu);
+			$vw: append($vw, $vlu);
+		} @else {
+			$unit: unit($vlu);
+			$val: parseInt($vlu);
+
+			@if $unit == 'px' {
+				$px: append($px, $vlu);
+				$max-mobile: 720;
+				$vw-context: ($max-mobile * .01) * 1;
+				$vw: append($vw, (($val/$vw-context) * 1 + vw));
+			}
+
+			@if $unit == 'vw' {
+				$px: append($px, ($val * 16 + px));
+				$vw: append($vw, $vlu);
+			}
+		}
+	}
+
+	@if $px == $vw {
+		#{$prop}: $px;
+	} @else {
+		#{$prop}: $vw;
+		@include breakpoint(maxMobile){
+			#{$prop}: $px;
+		}
+	}
+}
+// animation
+// @include animation(shadow, 2s) {
+// 	0% { @include boxShadow(0, 0, 16px, 2px, rgba(251, 104, 90, .3)); }
+// 	50% { @include boxShadow(0, 0, 5px, 2px, rgba(251, 104, 90, .3)); }
+// 	100% { @include boxShadow(0, 0, 16px, 2px, rgba(251, 104, 90, .3)); }
+// }
+
+// @include animation(rotation, 16s, $iteration: infinite, $timing: linear ,$reverse: reverse) {
+// 	100% { @include rotate(360deg); }
+// }
+@mixin animation($name, $duration, $iteration: null, $timing: null, $reverse: null) {
+    //$name: inline-$name;
+
+    @keyframes #{$name} {
+    @content;
+    }
+
+    animation-name: $name;
+    animation-duration: $duration;
+
+    @if $iteration {
+        animation-iteration-count: $iteration;
+    } @else {
+        animation-iteration-count: 1;
+    }
+
+    @if $timing {
+        animation-timing-function: $timing;
+    } @else {
+        animation-timing-function: ease;
+    }
+
+    @if $reverse {
+        animation-direction: $reverse;
+    } @else {
+        animation-direction: normal;
+    }
+}
+
+// percent
+// top: percent(722, 1000);
+// right: percent(50);
+@function percent($target, $parent: $layout-maxMobile) {
+    @return percentage($target / $parent);
+}

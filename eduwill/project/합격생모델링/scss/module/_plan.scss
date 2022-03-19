@@ -1,0 +1,246 @@
+.plan-section {
+    .study-plan {
+        border: 1px solid $border-color-1;
+        border-radius: 4px;
+        background-color: $bg-color-1;
+    }
+
+    .plan-bundle {
+        @extend .grid;
+        .plan-subject { @extend .col; }
+        .plan-list {
+            @extend .col-right;
+            position: relative;
+            width: 90%;
+        }
+    }
+
+    .list {
+        font-size: 0;
+        .list-item {
+            position: relative;
+            display: inline-block;
+            & > p {
+                font-weight: 500;
+                color: $color-base-6;
+            }
+        }
+    }
+
+    .plan-head {
+        padding-right: 40px;
+        border-bottom: 1px solid $border-color-1;
+        background-color: #fff;
+        .plan-list {
+            height: 79px;
+        }
+    }
+
+    .plan-body {
+        position: relative;
+        padding-right: 40px;
+        .plan-bundle {
+            border-top: 1px solid $border-color-1;
+            &:first-child {
+                border-top-width: 0;
+                .line-list .list-item {
+                    top: auto;
+                    height: 105%;
+                }
+            }
+            .plan-subject { width: 10%; }
+            // .plan-list { height: 356px; }
+        }
+    }
+
+    .plan-subject {
+        padding: 10px 0 0 10px;
+        span {
+            position: relative;
+            font-size: 14px;
+            font-weight: 700;
+            color: $color-base-3;
+        }
+    }
+
+    .dday-list {
+        height: 100%;
+        white-space: nowrap;
+        .list-item {
+            width: 10%;
+            height: 100%;
+            padding-top: 40px;
+            text-align: center;
+            @include boxSizing(border-box);
+            @include translateX(-50%);
+            &:after {
+                content: '';
+                position: absolute;
+                left: 50%;
+                bottom: 10px;
+                display: block;
+                width: 10px;
+                height: 10px;
+                margin-left: -5px;
+                border-radius: 50%;
+                background-color: $border-color-1;
+            }
+        }
+        .standard {
+            position: absolute;
+            right: 0;
+            left: 0;
+            bottom: 60%;
+            font-size: 11px;
+        }
+        .month { font-size: 12px; }
+    }
+
+    .line-list {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        .list-item {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            height: 100%;
+            background-color: $border-color-1;
+        }
+    }
+
+    .progress-list {
+        padding-bottom: 10px;
+        .progress {
+            // position: absolute;
+            position: relative;
+            margin-top: 4px;
+            padding: 2px 8px 1px;
+            color: #fff;
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 4px;
+            @include boxSizing(border-box);
+            &:first-child { margin-top: 10px; }
+            // &-1 { top: 8px; }
+            // &-2 { top: 52px; }
+            // &-3 { top: 96px; }
+            // &-4 { top: 140px; }
+            // &-5 { top: 184px; }
+            // &-6 { top: 228px; }
+            & > p {
+                position: relative;
+                z-index: 1;
+            }
+        }
+        .progress-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+        }
+        .curriculum {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+        }
+        .time {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        .percentage {
+            font-family: $font-montserrat;
+            font-size: 13px;
+            font-weight: bold;
+        }
+    }
+
+    .result-section {
+        padding: 9px 30px;
+        font-size: 15px;
+        font-weight: 500;
+        border-top: 1px solid $border-color-1;
+        border-bottom: 1px solid $border-color-1;
+        background-color: $bg-color-1;
+        & + div { margin-top: 10px; }
+        .result-title { display: inline-block; }
+        .result-list {
+            display: inline-block;
+            font-size: 15px;
+            color: $color-plan-1;
+            .list-item {
+                margin-left: 60px;
+                &:first-child { margin-left: 87px; }
+            }
+        }
+    }
+
+    .plan-guide {
+        margin-top: 11px;
+        background-color: $bg-color-4;
+        &.fold {
+            .guide-preview:after { @include arrow(bottom, 12px, 12px, 2px, $color-plan-4); }
+            .guide-detail { display: none; }
+        }
+        & + .study-plan { margin-top: 20px; }
+        .guide-preview {
+            position: relative;
+            display: block;
+            padding: 14px 64px 14px 38px;
+            &:after {
+                @include arrow(top, 12px, 12px, 2px, $color-plan-4);
+                left: 98%;
+            }
+            .preview-inner {
+                @extend .grid;
+                p {
+                    @extend .col;
+                    &.guide-title {
+                        width: 12%;
+                        font-size: 18px;
+                        font-weight: 700;
+                        color: $color-plan-4;
+                    }
+                    &.guide-desc {
+                        @extend %textEllipsis;
+                        width: 88%;
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: $color-plan-1;
+                        letter-spacing: -.57px;
+                    }
+                }
+            }
+            }
+        .guide-detail {
+            border-top: 1px solid $color-plan-5;
+            padding: 14px 42px 20px 50px;
+            ul {
+                min-height: 112px;
+                padding-left: 109px;
+                background: url('#{$img-path}/icon_guide.png') no-repeat left center;
+                @include boxSizing(border-box);
+                li {
+                    position: relative;
+                    padding-left: 10px;
+                    line-height: 1.6;
+                    font-size: 14px;
+                    color: $color-plan-4;
+                    &:before {
+                        content: '-';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+}

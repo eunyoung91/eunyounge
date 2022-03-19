@@ -1,0 +1,215 @@
+// box-sizing
+// @include boxSizing(border-box);
+@mixin boxSizing($box) {
+	-webkit-box-sizing: $box;
+				  box-sizing: $box;
+}
+
+// box-shadow
+// @include boxShadow(0 10px 5px 0 rgba(0, 0, 0, .5));
+@mixin boxShadow($value){
+	-webkit-box-shadow: $value;
+		-moz-box-shadow: $value;
+				  box-shadow: $value;
+}
+
+// transition
+// @include transition(all, .3s, ease-out);
+@mixin transition($what, $time, $how) {
+	-webkit-transition: $what $time $how;
+		-moz-transition: $what $time $how;
+		  -ms-transition: $what $time $how;
+			 -o-transition: $what $time $how;
+				  transition: $what $time $how;
+}
+
+// transition delay
+// @include transitionDelay(.1s);
+@mixin transitionDelay($delay) {
+	-webkit-transition-delay: $delay;
+		-moz-transition-delay: $delay;
+		  -ms-transition-delay: $delay;
+			 -o-transition-delay: $delay;
+				  transition-delay: $delay;
+}
+
+// transform rotate
+// @include rotate(45deg);
+@mixin rotate($deg) {
+	-webkit-transform: rotate($deg);
+		  -ms-transform: rotate($deg);
+				  transform: rotate($deg);
+}
+
+// transform translate
+// @include translateXY(-50%, -50%);
+@mixin translateXY($x, $y) {
+	-webkit-transform: translate($x, $y);
+		  -ms-transform: translate($x, $y);
+				  transform: translate($x, $y);
+}
+
+// transform translate X
+// @include translateX(-50%);
+@mixin translateX($x) {
+	-webkit-transform: translateX($x);
+		  -ms-transform: translateX($x);
+				  transform: translateX($x);
+}
+
+// transform translate Y
+// @include translateY(-50%);
+@mixin translateY($y) {
+	-webkit-transform: translateY($y);
+		  -ms-transform: translateY($y);
+				  transform: translateY($y);
+}
+
+// transform scale
+// @include scale($x, $y);
+@mixin scale($x, $y) {
+	-webkit-transform: scale($x, $y);
+		  -ms-transform: scale($x, $y);
+				  transform: scale($x, $y);
+}
+
+// close
+// @include close(30px, 30px, 1px, $color-base-dark);
+@mixin close($width, $height, $thickness, $color) {
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	width: $width;
+	height: $height;
+	&:before,
+	&:after {
+		content: '';
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		display: block;
+		width: $width / 2;
+		height: $thickness;
+		margin-left: -($width / 2) / 2;
+		background-color: $color;
+	}
+	&:before {
+		@include rotate(45deg);
+	}
+	&:after {
+		@include rotate(315deg);
+	}
+	span {
+		@extend %sr_only;
+	}
+}
+
+// arrow
+// @include arrow(left, 8px, 8px, 2px, $color-base-dark);
+@mixin arrow($direction, $width, $height, $borderWidth, $color) {
+	display: inline-block;
+	width: $width;
+	height: $height;
+	border-width: 0;
+	border-style: solid;
+	border-color: $color;
+	@include rotate(45deg);
+
+	@if $direction == 'right' {
+		border-top-width: $borderWidth;
+		border-right-width: $borderWidth;
+	} @else if $direction == 'left' {
+		border-bottom-width: $borderWidth;
+		border-left-width: $borderWidth;
+	} @else if $direction == 'bottom' {
+		border-bottom-width: $borderWidth;
+		border-right-width: $borderWidth;
+	} @else if $direction == 'top' {
+		border-top-width: $borderWidth;
+		border-left-width: $borderWidth;
+	}
+}
+
+
+/// Convert angle
+/// @author Chris Eppstein
+/// @param {Number} $value - Value to convert
+/// @param {String} $unit - Unit to convert to
+/// @return {Number} Converted angle
+
+@function convert-angle($value, $unit) {
+	$convertable-units: deg grad turn rad;
+	$conversion-factors: 1 (10grad/9deg) (1turn/360deg) (3.1415926rad/180deg);
+	@if index($convertable-units, unit($value)) and index($convertable-units, $unit) {
+		@return $value
+				/ nth($conversion-factors, index($convertable-units, unit($value)))
+				* nth($conversion-factors, index($convertable-units, $unit));
+	}
+
+	@warn "Cannot convert `#{unit($value)}` to `#{$unit}`.";
+}
+
+/// Test if `$value` is an angle
+/// @param {*} $value - Value to test
+/// @return {Bool}
+
+@function is-direction($value) {
+	$is-direction: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
+	$is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));
+
+	@return $is-direction or $is-angle;
+}
+
+/// Convert a direction to legacy syntax
+/// @param {Keyword | Angle} $value - Value to convert
+/// @require {function} is-direction
+/// @require {function} convert-angle
+
+@function legacy-direction($value) {
+	@if is-direction($value) == false {
+		@warn "Cannot convert `#{$value}` to legacy syntax because it doesn't seem to be an angle or a direction";
+	}
+
+	$conversion-map: ( 
+		to top          : bottom,
+		to top right    : bottom left,
+		to right top    : left bottom,
+		to right        : left,
+		to bottom right : top left,
+		to right bottom : left top,
+		to bottom       : top,
+		to bottom left  : top right,
+		to left bottom  : right top,
+		to left         : right,
+		to left top     : right bottom,
+		to top left     : bottom right
+	);
+
+	@if map-has-key($conversion-map, $value) {
+		@return map-get($conversion-map, $value);
+	}
+
+	@return 90deg - convert-angle($value, 'deg');
+}
+
+/// Mixin printing a linear-gradient 
+/// as well as a plain color fallback 
+/// and the `-webkit-` prefixed declaration
+/// @access public
+/// @param {String | List | Angle} $direction - Linear gradient direction
+/// @param {Arglist} $color-stops - List of color-stops composing the gradient
+
+// @include linear-gradient(#31B7D7, #EDAC7D);
+// @include linear-gradient(to right, #fa6568 0%, #ff9048 100%);
+// @include linear-gradient(190deg, #f2f3f7 0%, #f2f3f7 50%, #e1ebf5 50%, #e1ebf5 90%, #f2f3f7 90%, #f2f3f7 100%);
+@mixin linear-gradient($direction, $color-stops...) {
+	@if is-direction($direction) == false {
+		$color-stops: ($direction, $color-stops);
+		$direction: 180deg;
+	}
+
+	background: nth(nth($color-stops, 1), 1);
+	background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+	background: linear-gradient($direction, $color-stops);
+}
